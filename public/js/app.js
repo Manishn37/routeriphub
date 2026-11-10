@@ -121,6 +121,39 @@ function initMobileNav() {
     }
   });
 
+  // Mobile router brands submenu toggle
+  const mobileRoutersBtn = document.getElementById('mobile-routers-toggle');
+  const mobileRoutersSub = document.getElementById('mobile-routers-sub');
+  if (mobileRoutersBtn && mobileRoutersSub) {
+    mobileRoutersBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isSubOpen = mobileRoutersSub.classList.toggle('open');
+      mobileRoutersBtn.classList.toggle('expanded', isSubOpen);
+      mobileRoutersBtn.setAttribute('aria-expanded', isSubOpen ? 'true' : 'false');
+    });
+  }
+
+  // Desktop dropdown keyboard / click-outside accessibility
+  const dropdownWrappers = document.querySelectorAll('.nav-dropdown-wrapper');
+  dropdownWrappers.forEach(wrap => {
+    const trigger = wrap.querySelector('.nav-dropdown-trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', (e) => {
+      if (e.target.closest('.dropdown-chevron')) {
+        e.preventDefault();
+        wrap.classList.toggle('open');
+      }
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    dropdownWrappers.forEach(wrap => {
+      if (!wrap.contains(e.target)) {
+        wrap.classList.remove('open');
+      }
+    });
+  });
+
   // Close when clicking any navigation link
   drawer.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
