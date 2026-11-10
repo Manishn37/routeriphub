@@ -1328,12 +1328,12 @@
     "keywords": "synology rt6600ax setup login wifi srm dsm 192.168.1.1 router.synology.com troubleshooting vlan dual wan"
   },
   {
-    "title": "Synology RT2600ac Setup Sheet",
+    "title": "Synology RT2600ac \u2014 Setup, Login, Wi-Fi Settings & Troubleshooting Guide",
     "category": "Router Model",
     "badge": "Synology",
     "url": "/routers/synology-rt2600ac/",
-    "snippet": "Default IP 192.168.1.1, username 'admin (created on setup)', password 'admin (created on setup)', Wi-Fi 5 (AC2600 4x4 MU-MIMO).",
-    "keywords": "synology rt2600ac 192.168.1.1 synology-rt2600ac password reset dual-band ac2600 router"
+    "snippet": "Learn how to set up the Synology RT2600ac router, log in to SRM, change Wi-Fi settings, update firmware, fix common issues, and improve your home network.",
+    "keywords": "synology rt2600ac setup login wifi srm 192.168.1.1 router.synology.com troubleshooting vpn wan failover"
   },
   {
     "title": "Synology WRX560 Setup Sheet",

@@ -370,6 +370,609 @@ def get_footer():
 # ==============================================================================
 
 # ==============================================================================
+
+# ==============================================================================
+# CUSTOM HIGH-INTENT MODEL PAGE: Synology RT2600ac
+# ==============================================================================
+def generate_custom_synology_rt2600ac_page(m):
+    canonical = "https://routeriphub.com/routers/synology-rt2600ac/"
+    title = "Synology RT2600ac — Setup, Login, Wi-Fi Settings & Troubleshooting Guide"
+    desc = "Learn how to set up the Synology RT2600ac router, log in to SRM, change Wi-Fi settings, update firmware, fix common issues, and improve your home network."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Routers", "/routers/"),
+        ("Synology", "/brands/synology/"),
+        ("Synology RT2600ac", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": title,
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Set Up and Log In to Synology RT2600ac",
+        "description": "Step-by-step instructions to connect, configure administrator credentials, Wi-Fi settings, and SRM firmware on the Synology RT2600ac.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect the router",
+                "text": "Plug the RT2600ac into power and connect the WAN port to your modem or ONT using an Ethernet cable. Wait for the router to fully power on."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Connect to the router",
+                "text": "On your phone or computer, connect to the default Wi-Fi network printed on the router label. You can also connect using an Ethernet cable."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Open the setup page",
+                "text": "In a browser, enter http://192.168.1.1 or http://router.synology.com, or open the Synology Router mobile app and follow the setup prompts."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Create an administrator account",
+                "text": "Create a strong username and password for the router. Do not use admin as the password, because this account controls your entire home network."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Set up the internet connection",
+                "text": "Choose the connection type provided by your internet service provider, such as DHCP, PPPoE, or static IP. Enter the required details if your ISP uses PPPoE."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 6,
+                "name": "Set up Wi-Fi",
+                "text": "Create a Wi-Fi name and password for the 2.4 GHz and 5 GHz bands. You can use the same name for both bands or create separate networks."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 7,
+                "name": "Update SRM and firmware",
+                "text": "After setup, go to Control Panel > Update & Restore and install available updates. Keeping SRM and router firmware updated improves security and stability."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the default IP for Synology RT2600ac?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The default IP address is usually 192.168.1.1. You can also use http://router.synology.com to access the router."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default password for Synology RT2600ac?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no universal default password. You create the administrator username and password during the first-time setup."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can the RT2600ac work with any ISP?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, but the connection type depends on your ISP. Most home connections use DHCP, while some fiber or DSL connections require PPPoE or static IP settings."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the RT2600ac support VPN?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The RT2600ac supports both VPN server and VPN client features through Synology Router Manager."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use the RT2600ac with a Synology NAS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The RT2600ac works well with Synology NAS devices and provides advanced network controls, firewall rules, and remote-access options."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-router">📡 Hardware Model Setup Sheet</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        Synology RT2600ac — Setup, Login, Wi-Fi Settings &amp; Troubleshooting Guide
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+        If you searched for the <strong>Synology RT2600ac</strong>, you are likely setting up the router, changing Wi-Fi settings, or troubleshooting a connection issue. The RT2600ac is Synology’s dual-band Wi-Fi router, designed for reliable home networking, VPN support, parental controls, and advanced network management through Synology Router Manager (SRM).
+      </p>
+
+      <!-- Quick Answer Card -->
+      <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
+          <strong>The Synology RT2600ac is a dual-band Wi-Fi router managed through Synology Router Manager (SRM).</strong> You can set it up using the Synology Router mobile app, a web browser, or the router’s local setup address.
+        </p>
+        <p style="margin-bottom: 0.5rem; font-weight: 600;">To access the router:</p>
+        <ul style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.7;">
+          <li>Open a browser and enter <code>http://192.168.1.1</code> or <code>http://router.synology.com</code></li>
+          <li>Log in with the administrator account created during setup</li>
+          <li>Use the <strong>Synology Router</strong> mobile app for easier setup and management</li>
+        </ul>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0;">
+          The RT2600ac supports dual-band Wi-Fi, VPN server and client features, parental controls, guest networks, threat prevention, and flexible network management.
+        </p>
+      </div>
+
+      <!-- Key Features Table -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Synology RT2600ac Key Features</h2>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Dual-band Wi-Fi</strong></td>
+              <td>Provides 2.4 GHz and 5 GHz networks for different devices</td>
+            </tr>
+            <tr>
+              <td><strong>SRM dashboard</strong></td>
+              <td>Provides an easy interface for managing the router</td>
+            </tr>
+            <tr>
+              <td><strong>VPN server and client</strong></td>
+              <td>Lets you create secure remote access or route traffic through a VPN</td>
+            </tr>
+            <tr>
+              <td><strong>Parental controls</strong></td>
+              <td>Helps manage internet access for children and family devices</td>
+            </tr>
+            <tr>
+              <td><strong>Threat prevention</strong></td>
+              <td>Adds network-level protection against malicious traffic</td>
+            </tr>
+            <tr>
+              <td><strong>Guest network</strong></td>
+              <td>Creates a separate Wi-Fi network for visitors</td>
+            </tr>
+            <tr>
+              <td><strong>USB ports</strong></td>
+              <td>Supports USB storage, printers, and other compatible devices</td>
+            </tr>
+            <tr>
+              <td><strong>WAN failover</strong></td>
+              <td>Can use a backup internet connection when the main connection fails</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        The RT2600ac is a strong option for homes that need stable Wi-Fi, VPN access, network control, and support for multiple connected devices.
+      </p>
+
+      <!-- Login Section -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Synology RT2600ac Login</h2>
+      
+      <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem;">Default Login Address</h3>
+      <p>Use one of these addresses to open the router login page:</p>
+      <ul style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.7;">
+        <li><code>http://192.168.1.1</code></li>
+        <li><code>http://router.synology.com</code></li>
+      </ul>
+      <p>Enter the address directly into your browser’s address bar, not a Google or Bing search box.</p>
+
+      <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem;">Default Login Credentials</h3>
+      <p>During the first-time setup, Synology asks you to create an administrator username and password. There is no universal default password for the RT2600ac.</p>
+      <div class="table-responsive" style="margin: 1rem 0;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Login detail</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Login URL</strong></td>
+              <td><code>http://192.168.1.1</code> or <code>http://router.synology.com</code></td>
+            </tr>
+            <tr>
+              <td><strong>Username</strong></td>
+              <td>Created during setup</td>
+            </tr>
+            <tr>
+              <td><strong>Password</strong></td>
+              <td>Created during setup</td>
+            </tr>
+            <tr>
+              <td><strong>Mobile app</strong></td>
+              <td>Synology Router app</td>
+            </tr>
+            <tr>
+              <td><strong>Default Wi-Fi</strong></td>
+              <td>Printed on the router label</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary);">
+        If you forgot the administrator password, you may need to reset the router and set it up again.
+      </p>
+
+      <!-- Step by Step Setup -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Step-by-Step: Set Up the Synology RT2600ac</h2>
+      <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">1. Connect the router</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">Plug the RT2600ac into power and connect the WAN port to your modem or ONT using an Ethernet cable. Wait for the router to fully power on.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">2. Connect to the router</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">On your phone or computer, connect to the default Wi-Fi network printed on the router label. You can also connect using an Ethernet cable.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">3. Open the setup page</h3>
+          <p style="margin: 0 0 0.5rem 0; color: var(--text-primary); line-height: 1.6;">In a browser, enter:</p>
+          <ul style="margin: 0 0 0.5rem 1.25rem;">
+            <li><code>http://192.168.1.1</code></li>
+            <li><code>http://router.synology.com</code></li>
+          </ul>
+          <p style="margin: 0; color: var(--text-secondary);">Or open the <strong>Synology Router</strong> mobile app and follow the setup prompts.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">4. Create an administrator account</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">Create a strong username and password for the router. Do not use <code>admin</code> as the password, because this is the account that controls your entire home network.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">5. Set up the internet connection</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">Choose the connection type provided by your internet service provider, such as DHCP, PPPoE, or static IP. Enter the required details if your ISP uses PPPoE.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">6. Set up Wi-Fi</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">Create a Wi-Fi name and password for the 2.4 GHz and 5 GHz bands. You can use the same name for both bands or create separate networks.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">7. Update SRM and firmware</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">After setup, go to <strong>Control Panel &gt; Update &amp; Restore</strong> and install available updates. Keeping SRM and router firmware updated improves security and stability.</p>
+        </div>
+      </div>
+
+      <!-- Change Wi-Fi Name and Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Change Wi-Fi Name and Password</h2>
+      <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Log in to the RT2600ac through SRM.</li>
+        <li>Open <strong>Control Panel</strong>.</li>
+        <li>Go to <strong>Wi-Fi</strong> or <strong>Network &gt; Wi-Fi</strong>.</li>
+        <li>Select the Wi-Fi network you want to change.</li>
+        <li>Enter a new network name or password.</li>
+        <li>Click <strong>Apply</strong> or <strong>Save</strong>.</li>
+        <li>Reconnect your devices using the new Wi-Fi details.</li>
+      </ol>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Use a strong Wi-Fi password with at least 12 characters. Avoid using your router admin password as your Wi-Fi password.
+      </p>
+
+      <!-- Set Up a Guest Network -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Set Up a Guest Network</h2>
+      <p>A guest network keeps visitors separate from your main devices, NAS, printers, and smart-home equipment.</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Log in to SRM.</li>
+        <li>Go to <strong>Control Panel &gt; Wi-Fi</strong>.</li>
+        <li>Enable the guest network.</li>
+        <li>Create a separate Wi-Fi name and password.</li>
+        <li>Choose whether guests can access the local network.</li>
+        <li>Save the settings.</li>
+      </ol>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        For better security, block guest access to local network devices and allow internet access only.
+      </p>
+
+      <!-- Set Up VPN on RT2600ac -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Set Up VPN on RT2600ac</h2>
+      <p>The RT2600ac supports both VPN server and VPN client features.</p>
+      
+      <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem;">VPN Server</h3>
+      <p>A VPN server lets you securely access your home network from outside your home.</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Log in to SRM.</li>
+        <li>Go to <strong>VPN</strong> or <strong>VPN Server</strong>.</li>
+        <li>Enable the VPN service.</li>
+        <li>Choose a VPN protocol, such as OpenVPN or L2TP/IPsec.</li>
+        <li>Create VPN user accounts.</li>
+        <li>Set up port forwarding if required.</li>
+        <li>Connect from your phone or computer using a VPN client.</li>
+      </ol>
+
+      <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem;">VPN Client</h3>
+      <p>A VPN client lets the router route traffic through an external VPN provider.</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Log in to SRM.</li>
+        <li>Go to <strong>Network &gt; VPN Client</strong>.</li>
+        <li>Add a VPN profile.</li>
+        <li>Enter the VPN provider’s server details and credentials.</li>
+        <li>Choose which devices or networks use the VPN.</li>
+        <li>Save and activate the connection.</li>
+      </ol>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        VPN client mode is useful for privacy, accessing region-specific services, or routing selected devices through a different location.
+      </p>
+
+      <!-- Set Up WAN Failover -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Set Up WAN Failover</h2>
+      <p>WAN failover lets the RT2600ac switch to a backup internet connection if the main connection fails.</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Log in to SRM.</li>
+        <li>Go to <strong>Network &gt; Interface</strong>.</li>
+        <li>Connect the secondary WAN source.</li>
+        <li>Select the WAN mode: failover or load balancing.</li>
+        <li>Configure the secondary connection.</li>
+        <li>Save the settings.</li>
+      </ol>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Use <strong>failover</strong> if you want the backup connection to activate only when the main connection fails. Use <strong>load balancing</strong> if you want to distribute traffic across both connections.
+      </p>
+
+      <!-- Update RT2600ac Firmware -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Update RT2600ac Firmware</h2>
+      <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Log in to SRM.</li>
+        <li>Go to <strong>Control Panel &gt; Update &amp; Restore</strong>.</li>
+        <li>Click <strong>Check for Updates</strong>.</li>
+        <li>Download and install available updates.</li>
+        <li>Wait for the router to reboot.</li>
+        <li>Reconnect your devices if needed.</li>
+      </ol>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Keep SRM and router firmware updated to improve security, fix bugs, and maintain compatibility with new devices.
+      </p>
+
+      <!-- Troubleshooting -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">RT2600ac Not Working? Fixes</h2>
+      <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">1. No internet connection</h3>
+          <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.6;">
+            <li>Check that the modem or ONT is online.</li>
+            <li>Confirm the Ethernet cable is connected to the WAN port.</li>
+            <li>Restart the modem and RT2600ac.</li>
+            <li>Check the WAN connection type in SRM.</li>
+            <li>Contact your ISP if the modem shows no internet signal.</li>
+          </ul>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">2. Cannot open 192.168.1.1</h3>
+          <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.6;">
+            <li>Connect directly to the RT2600ac Wi-Fi or Ethernet port.</li>
+            <li>Turn off mobile data and VPN.</li>
+            <li>Enter <code>http://192.168.1.1</code> in the browser address bar.</li>
+            <li>Try <code>http://router.synology.com</code>.</li>
+            <li>Use another browser or an Incognito window.</li>
+          </ul>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">3. Wi-Fi is slow</h3>
+          <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.6;">
+            <li>Move the router away from thick walls, metal objects, and microwaves.</li>
+            <li>Use the 5 GHz band for nearby high-speed devices.</li>
+            <li>Use the 2.4 GHz band for distant or older devices.</li>
+            <li>Check for firmware updates.</li>
+            <li>Reduce interference from neighboring Wi-Fi networks.</li>
+          </ul>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">4. Devices keep disconnecting</h3>
+          <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.6;">
+            <li>Update the router firmware.</li>
+            <li>Restart the router.</li>
+            <li>Check for DHCP or IP conflicts.</li>
+            <li>Remove and reconnect the affected device.</li>
+            <li>Check whether the device is connected to the correct Wi-Fi band.</li>
+          </ul>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">5. Cannot access Synology NAS</h3>
+          <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.6;">
+            <li>Make sure the NAS and RT2600ac are on the same network.</li>
+            <li>Check that the NAS is connected to a LAN port.</li>
+            <li>Avoid placing the NAS on a guest network.</li>
+            <li>Check firewall rules in SRM.</li>
+            <li>Use the NAS local IP address or QuickConnect to access it.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Factory Reset -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Factory Reset the RT2600ac</h2>
+      <p>Reset the router only if you cannot log in, are moving it to a new network, or the router will not work after troubleshooting.</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Keep the RT2600ac powered on.</li>
+        <li>Find the <strong>Reset</strong> button on the router.</li>
+        <li>Press and hold it for about <strong>10 seconds</strong>.</li>
+        <li>Release when the indicator lights blink or the router restarts.</li>
+        <li>Wait for the router to reboot completely.</li>
+        <li>Reconnect to the default Wi-Fi network.</li>
+        <li>Open <code>http://192.168.1.1</code> or <code>http://router.synology.com</code> and set up the router again.</li>
+      </ol>
+      <div style="background: rgba(234, 179, 8, 0.12); border-left: 4px solid #eab308; padding: 0.85rem 1rem; border-radius: var(--radius-sm); margin-bottom: 2rem;">
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-primary);">
+          <strong>Warning:</strong> A factory reset erases your Wi-Fi name, password, admin account, VPN settings, and other configurations.
+        </p>
+      </div>
+
+      <!-- Common Mistakes -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Mistakes</h2>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 2rem;">
+        <li><strong>Using the wrong WAN port.</strong> Connect your modem or ONT to the WAN port, not a LAN port.</li>
+        <li><strong>Using the same password for router login and Wi-Fi.</strong> Keep them separate for better security.</li>
+        <li><strong>Blocking NAS access with firewall rules.</strong> Make sure the NAS and your computer are on compatible networks.</li>
+        <li><strong>Not updating SRM.</strong> Outdated firmware can cause performance and security issues.</li>
+        <li><strong>Using weak Wi-Fi security.</strong> Use WPA2 or WPA3 where available and avoid open Wi-Fi networks.</li>
+      </ul>
+
+      <!-- Common Typos -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Typos</h2>
+      <div class="card" style="margin: 1rem 0 2rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #dc2626;">❌ Incorrect Entries (Will Not Open Router):</p>
+        <ul style="margin-bottom: 1rem; padding-left: 1.5rem; color: #dc2626; line-height: 1.6;">
+          <li><code>synology rt2600ac login</code> typed into Google or search bar</li>
+          <li><code>192.168.l.1</code> (with lowercase letter L)</li>
+          <li><code>router.synology.com.com</code></li>
+          <li><code>192.168.1.1.com</code></li>
+        </ul>
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #16a34a;">✅ Correct Entries:</p>
+        <ul style="margin: 0; padding-left: 1.5rem; color: #16a34a; line-height: 1.6;">
+          <li><strong>Correct:</strong> <code>http://192.168.1.1</code></li>
+          <li><strong>Correct:</strong> <code>http://router.synology.com</code></li>
+        </ul>
+      </div>
+
+      <!-- FAQs -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Frequently Asked Questions (FAQs)</h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What is the default IP for Synology RT2600ac?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            The default IP address is usually <code>192.168.1.1</code>. You can also use <code>http://router.synology.com</code> to access the router.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What is the default password for Synology RT2600ac?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            There is no universal default password. You create the administrator username and password during the first-time setup.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Can the RT2600ac work with any ISP?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Yes, but the connection type depends on your ISP. Most home connections use DHCP, while some fiber or DSL connections require PPPoE or static IP settings.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Does the RT2600ac support VPN?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Yes. The RT2600ac supports both VPN server and VPN client features through Synology Router Manager.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Can I use the RT2600ac with a Synology NAS?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Yes. The RT2600ac works well with Synology NAS devices and provides advanced network controls, firewall rules, and remote-access options.
+          </p>
+        </div>
+      </div>
+
+      <!-- The Bottom Line -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">The Bottom Line</h2>
+      <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">
+        The <strong>Synology RT2600ac</strong> is a reliable dual-band Wi-Fi router managed through Synology Router Manager. Set it up through <code>http://192.168.1.1</code> or the Synology Router app, create a strong admin password, update firmware, and use VPN, guest network, and WAN failover features to build a secure and flexible home network.
+      </p>
+
+      <!-- Live Reachability Probe -->
+      <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h2 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+            <span>⚡ Live Gateway Reachability Probe</span>
+          </h2>
+          <span style="font-size: 0.8rem; background: var(--info-bg, rgba(2, 132, 199, 0.1)); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
+            Target: 192.168.1.1
+          </span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Test whether your device is currently connected to this gateway subnet via local browser ping probes:
+        </p>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button id="probe-btn" class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.875rem;">
+            Test Connection to 192.168.1.1
+          </button>
+          <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
+        </div>
+      </div>
+
+      <!-- Official Resources -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        Official Companion App &amp; Documentation
+      </h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem;">
+        <a href="https://apps.apple.com/app/ds-router/id854964653" target="_blank" rel="noopener noreferrer" class="btn-official-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          <span>Download DS router App</span>
+        </a>
+        <a href="https://www.synology.com/support" target="_blank" rel="noopener noreferrer" class="btn-official-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Download Official PDF Manual</span>
+        </a>
+      </div>
+
+      <!-- Author Card -->
+      <div class="card" style="margin: 2.5rem 0; padding: 1.5rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md); display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; flex-shrink: 0;">
+          VB
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+          <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-accent); font-weight: 700; margin-bottom: 0.25rem;">
+            Verified Technical Reference
+          </div>
+          <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">
+            Written by <a href="/authors/vikas-behl/" style="color: inherit; text-decoration: underline;">Vikas Behl</a>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+            Senior Network Engineer with 12+ years of field experience in router management, SRM setup, VPN client/server configuration, and home network security.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/brands/synology/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            All Synology Routers &rarr;
+          </a>
+          <a href="/routers/synology-rt6600ax/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            Synology RT6600ax Guide &rarr;
+          </a>
+          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            192.168.1.1 Gateway Hub &rarr;
+          </a>
+          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            CIDR Subnet Calculator &rarr;
+          </a>
+          <a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            Wi-Fi QR Code Generator &rarr;
+          </a>
+          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            Password Generator &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
 # CUSTOM HIGH-INTENT MODEL PAGE: Synology RT6600ax
 # ==============================================================================
 def generate_custom_synology_rt6600ax_page(m):
@@ -983,6 +1586,10 @@ def generate_router_model_pages():
         if slug == "synology-rt6600ax":
             with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_synology_rt6600ax_page(m))
+            continue
+        elif slug == "synology-rt2600ac":
+            with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_synology_rt2600ac_page(m))
             continue
 
         canonical = f"https://routeriphub.com/routers/{slug}/"
@@ -10252,6 +10859,16 @@ def update_search_index():
 
     # 1. Models
     for m in ROUTER_MODELS:
+        if m["slug"] == "synology-rt2600ac":
+            search_index.append({
+                "title": "Synology RT2600ac — Setup, Login, Wi-Fi Settings & Troubleshooting Guide",
+                "category": "Router Model",
+                "badge": "Synology",
+                "url": "/routers/synology-rt2600ac/",
+                "snippet": "Learn how to set up the Synology RT2600ac router, log in to SRM, change Wi-Fi settings, update firmware, fix common issues, and improve your home network.",
+                "keywords": "synology rt2600ac setup login wifi srm 192.168.1.1 router.synology.com troubleshooting vpn wan failover"
+            })
+            continue
         if m["slug"] == "synology-rt6600ax":
             search_index.append({
                 "title": "Synology RT6600ax — Setup, Login, Wi-Fi Settings & Troubleshooting Guide",
