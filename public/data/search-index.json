@@ -1320,52 +1320,52 @@
     "keywords": "cisco cisco c921-4p 192.168.1.1 cisco-c921-4p password reset gigabit security router"
   },
   {
-    "title": "Synology Synology RT6600ax Setup Sheet",
+    "title": "Synology RT6600ax \u2014 Setup, Login, Wi-Fi Settings & Troubleshooting Guide",
     "category": "Router Model",
     "badge": "Synology",
     "url": "/routers/synology-rt6600ax/",
-    "snippet": "Default IP 192.168.1.1, username 'admin (created on setup)', password 'admin (created on setup)', Wi-Fi 6 (Tri-Band AX6600).",
-    "keywords": "synology synology rt6600ax 192.168.1.1 synology-rt6600ax password reset tri-band wi-fi 6 router"
+    "snippet": "Learn how to set up the Synology RT6600ax router, log in to DSM, change Wi-Fi settings, update firmware, fix common issues, and improve your home network.",
+    "keywords": "synology rt6600ax setup login wifi srm dsm 192.168.1.1 router.synology.com troubleshooting vlan dual wan"
   },
   {
-    "title": "Synology Synology RT2600ac Setup Sheet",
+    "title": "Synology RT2600ac Setup Sheet",
     "category": "Router Model",
     "badge": "Synology",
     "url": "/routers/synology-rt2600ac/",
     "snippet": "Default IP 192.168.1.1, username 'admin (created on setup)', password 'admin (created on setup)', Wi-Fi 5 (AC2600 4x4 MU-MIMO).",
-    "keywords": "synology synology rt2600ac 192.168.1.1 synology-rt2600ac password reset dual-band ac2600 router"
+    "keywords": "synology rt2600ac 192.168.1.1 synology-rt2600ac password reset dual-band ac2600 router"
   },
   {
-    "title": "Synology Synology WRX560 Setup Sheet",
+    "title": "Synology WRX560 Setup Sheet",
     "category": "Router Model",
     "badge": "Synology",
     "url": "/routers/synology-wrx560/",
     "snippet": "Default IP 192.168.1.1, username 'admin (created on setup)', password 'admin (created on setup)', Wi-Fi 6 (AX3000 with 2.5GbE).",
-    "keywords": "synology synology wrx560 192.168.1.1 synology-wrx560 password reset dual-band wi-fi 6 mesh"
+    "keywords": "synology wrx560 192.168.1.1 synology-wrx560 password reset dual-band wi-fi 6 mesh"
   },
   {
-    "title": "Synology Synology MR2200ac Setup Sheet",
+    "title": "Synology MR2200ac Setup Sheet",
     "category": "Router Model",
     "badge": "Synology",
     "url": "/routers/synology-mr2200ac/",
     "snippet": "Default IP 192.168.1.1, username 'admin (created on setup)', password 'admin (created on setup)', Wi-Fi 5 (AC2200 Tri-Band Mesh).",
-    "keywords": "synology synology mr2200ac 192.168.1.1 synology-mr2200ac password reset tri-band ac2200 mesh"
+    "keywords": "synology mr2200ac 192.168.1.1 synology-mr2200ac password reset tri-band ac2200 mesh"
   },
   {
-    "title": "Synology Synology RT1900ac Setup Sheet",
+    "title": "Synology RT1900ac Setup Sheet",
     "category": "Router Model",
     "badge": "Synology",
     "url": "/routers/synology-rt1900ac/",
     "snippet": "Default IP 192.168.1.1, username 'admin', password 'admin', Wi-Fi 5 (AC1900).",
-    "keywords": "synology synology rt1900ac 192.168.1.1 synology-rt1900ac password reset first-gen srm router"
+    "keywords": "synology rt1900ac 192.168.1.1 synology-rt1900ac password reset first-gen srm router"
   },
   {
-    "title": "Synology Synology DS-Gateway Setup Sheet",
+    "title": "Synology DS-Gateway Setup Sheet",
     "category": "Router Model",
     "badge": "Synology",
     "url": "/routers/synology-ds-gateway/",
     "snippet": "Default IP 192.168.1.1, username 'admin', password 'admin', Enterprise SRM Controller.",
-    "keywords": "synology synology ds-gateway 192.168.1.1 synology-ds-gateway password reset modular srm network controller"
+    "keywords": "synology ds-gateway 192.168.1.1 synology-ds-gateway password reset modular srm network controller"
   },
   {
     "title": "Google Nest Nest Wifi Pro (G6ZUC) Setup Sheet",
