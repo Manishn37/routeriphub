@@ -1936,7 +1936,7 @@ def generate_router_index_page():
 
     canonical = "https://routeriphub.com/routers/"
     title = "Router Hardware Models Directory & Setup Sheets (2026)"
-    desc = "Browse hardware setup sheets for Netgear, TP-Link, ASUS, Linksys, Ubiquiti, MikroTik, Eero, and Arris. Find factory passwords, reset buttons, and LED codes."
+    desc = "Hardware setup sheets for Netgear, TP-Link, ASUS, Linksys, Ubiquiti, MikroTik, and Eero. Find factory passwords, reset buttons, and LED codes."
 
     cards_html = ""
     for m in ROUTER_MODELS:
@@ -1986,6 +1986,530 @@ def generate_router_index_page():
 # ==============================================================================
 # 3. GENERATE ISP GATEWAY PAGES (/isp/[slug]/ & /isp/)
 # ==============================================================================
+
+# ==============================================================================
+# CUSTOM HIGH-INTENT ISP GATEWAY PAGE: Xfinity (Comcast) xFi (10.0.0.1)
+# ==============================================================================
+def generate_custom_xfinity_xfi_page(isp):
+    canonical = "https://routeriphub.com/isp/xfinity-xfi/"
+    title = "Xfinity Gateway Login — 10.0.0.1 Admin Access & Fixes"
+    desc = "Log in to your Xfinity gateway at 10.0.0.1. Enable Admin Tool access, find the right password, manage Wi-Fi settings, and troubleshoot login problems."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("ISP Gateways", "/isp/"),
+        ("Xfinity (Comcast)", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Xfinity (Comcast) Gateway Login — 10.0.0.1 Admin Access & Fixes",
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to Your Xfinity Gateway",
+        "description": "Step-by-step instructions to connect, enable Admin Tool access via the Xfinity app, and log in to 10.0.0.1.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to your home network",
+                "text": "Use a laptop, phone, or tablet connected to your Xfinity home network. The Admin Tool login instructions require a local connection."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Enable Admin Tool access",
+                "text": "Open the Xfinity app and navigate to WiFi > View WiFi equipment > Advanced settings > Admin Tool online access. Turn on Allow Admin Tool access and select Save."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Open the correct address",
+                "text": "Enter http://10.0.0.1 directly into your browser address bar. This opens the gateway local Admin Tool, not your Xfinity account sign-in page."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Enter your administrator credentials",
+                "text": "Use Username 'admin' and the password you created when enabling Admin Tool access (or the sticker password for earlier setups)."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Open the settings you need",
+                "text": "For most everyday network settings, use the Xfinity app. The Admin Tool remains relevant for advanced settings, including Bridge Mode."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the Xfinity gateway login address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The local Admin Tool address is http://10.0.0.1. Connect to your home network and enable Admin Tool access in the Xfinity app if necessary."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default Xfinity administrator password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is no single password to assume for every current setup. Use the password created when enabling Admin Tool access. Some earlier setups may still use the password printed on the gateway’s bottom sticker."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why will 10.0.0.1 not open?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Admin Tool access may be disabled. Check WiFi > View WiFi equipment > Advanced settings > Admin Tool online access in the Xfinity app, then retry from your home network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I change my Wi-Fi password at 10.0.0.1?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "That depends on the gateway and setup. Most customers should use the Xfinity app. Rented XB2 and XB3 gateways retain Admin Tool Wi-Fi management, subject to the applicable exceptions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I enable Bridge Mode at 10.0.0.1?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Sign in and open Gateway > At a Glance, then enable Bridge Mode. This disables the gateway’s routing capabilities while keeping its modem functionality active."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-isp">🏢 Service Provider Gateway Hub</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        Xfinity (Comcast) Gateway Login — 10.0.0.1 Admin Access
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+        If you searched <code>10.0.0.1</code> expecting your Xfinity gateway’s login page, you have the right address—but you may need to enable access before it opens. Xfinity lets you control access to the gateway’s Admin Tool through the Xfinity app. A page that will not load does not necessarily mean your gateway is broken or the address is wrong.
+      </p>
+
+      <!-- Quick Answer Card -->
+      <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
+          <strong><code>10.0.0.1</code> is the local Admin Tool address for Xfinity WiFi Gateways.</strong> Connect to your home network, enter <code>http://10.0.0.1</code> in your browser’s address bar, and sign in using <code>admin</code> and your Admin Tool password.
+        </p>
+        <p style="margin-bottom: 0.5rem; font-weight: 600;">If the page will not open, use the Xfinity app:</p>
+        <ol style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.7;">
+          <li>Open the <strong>WiFi</strong> tab.</li>
+          <li>Select <strong>View WiFi equipment</strong>.</li>
+          <li>Open <strong>Advanced settings</strong>.</li>
+          <li>Select <strong>Admin Tool online access</strong>.</li>
+          <li>Turn on <strong>Allow Admin Tool access</strong>.</li>
+          <li>Save and create a password if prompted.</li>
+          <li>Return to <code>http://10.0.0.1</code> while connected to your home network.</li>
+        </ol>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0;">
+          Do not assume the password is simply <code>password</code>. Use the password created when enabling Admin Tool access. Some customers who enabled access earlier may still use the gateway’s label-printed password.
+        </p>
+      </div>
+
+      <!-- Xfinity Gateway Login Details -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Xfinity Gateway Login Details</h2>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>What to use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Local Admin Tool address</strong></td>
+              <td><code>http://10.0.0.1</code></td>
+            </tr>
+            <tr>
+              <td><strong>Username</strong></td>
+              <td><code>admin</code></td>
+            </tr>
+            <tr>
+              <td><strong>Password</strong></td>
+              <td>The Admin Tool password you created</td>
+            </tr>
+            <tr>
+              <td><strong>Earlier default-password setups</strong></td>
+              <td>Check the sticker on the bottom of the gateway</td>
+            </tr>
+            <tr>
+              <td><strong>Access control</strong></td>
+              <td>Xfinity app &rarr; WiFi &rarr; View WiFi equipment &rarr; Advanced settings &rarr; Admin Tool online access</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        The Wi-Fi password used to connect your phone or laptop is not automatically the administrator password. These credentials serve different purposes.
+      </p>
+
+      <!-- Diagnostic Table -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Diagnostic: Why Can’t You Log In?</h2>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Your situation</th>
+              <th>What to check</th>
+              <th>Next action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong><code>10.0.0.1</code> does not open</strong></td>
+              <td>Admin Tool access may be disabled</td>
+              <td>Enable access in the Xfinity app</td>
+            </tr>
+            <tr>
+              <td><strong>The login page opens, but the password fails</strong></td>
+              <td>You may be entering the wrong password</td>
+              <td>Use your created Admin Tool password or the applicable label-printed password</td>
+            </tr>
+            <tr>
+              <td><strong>You only want to change Wi-Fi details</strong></td>
+              <td>The app may be the required method</td>
+              <td>Open the Xfinity app’s Wi-Fi settings</td>
+            </tr>
+            <tr>
+              <td><strong>You use your own router</strong></td>
+              <td>Your router and Xfinity gateway have separate interfaces</td>
+              <td>Open the interface for the device you want to manage</td>
+            </tr>
+            <tr>
+              <td><strong>You want to disable Bridge Mode</strong></td>
+              <td>A wired connection is required</td>
+              <td>Connect a computer directly to the gateway using Ethernet</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Identify whether the problem is access, authentication, Wi-Fi management, or Bridge Mode before changing settings or considering a reset.
+      </p>
+
+      <!-- Step by Step Guide -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Step-by-Step: Log In to Your Xfinity Gateway</h2>
+      <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">1. Connect to your home network</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">
+            Use a laptop, phone, or tablet connected to your Xfinity home network. The Admin Tool login instructions require a local connection.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">2. Enable Admin Tool access</h3>
+          <p style="margin: 0 0 0.5rem 0; color: var(--text-primary); line-height: 1.6;">
+            Open the Xfinity app and navigate to:
+          </p>
+          <p style="background: var(--bg-code, #f1f5f9); padding: 0.5rem 0.75rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.5rem;">
+            WiFi &rarr; View WiFi equipment &rarr; Advanced settings &rarr; Admin Tool online access
+          </p>
+          <p style="margin: 0; color: var(--text-secondary);">
+            Turn on <strong>Allow Admin Tool access</strong> and select <strong>Save</strong>. If you are enabling access for the first time, create the new Admin Tool password when prompted.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">3. Open the correct address</h3>
+          <p style="margin: 0 0 0.5rem 0; color: var(--text-primary); line-height: 1.6;">
+            Enter this directly into your browser’s address bar:
+          </p>
+          <p style="background: var(--bg-code, #f1f5f9); padding: 0.5rem 0.75rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem;">
+            <code>http://10.0.0.1</code>
+          </p>
+          <p style="margin: 0; color: var(--text-secondary);">
+            This opens the gateway’s local Admin Tool, not your Xfinity account sign-in page.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">4. Enter your administrator credentials</h3>
+          <ul style="margin: 0 0 0.5rem 1.25rem; line-height: 1.6;">
+            <li><strong>Username:</strong> <code>admin</code></li>
+            <li><strong>Password:</strong> The password you created when enabling Admin Tool access.</li>
+          </ul>
+          <p style="margin: 0; color: var(--text-secondary);">
+            If you previously changed the Admin Tool password, use that changed password. Where your setup still uses a label-printed default, check the sticker on the bottom of the gateway.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">5. Open the settings you need</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">
+            For most everyday network settings, use the Xfinity app. The Admin Tool remains relevant for supported advanced settings, including enabling or disabling Bridge Mode.
+          </p>
+        </div>
+      </div>
+
+      <!-- Why 10.0.0.1 May Not Open -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Why 10.0.0.1 May Not Open Even When the Address Is Correct
+      </h2>
+      <p style="line-height: 1.6; color: var(--text-primary); margin-bottom: 1rem;">
+        The important distinction is <strong>Admin Tool access</strong>. Knowing the correct IP address is not enough if access has been switched off.
+      </p>
+      <p style="line-height: 1.6; color: var(--text-secondary); margin-bottom: 1rem;">
+        Xfinity provides an app setting specifically for allowing the browser-based interface. Before trying different passwords or resetting the gateway, check that setting. A password cannot fix an interface that has not been enabled.
+      </p>
+      <p style="line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+        Once access is allowed, return to the browser from your home network and try again. If you enabled access for the first time, use the newly created password rather than a generic password copied from another router guide.
+      </p>
+
+      <!-- Change Wi-Fi Name and Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Change Your Xfinity Wi-Fi Name and Password
+      </h2>
+      <p style="line-height: 1.6; color: var(--text-primary); margin-bottom: 1rem;">
+        For most customers, use the Xfinity app to view or change the Wi-Fi network name and password.
+      </p>
+      <p style="line-height: 1.6; color: var(--text-secondary); margin-bottom: 1.25rem;">
+        Xfinity retains Admin Tool Wi-Fi management for rented XB2 and XB3 gateways, with additional app requirements when WiFi Boost Pods or WiFi Intelligence are in use.
+      </p>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Gateway or setup</th>
+              <th>Where to manage Wi-Fi details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Most current Xfinity home-network setups</strong></td>
+              <td>Xfinity app</td>
+            </tr>
+            <tr>
+              <td><strong>Rented XB2 or XB3 gateways</strong></td>
+              <td>Admin Tool may be available</td>
+            </tr>
+            <tr>
+              <td><strong>WiFi Boost Pods or WiFi Intelligence enabled</strong></td>
+              <td>Xfinity app</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        Missing or unavailable Wi-Fi controls at <code>10.0.0.1</code> do not necessarily mean the login failed. The correct management method depends on your gateway and network setup.
+      </p>
+
+      <!-- Bridge Mode -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Using Your Own Router? Understand Bridge Mode First
+      </h2>
+      <p style="line-height: 1.6; color: var(--text-primary); margin-bottom: 1rem;">
+        <strong>Bridge Mode</strong> turns off the Xfinity gateway’s routing capabilities while leaving its modem capabilities active. It is relevant when you want a separate router to handle your home network.
+      </p>
+      <p style="margin-bottom: 0.5rem; font-weight: 600;">To enable Bridge Mode:</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Sign in at <code>http://10.0.0.1</code>.</li>
+        <li>Open <strong>Gateway &rarr; At a Glance</strong>.</li>
+        <li>Find <strong>Bridge Mode</strong>.</li>
+        <li>Select <strong>Enable</strong>.</li>
+        <li>Read and confirm the warning.</li>
+      </ol>
+      <div style="background: rgba(2, 132, 199, 0.08); border-left: 4px solid var(--accent); padding: 0.85rem 1rem; border-radius: var(--radius-sm); margin-bottom: 2rem;">
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-primary);">
+          <strong>Important:</strong> If you need to disable Bridge Mode, connect your device to the gateway with an Ethernet cable. Do not rely on the gateway’s Wi-Fi for that step.
+        </p>
+      </div>
+
+      <!-- Admin Password Not Working -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        If the Admin Password Is Not Working
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Check which password you are entering</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Your Wi-Fi password and Admin Tool password are different credentials. Use the password created for the Admin Tool, not automatically the one used to join the wireless network.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Check the gateway label where applicable</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Some existing setups use the password printed on the bottom of the gateway. However, customers enabling Admin Tool access for the first time are prompted to create a new password through the app.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Check recovery options before resetting</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            If you cannot remember a changed Admin Tool password, contact Xfinity support or review the factory-reset instructions for your gateway. Treat a reset as a last resort rather than the first response to a failed login.
+          </p>
+        </div>
+      </div>
+
+      <!-- Before You Factory Reset -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Before You Factory Reset
+      </h2>
+      <p style="line-height: 1.6; color: var(--text-primary); margin-bottom: 0.75rem;">
+        A factory reset should not be your first step when <code>10.0.0.1</code> will not load. First confirm:
+      </p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem; color: var(--text-secondary);">
+        <li>Admin Tool access is enabled in the Xfinity app.</li>
+        <li>You are connected to your home network.</li>
+        <li>You are using the correct Admin Tool password.</li>
+        <li>You have the gateway’s model information available for recovery.</li>
+      </ul>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        If a reset is still necessary, follow the instructions for your exact gateway model rather than assuming every model uses the same button or hold duration.
+      </p>
+
+      <!-- Common Mistakes -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Common Mistakes
+      </h2>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 2rem;">
+        <li><strong>Using a generic default password.</strong> Use your created Admin Tool password or the applicable gateway-label password.</li>
+        <li><strong>Confusing Wi-Fi and administrator credentials.</strong> They serve different purposes.</li>
+        <li><strong>Resetting before enabling access.</strong> Check the Xfinity app’s Admin Tool access setting first.</li>
+        <li><strong>Expecting every Wi-Fi setting in the browser dashboard.</strong> Many setups require the Xfinity app.</li>
+        <li><strong>Trying to disable Bridge Mode without Ethernet.</strong> Use a wired connection for that task.</li>
+      </ul>
+
+      <!-- Enter Address Correctly -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Enter the Address Correctly
+      </h2>
+      <div class="card" style="margin: 1rem 0 2rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #16a34a;">✅ Correct Address:</p>
+        <p style="margin-bottom: 1rem; font-family: var(--font-mono); font-size: 1rem; color: #16a34a; font-weight: 700;">
+          <code>http://10.0.0.1</code>
+        </p>
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #dc2626;">❌ Avoid These Incorrect Entries:</p>
+        <ul style="margin: 0; padding-left: 1.5rem; color: #dc2626; line-height: 1.6;">
+          <li><code>10.0.0.l</code> (ending in lowercase letter L)</li>
+          <li><code>10.0.0.1.com</code></li>
+          <li><code>10.0.0.0.1</code></li>
+        </ul>
+        <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--text-muted);">
+          Enter the address directly into the browser’s address bar rather than a search engine.
+        </p>
+      </div>
+
+      <!-- FAQs -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Frequently Asked Questions (FAQs)
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What is the Xfinity gateway login address?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            The local Admin Tool address is <code>http://10.0.0.1</code>. Connect to your home network and enable Admin Tool access in the Xfinity app if necessary.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What is the default Xfinity administrator password?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            There is no single password to assume for every current setup. Use the password created when enabling Admin Tool access. Some earlier setups may still use the password printed on the gateway’s bottom sticker.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Why will 10.0.0.1 not open?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Admin Tool access may be disabled. Check WiFi &rarr; View WiFi equipment &rarr; Advanced settings &rarr; Admin Tool online access in the Xfinity app, then retry from your home network.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Can I change my Wi-Fi password at 10.0.0.1?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            That depends on the gateway and setup. Most customers should use the Xfinity app. Rented XB2 and XB3 gateways retain Admin Tool Wi-Fi management, subject to the applicable exceptions.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Can I enable Bridge Mode at 10.0.0.1?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Yes. Sign in and open Gateway &rarr; At a Glance, then enable Bridge Mode. This disables the gateway’s routing capabilities while keeping its modem functionality active.
+          </p>
+        </div>
+      </div>
+
+      <!-- The Bottom Line -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        The Bottom Line
+      </h2>
+      <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem; color: var(--text-primary);">
+        For Xfinity gateway login, start at <code>http://10.0.0.1</code>—but check the app’s Admin Tool access setting before assuming the address is broken. Use <code>admin</code> with the correct Admin Tool password, manage everyday Wi-Fi settings through the Xfinity app where required, and leave factory resetting until after access and password checks.
+      </p>
+
+      <!-- Live Gateway Reachability Probe -->
+      <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h2 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+            <span>⚡ Live Gateway Reachability Probe</span>
+          </h2>
+          <span style="font-size: 0.8rem; background: var(--info-bg, rgba(2, 132, 199, 0.1)); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
+            Target: 10.0.0.1
+          </span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Test whether your device is currently connected to the Xfinity 10.0.0.1 gateway subnet via local browser ping probes:
+        </p>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button id="probe-btn" class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.875rem;">
+            Test Connection to 10.0.0.1
+          </button>
+          <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
+        </div>
+      </div>
+
+      <!-- Author Card -->
+      <div class="card" style="margin: 2.5rem 0; padding: 1.5rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md); display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; flex-shrink: 0;">
+          VB
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+          <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-accent); font-weight: 700; margin-bottom: 0.25rem;">
+            Verified ISP Gateway Reference
+          </div>
+          <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">
+            Written by <a href="/authors/vikas-behl/" style="color: inherit; text-decoration: underline;">Vikas Behl</a>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+            Senior Network Engineer with 12+ years of field experience in broadband gateways, Admin Tool configurations, and Comcast xFi hardware deployments.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/ip/10-0-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">10.0.0.1 Gateway Guide &rarr;</a>
+          <a href="/brands/xfinity/" class="btn btn-secondary" style="font-size: 0.85rem;">Xfinity Hardware Brand Hub &rarr;</a>
+          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
+          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
     for isp in ISP_GATEWAYS:
@@ -1993,9 +2517,14 @@ def generate_isp_pages():
         isp_dir = os.path.join(PUBLIC_DIR, "isp", slug)
         make_dirs(isp_dir)
 
+        if slug == "xfinity-xfi":
+            with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_xfinity_xfi_page(isp))
+            continue
+
         canonical = f"https://routeriphub.com/isp/{slug}/"
         title = f"{isp['isp_name']} Gateway Login & Password ({isp['default_ip']})"
-        desc = f"Access {isp['isp_name']} router admin portal at {isp['default_ip']}. Default username, printed access code instructions, factory reset, and bridge mode guide."
+        desc = f"Access {isp['isp_name']} admin portal at {isp['default_ip']}. Default username, printed access code instructions, factory reset, and bridge mode guide."
 
         tech_schema = {
             "@type": "TechArticle",
@@ -4358,7 +4887,7 @@ def generate_ip_pages():
         else:
             title = f"{ip} Router Login Fix & Default Password (2026)"
             h1 = f"{ip} Not Working? {meta['primary_brand']} Router Login Fix"
-            desc = f"Fix {ip} router login timeouts. Verified factory credentials, admin access instructions, and setup diagnostics for {meta['primary_brand'][:25]}."
+            desc = f"Fix {ip} router login timeouts. Verified factory credentials, admin access steps, and setup diagnostics for {meta['primary_brand'][:20]}."
 
         # Schemas
         tech_schema = {
@@ -11197,6 +11726,16 @@ def update_search_index():
 
     # 2. ISP Gateways
     for isp in ISP_GATEWAYS:
+        if isp["slug"] == "xfinity-xfi":
+            search_index.append({
+                "title": "Xfinity Gateway Login — 10.0.0.1 Admin Access & Fixes",
+                "category": "ISP Gateway",
+                "badge": "Xfinity",
+                "url": "/isp/xfinity-xfi/",
+                "snippet": "Log in to your Xfinity gateway at 10.0.0.1. Enable Admin Tool access, find the right password, manage Wi-Fi settings, and troubleshoot login problems.",
+                "keywords": "xfinity comcast xfi 10.0.0.1 gateway admin tool bridge mode wifi xb6 xb7 xb8 login password"
+            })
+            continue
         search_index.append({
             "title": f"{isp['isp_name']} Gateway Portal ({isp['default_ip']})",
             "category": "ISP Gateway",

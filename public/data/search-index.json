@@ -2008,12 +2008,12 @@
     "keywords": "motorola motorola mr2600 192.168.1.1 motorola-mr2600 password reset smart wi-fi gigabit router"
   },
   {
-    "title": "Xfinity (Comcast) Gateway Portal (10.0.0.1)",
+    "title": "Xfinity Gateway Login \u2014 10.0.0.1 Admin Access & Fixes",
     "category": "ISP Gateway",
-    "badge": "Xfinity (Comcast)",
+    "badge": "Xfinity",
     "url": "/isp/xfinity-xfi/",
-    "snippet": "xFi Advanced Gateway (XB6, XB7, XB8) login, printed access code, and bridge mode guide.",
-    "keywords": "xfinity (comcast) xfinity-xfi 10.0.0.1 bridge mode passthrough xfi bgw320 fiber"
+    "snippet": "Log in to your Xfinity gateway at 10.0.0.1. Enable Admin Tool access, find the right password, manage Wi-Fi settings, and troubleshoot login problems.",
+    "keywords": "xfinity comcast xfi 10.0.0.1 gateway admin tool bridge mode wifi xb6 xb7 xb8 login password"
   },
   {
     "title": "AT&T Fiber Gateway Portal (192.168.1.254)",
