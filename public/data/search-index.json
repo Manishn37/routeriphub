@@ -2280,12 +2280,12 @@
     "keywords": "192.168.0.1 192-168-0-1 login admin gateway tp-link, d-link, arris, sky broadband, virgin media"
   },
   {
-    "title": "10.0.0.1 Default Gateway Hub",
+    "title": "10.0.0.1 \u2014 Login Admin, Router Setup & Troubleshooting Guide",
     "category": "Gateway IP",
     "badge": "10.0.0.1",
     "url": "/ip/10-0-0-1/",
-    "snippet": "Class A Private (10.0.0.0/8) - Used on Xfinity (Comcast), Apple AirPort, Cisco, Spectrum.",
-    "keywords": "10.0.0.1 10-0-0-1 login admin gateway xfinity (comcast), apple airport, cisco, spectrum"
+    "snippet": "Can\u2019t open 10.0.0.1? Learn how to log in to your router admin page, fix 10.0.0.1 not loading, find default credentials, change Wi-Fi settings, and reset your router.",
+    "keywords": "10.0.0.1 10-0-0-1 login admin gateway router setup troubleshooting xfinity comcast cisco"
   },
   {
     "title": "192.168.1.254 Default Gateway Hub",
