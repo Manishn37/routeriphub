@@ -373,7 +373,9 @@ def generate_router_model_pages():
             title = f"{base_m_title} Default IP & Password (2026)"
         else:
             title = f"{base_m_title[:33]} Default IP & Password"
-        desc = f"Access {m['brand']} {m['model_name']} default login IP ({m['default_ip']}), admin password, factory reset procedure, and LED diagnostics cheat-sheet."
+        desc = f"Access {m['brand']} {m['model_name']} default login IP ({m['default_ip']}), admin password, factory reset, and LED diagnostics."
+        if len(desc) > 158:
+            desc = f"Access {m['brand']} {m['model_name'][:28]} login IP ({m['default_ip']}), default password, reset steps, and diagnostics."
 
         # Structured Schemas
         tech_schema = {
@@ -1601,7 +1603,7 @@ IP_HARDWARE_CATALOG = {
 def generate_custom_10_10_10_1_page():
     canonical = "https://routeriphub.com/ip/10-10-10-1/"
     title = "10.10.10.1 Login Admin — Router, Modem & Gateway Setup Guide"
-    desc = "Can’t open 10.10.10.1? Learn how to log in to your router or gateway, fix 10.10.10.1 not loading, find default credentials, change Wi-Fi settings, and reset your device."
+    desc = "Can’t open 10.10.10.1? Learn how to log in to your router or gateway, fix 10.10.10.1 not loading, find default credentials, update Wi-Fi, and reset."
     
     breadcrumbs = [
         {"name": "Home", "url": "https://routeriphub.com/"},
@@ -2191,7 +2193,7 @@ def generate_custom_10_10_10_1_page():
 def generate_custom_10_0_0_1_page():
     canonical = "https://routeriphub.com/ip/10-0-0-1/"
     title = "10.0.0.1 — Login Admin, Router Setup & Troubleshooting Guide"
-    desc = "Can’t open 10.0.0.1? Learn how to log in to your router admin page, fix 10.0.0.1 not loading, find default credentials, change Wi-Fi settings, and reset your router."
+    desc = "Can’t open 10.0.0.1? Learn how to log in to your router admin page, fix 10.0.0.1 not loading, find default credentials, change Wi-Fi, and reset."
     
     breadcrumbs = [
         {"name": "Home", "url": "https://routeriphub.com/"},
@@ -3357,7 +3359,7 @@ def generate_ip_pages():
     ip_master_dir = os.path.join(PUBLIC_DIR, "ip")
     canonical_master = "https://routeriphub.com/ip/"
     title_master = "Default Gateway IP Directory: Find, Access & Fix Your Router Address (2026)"
-    desc_master = "Intent-first directory of private default gateway IPs: 192.168.1.1, 192.168.0.1, 10.0.0.1, 192.168.1.254, 192.168.1.2, and Class A/B/C subnets. Fast diagnostic access."
+    desc_master = "Directory of private default gateway IPs: 192.168.1.1, 192.168.0.1, 10.0.0.1, 192.168.1.254, 10.10.10.1, and subnets. Fast router login diagnostics."
 
     ip_cards = ""
     for ip_item in IP_GATEWAYS:
@@ -3493,7 +3495,7 @@ def generate_extender_pages():
     # --------------------------------------------------------------------------
     master_canonical = "https://routeriphub.com/extenders/"
     master_title = "Wi-Fi Extender Setup: Default IPs & Logins (2026)" # 50 chars <= 60
-    master_desc = "Directory of Wi-Fi extender setup domains & IPs: mywifiext.net, tplinkrepeater.net, extender.linksys.com, dlinkap.local, ap.setup, Topvision, SEWOT, RANGEXTD." # 152 chars
+    master_desc = "Directory of Wi-Fi extender setup domains & IPs: mywifiext.net, tplinkrepeater.net, extender.linksys.com, dlinkap.local, ap.setup, and Topvision." # 152 chars
 
     master_breadcrumbs = [
         ("Home", "/"),
@@ -8432,7 +8434,7 @@ def generate_author_and_about_pages():
     make_dirs(author_dir)
     author_canonical = "https://routeriphub.com/authors/vikas-behl/"
     author_title = "Vikas Behl — Senior Network & Technical Support Engineer | RouterIPHub"
-    author_desc = "Meet Vikas Behl, Senior Technical Support & Network Engineer with 12+ years of experience in router setup, Wi-Fi extenders, printers, consoles, and network troubleshooting."
+    author_desc = "Meet Vikas Behl, Senior Network Support Engineer with 12+ years of experience in router setup, Wi-Fi extenders, consoles, and network troubleshooting."
     author_bc = [("Home", "/"), ("Authors", "/authors/"), ("Vikas Behl", "/authors/vikas-behl/")]
     
     author_person_schema = {
@@ -9697,7 +9699,7 @@ def update_search_index():
                 "category": "Gateway IP",
                 "badge": "10.10.10.1",
                 "url": "/ip/10-10-10-1/",
-                "snippet": "Can’t open 10.10.10.1? Learn how to log in to your router or gateway, fix 10.10.10.1 not loading, find default credentials, change Wi-Fi settings, and reset your device.",
+                "snippet": "Can’t open 10.10.10.1? Learn how to log in to your router or gateway, fix 10.10.10.1 not loading, find default credentials, update Wi-Fi, and reset.",
                 "keywords": "10.10.10.1 10-10-10-1 login admin gateway router modem setup troubleshooting"
             })
         elif ip_item['ip'] == "10.0.0.1":
@@ -9706,7 +9708,7 @@ def update_search_index():
                 "category": "Gateway IP",
                 "badge": "10.0.0.1",
                 "url": "/ip/10-0-0-1/",
-                "snippet": "Can’t open 10.0.0.1? Learn how to log in to your router admin page, fix 10.0.0.1 not loading, find default credentials, change Wi-Fi settings, and reset your router.",
+                "snippet": "Can’t open 10.0.0.1? Learn how to log in to your router admin page, fix 10.0.0.1 not loading, find default credentials, change Wi-Fi, and reset.",
                 "keywords": "10.0.0.1 10-0-0-1 login admin gateway router setup troubleshooting xfinity comcast cisco"
             })
         else:
