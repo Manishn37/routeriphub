@@ -2338,21 +2338,25 @@ def generate_brand_pages():
     # Master Brands Directory
     brands_master_dir = os.path.join(PUBLIC_DIR, "brands")
     canonical_master = "https://routeriphub.com/brands/"
-    title_master = "Router Hardware Brands Directory (35+ Manufacturers)"
-    desc_master = "Search default IPs and passwords across all major router brands including Netgear, TP-Link, ASUS, Linksys, Cisco, Ubiquiti, MikroTik, and Arris."
+    title_master = "Router Brands — Login & Setup Guides | Router IP Hub"
+    desc_master = "Find router login and setup help by brand. Browse Netgear, ASUS, TP-Link, Linksys, Xfinity, and more for admin access, Wi-Fi settings, and troubleshooting."
+
+    # Sort brands alphabetically
+    sorted_brands = sorted(BRAND_PROFILES, key=lambda b: b['name'].lower())
 
     brand_cards = ""
-    for b in BRAND_PROFILES:
+    for b in sorted_brands:
         brand_cards += f"""
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md); padding: 1.25rem;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">{escape(b['hq'])}</span>
+              <span style="font-size: 0.775rem; color: var(--text-muted); font-weight: 600;">{escape(b['models_count'])}+ Models</span>
             </div>
-            <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem;">
               <a href="/brands/{escape(b['slug'])}/">{escape(b['name'])}</a>
-            </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
               Default Gateway: <strong>{escape(', '.join(b['default_ips']))}</strong>
             </p>
             <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">
@@ -2360,31 +2364,276 @@ def generate_brand_pages():
             </p>
           </div>
           <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">{escape(b['models_count'])}+ Models</span>
-            <a href="/brands/{escape(b['slug'])}/" style="font-size: 0.85rem; font-weight: 600;">Brand Hub &rarr;</a>
+            <a href="/brands/{escape(b['slug'])}/" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.35rem 0.75rem; width: 100%; text-align: center;">View {escape(b['name'])} Guides &rarr;</a>
           </div>
         </div>
         """
 
-    content_master = f"""
-  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
-    <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem auto;">
-      <div class="silo-badge silo-badge-router">🏷️ Brands Silo</div>
-      <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem;">
-        Router Hardware Brands Directory
-      </h1>
-      <p style="font-size: 1.1rem; color: var(--text-secondary);">
-        Complete hardware directories with default IP subnets, factory passwords, companion apps, and official support links.
-      </p>
-    </div>
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I find my router’s login guide?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Choose your brand from the directory, then find your model or open the relevant admin login guide."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which guide should I choose if I only want to change my Wi-Fi password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Start with your brand, then look for a Wi-Fi settings or password-change guide. You do not need to repeat the entire first-time setup process."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if I have an extender or mesh system?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Choose the brand, then select the guide for your extender or mesh model. Avoid using a general router guide when a device-specific guide is available."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if I know the IP address but not the brand?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use Router IP Hub’s IP-address guides to find the relevant login information. If the page you reach does not match your device, check its label for the model name."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if my brand is not listed?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "This directory currently covers the brands shown above. Use your device’s model number and manufacturer documentation to find the appropriate instructions."
+                }
+            }
+        ]
+    }
 
-    <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem;">
-      {brand_cards}
+    collection_schema = {
+        "@type": "CollectionPage",
+        "name": title_master,
+        "description": desc_master,
+        "url": canonical_master,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    content_master = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-router">🏷️ Brands Silo</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        Router Brands — Find Your Router Login &amp; Setup Guide
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+        Looking for your router’s admin page? Choose your brand below to find login instructions, setup help, and troubleshooting guides for your device.
+      </p>
+      <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6;">
+        Start with the name on your router—not just an IP address found online. This directory helps you find the relevant guide for changing Wi-Fi settings, accessing the admin dashboard, or resolving a login problem.
+      </p>
+
+      <!-- Section: Browse Router Brands -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.75rem;">
+        Browse Router Brands
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+        Router IP Hub’s brand directory includes the following brands. Choose your brand, then look for your model or the task you want to complete.
+      </p>
+
+      <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+        {brand_cards}
+      </div>
+
+      <!-- Section: What Do You Need Help With? -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        What Do You Need Help With?
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        You do not need to read a full setup guide if you only want to change one setting. Use your brand’s guides to find the relevant instructions.
+      </p>
+      <div class="table-responsive" style="margin-bottom: 2.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Your goal</th>
+              <th>Guide to look for</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Open the router’s settings</strong></td>
+              <td>Router admin login</td>
+            </tr>
+            <tr>
+              <td><strong>Set up a new device</strong></td>
+              <td>First-time setup</td>
+            </tr>
+            <tr>
+              <td><strong>Change your network name or password</strong></td>
+              <td>Wi-Fi settings</td>
+            </tr>
+            <tr>
+              <td><strong>Check devices on your network</strong></td>
+              <td>Connected-device management</td>
+            </tr>
+            <tr>
+              <td><strong>Resolve an admin page that will not open</strong></td>
+              <td>Login troubleshooting</td>
+            </tr>
+            <tr>
+              <td><strong>Recover access after forgetting a password</strong></td>
+              <td>Password recovery</td>
+            </tr>
+            <tr>
+              <td><strong>Restore the device’s original settings</strong></td>
+              <td>Model-specific reset instructions</td>
+            </tr>
+            <tr>
+              <td><strong>Configure an extender or mesh unit</strong></td>
+              <td>Extender or mesh setup</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Section: Find the Right Guide Before You Start -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Find the Right Guide Before You Start
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">1. Choose your brand</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">
+            Select the brand shown on your device or its label. Use the directory above to narrow down your search.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">2. Match the model</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">
+            Look for your model number before following setup or reset instructions. If you cannot find an exact match, check the guide’s compatibility notes rather than assuming another model uses the same steps.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">3. Select your task</h3>
+          <p style="margin: 0; color: var(--text-primary); line-height: 1.6;">
+            Open the guide that matches your goal: admin login, Wi-Fi password change, initial setup, troubleshooting, or reset.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section: Looking for a Router Login Page? -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Looking for a Router Login Page?
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+        Start with your brand’s login guide rather than treating one IP address or password as the answer for every device.
+      </p>
+      <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 2.5rem;">
+        <p style="margin-bottom: 0.5rem; font-weight: 600;">Look for these details in the relevant guide:</p>
+        <ul style="margin: 0; padding-left: 1.5rem; line-height: 1.7; color: var(--text-secondary);">
+          <li>The router’s management address or setup app.</li>
+          <li>The correct connection method.</li>
+          <li>Where to find the administrator credentials.</li>
+          <li>What to check if the login page does not open.</li>
+          <li>Password recovery options before considering a reset.</li>
+        </ul>
+      </div>
+
+      <!-- Section: Not Sure Which Brand You Have? -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Not Sure Which Brand You Have?
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        Check your router, packaging, or installation paperwork for the manufacturer and model name. If the equipment came from your internet provider, note both the provider name and the manufacturer printed on the device.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 2.5rem;">
+        Use those details to select the closest matching brand in the directory. If you already know the management IP address, you can use an <a href="/ip/">IP-address guide</a> instead.
+      </p>
+
+      <!-- Section: FAQs -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Frequently Asked Questions (FAQs)
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">How do I find my router’s login guide?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Choose your brand from the directory, then find your model or open the relevant admin login guide.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Which guide should I choose if I only want to change my Wi-Fi password?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Start with your brand, then look for a Wi-Fi settings or password-change guide. You do not need to repeat the entire first-time setup process.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What if I have an extender or mesh system?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Choose the brand, then select the guide for your extender or mesh model. Avoid using a general router guide when a device-specific guide is available.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What if I know the IP address but not the brand?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Use Router IP Hub’s IP-address guides to find the relevant login information. If the page you reach does not match your device, check its label for the model name.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What if my brand is not listed?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            This directory currently covers the brands shown above. Use your device’s model number and manufacturer documentation to find the appropriate instructions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section: Start With Your Router Brand -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Start With Your Router Brand
+      </h2>
+      <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 2.5rem; color: var(--text-secondary);">
+        Choose your brand above to find the right guide for your device. Match the model, identify the task, and follow the relevant instructions—whether you need admin access, a Wi-Fi password change, or help getting back into your router.
+      </p>
+
+      <!-- Author Card -->
+      <div class="card" style="margin: 2.5rem 0; padding: 1.5rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md); display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; flex-shrink: 0;">
+          VB
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+          <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-accent); font-weight: 700; margin-bottom: 0.25rem;">
+            Verified Technical Reference
+          </div>
+          <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">
+            Maintained by <a href="/authors/vikas-behl/" style="color: inherit; text-decoration: underline;">Vikas Behl</a>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+            Senior Network Engineer overseeing default IP mappings, credential verification, and manufacturer firmware updates across 19 router brands.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Directories &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/routers/" class="btn btn-secondary" style="font-size: 0.85rem;">All Router Models &rarr;</a>
+          <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">Gateway IP Directory &rarr;</a>
+          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">ISP Gateway Portals &rarr;</a>
+          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi Extenders &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
+        </div>
+      </div>
     </div>
   </main>
 """
     breadcrumbs = [("Home", "/"), ("Brands", "/brands/")]
-    full_html = get_header(title_master, desc_master, canonical_master, active_nav="brands", breadcrumbs=breadcrumbs) + content_master + get_footer()
+    full_html = get_header(title_master, desc_master, canonical_master, active_nav="brands", breadcrumbs=breadcrumbs, schemas_json_ld=[collection_schema, faq_schema]) + content_master + get_footer()
     with open(os.path.join(brands_master_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(full_html)
 
@@ -10984,6 +11233,14 @@ def update_search_index():
     })
 
     # 3. Brands
+    search_index.append({
+        "title": "Router Brands — Find Your Router Login & Setup Guide",
+        "category": "Brand Directory",
+        "badge": "Brands",
+        "url": "/brands/",
+        "snippet": "Find router login and setup help by brand. Browse Netgear, ASUS, TP-Link, Linksys, Xfinity, and more for admin access, Wi-Fi settings, and troubleshooting.",
+        "keywords": "brands router manufacturers netgear asus tp-link linksys xfinity cisco d-link eero synology login setup"
+    })
     for b in BRAND_PROFILES:
         search_index.append({
             "title": f"{b['name']} Brand Directory & Model Matrix",
