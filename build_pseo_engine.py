@@ -3026,6 +3026,515 @@ def generate_custom_att_bgw320_page(isp):
 
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
+# ==============================================================================
+# CUSTOM HIGH-INTENT ISP GATEWAY PAGE: Verizon Fios CR1000A / G3100 (192.168.1.1)
+# ==============================================================================
+def generate_custom_verizon_cr1000a_page(isp):
+    canonical = "https://routeriphub.com/isp/verizon-cr1000a/"
+    title = "Verizon Fios Gateway Login — 192.168.1.1 Admin Access"
+    desc = "Log in to your Verizon Fios gateway at 192.168.1.1. Find the admin password, change Wi-Fi settings, and troubleshoot myfiosgateway.com login issues."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("ISP Gateways", "/isp/"),
+        ("Verizon Fios", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Verizon Fios Gateway Login — 192.168.1.1 Admin Access",
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to Your Verizon Fios Gateway",
+        "description": "Step-by-step instructions to connect to your home Wi-Fi network, access 192.168.1.1 or myfiosgateway.com, and log in with your unique administrator password.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to your home network",
+                "text": "Use a phone, tablet, or computer connected to your in-home Wi-Fi network. Start with a device already connected before opening the router interface."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open the management address",
+                "text": "Enter https://192.168.1.1 or https://myfiosgateway.com directly into your browser’s address bar."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Enter the administrator credentials",
+                "text": "If prompted for a username, enter 'admin'. For the password, use the unique administrator password printed on your router label (or your custom password if changed)."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Open the settings you need",
+                "text": "Once signed in, access supported settings for updating Wi-Fi details, managing access controls, and changing the administrator password."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the Verizon Fios gateway login address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use 192.168.1.1 or myfiosgateway.com from a device connected to your home network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default Verizon Fios administrator username?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The default username for the Fios routers covered by these instructions is admin."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default Verizon Fios router password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The default administrator password is unique to the router and printed on its label. Use your custom password if you changed it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where is the administrator password on the G1100?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The Fios Quantum Gateway G1100’s unique default administrator password is printed on the side label."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I change my Wi-Fi password without using the browser interface?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. You can manage Wi-Fi through My Verizon and the Verizon Home app, as well as the router interface."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-isp">🏢 Service Provider Gateway Hub</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        Verizon Fios Gateway Login — 192.168.1.1 Admin Access
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+        If you searched <code>192.168.1.1</code> expecting your Verizon Fios gateway’s login page, you have the right starting address. The detail that usually causes confusion is the password: Verizon Fios routers use a unique administrator password printed on the router label—not a universal <code>admin</code> and <code>password</code> combination.
+      </p>
+
+      <!-- Quick Answer Card -->
+      <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
+          <strong><code>192.168.1.1</code> is the local management address used to access Verizon Fios router settings.</strong> Connect to your home network, open <code>https://192.168.1.1</code>, and enter the administrator credentials for your router.
+        </p>
+        <p style="margin-bottom: 0.5rem; font-weight: 600;">For the Fios routers covered by these instructions:</p>
+        <ul style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.7;">
+          <li><strong>Username:</strong> <code>admin</code></li>
+          <li><strong>Password:</strong> The unique administrator password printed on the router label, unless you changed it.</li>
+          <li><strong>Alternative management address:</strong> <code>myfiosgateway.com</code></li>
+        </ul>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          On the Fios Quantum Gateway G1100, the default administrator password is on the side label. Other Verizon routers (CR1000A, G3100) list it on the rear label.
+        </p>
+        <div class="action-btn-group" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="https://192.168.1.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Open https://192.168.1.1 &rarr;
+          </a>
+          <a href="https://myfiosgateway.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            Open https://myfiosgateway.com
+          </a>
+        </div>
+      </div>
+
+      <!-- Verizon Fios Gateway Login Details -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Verizon Fios Gateway Login Details</h2>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>What to use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Local management address</strong></td>
+              <td><code>https://192.168.1.1</code></td>
+            </tr>
+            <tr>
+              <td><strong>Alternative address</strong></td>
+              <td><code>myfiosgateway.com</code></td>
+            </tr>
+            <tr>
+              <td><strong>Default username</strong></td>
+              <td><code>admin</code></td>
+            </tr>
+            <tr>
+              <td><strong>Default administrator password</strong></td>
+              <td>Unique password printed on the router label</td>
+            </tr>
+            <tr>
+              <td><strong>Previously changed password</strong></td>
+              <td>Use your custom administrator password</td>
+            </tr>
+            <tr>
+              <td><strong>G1100 password location</strong></td>
+              <td>Side label</td>
+            </tr>
+            <tr>
+              <td><strong>Other supported Verizon router models</strong></td>
+              <td>Check the rear label</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="padding: 1rem 1.25rem; background: var(--bg-alt, rgba(0,0,0,0.02)); border-left: 3px solid var(--accent); margin-bottom: 2rem; border-radius: 4px;">
+        <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
+          🔍 <strong>Label Inspection Tip:</strong> Check the administrator or Network Settings Password field—not automatically the Wi-Fi password field. The wireless-network credentials and the password used to manage router settings serve different purposes.
+        </p>
+      </div>
+
+      <!-- Diagnostic: What Are You Trying to Do? -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Diagnostic: What Are You Trying to Do?</h2>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Your situation</th>
+              <th>What you need</th>
+              <th>Where to start</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>You want to open router settings</td>
+              <td>Local administrator interface</td>
+              <td>Open <code>https://192.168.1.1</code></td>
+            </tr>
+            <tr>
+              <td>You do not know the administrator password</td>
+              <td>Router-label credentials or your custom password</td>
+              <td>Check the appropriate label</td>
+            </tr>
+            <tr>
+              <td>You want to change your Wi-Fi name or password</td>
+              <td>Wi-Fi configuration</td>
+              <td>Use the router interface, My Verizon, or the Verizon Home app</td>
+            </tr>
+            <tr>
+              <td>You want to change the router login password</td>
+              <td>Administrator-password settings</td>
+              <td>Sign in with the current admin password</td>
+            </tr>
+            <tr>
+              <td>You want to restrict specific devices</td>
+              <td>Wi-Fi access controls</td>
+              <td>Open the router interface and follow the model’s instructions</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 2rem;">
+        Identify the setting you want to change before entering credentials or modifying the network.
+      </p>
+
+      <!-- Step-by-Step: Log In to Your Verizon Fios Gateway -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Step-by-Step: Log In to Your Verizon Fios Gateway</h2>
+      
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">1. Connect to your home network</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+        Use a phone, tablet, or computer connected to your in-home Wi-Fi network. Start with a device already connected to the home network before opening the router interface.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">2. Open the management address</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem;">
+        Enter this directly into your browser’s address bar:
+      </p>
+      <p style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">
+        <code>https://192.168.1.1</code>
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem;">
+        You can also try:
+      </p>
+      <p style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">
+        <code>https://myfiosgateway.com</code>
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+        These are management addresses for reaching the router interface, rather than search terms to enter into a search engine.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">3. Enter the administrator credentials</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem;">
+        If the interface asks for a username, enter:
+      </p>
+      <p style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">
+        <code>admin</code>
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+        For the password, use the unique administrator password printed on your router label. If you changed it previously, use your custom password instead of the original label password.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">4. Open the settings you need</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        Once signed in, follow the on-screen instructions for your task. You can access supported settings for changing Wi-Fi details, managing access controls, and changing the router administrator password.
+      </p>
+
+      <!-- Administrator Password vs. Wi-Fi Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Administrator Password vs. Wi-Fi Password</h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        The <strong>administrator password</strong> opens the router’s management interface. The <strong>Wi-Fi password</strong> connects a device to the wireless network.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        Both may appear on the same label, so read the field names carefully. Depending on the router, the management credential may be identified as an <em>Admin Password</em> or <em>Network Settings Password</em>.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        If your phone is connected to Wi-Fi but the router rejects your login, that does not necessarily mean the Wi-Fi password is wrong. Check that you are entering the management password in the router’s login form.
+      </p>
+
+      <!-- Change Your Verizon Fios Wi-Fi Name and Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Change Your Verizon Fios Wi-Fi Name and Password</h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
+        To change your wireless-network details through the router:
+      </p>
+      <ol style="margin-bottom: 1.25rem; padding-left: 1.5rem; line-height: 1.7;">
+        <li>Connect to your home network.</li>
+        <li>Open <code>192.168.1.1</code> in a browser.</li>
+        <li>Sign in using <code>admin</code> and the router’s administrator password.</li>
+        <li>Follow the on-screen instructions to update the Wi-Fi name or password.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        You can also manage Wi-Fi through My Verizon and the Verizon Home app. Exact menus depend on your router and interface.
+      </p>
+
+      <!-- Change the Router Administrator Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Change the Router Administrator Password</h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        Changing your administrator password is a separate task from changing the Wi-Fi password.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
+        To begin:
+      </p>
+      <ol style="margin-bottom: 1.25rem; padding-left: 1.5rem; line-height: 1.7;">
+        <li>Connect to your home network.</li>
+        <li>Open <code>https://192.168.1.1</code>.</li>
+        <li>Sign in with the current administrator password.</li>
+        <li>Follow the router’s on-screen instructions or model-specific user guide to replace it.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        Use the current password to authorize the change. The label shows the original default, not a record of any replacement you created later.
+      </p>
+
+      <!-- If 192.168.1.1 Will Not Open -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If 192.168.1.1 Will Not Open</h2>
+      
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">1. Confirm you are using your home network</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+        Start with the connection requirement. Your device should be connected to the in-home network before you try to open the local router interface.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">2. Check the address</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem;">
+        Enter: <code>https://192.168.1.1</code>
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+        Check that you used the number <code>1</code>, not the lowercase letter <code>l</code>. Do not add <code>.com</code> to the IP address.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">3. Try the alternative management address</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem;">
+        Use: <code>https://myfiosgateway.com</code>
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+        This is an alternative address for accessing the router’s management interface.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">4. Separate page-access problems from password problems</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        If you can see the Verizon router login form, you have reached the interface. Focus on the username and administrator password rather than continuing to change the address.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        Use <code>admin</code> where a username is requested and check the router label for the unique default password.
+      </p>
+
+      <!-- If the Administrator Password Is Rejected -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If the Administrator Password Is Rejected</h2>
+      
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">Check the correct label field</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+        Look for the administrator or Network Settings Password. Do not automatically use the Wi-Fi password shown nearby.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">Check the label location for your model</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
+        The Fios Quantum Gateway G1100 uses a side label for its default administrator password. Other Verizon routers may place these details on the rear label.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">Consider whether the password was changed</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+        If you previously replaced the default administrator password, use that custom password. The original label password will not automatically replace the current credential.
+      </p>
+
+      <!-- Common Mistakes -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Mistakes</h2>
+      <ul style="margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.7; color: var(--text-secondary);">
+        <li>Using <code>password</code> as a universal default instead of the router’s unique label-printed password.</li>
+        <li>Entering the Wi-Fi password into the administrator login form.</li>
+        <li>Checking only the rear label when using a G1100, whose administrator password is on the side.</li>
+        <li>Treating a Wi-Fi password change and an administrator-password change as the same task.</li>
+        <li>Entering the management address without first connecting to the home network.</li>
+      </ul>
+
+      <!-- Enter the Address Correctly -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Enter the Address Correctly</h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem;">
+        Correct IP address: <code>https://192.168.1.1</code>
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
+        Alternative management address: <code>https://myfiosgateway.com</code>
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem; font-weight: 600;">
+        Avoid incorrect entries such as:
+      </p>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <div class="typo-chip" style="background: rgba(220, 38, 38, 0.08); border: 1px solid rgba(220, 38, 38, 0.2); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.9rem;">
+          <span style="color: #dc2626; text-decoration: line-through;">192.168.l.1</span> &rarr; <span style="color: var(--text-primary); font-weight: 600;">192.168.1.1</span>
+        </div>
+        <div class="typo-chip" style="background: rgba(220, 38, 38, 0.08); border: 1px solid rgba(220, 38, 38, 0.2); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.9rem;">
+          <span style="color: #dc2626; text-decoration: line-through;">192.168.1.l</span> &rarr; <span style="color: var(--text-primary); font-weight: 600;">192.168.1.1</span>
+        </div>
+        <div class="typo-chip" style="background: rgba(220, 38, 38, 0.08); border: 1px solid rgba(220, 38, 38, 0.2); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.9rem;">
+          <span style="color: #dc2626; text-decoration: line-through;">192.168.1.1.com</span> &rarr; <span style="color: var(--text-primary); font-weight: 600;">https://192.168.1.1</span>
+        </div>
+        <div class="typo-chip" style="background: rgba(220, 38, 38, 0.08); border: 1px solid rgba(220, 38, 38, 0.2); padding: 0.4rem 0.8rem; border-radius: 4px; font-size: 0.9rem;">
+          <span style="color: #dc2626; text-decoration: line-through;">myfiosgateway.com.com</span> &rarr; <span style="color: var(--text-primary); font-weight: 600;">myfiosgateway.com</span>
+        </div>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem;">
+        Enter the address directly into the browser’s address bar rather than a search engine.
+      </p>
+
+      <!-- FAQs -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        Frequently Asked Questions (FAQs)
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What is the Verizon Fios gateway login address?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Use <code>192.168.1.1</code> or <code>myfiosgateway.com</code> from a device connected to your home network.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What is the default Verizon Fios administrator username?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            The default username for the Fios routers covered by these instructions is <code>admin</code>.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What is the default Verizon Fios router password?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            The default administrator password is unique to the router and printed on its label. Use your custom password if you changed it.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Where is the administrator password on the G1100?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            The Fios Quantum Gateway G1100’s unique default administrator password is printed on the side label.
+          </p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">Can I change my Wi-Fi password without using the browser interface?</h3>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">
+            Yes. You can manage Wi-Fi through My Verizon and the Verizon Home app, as well as the router interface.
+          </p>
+        </div>
+      </div>
+
+      <!-- The Bottom Line -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        The Bottom Line
+      </h2>
+      <div class="card card-featured" style="padding: 1.25rem; border-left: 4px solid var(--accent); background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <p style="font-size: 1.05rem; line-height: 1.6; margin: 0; color: var(--text-primary);">
+          Open <code>192.168.1.1</code> or <code>myfiosgateway.com</code> from your home network, then use <code>admin</code> and the correct administrator password. Check the router label before trying generic credentials, and keep Wi-Fi password changes separate from changes to the router’s management password.
+        </p>
+      </div>
+
+      <!-- Live Gateway Reachability Probe -->
+      <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h2 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+            <span>⚡ Live Gateway Reachability Probe</span>
+          </h2>
+          <span style="font-size: 0.8rem; background: var(--info-bg, rgba(2, 132, 199, 0.1)); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
+            Target: 192.168.1.1
+          </span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Test whether your device is currently connected to the Verizon Fios 192.168.1.1 gateway subnet via local browser ping probes:
+        </p>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button id="probe-btn" class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.875rem;">
+            Test Connection to 192.168.1.1
+          </button>
+          <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
+        </div>
+      </div>
+
+      <!-- Author Card -->
+      <div class="card" style="margin: 2.5rem 0; padding: 1.5rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md); display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; flex-shrink: 0;">
+          VB
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+          <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-accent); font-weight: 700; margin-bottom: 0.25rem;">
+            Verified ISP Gateway Reference
+          </div>
+          <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">
+            Written by <a href="/authors/vikas-behl/" style="color: inherit; text-decoration: underline;">Vikas Behl</a>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+            Senior Network Engineer with 12+ years of field experience configuring broadband fiber gateways, Verizon Fios CR1000A, G3100, and Quantum Gateway G1100 admin portals.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Gateway Guide &rarr;</a>
+          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
+          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
     for isp in ISP_GATEWAYS:
@@ -3041,6 +3550,11 @@ def generate_isp_pages():
         if slug == "att-bgw320":
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_att_bgw320_page(isp))
+            continue
+
+        if slug == "verizon-cr1000a":
+            with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_verizon_cr1000a_page(isp))
             continue
 
         canonical = f"https://routeriphub.com/isp/{slug}/"
@@ -12265,6 +12779,16 @@ def update_search_index():
                 "url": "/isp/att-bgw320/",
                 "snippet": "Access your AT&T Fiber gateway at 192.168.1.254. Find your Device Access Code, manage gateway settings, configure IP Passthrough, and fix login issues.",
                 "keywords": "att at&t fiber bgw320 bgw210 192.168.1.254 device access code ip passthrough gateway admin login"
+            })
+            continue
+        if isp["slug"] == "verizon-cr1000a":
+            search_index.append({
+                "title": "Verizon Fios Gateway Login — 192.168.1.1 Admin Access",
+                "category": "ISP Gateway",
+                "badge": "Verizon Fios",
+                "url": "/isp/verizon-cr1000a/",
+                "snippet": "Log in to your Verizon Fios gateway at 192.168.1.1. Find the admin password, change Wi-Fi settings, and troubleshoot myfiosgateway.com login issues.",
+                "keywords": "verizon fios cr1000a g3100 g1100 192.168.1.1 myfiosgateway router admin login password"
             })
             continue
         search_index.append({

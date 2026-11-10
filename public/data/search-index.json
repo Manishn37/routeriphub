@@ -2024,12 +2024,12 @@
     "keywords": "att at&t fiber bgw320 bgw210 192.168.1.254 device access code ip passthrough gateway admin login"
   },
   {
-    "title": "Verizon Fios Gateway Portal (192.168.1.1)",
+    "title": "Verizon Fios Gateway Login \u2014 192.168.1.1 Admin Access",
     "category": "ISP Gateway",
     "badge": "Verizon Fios",
     "url": "/isp/verizon-cr1000a/",
-    "snippet": "Fios Router CR1000A / Fios Home Router G3100 login, printed access code, and bridge mode guide.",
-    "keywords": "verizon fios verizon-cr1000a 192.168.1.1 bridge mode passthrough xfi bgw320 fiber"
+    "snippet": "Log in to your Verizon Fios gateway at 192.168.1.1. Find the admin password, change Wi-Fi settings, and troubleshoot myfiosgateway.com login issues.",
+    "keywords": "verizon fios cr1000a g3100 g1100 192.168.1.1 myfiosgateway router admin login password"
   },
   {
     "title": "Spectrum (Charter) Gateway Portal (192.168.1.1)",
