@@ -30,6 +30,7 @@ Website: https://routeriphub.com
 - [192.168.112.1 Guide](https://routeriphub.com/ip/192-168-112-1/): Subnet 255.255.255.0 (/24). Brands: Ubiquiti AmpliFi (AmpliFi Alien, HD, Instant). Default credentials: admin / (set during AmpliFi App setup).
 - [192.168.128.1 Guide](https://routeriphub.com/ip/192-168-128-1/): Subnet 255.255.255.0 (/24). Brands: Cisco Meraki Go (GX20, GX50). Default credentials: Managed via Cisco Meraki Go Cloud App.
 - [192.168.212.1 Guide](https://routeriphub.com/ip/192-168-212-1/): Subnet 255.255.255.0 (/24). Brands: Zyxel Multy (Multy M1, Multy X, Multy Plus). Default credentials: admin / 1234 (or printed on label).
+- [10.10.10.1 Guide](https://routeriphub.com/ip/10-10-10-1/): Subnet 255.255.255.0 (/24). Brands: Custom Routers, Modems, Access Points & Enterprise Networks. Default credentials: admin / admin.
 
 ## 2. Hardware Models Database
 - [Netgear Nighthawk AX6 (RAX50)](https://routeriphub.com/routers/netgear-nighthawk-rax50/): Gateway 192.168.1.1 (http://routerlogin.net). Credentials: admin / password. Reset: With the router powered ON, press and hold the recessed Reset pinhole on the rear panel with a paperclip for 10 seconds until the Power LED starts blinking amber. Release and wait 2-3 minutes for the factory restart.

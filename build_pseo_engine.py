@@ -1138,6 +1138,19 @@ IP_INTENT_METADATA = {
         "common_devices": "iPhones, iPads, Windows desktop PCs, smart plugs, wireless security cameras, smart lightbulbs",
         "typos": ["192.168.0.l", "192.168.o.1", "http//192.168.0.1", "192.168.0.1.", "www.192.168.0.1"]
     },
+    "10.10.10.1": {
+        "variant": "troubleshooting",
+        "primary_brand": "Custom Routers, Modems & Access Points",
+        "primary_cause": "device connected to mobile data/VPN, or router using a different subnet such as 192.168.1.1",
+        "target_audience": "Custom routers, enterprise modems, wireless access points",
+        "verdict": "10.10.10.1 is a private local IP. If it will not load, ensure your device is connected directly to the router Wi-Fi/Ethernet without VPN and enter http://10.10.10.1 over plain HTTP.",
+        "default_user": "admin",
+        "default_pass": "admin (or password)",
+        "web_alias": "http://10.10.10.1",
+        "device_types": "Custom Routers, Modems, Wireless Access Points",
+        "common_devices": "Laptops, desktop PCs, smartphones, access point controllers",
+        "typos": ["10.10.10.l", "10.10.10.1.com", "10.10.10.01", "10.10.10.1."]
+    },
     "10.0.0.1": {
         "variant": "troubleshooting",
         "primary_brand": "Comcast Xfinity (xFi) & Spectrum",
@@ -1583,6 +1596,597 @@ IP_HARDWARE_CATALOG = {
     ]
 }
 
+
+
+def generate_custom_10_10_10_1_page():
+    canonical = "https://routeriphub.com/ip/10-10-10-1/"
+    title = "10.10.10.1 Login Admin — Router, Modem & Gateway Setup Guide"
+    desc = "Can’t open 10.10.10.1? Learn how to log in to your router or gateway, fix 10.10.10.1 not loading, find default credentials, change Wi-Fi settings, and reset your device."
+    
+    breadcrumbs = [
+        {"name": "Home", "url": "https://routeriphub.com/"},
+        {"name": "IP Directory", "url": "https://routeriphub.com/ip/"},
+        {"name": "10.10.10.1", "url": canonical}
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": title,
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to 10.10.10.1 Router & Gateway Admin Page",
+        "description": "Step-by-step instructions to log into 10.10.10.1 router or gateway admin portal, update Wi-Fi settings, and resolve access issues.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to the Router",
+                "text": "Connect your phone or computer to the router’s Wi-Fi network, or plug an Ethernet cable from your computer into the router’s LAN port. Do not use mobile data or a VPN while trying to access the admin page."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open the Correct Address",
+                "text": "In your browser address bar, enter http://10.10.10.1. Do not type the address into a Google or Bing search box. Enter it directly into the browser address bar."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Enter the Login Credentials",
+                "text": "Try the default credentials printed on the device label (commonly admin / admin or admin / password). For ISP-provided devices, the password may be unique and printed on the bottom label."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Change Your Wi-Fi Settings",
+                "text": "After logging in, open the Wi-Fi, Wireless, or Network settings section to change the Wi-Fi network name (SSID), password, security mode, guest network, and channel settings."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Save and Reconnect",
+                "text": "Save any changes and reconnect your devices using the new Wi-Fi name or password."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is 10.10.10.1 a real website?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. It is a private local IP address used by some routers, modems, and gateway devices. It only works when your phone or computer is connected to the same local network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default password for 10.10.10.1?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Common default credentials are admin / admin or admin / password. For ISP-provided devices, the password may be unique and printed on the device label."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does 10.10.10.1 not work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The most common reasons are that you are connected to the wrong network, using mobile data or a VPN, typing the address into a search engine, or your router uses a different gateway IP."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I find my router’s IP address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On a computer, check the network settings for the Default Gateway or Router address. On a phone, open the Wi-Fi network details and look for the Router or Gateway address."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I change my Wi-Fi password at 10.10.10.1?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Log into the router admin page, open the Wi-Fi or Wireless settings, and change the Wi-Fi password. Save the changes and reconnect your devices using the new password."
+                }
+            }
+        ]
+    }
+
+    byline_html = get_byline_html()
+
+    content = f"""
+  <!-- Main Page Container -->
+  <main class="container page-content">
+    <div class="content-wrapper" style="max-width: 900px; margin: 0 auto; padding: 2rem 1rem;">
+      
+      <!-- Breadcrumb Nav -->
+      <nav aria-label="Breadcrumbs" class="breadcrumb-trail" style="margin-bottom: 1.5rem; font-size: 0.875rem;">
+        <ol style="display: flex; flex-wrap: wrap; list-style: none; padding: 0; margin: 0; gap: 0.5rem; color: var(--text-muted);">
+          <li><a href="/" style="color: var(--text-accent); text-decoration: underline;">Home</a> &raquo;</li>
+          <li><a href="/ip/" style="color: var(--text-accent); text-decoration: underline;">IP Directory</a> &raquo;</li>
+          <li aria-current="page" style="color: var(--text-primary); font-weight: 600;">10.10.10.1</li>
+        </ol>
+      </nav>
+
+      <!-- Hero Header -->
+      <header class="page-header" style="margin-bottom: 2rem;">
+        <h1 style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: var(--text-primary);">
+          10.10.10.1 Login Admin — Router, Modem &amp; Gateway Setup Guide
+        </h1>
+        {byline_html}
+      </header>
+
+      <!-- Introduction -->
+      <div class="article-lead" style="margin-bottom: 2rem;">
+        <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+          If you searched <code>10.10.10.1</code> expecting to open your router or gateway login page, you are in the right place. <code>10.10.10.1</code> is a private IP address sometimes used as the default gateway or admin login address for certain routers, modems, and networking devices.
+        </p>
+      </div>
+
+      <!-- Quick Answer -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Quick Answer</h2>
+        <div class="verdict-box" style="background: var(--bg-secondary); border-left: 4px solid var(--bg-accent); padding: 1.5rem; border-radius: var(--radius-md); margin-top: 1rem;">
+          <div class="verdict-tag" style="display: inline-block; padding: 0.25rem 0.6rem; background: var(--info-bg); color: var(--text-accent); font-weight: 700; font-size: 0.8rem; border-radius: 4px; margin-bottom: 0.75rem; text-transform: uppercase;">⚡ Verified Quick Answer</div>
+          <p style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
+            <strong><code>10.10.10.1</code> is a private IP address used by some routers, modems, and gateway devices as their local admin login address.</strong> To access it, connect to the device’s Wi-Fi network or Ethernet port, then enter <a href="http://10.10.10.1" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent); text-decoration: underline;"><code>http://10.10.10.1</code></a> in your browser’s address bar.
+          </p>
+          <p style="color: var(--text-secondary); margin-bottom: 0.5rem; line-height: 1.6;">
+            Common default login details for devices using <code>10.10.10.1</code> include:
+          </p>
+          <ul style="margin-left: 1.5rem; margin-bottom: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            <li><strong>Username:</strong> <code>admin</code></li>
+            <li><strong>Password:</strong> <code>admin</code></li>
+            <li><strong>Alternative password:</strong> <code>password</code></li>
+          </ul>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.5;">
+            Some devices use a custom admin password printed on the label, while others require you to create a password during first-time setup.
+          </p>
+          <div class="action-btn-group" style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <a href="http://10.10.10.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Open http://10.10.10.1 in Browser &rarr;
+            </a>
+            <button class="btn btn-secondary copy-btn" data-copy="10.10.10.1">Copy Gateway IP (10.10.10.1)</button>
+            <a href="/tools/detect-gateway/" class="btn btn-secondary">⚡ Auto-Detect My Actual Gateway</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Which Devices Use 10.10.10.1? -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Which Devices Use 10.10.10.1?</h2>
+        <p style="color: var(--text-secondary); margin-top: 0.75rem; margin-bottom: 1rem; line-height: 1.6;">
+          <code>10.10.10.1</code> is less common than <code>192.168.1.1</code> or <code>10.0.0.1</code>, but it is still used by certain routers, modems, access points, and custom networks.
+        </p>
+        <div class="table-container" style="overflow-x: auto; margin: 1rem 0;">
+          <table class="table" style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="background: var(--bg-secondary); border-bottom: 2px solid var(--border-color);">
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">Device type</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">Example use</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">Default IP</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">Login URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">Router</td>
+                <td style="padding: 0.75rem 1rem;">Some custom or business routers</td>
+                <td style="padding: 0.75rem 1rem;"><code>10.10.10.1</code></td>
+                <td style="padding: 0.75rem 1rem;"><a href="http://10.10.10.1" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent); text-decoration: underline;"><code>http://10.10.10.1</code></a></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">Modem / gateway</td>
+                <td style="padding: 0.75rem 1rem;">Certain ISP or enterprise devices</td>
+                <td style="padding: 0.75rem 1rem;"><code>10.10.10.1</code></td>
+                <td style="padding: 0.75rem 1rem;"><a href="http://10.10.10.1" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent); text-decoration: underline;"><code>http://10.10.10.1</code></a></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">Access point</td>
+                <td style="padding: 0.75rem 1rem;">Some wireless access points</td>
+                <td style="padding: 0.75rem 1rem;"><code>10.10.10.1</code></td>
+                <td style="padding: 0.75rem 1rem;"><a href="http://10.10.10.1" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent); text-decoration: underline;"><code>http://10.10.10.1</code></a></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">Custom home network</td>
+                <td style="padding: 0.75rem 1rem;">Networks configured with a <code>10.10.10.x</code> subnet</td>
+                <td style="padding: 0.75rem 1rem;"><code>10.10.10.1</code></td>
+                <td style="padding: 0.75rem 1rem;"><a href="http://10.10.10.1" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent); text-decoration: underline;"><code>http://10.10.10.1</code></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">
+          Unlike <a href="/ip/192-168-1-1/" style="color: var(--text-accent); text-decoration: underline;"><code>192.168.1.1</code></a>, <code>10.10.10.1</code> is not a universal default router address. If it does not open a login page, your device may use a different gateway IP.
+        </p>
+      </section>
+
+      <!-- Network Role: Router vs. Device -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Network Role: Router vs. Device</h2>
+        <div class="table-container" style="overflow-x: auto; margin: 1rem 0;">
+          <table class="table" style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="background: var(--bg-secondary); border-bottom: 2px solid var(--border-color);">
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">Device</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">Typical address</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">What it controls</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">Router / gateway</td>
+                <td style="padding: 0.75rem 1rem;"><code>10.10.10.1</code></td>
+                <td style="padding: 0.75rem 1rem;">Internet connection, DHCP, firewall, Wi-Fi, connected devices</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">Modem</td>
+                <td style="padding: 0.75rem 1rem;">May use <code>10.10.10.1</code> or another local IP</td>
+                <td style="padding: 0.75rem 1rem;">Internet signal, cable connection, modem status</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">Phone, laptop, or smart TV</td>
+                <td style="padding: 0.75rem 1rem;">Assigned by router, such as <code>10.10.10.x</code></td>
+                <td style="padding: 0.75rem 1rem;">Ordinary client device on your network</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">Extender or access point</td>
+                <td style="padding: 0.75rem 1rem;">Assigned by router after pairing</td>
+                <td style="padding: 0.75rem 1rem;">Extended Wi-Fi coverage</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">
+          If <code>10.10.10.1</code> opens your router or gateway, you can manage Wi-Fi settings, connected devices, parental controls, port forwarding, firmware, and other network settings.
+        </p>
+      </section>
+
+      <!-- Diagnostic: What Are You Trying to Do? -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Diagnostic: What Are You Trying to Do?</h2>
+        <div class="table-container" style="overflow-x: auto; margin: 1rem 0;">
+          <table class="table" style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="background: var(--bg-secondary); border-bottom: 2px solid var(--border-color);">
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">Your situation</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">What you actually need</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">What to do</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">You want to log into your router</td>
+                <td style="padding: 0.75rem 1rem;">Router admin page</td>
+                <td style="padding: 0.75rem 1rem;">Connect to the router and open <code>http://10.10.10.1</code></td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">You want to change Wi-Fi name or password</td>
+                <td style="padding: 0.75rem 1rem;">Router admin page</td>
+                <td style="padding: 0.75rem 1rem;">Log in, open Wi-Fi settings, and update the SSID or password</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">You want to see connected devices</td>
+                <td style="padding: 0.75rem 1rem;">Router admin page</td>
+                <td style="padding: 0.75rem 1rem;">Log in and open Attached Devices, Connected Devices, or DHCP Client List</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;"><code>10.10.10.1</code> will not load</td>
+                <td style="padding: 0.75rem 1rem;">Correct gateway address</td>
+                <td style="padding: 0.75rem 1rem;">Check the device label, network settings, or try another common gateway IP</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">You forgot the router password</td>
+                <td style="padding: 0.75rem 1rem;">Router reset or recovery method</td>
+                <td style="padding: 0.75rem 1rem;">Use the device label, provider app, or factory reset</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;">You want to set up an extender</td>
+                <td style="padding: 0.75rem 1rem;">Extender setup page</td>
+                <td style="padding: 0.75rem 1rem;">Use the extender’s own IP or setup URL, not necessarily <code>10.10.10.1</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Why 10.10.10.1 May Not Load -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Why 10.10.10.1 May Not Load</h2>
+        <p style="color: var(--text-secondary); margin-top: 0.75rem; margin-bottom: 1rem; line-height: 1.7;">
+          <code>10.10.10.1</code> is a private local IP address, not a public website. It works only when your device is connected to the same network as the router or gateway using that address.
+        </p>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          If you are connected to a different Wi-Fi network, mobile data, or a VPN, the browser may not reach <code>10.10.10.1</code>. Connect directly to the router’s Wi-Fi network or use an Ethernet cable, then try again.
+        </p>
+      </section>
+
+      <!-- Step-by-Step: Log In at 10.10.10.1 -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Step-by-Step: Log In at 10.10.10.1</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1rem;">
+          
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">1. Connect to the router</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Connect your phone or computer to the router’s Wi-Fi network, or plug an Ethernet cable from your computer into the router’s LAN port. Do not use mobile data or a VPN while trying to access the admin page.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">2. Open the correct address</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem;">
+              In your browser address bar, enter:
+            </p>
+            <p style="margin: 0;">
+              <code style="font-size: 1rem; color: var(--text-accent); font-weight: 600;">http://10.10.10.1</code>
+            </p>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem; margin-bottom: 0;">
+              Do not type the address into a Google or Bing search box. Enter it directly into the browser address bar.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">3. Enter the login credentials</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem;">
+              Try the default credentials printed on the device label. Common options include:
+            </p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); line-height: 1.6;">
+              <li><strong>Username:</strong> <code>admin</code></li>
+              <li><strong>Password:</strong> <code>admin</code></li>
+              <li><strong>Alternative password:</strong> <code>password</code></li>
+            </ul>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">
+              For ISP-provided devices, the password may be unique and printed on the bottom or side label. Some newer routers require you to create an admin password during first-time setup.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">4. Change your Wi-Fi settings</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              After logging in, open the Wi-Fi, Wireless, or Network settings section. From there, you can change the Wi-Fi network name, password, security mode, guest network, and channel settings.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">5. Save and reconnect</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Save any changes and reconnect your devices using the new Wi-Fi name or password. If you change the Wi-Fi password, all previously connected devices will need to reconnect.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- If 10.10.10.1 Will Not Load -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>If 10.10.10.1 Will Not Load</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1rem;">
+          
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">1. Connect directly to the router</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Disconnect from mobile data, VPNs, and other Wi-Fi networks. Connect to the router’s Wi-Fi network or use an Ethernet cable plugged into one of the router’s LAN ports.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">2. Use the browser address bar</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Type <code>http://10.10.10.1</code> directly into the browser address bar. Do not search for it in Google, Bing, or another search engine.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">3. Check the device label</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Look at the bottom, side, or back of the router for the default gateway address, admin URL, username, password, SSID, and Wi-Fi password. The label may show a different address such as <code>192.168.1.1</code>, <code>192.168.0.1</code>, or <code>10.0.0.1</code>.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">4. Check your device IP address</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              On a computer, open the network settings and look for the <strong>Default Gateway</strong>, <strong>Router</strong>, or <strong>Gateway</strong> address. On a phone, check the Wi-Fi network details for the router or gateway IP. If the gateway is not <code>10.10.10.1</code>, use the address shown instead.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">5. Disable VPN and proxy settings</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              VPNs, proxies, and privacy extensions can interfere with local router addresses. Turn them off temporarily, then try <code>http://10.10.10.1</code> again.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">6. Try another browser or private window</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Open an Incognito or InPrivate window, disable browser extensions, and try Chrome, Edge, Firefox, or Safari. This helps rule out cached DNS results, extensions, or browser-security warnings.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">7. Restart the router</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Unplug the router or gateway for 30 seconds, plug it back in, and wait for it to fully reboot. Then reconnect and try the login page again.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Common Router Login Addresses -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Common Router Login Addresses</h2>
+        <div class="table-container" style="overflow-x: auto; margin: 1rem 0;">
+          <table class="table" style="width: 100%; border-collapse: collapse;">
+            <thead>
+              <tr style="background: var(--bg-secondary); border-bottom: 2px solid var(--border-color);">
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">Address</th>
+                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 600;">Common use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;"><code>10.10.10.1</code></td>
+                <td style="padding: 0.75rem 1rem;">Some custom routers, modems, access points, and <code>10.10.10.x</code> networks</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;"><a href="/ip/192-168-1-1/" style="color: var(--text-accent); text-decoration: underline;"><code>192.168.1.1</code></a></td>
+                <td style="padding: 0.75rem 1rem;">Linksys, NETGEAR, TP-Link, ASUS, and many other routers</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;"><a href="/ip/192-168-0-1/" style="color: var(--text-accent); text-decoration: underline;"><code>192.168.0.1</code></a></td>
+                <td style="padding: 0.75rem 1rem;">D-Link, TP-Link, NETGEAR, and other routers</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;"><a href="/ip/10-0-0-1/" style="color: var(--text-accent); text-decoration: underline;"><code>10.0.0.1</code></a></td>
+                <td style="padding: 0.75rem 1rem;">Xfinity, Cisco, some ISP gateways, and custom <code>10.0.0.x</code> networks</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 0.75rem 1rem; font-weight: 600;"><a href="/ip/192-168-100-1/" style="color: var(--text-accent); text-decoration: underline;"><code>192.168.100.1</code></a></td>
+                <td style="padding: 0.75rem 1rem;">Some cable modems and ISP gateways</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.6;">
+          If <code>10.10.10.1</code> does not work, check your device label or network settings to find the correct gateway address.
+        </p>
+      </section>
+
+      <!-- Factory Reset a Router Using 10.10.10.1 -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Factory Reset a Router Using 10.10.10.1</h2>
+        <p style="color: var(--text-secondary); margin-top: 0.75rem; margin-bottom: 1rem; line-height: 1.6;">
+          Reset the router only if you cannot log in, are moving it to a new network, or the admin page will not load after troubleshooting.
+        </p>
+        <ol style="margin-left: 1.5rem; margin-bottom: 1.25rem; color: var(--text-secondary); line-height: 1.8;">
+          <li>Keep the router powered on.</li>
+          <li>Find the small <strong>Reset</strong> or <strong>Factory Reset</strong> button or pinhole.</li>
+          <li>Press and hold it with a paperclip for about <strong>10–15 seconds</strong>.</li>
+          <li>Release when the lights blink or the router restarts.</li>
+          <li>Wait for the router to reboot completely.</li>
+          <li>Reconnect to the router’s default Wi-Fi network.</li>
+          <li>Open <code>http://10.10.10.1</code> and set up the router again.</li>
+        </ol>
+        <div class="warning-box" style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.25rem; border-radius: var(--radius-md); color: #92400e;">
+          <strong>⚠️ Important Warning:</strong> A factory reset erases your custom Wi-Fi name, password, admin password, and other settings. Only reset the router if you are prepared to set it up again.
+        </div>
+      </section>
+
+      <!-- Common Mistakes -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Common Mistakes</h2>
+        <ul style="margin-left: 1.5rem; margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.8;">
+          <li><strong>Trying <code>10.10.10.1</code> while connected to mobile data.</strong> Connect directly to the router’s Wi-Fi network or Ethernet port first.</li>
+          <li><strong>Assuming <code>10.10.10.1</code> works on every router.</strong> It is used by some devices, but not all; many routers use <code>192.168.1.1</code> or <code>192.168.0.1</code>.</li>
+          <li><strong>Using the wrong password.</strong> Check the device label or use the password created during initial setup.</li>
+          <li><strong>Typing the address into a search engine.</strong> Enter <code>http://10.10.10.1</code> directly into the browser address bar.</li>
+          <li><strong>Resetting before checking the device label.</strong> The correct gateway address and login details are often printed on the device.</li>
+        </ul>
+      </section>
+
+      <!-- Common Typos -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Common Typos</h2>
+        <p style="color: var(--text-secondary); margin-top: 0.75rem; margin-bottom: 1rem; line-height: 1.6;">
+          Watch out for these common typographical errors when attempting to enter <code>10.10.10.1</code>:
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.75rem; margin-bottom: 1.5rem;">
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.l</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.1.com</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.1 login in Google</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.01</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.1.</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #047857; font-weight: 600;">✅ Correct: http://10.10.10.1</span>
+        </div>
+      </section>
+
+      <!-- FAQs -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>Frequently Asked Questions</h2>
+        <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-top: 1rem;">
+          
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Is 10.10.10.1 a real website?</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              No. It is a private local IP address used by some routers, modems, and gateway devices. It only works when your phone or computer is connected to the same local network.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">What is the default password for 10.10.10.1?</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Common default credentials are <code>admin</code> / <code>admin</code> or <code>admin</code> / <code>password</code>. For ISP-provided devices, the password may be unique and printed on the device label.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Why does 10.10.10.1 not work?</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              The most common reasons are that you are connected to the wrong network, using mobile data or a VPN, typing the address into a search engine, or your router uses a different gateway IP.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">How do I find my router’s IP address?</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              On a computer, check the network settings for the <strong>Default Gateway</strong> or <strong>Router</strong> address. On a phone, open the Wi-Fi network details and look for the <strong>Router</strong> or <strong>Gateway</strong> address.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Can I change my Wi-Fi password at 10.10.10.1?</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+              Yes. Log into the router admin page, open the Wi-Fi or Wireless settings, and change the Wi-Fi password. Save the changes and reconnect your devices using the new password.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- The Bottom Line -->
+      <section style="margin-bottom: 2.5rem;">
+        <h2>The Bottom Line</h2>
+        <div class="verdict-box" style="background: var(--bg-secondary); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: var(--radius-md); margin-top: 1rem;">
+          <div class="verdict-tag" style="display: inline-block; padding: 0.25rem 0.6rem; background: #ecfdf5; color: #047857; font-weight: 700; font-size: 0.8rem; border-radius: 4px; margin-bottom: 0.75rem; text-transform: uppercase;">🎯 Key Takeaway</div>
+          <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+            <code>10.10.10.1</code> is a private router, modem, and gateway login address used by certain devices and custom networks. Connect directly to the router, enter <a href="http://10.10.10.1" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent); text-decoration: underline;"><code>http://10.10.10.1</code></a> in the browser address bar, and use the credentials printed on the device label. If the page will not load, check your device’s gateway address or try another common router login IP.
+          </p>
+        </div>
+      </section>
+
+      <!-- Cross Silo Links -->
+      <section style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h2>Explore Other Gateway IPs &amp; Tools</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
+          <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">⚡ Auto-Detect Local Gateway &rarr;</a>
+          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
+          <a href="/find-router-ip.html" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+"""
+
+    full_html = get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+    return full_html
 
 def generate_custom_10_0_0_1_page():
     canonical = "https://routeriphub.com/ip/10-0-0-1/"
@@ -2185,6 +2789,10 @@ def generate_ip_pages():
         if ip == "10.0.0.1":
             with open(os.path.join(ip_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_10_0_0_1_page())
+            continue
+        elif ip == "10.10.10.1":
+            with open(os.path.join(ip_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_10_10_10_1_page())
             continue
 
         canonical = f"https://routeriphub.com/ip/{slug}/"
@@ -9011,6 +9619,10 @@ def export_datasets():
     with open(os.path.join(data_dir, "routers.sql"), "w", encoding="utf-8") as f:
         f.write("\n".join(sql_lines))
 
+    # 4. gateways.json
+    with open(os.path.join(data_dir, "gateways.json"), "w", encoding="utf-8") as f:
+        json.dump(IP_GATEWAYS, f, indent=2)
+
 # ==============================================================================
 # 9. UPDATE GLOBAL SEARCH INDEX (search-index.json)
 # ==============================================================================
@@ -9079,7 +9691,16 @@ def update_search_index():
 
     # 4. IP Gateways
     for ip_item in IP_GATEWAYS:
-        if ip_item['ip'] == "10.0.0.1":
+        if ip_item['ip'] == "10.10.10.1":
+            search_index.append({
+                "title": "10.10.10.1 Login Admin — Router, Modem & Gateway Setup Guide",
+                "category": "Gateway IP",
+                "badge": "10.10.10.1",
+                "url": "/ip/10-10-10-1/",
+                "snippet": "Can’t open 10.10.10.1? Learn how to log in to your router or gateway, fix 10.10.10.1 not loading, find default credentials, change Wi-Fi settings, and reset your device.",
+                "keywords": "10.10.10.1 10-10-10-1 login admin gateway router modem setup troubleshooting"
+            })
+        elif ip_item['ip'] == "10.0.0.1":
             search_index.append({
                 "title": "10.0.0.1 — Login Admin, Router Setup & Troubleshooting Guide",
                 "category": "Gateway IP",
@@ -9154,6 +9775,7 @@ def update_vercel_config():
     redirects = [
         {"source": "/192-168-1-1.html", "destination": "/ip/192-168-1-1/", "permanent": True},
         {"source": "/192-168-0-1.html", "destination": "/ip/192-168-0-1/", "permanent": True},
+        {"source": "/10-10-10-1.html", "destination": "/ip/10-10-10-1/", "permanent": True},
         {"source": "/10-0-0-1.html", "destination": "/ip/10-0-0-1/", "permanent": True},
         {"source": "/192-168-1-254.html", "destination": "/ip/192-168-1-254/", "permanent": True},
         {"source": "/192-168-2-1.html", "destination": "/ip/192-168-2-1/", "permanent": True},
