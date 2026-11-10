@@ -150,10 +150,10 @@
             </div>
           </li>
           <li><a href="/isp/" class="">ISP Gateways</a></li>
-          <li><a href="/brands/" class="">Brands</a></li>
-          <li><a href="/ip/" class="">IP Directory</a></li>
           <li><a href="/extenders/" class="">Extenders</a></li>
           <li><a href="/tools/" class="">Tools</a></li>
+          <li><a href="/brands/" class="">Brands</a></li>
+          <li><a href="/ip/" class="">IP Directory</a></li>
           <li><a href="/howto/" class="">Guides</a></li>
         </ul>
       </nav>
@@ -220,10 +220,10 @@
             </div>
           </li>
           <li><a href="/isp/"><span>🏢 ISP Gateway Portals (Xfinity, AT&T, Fios)</span><span>&rarr;</span></a></li>
-          <li><a href="/brands/"><span>🏷️ Brand Directories (Netgear, ASUS, TP-Link)</span><span>&rarr;</span></a></li>
-          <li><a href="/ip/"><span>⚡ Gateway IP Directory (192.168.1.1, 10.0.0.1)</span><span>&rarr;</span></a></li>
           <li><a href="/extenders/"><span>📶 Wi-Fi Extenders &amp; Repeaters</span><span>&rarr;</span></a></li>
           <li><a href="/tools/"><span>🛠️ Interactive Networking Tools</span><span>&rarr;</span></a></li>
+          <li><a href="/brands/"><span>🏷️ Brand Directories (Netgear, ASUS, TP-Link)</span><span>&rarr;</span></a></li>
+          <li><a href="/ip/"><span>⚡ Gateway IP Directory (192.168.1.1, 10.0.0.1)</span><span>&rarr;</span></a></li>
           <li><a href="/howto/"><span>📖 Setup & Troubleshooting Guides</span><span>&rarr;</span></a></li>
           <li style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
             <button class="theme-toggle-btn" style="width: 100%; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.15rem; background: var(--bg-card); height: auto; min-height: 48px;">
@@ -246,7 +246,7 @@
   </div>
 
   <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
-    <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem auto;">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">
       <div class="silo-badge silo-badge-router">📡 Programmatic Hardware Silo</div>
       <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem;">
         Router Hardware Models Directory
@@ -256,9 +256,44 @@
       </p>
     </div>
 
-    <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;">
+    <!-- Search Toolbar (Identical to Homepage Structure) -->
+    <div class="search-toolbar" style="margin-bottom: 1.25rem;">
+      <div>
+        <h2 id="models-database-heading" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.25rem;">
+          Instant Model Filter
+        </h2>
+        <div id="models-count" class="result-count">
+          Showing all 251 verified router models
+        </div>
+      </div>
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="model-search-input" class="search-input" placeholder="Filter models (e.g. AX55, RAX50, Archer, Netgear, 192.168.1.1)..." aria-label="Filter router hardware models">
+      </div>
+    </div>
+
+    <!-- Quick Brand Filter Pills -->
+    <div class="filter-chips-row" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; align-items: center;">
+      <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-right: 0.25rem;">Quick Filter:</span>
+      <button type="button" class="brand-filter-pill active" data-brand="all">All (251)</button>
+      <button type="button" class="brand-filter-pill" data-brand="netgear">Netgear</button>
+      <button type="button" class="brand-filter-pill" data-brand="tp-link">TP-Link</button>
+      <button type="button" class="brand-filter-pill" data-brand="asus">ASUS</button>
+      <button type="button" class="brand-filter-pill" data-brand="linksys">Linksys</button>
+      <button type="button" class="brand-filter-pill" data-brand="synology">Synology</button>
+      <button type="button" class="brand-filter-pill" data-brand="ubiquiti">Ubiquiti</button>
+      <button type="button" class="brand-filter-pill" data-brand="arris">Arris</button>
+      <button type="button" class="brand-filter-pill" data-brand="eero">Eero</button>
+      <button type="button" class="brand-filter-pill" data-brand="mikrotik">MikroTik</button>
+      <button type="button" class="brand-filter-pill" data-brand="d-link">D-Link</button>
+      <button type="button" class="brand-filter-pill" data-brand="motorola">Motorola</button>
+      <button type="button" class="brand-filter-pill" data-brand="zyxel">Zyxel</button>
+    </div>
+
+    <!-- Model Cards Container -->
+    <div id="model-cards-container" class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;">
       
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk ax6 (rax50)" data-ip="192.168.1.1" data-search="netgear nighthawk ax6 (rax50) 192.168.1.1 netgear-nighthawk-rax50 wi-fi 6 (802.11ax ax5400) wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -277,7 +312,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk ax12 (rax120)" data-ip="192.168.1.1" data-search="netgear nighthawk ax12 (rax120) 192.168.1.1 netgear-nighthawk-rax120 wi-fi 6 (12-stream ax6000) wi-fi 6 flagship router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -296,7 +331,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk pro gaming xr1000" data-ip="192.168.1.1" data-search="netgear nighthawk pro gaming xr1000 192.168.1.1 netgear-nighthawk-xr1000 wi-fi 6 (ax5400 dumaos 3.0) gaming wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -315,7 +350,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk pro gaming xr500" data-ip="192.168.1.1" data-search="netgear nighthawk pro gaming xr500 192.168.1.1 netgear-nighthawk-xr500 wi-fi 5 (ac2600 dumaos) gaming wi-fi router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -334,7 +369,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk pro gaming xr700" data-ip="192.168.1.1" data-search="netgear nighthawk pro gaming xr700 192.168.1.1 netgear-nighthawk-xr700 wi-fi 5 (ad7200 60ghz + ac) 10g flagship gaming router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -353,7 +388,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk pro gaming xr300" data-ip="192.168.1.1" data-search="netgear nighthawk pro gaming xr300 192.168.1.1 netgear-nighthawk-xr300 wi-fi 5 (ac1750 dumaos) entry gaming router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -372,7 +407,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk ax4 (rax40)" data-ip="192.168.1.1" data-search="netgear nighthawk ax4 (rax40) 192.168.1.1 netgear-nighthawk-rax40 wi-fi 6 (ax3000 dual-band) wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -391,7 +426,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk ax5 (rax43)" data-ip="192.168.1.1" data-search="netgear nighthawk ax5 (rax43) 192.168.1.1 netgear-nighthawk-rax43 wi-fi 6 (ax4200 5-stream) wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -410,7 +445,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk ax8 (rax80)" data-ip="192.168.1.1" data-search="netgear nighthawk ax8 (rax80) 192.168.1.1 netgear-nighthawk-rax80 wi-fi 6 (ax6000 8-stream) wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -429,7 +464,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk tri-band ax12 (rax200)" data-ip="192.168.1.1" data-search="netgear nighthawk tri-band ax12 (rax200) 192.168.1.1 netgear-nighthawk-rax200 wi-fi 6 (ax11000 tri-band) tri-band wi-fi 6 flagship" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -448,7 +483,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk rs700s" data-ip="192.168.1.1" data-search="netgear nighthawk rs700s 192.168.1.1 netgear-nighthawk-rs700s wi-fi 7 (be19000 tri-band) wi-fi 7 multi-gig router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -467,7 +502,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk rs300" data-ip="192.168.1.1" data-search="netgear nighthawk rs300 192.168.1.1 netgear-nighthawk-rs300 wi-fi 7 (be9300 tri-band) wi-fi 7 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -486,7 +521,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk ac1900 (r7000)" data-ip="192.168.1.1" data-search="netgear nighthawk ac1900 (r7000) 192.168.1.1 netgear-nighthawk-r7000 wi-fi 5 (ac1900 dual-band) smart wi-fi router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -505,7 +540,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk ac1750 (r6700)" data-ip="192.168.1.1" data-search="netgear nighthawk ac1750 (r6700) 192.168.1.1 netgear-nighthawk-r6700 wi-fi 5 (ac1750 dual-band) smart wi-fi router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -524,7 +559,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk x6 ac3200 (r8000)" data-ip="192.168.1.1" data-search="netgear nighthawk x6 ac3200 (r8000) 192.168.1.1 netgear-nighthawk-r8000 wi-fi 5 (ac3200 tri-band) tri-band gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -543,7 +578,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk x8 ac5300 (r8500)" data-ip="192.168.1.1" data-search="netgear nighthawk x8 ac5300 (r8500) 192.168.1.1 netgear-nighthawk-r8500 wi-fi 5 (ac5300 tri-band) tri-band quad-stream router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -562,7 +597,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk x10 ad7200 (r9000)" data-ip="192.168.1.1" data-search="netgear nighthawk x10 ad7200 (r9000) 192.168.1.1 netgear-nighthawk-r9000 wi-fi 5 / 802.11ad (ad7200) smart wi-fi router with 10g" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -581,7 +616,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk ac2300 (r7000p)" data-ip="192.168.1.1" data-search="netgear nighthawk ac2300 (r7000p) 192.168.1.1 netgear-nighthawk-r7000p wi-fi 5 (ac2300 mu-mimo) smart wi-fi router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -600,7 +635,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="nighthawk ax3000 (rax35)" data-ip="192.168.1.1" data-search="netgear nighthawk ax3000 (rax35) 192.168.1.1 netgear-nighthawk-rax35 wi-fi 6 (ax3000 4-stream) wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -619,7 +654,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="orbi tri-band wifi 6 (rbk752)" data-ip="192.168.1.1" data-search="netgear orbi tri-band wifi 6 (rbk752) 192.168.1.1 netgear-orbi-rbk752 wi-fi 6 (ax4200 tri-band mesh) whole home mesh system" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -638,7 +673,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="orbi wifi 6 (rbk852)" data-ip="192.168.1.1" data-search="netgear orbi wifi 6 (rbk852) 192.168.1.1 netgear-orbi-rbk852 wi-fi 6 (ax6000 12-stream) flagship mesh wi-fi 6" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -657,7 +692,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="orbi quad-band wifi 6e (rbke963)" data-ip="192.168.1.1" data-search="netgear orbi quad-band wifi 6e (rbke963) 192.168.1.1 netgear-orbi-rbke963 wi-fi 6e (axe11000 quad-band) quad-band mesh system" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -676,7 +711,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="orbi wifi 7 (rbe973)" data-ip="192.168.1.1" data-search="netgear orbi wifi 7 (rbe973) 192.168.1.1 netgear-orbi-rbe973 wi-fi 7 (be27000 quad-band) quad-band wi-fi 7 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -695,7 +730,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="orbi 4g lte wifi router (lbr20)" data-ip="192.168.1.1" data-search="netgear orbi 4g lte wifi router (lbr20) 192.168.1.1 netgear-orbi-lbr20 wi-fi 5 (ac2200 lte cat18) cellular broadband router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -714,7 +749,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="netgear" data-model="netgear ac1200 (r6220)" data-ip="192.168.1.1" data-search="netgear netgear ac1200 (r6220) 192.168.1.1 netgear-r6220 wi-fi 5 (ac1200 dual-band) smart wi-fi gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Netgear</span>
@@ -733,7 +768,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer ax55 (ax3000)" data-ip="192.168.0.1" data-search="tp-link archer ax55 (ax3000) 192.168.0.1 tp-link-archer-ax55 wi-fi 6 (ax3000) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -752,7 +787,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer ax73 (ax5400)" data-ip="192.168.0.1" data-search="tp-link archer ax73 (ax5400) 192.168.0.1 tp-link-archer-ax73 wi-fi 6 (ax5400) 6-stream wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -771,7 +806,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer ax21 (ax1800)" data-ip="192.168.0.1" data-search="tp-link archer ax21 (ax1800) 192.168.0.1 tp-link-archer-ax21 wi-fi 6 (ax1800) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -790,7 +825,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer ax10 (ax1500)" data-ip="192.168.0.1" data-search="tp-link archer ax10 (ax1500) 192.168.0.1 tp-link-archer-ax10 wi-fi 6 (ax1500) wi-fi 6 gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -809,7 +844,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer ax20 (ax1800)" data-ip="192.168.0.1" data-search="tp-link archer ax20 (ax1800) 192.168.0.1 tp-link-archer-ax20 wi-fi 6 (ax1800) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -828,7 +863,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer ax50 (ax3000)" data-ip="192.168.0.1" data-search="tp-link archer ax50 (ax3000) 192.168.0.1 tp-link-archer-ax50 wi-fi 6 (ax3000) wi-fi 6 gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -847,7 +882,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer ax72 (ax5400)" data-ip="192.168.0.1" data-search="tp-link archer ax72 (ax5400) 192.168.0.1 tp-link-archer-ax72 wi-fi 6 (ax5400) wi-fi 6 gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -866,7 +901,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer ax90 (ax6600)" data-ip="192.168.0.1" data-search="tp-link archer ax90 (ax6600) 192.168.0.1 tp-link-archer-ax90 wi-fi 6 (ax6600 tri-band) tri-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -885,7 +920,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer ax11000" data-ip="192.168.0.1" data-search="tp-link archer ax11000 192.168.0.1 tp-link-archer-ax11000 wi-fi 6 (ax11000 tri-band) tri-band gaming wi-fi 6" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -904,7 +939,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer gx90 (ax6600)" data-ip="192.168.0.1" data-search="tp-link archer gx90 (ax6600) 192.168.0.1 tp-link-archer-gx90 wi-fi 6 (ax6600 gaming) tri-band gaming router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -923,7 +958,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer be550 (be9300)" data-ip="192.168.0.1" data-search="tp-link archer be550 (be9300) 192.168.0.1 tp-link-archer-be550 wi-fi 7 (be9300 tri-band) tri-band wi-fi 7 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -942,7 +977,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer be800 (be19000)" data-ip="192.168.0.1" data-search="tp-link archer be800 (be19000) 192.168.0.1 tp-link-archer-be800 wi-fi 7 (be19000) tri-band wi-fi 7 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -961,7 +996,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer be900 (be24000)" data-ip="192.168.0.1" data-search="tp-link archer be900 (be24000) 192.168.0.1 tp-link-archer-be900 wi-fi 7 (be24000 quad-band) quad-band wi-fi 7 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -980,7 +1015,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer c7 (ac1750)" data-ip="192.168.0.1" data-search="tp-link archer c7 (ac1750) 192.168.0.1 tp-link-archer-c7 wi-fi 5 (ac1750 dual-band) dual-band gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -999,7 +1034,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer a7 (ac1750)" data-ip="192.168.0.1" data-search="tp-link archer a7 (ac1750) 192.168.0.1 tp-link-archer-a7 wi-fi 5 (ac1750 dual-band) dual-band gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1018,7 +1053,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer c6 (ac1200)" data-ip="192.168.0.1" data-search="tp-link archer c6 (ac1200) 192.168.0.1 tp-link-archer-c6 wi-fi 5 (ac1200) mu-mimo gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1037,7 +1072,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer a6 (ac1200)" data-ip="192.168.0.1" data-search="tp-link archer a6 (ac1200) 192.168.0.1 tp-link-archer-a6 wi-fi 5 (ac1200) mu-mimo gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1056,7 +1091,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer c80 (ac1900)" data-ip="192.168.0.1" data-search="tp-link archer c80 (ac1900) 192.168.0.1 tp-link-archer-c80 wi-fi 5 (ac1900 3x3 mimo) mu-mimo wi-fi router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1075,7 +1110,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer c2300 (ac2300)" data-ip="192.168.0.1" data-search="tp-link archer c2300 (ac2300) 192.168.0.1 tp-link-archer-c2300 wi-fi 5 (ac2300) mu-mimo gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1094,7 +1129,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="archer c5400x" data-ip="192.168.0.1" data-search="tp-link archer c5400x 192.168.0.1 tp-link-archer-c5400x wi-fi 5 (ac5400 tri-band) tri-band gaming router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1113,7 +1148,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="deco x20 (ax1800)" data-ip="192.168.68.1" data-search="tp-link deco x20 (ax1800) 192.168.68.1 tp-link-deco-x20 wi-fi 6 (ax1800 mesh) mesh wi-fi 6 system" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1132,7 +1167,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="deco x50 (ax3000)" data-ip="192.168.68.1" data-search="tp-link deco x50 (ax3000) 192.168.68.1 tp-link-deco-x50 wi-fi 6 (ax3000 mesh) mesh wi-fi 6 system" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1151,7 +1186,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="deco x55 (ax3000)" data-ip="192.168.68.1" data-search="tp-link deco x55 (ax3000) 192.168.68.1 tp-link-deco-x55 wi-fi 6 (ax3000 mesh) mesh wi-fi 6 system" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1170,7 +1205,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="deco x60 (ax5400)" data-ip="192.168.68.1" data-search="tp-link deco x60 (ax5400) 192.168.68.1 tp-link-deco-x60 wi-fi 6 (ax5400 6-stream) mesh wi-fi 6 system" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1189,7 +1224,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="deco xe75 (axe5400)" data-ip="192.168.68.1" data-search="tp-link deco xe75 (axe5400) 192.168.68.1 tp-link-deco-xe75 wi-fi 6e (axe5400 tri-band) tri-band mesh wi-fi 6e" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1208,7 +1243,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="deco xe75 pro (axe5400)" data-ip="192.168.68.1" data-search="tp-link deco xe75 pro (axe5400) 192.168.68.1 tp-link-deco-xe75-pro wi-fi 6e (axe5400 with 2.5g) tri-band mesh with 2.5g" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1227,7 +1262,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="deco be85 (be22000)" data-ip="192.168.68.1" data-search="tp-link deco be85 (be22000) 192.168.68.1 tp-link-deco-be85 wi-fi 7 (be22000 mesh) tri-band mesh wi-fi 7" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1246,7 +1281,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="deco m4 (ac1200)" data-ip="192.168.68.1" data-search="tp-link deco m4 (ac1200) 192.168.68.1 tp-link-deco-m4 wi-fi 5 (ac1200) whole home mesh wi-fi" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1265,7 +1300,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="deco m5 (ac1300)" data-ip="192.168.68.1" data-search="tp-link deco m5 (ac1300) 192.168.68.1 tp-link-deco-m5 wi-fi 5 (ac1300) whole home mesh wi-fi" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1284,7 +1319,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="tp-link" data-model="omada er605 (tl-r605)" data-ip="192.168.0.1" data-search="tp-link omada er605 (tl-r605) 192.168.0.1 tp-link-omada-er605 gigabit wired vpn router multi-wan vpn router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">TP-Link</span>
@@ -1303,7 +1338,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax88u (ax6000)" data-ip="192.168.50.1" data-search="asus rt-ax88u (ax6000) 192.168.50.1 asus-rt-ax88u wi-fi 6 (ax6000 8-port) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1322,7 +1357,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax86u (ax5700)" data-ip="192.168.50.1" data-search="asus rt-ax86u (ax5700) 192.168.50.1 asus-rt-ax86u wi-fi 6 (ax5700 gaming) dual-band wi-fi 6 gaming" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1341,7 +1376,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax86u pro (ax5700)" data-ip="192.168.50.1" data-search="asus rt-ax86u pro (ax5700) 192.168.50.1 asus-rt-ax86u-pro wi-fi 6 (ax5700 2.0ghz quad-core) dual-band wi-fi 6 gaming" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1360,7 +1395,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax88u pro (ax6000)" data-ip="192.168.50.1" data-search="asus rt-ax88u pro (ax6000) 192.168.50.1 asus-rt-ax88u-pro wi-fi 6 (dual 2.5g ax6000) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1379,7 +1414,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax58u (ax3000)" data-ip="192.168.50.1" data-search="asus rt-ax58u (ax3000) 192.168.50.1 asus-rt-ax58u wi-fi 6 (ax3000 aimesh) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1398,7 +1433,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax55 (ax1800)" data-ip="192.168.50.1" data-search="asus rt-ax55 (ax1800) 192.168.50.1 asus-rt-ax55 wi-fi 6 (ax1800 aimesh) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1417,7 +1452,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax53u (ax1800)" data-ip="192.168.50.1" data-search="asus rt-ax53u (ax1800) 192.168.50.1 asus-rt-ax53u wi-fi 6 (ax1800) wi-fi 6 router with usb" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1436,7 +1471,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax68u (ax2700)" data-ip="192.168.50.1" data-search="asus rt-ax68u (ax2700) 192.168.50.1 asus-rt-ax68u wi-fi 6 (ax2700 3x3) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1455,7 +1490,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax82u (ax5400)" data-ip="192.168.50.1" data-search="asus rt-ax82u (ax5400) 192.168.50.1 asus-rt-ax82u wi-fi 6 (ax5400 aura rgb) dual-band wi-fi 6 gaming" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1474,7 +1509,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax89x (ax6000)" data-ip="192.168.50.1" data-search="asus rt-ax89x (ax6000) 192.168.50.1 asus-rt-ax89x wi-fi 6 (dual 10g sfp+/base-t) dual-band wi-fi 6 dual 10g" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1493,7 +1528,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ax92u (ax6100)" data-ip="192.168.50.1" data-search="asus rt-ax92u (ax6100) 192.168.50.1 asus-rt-ax92u wi-fi 6 (ax6100 tri-band) tri-band wi-fi 6 aimesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1512,7 +1547,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rog rapture gt-ax11000" data-ip="192.168.50.1" data-search="asus rog rapture gt-ax11000 192.168.50.1 asus-rog-rapture-gt-ax11000 wi-fi 6 (ax11000 tri-band) tri-band gaming router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1531,7 +1566,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rog rapture gt-ax11000 pro" data-ip="192.168.50.1" data-search="asus rog rapture gt-ax11000 pro 192.168.50.1 asus-rog-rapture-gt-ax11000-pro wi-fi 6 (ax11000 10g gaming) tri-band gaming flagship" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1550,7 +1585,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rog rapture gt-ax6000" data-ip="192.168.50.1" data-search="asus rog rapture gt-ax6000 192.168.50.1 asus-rog-rapture-gt-ax6000 wi-fi 6 (dual 2.5g gaming) dual-band wi-fi 6 gaming" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1569,7 +1604,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rog rapture gt-axe11000" data-ip="192.168.50.1" data-search="asus rog rapture gt-axe11000 192.168.50.1 asus-rog-rapture-gt-axe11000 wi-fi 6e (axe11000 6ghz) tri-band wi-fi 6e gaming" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1588,7 +1623,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rog rapture gt-axe16000" data-ip="192.168.50.1" data-search="asus rog rapture gt-axe16000 192.168.50.1 asus-rog-rapture-gt-axe16000 wi-fi 6e (quad-band dual 10g) quad-band wi-fi 6e gaming" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1607,7 +1642,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rog rapture gt-be98" data-ip="192.168.50.1" data-search="asus rog rapture gt-be98 192.168.50.1 asus-rog-rapture-gt-be98 wi-fi 7 (be25000 quad-band) quad-band wi-fi 7 gaming" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1626,7 +1661,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rog rapture gt6" data-ip="192.168.50.1" data-search="asus rog rapture gt6 192.168.50.1 asus-rog-rapture-gt6 wi-fi 6 (ax10000 mesh) tri-band mesh gaming system" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1645,7 +1680,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="tuf gaming ax3000" data-ip="192.168.50.1" data-search="asus tuf gaming ax3000 192.168.50.1 asus-tuf-gaming-ax3000 wi-fi 6 (ax3000 gaming) dual-band wi-fi 6 gaming" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1664,7 +1699,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="tuf gaming ax4200" data-ip="192.168.50.1" data-search="asus tuf gaming ax4200 192.168.50.1 asus-tuf-gaming-ax4200 wi-fi 6 (ax4200 2.5g) dual-band wi-fi 6 gaming" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1683,7 +1718,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="tuf gaming ax5400" data-ip="192.168.50.1" data-search="asus tuf gaming ax5400 192.168.50.1 asus-tuf-gaming-ax5400 wi-fi 6 (ax5400 gaming) dual-band wi-fi 6 gaming" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1702,7 +1737,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="zenwifi xt8 (ax6600)" data-ip="192.168.50.1" data-search="asus zenwifi xt8 (ax6600) 192.168.50.1 asus-zenwifi-xt8 wi-fi 6 (ax6600 tri-band mesh) tri-band whole-home mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1721,7 +1756,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="zenwifi xt9 (ax7800)" data-ip="192.168.50.1" data-search="asus zenwifi xt9 (ax7800) 192.168.50.1 asus-zenwifi-xt9 wi-fi 6 (ax7800 160mhz) tri-band whole-home mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1740,7 +1775,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="zenwifi pro xt12" data-ip="192.168.50.1" data-search="asus zenwifi pro xt12 192.168.50.1 asus-zenwifi-pro-xt12 wi-fi 6 (ax11000 dual 2.5g) tri-band flagship mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1759,7 +1794,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="zenwifi pro et12" data-ip="192.168.50.1" data-search="asus zenwifi pro et12 192.168.50.1 asus-zenwifi-pro-et12 wi-fi 6e (axe11000 dual 2.5g) tri-band wi-fi 6e mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1778,7 +1813,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="zenwifi bq16" data-ip="192.168.50.1" data-search="asus zenwifi bq16 192.168.50.1 asus-zenwifi-bq16 wi-fi 7 (be30000 quad-band) quad-band wi-fi 7 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1797,7 +1832,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ac68u (ac1900)" data-ip="192.168.1.1" data-search="asus rt-ac68u (ac1900) 192.168.1.1 asus-rt-ac68u wi-fi 5 (ac1900 aimesh) classic dual-band router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1816,7 +1851,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="asus" data-model="rt-ac86u (ac2900)" data-ip="192.168.1.1" data-search="asus rt-ac86u (ac2900) 192.168.1.1 asus-rt-ac86u wi-fi 5 (ac2900 wtfast) dual-band gaming router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">ASUS</span>
@@ -1835,7 +1870,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="velop micro 6 mesh (ln1301)" data-ip="192.168.1.1" data-search="linksys velop micro 6 mesh (ln1301) 192.168.1.1 linksys-velop-micro-6-mesh-ln1301 wi-fi 6 (ax3000) dual-band wi-fi 6 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -1854,7 +1889,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="velop pro 6e (mx6200)" data-ip="192.168.1.1" data-search="linksys velop pro 6e (mx6200) 192.168.1.1 linksys-velop-pro-6e-mx6200 wi-fi 6e (axe5400 tri-band) cognitive mesh wi-fi 6e" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -1873,7 +1908,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="velop pro 7 (mbe7000)" data-ip="192.168.1.1" data-search="linksys velop pro 7 (mbe7000) 192.168.1.1 linksys-velop-pro-7-mbe7000 wi-fi 7 (be11000 tri-band) cognitive mesh wi-fi 7" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -1892,7 +1927,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="atlas pro 6 (mx5500)" data-ip="192.168.1.1" data-search="linksys atlas pro 6 (mx5500) 192.168.1.1 linksys-atlas-pro-6-mx5500 wi-fi 6 (ax5400) dual-band wi-fi 6 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -1911,7 +1946,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="atlas max 6e (mx8500)" data-ip="192.168.1.1" data-search="linksys atlas max 6e (mx8500) 192.168.1.1 linksys-atlas-max-6e-mx8500 wi-fi 6e (axe8400) tri-band wi-fi 6e mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -1930,7 +1965,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="velop ax4200 (mx4200)" data-ip="192.168.1.1" data-search="linksys velop ax4200 (mx4200) 192.168.1.1 linksys-velop-ax4200-mx4200 wi-fi 6 (ax4200 tri-band) tri-band wi-fi 6 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -1949,7 +1984,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="velop ax5300 (mx5300)" data-ip="192.168.1.1" data-search="linksys velop ax5300 (mx5300) 192.168.1.1 linksys-velop-ax5300-mx5300 wi-fi 6 (ax5300 tri-band) tri-band wi-fi 6 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -1968,7 +2003,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="velop tri-band (whw0303)" data-ip="192.168.1.1" data-search="linksys velop tri-band (whw0303) 192.168.1.1 linksys-velop-whw0303 wi-fi 5 (ac2200 tri-band) ac2200 whole home mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -1987,7 +2022,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="hydra pro 6e (mr7500)" data-ip="192.168.1.1" data-search="linksys hydra pro 6e (mr7500) 192.168.1.1 linksys-hydra-pro-6e-mr7500 wi-fi 6e (axe6600) tri-band wi-fi 6e router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2006,7 +2041,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="hydra 6 (mr2000)" data-ip="192.168.1.1" data-search="linksys hydra 6 (mr2000) 192.168.1.1 linksys-hydra-6-mr2000 wi-fi 6 (ax3000) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2025,7 +2060,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="max-stream mr9600" data-ip="192.168.1.1" data-search="linksys max-stream mr9600 192.168.1.1 linksys-mr9600 wi-fi 6 (ax6000 8-stream) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2044,7 +2079,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="max-stream mr9000" data-ip="192.168.1.1" data-search="linksys max-stream mr9000 192.168.1.1 linksys-mr9000 wi-fi 5 (ac3000 tri-band) tri-band ac3000 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2063,7 +2098,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="max-stream mr8300" data-ip="192.168.1.1" data-search="linksys max-stream mr8300 192.168.1.1 linksys-mr8300 wi-fi 5 (ac2200 tri-band) tri-band ac2200 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2082,7 +2117,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="max-stream mr7350" data-ip="192.168.1.1" data-search="linksys max-stream mr7350 192.168.1.1 linksys-mr7350 wi-fi 6 (ax1800) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2101,7 +2136,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="classic wrt54g" data-ip="192.168.1.1" data-search="linksys classic wrt54g 192.168.1.1 linksys-wrt54g 802.11g (54 mbps) wireless-g router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2120,7 +2155,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="wrt1900acs" data-ip="192.168.1.1" data-search="linksys wrt1900acs 192.168.1.1 linksys-wrt1900acs wi-fi 5 (ac1900 openwrt) dual-band ac1900 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2139,7 +2174,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="wrt3200acm" data-ip="192.168.1.1" data-search="linksys wrt3200acm 192.168.1.1 linksys-wrt3200acm wi-fi 5 (ac3200 tri-stream) dual-band ac3200 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2158,7 +2193,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="wrt32x" data-ip="192.168.1.1" data-search="linksys wrt32x 192.168.1.1 linksys-wrt32x wi-fi 5 (ac3200 killer) gaming wi-fi router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2177,7 +2212,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="max-stream ea7500" data-ip="192.168.1.1" data-search="linksys max-stream ea7500 192.168.1.1 linksys-ea7500 wi-fi 5 (ac1900 mu-mimo) dual-band ac1900 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2196,7 +2231,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="linksys" data-model="max-stream ea8300" data-ip="192.168.1.1" data-search="linksys max-stream ea8300 192.168.1.1 linksys-ea8300 wi-fi 5 (ac2200 tri-band) tri-band ac2200 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Linksys</span>
@@ -2215,7 +2250,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="unifi dream machine pro (udm-pro)" data-ip="192.168.1.1" data-search="ubiquiti unifi dream machine pro (udm-pro) 192.168.1.1 ubiquiti-unifi-dream-machine-pro 10g sfp+ enterprise router 10g enterprise gateway &amp; nvr" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2234,7 +2269,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="unifi dream machine special edition (udm-se)" data-ip="192.168.1.1" data-search="ubiquiti unifi dream machine special edition (udm-se) 192.168.1.1 ubiquiti-unifi-dream-machine-se 10g sfp+ enterprise router with poe 2.5g poe 10g gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2253,7 +2288,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="unifi dream machine (udm)" data-ip="192.168.1.1" data-search="ubiquiti unifi dream machine (udm) 192.168.1.1 ubiquiti-unifi-dream-machine wi-fi 5 (ac2200 4x4 mu-mimo) all-in-one cloud gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2272,7 +2307,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="unifi dream router (udr)" data-ip="192.168.1.1" data-search="ubiquiti unifi dream router (udr) 192.168.1.1 ubiquiti-unifi-dream-router wi-fi 6 (4x4 mimo udr) wi-fi 6 poe gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2291,7 +2326,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="unifi cloud gateway ultra (ucg-ultra)" data-ip="192.168.1.1" data-search="ubiquiti unifi cloud gateway ultra (ucg-ultra) 192.168.1.1 ubiquiti-unifi-cloud-gateway-ultra multi-wan 2.5g gigabit router compact multi-wan gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2310,7 +2345,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="unifi cloud gateway max (ucg-max)" data-ip="192.168.1.1" data-search="ubiquiti unifi cloud gateway max (ucg-max) 192.168.1.1 ubiquiti-unifi-cloud-gateway-max full 2.5gbe gateway with nvme storage 2.5gbe multi-wan gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2329,7 +2364,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="unifi express (ux)" data-ip="192.168.1.1" data-search="ubiquiti unifi express (ux) 192.168.1.1 ubiquiti-unifi-express wi-fi 6 cloud gateway ultra-compact gateway &amp; ap" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2348,7 +2383,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="unifi security gateway (usg-3p)" data-ip="192.168.1.1" data-search="ubiquiti unifi security gateway (usg-3p) 192.168.1.1 ubiquiti-unifi-security-gateway gigabit security gateway enterprise gateway router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2367,7 +2402,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="unifi security gateway pro (usg-pro-4)" data-ip="192.168.1.1" data-search="ubiquiti unifi security gateway pro (usg-pro-4) 192.168.1.1 ubiquiti-unifi-security-gateway-pro gigabit enterprise sfp gateway dual wan 1u gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2386,7 +2421,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="unifi dream wall (udw)" data-ip="192.168.1.1" data-search="ubiquiti unifi dream wall (udw) 192.168.1.1 ubiquiti-unifi-dream-wall wi-fi 6 wall-mount enterprise wall-mount multi-gigabit console" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2405,7 +2440,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="edgerouter x (er-x)" data-ip="192.168.1.1" data-search="ubiquiti edgerouter x (er-x) 192.168.1.1 ubiquiti-edgerouter-x gigabit edgeos router 5-port gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2424,7 +2459,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="edgerouter x sfp (er-x-sfp)" data-ip="192.168.1.1" data-search="ubiquiti edgerouter x sfp (er-x-sfp) 192.168.1.1 ubiquiti-edgerouter-x-sfp gigabit poe edgeos router gigabit router with sfp" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2443,7 +2478,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="edgerouter 4 (er-4)" data-ip="192.168.1.1" data-search="ubiquiti edgerouter 4 (er-4) 192.168.1.1 ubiquiti-edgerouter-4 high-performance edgeos router 4-port gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2462,7 +2497,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="edgerouter 6p (er-6p)" data-ip="192.168.1.1" data-search="ubiquiti edgerouter 6p (er-6p) 192.168.1.1 ubiquiti-edgerouter-6p gigabit edgeos router 6-port poe gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2481,7 +2516,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="edgerouter 12 (er-12)" data-ip="192.168.1.1" data-search="ubiquiti edgerouter 12 (er-12) 192.168.1.1 ubiquiti-edgerouter-12 10-port gigabit enterprise router 10-port gigabit router with sfp" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2500,7 +2535,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="edgerouter infinity (er-8-xg)" data-ip="192.168.1.1" data-search="ubiquiti edgerouter infinity (er-8-xg) 192.168.1.1 ubiquiti-edgerouter-infinity 8-port 10g sfp+ core router 8-port 10g sfp+ router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2519,7 +2554,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="amplifi alien (afi-aln)" data-ip="192.168.112.1" data-search="ubiquiti amplifi alien (afi-aln) 192.168.112.1 ubiquiti-amplifi-alien wi-fi 6 (ax7600 mesh) wi-fi 6 gaming mesh router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2538,7 +2573,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="ubiquiti" data-model="amplifi hd (afi-r)" data-ip="192.168.112.1" data-search="ubiquiti amplifi hd (afi-r) 192.168.112.1 ubiquiti-amplifi-hd wi-fi 5 (ac1750 mesh) high-density home wi-fi" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Ubiquiti</span>
@@ -2557,7 +2592,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="hex (rb750gr3)" data-ip="192.168.88.1" data-search="mikrotik hex (rb750gr3) 192.168.88.1 mikrotik-hex-rb750gr3 gigabit routeros v7 router 5-port gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2576,7 +2611,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="hex s (rb760igs)" data-ip="192.168.88.1" data-search="mikrotik hex s (rb760igs) 192.168.88.1 mikrotik-hex-s-rb760igs gigabit routeros with sfp gigabit router with sfp" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2595,7 +2630,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="hex poe (rb960pgs)" data-ip="192.168.88.1" data-search="mikrotik hex poe (rb960pgs) 192.168.88.1 mikrotik-hex-poe-rb960pgs gigabit poe routeros 5-port gigabit poe router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2614,7 +2649,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="hap ax2 (c52ig-5haxd2haxd-tc)" data-ip="192.168.88.1" data-search="mikrotik hap ax2 (c52ig-5haxd2haxd-tc) 192.168.88.1 mikrotik-hap-ax2 wi-fi 6 (ax1800 quad-core) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2633,7 +2668,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="hap ax3 (c53uig+5hpaxd2hpaxd)" data-ip="192.168.88.1" data-search="mikrotik hap ax3 (c53uig+5hpaxd2hpaxd) 192.168.88.1 mikrotik-hap-ax3 wi-fi 6 (ax1800 with 2.5gbe) wi-fi 6 router with 2.5g" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2652,7 +2687,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="hap ac2 (rbd52g-5hacd2hnd-tc)" data-ip="192.168.88.1" data-search="mikrotik hap ac2 (rbd52g-5hacd2hnd-tc) 192.168.88.1 mikrotik-hap-ac2 wi-fi 5 (ac1200 gigabit) dual-band gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2671,7 +2706,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="hap ac3 (rbd53ig-5hacd2hnd)" data-ip="192.168.88.1" data-search="mikrotik hap ac3 (rbd53ig-5hacd2hnd) 192.168.88.1 mikrotik-hap-ac3 wi-fi 5 (ac1200 high-gain) high-gain wi-fi 5 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2690,7 +2725,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="hap lite (rb941-2nd)" data-ip="192.168.88.1" data-search="mikrotik hap lite (rb941-2nd) 192.168.88.1 mikrotik-hap-lite 802.11b/g/n (300mbps) compact 2.4ghz home ap" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2709,7 +2744,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="rb4011igs+5hacq2hnd-in" data-ip="192.168.88.1" data-search="mikrotik rb4011igs+5hacq2hnd-in 192.168.88.1 mikrotik-rb4011 wi-fi 5 + 10g sfp+ core 10x gigabit + 10g sfp+ router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2728,7 +2763,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="rb5009ug+s+in" data-ip="192.168.88.1" data-search="mikrotik rb5009ug+s+in 192.168.88.1 mikrotik-rb5009 multi-gig 1g/2.5g/10g routeros heavy-duty home lab router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2747,7 +2782,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="l009uigs-2haxd-in" data-ip="192.168.88.1" data-search="mikrotik l009uigs-2haxd-in 192.168.88.1 mikrotik-l009uigs wi-fi 6 (2.4ghz high power) + sfp dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2766,7 +2801,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="ccr2004-16g-2s+" data-ip="192.168.88.1" data-search="mikrotik ccr2004-16g-2s+ 192.168.88.1 mikrotik-ccr2004 16-port gigabit + dual 10g sfp+ 16-port cloud core router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2785,7 +2820,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="chateau 5g ax" data-ip="192.168.88.1" data-search="mikrotik chateau 5g ax 192.168.88.1 mikrotik-chateau-5g-ax wi-fi 6 (ax1800 5g/lte) 5g home gateway wi-fi 6" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2804,7 +2839,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="chateau lte12" data-ip="192.168.88.1" data-search="mikrotik chateau lte12 192.168.88.1 mikrotik-chateau-lte12 wi-fi 5 (ac1200 cat12 lte) cat12 lte home gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2823,7 +2858,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="cloud router switch (crs305-1g-4s+in)" data-ip="192.168.88.1" data-search="mikrotik cloud router switch (crs305-1g-4s+in) 192.168.88.1 mikrotik-crs305 4x 10gbps sfp+ dual boot routeros 4-port 10g sfp+ switch/router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2842,7 +2877,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="mikrotik" data-model="routerboard 3011uias-rm" data-ip="192.168.88.1" data-search="mikrotik routerboard 3011uias-rm 192.168.88.1 mikrotik-rb3011 1u rackmount routeros with lcd 10-port gigabit rackmount" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">MikroTik</span>
@@ -2861,7 +2896,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="eagle pro ai ax1500 (r15)" data-ip="192.168.0.1" data-search="d-link eagle pro ai ax1500 (r15) 192.168.0.1 d-link-eagle-pro-ai-r15 wi-fi 6 (ax1500 ai) smart wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -2880,7 +2915,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="eagle pro ai ax3200 (r32)" data-ip="192.168.0.1" data-search="d-link eagle pro ai ax3200 (r32) 192.168.0.1 d-link-eagle-pro-ai-r32 wi-fi 6 (ax3200 4-stream) wi-fi 6 gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -2899,7 +2934,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="exo ax5400 (dir-x5460)" data-ip="192.168.0.1" data-search="d-link exo ax5400 (dir-x5460) 192.168.0.1 d-link-exo-dir-x5460 wi-fi 6 (ax5400 6-stream) 6-stream wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -2918,7 +2953,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="exo ax1800 (dir-x1860)" data-ip="192.168.0.1" data-search="d-link exo ax1800 (dir-x1860) 192.168.0.1 d-link-exo-dir-x1860 wi-fi 6 (ax1800) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -2937,7 +2972,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="exo ax1500 (dir-x1560)" data-ip="192.168.0.1" data-search="d-link exo ax1500 (dir-x1560) 192.168.0.1 d-link-exo-dir-x1560 wi-fi 6 (ax1500) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -2956,7 +2991,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="dir-882 (ac2600)" data-ip="192.168.0.1" data-search="d-link dir-882 (ac2600) 192.168.0.1 d-link-dir-882 wi-fi 5 (ac2600 4x4) mu-mimo gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -2975,7 +3010,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="dir-878 (ac1900)" data-ip="192.168.0.1" data-search="d-link dir-878 (ac1900) 192.168.0.1 d-link-dir-878 wi-fi 5 (ac1900 3x3) high-power gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -2994,7 +3029,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="dir-867 (ac1750)" data-ip="192.168.0.1" data-search="d-link dir-867 (ac1750) 192.168.0.1 d-link-dir-867 wi-fi 5 (ac1750) dual-band gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -3013,7 +3048,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="dir-842 (ac1200)" data-ip="192.168.0.1" data-search="d-link dir-842 (ac1200) 192.168.0.1 d-link-dir-842 wi-fi 5 (ac1200) wave 2 gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -3032,7 +3067,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="dir-825 (ac1200)" data-ip="192.168.0.1" data-search="d-link dir-825 (ac1200) 192.168.0.1 d-link-dir-825 wi-fi 5 (ac1200 high gain) high-gain gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -3051,7 +3086,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="dir-615" data-ip="192.168.0.1" data-search="d-link dir-615 192.168.0.1 d-link-dir-615 802.11n (300mbps) classic wireless-n router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -3070,7 +3105,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="dir-600" data-ip="192.168.0.1" data-search="d-link dir-600 192.168.0.1 d-link-dir-600 802.11n (150mbps) wireless 150 4-port router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -3089,7 +3124,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="dir-850l" data-ip="192.168.0.1" data-search="d-link dir-850l 192.168.0.1 d-link-dir-850l wi-fi 5 (ac1200 cylindrical) cloud gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -3108,7 +3143,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="covr ax1800 (covr-x1870)" data-ip="192.168.0.1" data-search="d-link covr ax1800 (covr-x1870) 192.168.0.1 d-link-covr-x1870 wi-fi 6 (ax1800 mesh) mesh wi-fi 6 system" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -3127,7 +3162,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="covr ac1200 (covr-1100)" data-ip="192.168.0.1" data-search="d-link covr ac1200 (covr-1100) 192.168.0.1 d-link-covr-1100 wi-fi 5 (ac1200 easymesh) easymesh certified system" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -3146,7 +3181,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="d-link" data-model="dwr-960" data-ip="192.168.0.1" data-search="d-link dwr-960 192.168.0.1 d-link-dwr-960 wi-fi 5 + lte cat 7 lte cat7 wi-fi ac1200 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">D-Link</span>
@@ -3165,7 +3200,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco business rv340" data-ip="192.168.1.1" data-search="cisco cisco business rv340 192.168.1.1 cisco-business-rv340 dual wan gigabit security gateway dual wan gigabit vpn router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3184,7 +3219,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco business rv345" data-ip="192.168.1.1" data-search="cisco cisco business rv345 192.168.1.1 cisco-business-rv345 dual wan 16-port gigabit gateway dual wan 16-port vpn router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3203,7 +3238,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco business rv260" data-ip="192.168.1.1" data-search="cisco cisco business rv260 192.168.1.1 cisco-business-rv260 gigabit sfp vpn security router gigabit vpn router with sfp" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3222,7 +3257,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco business rv160" data-ip="192.168.1.1" data-search="cisco cisco business rv160 192.168.1.1 cisco-business-rv160 gigabit vpn small business router gigabit vpn security router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3241,7 +3276,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco business rv130" data-ip="192.168.1.1" data-search="cisco cisco business rv130 192.168.1.1 cisco-business-rv130 gigabit small business vpn router multifunction vpn router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3260,7 +3295,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco business rv042" data-ip="192.168.1.1" data-search="cisco cisco business rv042 192.168.1.1 cisco-business-rv042 10/100 dual wan business router dual wan 4-port vpn router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3279,7 +3314,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco meraki go gx20" data-ip="192.168.128.1" data-search="cisco cisco meraki go gx20 192.168.128.1 cisco-meraki-go-gx20 cloud managed router firewall cloud managed security gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3298,7 +3333,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco meraki go gx50" data-ip="192.168.128.1" data-search="cisco cisco meraki go gx50 192.168.128.1 cisco-meraki-go-gx50 500mbps security router gateway high-throughput router firewall" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3317,7 +3352,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco catalyst 1000-8t-2g-l" data-ip="192.168.1.254" data-search="cisco cisco catalyst 1000-8t-2g-l 192.168.1.254 cisco-catalyst-1000 enterprise managed layer 2/3 switch enterprise switch router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3336,7 +3371,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco isr 1100 (c1111-8p)" data-ip="192.168.1.1" data-search="cisco cisco isr 1100 (c1111-8p) 192.168.1.1 cisco-isr-1100 cisco ios xe enterprise router integrated services router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3355,7 +3390,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco isr 4331" data-ip="10.0.0.1" data-search="cisco cisco isr 4331 10.0.0.1 cisco-isr-4331 enterprise isr 4000 modular router enterprise modular router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3374,7 +3409,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="cisco" data-model="cisco c921-4p" data-ip="192.168.1.1" data-search="cisco cisco c921-4p 192.168.1.1 cisco-c921-4p gigabit ethernet security router gigabit security router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Cisco</span>
@@ -3393,7 +3428,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="synology" data-model="rt6600ax" data-ip="192.168.1.1" data-search="synology rt6600ax 192.168.1.1 synology-rt6600ax wi-fi 6 (tri-band ax6600) tri-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Synology</span>
@@ -3412,7 +3447,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="synology" data-model="rt2600ac" data-ip="192.168.1.1" data-search="synology rt2600ac 192.168.1.1 synology-rt2600ac wi-fi 5 (ac2600 4x4 mu-mimo) dual-band ac2600 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Synology</span>
@@ -3431,7 +3466,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="synology" data-model="wrx560" data-ip="192.168.1.1" data-search="synology wrx560 192.168.1.1 synology-wrx560 wi-fi 6 (ax3000 with 2.5gbe) dual-band wi-fi 6 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Synology</span>
@@ -3450,7 +3485,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="synology" data-model="mr2200ac" data-ip="192.168.1.1" data-search="synology mr2200ac 192.168.1.1 synology-mr2200ac wi-fi 5 (ac2200 tri-band mesh) tri-band ac2200 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Synology</span>
@@ -3469,7 +3504,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="synology" data-model="rt1900ac" data-ip="192.168.1.1" data-search="synology rt1900ac 192.168.1.1 synology-rt1900ac wi-fi 5 (ac1900) first-gen srm router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Synology</span>
@@ -3488,7 +3523,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="synology" data-model="ds-gateway" data-ip="192.168.1.1" data-search="synology ds-gateway 192.168.1.1 synology-ds-gateway enterprise srm controller modular srm network controller" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Synology</span>
@@ -3507,7 +3542,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="google nest" data-model="nest wifi pro (g6zuc)" data-ip="192.168.86.1" data-search="google nest nest wifi pro (g6zuc) 192.168.86.1 google-nest-wifi-pro wi-fi 6e (axe5400 tri-band) tri-band wi-fi 6e mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Google Nest</span>
@@ -3526,7 +3561,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="google nest" data-model="nest wifi router (h2d)" data-ip="192.168.86.1" data-search="google nest nest wifi router (h2d) 192.168.86.1 google-nest-wifi-router wi-fi 5 (ac2200 4x4 mu-mimo) smart mesh wi-fi router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Google Nest</span>
@@ -3545,7 +3580,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="google nest" data-model="nest wifi point (h2e)" data-ip="192.168.86.1" data-search="google nest nest wifi point (h2e) 192.168.86.1 google-nest-wifi-point wi-fi 5 (ac1200) mesh point with smart speaker" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Google Nest</span>
@@ -3564,7 +3599,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="google nest" data-model="google wifi (nls-1304-25)" data-ip="192.168.86.1" data-search="google nest google wifi (nls-1304-25) 192.168.86.1 google-wifi wi-fi 5 (ac1200 dual-band) whole-home mesh system" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Google Nest</span>
@@ -3583,7 +3618,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="google nest" data-model="google onhub asus (srt-ac1900)" data-ip="192.168.86.1" data-search="google nest google onhub asus (srt-ac1900) 192.168.86.1 google-onhub-asus wi-fi 5 (ac1900 wave antennas) smart wireless router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Google Nest</span>
@@ -3602,7 +3637,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="google nest" data-model="google onhub tp-link (tgr1900)" data-ip="192.168.86.1" data-search="google nest google onhub tp-link (tgr1900) 192.168.86.1 google-onhub-tplink wi-fi 5 (ac1900 circular) smart wireless router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Google Nest</span>
@@ -3621,7 +3656,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="amazon eero" data-model="eero max 7" data-ip="192.168.4.1" data-search="amazon eero eero max 7 192.168.4.1 amazon-eero-max-7 wi-fi 7 (be20800 tri-band) tri-band wi-fi 7 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Amazon Eero</span>
@@ -3640,7 +3675,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="amazon eero" data-model="eero pro 6e (s010001)" data-ip="192.168.4.1" data-search="amazon eero eero pro 6e (s010001) 192.168.4.1 amazon-eero-pro-6e wi-fi 6e (axe5400 tri-band) tri-band wi-fi 6e mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Amazon Eero</span>
@@ -3659,7 +3694,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="amazon eero" data-model="eero pro 6 (k010001)" data-ip="192.168.4.1" data-search="amazon eero eero pro 6 (k010001) 192.168.4.1 amazon-eero-pro-6 wi-fi 6 (ax4200 tri-band) tri-band wi-fi 6 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Amazon Eero</span>
@@ -3678,7 +3713,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="amazon eero" data-model="eero 6+ (r010001)" data-ip="192.168.4.1" data-search="amazon eero eero 6+ (r010001) 192.168.4.1 amazon-eero-6-plus wi-fi 6 (ax3000 160mhz) dual-band wi-fi 6 gigabit" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Amazon Eero</span>
@@ -3697,7 +3732,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="amazon eero" data-model="eero 6 (n010001)" data-ip="192.168.4.1" data-search="amazon eero eero 6 (n010001) 192.168.4.1 amazon-eero-6 wi-fi 6 (ax1800 dual-band) dual-band wi-fi 6 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Amazon Eero</span>
@@ -3716,7 +3751,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="amazon eero" data-model="eero pro (2nd gen - b010001)" data-ip="192.168.4.1" data-search="amazon eero eero pro (2nd gen - b010001) 192.168.4.1 amazon-eero-pro-2nd-gen wi-fi 5 (ac2200 tri-band) tri-band ac2200 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Amazon Eero</span>
@@ -3735,7 +3770,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="amazon eero" data-model="eero beacon" data-ip="192.168.4.1" data-search="amazon eero eero beacon 192.168.4.1 amazon-eero-beacon wi-fi 5 (ac1300 wall plug) plug-in mesh expander" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Amazon Eero</span>
@@ -3754,7 +3789,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="amazon eero" data-model="eero (1st gen)" data-ip="192.168.4.1" data-search="amazon eero eero (1st gen) 192.168.4.1 amazon-eero-1st-gen wi-fi 5 (ac1200) original truemesh router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Amazon Eero</span>
@@ -3773,7 +3808,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 7590 ax" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 7590 ax 192.168.178.1 avm-fritzbox-7590-ax wi-fi 6 + vdsl supervectoring 35b vdsl wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3792,7 +3827,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 7590" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 7590 192.168.178.1 avm-fritzbox-7590 wi-fi 5 (ac+n dual-band) vdsl ac+n gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3811,7 +3846,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 7530 ax" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 7530 ax 192.168.178.1 avm-fritzbox-7530-ax wi-fi 6 (ax1800 vdsl) vdsl wi-fi 6 compact" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3830,7 +3865,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 7530" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 7530 192.168.178.1 avm-fritzbox-7530 wi-fi 5 (ac+n) vdsl entry gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3849,7 +3884,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 5590 fiber" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 5590 fiber 192.168.178.1 avm-fritzbox-5590-fiber wi-fi 6 (4x4 2.5gbe fiber) fiber gpon/aon wi-fi 6" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3868,7 +3903,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 5530 fiber" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 5530 fiber 192.168.178.1 avm-fritzbox-5530-fiber wi-fi 6 (fiber sfp) compact fiber gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3887,7 +3922,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 6690 cable" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 6690 cable 192.168.178.1 avm-fritzbox-6690-cable wi-fi 6 (4x4 docsis 3.1 2.5g) docsis 3.1 2.5g gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3906,7 +3941,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 6660 cable" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 6660 cable 192.168.178.1 avm-fritzbox-6660-cable wi-fi 6 (2x2 docsis 3.1 2.5g) docsis 3.1 cable gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3925,7 +3960,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 4060" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 4060 192.168.178.1 avm-fritzbox-4060 wi-fi 6 (tri-band 2.5gbe wan) tri-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3944,7 +3979,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 4040" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 4040 192.168.178.1 avm-fritzbox-4040 wi-fi 5 (ac1300 dual-band) gigabit wireless router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3963,7 +3998,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 6850 5g" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 6850 5g 192.168.178.1 avm-fritzbox-6850-5g wi-fi 5 (5g/lte sub-6ghz) 5g cellular broadband" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -3982,7 +4017,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="avm fritz!box" data-model="fritz!box 6890 lte" data-ip="192.168.178.1" data-search="avm fritz!box fritz!box 6890 lte 192.168.178.1 avm-fritzbox-6890-lte wi-fi 5 (vdsl 35b + lte) vdsl + lte hybrid gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AVM FRITZ!Box</span>
@@ -4001,7 +4036,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="zyxel" data-model="armor g5 (nbg7815)" data-ip="192.168.1.1" data-search="zyxel armor g5 (nbg7815) 192.168.1.1 zyxel-armor-g5 wi-fi 6 (ax6000 12-stream) wi-fi 6 multi-gig router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Zyxel</span>
@@ -4020,7 +4055,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="zyxel" data-model="armor g1 (nbg6818)" data-ip="192.168.1.1" data-search="zyxel armor g1 (nbg6818) 192.168.1.1 zyxel-armor-g1 wi-fi 5 (ac2600 4x4) multi-gigabit ac2600 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Zyxel</span>
@@ -4039,7 +4074,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="zyxel" data-model="multy x (wsq50)" data-ip="192.168.212.1" data-search="zyxel multy x (wsq50) 192.168.212.1 zyxel-multy-x wi-fi 5 (ac3000 tri-band mesh) tri-band ac3000 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Zyxel</span>
@@ -4058,7 +4093,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="zyxel" data-model="multy m1 (wsm20)" data-ip="192.168.212.1" data-search="zyxel multy m1 (wsm20) 192.168.212.1 zyxel-multy-m1 wi-fi 6 (ax1800 mesh) dual-band wi-fi 6 mesh" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Zyxel</span>
@@ -4077,7 +4112,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="zyxel" data-model="usg flex 100" data-ip="192.168.1.1" data-search="zyxel usg flex 100 192.168.1.1 zyxel-usg-flex-100 nebula cloud utm gateway firewall security gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Zyxel</span>
@@ -4096,7 +4131,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="zyxel" data-model="usg flex 200" data-ip="192.168.1.1" data-search="zyxel usg flex 200 192.168.1.1 zyxel-usg-flex-200 high-throughput utm security gateway utm security gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Zyxel</span>
@@ -4115,7 +4150,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="zyxel" data-model="usg20-vpn" data-ip="192.168.1.1" data-search="zyxel usg20-vpn 192.168.1.1 zyxel-usg20-vpn gigabit fanless vpn firewall fanless vpn gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Zyxel</span>
@@ -4134,7 +4169,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="zyxel" data-model="vmg8825-b50b" data-ip="192.168.1.1" data-search="zyxel vmg8825-b50b 192.168.1.1 zyxel-vmg8825-b50b wi-fi 5 (ac2400 vdsl2 bonding) vdsl2 bonding gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Zyxel</span>
@@ -4153,7 +4188,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="zyxel" data-model="dx3301-t0" data-ip="192.168.1.1" data-search="zyxel dx3301-t0 192.168.1.1 zyxel-dx3301-t0 wi-fi 6 (ax1800 vdsl2) vdsl2 wi-fi 6 gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Zyxel</span>
@@ -4172,7 +4207,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="zyxel" data-model="nbg6604" data-ip="192.168.1.1" data-search="zyxel nbg6604 192.168.1.1 zyxel-nbg6604 wi-fi 5 (ac1200) ac1200 dual-band router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Zyxel</span>
@@ -4191,7 +4226,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="huawei" data-model="wifi ax3 (quad-core ws7200)" data-ip="192.168.3.1" data-search="huawei wifi ax3 (quad-core ws7200) 192.168.3.1 huawei-wifi-ax3-quad-core wi-fi 6 plus (ax3000 quad-core) wi-fi 6 plus router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Huawei</span>
@@ -4210,7 +4245,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="huawei" data-model="wifi ax3 (dual-core ws7100)" data-ip="192.168.3.1" data-search="huawei wifi ax3 (dual-core ws7100) 192.168.3.1 huawei-wifi-ax3-dual-core wi-fi 6 plus (ax3000 dual-core) wi-fi 6 plus router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Huawei</span>
@@ -4229,7 +4264,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="huawei" data-model="wifi ax2 (ws7001)" data-ip="192.168.3.1" data-search="huawei wifi ax2 (ws7001) 192.168.3.1 huawei-wifi-ax2 wi-fi 6 (ax1500) dual-band wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Huawei</span>
@@ -4248,7 +4283,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="huawei" data-model="wifi mesh 7 (ws8800)" data-ip="192.168.3.1" data-search="huawei wifi mesh 7 (ws8800) 192.168.3.1 huawei-wifi-mesh-7 wi-fi 6 (ax6600 tri-band mesh) tri-band mesh wi-fi 6" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Huawei</span>
@@ -4267,7 +4302,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="huawei" data-model="wifi mesh 3 (ws5800)" data-ip="192.168.3.1" data-search="huawei wifi mesh 3 (ws5800) 192.168.3.1 huawei-wifi-mesh-3 wi-fi 6 (ax3000 mesh) dual-band mesh wi-fi 6" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Huawei</span>
@@ -4286,7 +4321,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="huawei" data-model="5g cpe pro 2 (h122-373)" data-ip="192.168.8.1" data-search="huawei 5g cpe pro 2 (h122-373) 192.168.8.1 huawei-5g-cpe-pro-2 wi-fi 6 + 5g sub-6ghz (balong 5000) 5g mobile broadband gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Huawei</span>
@@ -4305,7 +4340,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="huawei" data-model="4g router 3 pro (b535-232)" data-ip="192.168.8.1" data-search="huawei 4g router 3 pro (b535-232) 192.168.8.1 huawei-4g-router-3-pro wi-fi 5 + lte cat 7 (300mbps) lte cat7 wireless router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Huawei</span>
@@ -4324,7 +4359,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="huawei" data-model="echolife hg8245h" data-ip="192.168.100.1" data-search="huawei echolife hg8245h 192.168.100.1 huawei-echolife-hg8245h gpon ont + wi-fi 4 (300mbps) gpon optical ont gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Huawei</span>
@@ -4343,7 +4378,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="huawei" data-model="echolife hg8145v5" data-ip="192.168.100.1" data-search="huawei echolife hg8145v5 192.168.100.1 huawei-echolife-hg8145v5 gpon ont + wi-fi 5 (ac1200) intelligent routing gpon ont" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Huawei</span>
@@ -4362,7 +4397,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="huawei" data-model="4g router b311 (b311-221)" data-ip="192.168.8.1" data-search="huawei 4g router b311 (b311-221) 192.168.8.1 huawei-b311-221 802.11n + lte cat 4 (150mbps) 4g lte wireless gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Huawei</span>
@@ -4381,7 +4416,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="gl.inet" data-model="slate ax (gl-axt1800)" data-ip="192.168.8.1" data-search="gl.inet slate ax (gl-axt1800) 192.168.8.1 gl-inet-slate-ax-gl-axt1800 wi-fi 6 (ax1800 travel) wi-fi 6 travel router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">GL.iNet</span>
@@ -4400,7 +4435,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="gl.inet" data-model="beryl ax (gl-mt3000)" data-ip="192.168.8.1" data-search="gl.inet beryl ax (gl-mt3000) 192.168.8.1 gl-inet-beryl-ax-gl-mt3000 wi-fi 6 (ax3000 with 2.5g wan) pocket wi-fi 6 2.5g router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">GL.iNet</span>
@@ -4419,7 +4454,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="gl.inet" data-model="beryl (gl-mt1300)" data-ip="192.168.8.1" data-search="gl.inet beryl (gl-mt1300) 192.168.8.1 gl-inet-beryl-gl-mt1300 wi-fi 5 (ac1300 dual-band) high-performance travel router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">GL.iNet</span>
@@ -4438,7 +4473,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="gl.inet" data-model="opal (gl-sft1200)" data-ip="192.168.8.1" data-search="gl.inet opal (gl-sft1200) 192.168.8.1 gl-inet-opal-gl-sft1200 wi-fi 5 (ac1200) ultra-portable travel router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">GL.iNet</span>
@@ -4457,7 +4492,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="gl.inet" data-model="slate (gl-ar750s-ext)" data-ip="192.168.8.1" data-search="gl.inet slate (gl-ar750s-ext) 192.168.8.1 gl-inet-slate-gl-ar750s wi-fi 5 (ac750) gigabit dual-band ac router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">GL.iNet</span>
@@ -4476,7 +4511,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="gl.inet" data-model="shadow (gl-ar300m16)" data-ip="192.168.8.1" data-search="gl.inet shadow (gl-ar300m16) 192.168.8.1 gl-inet-shadow-gl-ar300m 802.11n (300mbps micro router) mini micro-usb router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">GL.iNet</span>
@@ -4495,7 +4530,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="gl.inet" data-model="flint (gl-ax1800)" data-ip="192.168.8.1" data-search="gl.inet flint (gl-ax1800) 192.168.8.1 gl-inet-flint-gl-ax1800 wi-fi 6 (ax1800 quad-core) wi-fi 6 openwrt home gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">GL.iNet</span>
@@ -4514,7 +4549,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="gl.inet" data-model="flint 2 (gl-mt6000)" data-ip="192.168.8.1" data-search="gl.inet flint 2 (gl-mt6000) 192.168.8.1 gl-inet-flint-2-gl-mt6000 wi-fi 6 (ax6000 dual 2.5g) dual 2.5g wi-fi 6 router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">GL.iNet</span>
@@ -4533,7 +4568,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="gl.inet" data-model="spitz ax (gl-x3000)" data-ip="192.168.8.1" data-search="gl.inet spitz ax (gl-x3000) 192.168.8.1 gl-inet-spitz-ax-gl-x3000 wi-fi 6 + 5g nr dual-sim dual-sim 5g nr gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">GL.iNet</span>
@@ -4552,7 +4587,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="gl.inet" data-model="mudi (gl-e750)" data-ip="192.168.8.1" data-search="gl.inet mudi (gl-e750) 192.168.8.1 gl-inet-mudi-gl-e750 wi-fi 5 + 4g lte with 7000mah battery portable 4g lte privacy router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">GL.iNet</span>
@@ -4571,7 +4606,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="draytek" data-model="vigor 2927 series" data-ip="192.168.1.1" data-search="draytek vigor 2927 series 192.168.1.1 draytek-vigor-2927 dual-wan gigabit business router dual-wan gigabit vpn router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">DrayTek</span>
@@ -4590,7 +4625,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="draytek" data-model="vigor 2962" data-ip="192.168.1.1" data-search="draytek vigor 2962 192.168.1.1 draytek-vigor-2962 2.5g / sfp multi-wan enterprise multi-wan 2.5g &amp; sfp router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">DrayTek</span>
@@ -4609,7 +4644,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="draytek" data-model="vigor 2865 series" data-ip="192.168.1.1" data-search="draytek vigor 2865 series 192.168.1.1 draytek-vigor-2865 vdsl2 35b supervectoring + gbe wan vdsl2 35b security router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">DrayTek</span>
@@ -4628,7 +4663,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="draytek" data-model="vigor 3910" data-ip="192.168.1.1" data-search="draytek vigor 3910 192.168.1.1 draytek-vigor-3910 quad 10g sfp+ core enterprise router multi-wan 10g enterprise router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">DrayTek</span>
@@ -4647,7 +4682,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="draytek" data-model="vigor 2135 series" data-ip="192.168.1.1" data-search="draytek vigor 2135 series 192.168.1.1 draytek-vigor-2135 gigabit soho security router single-wan gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">DrayTek</span>
@@ -4666,7 +4701,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="draytek" data-model="vigor 2765 series" data-ip="192.168.1.1" data-search="draytek vigor 2765 series 192.168.1.1 draytek-vigor-2765 vdsl2/adsl2+ security router vdsl2/adsl2+ soho router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">DrayTek</span>
@@ -4685,7 +4720,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="draytek" data-model="vigor 2926 series" data-ip="192.168.1.1" data-search="draytek vigor 2926 series 192.168.1.1 draytek-vigor-2926 dual-wan gigabit vpn router dual-wan business router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">DrayTek</span>
@@ -4704,7 +4739,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="draytek" data-model="vigor 2862 series" data-ip="192.168.1.1" data-search="draytek vigor 2862 series 192.168.1.1 draytek-vigor-2862 vdsl2/adsl2+ enterprise router classic vdsl2 security router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">DrayTek</span>
@@ -4723,7 +4758,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="arris" data-model="surfboard g54" data-ip="192.168.0.1" data-search="arris surfboard g54 192.168.0.1 arris-surfboard-g54 wi-fi 7 (be18000 docsis 3.1) quad-band wi-fi 7 cable gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Arris</span>
@@ -4742,7 +4777,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="arris" data-model="surfboard g36" data-ip="192.168.0.1" data-search="arris surfboard g36 192.168.0.1 arris-surfboard-g36 wi-fi 6 (ax3000 docsis 3.1 2.5g) wi-fi 6 ax3000 cable gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Arris</span>
@@ -4761,7 +4796,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="arris" data-model="surfboard g34" data-ip="192.168.0.1" data-search="arris surfboard g34 192.168.0.1 arris-surfboard-g34 wi-fi 6 (ax3000 docsis 3.1) wi-fi 6 ax3000 cable gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Arris</span>
@@ -4780,7 +4815,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="arris" data-model="surfboard sbg8300" data-ip="192.168.0.1" data-search="arris surfboard sbg8300 192.168.0.1 arris-surfboard-sbg8300 wi-fi 5 (ac2300 docsis 3.1) docsis 3.1 ac2300 gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Arris</span>
@@ -4799,7 +4834,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="arris" data-model="surfboard sbg7600ac2" data-ip="192.168.0.1" data-search="arris surfboard sbg7600ac2 192.168.0.1 arris-surfboard-sbg7600ac2 wi-fi 5 (ac2300 32x8) docsis 3.0 ac2300 gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Arris</span>
@@ -4818,7 +4853,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="arris" data-model="surfboard sbg7400ac2" data-ip="192.168.0.1" data-search="arris surfboard sbg7400ac2 192.168.0.1 arris-surfboard-sbg7400ac2 wi-fi 5 (ac1750 24x8) docsis 3.0 ac1750 gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Arris</span>
@@ -4837,7 +4872,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="arris" data-model="surfboard sbg6900-ac" data-ip="192.168.0.1" data-search="arris surfboard sbg6900-ac 192.168.0.1 arris-surfboard-sbg6900-ac wi-fi 5 (ac1900 16x4) docsis 3.0 ac1900 modem router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Arris</span>
@@ -4856,7 +4891,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="arris" data-model="surfboard sbg10" data-ip="192.168.0.1" data-search="arris surfboard sbg10 192.168.0.1 arris-surfboard-sbg10 wi-fi 5 (ac1600 16x4) docsis 3.0 ac1600 gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Arris</span>
@@ -4875,7 +4910,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="arris" data-model="arris nvg589" data-ip="192.168.1.254" data-search="arris arris nvg589 192.168.1.254 arris-nvg589 802.11n vdsl2 bonded gateway vdsl2 gateway with voice" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Arris</span>
@@ -4894,7 +4929,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="arris" data-model="arris bgw210-700" data-ip="192.168.1.254" data-search="arris arris bgw210-700 192.168.1.254 arris-bgw210-700 wi-fi 5 (ac2100 4x4 mu-mimo) broadband fiber ont gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Arris</span>
@@ -4913,7 +4948,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="motorola" data-model="motorola mg8725" data-ip="192.168.0.1" data-search="motorola motorola mg8725 192.168.0.1 motorola-mg8725 wi-fi 6 (ax6000 docsis 3.1 2.5g) docsis 3.1 wi-fi 6 ax6000" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Motorola</span>
@@ -4932,7 +4967,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="motorola" data-model="motorola mg8702" data-ip="192.168.0.1" data-search="motorola motorola mg8702 192.168.0.1 motorola-mg8702 wi-fi 5 (ac3200 4x4 docsis 3.1) docsis 3.1 ac3200 gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Motorola</span>
@@ -4951,7 +4986,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="motorola" data-model="motorola mg7700" data-ip="192.168.0.1" data-search="motorola motorola mg7700 192.168.0.1 motorola-mg7700 wi-fi 5 (ac1900 24x8) docsis 3.0 ac1900 gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Motorola</span>
@@ -4970,7 +5005,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="motorola" data-model="motorola mg7550" data-ip="192.168.0.1" data-search="motorola motorola mg7550 192.168.0.1 motorola-mg7550 wi-fi 5 (ac1900 16x4) docsis 3.0 ac1900 gateway" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Motorola</span>
@@ -4989,7 +5024,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="motorola" data-model="motorola mt7711" data-ip="192.168.0.1" data-search="motorola motorola mt7711 192.168.0.1 motorola-mt7711 wi-fi 5 (ac1900 24x8 telephone) docsis 3.0 with voice" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Motorola</span>
@@ -5008,7 +5043,7 @@
           </div>
         </div>
         
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="motorola" data-model="motorola mr2600" data-ip="192.168.1.1" data-search="motorola motorola mr2600 192.168.1.1 motorola-mr2600 wi-fi 5 (ac2600 4x4) smart wi-fi gigabit router" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Motorola</span>
@@ -5027,6 +5062,23 @@
           </div>
         </div>
         
+    </div>
+
+    <!-- No Results Placeholder -->
+    <div id="no-models-found" style="display: none; text-align: center; padding: 3.5rem 1.5rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px dashed var(--border-color); margin: 2rem 0; width: 100%;">
+      <div style="font-size: 2.25rem; margin-bottom: 0.75rem;">🔍</div>
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">
+        No router models found matching your search
+      </h3>
+      <p style="color: var(--text-secondary); max-width: 520px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
+        We could not find any models matching "<span id="no-model-query" style="font-weight: 600; color: var(--text-primary);"></span>". Try searching for just the model number (e.g. <strong>AX55</strong> or <strong>RAX50</strong>) or browse our brand categories.
+      </p>
+      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        <button type="button" id="reset-search-btn" class="btn btn-primary" style="font-size: 0.85rem;">Clear Search Filter</button>
+        <a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">Browse 19 Brand Hubs &rarr;</a>
+        <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">ISP Gateway Portals &rarr;</a>
+        <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi Extenders &rarr;</a>
+      </div>
     </div>
   </main>
 

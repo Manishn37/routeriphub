@@ -17,6 +17,7 @@ function initApp() {
   initMobileNav();
   initGlobalSiteSearch();
   initSearch();
+  initModelCardsSearch();
   initCopyButtons();
   initFaqAccordion();
   initInstantPrefetch();
@@ -808,6 +809,122 @@ function renderTableRows(items, container) {
     </tr>
   `;
   }).join('');
+}
+
+/* ==========================================================================
+   6b. /routers/ Model Cards Instant Search & Filter (#model-search-input)
+   ========================================================================== */
+function initModelCardsSearch() {
+  const searchInput = document.getElementById('model-search-input');
+  const cardsContainer = document.getElementById('model-cards-container');
+  const countEl = document.getElementById('models-count');
+  const noResults = document.getElementById('no-models-found');
+  const noQueryText = document.getElementById('no-model-query');
+  const filterPills = document.querySelectorAll('.brand-filter-pill');
+  const resetBtn = document.getElementById('reset-search-btn');
+
+  if (!searchInput || !cardsContainer) return;
+
+  const cards = Array.from(cardsContainer.querySelectorAll('.router-model-card'));
+  const totalCount = cards.length;
+  let activeBrand = 'all';
+
+  function applyFilter() {
+    const query = searchInput.value.trim().toLowerCase();
+    let visible = 0;
+
+    cards.forEach(card => {
+      const cardBrand = (card.getAttribute('data-brand') || '').toLowerCase();
+      const cardSearch = (card.getAttribute('data-search') || card.textContent || '').toLowerCase();
+
+      const matchesBrand = (activeBrand === 'all') || (cardBrand === activeBrand);
+      const matchesQuery = !query || cardSearch.includes(query);
+
+      if (matchesBrand && matchesQuery) {
+        card.style.display = 'flex';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (countEl) {
+      if (!query && activeBrand === 'all') {
+        countEl.textContent = `Showing all ${totalCount} verified router models`;
+      } else {
+        countEl.textContent = `Showing ${visible} of ${totalCount} models`;
+      }
+    }
+
+    if (noResults) {
+      if (visible === 0) {
+        noResults.style.display = 'block';
+        if (noQueryText) {
+          noQueryText.textContent = query || activeBrand;
+        }
+      } else {
+        noResults.style.display = 'none';
+      }
+    }
+  }
+
+  searchInput.addEventListener('input', applyFilter);
+
+  // Keyboard shortcut: ESC to clear
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      applyFilter();
+    }
+  });
+
+  // Brand filter pills
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeBrand = (pill.getAttribute('data-brand') || 'all').toLowerCase();
+      applyFilter();
+    });
+  });
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      activeBrand = 'all';
+      filterPills.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-brand') === 'all');
+      });
+      applyFilter();
+      searchInput.focus();
+    });
+  }
+
+  // Pre-fill filter from URL parameters (?q=ax55 or ?brand=netgear)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const qParam = urlParams.get('q');
+    const brandParam = urlParams.get('brand');
+
+    if (brandParam) {
+      const matchingPill = Array.from(filterPills).find(p => p.getAttribute('data-brand') === brandParam.toLowerCase());
+      if (matchingPill) {
+        filterPills.forEach(p => p.classList.remove('active'));
+        matchingPill.classList.add('active');
+        activeBrand = brandParam.toLowerCase();
+      }
+    }
+
+    if (qParam) {
+      searchInput.value = qParam;
+    }
+
+    if (qParam || brandParam) {
+      applyFilter();
+    }
+  } catch (err) {
+    // Non-blocking URL param parsing
+  }
 }
 
 function escapeHtml(str) {

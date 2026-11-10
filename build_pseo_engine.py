@@ -252,10 +252,10 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
             </div>
           </li>
           <li><a href="/isp/" class="{'active' if active_nav == 'isp' else ''}">ISP Gateways</a></li>
-          <li><a href="/brands/" class="{'active' if active_nav == 'brands' else ''}">Brands</a></li>
-          <li><a href="/ip/" class="{'active' if active_nav == 'ip' else ''}">IP Directory</a></li>
           <li><a href="/extenders/" class="{'active' if active_nav == 'extenders' else ''}">Extenders</a></li>
           <li><a href="/tools/" class="{'active' if active_nav == 'tools' else ''}">Tools</a></li>
+          <li><a href="/brands/" class="{'active' if active_nav == 'brands' else ''}">Brands</a></li>
+          <li><a href="/ip/" class="{'active' if active_nav == 'ip' else ''}">IP Directory</a></li>
           <li><a href="/howto/" class="{'active' if active_nav == 'howto' else ''}">Guides</a></li>
         </ul>
       </nav>
@@ -322,10 +322,10 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
             </div>
           </li>
           <li><a href="/isp/"><span>🏢 ISP Gateway Portals (Xfinity, AT&T, Fios)</span><span>&rarr;</span></a></li>
-          <li><a href="/brands/"><span>🏷️ Brand Directories (Netgear, ASUS, TP-Link)</span><span>&rarr;</span></a></li>
-          <li><a href="/ip/"><span>⚡ Gateway IP Directory (192.168.1.1, 10.0.0.1)</span><span>&rarr;</span></a></li>
           <li><a href="/extenders/"><span>📶 Wi-Fi Extenders &amp; Repeaters</span><span>&rarr;</span></a></li>
           <li><a href="/tools/"><span>🛠️ Interactive Networking Tools</span><span>&rarr;</span></a></li>
+          <li><a href="/brands/"><span>🏷️ Brand Directories (Netgear, ASUS, TP-Link)</span><span>&rarr;</span></a></li>
+          <li><a href="/ip/"><span>⚡ Gateway IP Directory (192.168.1.1, 10.0.0.1)</span><span>&rarr;</span></a></li>
           <li><a href="/howto/"><span>📖 Setup & Troubleshooting Guides</span><span>&rarr;</span></a></li>
           <li style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
             <button class="theme-toggle-btn" style="width: 100%; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.15rem; background: var(--bg-card); height: auto; min-height: 48px;">
@@ -1940,8 +1940,9 @@ def generate_router_index_page():
 
     cards_html = ""
     for m in ROUTER_MODELS:
+        search_terms = f"{m['brand']} {m['model_name']} {m['default_ip']} {m['slug']} {m['wifi_standard']} {m['hardware_type']}".lower()
         cards_html += f"""
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card router-model-card" data-brand="{escape(m['brand'].lower())}" data-model="{escape(m['model_name'].lower())}" data-ip="{escape(m['default_ip'].lower())}" data-search="{escape(search_terms)}" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">{escape(m['brand'])}</span>
@@ -1963,7 +1964,7 @@ def generate_router_index_page():
 
     content = f"""
   <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
-    <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem auto;">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">
       <div class="silo-badge silo-badge-router">📡 Programmatic Hardware Silo</div>
       <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem;">
         Router Hardware Models Directory
@@ -1973,8 +1974,60 @@ def generate_router_index_page():
       </p>
     </div>
 
-    <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;">
+    <!-- Search Toolbar (Identical to Homepage Structure) -->
+    <div class="search-toolbar" style="margin-bottom: 1.25rem;">
+      <div>
+        <h2 id="models-database-heading" style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.25rem;">
+          Instant Model Filter
+        </h2>
+        <div id="models-count" class="result-count">
+          Showing all {len(ROUTER_MODELS)} verified router models
+        </div>
+      </div>
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="model-search-input" class="search-input" placeholder="Filter models (e.g. AX55, RAX50, Archer, Netgear, 192.168.1.1)..." aria-label="Filter router hardware models">
+      </div>
+    </div>
+
+    <!-- Quick Brand Filter Pills -->
+    <div class="filter-chips-row" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; align-items: center;">
+      <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-right: 0.25rem;">Quick Filter:</span>
+      <button type="button" class="brand-filter-pill active" data-brand="all">All ({len(ROUTER_MODELS)})</button>
+      <button type="button" class="brand-filter-pill" data-brand="netgear">Netgear</button>
+      <button type="button" class="brand-filter-pill" data-brand="tp-link">TP-Link</button>
+      <button type="button" class="brand-filter-pill" data-brand="asus">ASUS</button>
+      <button type="button" class="brand-filter-pill" data-brand="linksys">Linksys</button>
+      <button type="button" class="brand-filter-pill" data-brand="synology">Synology</button>
+      <button type="button" class="brand-filter-pill" data-brand="ubiquiti">Ubiquiti</button>
+      <button type="button" class="brand-filter-pill" data-brand="arris">Arris</button>
+      <button type="button" class="brand-filter-pill" data-brand="eero">Eero</button>
+      <button type="button" class="brand-filter-pill" data-brand="mikrotik">MikroTik</button>
+      <button type="button" class="brand-filter-pill" data-brand="d-link">D-Link</button>
+      <button type="button" class="brand-filter-pill" data-brand="motorola">Motorola</button>
+      <button type="button" class="brand-filter-pill" data-brand="zyxel">Zyxel</button>
+    </div>
+
+    <!-- Model Cards Container -->
+    <div id="model-cards-container" class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;">
       {cards_html}
+    </div>
+
+    <!-- No Results Placeholder -->
+    <div id="no-models-found" style="display: none; text-align: center; padding: 3.5rem 1.5rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px dashed var(--border-color); margin: 2rem 0; width: 100%;">
+      <div style="font-size: 2.25rem; margin-bottom: 0.75rem;">🔍</div>
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">
+        No router models found matching your search
+      </h3>
+      <p style="color: var(--text-secondary); max-width: 520px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
+        We could not find any models matching "<span id="no-model-query" style="font-weight: 600; color: var(--text-primary);"></span>". Try searching for just the model number (e.g. <strong>AX55</strong> or <strong>RAX50</strong>) or browse our brand categories.
+      </p>
+      <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+        <button type="button" id="reset-search-btn" class="btn btn-primary" style="font-size: 0.85rem;">Clear Search Filter</button>
+        <a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">Browse 19 Brand Hubs &rarr;</a>
+        <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">ISP Gateway Portals &rarr;</a>
+        <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi Extenders &rarr;</a>
+      </div>
     </div>
   </main>
 """
