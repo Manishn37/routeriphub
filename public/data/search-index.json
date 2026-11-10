@@ -2016,12 +2016,12 @@
     "keywords": "xfinity comcast xfi 10.0.0.1 gateway admin tool bridge mode wifi xb6 xb7 xb8 login password"
   },
   {
-    "title": "AT&T Fiber Gateway Portal (192.168.1.254)",
+    "title": "AT&T Fiber Gateway Login \u2014 192.168.1.254 Admin Access",
     "category": "ISP Gateway",
     "badge": "AT&T Fiber",
     "url": "/isp/att-bgw320/",
-    "snippet": "AT&T Fiber BGW320 / BGW210 Gateway login, printed access code, and bridge mode guide.",
-    "keywords": "at&t fiber att-bgw320 192.168.1.254 bridge mode passthrough xfi bgw320 fiber"
+    "snippet": "Access your AT&T Fiber gateway at 192.168.1.254. Find your Device Access Code, manage gateway settings, configure IP Passthrough, and fix login issues.",
+    "keywords": "att at&t fiber bgw320 bgw210 192.168.1.254 device access code ip passthrough gateway admin login"
   },
   {
     "title": "Verizon Fios Gateway Portal (192.168.1.1)",
