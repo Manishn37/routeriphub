@@ -2128,6 +2128,14 @@
     "keywords": "brands router manufacturers netgear asus tp-link linksys xfinity cisco d-link eero synology login setup"
   },
   {
+    "title": "PLDT Brand Directory & Model Matrix",
+    "category": "Brand Directory",
+    "badge": "Brand",
+    "url": "/brands/pldt/",
+    "snippet": "Standard gateways: 192.168.1.1, 192.168.1.253, credentials: admin / 1234.",
+    "keywords": "pldt pldt brand passwords 192.168.1.1 192.168.1.253"
+  },
+  {
     "title": "DrayTek Brand Directory & Model Matrix",
     "category": "Brand Directory",
     "badge": "Brand",

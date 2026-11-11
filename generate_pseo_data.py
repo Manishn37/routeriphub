@@ -162,6 +162,19 @@ ISP_GATEWAYS = [
 
 BRAND_PROFILES = [
     {
+        "slug": "pldt",
+        "name": "PLDT",
+        "hq": "Makati, Philippines",
+        "default_ips": ["192.168.1.1", "192.168.1.253"],
+        "default_creds": "admin / 1234",
+        "web_domains": ["192.168.1.1"],
+        "app_name": "PLDT Home App",
+        "app_url": "https://apps.apple.com/app/pldt-home/id1524316135",
+        "support_domain": "https://www.pldthome.com/change-wifi-password",
+        "models_count": 1,
+        "description": "The Philippines premier telecommunications provider, supplying Home Fiber, VDSL, and wireless gateways to millions of residences."
+    },
+    {
         "slug": "draytek",
         "name": "DrayTek",
         "hq": "Hsinchu, Taiwan",

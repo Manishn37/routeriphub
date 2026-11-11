@@ -243,6 +243,7 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
                 <a href="/brands/mikrotik/" class="dropdown-brand-item">MikroTik</a>
                 <a href="/brands/motorola/" class="dropdown-brand-item">Motorola</a>
                 <a href="/brands/netgear/" class="dropdown-brand-item">Netgear</a>
+                <a href="/routers/pldt/" class="dropdown-brand-item">PLDT</a>
                 <a href="/brands/synology/" class="dropdown-brand-item">Synology</a>
                 <a href="/brands/tp-link/" class="dropdown-brand-item">TP-Link</a>
                 <a href="/brands/ubiquiti/" class="dropdown-brand-item">Ubiquiti</a>
@@ -317,6 +318,7 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
                 <a href="/brands/linksys/">Linksys</a>
                 <a href="/brands/mikrotik/">MikroTik</a>
                 <a href="/brands/netgear/">Netgear</a>
+                <a href="/routers/pldt/">PLDT</a>
                 <a href="/brands/synology/">Synology</a>
                 <a href="/brands/tp-link/">TP-Link</a>
                 <a href="/brands/ubiquiti/">Ubiquiti</a>
@@ -2564,6 +2566,7 @@ def generate_router_index_page():
       <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; margin-right: 0.25rem;">Quick Filter:</span>
       <button type="button" class="brand-filter-pill active" data-brand="all">All ({len(ROUTER_MODELS)})</button>
       <button type="button" class="brand-filter-pill" data-brand="netgear">Netgear</button>
+      <button type="button" class="brand-filter-pill" data-brand="pldt">PLDT</button>
       <button type="button" class="brand-filter-pill" data-brand="tp-link">TP-Link</button>
       <button type="button" class="brand-filter-pill" data-brand="asus">ASUS</button>
       <button type="button" class="brand-filter-pill" data-brand="linksys">Linksys</button>
