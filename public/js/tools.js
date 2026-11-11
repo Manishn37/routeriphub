@@ -576,7 +576,7 @@ function renderDetectedIP(clientIP, container) {
   container.innerHTML = `
     <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem; margin-top: 0.75rem;">
       <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
-        <span style="font-size: 0.85rem; font-weight: 700; color: var(--success-text); text-transform: uppercase;">✓ Local Interface Discovered</span>
+        <span style="font-size: 0.85rem; font-weight: 700; color: var(--success-text); text-transform: uppercase;">Local Interface Discovered</span>
         <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">${inferredSubnet}</span>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
@@ -736,8 +736,7 @@ function initIpAddressChecker() {
     const q = (query !== undefined ? query : (input ? input.value : '')).trim();
     resultsContainer.innerHTML = `
       <div style="text-align: center; padding: 2rem 1rem;">
-        <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
-        <div style="font-size: 0.95rem; color: var(--text-secondary);">Querying IP intelligence & geolocation database...</div>
+        <div style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">Querying IP intelligence &amp; geolocation database...</div>
       </div>
     `;
 
@@ -749,7 +748,7 @@ function initIpAddressChecker() {
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem;">
             <div>
               <span class="badge" style="background: rgba(234, 88, 12, 0.15); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.3); font-weight: 700; margin-bottom: 0.5rem; display: inline-block;">
-                🔒 Private LAN Address (RFC 1918)
+                Private LAN Address (RFC 1918)
               </span>
               <h2 style="font-size: 1.75rem; font-family: var(--font-mono); margin: 0; color: var(--text-primary);">${escapeHtml(q)}</h2>
             </div>
@@ -760,7 +759,7 @@ function initIpAddressChecker() {
             <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">${privateCheck.desc}</p>
           </div>
           <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
-            💡 <strong>Note:</strong> Private IP addresses do not route over the public Internet and have no public ISP, ASN, or external physical geolocation. To configure your router, open <a href="http://${escapeHtml(q)}" target="_blank" style="color: var(--text-accent); text-decoration: underline;">http://${escapeHtml(q)}</a> in your browser.
+            <strong>Note:</strong> Private IP addresses do not route over the public Internet and have no public ISP, ASN, or external physical geolocation. To configure your router, open <a href="http://${escapeHtml(q)}" target="_blank" style="color: var(--text-accent); text-decoration: underline;">http://${escapeHtml(q)}</a> in your browser.
           </p>
         </div>
       `;
@@ -784,7 +783,7 @@ function initIpAddressChecker() {
       const city = data.city || '';
       const region = data.region || '';
       const country = data.country || 'Unknown';
-      const flag = data.flag?.emoji || '🌐';
+      const flag = data.country_code ? `[${escapeHtml(data.country_code)}]` : '';
       const lat = data.latitude !== undefined ? `${data.latitude}°` : 'N/A';
       const lon = data.longitude !== undefined ? `${data.longitude}°` : 'N/A';
       const timezone = data.timezone?.id || 'UTC';
@@ -905,7 +904,7 @@ function initDnsPropagationChecker() {
       name: 'Cloudflare DNS',
       ip: '1.1.1.1',
       location: 'North America / Global Anycast',
-      flag: '🇺🇸',
+      flag: '[US]',
       query: (domain, type) => `https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=${type}`,
       headers: { 'Accept': 'application/dns-json' }
     },
@@ -913,7 +912,7 @@ function initDnsPropagationChecker() {
       name: 'Google Public DNS',
       ip: '8.8.8.8',
       location: 'North America / Global Anycast',
-      flag: '🇺🇸',
+      flag: '[US]',
       query: (domain, type) => `https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=${type}`,
       headers: {}
     },
@@ -921,7 +920,7 @@ function initDnsPropagationChecker() {
       name: 'Quad9 Security DNS',
       ip: '9.9.9.9',
       location: 'Zurich, Switzerland / Europe',
-      flag: '🇨🇭',
+      flag: '[CH]',
       query: (domain, type) => `https://dns.quad9.net/dns-query?name=${encodeURIComponent(domain)}&type=${type}`,
       headers: { 'Accept': 'application/dns-json' }
     },
@@ -929,7 +928,7 @@ function initDnsPropagationChecker() {
       name: 'AdGuard DNS',
       ip: '94.140.14.14',
       location: 'Frankfurt, Germany / Europe',
-      flag: '🇩🇪',
+      flag: '[DE]',
       query: (domain, type) => `https://dns.adguard-dns.com/resolve?name=${encodeURIComponent(domain)}&type=${type}`,
       headers: {}
     },
@@ -937,7 +936,7 @@ function initDnsPropagationChecker() {
       name: 'AliDNS Global',
       ip: '223.5.5.5',
       location: 'Hangzhou, China / Asia Pacific',
-      flag: '🇨🇳',
+      flag: '[CN]',
       query: (domain, type) => `https://dns.alidns.com/resolve?name=${encodeURIComponent(domain)}&type=${type}`,
       headers: {}
     }
@@ -1051,14 +1050,14 @@ function initDnsPropagationChecker() {
     tbody.innerHTML = results.map(res => {
       let statusBadge = '';
       if (res.isOk && res.answers.length > 0) {
-        statusBadge = `<span class="badge" style="background: rgba(34, 197, 94, 0.15); color: #16a34a; border: 1px solid rgba(34, 197, 94, 0.3);">🟢 ${escapeHtml(res.status)}</span>`;
+        statusBadge = `<span class="badge" style="background: rgba(34, 197, 94, 0.15); color: #16a34a; border: 1px solid rgba(34, 197, 94, 0.3);">${escapeHtml(res.status)}</span>`;
         resolvedCount++;
         const sig = res.answers.sort().join(',');
         answerSignatures[sig] = (answerSignatures[sig] || 0) + 1;
       } else if (res.status === 'NXDOMAIN') {
-        statusBadge = `<span class="badge" style="background: rgba(234, 88, 12, 0.15); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.3);">🟡 NXDOMAIN</span>`;
+        statusBadge = `<span class="badge" style="background: rgba(234, 88, 12, 0.15); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.3);">NXDOMAIN</span>`;
       } else {
-        statusBadge = `<span class="badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);">🔴 ${escapeHtml(res.status)}</span>`;
+        statusBadge = `<span class="badge" style="background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3);">${escapeHtml(res.status)}</span>`;
       }
 
       const answersHtml = res.answers.length > 0
@@ -1083,7 +1082,7 @@ function initDnsPropagationChecker() {
       summaryBar.innerHTML = `
         <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
           <span style="font-weight: 700; font-size: 1rem; color: var(--text-primary);">Propagation: ${matchPct}% (${resolvedCount}/${results.length} Nodes Resolved)</span>
-          ${isConsistent ? '<span class="badge" style="background: rgba(34, 197, 94, 0.15); color: #16a34a; border: 1px solid rgba(34, 197, 94, 0.3);">✓ 100% Consistent Records</span>' : ''}
+          ${isConsistent ? '<span class="badge" style="background: rgba(34, 197, 94, 0.15); color: #16a34a; border: 1px solid rgba(34, 197, 94, 0.3);">100% Consistent Records</span>' : ''}
         </div>
         <div style="font-size: 0.825rem; color: var(--text-muted);">
           Queried domain: <strong style="color: var(--text-primary);">${escapeHtml(domain)}</strong> &bull; Type: <strong style="color: var(--text-primary);">${escapeHtml(type)}</strong>

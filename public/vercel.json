@@ -10,7 +10,47 @@
       "permanent": true
     },
     {
+      "source": "/isp/pldt/",
+      "destination": "/routers/pldt/",
+      "permanent": true
+    },
+    {
+      "source": "/brands/pldt",
+      "destination": "/routers/pldt/",
+      "permanent": true
+    },
+    {
+      "source": "/brands/pldt/",
+      "destination": "/routers/pldt/",
+      "permanent": true
+    },
+    {
+      "source": "/brand/pldt.html",
+      "destination": "/routers/pldt/",
+      "permanent": true
+    },
+    {
+      "source": "/brand/pldt",
+      "destination": "/routers/pldt/",
+      "permanent": true
+    },
+    {
+      "source": "/brand/pldt/",
+      "destination": "/routers/pldt/",
+      "permanent": true
+    },
+    {
       "source": "/192-168-1-1.html",
+      "destination": "/ip/192-168-1-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-1-1",
+      "destination": "/ip/192-168-1-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-1-1/",
       "destination": "/ip/192-168-1-1/",
       "permanent": true
     },
@@ -20,12 +60,27 @@
       "permanent": true
     },
     {
-      "source": "/10-10-10-1.html",
-      "destination": "/ip/10-10-10-1/",
+      "source": "/192-168-0-1",
+      "destination": "/ip/192-168-0-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-0-1/",
+      "destination": "/ip/192-168-0-1/",
       "permanent": true
     },
     {
       "source": "/10-0-0-1.html",
+      "destination": "/ip/10-0-0-1/",
+      "permanent": true
+    },
+    {
+      "source": "/10-0-0-1",
+      "destination": "/ip/10-0-0-1/",
+      "permanent": true
+    },
+    {
+      "source": "/10-0-0-1/",
       "destination": "/ip/10-0-0-1/",
       "permanent": true
     },
@@ -35,7 +90,27 @@
       "permanent": true
     },
     {
+      "source": "/192-168-1-254",
+      "destination": "/ip/192-168-1-254/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-1-254/",
+      "destination": "/ip/192-168-1-254/",
+      "permanent": true
+    },
+    {
       "source": "/192-168-2-1.html",
+      "destination": "/ip/192-168-2-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-2-1",
+      "destination": "/ip/192-168-2-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-2-1/",
       "destination": "/ip/192-168-2-1/",
       "permanent": true
     },
@@ -45,7 +120,27 @@
       "permanent": true
     },
     {
+      "source": "/192-168-8-1",
+      "destination": "/ip/192-168-8-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-8-1/",
+      "destination": "/ip/192-168-8-1/",
+      "permanent": true
+    },
+    {
       "source": "/192-168-10-1.html",
+      "destination": "/ip/192-168-10-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-10-1",
+      "destination": "/ip/192-168-10-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-10-1/",
       "destination": "/ip/192-168-10-1/",
       "permanent": true
     },
@@ -55,7 +150,27 @@
       "permanent": true
     },
     {
+      "source": "/192-168-11-1",
+      "destination": "/ip/192-168-11-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-11-1/",
+      "destination": "/ip/192-168-11-1/",
+      "permanent": true
+    },
+    {
       "source": "/192-168-12-1.html",
+      "destination": "/ip/192-168-12-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-12-1",
+      "destination": "/ip/192-168-12-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-12-1/",
       "destination": "/ip/192-168-12-1/",
       "permanent": true
     },
@@ -65,7 +180,42 @@
       "permanent": true
     },
     {
+      "source": "/192-168-31-1",
+      "destination": "/ip/192-168-31-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-31-1/",
+      "destination": "/ip/192-168-31-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-68-1.html",
+      "destination": "/ip/192-168-68-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-68-1",
+      "destination": "/ip/192-168-68-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-68-1/",
+      "destination": "/ip/192-168-68-1/",
+      "permanent": true
+    },
+    {
       "source": "/192-168-88-1.html",
+      "destination": "/ip/192-168-88-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-88-1",
+      "destination": "/ip/192-168-88-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-88-1/",
       "destination": "/ip/192-168-88-1/",
       "permanent": true
     },
@@ -75,8 +225,58 @@
       "permanent": true
     },
     {
+      "source": "/192-168-100-1",
+      "destination": "/ip/192-168-100-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-100-1/",
+      "destination": "/ip/192-168-100-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-178-1.html",
+      "destination": "/ip/192-168-178-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-178-1",
+      "destination": "/ip/192-168-178-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-178-1/",
+      "destination": "/ip/192-168-178-1/",
+      "permanent": true
+    },
+    {
       "source": "/10-0-1-1.html",
       "destination": "/ip/10-0-1-1/",
+      "permanent": true
+    },
+    {
+      "source": "/10-0-1-1",
+      "destination": "/ip/10-0-1-1/",
+      "permanent": true
+    },
+    {
+      "source": "/10-0-1-1/",
+      "destination": "/ip/10-0-1-1/",
+      "permanent": true
+    },
+    {
+      "source": "/10-0-0-138.html",
+      "destination": "/ip/10-0-0-138/",
+      "permanent": true
+    },
+    {
+      "source": "/10-0-0-138",
+      "destination": "/ip/10-0-0-138/",
+      "permanent": true
+    },
+    {
+      "source": "/10-0-0-138/",
+      "destination": "/ip/10-0-0-138/",
       "permanent": true
     },
     {
@@ -85,8 +285,148 @@
       "permanent": true
     },
     {
+      "source": "/192-168-1-2",
+      "destination": "/ip/192-168-1-2/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-1-2/",
+      "destination": "/ip/192-168-1-2/",
+      "permanent": true
+    },
+    {
       "source": "/192-168-1-250.html",
       "destination": "/ip/192-168-1-250/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-1-250",
+      "destination": "/ip/192-168-1-250/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-1-250/",
+      "destination": "/ip/192-168-1-250/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-50-1.html",
+      "destination": "/ip/192-168-50-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-50-1",
+      "destination": "/ip/192-168-50-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-50-1/",
+      "destination": "/ip/192-168-50-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-4-1.html",
+      "destination": "/ip/192-168-4-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-4-1",
+      "destination": "/ip/192-168-4-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-4-1/",
+      "destination": "/ip/192-168-4-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-86-1.html",
+      "destination": "/ip/192-168-86-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-86-1",
+      "destination": "/ip/192-168-86-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-86-1/",
+      "destination": "/ip/192-168-86-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-3-1.html",
+      "destination": "/ip/192-168-3-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-3-1",
+      "destination": "/ip/192-168-3-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-3-1/",
+      "destination": "/ip/192-168-3-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-112-1.html",
+      "destination": "/ip/192-168-112-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-112-1",
+      "destination": "/ip/192-168-112-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-112-1/",
+      "destination": "/ip/192-168-112-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-128-1.html",
+      "destination": "/ip/192-168-128-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-128-1",
+      "destination": "/ip/192-168-128-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-128-1/",
+      "destination": "/ip/192-168-128-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-212-1.html",
+      "destination": "/ip/192-168-212-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-212-1",
+      "destination": "/ip/192-168-212-1/",
+      "permanent": true
+    },
+    {
+      "source": "/192-168-212-1/",
+      "destination": "/ip/192-168-212-1/",
+      "permanent": true
+    },
+    {
+      "source": "/10-10-10-1.html",
+      "destination": "/ip/10-10-10-1/",
+      "permanent": true
+    },
+    {
+      "source": "/10-10-10-1",
+      "destination": "/ip/10-10-10-1/",
+      "permanent": true
+    },
+    {
+      "source": "/10-10-10-1/",
+      "destination": "/ip/10-10-10-1/",
       "permanent": true
     },
     {
@@ -215,22 +555,37 @@
       "permanent": true
     },
     {
-      "source": "/author/vikas-behl",
-      "destination": "/authors/vikas-behl/",
-      "permanent": true
-    },
-    {
-      "source": "/authors",
-      "destination": "/about/",
-      "permanent": true
-    },
-    {
       "source": "/tools.html",
       "destination": "/tools/",
       "permanent": true
     },
     {
+      "source": "/author/vikas-behl",
+      "destination": "/authors/vikas-behl/",
+      "permanent": true
+    },
+    {
+      "source": "/author/vikas-behl/",
+      "destination": "/authors/vikas-behl/",
+      "permanent": true
+    },
+    {
+      "source": "/author/vikas-behl.html",
+      "destination": "/authors/vikas-behl/",
+      "permanent": true
+    },
+    {
+      "source": "/brand/:brand.html",
+      "destination": "/brands/:brand/",
+      "permanent": true
+    },
+    {
       "source": "/brand/:brand",
+      "destination": "/brands/:brand/",
+      "permanent": true
+    },
+    {
+      "source": "/brand/:brand/",
       "destination": "/brands/:brand/",
       "permanent": true
     },
@@ -245,38 +600,63 @@
       "permanent": true
     },
     {
-      "source": "/192-168-50-1.html",
-      "destination": "/ip/192-168-50-1/",
+      "source": "/privacy-policy",
+      "destination": "/privacy/",
       "permanent": true
     },
     {
-      "source": "/192-168-4-1.html",
-      "destination": "/ip/192-168-4-1/",
+      "source": "/privacy-policy/",
+      "destination": "/privacy/",
       "permanent": true
     },
     {
-      "source": "/192-168-86-1.html",
-      "destination": "/ip/192-168-86-1/",
+      "source": "/terms-of-service",
+      "destination": "/terms/",
       "permanent": true
     },
     {
-      "source": "/192-168-3-1.html",
-      "destination": "/ip/192-168-3-1/",
+      "source": "/terms-of-service/",
+      "destination": "/terms/",
       "permanent": true
     },
     {
-      "source": "/192-168-112-1.html",
-      "destination": "/ip/192-168-112-1/",
+      "source": "/routers/gl-inet-beryllium-gl-mt3000",
+      "destination": "/routers/gl-inet-beryl-ax-gl-mt3000/",
       "permanent": true
     },
     {
-      "source": "/192-168-128-1.html",
-      "destination": "/ip/192-168-128-1/",
+      "source": "/routers/gl-inet-beryllium-gl-mt3000/",
+      "destination": "/routers/gl-inet-beryl-ax-gl-mt3000/",
       "permanent": true
     },
     {
-      "source": "/192-168-212-1.html",
-      "destination": "/ip/192-168-212-1/",
+      "source": "/routers/asus-rt-be96u",
+      "destination": "/brands/asus/",
+      "permanent": true
+    },
+    {
+      "source": "/routers/asus-rt-be96u/",
+      "destination": "/brands/asus/",
+      "permanent": true
+    },
+    {
+      "source": "/routers/d-link-exo-ax5400",
+      "destination": "/brands/d-link/",
+      "permanent": true
+    },
+    {
+      "source": "/routers/d-link-exo-ax5400/",
+      "destination": "/brands/d-link/",
+      "permanent": true
+    },
+    {
+      "source": "/routers/arris-surfboard-sb8200",
+      "destination": "/brands/arris/",
+      "permanent": true
+    },
+    {
+      "source": "/routers/arris-surfboard-sb8200/",
+      "destination": "/brands/arris/",
       "permanent": true
     }
   ],
@@ -293,12 +673,20 @@
           "value": "SAMEORIGIN"
         },
         {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://embed.tawk.to https://*.tawk.to; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://embed.tawk.to https://*.tawk.to; img-src 'self' data: https: blob:; font-src 'self' data: https://fonts.gstatic.com https://embed.tawk.to https://*.tawk.to; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms https://embed.tawk.to https://*.tawk.to wss://*.tawk.to https://api.ipify.org https://ipwho.is https://dns.google https://cloudflare-dns.com https://dns.quad9.net https://dns.adguard-dns.com https://dns.alidns.com http://192.168.1.1 http://192.168.0.1 http://10.0.0.1 http://192.168.1.254; frame-src 'self' https://tawk.to https://*.tawk.to; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
         }
       ]
     },

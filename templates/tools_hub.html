@@ -1,339 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Network & Router Diagnostic Tools (2026)</title>
-  <meta name="description" content="Free browser-based networking utilities: Wi-Fi QR Code Generator, CIDR Subnet Calculator, Port Checker, and Gateway Auto-Detector.">
-  <link rel="canonical" href="https://routeriphub.com/tools.html">
-  <!-- Favicon Suite -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#0284c7">
-
-
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://routeriphub.com/tools.html">
-  <meta property="og:title" content="Free Network & Router Tools: Wi-Fi QR, Subnet Calculator & Port Directory">
-  <meta property="og:description" content="Instant, privacy-friendly networking tools running 100% in your browser. Generate Wi-Fi QR codes, calculate subnets, and configure port forwarding.">
-  <meta property="og:site_name" content="RouterIPHub">
-  <meta property="og:image" content="https://routeriphub.com/og-image.png">
-  <meta property="og:image:secure_url" content="https://routeriphub.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:alt" content="RouterIPHub - The Definitive Default Router IP & Gateway Reference">
-  <meta name="twitter:image" content="https://routeriphub.com/og-image.png">
-  <meta name="twitter:image:alt" content="RouterIPHub - The Definitive Default Router IP & Gateway Reference">
-
-    <!-- Instant Theme Initializer (Light Mode Default, 0ms FOUT) -->
-  <script>
-    (function() {
-      try {
-        var t = localStorage.getItem('theme');
-        if (t === 'dark') {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'light');
-        }
-      } catch (e) {}
-    })();
-  </script>
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/app.js" defer></script>
-  <script src="/js/tools.js" defer></script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "name": "RouterIPHub Networking Toolkit",
-        "url": "https://routeriphub.com/tools.html",
-        "applicationCategory": "UtilitiesApplication",
-        "operatingSystem": "All",
-        "description": "Suite of privacy-first, browser-based networking utilities including Wi-Fi QR code generator, CIDR subnet calculator, and port forwarding reference.",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://routeriphub.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Networking Tools",
-            "item": "https://routeriphub.com/tools.html"
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How does the Wi-Fi QR code generator work?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The tool encodes your Wi-Fi SSID, password, and security protocol into a standardized URI string (WIFI:T:WPA;S:MySSID;P:MyPassword;;). When scanned with an iPhone or Android camera, the operating system prompts you to join the network without typing the password."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is my Wi-Fi password sent to any remote server?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. All tools on RouterIPHub execute 100% locally in your client web browser using vanilla JavaScript. No passwords, IPs, or network names are ever transmitted across the internet."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
-
-  <style>
-    .tool-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      margin-bottom: 2.5rem;
-      box-shadow: var(--shadow);
-    }
-    .tool-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    @media (min-width: 768px) {
-      .tool-grid-2 {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    .form-group {
-      margin-bottom: 1rem;
-    }
-    .form-group label {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-      color: var(--text-primary);
-    }
-    .form-control {
-      width: 100%;
-      padding: 0.65rem 0.85rem;
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-md);
-      color: var(--text-primary);
-      font-size: 0.95rem;
-      outline: none;
-    }
-    .form-control:focus {
-      border-color: var(--text-accent);
-    }
-    .qr-preview-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg-secondary);
-      border: 1px dashed var(--border-color);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      min-height: 280px;
-    }
-    .calc-results-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
-    }
-    .calc-results-table td {
-      padding: 0.55rem 0.75rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-    .calc-results-table tr:last-child td {
-      border-bottom: none;
-    }
-    .calc-results-table td:first-child {
-      font-weight: 600;
-      color: var(--text-muted);
-      width: 40%;
-    }
-  </style>
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "zbfhxripke");
-</script>
-  <!-- Google Tag Manager / gtag.js -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-547N7K2L"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
-</head>
-<body>
-
-  <!-- Site Navigation Header -->
-    <!-- Site Navigation Header -->
-    <!-- Site Navigation Header -->
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="/" class="brand-logo" aria-label="RouterIPHub Home">
-        <img src="/assets/logo.png" alt="RouterIPHub" class="logo-img logo-light" width="165" height="32" fetchpriority="high">
-        <img src="/assets/logo-dark.png" alt="RouterIPHub" class="logo-img logo-dark" width="165" height="32" fetchpriority="high">
-        <span class="brand-badge">2026</span>
-      </a>
-
-      <!-- Desktop Navigation Links -->
-      <nav aria-label="Main Navigation" class="desktop-nav">
-        <ul class="nav-links">
-          <li class="nav-dropdown-wrapper">
-            <a href="/routers/" class="nav-dropdown-trigger">
-              <span>Routers</span>
-              <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </a>
-            <div class="nav-dropdown-menu" aria-label="Router Brands">
-              <div class="dropdown-top-bar">
-                <span class="dropdown-title">Hardware Brand Categories</span>
-                <a href="/routers/" class="dropdown-all-link">All 250+ Models &rarr;</a>
-              </div>
-              <div class="dropdown-brands-grid">
-                <a href="/brands/eero/" class="dropdown-brand-item">Amazon Eero</a>
-                <a href="/brands/arris/" class="dropdown-brand-item">Arris</a>
-                <a href="/brands/asus/" class="dropdown-brand-item">ASUS</a>
-                <a href="/brands/avm-fritzbox/" class="dropdown-brand-item">AVM FRITZ!Box</a>
-                <a href="/brands/cisco/" class="dropdown-brand-item">Cisco</a>
-                <a href="/brands/d-link/" class="dropdown-brand-item">D-Link</a>
-                <a href="/brands/draytek/" class="dropdown-brand-item">DrayTek</a>
-                <a href="/brands/gl-inet/" class="dropdown-brand-item">GL.iNet</a>
-                <a href="/brands/google-nest/" class="dropdown-brand-item">Google Nest</a>
-                <a href="/brands/huawei/" class="dropdown-brand-item">Huawei</a>
-                <a href="/brands/linksys/" class="dropdown-brand-item">Linksys</a>
-                <a href="/brands/mikrotik/" class="dropdown-brand-item">MikroTik</a>
-                <a href="/brands/motorola/" class="dropdown-brand-item">Motorola</a>
-                <a href="/brands/netgear/" class="dropdown-brand-item">Netgear</a>
-                <a href="/routers/pldt/" class="dropdown-brand-item">PLDT</a>
-                <a href="/brands/synology/" class="dropdown-brand-item">Synology</a>
-                <a href="/brands/tp-link/" class="dropdown-brand-item">TP-Link</a>
-                <a href="/brands/ubiquiti/" class="dropdown-brand-item">Ubiquiti</a>
-                <a href="/brands/xfinity/" class="dropdown-brand-item">Xfinity</a>
-                <a href="/brands/zyxel/" class="dropdown-brand-item">Zyxel</a>
-              </div>
-              <div class="dropdown-bottom-bar">
-                <a href="/brands/"><span>Explore all 19 Brand Hubs</span> &rarr;</a>
-              </div>
-            </div>
-          </li>
-          <li><a href="/isp/">ISP Gateways</a></li>
-          <li><a href="/brands/">Brands</a></li>
-          <li><a href="/ip/">IP Directory</a></li>
-          <li><a href="/extenders/">Extenders</a></li>
-          <li><a href="/tools/" class="active">Tools</a></li>
-          <li><a href="/howto.html">Guides</a></li>
-        </ul>
-      </nav>
-
-      <!-- Header Actions -->
-      <div class="header-actions">
-        <!-- Global Search Bar Button -->
-        <button class="search-trigger-btn" aria-label="Search entire website" title="Search site (Press / or Ctrl+K)">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <span class="search-trigger-text">Search site...</span>
-          <kbd class="search-trigger-kbd">Ctrl K</kbd>
-        </button>
-
-        <!-- Theme Switcher Button -->
-        <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
-          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-        </button>
-
-        <!-- Mobile Menu Toggle Button -->
-        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-          <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-          <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Navigation Drawer -->
-    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
-      <div class="container">
-        <div style="margin-bottom: 0.75rem;">
-          <button class="search-trigger-btn" style="width: 100%; border-radius: var(--radius-md); justify-content: flex-start; padding: 0.75rem 1rem; min-height: 48px; background: var(--bg-card); gap: 0.75rem;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <span style="font-size: 0.95rem; color: var(--text-muted);">Search entire site (150+ models, IPs, tools)...</span>
-          </button>
-        </div>
-
-        <ul class="mobile-nav-list">
-          <li class="mobile-dropdown-wrapper">
-            <div class="mobile-dropdown-row">
-              <a href="/routers/"><span>Router Models Directory</span></a>
-              <button type="button" class="mobile-dropdown-btn" id="mobile-routers-toggle" aria-expanded="false" aria-label="Toggle brand categories list">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-              </button>
-            </div>
-            <div class="mobile-dropdown-sub" id="mobile-routers-sub">
-              <div class="mobile-brands-chips">
-                <a href="/brands/asus/">ASUS</a>
-                <a href="/brands/cisco/">Cisco</a>
-                <a href="/brands/d-link/">D-Link</a>
-                <a href="/brands/eero/">Eero</a>
-                <a href="/brands/google-nest/">Google Nest</a>
-                <a href="/brands/linksys/">Linksys</a>
-                <a href="/brands/mikrotik/">MikroTik</a>
-                <a href="/brands/netgear/">Netgear</a>
-                <a href="/routers/pldt/">PLDT</a>
-                <a href="/brands/synology/">Synology</a>
-                <a href="/brands/tp-link/">TP-Link</a>
-                <a href="/brands/ubiquiti/">Ubiquiti</a>
-                <a href="/brands/">+ All Brands &rarr;</a>
-              </div>
-            </div>
-          </li>
-          <li><a href="/isp/"><span>ISP Gateway Portals</span><span>&rarr;</span></a></li>
-          <li><a href="/brands/"><span>Brand Directories</span><span>&rarr;</span></a></li>
-          <li><a href="/ip/"><span>Gateway IP Directory</span><span>&rarr;</span></a></li>
-          <li><a href="/extenders/"><span>Wi-Fi Extenders &amp; Repeaters</span><span>&rarr;</span></a></li>
-          <li><a href="/tools/"><span>Interactive Networking Tools</span><span>&rarr;</span></a></li>
-          <li><a href="/howto.html"><span>Setup &amp; Troubleshooting Guides</span><span>&rarr;</span></a></li>
-          <li style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
-            <button class="theme-toggle-btn" style="width: 100%; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.15rem; background: var(--bg-card); height: auto; min-height: 48px;">
-              <span>Switch Theme</span>
-              <span style="font-size: 0.8rem; color: var(--text-muted);">Toggle</span>
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </header>
-
-  <main class="container" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+<main class="container" style="padding-top: 2.5rem; padding-bottom: 4rem;">
     <div class="content-container">
       
       <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">
@@ -357,7 +22,7 @@
         <a href="#port-dir" class="ip-btn" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;">Port Forwarding Directory</a>
         <a href="#gw-probe" class="ip-btn" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;">Gateway Probe</a>
         <a href="#subnet-cheat-sheet" class="ip-btn" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;">CIDR Cheat-Sheet</a>
-        <a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener" class="ip-btn" style="font-size: 0.85rem; padding: 0.4rem 0.85rem; border-color: rgba(2, 132, 199, 0.4); background: rgba(2, 132, 199, 0.08); color: var(--text-accent);">📂 Open-Source Router Dataset (GitHub)</a>
+        <a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener" class="ip-btn" style="font-size: 0.85rem; padding: 0.4rem 0.85rem; border-color: rgba(2, 132, 199, 0.4); background: rgba(2, 132, 199, 0.08); color: var(--text-accent);">Open-Source Router Dataset (GitHub)</a>
       </div>
 
       <!-- ==========================================================================
@@ -493,7 +158,8 @@
         </p>
 
         <div class="pass-gen-toolbar" style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem;">
-          <input type="text" id="pass-output" class="form-control" style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: var(--text-accent); flex: 1;" readonly>
+          <label for="pass-output" class="sr-only">Generated WPA3 password</label>
+          <input type="text" id="pass-output" aria-label="Generated WPA3 password" class="form-control" style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; color: var(--text-accent); flex: 1;" readonly>
           <div class="pass-gen-buttons" style="display: flex; gap: 0.5rem;">
             <button class="btn-primary copy-btn" data-copy="" id="copy-pass-btn" onclick="document.querySelector('.copy-btn[data-copy]').setAttribute('data-copy', document.getElementById('pass-output').value)">
               Copy
@@ -509,7 +175,7 @@
         </div>
 
         <div style="margin-bottom: 1rem;">
-          <label style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.25rem;">
+          <label for="pass-len" style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.25rem;">
             <span>Password Length:</span>
             <strong id="pass-len-val">16</strong> characters
           </label>
@@ -550,7 +216,8 @@
         </p>
 
         <div style="margin-bottom: 1rem;">
-          <input type="text" id="port-search" class="form-control" placeholder="Search by service or port number (e.g., Minecraft, Plex, 25565, 80)...">
+          <label for="port-search" class="sr-only">Search ports or services</label>
+          <input type="text" id="port-search" aria-label="Search ports or services" class="form-control" placeholder="Search by service or port number (e.g., Minecraft, Plex, 25565, 80)...">
         </div>
 
         <div class="table-scroll-hint">
@@ -585,7 +252,7 @@
 
         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
           <button id="detect-local-ip-btn" class="btn-primary" style="padding: 0.75rem 1.25rem; font-size: 0.95rem;">
-            🔍 Detect My Local IP & Gateway
+            Detect Local IP &amp; Gateway
           </button>
           <span style="font-size: 0.85rem; color: var(--text-muted);">100% private & client-side (no data leaves your device)</span>
         </div>
@@ -600,7 +267,7 @@
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.5rem;">
           <h2 style="font-size: 1.5rem; margin: 0;">7. CIDR Subnet Cheat-Sheet & Exporter</h2>
           <button id="download-cheat-sheet-btn" class="btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
-            📥 Export CSV Cheat-Sheet
+            Export CSV Cheat-Sheet
           </button>
         </div>
         <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
@@ -608,7 +275,8 @@
         </p>
 
         <div style="margin-bottom: 1rem;">
-          <input type="text" id="cheat-sheet-filter" class="form-control" placeholder="Filter cheat sheet (e.g. /24, 255.255, Small Office)...">
+          <label for="cheat-sheet-filter" class="sr-only">Filter subnet cheat sheet</label>
+          <input type="text" id="cheat-sheet-filter" aria-label="Filter subnet cheat sheet" class="form-control" placeholder="Filter cheat sheet (e.g. /24, 255.255, Small Office)...">
         </div>
 
         <div class="table-container">
@@ -645,7 +313,8 @@
         </p>
 
         <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
-          <input type="text" id="ip-lookup-input" class="form-control" style="flex: 1; min-width: 240px; font-family: var(--font-mono);" placeholder="Enter IPv4, IPv6, or domain (e.g. 8.8.8.8, 1.1.1.1, github.com)...">
+          <label for="ip-lookup-input" class="sr-only">IPv4, IPv6, or domain</label>
+          <input type="text" id="ip-lookup-input" aria-label="IPv4, IPv6, or domain" class="form-control" style="flex: 1; min-width: 240px; font-family: var(--font-mono);" placeholder="Enter IPv4, IPv6, or domain (e.g. 8.8.8.8, 1.1.1.1, github.com)...">
           <button id="ip-lookup-btn" class="btn-primary" style="padding: 0.65rem 1.25rem;">
             Inspect IP
           </button>
@@ -684,8 +353,10 @@
         </p>
 
         <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
-          <input type="text" id="dns-domain-input" class="form-control" style="flex: 2; min-width: 200px; font-family: var(--font-mono);" placeholder="e.g. google.com, cloudflare.com, yourdomain.com" value="google.com">
-          <select id="dns-type-select" class="form-control" style="flex: 1; min-width: 120px; font-family: var(--font-mono); font-weight: 600;">
+          <label for="dns-domain-input" class="sr-only">Domain name for DNS check</label>
+          <input type="text" id="dns-domain-input" aria-label="Domain name for DNS check" class="form-control" style="flex: 2; min-width: 200px; font-family: var(--font-mono);" placeholder="e.g. google.com, cloudflare.com, yourdomain.com" value="google.com">
+          <label for="dns-type-select" class="sr-only">DNS record type</label>
+          <select id="dns-type-select" aria-label="DNS record type" class="form-control" style="flex: 1; min-width: 120px; font-family: var(--font-mono); font-weight: 600;">
             <option value="A" selected>A (IPv4)</option>
             <option value="AAAA">AAAA (IPv6)</option>
             <option value="CNAME">CNAME (Alias)</option>
@@ -696,7 +367,7 @@
             <option value="PTR">PTR (Reverse)</option>
           </select>
           <button id="dns-check-btn" class="btn-primary" style="padding: 0.65rem 1.25rem;">
-            ⚡ Check DNS
+            Check DNS
           </button>
         </div>
 
@@ -751,7 +422,7 @@
           </div>
           <div>
             <a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 700; padding: 0.75rem 1.25rem; white-space: nowrap;">
-              <span>📂 Open-Source Router Dataset (GitHub)</span>
+              <span>Open-Source Router Dataset (GitHub)</span>
               <span>&rarr;</span>
             </a>
           </div>
@@ -760,83 +431,3 @@
 
     </div>
   </main>
-
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-col">
-        <a href="/" class="brand-logo" style="margin-bottom: 0.75rem;" aria-label="RouterIPHub Home">
-          <img src="/assets/logo.png" alt="RouterIPHub" class="logo-img logo-light" width="165" height="32" loading="lazy">
-          <img src="/assets/logo-dark.png" alt="RouterIPHub" class="logo-dark logo-img" width="165" height="32" loading="lazy">
-        </a>
-        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
-          Open reference platform for router default gateway IPs, factory credentials, LED diagnostics, and networking utilities.
-        </p>
-        <ul class="footer-links">
-          <li><a href="/routers/">Router Directory (250+ Models)</a></li>
-          <li><a href="/extenders/">Wi-Fi Extenders &amp; Repeaters</a></li>
-          <li><a href="/brands/">Hardware Brands</a></li>
-          <li><a href="/isp/">ISP Gateway Portals</a></li>
-          <li><a href="/tools/">Interactive Tools</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <p class="footer-col-title">Popular Gateway IPs</p>
-        <ul class="footer-links">
-          <li><a href="/ip/192-168-1-1/">192.168.1.1 (Netgear/ASUS)</a></li>
-          <li><a href="/ip/192-168-0-1/">192.168.0.1 (TP-Link/D-Link)</a></li>
-          <li><a href="/ip/10-0-0-1/">10.0.0.1 (Xfinity/Comcast)</a></li>
-          <li><a href="/ip/192-168-1-254/">192.168.1.254 (AT&T/BT)</a></li>
-          <li><a href="/ip/192-168-2-1/">192.168.2.1 (Belkin/SMC)</a></li>
-          <li><a href="/ip/192-168-1-250/">192.168.1.250 (Netgear Extenders)</a></li>
-          <li><a href="/ip/">All Gateway IPs &rarr;</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <p class="footer-col-title">Diagnostics &amp; Guides</p>
-        <ul class="footer-links">
-          <li><a href="/find-router-ip.html">Find Router IP on Windows</a></li>
-          <li><a href="/find-router-ip.html#mac">Find Router IP on macOS</a></li>
-          <li><a href="/find-router-ip.html#ios">Find Router IP on Mobile</a></li>
-          <li><a href="/howto.html">How-To Setup Guides</a></li>
-          <li><a href="/tools/subnet-calculator/">Subnet Calculator</a></li>
-          <li><a href="/tools/router-password-generator/">Password Generator</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <p class="footer-col-title">Open Data &amp; Developers</p>
-        <ul class="footer-links">
-          <li><a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener">📂 Open-Source Router Dataset (GitHub)</a></li>
-          <li><a href="/developers.html">Developer API &amp; Datasets</a></li>
-          <li><a href="/data/routers.json" download>routers.json (REST API)</a></li>
-          <li><a href="/llms.txt">llms.txt (AI Directory)</a></li>
-          <li><a href="/llms-full.txt">llms-full.txt (Direct Dataset)</a></li>
-          <li><a href="/sitemap.xml">XML Sitemap Index</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <div>&copy; 2026 RouterIPHub. All rights reserved. Open data licensed under CC BY 4.0.</div>
-      <div style="font-size: 0.8rem; color: var(--text-muted);">Independent technical reference. All trademarks belong to their respective owners.</div>
-    </div>
-  </footer>
-
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/6af46cbb33168a3c42864ac2/1k75chg69';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
-</body>
-</html>

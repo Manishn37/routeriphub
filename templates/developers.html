@@ -1,0 +1,171 @@
+<main class="container" style="padding-top: 2.5rem; padding-bottom: 4rem;">
+    <!-- Breadcrumbs -->
+    <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+      <a href="/">Home</a> &rsaquo; <strong>Developer & Open Datasets</strong>
+    </div>
+
+    <section class="hero" style="text-align: left; padding: 1.5rem 0 2rem;">
+      <div class="hero-pill">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        Open Data Initiative • CC BY 4.0 & MIT License
+      </div>
+      <h1 style="text-align: left;">Open Networking Datasets & Machine-Readable APIs</h1>
+      <p class="hero-subtitle" style="text-align: left; margin: 0 0 1.5rem;">
+        Direct open-access database downloads for network administrators, developers, IT support engineers, and automated diagnostic tools. Verified router gateway IPs, default credentials, and CIDR subnet mappings.
+      </p>
+
+      <div class="answer-box">
+        <div class="answer-box-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          Developer Quick Access
+        </div>
+        <p>
+          All RouterIPHub datasets are maintained under open licenses with zero paywalls. You can query endpoints directly over HTTP or download raw database dumps in JSON, CSV, or ANSI SQL format for local offline integration in network scanners, inventory software, and diagnostic scripts.
+        </p>
+      </div>
+    </section>
+
+    <!-- Dataset Downloads Grid -->
+    <div class="dataset-grid">
+      <!-- GitHub Open-Source Dataset Card -->
+      <div class="dataset-card" style="border: 2px solid rgba(2, 132, 199, 0.4); background: var(--bg-card);">
+        <div class="dataset-card-top">
+          <h2 style="margin: 0; font-size: 1.2rem;">Official GitHub Repository</h2>
+          <span class="dataset-format-badge" style="background: rgba(2, 132, 199, 0.15); color: var(--text-accent);">GITHUB</span>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+          Fork, clone, or star the official open-source repository containing verified router default IPs, factory credentials, and CIDR subnet tables.
+        </p>
+        <a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%; text-align: center; justify-content: center; display: inline-flex; align-items: center; gap: 0.5rem;">
+          Open-Source Router Dataset (GitHub) &rarr;
+        </a>
+      </div>
+
+      <!-- JSON Dataset -->
+      <div class="dataset-card">
+        <div class="dataset-card-top">
+          <h2 style="margin: 0; font-size: 1.2rem;">Complete JSON Dataset</h2>
+          <span class="dataset-format-badge">.JSON</span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); flex: 1; margin-bottom: 1rem;">
+          Standard JSON array containing 62+ router models, manufacturer names, default gateway IPs, local web portals, default usernames, passwords, and technical notes.
+        </p>
+        <div style="display: flex; gap: 0.5rem;">
+          <a href="/data/routers.json" download class="btn-primary" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 0.65rem;">
+            Download JSON
+          </a>
+          <a href="/data/routers.json" target="_blank" class="btn-secondary" style="font-size: 0.85rem; padding: 0.65rem;">
+            Inspect API
+          </a>
+        </div>
+      </div>
+
+      <!-- CSV Dataset -->
+      <div class="dataset-card">
+        <div class="dataset-card-top">
+          <h2 style="margin: 0; font-size: 1.2rem;">Tabular CSV Dataset</h2>
+          <span class="dataset-format-badge">.CSV</span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); flex: 1; margin-bottom: 1rem;">
+          RFC 4180 compliant comma-separated values file formatted for direct import into Microsoft Excel, Google Sheets, LibreOffice Calc, or pandas dataframes.
+        </p>
+        <div style="display: flex; gap: 0.5rem;">
+          <a href="/data/routers.csv" download class="btn-primary" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 0.65rem;">
+            Download CSV
+          </a>
+          <a href="/data/routers.csv" target="_blank" class="btn-secondary" style="font-size: 0.85rem; padding: 0.65rem;">
+            View Raw
+          </a>
+        </div>
+      </div>
+
+      <!-- SQL Database Export -->
+      <div class="dataset-card">
+        <div class="dataset-card-top">
+          <h2 style="margin: 0; font-size: 1.2rem;">SQL Schema & Dump</h2>
+          <span class="dataset-format-badge">.SQL</span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); flex: 1; margin-bottom: 1rem;">
+          Full database table creation schema (`CREATE TABLE router_credentials`) with batched INSERT statements compatible with PostgreSQL, MySQL, SQLite, and MariaDB.
+        </p>
+        <div style="display: flex; gap: 0.5rem;">
+          <a href="/data/routers.sql" download class="btn-primary" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 0.65rem;">
+            Download SQL
+          </a>
+          <a href="/data/routers.sql" target="_blank" class="btn-secondary" style="font-size: 0.85rem; padding: 0.65rem;">
+            View SQL
+          </a>
+        </div>
+      </div>
+
+      <!-- Subnet & Gateways JSON -->
+      <div class="dataset-card">
+        <div class="dataset-card-top">
+          <h2 style="margin: 0; font-size: 1.2rem;">Gateway Subnets JSON</h2>
+          <span class="dataset-format-badge">.JSON</span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); flex: 1; margin-bottom: 1rem;">
+          Complete CIDR subnet specifications for major gateways (192.168.1.1, 192.168.0.1, 10.0.0.1) including network ID, broadcast IP, wildcard masks, and usable host counts.
+        </p>
+        <div style="display: flex; gap: 0.5rem;">
+          <a href="/data/gateways.json" download class="btn-primary" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 0.65rem;">
+            Download Subnets
+          </a>
+          <a href="/data/gateways.json" target="_blank" class="btn-secondary" style="font-size: 0.85rem; padding: 0.65rem;">
+            View JSON
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Integration Code Examples -->
+    <h2>Quick Integration Snippets</h2>
+    <p>
+      Incorporate RouterIPHub's live datasets directly into your network engineering scripts:
+    </p>
+
+    <!-- Python Example -->
+    <div style="margin: 1.5rem 0;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+        <span style="font-weight: 600; font-size: 0.9rem;">Python 3 (Fetch & Filter by Brand)</span>
+        <button class="btn-secondary copy-btn" data-copy="import urllib.request&#10;import json&#10;&#10;url = 'https://routeriphub.com/data/routers.json'&#10;with urllib.request.urlopen(url) as res:&#10;    routers = json.loads(res.read().decode())&#10;&#10;asus_routers = [r for r in routers if 'asus' in r['brand'].lower()]&#10;for r in asus_routers:&#10;    print(f&quot;{r['model']} -> IP: {r['ip']} | Default Pass: {r['password']}&quot;)" style="padding: 0.35rem 0.65rem; font-size: 0.75rem;">Copy Code</button>
+      </div>
+      <pre class="code-preview-box"><code>import urllib.request
+import json
+
+url = 'https://routeriphub.com/data/routers.json'
+with urllib.request.urlopen(url) as res:
+    routers = json.loads(res.read().decode())
+
+# Filter for ASUS models
+asus_routers = [r for r in routers if 'asus' in r['brand'].lower()]
+for r in asus_routers:
+    print(f"{r['model']} -> IP: {r['ip']} | Default Pass: {r['password']}")</code></pre>
+    </div>
+
+    <!-- cURL / Bash Example -->
+    <div style="margin: 1.5rem 0;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+        <span style="font-weight: 600; font-size: 0.9rem;">cURL / JQ Terminal Pipe</span>
+        <button class="btn-secondary copy-btn" data-copy="curl -s https://routeriphub.com/data/routers.json | jq '.[] | select(.brand == &quot;Netgear&quot;) | {model, ip, password}'" style="padding: 0.35rem 0.65rem; font-size: 0.75rem;">Copy Code</button>
+      </div>
+      <pre class="code-preview-box"><code># Fetch all Netgear credentials via terminal:
+curl -s https://routeriphub.com/data/routers.json | jq '.[] | select(.brand == "Netgear") | {model, ip, password}'</code></pre>
+    </div>
+
+    <!-- AI / LLM Integration -->
+    <h2>Machine-Readable AI Context Files (llms.txt)</h2>
+    <p>
+      RouterIPHub implements the standardized <code>/llms.txt</code> and <code>/llms-full.txt</code> specifications, providing plain-text markdown datasets optimized for retrieval-augmented generation (RAG), LLM embeddings, and autonomous agent queries:
+    </p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+      <a href="/llms.txt" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1rem;">
+        <span>View llms.txt (Standard)</span>
+        <span>&rarr;</span>
+      </a>
+      <a href="/llms-full.txt" target="_blank" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.65rem 1rem;">
+        <span>View llms-full.txt (Full Dataset)</span>
+        <span>&rarr;</span>
+      </a>
+    </div>
+  </main>

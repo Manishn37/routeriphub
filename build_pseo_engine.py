@@ -28,10 +28,23 @@ from generate_pseo_data import (
     TOOL_PAGES,
     EXTENDER_PROFILES
 )
+from site_templates import (
+    LOGO_SCHEMA,
+    ORG_PUBLISHER,
+    BRAND_LOGO_HTML,
+    smart_model_name,
+    build_router_title,
+    build_router_meta_desc,
+    generate_router_rich_sections,
+    generate_brand_rich_sections,
+    get_sitemap_lastmod,
+    generate_trust_and_legal_pages,
+    generate_static_guide_pages,
+)
 
 ROOT_DIR = r"C:\Users\acer\.gemini\antigravity\scratch\routeriphub"
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
-TODAY = "2026-11-03"
+TODAY = "2026-11-11"
 
 AUTHOR_VIKAS = {
     "@type": "Person",
@@ -48,7 +61,7 @@ REVIEWER_LAB = {
     "@type": "Organization",
     "name": "RouterIPHub Technical Lab",
     "url": "https://routeriphub.com/about/",
-    "logo": "https://routeriphub.com/favicon.svg"
+    "logo": LOGO_SCHEMA
 }
 
 def get_byline_html(updated_date="November 2026"):
@@ -86,8 +99,24 @@ def escape(s):
 def make_dirs(path):
     os.makedirs(path, exist_ok=True)
 
+def _sanitize_schema_node(node):
+    if isinstance(node, dict):
+        if "publisher" in node and isinstance(node["publisher"], dict):
+            node["publisher"].setdefault("logo", LOGO_SCHEMA)
+            if node["publisher"].get("logo") == "https://routeriphub.com/favicon.svg":
+                node["publisher"]["logo"] = LOGO_SCHEMA
+        if "logo" in node and node["logo"] == "https://routeriphub.com/favicon.svg":
+            node["logo"] = LOGO_SCHEMA
+        for v in node.values():
+            _sanitize_schema_node(v)
+    elif isinstance(node, list):
+        for item in node:
+            _sanitize_schema_node(item)
+    return node
+
+
 # Common Header & Nav
-def get_header(title, description, canonical_url, active_nav="", breadcrumbs=None, schemas_json_ld=None):
+def get_header(title, description, canonical_url, active_nav="", breadcrumbs=None, schemas_json_ld=None, include_tools=False):
     b_items = breadcrumbs or [("Home", "/")]
     
     # Generate BreadcrumbList Schema
@@ -109,9 +138,14 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
     
     all_schemas = [bc_schema]
     if schemas_json_ld:
-        all_schemas.extend(schemas_json_ld)
+        for s in schemas_json_ld:
+            if isinstance(s, dict) and s.get("@type") == "HowTo":
+                continue
+            all_schemas.append(_sanitize_schema_node(s))
         
     schema_block = json.dumps({"@context": "https://schema.org", "@graph": all_schemas}, indent=2)
+
+    tools_script_tag = '\n  <script src="/js/tools.js" defer></script>' if (include_tools or active_nav == "tools") else ""
 
     # Breadcrumbs HTML
     bc_html_parts = []
@@ -180,8 +214,23 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
     }})();
   </script>
   <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/app.js" defer></script>
-  <script src="/js/tools.js" defer></script>
+  <script src="/js/app.js" defer></script>{tools_script_tag}
+
+  <script type="speculationrules">
+  {{
+    "prefetch": [
+      {{
+        "where": {{
+          "and": [
+            {{"href_matches": "/*"}},
+            {{"not": {{"href_matches": "/data/*"}}}}
+          ]
+        }},
+        "eagerness": "moderate"
+      }}
+    ]
+  }}
+  </script>
 
   <!-- Structured Data / JSON-LD -->
   <script type="application/ld+json">
@@ -210,8 +259,7 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="/" class="brand-logo" aria-label="RouterIPHub Home">
-        <img src="/assets/logo.png" alt="RouterIPHub" class="logo-img logo-light" width="165" height="32" fetchpriority="high">
-        <img src="/assets/logo-dark.png" alt="RouterIPHub" class="logo-img logo-dark" width="165" height="32" fetchpriority="high">
+        {BRAND_LOGO_HTML}
         <span class="brand-badge">2026</span>
       </a>
 
@@ -226,7 +274,7 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
             <div class="nav-dropdown-menu" aria-label="Router Brands">
               <div class="dropdown-top-bar">
                 <span class="dropdown-title">Hardware Brand Categories</span>
-                <a href="/routers/" class="dropdown-all-link">All 250+ Models &rarr;</a>
+                <a href="/routers/" class="dropdown-all-link">All {len(ROUTER_MODELS)} Models &rarr;</a>
               </div>
               <div class="dropdown-brands-grid">
                 <a href="/brands/eero/" class="dropdown-brand-item">Amazon Eero</a>
@@ -251,7 +299,7 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
                 <a href="/brands/zyxel/" class="dropdown-brand-item">Zyxel</a>
               </div>
               <div class="dropdown-bottom-bar">
-                <a href="/brands/"><span>Explore all 19 Brand Hubs</span> &rarr;</a>
+                <a href="/brands/"><span>Explore all {len(BRAND_PROFILES)} Brand Directories</span> &rarr;</a>
               </div>
             </div>
           </li>
@@ -296,7 +344,7 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
         <div style="margin-bottom: 0.75rem;">
           <button class="search-trigger-btn" style="width: 100%; border-radius: var(--radius-md); justify-content: flex-start; padding: 0.75rem 1rem; min-height: 48px; background: var(--bg-card); gap: 0.75rem;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <span style="font-size: 0.95rem; color: var(--text-muted);">Search entire site (150+ models, IPs, tools)...</span>
+            <span style="font-size: 0.95rem; color: var(--text-muted);">Search {len(ROUTER_MODELS)}+ models, IPs, tools...</span>
           </button>
         </div>
 
@@ -354,22 +402,21 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
 """
 
 def get_footer():
-    return """
+    return f"""
   <!-- Site Footer -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-col">
         <a href="/" class="brand-logo" style="margin-bottom: 0.75rem;" aria-label="RouterIPHub Home">
-          <img src="/assets/logo.png" alt="RouterIPHub" class="logo-img logo-light" width="165" height="32" loading="lazy">
-          <img src="/assets/logo-dark.png" alt="RouterIPHub" class="logo-img logo-dark" width="165" height="32" loading="lazy">
+          {BRAND_LOGO_HTML}
         </a>
         <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
           Open reference platform for router default gateway IPs, factory credentials, LED diagnostics, and networking utilities.
         </p>
         <ul class="footer-links">
-          <li><a href="/routers/">Router Directory (250+ Models)</a></li>
+          <li><a href="/routers/">Router Directory ({len(ROUTER_MODELS)} Models)</a></li>
           <li><a href="/extenders/">Wi-Fi Extenders &amp; Repeaters</a></li>
-          <li><a href="/brands/">Hardware Brands</a></li>
+          <li><a href="/brands/">Hardware Brands ({len(BRAND_PROFILES)})</a></li>
           <li><a href="/isp/">ISP Gateway Portals</a></li>
           <li><a href="/tools/">Interactive Tools</a></li>
         </ul>
@@ -381,7 +428,7 @@ def get_footer():
           <li><a href="/ip/192-168-1-1/">192.168.1.1 (Netgear/ASUS)</a></li>
           <li><a href="/ip/192-168-0-1/">192.168.0.1 (TP-Link/D-Link)</a></li>
           <li><a href="/ip/10-0-0-1/">10.0.0.1 (Xfinity/Comcast)</a></li>
-          <li><a href="/ip/192-168-1-254/">192.168.1.254 (AT&T/BT)</a></li>
+          <li><a href="/ip/192-168-1-254/">192.168.1.254 (AT&amp;T/BT)</a></li>
           <li><a href="/ip/192-168-2-1/">192.168.2.1 (Belkin/SMC)</a></li>
           <li><a href="/ip/192-168-1-250/">192.168.1.250 (Netgear Extenders)</a></li>
           <li><a href="/ip/">All Gateway IPs &rarr;</a></li>
@@ -403,7 +450,7 @@ def get_footer():
       <div class="footer-col">
         <p class="footer-col-title">Open Data &amp; Developers</p>
         <ul class="footer-links">
-          <li><a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener">📂 Open-Source Router Dataset (GitHub)</a></li>
+          <li><a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener">Open-Source Router Dataset (GitHub)</a></li>
           <li><a href="/developers/">Developer API &amp; Datasets</a></li>
           <li><a href="/data/routers.json" download>routers.json (REST API)</a></li>
           <li><a href="/llms.txt">llms.txt (AI Directory)</a></li>
@@ -413,25 +460,42 @@ def get_footer():
       </div>
     </div>
 
+    <div class="container footer-trust-bar">
+      <a href="/about/">About &amp; Test Lab</a>
+      <a href="/authors/">Editorial Team</a>
+      <a href="/authors/vikas-behl/">Vikas Behl</a>
+      <a href="/editorial-policy/">Editorial Policy</a>
+      <a href="/contact/">Contact &amp; Corrections</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+
     <div class="container footer-bottom">
       <div>&copy; 2026 RouterIPHub. All rights reserved. Open data licensed under CC BY 4.0.</div>
       <div style="font-size: 0.8rem; color: var(--text-muted);">Independent technical reference. All trademarks belong to their respective owners.</div>
     </div>
   </footer>
 
-  <!--Start of Tawk.to Script-->
+  <!-- Interaction-Deferred Support Chat Widget (Zero Initial CORS/TBT Impact) -->
   <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/6af46cbb33168a3c42864ac2/1k75chg69';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
+  (function(){{
+    var loaded = false;
+    function loadTawk() {{
+      if (loaded) return;
+      loaded = true;
+      window.Tawk_API = window.Tawk_API || {{}};
+      window.Tawk_LoadStart = new Date();
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6af46cbb33168a3c42864ac2/1k75chg69';
+      s1.charset = 'UTF-8';
+      s0.parentNode.insertBefore(s1, s0);
+    }}
+    ['pointerdown', 'keydown', 'scroll'].forEach(function(evt) {{
+      window.addEventListener(evt, loadTawk, {{ once: true, passive: true }});
+    }});
+  }})();
   </script>
-  <!--End of Tawk.to Script-->
 </body>
 </html>
 """
@@ -447,7 +511,7 @@ def get_footer():
 # ==============================================================================
 def generate_custom_synology_rt2600ac_page(m):
     canonical = "https://routeriphub.com/routers/synology-rt2600ac/"
-    title = "Synology RT2600ac — Setup, Login, Wi-Fi Settings & Troubleshooting Guide"
+    title = "Synology RT2600ac Setup, Login & Troubleshooting Guide"
     desc = "Learn how to set up the Synology RT2600ac router, log in to SRM, change Wi-Fi settings, update firmware, fix common issues, and improve your home network."
 
     breadcrumbs = [
@@ -905,7 +969,7 @@ def generate_custom_synology_rt2600ac_page(m):
       <!-- Common Typos -->
       <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Typos</h2>
       <div class="card" style="margin: 1rem 0 2rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #dc2626;">❌ Incorrect Entries (Will Not Open Router):</p>
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #dc2626;">Incorrect Entries (Will Not Open Router):</p>
         <ul style="margin-bottom: 1rem; padding-left: 1.5rem; color: #dc2626; line-height: 1.6;">
           <li><code>synology rt2600ac login</code> typed into Google or search bar</li>
           <li><code>192.168.l.1</code> (with lowercase letter L)</li>
@@ -1048,7 +1112,7 @@ def generate_custom_synology_rt2600ac_page(m):
 # ==============================================================================
 def generate_custom_synology_rt6600ax_page(m):
     canonical = "https://routeriphub.com/routers/synology-rt6600ax/"
-    title = "Synology RT6600ax — Setup, Login, Wi-Fi Settings & Troubleshooting Guide"
+    title = "Synology RT6600ax Setup, Login & Troubleshooting Guide"
     desc = "Learn how to set up the Synology RT6600ax router, log in to DSM, change Wi-Fi settings, update firmware, fix common issues, and improve your home network."
 
     breadcrumbs = [
@@ -1511,7 +1575,7 @@ def generate_custom_synology_rt6600ax_page(m):
       <!-- Common Typos -->
       <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Typos</h2>
       <div class="card" style="margin: 1rem 0 2rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #dc2626;">❌ Incorrect Entries (Will Not Open Router):</p>
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #dc2626;">Incorrect Entries (Will Not Open Router):</p>
         <ul style="margin-bottom: 1rem; padding-left: 1.5rem; color: #dc2626; line-height: 1.6;">
           <li><code>synology rt6600ax login</code> typed into Google or search bar</li>
           <li><code>192.168.l.1</code> (with lowercase letter L)</li>
@@ -2222,58 +2286,21 @@ def generate_router_model_pages():
             continue
 
         canonical = f"https://routeriphub.com/routers/{slug}/"
-        base_m_title = f"{m['brand']} {m['model_name']}"
-        if len(base_m_title) + len(" Default IP & Password (2026)") <= 60:
-            title = f"{base_m_title} Default IP & Password (2026)"
-        else:
-            title = f"{base_m_title[:33]} Default IP & Password"
-        desc = f"Access {m['brand']} {m['model_name']} default login IP ({m['default_ip']}), admin password, factory reset, and LED diagnostics."
-        if len(desc) > 158:
-            desc = f"Access {m['brand']} {m['model_name'][:28]} login IP ({m['default_ip']}), default password, reset steps, and diagnostics."
+        clean_name = smart_model_name(m['brand'], m['model_name'])
+        title = build_router_title(m['brand'], m['model_name'])
+        desc = build_router_meta_desc(m, clean_name)
 
-        # Structured Schemas
+        # Structured Schemas (No deprecated HowTo; PNG Organization.logo via ORG_PUBLISHER)
         tech_schema = {
             "@type": "TechArticle",
-            "headline": f"{m['brand']} {m['model_name']} Default Login IP, Password, and Setup Guide",
+            "headline": f"{clean_name} Default Login IP, Password & Setup Guide",
             "description": desc,
             "mainEntityOfPage": canonical,
             "datePublished": "2026-01-15T08:00:00+00:00",
             "dateModified": f"{TODAY}T02:00:00+00:00",
             "author": AUTHOR_VIKAS,
             "reviewedBy": REVIEWER_LAB,
-            "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
-        }
-
-        howto_schema = {
-            "@type": "HowTo",
-            "name": f"How to Log Into {m['brand']} {m['model_name']}",
-            "description": f"Step-by-step instructions to access the admin console of your {m['brand']} {m['model_name']}.",
-            "step": [
-                {
-                    "@type": "HowToStep",
-                    "position": 1,
-                    "name": "Connect to Device Network",
-                    "text": f"Connect your PC, Mac, or phone to the router via Wi-Fi (SSID pattern: {m['default_ssid_pattern']}) or plug an Ethernet cable into any LAN port."
-                },
-                {
-                    "@type": "HowToStep",
-                    "position": 2,
-                    "name": "Open Web Browser",
-                    "text": f"Open any modern web browser and navigate to {m['web_domain']} or directly to http://{m['default_ip']}."
-                },
-                {
-                    "@type": "HowToStep",
-                    "position": 3,
-                    "name": "Enter Credentials",
-                    "text": f"Enter the default username '{m['default_username']}' and password '{m['default_password']}'."
-                },
-                {
-                    "@type": "HowToStep",
-                    "position": 4,
-                    "name": "Configure Network Settings",
-                    "text": "Once inside the administration portal, configure your wireless SSID, update your administrator password, and adjust security settings."
-                }
-            ]
+            "publisher": ORG_PUBLISHER
         }
 
         faq_schema = {
@@ -2281,15 +2308,15 @@ def generate_router_model_pages():
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": f"What is the default login IP for {m['brand']} {m['model_name']}?",
+                    "name": f"What is the default login IP for {clean_name}?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": f"The factory default IP address for {m['brand']} {m['model_name']} is {m['default_ip']}. You can also access it via {m['web_domain']}."
+                        "text": f"The factory default IP address for {clean_name} is {m['default_ip']}. You can also access it via {m['web_domain']}."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": f"What is the default username and password for {m['brand']} {m['model_name']}?",
+                    "name": f"What is the default username and password for {clean_name}?",
                     "acceptedAnswer": {
                         "@type": "Answer",
                         "text": f"The default username is '{m['default_username']}' and password is '{m['default_password']}'."
@@ -2297,7 +2324,7 @@ def generate_router_model_pages():
                 },
                 {
                     "@type": "Question",
-                    "name": f"How do I reset my {m['brand']} {m['model_name']} to factory settings?",
+                    "name": f"How do I reset my {clean_name} to factory settings?",
                     "acceptedAnswer": {
                         "@type": "Answer",
                         "text": m['reset_instructions']
@@ -2310,7 +2337,7 @@ def generate_router_model_pages():
             ("Home", "/"),
             ("Routers", "/routers/"),
             (m["brand"], f"/brands/{m['brand_slug']}/"),
-            (m["model_name"], f"/routers/{slug}/")
+            (clean_name, f"/routers/{slug}/")
         ]
 
         # Build LED Table Rows
@@ -2325,25 +2352,29 @@ def generate_router_model_pages():
             </tr>
             """
 
+        rich_hardware_sections = generate_router_rich_sections(m, clean_name, escape)
+
         content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
       <div class="silo-badge silo-badge-router">Hardware Setup Sheet</div>
-      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
-        {escape(m['brand'])} {escape(m['model_name'])}
+      <h1 style="font-size: 2.15rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        {escape(clean_name)}
       </h1>
       <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
-        Complete default configuration parameters, factory credentials, LED indicator cheat-sheet, and hardware reset procedure.
+        Complete default configuration parameters, factory credentials, hardware port diagram, LED indicator cheat-sheet, and reset procedure.
       </p>
 
-      {get_byline_html()}\n\n      <!-- Google AIO / Featured Snippet Answer Box -->
+      {get_byline_html()}
+
+      <!-- Google AIO / Featured Snippet Answer Box -->
       <div class="answer-box">
         <div class="answer-box-label">Quick Gateway Answer (RFC 1918 Verified)</div>
         <div class="answer-box-main">
           Default IP: <strong>{escape(m['default_ip'])}</strong> &bull; Web: <strong>{escape(m['web_domain'])}</strong> &bull; User: <strong>{escape(m['default_username'])}</strong> &bull; Pass: <strong>{escape(m['default_password'])}</strong>
         </div>
         <div class="answer-box-sub">
-          To log into the <strong>{escape(m['brand'])} {escape(m['model_name'])}</strong>, connect to your router via Wi-Fi or Ethernet and open <a href="http://{escape(m['default_ip'])}" target="_blank" rel="noopener">http://{escape(m['default_ip'])}</a> in your browser.
+          To log into the <strong>{escape(clean_name)}</strong>, connect to your router via Wi-Fi or Ethernet and open <a href="http://{escape(m['default_ip'])}" target="_blank" rel="noopener">http://{escape(m['default_ip'])}</a> in your browser.
         </div>
       </div>
 
@@ -2362,7 +2393,7 @@ def generate_router_model_pages():
 
       <!-- Hardware Specs Grid -->
       <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.5rem;">
-        Hardware Configuration & Specifications
+        Hardware Configuration &amp; Specifications
       </h2>
       <div class="specs-grid">
         <div class="spec-item">
@@ -2407,13 +2438,15 @@ def generate_router_model_pages():
         </div>
       </div>
 
+      {rich_hardware_sections}
+
       <!-- Factory Reset Procedure -->
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.5rem;">
-        How to Factory Reset {escape(m['brand'])} {escape(m['model_name'])}
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.5rem;">
+        How to Factory Reset {escape(clean_name)}
       </h2>
       <div class="reset-instruction-box">
         <p style="margin-bottom: 0.75rem;"><strong>Hardware Reset Instructions:</strong></p>
-        <p>{escape(m['reset_instructions'])}</p>
+        <p style="margin: 0;">{escape(m['reset_instructions'])}</p>
       </div>
 
       <!-- LED Indicators Cheat-Sheet -->
@@ -2459,7 +2492,7 @@ def generate_router_model_pages():
 
       <!-- Official Resources -->
       <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
-        Official Companion App & Documentation
+        Official Companion App &amp; Documentation
       </h2>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem;">
         <a href="{escape(m['companion_app_store_url'])}" target="_blank" rel="noopener noreferrer" class="btn-official-link">
@@ -2472,9 +2505,9 @@ def generate_router_model_pages():
         </a>
       </div>
 
-      <!-- Cross Silo Links -->
+      <!-- Related Guides & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides & Tools</h3>
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
           <a href="/brands/{escape(m['brand_slug'])}/" class="btn btn-secondary" style="font-size: 0.85rem;">
             All {escape(m['brand'])} Routers &rarr;
@@ -2493,7 +2526,7 @@ def generate_router_model_pages():
     </div>
   </main>
 """
-        full_html = get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+        full_html = get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, faq_schema]) + content + get_footer()
         with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(full_html)
 
@@ -2557,6 +2590,7 @@ def generate_router_index_page():
       </div>
       <div class="search-input-wrap">
         <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <label for="model-search-input" class="sr-only">Filter router hardware models</label>
         <input type="text" id="model-search-input" class="search-input" placeholder="Filter models (e.g. AX55, RAX50, Archer, Netgear, 192.168.1.1)..." aria-label="Filter router hardware models">
       </div>
     </div>
@@ -2596,7 +2630,7 @@ def generate_router_index_page():
       </p>
       <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
         <button type="button" id="reset-search-btn" class="btn btn-primary" style="font-size: 0.85rem;">Clear Search Filter</button>
-        <a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">Browse 19 Brand Hubs &rarr;</a>
+        <a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">Browse All Brand Directories &rarr;</a>
         <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">ISP Gateway Portals &rarr;</a>
         <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi Extenders &rarr;</a>
       </div>
@@ -2604,7 +2638,14 @@ def generate_router_index_page():
   </main>
 """
     breadcrumbs = [("Home", "/"), ("Routers", "/routers/")]
-    full_html = get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs) + content + get_footer()
+    routers_collection_schema = {
+        "@type": "CollectionPage",
+        "name": title,
+        "description": desc,
+        "url": canonical,
+        "publisher": ORG_PUBLISHER
+    }
+    full_html = get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[routers_collection_schema]) + content + get_footer()
     with open(os.path.join(routers_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(full_html)
 
@@ -3023,7 +3064,7 @@ def generate_custom_xfinity_xfi_page(isp):
         <p style="margin-bottom: 1rem; font-family: var(--font-mono); font-size: 1rem; color: #16a34a; font-weight: 700;">
           <code>http://10.0.0.1</code>
         </p>
-        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #dc2626;">❌ Avoid These Incorrect Entries:</p>
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #dc2626;">Avoid These Incorrect Entries:</p>
         <ul style="margin: 0; padding-left: 1.5rem; color: #dc2626; line-height: 1.6;">
           <li><code>10.0.0.l</code> (ending in lowercase letter L)</li>
           <li><code>10.0.0.1.com</code></li>
@@ -4184,6 +4225,8 @@ def generate_isp_pages():
 
         canonical = f"https://routeriphub.com/isp/{slug}/"
         title = f"{isp['isp_name']} Gateway Login & Password ({isp['default_ip']})"
+        if len(title) > 60:
+            title = f"{isp['isp_name']} Gateway Login ({isp['default_ip']})"
         desc = f"Access {isp['isp_name']} admin portal at {isp['default_ip']}. Default username, printed access code instructions, factory reset, and bridge mode guide."
 
         tech_schema = {
@@ -4348,7 +4391,7 @@ def generate_isp_pages():
     # Master ISP Index
     isp_master_dir = os.path.join(PUBLIC_DIR, "isp")
     canonical_master = "https://routeriphub.com/isp/"
-    title_master = "ISP Router Gateway Login Directory (Xfinity, AT&T, Verizon, Spectrum)"
+    title_master = "ISP Gateway Login Directory: Xfinity, AT&T, Verizon"
     desc_master = "Complete directory of ISP default gateway IPs, admin passwords, bridge mode instructions, and factory reset guides for major service providers."
 
     isp_cards = ""
@@ -4392,7 +4435,14 @@ def generate_isp_pages():
   </main>
 """
     breadcrumbs = [("Home", "/"), ("ISP Gateways", "/isp/")]
-    full_html = get_header(title_master, desc_master, canonical_master, active_nav="isp", breadcrumbs=breadcrumbs) + content_master + get_footer()
+    isp_collection_schema = {
+        "@type": "CollectionPage",
+        "name": title_master,
+        "description": desc_master,
+        "url": canonical_master,
+        "publisher": ORG_PUBLISHER
+    }
+    full_html = get_header(title_master, desc_master, canonical_master, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[isp_collection_schema]) + content_master + get_footer()
     with open(os.path.join(isp_master_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(full_html)
 
@@ -4403,20 +4453,29 @@ def generate_brand_pages():
     print(f"Generating {len(BRAND_PROFILES)} brand directories...")
     for b in BRAND_PROFILES:
         slug = b["slug"]
+        # Unify PLDT under canonical /routers/pldt/ (with 308 from /brands/pldt/)
+        if slug == "pldt":
+            continue
+
         b_dir = os.path.join(PUBLIC_DIR, "brands", slug)
         make_dirs(b_dir)
 
         canonical = f"https://routeriphub.com/brands/{slug}/"
         title = f"{b['name']} Router Default IP & Password List (2026)"
-        desc = f"Complete {b['name']} router login directory. Factory default passwords, standard IP addresses ({', '.join(b['default_ips'])}), and model setup sheets."
+        if len(title) > 60:
+            title = f"{b['name']} Router Default IP & Passwords (2026)"
+        desc = f"Complete {b['name']} router login directory. Factory default passwords, standard IP addresses ({', '.join(b['default_ips'])}), firmware recovery, and setup sheets."
+        if len(desc) > 158:
+            desc = f"Complete {b['name']} router login directory. Factory default passwords, gateway IP ({b['default_ips'][0]}), firmware recovery, and setup sheets."
 
         # Find models for this brand
         brand_models = [m for m in ROUTER_MODELS if m["brand_slug"] == slug]
         model_rows = ""
         for m in brand_models:
+            clean_m = smart_model_name(m['brand'], m['model_name'])
             model_rows += f"""
             <tr>
-              <td><a href="/routers/{escape(m['slug'])}/"><strong>{escape(m['model_name'])}</strong></a></td>
+              <td><a href="/routers/{escape(m['slug'])}/"><strong>{escape(clean_m)}</strong></a></td>
               <td><span class="cell-code">{escape(m['default_ip'])}</span></td>
               <td><span class="cell-code">{escape(m['default_username'])}</span></td>
               <td><span class="cell-code">{escape(m['default_password'])}</span></td>
@@ -4433,6 +4492,16 @@ def generate_brand_pages():
             </tr>
             """
 
+        brand_rich_html = generate_brand_rich_sections(b, brand_models, escape)
+        brand_collection_schema = {
+            "@type": "CollectionPage",
+            "name": f"{b['name']} Router Login & Setup Directory",
+            "description": desc,
+            "url": canonical,
+            "publisher": ORG_PUBLISHER,
+            "numberOfItems": len(brand_models) if brand_models else b.get("models_count", 5)
+        }
+
         breadcrumbs = [
             ("Home", "/"),
             ("Brands", "/brands/"),
@@ -4443,7 +4512,7 @@ def generate_brand_pages():
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
       <div class="silo-badge silo-badge-router">Brand Directory</div>
-      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+      <h1 style="font-size: 2.15rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         {escape(b['name'])} Router Login Directory
       </h1>
       <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
@@ -4492,6 +4561,8 @@ def generate_brand_pages():
         </table>
       </div>
 
+      {brand_rich_html}
+
       <!-- Diagnostic Console -->
       <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">
@@ -4508,9 +4579,9 @@ def generate_brand_pages():
         </div>
       </div>
 
-      <!-- Cross Silo Links -->
+      <!-- Related Directories & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Browse Other Silos</h3>
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Directories &amp; Tools</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
           <a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">All Brands Directory &rarr;</a>
           <a href="/routers/" class="btn btn-secondary" style="font-size: 0.85rem;">All Router Models &rarr;</a>
@@ -4520,7 +4591,7 @@ def generate_brand_pages():
     </div>
   </main>
 """
-        full_html = get_header(title, desc, canonical, active_nav="brands", breadcrumbs=breadcrumbs) + content + get_footer()
+        full_html = get_header(title, desc, canonical, active_nav="brands", breadcrumbs=breadcrumbs, schemas_json_ld=[brand_collection_schema]) + content + get_footer()
         with open(os.path.join(b_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(full_html)
 
@@ -4535,15 +4606,24 @@ def generate_brand_pages():
 
     brand_cards = ""
     for b in sorted_brands:
+        b_slug = b['slug']
+        target_href = "/routers/pldt/" if b_slug == "pldt" else f"/brands/{escape(b_slug)}/"
+        live_count = sum(1 for m in ROUTER_MODELS if m["brand_slug"] == b_slug)
+        if b_slug == "xfinity":
+            count_badge = "5 xFi Gateway Series"
+        elif b_slug == "pldt":
+            count_badge = "Complete Hub Guide"
+        else:
+            count_badge = f"{live_count} Verified Models"
         brand_cards += f"""
         <div class="card" style="display: flex; flex-direction: column; justify-content: space-between; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md); padding: 1.25rem;">
           <div>
             <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
               <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">{escape(b['hq'])}</span>
-              <span style="font-size: 0.775rem; color: var(--text-muted); font-weight: 600;">{escape(b['models_count'])}+ Models</span>
+              <span style="font-size: 0.775rem; color: var(--text-muted); font-weight: 600;">{escape(count_badge)}</span>
             </div>
             <h3 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.4rem;">
-              <a href="/brands/{escape(b['slug'])}/">{escape(b['name'])}</a>
+              <a href="{target_href}">{escape(b['name'])}</a>
             </h3>
             <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
               Default Gateway: <strong>{escape(', '.join(b['default_ips']))}</strong>
@@ -4553,7 +4633,7 @@ def generate_brand_pages():
             </p>
           </div>
           <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <a href="/brands/{escape(b['slug'])}/" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.35rem 0.75rem; width: 100%; text-align: center;">View {escape(b['name'])} Guides &rarr;</a>
+            <a href="{target_href}" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.35rem 0.75rem; width: 100%; text-align: center;">View {escape(b['name'])} Guides &rarr;</a>
           </div>
         </div>
         """
@@ -5323,7 +5403,7 @@ IP_HARDWARE_CATALOG = {
 
 def generate_custom_10_10_10_1_page():
     canonical = "https://routeriphub.com/ip/10-10-10-1/"
-    title = "10.10.10.1 Login Admin — Router, Modem & Gateway Setup Guide"
+    title = "10.10.10.1 Admin Login — Router & Gateway Setup Guide"
     desc = "Can’t open 10.10.10.1? Learn how to log in to your router or gateway, fix 10.10.10.1 not loading, find default credentials, update Wi-Fi, and reset."
     
     breadcrumbs = [
@@ -5830,11 +5910,11 @@ def generate_custom_10_10_10_1_page():
           Watch out for these common typographical errors when attempting to enter <code>10.10.10.1</code>:
         </p>
         <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.75rem; margin-bottom: 1.5rem;">
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.l</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.1.com</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.1 login in Google</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.01</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.1.</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">10.10.10.l</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">10.10.10.1.com</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">10.10.10.1 login in Google</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">10.10.10.01</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">10.10.10.1.</span>
           <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #047857; font-weight: 600;">Correct: http://10.10.10.1</span>
         </div>
       </section>
@@ -5886,7 +5966,7 @@ def generate_custom_10_10_10_1_page():
       <section style="margin-bottom: 2.5rem;">
         <h2>The Bottom Line</h2>
         <div class="verdict-box" style="background: var(--bg-secondary); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: var(--radius-md); margin-top: 1rem;">
-          <div class="verdict-tag" style="display: inline-block; padding: 0.25rem 0.6rem; background: #ecfdf5; color: #047857; font-weight: 700; font-size: 0.8rem; border-radius: 4px; margin-bottom: 0.75rem; text-transform: uppercase;">🎯 Key Takeaway</div>
+          <div class="verdict-tag" style="display: inline-block; padding: 0.25rem 0.6rem; background: #ecfdf5; color: #047857; font-weight: 700; font-size: 0.8rem; border-radius: 4px; margin-bottom: 0.75rem; text-transform: uppercase;">Key Takeaway</div>
           <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
             <code>10.10.10.1</code> is a private router, modem, and gateway login address used by certain devices and custom networks. Connect directly to the router, enter <a href="http://10.10.10.1" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent); text-decoration: underline;"><code>http://10.10.10.1</code></a> in the browser address bar, and use the credentials printed on the device label. If the page will not load, check your device’s gateway address or try another common router login IP.
           </p>
@@ -5900,7 +5980,7 @@ def generate_custom_10_10_10_1_page():
           <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>
           <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
           <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
-          <a href="/find-router-ip.html" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
+          <a href="/find-router-ip/" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
         </div>
       </section>
 
@@ -6420,11 +6500,11 @@ def generate_custom_10_0_0_1_page():
           Watch out for these common typographical errors when attempting to enter <code>10.0.0.1</code>:
         </p>
         <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.75rem; margin-bottom: 1.5rem;">
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.0.0.l</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.0.0.1.com</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.0.0.1 login in Google</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.0.0.01</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.0.0.1.</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">10.0.0.l</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">10.0.0.1.com</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">10.0.0.1 login in Google</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">10.0.0.01</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">10.0.0.1.</span>
           <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #047857; font-weight: 600;">Correct: http://10.0.0.1</span>
         </div>
       </section>
@@ -6476,7 +6556,7 @@ def generate_custom_10_0_0_1_page():
       <section style="margin-bottom: 2.5rem;">
         <h2>The Bottom Line</h2>
         <div class="verdict-box" style="background: var(--bg-secondary); border-left: 4px solid #10b981; padding: 1.5rem; border-radius: var(--radius-md); margin-top: 1rem;">
-          <div class="verdict-tag" style="display: inline-block; padding: 0.25rem 0.6rem; background: #ecfdf5; color: #047857; font-weight: 700; font-size: 0.8rem; border-radius: 4px; margin-bottom: 0.75rem; text-transform: uppercase;">🎯 Key Takeaway</div>
+          <div class="verdict-tag" style="display: inline-block; padding: 0.25rem 0.6rem; background: #ecfdf5; color: #047857; font-weight: 700; font-size: 0.8rem; border-radius: 4px; margin-bottom: 0.75rem; text-transform: uppercase;">Key Takeaway</div>
           <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
             <code>10.0.0.1</code> is a common router, modem, and gateway login address, especially for Xfinity, Cisco, and ISP-provided devices. Connect directly to the router, enter <a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent); text-decoration: underline;"><code>http://10.0.0.1</code></a> in the browser address bar, and use the credentials printed on the router label. If the page will not load, check your device’s gateway address or try another common router login IP.
           </p>
@@ -6490,7 +6570,7 @@ def generate_custom_10_0_0_1_page():
           <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>
           <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
           <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
-          <a href="/find-router-ip.html" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
+          <a href="/find-router-ip/" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
         </div>
       </section>
 
@@ -6546,8 +6626,12 @@ def generate_ip_pages():
             desc = f"Searched {ip} expecting router login? Learn why {ip} is a client device or extender, not your primary gateway, and how to access 192.168.1.1."
         else:
             title = f"{ip} Router Login Fix & Default Password (2026)"
+            if len(title) > 60:
+                title = f"{ip} Router Login Fix & Default Password"
             h1 = f"{ip} Not Working? {meta['primary_brand']} Router Login Fix"
-            desc = f"Fix {ip} router login timeouts. Verified factory credentials, admin access steps, and setup diagnostics for {meta['primary_brand'][:20]}."
+            desc = f"Fix {ip} router login timeouts. Verified factory credentials, subnet diagnostics, and admin reset steps for {meta['primary_brand']} gateways."
+            if len(desc) > 158:
+                desc = f"Fix {ip} router login timeouts. Verified default admin credentials, subnet diagnostics, and hardware reset steps for home gateways."
 
         # Schemas
         tech_schema = {
@@ -7052,7 +7136,7 @@ def generate_ip_pages():
       <!-- The Bottom Line Callout -->
       <div class="bottom-line-callout">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line: Fastest Diagnostic Resolution
+          The Bottom Line: Fastest Diagnostic Resolution
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           {'If you searched 192.168.1.2 to configure your Wi-Fi, stop trying to load .1.2: your router is at <strong><a href="/ip/192-168-1-1/" style="color: var(--text-accent); text-decoration: underline;">http://192.168.1.1</a></strong>. If you are investigating a device occupying 192.168.1.2, run <code>arp -a</code> in terminal to inspect its MAC address.' if is_correction else f'If <strong>{escape(ip)}</strong> will not open, 95% of failures stem from one of two causes: either an active VPN / cellular connection is bypassing your LAN, or your router is actually running on a different subnet (such as 192.168.0.1 or 10.0.0.1). Disconnect your VPN, run our <a href="/tools/detect-gateway/" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">Local Gateway Auto-Detector</a>, and open the confirmed IP over plain HTTP.'}
@@ -7066,7 +7150,7 @@ def generate_ip_pages():
           <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>
           <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
           <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
-          <a href="/find-router-ip.html" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
+          <a href="/find-router-ip/" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
         </div>
       </div>
     </div>
@@ -7079,7 +7163,7 @@ def generate_ip_pages():
     # Master IP Directory (/ip/index.html)
     ip_master_dir = os.path.join(PUBLIC_DIR, "ip")
     canonical_master = "https://routeriphub.com/ip/"
-    title_master = "Default Gateway IP Directory: Find, Access & Fix Your Router Address (2026)"
+    title_master = "Default Gateway IP Directory: Find & Fix Router Access"
     desc_master = "Directory of private default gateway IPs: 192.168.1.1, 192.168.0.1, 10.0.0.1, 192.168.1.254, 10.10.10.1, and subnets. Fast router login diagnostics."
 
     ip_cards = ""
@@ -7194,7 +7278,14 @@ def generate_ip_pages():
   </main>
 """
     breadcrumbs = [("Home", "/"), ("IP Directory", "/ip/")]
-    full_html = get_header(title_master, desc_master, canonical_master, active_nav="ip", breadcrumbs=breadcrumbs) + content_master + get_footer()
+    ip_collection_schema = {
+        "@type": "CollectionPage",
+        "name": title_master,
+        "description": desc_master,
+        "url": canonical_master,
+        "publisher": ORG_PUBLISHER
+    }
+    full_html = get_header(title_master, desc_master, canonical_master, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[ip_collection_schema]) + content_master + get_footer()
     with open(os.path.join(ip_master_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(full_html)
 
@@ -7204,10 +7295,10 @@ def generate_ip_pages():
 # ==============================================================================
 
 # ==============================================================================
-# 5b. GENERATE WI-FI RANGE EXTENDER SILO (/extenders/ & /extenders/[slug]/)
+# 5b. GENERATE WI-FI RANGE EXTENDER DIRECTORY (/extenders/ & /extenders/[slug]/)
 # ==============================================================================
 def generate_extender_pages():
-    print(f"Generating Wi-Fi Range Extender Silo (Master Hub + {len(EXTENDER_PROFILES)} Guides)...")
+    print(f"Generating Wi-Fi Range Extender Directory (Master Hub + {len(EXTENDER_PROFILES)} Guides)...")
     extenders_root_dir = os.path.join(PUBLIC_DIR, "extenders")
     make_dirs(extenders_root_dir)
 
@@ -7468,7 +7559,7 @@ def generate_extender_pages():
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line: Fastest Diagnostic Resolution
+          The Bottom Line: Fastest Diagnostic Resolution
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           If an extender setup page will not load, verify that you are connected directly to the extender's Wi-Fi network with mobile data turned off. If the extender was already paired with your router, find its new dynamically leased IP inside your main router's client list at <a href="/ip/192-168-1-1/" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">192.168.1.1</a>.
@@ -7488,20 +7579,34 @@ def generate_extender_pages():
     </div>
   </main>
 """
-    master_html = get_header(master_title, master_desc, master_canonical, active_nav="extenders", breadcrumbs=master_breadcrumbs, schemas_json_ld=[master_faq_schema]) + master_content + get_footer()
+    ext_collection_schema = {
+        "@type": "CollectionPage",
+        "name": master_title,
+        "description": master_desc,
+        "url": master_canonical,
+        "publisher": ORG_PUBLISHER
+    }
+    master_html = get_header(master_title, master_desc, master_canonical, active_nav="extenders", breadcrumbs=master_breadcrumbs, schemas_json_ld=[ext_collection_schema, master_faq_schema]) + master_content + get_footer()
     with open(os.path.join(extenders_root_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(master_html)
 
     # --------------------------------------------------------------------------
     # B. DEDICATED EXTENDER GUIDES (/extenders/[slug]/index.html)
     # --------------------------------------------------------------------------
+    ext_title_overrides = {
+        "tplinkrepeater-net": "tplinkrepeater.net: TP-Link Setup & 192.168.0.254 Login",
+        "extender-linksys-com": "extender.linksys.com: Linksys Setup & 192.168.1.1 Login",
+        "myrepeater-net": "myrepeater.net: Repeater Setup & 192.168.1.254 Login",
+        "sewot-sw-01": "SEWOT SW-01 WiFi Extender — 192.168.188.1 Login Guide",
+        "rangextd-extender": "RANGEXTD Range Extender — 192.168.188.1 Login Guide",
+    }
     for ext in EXTENDER_PROFILES:
         slug = ext["slug"]
         ext_dir = os.path.join(extenders_root_dir, slug)
         make_dirs(ext_dir)
 
         canonical = f"https://routeriphub.com/extenders/{slug}/"
-        title = ext["title"]
+        title = ext_title_overrides.get(slug, ext["title"])
         desc = ext["meta_desc"]
         breadcrumbs = [
             ("Home", "/"),
@@ -7874,7 +7979,7 @@ def generate_extender_pages():
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line
+          The Bottom Line
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           <strong>192.168.1.250 is the initial setup address for NETGEAR Wi-Fi extenders, not your main router.</strong> If it does not load, you are either not connected directly to the extender, or the extender has already joined your router and received a new local IP through DHCP.
@@ -8340,7 +8445,7 @@ def generate_extender_pages():
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line
+          The Bottom Line
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           <strong>tplinkrepeater.net almost always means you are setting up or managing a TP-Link Wi-Fi range extender.</strong> Connect directly to the extender, enter <code>http://tplinkrepeater.net</code> or <code>http://192.168.0.254</code> in the browser address bar, and create or enter the admin password. If the page no longer loads, check your router’s DHCP client list for the extender’s new assigned IP address.
@@ -8841,7 +8946,7 @@ def generate_extender_pages():
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line
+          The Bottom Line
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           <strong>extender.linksys.com almost always means you are trying to reach a Linksys RE-series Wi-Fi extender, not your main router.</strong> Connect directly to the extender, enter the URL in the browser address bar, and use a blank username with <code>admin</code> as the password; if it will not load, try the <code>192.168.1.1</code> fallback IP or check the router’s DHCP client list for the extender’s new address.
@@ -9388,7 +9493,7 @@ def generate_extender_pages():
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line
+          The Bottom Line
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           <strong>dlinkap.local almost always means you are trying to reach a D-Link Wi-Fi extender, not your main router.</strong> Connect directly to the extender, enter <code>http://dlinkap.local</code> or <code>http://192.168.0.50</code> in the browser address bar, and use the correct credentials for your model. If the page will not load, check the extender’s new DHCP-assigned IP in your router’s client list.
@@ -9925,7 +10030,7 @@ def generate_extender_pages():
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line
+          The Bottom Line
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           <strong>myrepeater.net almost always means you are trying to reach a Wireless-N Wi-Fi repeater, not your main router.</strong> Connect directly to the repeater, enter <code>http://myrepeater.net</code> or <code>http://192.168.1.254</code> in the browser address bar, and use the correct credentials for your model. If the page will not load, check the repeater’s new DHCP-assigned IP in your router’s client list.
@@ -10479,7 +10584,7 @@ def generate_extender_pages():
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line
+          The Bottom Line
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           <strong>ap.setup almost always means you are trying to reach a Wavlink Wi-Fi repeater or outdoor access point, not your main router.</strong> Connect directly to the Wavlink device, enter <code>http://ap.setup</code> or <code>http://192.168.10.1</code> in the browser address bar, and use the correct credentials for your model. If the page will not load, check the extender’s new DHCP-assigned IP in your router’s client list.
@@ -11004,7 +11109,7 @@ def generate_extender_pages():
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line
+          The Bottom Line
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           <strong>192.168.188.1 almost always means you are trying to reach a Topvision WiFi extender, not your main router.</strong> Connect directly to the extender, enter <code>http://192.168.188.1</code> in the browser address bar, and use the correct credentials for your model. If the page will not load, check the extender’s new DHCP-assigned IP in your router’s client list.
@@ -11511,7 +11616,7 @@ def generate_extender_pages():
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line
+          The Bottom Line
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           <strong>192.168.188.1 almost always means you are trying to reach the SEWOT SW-01 WiFi extender, not your main router.</strong> Connect directly to the extender, enter <code>http://192.168.188.1</code> in the browser address bar, and use the correct credentials for your model. If the page will not load, check the extender’s new DHCP-assigned IP in your router’s client list.
@@ -12019,7 +12124,7 @@ def generate_extender_pages():
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
         <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          🎯 The Bottom Line
+          The Bottom Line
         </h3>
         <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
           <strong>192.168.188.1 almost always means you are trying to reach a RANGEXTD WiFi range extender, not your main router.</strong> Connect directly to the extender, enter <code>http://192.168.188.1</code> in the browser address bar, and use the correct credentials for your model. If the page will not load, check the extender’s new DHCP-assigned IP in your router’s client list.
@@ -12154,7 +12259,7 @@ def generate_author_and_about_pages():
     author_dir = os.path.join(PUBLIC_DIR, "authors", "vikas-behl")
     make_dirs(author_dir)
     author_canonical = "https://routeriphub.com/authors/vikas-behl/"
-    author_title = "Vikas Behl — Senior Network & Technical Support Engineer | RouterIPHub"
+    author_title = "Vikas Behl — Senior Network Engineer | RouterIPHub"
     author_desc = "Meet Vikas Behl, Senior Network Support Engineer with 12+ years of experience in router setup, Wi-Fi extenders, consoles, and network troubleshooting."
     author_bc = [("Home", "/"), ("Authors", "/authors/"), ("Vikas Behl", "/authors/vikas-behl/")]
     
@@ -12169,7 +12274,8 @@ def generate_author_and_about_pages():
             "worksFor": {
                 "@type": "Organization",
                 "name": "RouterIPHub",
-                "url": "https://routeriphub.com/"
+                "url": "https://routeriphub.com/",
+                "logo": LOGO_SCHEMA
             },
             "description": "Networking and technical support specialist with 12+ years of enterprise and consumer experience configuring routers, Wi-Fi extenders, access points, gaming consoles, network printers, and cross-platform operating systems across Windows and macOS.",
             "knowsAbout": [
@@ -12192,18 +12298,18 @@ def generate_author_and_about_pages():
     author_content = """
   <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-tool" style="margin-bottom: 1rem;">&#128104;&#8205;&#128187; Editorial Contributor Profile</div>
+      <div class="silo-badge silo-badge-tool" style="margin-bottom: 1rem;">Editorial Contributor Profile</div>
 
       <!-- Author Bio Header Card -->
       <div class="card" style="display: flex; gap: 1.5rem; align-items: flex-start; padding: 2rem; border: 1px solid var(--border-color); border-radius: var(--radius-lg); background: var(--bg-card); margin-bottom: 2.5rem; flex-wrap: wrap;">
-        <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #0284c7, #38bdf8); color: #ffffff; font-weight: 800; font-size: 2rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow-md);">
+        <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--bg-accent); color: #ffffff; font-weight: 700; font-size: 1.85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow);">
           VB
         </div>
         <div style="flex: 1; min-width: 260px;">
           <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.35rem;">
-            <h1 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin: 0;">Vikas Behl</h1>
-            <span class="badge" style="background: rgba(16, 185, 129, 0.12); color: #047857; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 9999px; font-size: 0.8rem;">&#10003; Verified Contributor</span>
-            <span class="badge" style="background: rgba(2, 132, 199, 0.12); color: var(--text-accent); font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 9999px; font-size: 0.8rem;">12+ Years Field Experience</span>
+            <h1 style="font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin: 0;">Vikas Behl</h1>
+            <span class="badge" style="background: var(--success-bg); color: var(--success-text); font-weight: 600; padding: 0.25rem 0.65rem; border-radius: var(--radius-sm); font-size: 0.8rem;">Verified Contributor</span>
+            <span class="badge" style="background: var(--bg-primary); color: var(--text-accent); border: 1px solid var(--border-color); font-weight: 600; padding: 0.25rem 0.65rem; border-radius: var(--radius-sm); font-size: 0.8rem;">12+ Years Field Experience</span>
           </div>
           <div style="font-size: 1.05rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.75rem;">
             Senior Network &amp; Technical Support Engineer &bull; Lead Hardware Contributor
@@ -12231,7 +12337,6 @@ def generate_author_and_about_pages():
       </h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2.5rem;">
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#128225;</div>
           <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Routers &amp; ISP Gateways</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
             Setup, firmware updates, DMZ, port forwarding, and DHCP scopes on Netgear, ASUS, TP-Link, Linksys, Cisco, Arris, Xfinity xFi, AT&amp;T BGW, Spectrum, and Verizon FiOS gateways.
@@ -12239,7 +12344,6 @@ def generate_author_and_about_pages():
         </div>
 
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#128246;</div>
           <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Wi-Fi Extenders &amp; Repeaters</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
             Resolving fallback IP dead-ends, AP vs. Repeater bridge pairing, static client configuration, and factory resets across NETGEAR, TP-Link, Wavlink, Topvision, SEWOT, and RANGEXTD.
@@ -12247,7 +12351,6 @@ def generate_author_and_about_pages():
         </div>
 
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#128424;</div>
           <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Network Printers &amp; Peripherals</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
             Fixed IP address reservation, TCP/IP standard port printing, WSD/SNMP discovery, and wireless configuration for HP, Epson, Canon, and Brother printers.
@@ -12255,7 +12358,6 @@ def generate_author_and_about_pages():
         </div>
 
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#127918;</div>
           <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Gaming Consoles &amp; Smart Devices</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
             NAT Type optimization (Strict to Open/Moderate), UPnP validation, QoS latency prioritization, and port forwarding for PlayStation 5, Xbox Series X/S, and Nintendo Switch.
@@ -12263,7 +12365,6 @@ def generate_author_and_about_pages():
         </div>
 
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#128187;</div>
           <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Windows &amp; macOS Network Stacks</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
             Command-line network diagnostics, Winsock and TCP/IP stack resets, ARP cache inspection, DNS flushing, routing table troubleshooting, and static IP allocation.
@@ -12271,7 +12372,6 @@ def generate_author_and_about_pages():
         </div>
 
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
-          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#128736;&#65039;</div>
           <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Hardware Recovery &amp; Factory Resets</h3>
           <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
             Physical 30-30-30 emergency hard resets, unbricking NVRAM corruptions, default recovery mode fallback triggers, and TFTP firmware restoration.
@@ -12281,7 +12381,7 @@ def generate_author_and_about_pages():
 
       <!-- Verification Standards -->
       <div class="verdict-box" style="margin-bottom: 2.5rem;">
-        <div class="verdict-tag">&#9889; Editorial &amp; Testing Standards</div>
+        <div class="verdict-tag">Editorial &amp; Testing Standards</div>
         <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
           How Vikas Verifies Every Guide
         </h3>
@@ -12323,7 +12423,7 @@ def generate_author_and_about_pages():
     about_dir = os.path.join(PUBLIC_DIR, "about")
     make_dirs(about_dir)
     about_canonical = "https://routeriphub.com/about/"
-    about_title = "About RouterIPHub — Mission, Hardware Lab & Editorial Standards"
+    about_title = "About RouterIPHub — Mission & Hardware Testing Lab"
     about_desc = "Learn about RouterIPHub, our independent hardware testing methodology, editorial team led by Vikas Behl, and open-source networking dataset initiative."
     about_bc = [("Home", "/"), ("About Us", "/about/")]
 
@@ -12332,20 +12432,15 @@ def generate_author_and_about_pages():
         "headline": about_title,
         "description": about_desc,
         "mainEntityOfPage": about_canonical,
-        "publisher": {
-            "@type": "Organization",
-            "name": "RouterIPHub",
-            "url": "https://routeriphub.com/",
-            "logo": "https://routeriphub.com/favicon.svg"
-        }
+        "publisher": ORG_PUBLISHER
     }
 
     about_content = """
   <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip" style="margin-bottom: 1rem;">&#127970; About RouterIPHub</div>
+      <div class="silo-badge silo-badge-ip" style="margin-bottom: 1rem;">About RouterIPHub</div>
 
-      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+      <h1 style="font-size: 2.15rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         About RouterIPHub: Independent Hardware Reference &amp; Diagnostics
       </h1>
 
@@ -12376,11 +12471,11 @@ def generate_author_and_about_pages():
         Lead Technical Contributor
       </h2>
       <div class="card" style="display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-lg); background: var(--bg-card); margin-bottom: 2.5rem; flex-wrap: wrap;">
-        <div style="width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #0284c7, #38bdf8); color: #ffffff; font-weight: 800; font-size: 1.75rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow);">
+        <div style="width: 70px; height: 70px; border-radius: 50%; background: var(--bg-accent); color: #ffffff; font-weight: 700; font-size: 1.65rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: var(--shadow);">
           VB
         </div>
         <div style="flex: 1; min-width: 260px;">
-          <h3 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.25rem 0;">
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin: 0 0 0.25rem 0;">
             <a href="/authors/vikas-behl/" style="color: var(--text-primary); text-decoration: none;">Vikas Behl</a>
           </h3>
           <div style="font-size: 0.9rem; font-weight: 600; color: var(--text-accent); margin-bottom: 0.75rem;">
@@ -12406,11 +12501,11 @@ def generate_author_and_about_pages():
       </div>
 
       <div class="bottom-line-callout" style="margin-top: 2.5rem;">
-        <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-          &#128227; Editorial Independence Notice
+        <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+          Editorial Independence Notice
         </h3>
         <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65; margin: 0;">
-          RouterIPHub is completely independent. We do not accept sponsored hardware rankings, nor are we affiliated with any router manufacturer or Internet Service Provider. All brand names and trademarks belong to their respective registered owners.
+          RouterIPHub is completely independent. We do not accept sponsored hardware rankings, nor are we affiliated with any router manufacturer or Internet Service Provider. All brand names and trademarks belong to their respective registered owners. For errata or editorial inquiries, visit our <a href="/editorial-policy/">Editorial Policy</a> or <a href="/contact/">Contact page</a>.
         </p>
       </div>
     </div>
@@ -12430,7 +12525,26 @@ def generate_tool_pages():
 
         canonical = f"https://routeriphub.com/tools/{slug}/"
         title = f"{t['title']} | Free Network Utility"
+        if len(title) > 60:
+            title = f"{t['title']} | RouterIPHub"
+        if len(title) > 60:
+            title = f"{t['short_title']} | Free Tool - RouterIPHub"
         desc = t["desc"]
+
+        web_app_schema = {
+            "@type": "WebApplication",
+            "name": f"{t['title']} — RouterIPHub",
+            "url": canonical,
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "All",
+            "description": desc,
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+            },
+            "publisher": ORG_PUBLISHER
+        }
 
         breadcrumbs = [
             ("Home", "/"),
@@ -12525,9 +12639,9 @@ def generate_tool_pages():
             tool_ui = """
       <div class="tool-card" style="max-width: 650px; margin: 0 auto 2.5rem auto;">
         <div class="form-group">
-          <label>Generated Secure WPA3 Password</label>
+          <label for="gen-password-output">Generated Secure WPA3 Password</label>
           <div style="display: flex; gap: 0.5rem;">
-            <input type="text" id="gen-password-output" class="form-control" style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700;" readonly>
+            <input type="text" id="gen-password-output" aria-label="Generated secure WPA3 password" class="form-control" style="font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700;" readonly>
             <button class="btn btn-primary copy-btn" id="copy-gen-pass-btn" data-copy="">Copy</button>
           </div>
         </div>
@@ -12554,7 +12668,8 @@ def generate_tool_pages():
             tool_ui = """
       <div class="tool-card">
         <div class="form-group">
-          <input type="text" id="port-filter-input" class="form-control" placeholder="Filter ports (e.g. Minecraft, Plex, 80, 443, SSH, 25565)...">
+          <label for="port-filter-input" class="sr-only">Filter port numbers or applications</label>
+          <input type="text" id="port-filter-input" aria-label="Filter port numbers or applications" class="form-control" placeholder="Filter ports (e.g. Minecraft, Plex, 80, 443, SSH, 25565)...">
         </div>
         <div style="overflow-x: auto;">
           <table class="table" id="port-table">
@@ -12584,7 +12699,8 @@ def generate_tool_pages():
             tool_ui = """
       <div class="tool-card" style="max-width: 800px; margin: 0 auto 2.5rem auto;">
         <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
-          <input type="text" id="ip-lookup-input" class="form-control" style="flex: 1; min-width: 260px; font-family: var(--font-mono);" placeholder="Enter IPv4, IPv6, or domain (e.g. 8.8.8.8, 1.1.1.1, github.com)...">
+          <label for="ip-lookup-input" class="sr-only">IPv4, IPv6, or domain</label>
+          <input type="text" id="ip-lookup-input" aria-label="IPv4, IPv6, or domain" class="form-control" style="flex: 1; min-width: 260px; font-family: var(--font-mono);" placeholder="Enter IPv4, IPv6, or domain (e.g. 8.8.8.8, 1.1.1.1, github.com)...">
           <button id="ip-lookup-btn" class="btn btn-primary" style="padding: 0.65rem 1.25rem;">
             Inspect IP
           </button>
@@ -12612,8 +12728,10 @@ def generate_tool_pages():
             tool_ui = """
       <div class="tool-card" style="max-width: 900px; margin: 0 auto 2.5rem auto;">
         <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
-          <input type="text" id="dns-domain-input" class="form-control" style="flex: 2; min-width: 220px; font-family: var(--font-mono);" placeholder="e.g. google.com, cloudflare.com, yourdomain.com" value="google.com">
-          <select id="dns-type-select" class="form-control" style="flex: 1; min-width: 130px; font-family: var(--font-mono); font-weight: 600;">
+          <label for="dns-domain-input" class="sr-only">Domain name for DNS propagation check</label>
+          <input type="text" id="dns-domain-input" aria-label="Domain name for DNS propagation check" class="form-control" style="flex: 2; min-width: 220px; font-family: var(--font-mono);" placeholder="e.g. google.com, cloudflare.com, yourdomain.com" value="google.com">
+          <label for="dns-type-select" class="sr-only">DNS record type</label>
+          <select id="dns-type-select" aria-label="DNS record type" class="form-control" style="flex: 1; min-width: 130px; font-family: var(--font-mono); font-weight: 600;">
             <option value="A" selected>A (IPv4)</option>
             <option value="AAAA">AAAA (IPv6)</option>
             <option value="CNAME">CNAME (Alias)</option>
@@ -12813,7 +12931,7 @@ def generate_tool_pages():
         <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">How to Scan and Connect on iOS and Android</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
           <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">🍎 Apple iOS (iPhone &amp; iPad)</h3>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Apple iOS (iPhone &amp; iPad)</h3>
             <ol style="margin-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
               <li>Open the native <strong>Camera</strong> app from your home screen or Control Center.</li>
               <li>Frame the Wi-Fi QR code within the camera viewfinder.</li>
@@ -12822,7 +12940,7 @@ def generate_tool_pages():
             </ol>
           </div>
           <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">🤖 Google Android</h3>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Google Android</h3>
             <ol style="margin-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
               <li>Open your <strong>Camera</strong> app or swipe down to Quick Settings and tap <strong>Internet</strong>.</li>
               <li>Tap the QR scanner icon next to "Add network" or use <strong>Google Lens</strong>.</li>
@@ -12964,7 +13082,7 @@ def generate_tool_pages():
         </p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
           <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-accent);">🌐 Public IP (WAN)</h3>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-accent);">Public IP (WAN)</h3>
             <ul style="margin-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
               <li>Assigned globally by your ISP (Comcast, AT&amp;T, Verizon, Spectrum).</li>
               <li>Globally unique and routable across the worldwide Internet.</li>
@@ -12973,7 +13091,7 @@ def generate_tool_pages():
             </ul>
           </div>
           <div style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-accent);">🏠 Private IP / Gateway (LAN)</h3>
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-accent);">Private IP / Gateway (LAN)</h3>
             <ul style="margin-left: 1.25rem; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">
               <li>Assigned locally by your router's internal DHCP server (e.g. <code>192.168.1.1</code>).</li>
               <li>Only accessible within your local home or office physical network.</li>
@@ -13151,7 +13269,7 @@ def generate_tool_pages():
       <!-- Detailed SEO Guides and Reference Documentation -->
       {tool_editorial}
 
-      <!-- Cross Silo Links -->
+      <!-- Related Network Utilities -->
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Explore Other Tools</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
@@ -13162,21 +13280,22 @@ def generate_tool_pages():
           <a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi QR Code &rarr;</a>
           <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Gateway Auto-Detector &rarr;</a>
           <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
+          <a href="/tools/port-checker/" class="btn btn-secondary" style="font-size: 0.85rem;">Port Lookup &rarr;</a>
           <a href="/tools/cidr-cheat-sheet/" class="btn btn-secondary" style="font-size: 0.85rem;">CIDR Cheat-Sheet &rarr;</a>
         </div>
       </div>
     </div>
   </main>
 """
-        full_html = get_header(title, desc, canonical, active_nav="tools", breadcrumbs=breadcrumbs) + content + get_footer()
+        full_html = get_header(
+            title, desc, canonical,
+            active_nav="tools",
+            breadcrumbs=breadcrumbs,
+            schemas_json_ld=[web_app_schema],
+            include_tools=True,
+        ) + content + get_footer()
         with open(os.path.join(tool_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(full_html)
-
-    # Sync master tools hub at /tools/index.html
-    tools_hub_path = os.path.join(PUBLIC_DIR, "tools", "index.html")
-    tools_html_path = os.path.join(PUBLIC_DIR, "tools.html")
-    if os.path.exists(tools_html_path):
-        shutil.copyfile(tools_html_path, tools_hub_path)
 
 # ==============================================================================
 # 7. GENERATE CATEGORIZED SITEMAP INDEX ARCHITECTURE
@@ -13189,66 +13308,82 @@ def generate_sitemaps():
     def write_sub_sitemap(filename, urls_with_priority):
         lines = ['<?xml version="1.0" encoding="UTF-8"?>']
         lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
-        for loc, prio, freq in urls_with_priority:
+        max_lastmod = "2026-01-01"
+        for item in urls_with_priority:
+            if len(item) == 4:
+                loc, prio, freq, lastmod = item
+            else:
+                loc, prio, freq = item
+                lastmod = TODAY
+            if lastmod > max_lastmod:
+                max_lastmod = lastmod
             lines.append("  <url>")
             lines.append(f"    <loc>{loc}</loc>")
-            lines.append(f"    <lastmod>{TODAY}</lastmod>")
+            lines.append(f"    <lastmod>{lastmod}</lastmod>")
             lines.append(f"    <changefreq>{freq}</changefreq>")
             lines.append(f"    <priority>{prio}</priority>")
             lines.append("  </url>")
         lines.append("</urlset>")
         with open(os.path.join(sitemaps_dir, filename), "w", encoding="utf-8") as f:
             f.write("\n".join(lines))
+        return max_lastmod
 
     # 1. ips.xml
-    ip_urls = [("https://routeriphub.com/ip/", "0.9", "weekly")]
+    ip_urls = [("https://routeriphub.com/ip/", "0.9", "weekly", get_sitemap_lastmod("ip", "index"))]
     for ip_item in IP_GATEWAYS:
-        ip_urls.append((f"https://routeriphub.com/ip/{ip_item['slug']}/", "0.9", "monthly"))
-    write_sub_sitemap("ips.xml", ip_urls)
+        ip_urls.append((f"https://routeriphub.com/ip/{ip_item['slug']}/", "0.9", "monthly", get_sitemap_lastmod("ip", ip_item["slug"])))
+    ips_lastmod = write_sub_sitemap("ips.xml", ip_urls)
 
     # 2. brands.xml
-    brand_urls = [("https://routeriphub.com/brands/", "0.9", "weekly")]
+    brand_urls = [("https://routeriphub.com/brands/", "0.9", "weekly", TODAY)]
     for b in BRAND_PROFILES:
-        brand_urls.append((f"https://routeriphub.com/brands/{b['slug']}/", "0.8", "monthly"))
-    write_sub_sitemap("brands.xml", brand_urls)
+        if b["slug"] == "pldt":
+            continue
+        brand_urls.append((f"https://routeriphub.com/brands/{b['slug']}/", "0.8", "monthly", get_sitemap_lastmod("brand", b["slug"])))
+    brands_lastmod = write_sub_sitemap("brands.xml", brand_urls)
 
     # 3. routers.xml
-    router_urls = [("https://routeriphub.com/routers/", "0.9", "weekly")]
+    router_urls = [("https://routeriphub.com/routers/", "0.9", "weekly", TODAY)]
     for m in ROUTER_MODELS:
-        router_urls.append((f"https://routeriphub.com/routers/{m['slug']}/", "0.8", "monthly"))
-    write_sub_sitemap("routers.xml", router_urls)
+        router_urls.append((f"https://routeriphub.com/routers/{m['slug']}/", "0.8", "monthly", get_sitemap_lastmod("router", m["slug"])))
+    routers_lastmod = write_sub_sitemap("routers.xml", router_urls)
 
     # 4. isps.xml
-    isp_urls = [("https://routeriphub.com/isp/", "0.9", "weekly")]
+    isp_urls = [("https://routeriphub.com/isp/", "0.9", "weekly", TODAY)]
     for isp in ISP_GATEWAYS:
-        isp_urls.append((f"https://routeriphub.com/isp/{isp['slug']}/", "0.8", "monthly"))
-    write_sub_sitemap("isps.xml", isp_urls)
+        isp_urls.append((f"https://routeriphub.com/isp/{isp['slug']}/", "0.8", "monthly", get_sitemap_lastmod("isp", isp["slug"])))
+    isps_lastmod = write_sub_sitemap("isps.xml", isp_urls)
 
     # 5. tools.xml
-    tool_urls = [("https://routeriphub.com/tools/", "0.9", "weekly")]
+    tool_urls = [("https://routeriphub.com/tools/", "0.9", "weekly", TODAY)]
     for t in TOOL_PAGES:
-        tool_urls.append((f"https://routeriphub.com/tools/{t['slug']}/", "0.8", "monthly"))
-    write_sub_sitemap("tools.xml", tool_urls)
+        tool_urls.append((f"https://routeriphub.com/tools/{t['slug']}/", "0.8", "monthly", get_sitemap_lastmod("tool", t["slug"])))
+    tools_lastmod = write_sub_sitemap("tools.xml", tool_urls)
 
     # 5b. extenders.xml
     extender_urls = [
-        ("https://routeriphub.com/extenders/", "0.9", "weekly")
+        ("https://routeriphub.com/extenders/", "0.9", "weekly", TODAY)
     ]
     for ext in EXTENDER_PROFILES:
         prio = "0.9" if ext["slug"] == "mywifiext-net" else "0.8"
-        extender_urls.append((f"https://routeriphub.com/extenders/{ext['slug']}/", prio, "monthly"))
-    write_sub_sitemap("extenders.xml", extender_urls)
+        extender_urls.append((f"https://routeriphub.com/extenders/{ext['slug']}/", prio, "monthly", get_sitemap_lastmod("extender", ext["slug"])))
+    extenders_lastmod = write_sub_sitemap("extenders.xml", extender_urls)
 
     # 6. guides.xml
     guide_urls = [
-        ("https://routeriphub.com/", "1.0", "daily"),
-        ("https://routeriphub.com/howto/", "0.9", "weekly"),
-        ("https://routeriphub.com/about/", "0.9", "monthly"),
-        ("https://routeriphub.com/authors/vikas-behl/", "0.9", "monthly"),
-        ("https://routeriphub.com/find-router-ip/", "0.8", "monthly"),
-        ("https://routeriphub.com/developers/", "0.8", "monthly")
+        ("https://routeriphub.com/", "1.0", "daily", get_sitemap_lastmod("index")),
+        ("https://routeriphub.com/howto/", "0.9", "weekly", get_sitemap_lastmod("guide", "howto")),
+        ("https://routeriphub.com/about/", "0.9", "monthly", get_sitemap_lastmod("legal", "about")),
+        ("https://routeriphub.com/authors/", "0.9", "monthly", get_sitemap_lastmod("legal", "authors")),
+        ("https://routeriphub.com/authors/vikas-behl/", "0.9", "monthly", get_sitemap_lastmod("legal", "vikas-behl")),
+        ("https://routeriphub.com/contact/", "0.8", "monthly", get_sitemap_lastmod("legal", "contact")),
+        ("https://routeriphub.com/editorial-policy/", "0.8", "monthly", get_sitemap_lastmod("legal", "editorial-policy")),
+        ("https://routeriphub.com/privacy/", "0.6", "yearly", get_sitemap_lastmod("legal", "privacy")),
+        ("https://routeriphub.com/terms/", "0.6", "yearly", get_sitemap_lastmod("legal", "terms")),
+        ("https://routeriphub.com/find-router-ip/", "0.8", "monthly", get_sitemap_lastmod("guide", "find-router-ip")),
+        ("https://routeriphub.com/developers/", "0.8", "monthly", get_sitemap_lastmod("guide", "developers")),
     ]
-    write_sub_sitemap("guides.xml", guide_urls)
+    guides_lastmod = write_sub_sitemap("guides.xml", guide_urls)
 
     # Master sitemap.xml (<sitemapindex>)
     master_lines = [
@@ -13256,31 +13391,31 @@ def generate_sitemaps():
         '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
         '  <sitemap>',
         '    <loc>https://routeriphub.com/sitemaps/ips.xml</loc>',
-        f'    <lastmod>{TODAY}</lastmod>',
+        f'    <lastmod>{ips_lastmod}</lastmod>',
         '  </sitemap>',
         '  <sitemap>',
         '    <loc>https://routeriphub.com/sitemaps/brands.xml</loc>',
-        f'    <lastmod>{TODAY}</lastmod>',
+        f'    <lastmod>{brands_lastmod}</lastmod>',
         '  </sitemap>',
         '  <sitemap>',
         '    <loc>https://routeriphub.com/sitemaps/routers.xml</loc>',
-        f'    <lastmod>{TODAY}</lastmod>',
+        f'    <lastmod>{routers_lastmod}</lastmod>',
         '  </sitemap>',
         '  <sitemap>',
         '    <loc>https://routeriphub.com/sitemaps/isps.xml</loc>',
-        f'    <lastmod>{TODAY}</lastmod>',
+        f'    <lastmod>{isps_lastmod}</lastmod>',
         '  </sitemap>',
         '  <sitemap>',
         '    <loc>https://routeriphub.com/sitemaps/tools.xml</loc>',
-        f'    <lastmod>{TODAY}</lastmod>',
+        f'    <lastmod>{tools_lastmod}</lastmod>',
         '  </sitemap>',
         '  <sitemap>',
         '    <loc>https://routeriphub.com/sitemaps/extenders.xml</loc>',
-        f'    <lastmod>{TODAY}</lastmod>',
+        f'    <lastmod>{extenders_lastmod}</lastmod>',
         '  </sitemap>',
         '  <sitemap>',
         '    <loc>https://routeriphub.com/sitemaps/guides.xml</loc>',
-        f'    <lastmod>{TODAY}</lastmod>',
+        f'    <lastmod>{guides_lastmod}</lastmod>',
         '  </sitemap>',
         '</sitemapindex>'
     ]
@@ -13375,13 +13510,14 @@ def update_search_index():
                 "keywords": "synology rt6600ax setup login wifi srm dsm 192.168.1.1 router.synology.com troubleshooting vlan dual wan"
             })
             continue
+        clean_title = smart_model_name(m["brand"], m["model_name"])
         search_index.append({
-            "title": f"{m['brand']} {m['model_name']} Setup Sheet",
+            "title": f"{clean_title} Setup Sheet",
             "category": "Router Model",
             "badge": m['brand'],
             "url": f"/routers/{m['slug']}/",
             "snippet": f"Default IP {m['default_ip']}, username '{m['default_username']}', password '{m['default_password']}', {m['wifi_standard']}.",
-            "keywords": f"{m['brand'].lower()} {m['model_name'].lower()} {m['default_ip']} {m['slug']} password reset {m['hardware_type'].lower()}"
+            "keywords": f"{clean_title.lower()} {m['default_ip']} {m['slug']} password reset {m['hardware_type'].lower()}"
         })
 
     # 2. ISP Gateways
@@ -13461,6 +13597,17 @@ def update_search_index():
         "keywords": "brands router manufacturers netgear asus tp-link linksys xfinity cisco d-link eero synology login setup"
     })
     for b in BRAND_PROFILES:
+        if b["slug"] == "pldt":
+            if not any(m["slug"] == "pldt" for m in ROUTER_MODELS):
+                search_index.append({
+                    "title": "PLDT Default Login — Username, Password & IP Address",
+                    "category": "Router Model",
+                    "badge": "PLDT",
+                    "url": "/routers/pldt/",
+                    "snippet": "Access your PLDT router at 192.168.1.1 using username admin and password 1234, change Wi-Fi settings, and resolve admin login failures.",
+                    "keywords": "pldt home fiber 192.168.1.1 admin 1234 default login wifi password"
+                })
+            continue
         search_index.append({
             "title": f"{b['name']} Brand Directory & Model Matrix",
             "category": "Brand Directory",
@@ -13474,7 +13621,7 @@ def update_search_index():
     for ip_item in IP_GATEWAYS:
         if ip_item['ip'] == "10.10.10.1":
             search_index.append({
-                "title": "10.10.10.1 Login Admin — Router, Modem & Gateway Setup Guide",
+                "title": "10.10.10.1 Login Admin — Router & Gateway Setup Guide",
                 "category": "Gateway IP",
                 "badge": "10.10.10.1",
                 "url": "/ip/10-10-10-1/",
@@ -13516,7 +13663,7 @@ def update_search_index():
         "title": "Universal Router IP Discovery Guide (Windows, Mac, iOS, Android)",
         "category": "Setup Guide",
         "badge": "Guide",
-        "url": "/find-router-ip.html",
+        "url": "/find-router-ip/",
         "snippet": "Terminal commands (ipconfig, netstat -nr) and graphical settings to find your local gateway IP.",
         "keywords": "find my ip ipconfig default gateway windows mac iphone android"
     })
@@ -13524,7 +13671,7 @@ def update_search_index():
         "title": "Wi-Fi 7 Setup, 320 MHz Channels & MLO Optimization Guide",
         "category": "Setup Guide",
         "badge": "Guide",
-        "url": "/howto.html#wifi7-setup",
+        "url": "/howto/#wifi7-setup",
         "snippet": "How to configure 320 MHz channels, Multi-Link Operation (MLO), and 6 GHz AFC coordination.",
         "keywords": "wifi 7 320 mhz mlo 6 ghz be800 be96u wireless 802.11be"
     })
@@ -13532,7 +13679,7 @@ def update_search_index():
         "title": "Fiber ONT Bridging & Double NAT Elimination Guide",
         "category": "Setup Guide",
         "badge": "Guide",
-        "url": "/howto.html#ont-bridging",
+        "url": "/howto/#ont-bridging",
         "snippet": "How to bypass ISP combo gateways and configure IP Passthrough on AT&T, Verizon, and CenturyLink.",
         "keywords": "fiber ont bridge mode double nat ip passthrough bgw320 cr1000a"
     })
@@ -13552,64 +13699,105 @@ def update_search_index():
 # 10. UPDATE VERCEL REDIRECTS & CONFIG (vercel.json)
 # ==============================================================================
 def update_vercel_config():
-    print("Updating vercel.json with 301 redirects & clean URLs...")
-    redirects = [
-        {"source": "/isp/pldt", "destination": "/routers/pldt/", "permanent": True},
-        {"source": "/192-168-1-1.html", "destination": "/ip/192-168-1-1/", "permanent": True},
-        {"source": "/192-168-0-1.html", "destination": "/ip/192-168-0-1/", "permanent": True},
-        {"source": "/10-10-10-1.html", "destination": "/ip/10-10-10-1/", "permanent": True},
-        {"source": "/10-0-0-1.html", "destination": "/ip/10-0-0-1/", "permanent": True},
-        {"source": "/192-168-1-254.html", "destination": "/ip/192-168-1-254/", "permanent": True},
-        {"source": "/192-168-2-1.html", "destination": "/ip/192-168-2-1/", "permanent": True},
-        {"source": "/192-168-8-1.html", "destination": "/ip/192-168-8-1/", "permanent": True},
-        {"source": "/192-168-10-1.html", "destination": "/ip/192-168-10-1/", "permanent": True},
-        {"source": "/192-168-11-1.html", "destination": "/ip/192-168-11-1/", "permanent": True},
-        {"source": "/192-168-12-1.html", "destination": "/ip/192-168-12-1/", "permanent": True},
-        {"source": "/192-168-31-1.html", "destination": "/ip/192-168-31-1/", "permanent": True},
-        {"source": "/192-168-88-1.html", "destination": "/ip/192-168-88-1/", "permanent": True},
-        {"source": "/192-168-100-1.html", "destination": "/ip/192-168-100-1/", "permanent": True},
-        {"source": "/10-0-1-1.html", "destination": "/ip/10-0-1-1/", "permanent": True},
-        {"source": "/192-168-1-2.html", "destination": "/ip/192-168-1-2/", "permanent": True},
-        {"source": "/192-168-1-250.html", "destination": "/ip/192-168-1-250/", "permanent": True},
-        {"source": "/mywifiext.net", "destination": "/extenders/mywifiext-net/", "permanent": True},
-        {"source": "/mywifiext", "destination": "/extenders/mywifiext-net/", "permanent": True},
-        {"source": "/mywifiext-net", "destination": "/extenders/mywifiext-net/", "permanent": True},
-        {"source": "/tplinkrepeater.net", "destination": "/extenders/tplinkrepeater-net/", "permanent": True},
-        {"source": "/tplinkrepeater", "destination": "/extenders/tplinkrepeater-net/", "permanent": True},
-        {"source": "/extender.linksys.com", "destination": "/extenders/extender-linksys-com/", "permanent": True},
-        {"source": "/extender-linksys", "destination": "/extenders/extender-linksys-com/", "permanent": True},
-        {"source": "/dlinkap.local", "destination": "/extenders/dlinkap-local/", "permanent": True},
-        {"source": "/dlinkap", "destination": "/extenders/dlinkap-local/", "permanent": True},
-        {"source": "/myrepeater.net", "destination": "/extenders/myrepeater-net/", "permanent": True},
-        {"source": "/myrepeater", "destination": "/extenders/myrepeater-net/", "permanent": True},
-        {"source": "/ap.setup", "destination": "/extenders/ap-setup/", "permanent": True},
-        {"source": "/ap-setup", "destination": "/extenders/ap-setup/", "permanent": True},
-        {"source": "/topvision", "destination": "/extenders/topvision-extender/", "permanent": True},
-        {"source": "/topvision-extender", "destination": "/extenders/topvision-extender/", "permanent": True},
-        {"source": "/sewot", "destination": "/extenders/sewot-sw-01/", "permanent": True},
-        {"source": "/sewot-sw-01", "destination": "/extenders/sewot-sw-01/", "permanent": True},
-        {"source": "/sewot-sw01", "destination": "/extenders/sewot-sw-01/", "permanent": True},
-        {"source": "/sewot-extender", "destination": "/extenders/sewot-sw-01/", "permanent": True},
-        {"source": "/rangextd", "destination": "/extenders/rangextd-extender/", "permanent": True},
-        {"source": "/rangextd-extender", "destination": "/extenders/rangextd-extender/", "permanent": True},
-        {"source": "/brands.html", "destination": "/brands/", "permanent": True},
-        {"source": "/howto.html", "destination": "/howto/", "permanent": True},
-        {"source": "/find-router-ip.html", "destination": "/find-router-ip/", "permanent": True},
-        {"source": "/developers.html", "destination": "/developers/", "permanent": True},
-        {"source": "/author/vikas-behl", "destination": "/authors/vikas-behl/", "permanent": True},
-        {"source": "/authors", "destination": "/about/", "permanent": True},
-        {"source": "/tools.html", "destination": "/tools/", "permanent": True},
-        {"source": "/brand/:brand", "destination": "/brands/:brand/", "permanent": True},
-        {"source": "/isp/t-mobile-5g", "destination": "/isp/t-mobile-kvd21/", "permanent": True},
-        {"source": "/isp/t-mobile-5g/", "destination": "/isp/t-mobile-kvd21/", "permanent": True},
-        {"source": "/192-168-50-1.html", "destination": "/ip/192-168-50-1/", "permanent": True},
-        {"source": "/192-168-4-1.html", "destination": "/ip/192-168-4-1/", "permanent": True},
-        {"source": "/192-168-86-1.html", "destination": "/ip/192-168-86-1/", "permanent": True},
-        {"source": "/192-168-3-1.html", "destination": "/ip/192-168-3-1/", "permanent": True},
-        {"source": "/192-168-112-1.html", "destination": "/ip/192-168-112-1/", "permanent": True},
-        {"source": "/192-168-128-1.html", "destination": "/ip/192-168-128-1/", "permanent": True},
-        {"source": "/192-168-212-1.html", "destination": "/ip/192-168-212-1/", "permanent": True}
+    print("Updating vercel.json with 308 permanent redirects, security headers & clean URLs...")
+    redirects = []
+    seen_sources = set()
+
+    def add_redirect(src, dst):
+        if src not in seen_sources:
+            seen_sources.add(src)
+            redirects.append({"source": src, "destination": dst, "permanent": True})
+
+    # Legacy PLDT hubs -> unified /routers/pldt/
+    for pldt_src in ["/isp/pldt", "/isp/pldt/", "/brands/pldt", "/brands/pldt/", "/brand/pldt.html", "/brand/pldt", "/brand/pldt/"]:
+        add_redirect(pldt_src, "/routers/pldt/")
+
+    # Legacy root IP HTML / bare / trailing-slash paths -> canonical /ip/{slug}/
+    legacy_ip_slugs = [
+        "192-168-1-1", "192-168-0-1", "10-10-10-1", "10-0-0-1", "192-168-1-254",
+        "192-168-2-1", "192-168-8-1", "192-168-10-1", "192-168-11-1", "192-168-12-1",
+        "192-168-31-1", "192-168-88-1", "192-168-100-1", "10-0-1-1", "192-168-1-2",
+        "192-168-1-250", "192-168-50-1", "192-168-4-1", "192-168-86-1", "192-168-3-1",
+        "192-168-112-1", "192-168-128-1", "192-168-212-1",
     ]
+    all_ip_slugs = list(dict.fromkeys([ip_item["slug"] for ip_item in IP_GATEWAYS] + legacy_ip_slugs))
+    for ip_slug in all_ip_slugs:
+        dest = f"/ip/{ip_slug}/"
+        add_redirect(f"/{ip_slug}.html", dest)
+        add_redirect(f"/{ip_slug}", dest)
+        add_redirect(f"/{ip_slug}/", dest)
+
+    # Extender shortlinks & legacy aliases
+    extender_redirects = [
+        ("/mywifiext.net", "/extenders/mywifiext-net/"),
+        ("/mywifiext", "/extenders/mywifiext-net/"),
+        ("/mywifiext-net", "/extenders/mywifiext-net/"),
+        ("/tplinkrepeater.net", "/extenders/tplinkrepeater-net/"),
+        ("/tplinkrepeater", "/extenders/tplinkrepeater-net/"),
+        ("/extender.linksys.com", "/extenders/extender-linksys-com/"),
+        ("/extender-linksys", "/extenders/extender-linksys-com/"),
+        ("/dlinkap.local", "/extenders/dlinkap-local/"),
+        ("/dlinkap", "/extenders/dlinkap-local/"),
+        ("/myrepeater.net", "/extenders/myrepeater-net/"),
+        ("/myrepeater", "/extenders/myrepeater-net/"),
+        ("/ap.setup", "/extenders/ap-setup/"),
+        ("/ap-setup", "/extenders/ap-setup/"),
+        ("/topvision", "/extenders/topvision-extender/"),
+        ("/topvision-extender", "/extenders/topvision-extender/"),
+        ("/sewot", "/extenders/sewot-sw-01/"),
+        ("/sewot-sw-01", "/extenders/sewot-sw-01/"),
+        ("/sewot-sw01", "/extenders/sewot-sw-01/"),
+        ("/sewot-extender", "/extenders/sewot-sw-01/"),
+        ("/rangextd", "/extenders/rangextd-extender/"),
+        ("/rangextd-extender", "/extenders/rangextd-extender/"),
+    ]
+    for src, dst in extender_redirects:
+        add_redirect(src, dst)
+
+    # Legacy .html pages, singular /brand/ routes, legal aliases & removed orphan slugs
+    other_redirects = [
+        ("/brands.html", "/brands/"),
+        ("/howto.html", "/howto/"),
+        ("/find-router-ip.html", "/find-router-ip/"),
+        ("/developers.html", "/developers/"),
+        ("/tools.html", "/tools/"),
+        ("/author/vikas-behl", "/authors/vikas-behl/"),
+        ("/author/vikas-behl/", "/authors/vikas-behl/"),
+        ("/author/vikas-behl.html", "/authors/vikas-behl/"),
+        ("/brand/:brand.html", "/brands/:brand/"),
+        ("/brand/:brand", "/brands/:brand/"),
+        ("/brand/:brand/", "/brands/:brand/"),
+        ("/isp/t-mobile-5g", "/isp/t-mobile-kvd21/"),
+        ("/isp/t-mobile-5g/", "/isp/t-mobile-kvd21/"),
+        ("/privacy-policy", "/privacy/"),
+        ("/privacy-policy/", "/privacy/"),
+        ("/terms-of-service", "/terms/"),
+        ("/terms-of-service/", "/terms/"),
+        ("/routers/gl-inet-beryllium-gl-mt3000", "/routers/gl-inet-beryl-ax-gl-mt3000/"),
+        ("/routers/gl-inet-beryllium-gl-mt3000/", "/routers/gl-inet-beryl-ax-gl-mt3000/"),
+        ("/routers/asus-rt-be96u", "/brands/asus/"),
+        ("/routers/asus-rt-be96u/", "/brands/asus/"),
+        ("/routers/d-link-exo-ax5400", "/brands/d-link/"),
+        ("/routers/d-link-exo-ax5400/", "/brands/d-link/"),
+        ("/routers/arris-surfboard-sb8200", "/brands/arris/"),
+        ("/routers/arris-surfboard-sb8200/", "/brands/arris/"),
+    ]
+    for src, dst in other_redirects:
+        add_redirect(src, dst)
+
+    csp_policy = (
+        "default-src 'self'; "
+        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://embed.tawk.to https://*.tawk.to; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://embed.tawk.to https://*.tawk.to; "
+        "img-src 'self' data: https: blob:; "
+        "font-src 'self' data: https://fonts.gstatic.com https://embed.tawk.to https://*.tawk.to; "
+        "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms https://embed.tawk.to https://*.tawk.to wss://*.tawk.to https://api.ipify.org https://ipwho.is https://dns.google https://cloudflare-dns.com https://dns.quad9.net https://dns.adguard-dns.com https://dns.alidns.com http://192.168.1.1 http://192.168.0.1 http://10.0.0.1 http://192.168.1.254; "
+        "frame-src 'self' https://tawk.to https://*.tawk.to; "
+        "frame-ancestors 'self'; "
+        "base-uri 'self'; "
+        "form-action 'self'; "
+        "upgrade-insecure-requests"
+    )
 
     vconfig = {
         "version": 2,
@@ -13623,8 +13811,10 @@ def update_vercel_config():
                 "headers": [
                     {"key": "X-Content-Type-Options", "value": "nosniff"},
                     {"key": "X-Frame-Options", "value": "SAMEORIGIN"},
-                    {"key": "X-XSS-Protection", "value": "1; mode=block"},
-                    {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"}
+                    {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
+                    {"key": "Strict-Transport-Security", "value": "max-age=31536000"},
+                    {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"},
+                    {"key": "Content-Security-Policy", "value": csp_policy},
                 ]
             },
             {
@@ -13671,31 +13861,37 @@ def update_vercel_config():
 # ==============================================================================
 def update_llm_manifests():
     print("Updating llms.txt & llms-full.txt...")
-    llms_txt = """# RouterIPHub
+    model_count = len(ROUTER_MODELS)
+    brand_count = len(BRAND_PROFILES)
+    isp_count = len(ISP_GATEWAYS)
+    ip_count = len(IP_GATEWAYS)
+    ext_count = len(EXTENDER_PROFILES)
+    llms_txt = f"""# RouterIPHub
 > The open, authoritative technical reference platform and diagnostic knowledgebase for RFC 1918 private gateway IP addresses, hardware setup sheets, default credentials, and interactive networking tools.
 
-RouterIPHub indexes 250+ specific router models, 18 major hardware brands, 10 carrier-grade ISP gateways, and 17 private gateway subnets. Designed for human network administrators and autonomous AI agents requiring deterministic default configurations and troubleshooting matrices.
+RouterIPHub indexes {model_count} specific router models, {brand_count} major hardware brands, {isp_count} carrier-grade ISP gateways, {ext_count} extender setup portals, and {ip_count} private gateway subnets. Designed for human network administrators and autonomous AI agents requiring deterministic default configurations and troubleshooting matrices.
 
-## Core Silos
-- [Hardware Models Directory](https://routeriphub.com/routers/): Technical setup sheets, Wi-Fi specs, reset procedures, and factory credentials for 250+ router models.
+## Core Reference Directories
+- [Hardware Models Directory](https://routeriphub.com/routers/): Technical setup sheets, Wi-Fi specs, reset procedures, and factory credentials for {model_count} router models.
 - [ISP Gateway Portals](https://routeriphub.com/isp/): Carrier-specific default gateways for Comcast Xfinity, AT&T Fiber, Verizon Fios, Spectrum, and CenturyLink.
-- [Hardware Brand Directories](https://routeriphub.com/brands/): Master index across 18 major networking hardware manufacturers including Netgear, TP-Link, ASUS, Linksys, and MikroTik.
+- [Hardware Brand Directories](https://routeriphub.com/brands/): Master index across {brand_count} major networking hardware manufacturers including Netgear, TP-Link, ASUS, Linksys, and MikroTik.
 - [Private IP Gateway Hubs](https://routeriphub.com/ip/): Comprehensive diagnostic guides for RFC 1918 gateway subnets including 192.168.1.1, 192.168.0.1, 10.0.0.1, and 192.168.1.254.
 - [Interactive Networking Utilities](https://routeriphub.com/tools/): Browser-based networking tools including Subnet Calculator, Wi-Fi QR Code Generator, IP Address Checker, and DNS Propagation Tester.
 - [Wi-Fi Range Extenders Directory](https://routeriphub.com/extenders/): Setup portals, fallback IPs (192.168.1.250, 192.168.0.254), and pairing diagnostics for Netgear, TP-Link, and Linksys extenders.
+- [PLDT Default Login Guide](https://routeriphub.com/routers/pldt/): Verified 192.168.1.1 admin credentials, Wi-Fi setup, and model troubleshooting for PLDT Home routers.
 - [mywifiext.net Netgear Setup Guide](https://routeriphub.com/extenders/mywifiext-net/): Official login and fallback IP guide for Netgear EX, EAX, and EXS series extenders.
-- [Gateway IP Discovery Guide](https://routeriphub.com/find-router-ip.html): Platform-specific terminal commands (Windows, macOS, Linux, iOS, Android) to determine local gateway addresses.
-- [Router Setup & Reset Guides](https://routeriphub.com/howto.html): Step-by-step instructions for initial router setup, 30-30-30 hard resets, and factory restoration.
+- [Gateway IP Discovery Guide](https://routeriphub.com/find-router-ip/): Platform-specific terminal commands (Windows, macOS, Linux, iOS, Android) to determine local gateway addresses.
+- [Router Setup & Reset Guides](https://routeriphub.com/howto/): Step-by-step instructions for initial router setup, 30-30-30 hard resets, and factory restoration.
 
 ## Machine-Readable Datasets & APIs
 - [Open-Source Router Dataset (GitHub)](https://github.com/routeriphub/default-router-ip-databas): Official public GitHub repository containing raw router IP mappings, default passwords, and schema dumps.
 - [Full LLM Knowledgebase Context](https://routeriphub.com/llms-full.txt): Complete uncompressed dataset containing full hardware models, credentials, subnets, and setup guides.
-- [Router Hardware Catalog JSON](https://routeriphub.com/data/routers.json): Programmatic REST API dataset of 250+ router specifications and credentials.
+- [Router Hardware Catalog JSON](https://routeriphub.com/data/routers.json): Programmatic REST API dataset of {model_count} router specifications and credentials.
 - [Hardware Tabular CSV Export](https://routeriphub.com/data/routers.csv): Comma-delimited dataset for spreadsheet ingestion and offline auditing.
 - [ANSI SQL Database Dump](https://routeriphub.com/data/routers.sql): Relational database dump compatible with PostgreSQL, MySQL, and SQLite.
 - [Gateway Subnets Dataset](https://routeriphub.com/data/gateways.json): Subnet masks, broadcast addresses, and manufacturer allocations for private gateways.
 - [Global Search Index](https://routeriphub.com/data/search-index.json): Lightweight search index covering all indexed models, brands, and IPs.
-- [XML Sitemap Index](https://routeriphub.com/sitemap.xml): Comprehensive sitemap index covering all model, brand, IP, ISP, and tool URLs.
+- [XML Sitemap Index](https://routeriphub.com/sitemap.xml): Comprehensive sitemap index covering all model, brand, IP, ISP, extender, tool, and guide URLs.
 
 ## Gateway Quick Reference
 - [192.168.1.1 Setup Guide](https://routeriphub.com/ip/192-168-1-1/): Default gateway for Netgear, ASUS, Linksys, and Cisco. Factory default credentials: admin / password or admin / admin.
@@ -13707,7 +13903,9 @@ RouterIPHub indexes 250+ specific router models, 18 major hardware brands, 10 ca
 - [192.168.178.1 Setup Guide](https://routeriphub.com/ip/192-168-178-1/): Default gateway for AVM FRITZ!Box European routers. Login via printed device password.
 
 ## Optional
-- [Developer API Reference](https://routeriphub.com/developers.html): Documentation for integrating RouterIPHub JSON/CSV data feeds into third-party network scanners.
+- [Developer API Reference](https://routeriphub.com/developers/): Documentation for integrating RouterIPHub JSON/CSV data feeds into third-party network scanners.
+- [Editorial Policy & Hardware Verification](https://routeriphub.com/editorial-policy/): Methodology for hardware credential verification and errata handling.
+- [Authors & Verification Lab](https://routeriphub.com/authors/): Editorial contributors and network engineering verification credentials.
 """
     # Write to both public/ and root directory
     for target in [os.path.join(PUBLIC_DIR, "llms.txt"), os.path.join(ROOT_DIR, "llms.txt")]:
@@ -13727,7 +13925,8 @@ Website: https://routeriphub.com
 
     llms_full_txt += "\n## 2. Hardware Models Database\n"
     for m in ROUTER_MODELS:
-        llms_full_txt += f"- [{m['brand']} {m['model_name']}](https://routeriphub.com/routers/{m['slug']}/): Gateway {m['default_ip']} ({m['web_domain']}). Credentials: {m['default_username']} / {m['default_password']}. Reset: {m['reset_instructions']}\n"
+        clean_title = smart_model_name(m["brand"], m["model_name"])
+        llms_full_txt += f"- [{clean_title}](https://routeriphub.com/routers/{m['slug']}/): Gateway {m['default_ip']} ({m['web_domain']}). Credentials: {m['default_username']} / {m['default_password']}. Reset: {m['reset_instructions']}\n"
 
     for target in [os.path.join(PUBLIC_DIR, "llms-full.txt"), os.path.join(ROOT_DIR, "llms-full.txt")]:
         with open(target, "w", encoding="utf-8") as f:
@@ -13749,6 +13948,8 @@ def main():
     generate_extender_pages()
     generate_author_and_about_pages()
     generate_tool_pages()
+    generate_trust_and_legal_pages(PUBLIC_DIR, get_header, get_footer)
+    generate_static_guide_pages(ROOT_DIR, PUBLIC_DIR, get_header, get_footer)
     generate_sitemaps()
     export_datasets()
     update_search_index()

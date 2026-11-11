@@ -39,9 +39,9 @@ table.data-table code,table.table code{font-size:0.875rem;padding:0.18rem 0.45re
 @media (max-width: 768px) {
   .hero { padding: 2.25rem 0 1.75rem; }
   .hero-subtitle { font-size: 1rem; margin-bottom: 1.5rem; }
-  .ip-quick-access { display: flex !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; scroll-snap-type: x mandatory !important; gap: 0.5rem !important; padding: 0.5rem 0 0.75rem !important; scrollbar-width: none !important; -ms-overflow-style: none !important; flex-wrap: nowrap !important; justify-content: flex-start !important; }
-  .ip-quick-access::-webkit-scrollbar { display: none !important; }
-  .ip-quick-access .ip-btn { flex: 0 0 auto !important; scroll-snap-align: start !important; white-space: nowrap !important; padding: 0.5rem 0.85rem !important; font-size: 0.85rem !important; min-height: 44px !important; }
+  .ip-quick-access { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 0.5rem !important; padding: 0.25rem 0 0.75rem !important; overflow-x: visible !important; }
+  .ip-quick-access .ip-btn { width: 100% !important; min-width: 0 !important; justify-content: space-between !important; padding: 0.55rem 0.7rem !important; font-size: 0.82rem !important; min-height: 44px !important; flex-wrap: wrap !important; gap: 0.25rem !important; }
+  .ip-quick-access .ip-btn:last-child { grid-column: 1 / -1 !important; justify-content: center !important; }
   .tool-grid, .grid-3 { grid-template-columns: 1fr !important; }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -306,3 +306,294 @@ table.data-table code,table.table code{font-size:0.875rem;padding:0.18rem 0.45re
 
 
 .router-table, .data-table, .led-table, .ip-table { font-variant-numeric: tabular-nums; }
+
+/* Accessibility utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Inline SVG Brand Logo Mark & Wordmark (Light + Dark Instant Adaptation) */
+.brand-mark {
+  height: 30px;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
+}
+.brand-mark .logo-navy { fill: #123458; transition: fill 0.15s ease; }
+.brand-mark .logo-blue { fill: #2171b5; }
+.brand-mark .logo-wave { stroke: #16538e; }
+.brand-mark .logo-orange { fill: #f47b20; stroke: #f47b20; }
+.brand-mark .logo-teal { fill: #1ea0a2; stroke: #1ea0a2; }
+.brand-mark .logo-cutout { stroke: var(--bg-secondary); fill: #123458; transition: stroke 0.15s ease, fill 0.15s ease; }
+.brand-wordmark {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 0.95;
+  justify-content: center;
+}
+.brand-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #123458;
+  transition: color 0.15s ease;
+}
+.brand-ip {
+  color: #f47b20;
+}
+.brand-tld {
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: #123458;
+  align-self: flex-end;
+  margin-top: 1px;
+  letter-spacing: 0.02em;
+  transition: color 0.15s ease;
+}
+[data-theme="dark"] .brand-name,
+[data-theme="dark"] .brand-tld { color: #f1f5f9; }
+[data-theme="dark"] .brand-mark .logo-navy { fill: #cbd5e1; }
+[data-theme="dark"] .brand-mark .logo-wave { stroke: #38bdf8; }
+[data-theme="dark"] .brand-mark .logo-cutout { fill: #e2e8f0; stroke: var(--bg-secondary); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .brand-name,
+  :root:not([data-theme="light"]) .brand-tld { color: #f1f5f9; }
+  :root:not([data-theme="light"]) .brand-mark .logo-navy { fill: #cbd5e1; }
+  :root:not([data-theme="light"]) .brand-mark .logo-wave { stroke: #38bdf8; }
+  :root:not([data-theme="light"]) .brand-mark .logo-cutout { fill: #e2e8f0; stroke: var(--bg-secondary); }
+}
+@media (max-width: 480px) {
+  .brand-mark { height: 26px; }
+  .brand-name { font-size: 1.05rem; }
+}
+
+/* Balanced 3x2 Explore Directories Grid */
+.grid-explore {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 1024px) {
+  .grid-explore { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .grid-explore { grid-template-columns: 1fr; }
+}
+
+/* Mobile Responsive Card Stacking for Master Router Matrix (Zero Clipping on 390px) */
+@media (max-width: 640px) {
+  .master-matrix-wrap {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+  .master-matrix-table {
+    min-width: 0 !important;
+    width: 100% !important;
+    display: block !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  .master-matrix-table thead {
+    display: none !important;
+  }
+  .master-matrix-table tbody {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+  }
+  .master-matrix-table tr {
+    display: flex !important;
+    flex-direction: column !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 0.85rem 1rem !important;
+    gap: 0.55rem !important;
+    box-shadow: var(--shadow) !important;
+  }
+  .master-matrix-table td {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0 !important;
+    border: none !important;
+    max-width: none !important;
+    width: 100% !important;
+    word-break: break-word !important;
+  }
+  .master-matrix-table td.cell-brand,
+  .master-matrix-table td:first-child {
+    padding-bottom: 0.5rem !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    font-size: 1rem !important;
+  }
+  .master-matrix-table td:not(.cell-brand):not(:first-child)::before {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin-bottom: 0.15rem;
+  }
+  .master-matrix-table td:nth-child(2)::before { content: "Default Gateway IP"; }
+  .master-matrix-table td:nth-child(3)::before { content: "Default Username"; }
+  .master-matrix-table td:nth-child(4)::before { content: "Default Password"; }
+  .master-matrix-table td:nth-child(5)::before { content: "Setup Notes"; }
+  .master-matrix-table td[data-label]:not(.cell-brand):not(:first-child)::before {
+    content: attr(data-label);
+  }
+}
+
+/* Router Back-Panel Hardware & Reset Diagram Card */
+.hardware-diagram-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+.hardware-diagram-svg {
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  display: block;
+  margin: 0.5rem auto 0;
+}
+.footer-trust-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  justify-content: center;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.825rem;
+}
+.footer-trust-bar a {
+  color: var(--text-secondary);
+}
+.footer-trust-bar a:hover {
+  color: var(--text-accent);
+}
+
+/* Interactive Tool & Developer Dataset Cards */
+.tool-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow);
+}
+.tool-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .tool-grid-2 { grid-template-columns: 1fr 1fr; }
+}
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
+}
+.form-control {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+}
+.form-control:focus { border-color: var(--text-accent); }
+.qr-preview-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-secondary);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  min-height: 280px;
+}
+.calc-results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.calc-results-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.calc-results-table tr:last-child td { border-bottom: none; }
+.calc-results-table td:first-child {
+  font-weight: 600;
+  color: var(--text-muted);
+  width: 40%;
+}
+.dataset-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.dataset-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+  transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.dataset-card:hover {
+  border-color: var(--text-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+.dataset-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.dataset-format-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-accent);
+  font-family: var(--font-mono);
+}
+.code-preview-box {
+  background: var(--bg-code);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  color: var(--text-primary);
+}
+

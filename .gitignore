@@ -22,4 +22,5 @@ __pycache__/
 *.pyo
 append_styles.py
 update_homepage.py
+.skills/
 

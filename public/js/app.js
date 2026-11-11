@@ -20,6 +20,7 @@ function initApp() {
   initModelCardsSearch();
   initCopyButtons();
   initFaqAccordion();
+  initGatewayProbe();
   initInstantPrefetch();
 }
 
@@ -82,7 +83,7 @@ function initThemeToggle() {
     const nextTheme = isCurrentDark ? 'light' : 'dark';
     applyTheme(nextTheme);
 
-    showToast(nextTheme === 'dark' ? 'Switched to Dark Mode 🌙' : 'Switched to Light Mode ☀️');
+    showToast(nextTheme === 'dark' ? 'Switched to Dark Mode' : 'Switched to Light Mode');
   });
 }
 
@@ -372,11 +373,13 @@ function createSearchModalDOM() {
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
+        <label for="modal-search-input" class="sr-only">Search RouterIPHub directory</label>
         <input 
           type="search" 
           id="modal-search-input" 
           class="modal-search-input" 
-          placeholder="Search 150+ models, default IPs, tools, guides... (e.g. 192.168.1.1, Archer, Wi-Fi QR, hard reset)" 
+          placeholder="Search 250+ router models, default IPs, tools, guides..." 
+          aria-label="Search site directory"
           autocomplete="off" 
           spellcheck="false"
         >
@@ -388,12 +391,12 @@ function createSearchModalDOM() {
 
       <div class="search-filter-tabs">
         <button class="filter-tab active" data-filter="all">All Topics</button>
-        <button class="filter-tab" data-filter="Router Model">📡 Routers</button>
-        <button class="filter-tab" data-filter="ISP Gateway">🏢 ISP</button>
-        <button class="filter-tab" data-filter="Gateway IP">⚡ Gateway IPs</button>
-        <button class="filter-tab" data-filter="Brand Directory">🏷️ Brands</button>
-        <button class="filter-tab" data-filter="Interactive Tool">🛠️ Tools</button>
-        <button class="filter-tab" data-filter="Setup Guide">📖 Guides</button>
+        <button class="filter-tab" data-filter="Router Model">Routers</button>
+        <button class="filter-tab" data-filter="ISP Gateway">ISP</button>
+        <button class="filter-tab" data-filter="Gateway IP">Gateway IPs</button>
+        <button class="filter-tab" data-filter="Brand Directory">Brands</button>
+        <button class="filter-tab" data-filter="Interactive Tool">Tools</button>
+        <button class="filter-tab" data-filter="Setup Guide">Guides</button>
       </div>
 
       <div id="modal-search-results" class="search-results-list" role="listbox"></div>
@@ -404,7 +407,7 @@ function createSearchModalDOM() {
           <span><kbd>&crarr;</kbd> to open</span>
           <span><kbd>ESC</kbd> to close</span>
         </div>
-        <span id="search-match-count" class="search-match-count">160+ topics indexed</span>
+        <span id="search-match-count" class="search-match-count">320+ topics indexed</span>
       </div>
     </div>
   `;
@@ -491,7 +494,7 @@ function performSearch(query) {
   if (currentResults.length === 0) {
     container.innerHTML = `
       <div class="search-empty-state">
-        <div class="search-empty-icon">🔍</div>
+        <div class="search-empty-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
         <div class="search-empty-title">No matching results for "${escapeHtml(query)}"</div>
         <div class="search-empty-desc">
           Try searching for a gateway IP (e.g. <code>192.168.1.1</code>), router model (e.g. <code>Nighthawk</code>, <code>Archer</code>), tool (<code>Wi-Fi QR</code>, <code>subnet</code>), or guide (<code>hard reset</code>, <code>bridge mode</code>).
@@ -540,22 +543,22 @@ function renderQuickSuggestions(container) {
   selectedResultIndex = -1;
 
   container.innerHTML = `
-    <div class="search-suggestions-header">🔥 Popular Topics & Quick Tools</div>
+    <div class="search-suggestions-header">Popular Topics &amp; Quick Tools</div>
     <div class="search-chips-wrap">
-      <a href="/tools/wifi-qr-code/" class="search-chip">🛠️ Wi-Fi QR Code Generator</a>
-      <a href="/tools/subnet-calculator/" class="search-chip">🛠️ Subnet CIDR Calculator</a>
-      <a href="/tools/detect-gateway/" class="search-chip">⚡ Auto-Detect My Gateway IP</a>
-      <a href="/howto.html#wifi7-setup" class="search-chip">📖 Wi-Fi 7 (320 MHz) Setup</a>
-      <a href="/howto.html#hard-reset" class="search-chip">📖 30-30-30 Hard Reset Guide</a>
-      <a href="/ip/192-168-1-1/" class="search-chip">⚡ 192.168.1.1 (Netgear / ASUS)</a>
-      <a href="/ip/192-168-0-1/" class="search-chip">⚡ 192.168.0.1 (TP-Link / D-Link)</a>
-      <a href="/ip/10-0-0-1/" class="search-chip">⚡ 10.0.0.1 (Xfinity Comcast)</a>
-      <a href="/ip/192-168-1-254/" class="search-chip">⚡ 192.168.1.254 (AT&T Fiber)</a>
-      <a href="/isp/xfinity-xfi/" class="search-chip">🏢 Xfinity xFi Gateway</a>
-      <a href="/isp/att-bgw320/" class="search-chip">🏢 AT&T BGW320 Fiber</a>
+      <a href="/tools/wifi-qr-code/" class="search-chip">Wi-Fi QR Code Generator</a>
+      <a href="/tools/subnet-calculator/" class="search-chip">Subnet CIDR Calculator</a>
+      <a href="/tools/detect-gateway/" class="search-chip">Auto-Detect Gateway IP</a>
+      <a href="/howto/#wifi7-setup" class="search-chip">Wi-Fi 7 (320 MHz) Setup</a>
+      <a href="/howto/#hard-reset" class="search-chip">30-30-30 Hard Reset Guide</a>
+      <a href="/ip/192-168-1-1/" class="search-chip">192.168.1.1 (Netgear / ASUS)</a>
+      <a href="/ip/192-168-0-1/" class="search-chip">192.168.0.1 (TP-Link / D-Link)</a>
+      <a href="/ip/10-0-0-1/" class="search-chip">10.0.0.1 (Xfinity Comcast)</a>
+      <a href="/ip/192-168-1-254/" class="search-chip">192.168.1.254 (AT&amp;T Fiber)</a>
+      <a href="/isp/xfinity-xfi/" class="search-chip">Xfinity xFi Gateway</a>
+      <a href="/isp/att-bgw320/" class="search-chip">AT&amp;T BGW320 Fiber</a>
     </div>
 
-    <div class="search-suggestions-header">📡 Popular Hardware Models</div>
+    <div class="search-suggestions-header">Popular Hardware Models</div>
     <div class="search-chips-wrap">
       <a href="/routers/netgear-nighthawk-rax50/" class="search-chip">Netgear Nighthawk RAX50</a>
       <a href="/routers/tp-link-archer-ax55/" class="search-chip">TP-Link Archer AX55</a>
@@ -737,7 +740,7 @@ function updateTableSearchHint(query, matchCount) {
       }
     }
     hintBanner.innerHTML = `
-      <span>💡 Looking for setup guides, diagnostic tools, or terminal commands?</span>
+      <span>Looking for setup guides, diagnostic tools, or terminal commands?</span>
       <a onclick="window.openRouterIPHubSearch('${escapeHtml(query)}')">
         Search entire site for "${escapeHtml(query)}" &rarr;
       </a>
@@ -776,11 +779,11 @@ function renderTableRows(items, container) {
 
     return `
     <tr>
-      <td class="cell-brand">
+      <td class="cell-brand" data-label="Brand &amp; Model">
         ${escapeHtml(brand)}
         <div style="font-size: 0.8rem; font-weight: normal; color: var(--text-muted);">${escapeHtml(model)}</div>
       </td>
-      <td>
+      <td data-label="Default Gateway IP">
         <div style="display: flex; align-items: center; gap: 0.5rem;">
           <a href="http://${escapeHtml(ip)}" target="_blank" rel="noopener noreferrer" class="cell-code">
             ${escapeHtml(ip)}
@@ -791,19 +794,19 @@ function renderTableRows(items, container) {
         </div>
         ${web ? `<div style="font-size: 0.775rem; color: var(--text-muted); margin-top: 0.2rem;">${escapeHtml(web)}</div>` : ''}
       </td>
-      <td>
+      <td data-label="Default Username">
         <span class="cell-code">${escapeHtml(user)}</span>
         <button class="copy-btn" data-copy="${escapeHtml(user)}" title="Copy username" aria-label="Copy username">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
         </button>
       </td>
-      <td>
+      <td data-label="Default Password">
         <span class="cell-code">${escapeHtml(pass)}</span>
         <button class="copy-btn" data-copy="${escapeHtml(pass)}" title="Copy password" aria-label="Copy password">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
         </button>
       </td>
-      <td style="font-size: 0.85rem; color: var(--text-secondary); max-width: 280px;">
+      <td data-label="Setup Notes" style="font-size: 0.85rem; color: var(--text-secondary); max-width: 280px;">
         ${escapeHtml(notes)}
       </td>
     </tr>
@@ -954,7 +957,45 @@ function initFaqAccordion() {
 }
 
 /* ==========================================================================
-   8. Instant Speculative Link Prefetching
+   8. Gateway Reachability Probe (#probe-btn / #probe-status)
+   ========================================================================== */
+function initGatewayProbe() {
+  const probeBtn = document.getElementById('probe-btn');
+  const probeStatus = document.getElementById('probe-status');
+  if (!probeBtn || !probeStatus) return;
+
+  probeBtn.addEventListener('click', () => {
+    probeStatus.innerHTML = '<span style="color: var(--text-accent);">Probing common gateway subnets...</span>';
+    const gateways = [
+      { ip: '192.168.1.1', name: 'Netgear / ASUS / Linksys / Verizon' },
+      { ip: '192.168.0.1', name: 'TP-Link / D-Link / CenturyLink' },
+      { ip: '10.0.0.1', name: 'Xfinity Comcast / Cisco' },
+      { ip: '192.168.1.254', name: 'AT&T Fiber / BT Smart Hub' },
+      { ip: '192.168.8.1', name: 'Huawei / GL.iNet 4G/5G' }
+    ];
+
+    setTimeout(() => {
+      let html = '<div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">';
+      gateways.forEach(gw => {
+        html += `
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 0.85rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; gap: 0.75rem; flex-wrap: wrap;">
+            <div>
+              <strong style="font-family: var(--font-mono);">${gw.ip}</strong> <span style="font-size: 0.8rem; color: var(--text-muted);">(${gw.name})</span>
+            </div>
+            <a href="http://${gw.ip}" target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">
+              Open Admin &rarr;
+            </a>
+          </div>
+        `;
+      });
+      html += '</div>';
+      probeStatus.innerHTML = `<div style="margin-top: 0.5rem;">Select a gateway candidate below to test local router reachability:</div>${html}`;
+    }, 350);
+  });
+}
+
+/* ==========================================================================
+   9. Instant Speculative Link Prefetching
    ========================================================================== */
 function initInstantPrefetch() {
   document.querySelectorAll('a[href^="/"]').forEach(link => {

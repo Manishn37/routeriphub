@@ -192,12 +192,12 @@
     "keywords": "netgear orbi 4g lte wifi router (lbr20) 192.168.1.1 netgear-orbi-lbr20 password reset cellular broadband router"
   },
   {
-    "title": "Netgear Netgear AC1200 (R6220) Setup Sheet",
+    "title": "Netgear AC1200 (R6220) Setup Sheet",
     "category": "Router Model",
     "badge": "Netgear",
     "url": "/routers/netgear-r6220/",
     "snippet": "Default IP 192.168.1.1, username 'admin', password 'password', Wi-Fi 5 (AC1200 Dual-Band).",
-    "keywords": "netgear netgear ac1200 (r6220) 192.168.1.1 netgear-r6220 password reset smart wi-fi gigabit router"
+    "keywords": "netgear ac1200 (r6220) 192.168.1.1 netgear-r6220 password reset smart wi-fi gigabit router"
   },
   {
     "title": "TP-Link Archer AX55 (AX3000) Setup Sheet",
@@ -1224,100 +1224,100 @@
     "keywords": "d-link dwr-960 192.168.0.1 d-link-dwr-960 password reset lte cat7 wi-fi ac1200 router"
   },
   {
-    "title": "Cisco Cisco Business RV340 Setup Sheet",
+    "title": "Cisco Business RV340 Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-business-rv340/",
     "snippet": "Default IP 192.168.1.1, username 'cisco', password 'cisco', Dual WAN Gigabit Security Gateway.",
-    "keywords": "cisco cisco business rv340 192.168.1.1 cisco-business-rv340 password reset dual wan gigabit vpn router"
+    "keywords": "cisco business rv340 192.168.1.1 cisco-business-rv340 password reset dual wan gigabit vpn router"
   },
   {
-    "title": "Cisco Cisco Business RV345 Setup Sheet",
+    "title": "Cisco Business RV345 Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-business-rv345/",
     "snippet": "Default IP 192.168.1.1, username 'cisco', password 'cisco', Dual WAN 16-Port Gigabit Gateway.",
-    "keywords": "cisco cisco business rv345 192.168.1.1 cisco-business-rv345 password reset dual wan 16-port vpn router"
+    "keywords": "cisco business rv345 192.168.1.1 cisco-business-rv345 password reset dual wan 16-port vpn router"
   },
   {
-    "title": "Cisco Cisco Business RV260 Setup Sheet",
+    "title": "Cisco Business RV260 Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-business-rv260/",
     "snippet": "Default IP 192.168.1.1, username 'cisco', password 'cisco', Gigabit SFP VPN Security Router.",
-    "keywords": "cisco cisco business rv260 192.168.1.1 cisco-business-rv260 password reset gigabit vpn router with sfp"
+    "keywords": "cisco business rv260 192.168.1.1 cisco-business-rv260 password reset gigabit vpn router with sfp"
   },
   {
-    "title": "Cisco Cisco Business RV160 Setup Sheet",
+    "title": "Cisco Business RV160 Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-business-rv160/",
     "snippet": "Default IP 192.168.1.1, username 'cisco', password 'cisco', Gigabit VPN Small Business Router.",
-    "keywords": "cisco cisco business rv160 192.168.1.1 cisco-business-rv160 password reset gigabit vpn security router"
+    "keywords": "cisco business rv160 192.168.1.1 cisco-business-rv160 password reset gigabit vpn security router"
   },
   {
-    "title": "Cisco Cisco Business RV130 Setup Sheet",
+    "title": "Cisco Business RV130 Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-business-rv130/",
     "snippet": "Default IP 192.168.1.1, username 'cisco', password 'cisco', Gigabit Small Business VPN Router.",
-    "keywords": "cisco cisco business rv130 192.168.1.1 cisco-business-rv130 password reset multifunction vpn router"
+    "keywords": "cisco business rv130 192.168.1.1 cisco-business-rv130 password reset multifunction vpn router"
   },
   {
-    "title": "Cisco Cisco Business RV042 Setup Sheet",
+    "title": "Cisco Business RV042 Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-business-rv042/",
     "snippet": "Default IP 192.168.1.1, username 'admin', password 'admin', 10/100 Dual WAN Business Router.",
-    "keywords": "cisco cisco business rv042 192.168.1.1 cisco-business-rv042 password reset dual wan 4-port vpn router"
+    "keywords": "cisco business rv042 192.168.1.1 cisco-business-rv042 password reset dual wan 4-port vpn router"
   },
   {
-    "title": "Cisco Cisco Meraki Go GX20 Setup Sheet",
+    "title": "Cisco Meraki Go GX20 Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-meraki-go-gx20/",
     "snippet": "Default IP 192.168.128.1, username 'admin (Meraki Account)', password 'admin', Cloud Managed Router Firewall.",
-    "keywords": "cisco cisco meraki go gx20 192.168.128.1 cisco-meraki-go-gx20 password reset cloud managed security gateway"
+    "keywords": "cisco meraki go gx20 192.168.128.1 cisco-meraki-go-gx20 password reset cloud managed security gateway"
   },
   {
-    "title": "Cisco Cisco Meraki Go GX50 Setup Sheet",
+    "title": "Cisco Meraki Go GX50 Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-meraki-go-gx50/",
     "snippet": "Default IP 192.168.128.1, username 'admin (Meraki Account)', password 'admin', 500Mbps Security Router Gateway.",
-    "keywords": "cisco cisco meraki go gx50 192.168.128.1 cisco-meraki-go-gx50 password reset high-throughput router firewall"
+    "keywords": "cisco meraki go gx50 192.168.128.1 cisco-meraki-go-gx50 password reset high-throughput router firewall"
   },
   {
-    "title": "Cisco Cisco Catalyst 1000-8T-2G-L Setup Sheet",
+    "title": "Cisco Catalyst 1000-8T-2G-L Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-catalyst-1000/",
     "snippet": "Default IP 192.168.1.254, username 'cisco', password 'cisco', Enterprise Managed Layer 2/3 Switch.",
-    "keywords": "cisco cisco catalyst 1000-8t-2g-l 192.168.1.254 cisco-catalyst-1000 password reset enterprise switch router"
+    "keywords": "cisco catalyst 1000-8t-2g-l 192.168.1.254 cisco-catalyst-1000 password reset enterprise switch router"
   },
   {
-    "title": "Cisco Cisco ISR 1100 (C1111-8P) Setup Sheet",
+    "title": "Cisco ISR 1100 (C1111-8P) Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-isr-1100/",
     "snippet": "Default IP 192.168.1.1, username 'cisco', password 'cisco', Cisco IOS XE Enterprise Router.",
-    "keywords": "cisco cisco isr 1100 (c1111-8p) 192.168.1.1 cisco-isr-1100 password reset integrated services router"
+    "keywords": "cisco isr 1100 (c1111-8p) 192.168.1.1 cisco-isr-1100 password reset integrated services router"
   },
   {
-    "title": "Cisco Cisco ISR 4331 Setup Sheet",
+    "title": "Cisco ISR 4331 Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-isr-4331/",
     "snippet": "Default IP 10.0.0.1, username 'cisco', password 'cisco', Enterprise ISR 4000 Modular Router.",
-    "keywords": "cisco cisco isr 4331 10.0.0.1 cisco-isr-4331 password reset enterprise modular router"
+    "keywords": "cisco isr 4331 10.0.0.1 cisco-isr-4331 password reset enterprise modular router"
   },
   {
-    "title": "Cisco Cisco C921-4P Setup Sheet",
+    "title": "Cisco C921-4P Setup Sheet",
     "category": "Router Model",
     "badge": "Cisco",
     "url": "/routers/cisco-c921-4p/",
     "snippet": "Default IP 192.168.1.1, username 'cisco', password 'cisco', Gigabit Ethernet Security Router.",
-    "keywords": "cisco cisco c921-4p 192.168.1.1 cisco-c921-4p password reset gigabit security router"
+    "keywords": "cisco c921-4p 192.168.1.1 cisco-c921-4p password reset gigabit security router"
   },
   {
     "title": "Synology RT6600ax \u2014 Setup, Login, Wi-Fi Settings & Troubleshooting Guide",
@@ -1368,212 +1368,212 @@
     "keywords": "synology ds-gateway 192.168.1.1 synology-ds-gateway password reset modular srm network controller"
   },
   {
-    "title": "Google Nest Nest Wifi Pro (G6ZUC) Setup Sheet",
+    "title": "Google Nest Wifi Pro (G6ZUC) Setup Sheet",
     "category": "Router Model",
     "badge": "Google Nest",
     "url": "/routers/google-nest-wifi-pro/",
     "snippet": "Default IP 192.168.86.1, username 'Managed via Google Home', password 'Managed via Google Home', Wi-Fi 6E (AXE5400 Tri-Band).",
-    "keywords": "google nest nest wifi pro (g6zuc) 192.168.86.1 google-nest-wifi-pro password reset tri-band wi-fi 6e mesh"
+    "keywords": "google nest wifi pro (g6zuc) 192.168.86.1 google-nest-wifi-pro password reset tri-band wi-fi 6e mesh"
   },
   {
-    "title": "Google Nest Nest Wifi Router (H2D) Setup Sheet",
+    "title": "Google Nest Wifi Router (H2D) Setup Sheet",
     "category": "Router Model",
     "badge": "Google Nest",
     "url": "/routers/google-nest-wifi-router/",
     "snippet": "Default IP 192.168.86.1, username 'Managed via Google Home', password 'Managed via Google Home', Wi-Fi 5 (AC2200 4x4 MU-MIMO).",
-    "keywords": "google nest nest wifi router (h2d) 192.168.86.1 google-nest-wifi-router password reset smart mesh wi-fi router"
+    "keywords": "google nest wifi router (h2d) 192.168.86.1 google-nest-wifi-router password reset smart mesh wi-fi router"
   },
   {
-    "title": "Google Nest Nest Wifi Point (H2E) Setup Sheet",
+    "title": "Google Nest Wifi Point (H2E) Setup Sheet",
     "category": "Router Model",
     "badge": "Google Nest",
     "url": "/routers/google-nest-wifi-point/",
     "snippet": "Default IP 192.168.86.1, username 'Managed via Google Home', password 'Managed via Google Home', Wi-Fi 5 (AC1200).",
-    "keywords": "google nest nest wifi point (h2e) 192.168.86.1 google-nest-wifi-point password reset mesh point with smart speaker"
+    "keywords": "google nest wifi point (h2e) 192.168.86.1 google-nest-wifi-point password reset mesh point with smart speaker"
   },
   {
-    "title": "Google Nest Google Wifi (NLS-1304-25) Setup Sheet",
+    "title": "Google Wifi (NLS-1304-25) Setup Sheet",
     "category": "Router Model",
     "badge": "Google Nest",
     "url": "/routers/google-wifi/",
     "snippet": "Default IP 192.168.86.1, username 'Managed via Google Home', password 'Managed via Google Home', Wi-Fi 5 (AC1200 Dual-Band).",
-    "keywords": "google nest google wifi (nls-1304-25) 192.168.86.1 google-wifi password reset whole-home mesh system"
+    "keywords": "google wifi (nls-1304-25) 192.168.86.1 google-wifi password reset whole-home mesh system"
   },
   {
-    "title": "Google Nest Google OnHub Asus (SRT-AC1900) Setup Sheet",
+    "title": "Google OnHub Asus (SRT-AC1900) Setup Sheet",
     "category": "Router Model",
     "badge": "Google Nest",
     "url": "/routers/google-onhub-asus/",
     "snippet": "Default IP 192.168.86.1, username 'Managed via Google Home', password 'Managed via Google Home', Wi-Fi 5 (AC1900 Wave Antennas).",
-    "keywords": "google nest google onhub asus (srt-ac1900) 192.168.86.1 google-onhub-asus password reset smart wireless router"
+    "keywords": "google onhub asus (srt-ac1900) 192.168.86.1 google-onhub-asus password reset smart wireless router"
   },
   {
-    "title": "Google Nest Google OnHub TP-Link (TGR1900) Setup Sheet",
+    "title": "Google OnHub TP-Link (TGR1900) Setup Sheet",
     "category": "Router Model",
     "badge": "Google Nest",
     "url": "/routers/google-onhub-tplink/",
     "snippet": "Default IP 192.168.86.1, username 'Managed via Google Home', password 'Managed via Google Home', Wi-Fi 5 (AC1900 Circular).",
-    "keywords": "google nest google onhub tp-link (tgr1900) 192.168.86.1 google-onhub-tplink password reset smart wireless router"
+    "keywords": "google onhub tp-link (tgr1900) 192.168.86.1 google-onhub-tplink password reset smart wireless router"
   },
   {
-    "title": "Amazon Eero Eero Max 7 Setup Sheet",
+    "title": "Amazon Eero Max 7 Setup Sheet",
     "category": "Router Model",
     "badge": "Amazon Eero",
     "url": "/routers/amazon-eero-max-7/",
     "snippet": "Default IP 192.168.4.1, username 'Managed via Amazon eero App', password 'Managed via Amazon eero App', Wi-Fi 7 (BE20800 Tri-Band).",
-    "keywords": "amazon eero eero max 7 192.168.4.1 amazon-eero-max-7 password reset tri-band wi-fi 7 mesh"
+    "keywords": "amazon eero max 7 192.168.4.1 amazon-eero-max-7 password reset tri-band wi-fi 7 mesh"
   },
   {
-    "title": "Amazon Eero Eero Pro 6E (S010001) Setup Sheet",
+    "title": "Amazon Eero Pro 6E (S010001) Setup Sheet",
     "category": "Router Model",
     "badge": "Amazon Eero",
     "url": "/routers/amazon-eero-pro-6e/",
     "snippet": "Default IP 192.168.4.1, username 'Managed via Amazon eero App', password 'Managed via Amazon eero App', Wi-Fi 6E (AXE5400 Tri-Band).",
-    "keywords": "amazon eero eero pro 6e (s010001) 192.168.4.1 amazon-eero-pro-6e password reset tri-band wi-fi 6e mesh"
+    "keywords": "amazon eero pro 6e (s010001) 192.168.4.1 amazon-eero-pro-6e password reset tri-band wi-fi 6e mesh"
   },
   {
-    "title": "Amazon Eero Eero Pro 6 (K010001) Setup Sheet",
+    "title": "Amazon Eero Pro 6 (K010001) Setup Sheet",
     "category": "Router Model",
     "badge": "Amazon Eero",
     "url": "/routers/amazon-eero-pro-6/",
     "snippet": "Default IP 192.168.4.1, username 'Managed via Amazon eero App', password 'Managed via Amazon eero App', Wi-Fi 6 (AX4200 Tri-Band).",
-    "keywords": "amazon eero eero pro 6 (k010001) 192.168.4.1 amazon-eero-pro-6 password reset tri-band wi-fi 6 mesh"
+    "keywords": "amazon eero pro 6 (k010001) 192.168.4.1 amazon-eero-pro-6 password reset tri-band wi-fi 6 mesh"
   },
   {
-    "title": "Amazon Eero Eero 6+ (R010001) Setup Sheet",
+    "title": "Amazon Eero 6+ (R010001) Setup Sheet",
     "category": "Router Model",
     "badge": "Amazon Eero",
     "url": "/routers/amazon-eero-6-plus/",
     "snippet": "Default IP 192.168.4.1, username 'Managed via Amazon eero App', password 'Managed via Amazon eero App', Wi-Fi 6 (AX3000 160MHz).",
-    "keywords": "amazon eero eero 6+ (r010001) 192.168.4.1 amazon-eero-6-plus password reset dual-band wi-fi 6 gigabit"
+    "keywords": "amazon eero 6+ (r010001) 192.168.4.1 amazon-eero-6-plus password reset dual-band wi-fi 6 gigabit"
   },
   {
-    "title": "Amazon Eero Eero 6 (N010001) Setup Sheet",
+    "title": "Amazon Eero 6 (N010001) Setup Sheet",
     "category": "Router Model",
     "badge": "Amazon Eero",
     "url": "/routers/amazon-eero-6/",
     "snippet": "Default IP 192.168.4.1, username 'Managed via Amazon eero App', password 'Managed via Amazon eero App', Wi-Fi 6 (AX1800 Dual-Band).",
-    "keywords": "amazon eero eero 6 (n010001) 192.168.4.1 amazon-eero-6 password reset dual-band wi-fi 6 mesh"
+    "keywords": "amazon eero 6 (n010001) 192.168.4.1 amazon-eero-6 password reset dual-band wi-fi 6 mesh"
   },
   {
-    "title": "Amazon Eero Eero Pro (2nd Gen - B010001) Setup Sheet",
+    "title": "Amazon Eero Pro (2nd Gen - B010001) Setup Sheet",
     "category": "Router Model",
     "badge": "Amazon Eero",
     "url": "/routers/amazon-eero-pro-2nd-gen/",
     "snippet": "Default IP 192.168.4.1, username 'Managed via Amazon eero App', password 'Managed via Amazon eero App', Wi-Fi 5 (AC2200 Tri-Band).",
-    "keywords": "amazon eero eero pro (2nd gen - b010001) 192.168.4.1 amazon-eero-pro-2nd-gen password reset tri-band ac2200 mesh"
+    "keywords": "amazon eero pro (2nd gen - b010001) 192.168.4.1 amazon-eero-pro-2nd-gen password reset tri-band ac2200 mesh"
   },
   {
-    "title": "Amazon Eero Eero Beacon Setup Sheet",
+    "title": "Amazon Eero Beacon Setup Sheet",
     "category": "Router Model",
     "badge": "Amazon Eero",
     "url": "/routers/amazon-eero-beacon/",
     "snippet": "Default IP 192.168.4.1, username 'Managed via Amazon eero App', password 'Managed via Amazon eero App', Wi-Fi 5 (AC1300 Wall Plug).",
-    "keywords": "amazon eero eero beacon 192.168.4.1 amazon-eero-beacon password reset plug-in mesh expander"
+    "keywords": "amazon eero beacon 192.168.4.1 amazon-eero-beacon password reset plug-in mesh expander"
   },
   {
-    "title": "Amazon Eero Eero (1st Gen) Setup Sheet",
+    "title": "Amazon Eero (1st Gen) Setup Sheet",
     "category": "Router Model",
     "badge": "Amazon Eero",
     "url": "/routers/amazon-eero-1st-gen/",
     "snippet": "Default IP 192.168.4.1, username 'Managed via Amazon eero App', password 'Managed via Amazon eero App', Wi-Fi 5 (AC1200).",
-    "keywords": "amazon eero eero (1st gen) 192.168.4.1 amazon-eero-1st-gen password reset original truemesh router"
+    "keywords": "amazon eero (1st gen) 192.168.4.1 amazon-eero-1st-gen password reset original truemesh router"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 7590 AX Setup Sheet",
+    "title": "AVM FRITZ!Box 7590 AX Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-7590-ax/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 6 + VDSL Supervectoring 35b.",
-    "keywords": "avm fritz!box fritz!box 7590 ax 192.168.178.1 avm-fritzbox-7590-ax password reset vdsl wi-fi 6 router"
+    "keywords": "avm fritz!box 7590 ax 192.168.178.1 avm-fritzbox-7590-ax password reset vdsl wi-fi 6 router"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 7590 Setup Sheet",
+    "title": "AVM FRITZ!Box 7590 Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-7590/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 5 (AC+N Dual-Band).",
-    "keywords": "avm fritz!box fritz!box 7590 192.168.178.1 avm-fritzbox-7590 password reset vdsl ac+n gateway"
+    "keywords": "avm fritz!box 7590 192.168.178.1 avm-fritzbox-7590 password reset vdsl ac+n gateway"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 7530 AX Setup Sheet",
+    "title": "AVM FRITZ!Box 7530 AX Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-7530-ax/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 6 (AX1800 VDSL).",
-    "keywords": "avm fritz!box fritz!box 7530 ax 192.168.178.1 avm-fritzbox-7530-ax password reset vdsl wi-fi 6 compact"
+    "keywords": "avm fritz!box 7530 ax 192.168.178.1 avm-fritzbox-7530-ax password reset vdsl wi-fi 6 compact"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 7530 Setup Sheet",
+    "title": "AVM FRITZ!Box 7530 Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-7530/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 5 (AC+N).",
-    "keywords": "avm fritz!box fritz!box 7530 192.168.178.1 avm-fritzbox-7530 password reset vdsl entry gateway"
+    "keywords": "avm fritz!box 7530 192.168.178.1 avm-fritzbox-7530 password reset vdsl entry gateway"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 5590 Fiber Setup Sheet",
+    "title": "AVM FRITZ!Box 5590 Fiber Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-5590-fiber/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 6 (4x4 2.5GbE Fiber).",
-    "keywords": "avm fritz!box fritz!box 5590 fiber 192.168.178.1 avm-fritzbox-5590-fiber password reset fiber gpon/aon wi-fi 6"
+    "keywords": "avm fritz!box 5590 fiber 192.168.178.1 avm-fritzbox-5590-fiber password reset fiber gpon/aon wi-fi 6"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 5530 Fiber Setup Sheet",
+    "title": "AVM FRITZ!Box 5530 Fiber Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-5530-fiber/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 6 (Fiber SFP).",
-    "keywords": "avm fritz!box fritz!box 5530 fiber 192.168.178.1 avm-fritzbox-5530-fiber password reset compact fiber gateway"
+    "keywords": "avm fritz!box 5530 fiber 192.168.178.1 avm-fritzbox-5530-fiber password reset compact fiber gateway"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 6690 Cable Setup Sheet",
+    "title": "AVM FRITZ!Box 6690 Cable Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-6690-cable/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 6 (4x4 DOCSIS 3.1 2.5G).",
-    "keywords": "avm fritz!box fritz!box 6690 cable 192.168.178.1 avm-fritzbox-6690-cable password reset docsis 3.1 2.5g gateway"
+    "keywords": "avm fritz!box 6690 cable 192.168.178.1 avm-fritzbox-6690-cable password reset docsis 3.1 2.5g gateway"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 6660 Cable Setup Sheet",
+    "title": "AVM FRITZ!Box 6660 Cable Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-6660-cable/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 6 (2x2 DOCSIS 3.1 2.5G).",
-    "keywords": "avm fritz!box fritz!box 6660 cable 192.168.178.1 avm-fritzbox-6660-cable password reset docsis 3.1 cable gateway"
+    "keywords": "avm fritz!box 6660 cable 192.168.178.1 avm-fritzbox-6660-cable password reset docsis 3.1 cable gateway"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 4060 Setup Sheet",
+    "title": "AVM FRITZ!Box 4060 Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-4060/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 6 (Tri-Band 2.5GbE WAN).",
-    "keywords": "avm fritz!box fritz!box 4060 192.168.178.1 avm-fritzbox-4060 password reset tri-band wi-fi 6 router"
+    "keywords": "avm fritz!box 4060 192.168.178.1 avm-fritzbox-4060 password reset tri-band wi-fi 6 router"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 4040 Setup Sheet",
+    "title": "AVM FRITZ!Box 4040 Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-4040/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 5 (AC1300 Dual-Band).",
-    "keywords": "avm fritz!box fritz!box 4040 192.168.178.1 avm-fritzbox-4040 password reset gigabit wireless router"
+    "keywords": "avm fritz!box 4040 192.168.178.1 avm-fritzbox-4040 password reset gigabit wireless router"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 6850 5G Setup Sheet",
+    "title": "AVM FRITZ!Box 6850 5G Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-6850-5g/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 5 (5G/LTE Sub-6GHz).",
-    "keywords": "avm fritz!box fritz!box 6850 5g 192.168.178.1 avm-fritzbox-6850-5g password reset 5g cellular broadband"
+    "keywords": "avm fritz!box 6850 5g 192.168.178.1 avm-fritzbox-6850-5g password reset 5g cellular broadband"
   },
   {
-    "title": "AVM FRITZ!Box FRITZ!Box 6890 LTE Setup Sheet",
+    "title": "AVM FRITZ!Box 6890 LTE Setup Sheet",
     "category": "Router Model",
     "badge": "AVM FRITZ!Box",
     "url": "/routers/avm-fritzbox-6890-lte/",
     "snippet": "Default IP 192.168.178.1, username 'admin', password 'Unique sticker password', Wi-Fi 5 (VDSL 35b + LTE).",
-    "keywords": "avm fritz!box fritz!box 6890 lte 192.168.178.1 avm-fritzbox-6890-lte password reset vdsl + lte hybrid gateway"
+    "keywords": "avm fritz!box 6890 lte 192.168.178.1 avm-fritzbox-6890-lte password reset vdsl + lte hybrid gateway"
   },
   {
     "title": "Zyxel Armor G5 (NBG7815) Setup Sheet",
@@ -1944,68 +1944,68 @@
     "keywords": "arris surfboard sbg10 192.168.0.1 arris-surfboard-sbg10 password reset docsis 3.0 ac1600 gateway"
   },
   {
-    "title": "Arris Arris NVG589 Setup Sheet",
+    "title": "Arris NVG589 Setup Sheet",
     "category": "Router Model",
     "badge": "Arris",
     "url": "/routers/arris-nvg589/",
     "snippet": "Default IP 192.168.1.254, username 'admin', password 'Sticker password', 802.11n VDSL2 Bonded Gateway.",
-    "keywords": "arris arris nvg589 192.168.1.254 arris-nvg589 password reset vdsl2 gateway with voice"
+    "keywords": "arris nvg589 192.168.1.254 arris-nvg589 password reset vdsl2 gateway with voice"
   },
   {
-    "title": "Arris Arris BGW210-700 Setup Sheet",
+    "title": "Arris BGW210-700 Setup Sheet",
     "category": "Router Model",
     "badge": "Arris",
     "url": "/routers/arris-bgw210-700/",
     "snippet": "Default IP 192.168.1.254, username 'admin', password 'Sticker Access Code', Wi-Fi 5 (AC2100 4x4 MU-MIMO).",
-    "keywords": "arris arris bgw210-700 192.168.1.254 arris-bgw210-700 password reset broadband fiber ont gateway"
+    "keywords": "arris bgw210-700 192.168.1.254 arris-bgw210-700 password reset broadband fiber ont gateway"
   },
   {
-    "title": "Motorola Motorola MG8725 Setup Sheet",
+    "title": "Motorola MG8725 Setup Sheet",
     "category": "Router Model",
     "badge": "Motorola",
     "url": "/routers/motorola-mg8725/",
     "snippet": "Default IP 192.168.0.1, username 'admin', password 'motorola', Wi-Fi 6 (AX6000 DOCSIS 3.1 2.5G).",
-    "keywords": "motorola motorola mg8725 192.168.0.1 motorola-mg8725 password reset docsis 3.1 wi-fi 6 ax6000"
+    "keywords": "motorola mg8725 192.168.0.1 motorola-mg8725 password reset docsis 3.1 wi-fi 6 ax6000"
   },
   {
-    "title": "Motorola Motorola MG8702 Setup Sheet",
+    "title": "Motorola MG8702 Setup Sheet",
     "category": "Router Model",
     "badge": "Motorola",
     "url": "/routers/motorola-mg8702/",
     "snippet": "Default IP 192.168.0.1, username 'admin', password 'motorola', Wi-Fi 5 (AC3200 4x4 DOCSIS 3.1).",
-    "keywords": "motorola motorola mg8702 192.168.0.1 motorola-mg8702 password reset docsis 3.1 ac3200 gateway"
+    "keywords": "motorola mg8702 192.168.0.1 motorola-mg8702 password reset docsis 3.1 ac3200 gateway"
   },
   {
-    "title": "Motorola Motorola MG7700 Setup Sheet",
+    "title": "Motorola MG7700 Setup Sheet",
     "category": "Router Model",
     "badge": "Motorola",
     "url": "/routers/motorola-mg7700/",
     "snippet": "Default IP 192.168.0.1, username 'admin', password 'motorola', Wi-Fi 5 (AC1900 24x8).",
-    "keywords": "motorola motorola mg7700 192.168.0.1 motorola-mg7700 password reset docsis 3.0 ac1900 gateway"
+    "keywords": "motorola mg7700 192.168.0.1 motorola-mg7700 password reset docsis 3.0 ac1900 gateway"
   },
   {
-    "title": "Motorola Motorola MG7550 Setup Sheet",
+    "title": "Motorola MG7550 Setup Sheet",
     "category": "Router Model",
     "badge": "Motorola",
     "url": "/routers/motorola-mg7550/",
     "snippet": "Default IP 192.168.0.1, username 'admin', password 'motorola', Wi-Fi 5 (AC1900 16x4).",
-    "keywords": "motorola motorola mg7550 192.168.0.1 motorola-mg7550 password reset docsis 3.0 ac1900 gateway"
+    "keywords": "motorola mg7550 192.168.0.1 motorola-mg7550 password reset docsis 3.0 ac1900 gateway"
   },
   {
-    "title": "Motorola Motorola MT7711 Setup Sheet",
+    "title": "Motorola MT7711 Setup Sheet",
     "category": "Router Model",
     "badge": "Motorola",
     "url": "/routers/motorola-mt7711/",
     "snippet": "Default IP 192.168.0.1, username 'admin', password 'motorola', Wi-Fi 5 (AC1900 24x8 Telephone).",
-    "keywords": "motorola motorola mt7711 192.168.0.1 motorola-mt7711 password reset docsis 3.0 with voice"
+    "keywords": "motorola mt7711 192.168.0.1 motorola-mt7711 password reset docsis 3.0 with voice"
   },
   {
-    "title": "Motorola Motorola MR2600 Setup Sheet",
+    "title": "Motorola MR2600 Setup Sheet",
     "category": "Router Model",
     "badge": "Motorola",
     "url": "/routers/motorola-mr2600/",
     "snippet": "Default IP 192.168.1.1, username 'admin', password 'motorola', Wi-Fi 5 (AC2600 4x4).",
-    "keywords": "motorola motorola mr2600 192.168.1.1 motorola-mr2600 password reset smart wi-fi gigabit router"
+    "keywords": "motorola mr2600 192.168.1.1 motorola-mr2600 password reset smart wi-fi gigabit router"
   },
   {
     "title": "PLDT Default Router Login (Home WiFi & Fiber) Setup Sheet",
@@ -2126,14 +2126,6 @@
     "url": "/brands/",
     "snippet": "Find router login and setup help by brand. Browse Netgear, ASUS, TP-Link, Linksys, Xfinity, and more for admin access, Wi-Fi settings, and troubleshooting.",
     "keywords": "brands router manufacturers netgear asus tp-link linksys xfinity cisco d-link eero synology login setup"
-  },
-  {
-    "title": "PLDT Brand Directory & Model Matrix",
-    "category": "Brand Directory",
-    "badge": "Brand",
-    "url": "/brands/pldt/",
-    "snippet": "Standard gateways: 192.168.1.1, 192.168.1.253, credentials: admin / 1234.",
-    "keywords": "pldt pldt brand passwords 192.168.1.1 192.168.1.253"
   },
   {
     "title": "DrayTek Brand Directory & Model Matrix",
@@ -2488,7 +2480,7 @@
     "keywords": "192.168.212.1 192-168-212-1 login admin gateway zyxel multy (multy m1, multy x, multy plus)"
   },
   {
-    "title": "10.10.10.1 Login Admin \u2014 Router, Modem & Gateway Setup Guide",
+    "title": "10.10.10.1 Login Admin \u2014 Router & Gateway Setup Guide",
     "category": "Gateway IP",
     "badge": "10.10.10.1",
     "url": "/ip/10-10-10-1/",
@@ -2563,7 +2555,7 @@
     "title": "Universal Router IP Discovery Guide (Windows, Mac, iOS, Android)",
     "category": "Setup Guide",
     "badge": "Guide",
-    "url": "/find-router-ip.html",
+    "url": "/find-router-ip/",
     "snippet": "Terminal commands (ipconfig, netstat -nr) and graphical settings to find your local gateway IP.",
     "keywords": "find my ip ipconfig default gateway windows mac iphone android"
   },
@@ -2571,7 +2563,7 @@
     "title": "Wi-Fi 7 Setup, 320 MHz Channels & MLO Optimization Guide",
     "category": "Setup Guide",
     "badge": "Guide",
-    "url": "/howto.html#wifi7-setup",
+    "url": "/howto/#wifi7-setup",
     "snippet": "How to configure 320 MHz channels, Multi-Link Operation (MLO), and 6 GHz AFC coordination.",
     "keywords": "wifi 7 320 mhz mlo 6 ghz be800 be96u wireless 802.11be"
   },
@@ -2579,7 +2571,7 @@
     "title": "Fiber ONT Bridging & Double NAT Elimination Guide",
     "category": "Setup Guide",
     "badge": "Guide",
-    "url": "/howto.html#ont-bridging",
+    "url": "/howto/#ont-bridging",
     "snippet": "How to bypass ISP combo gateways and configure IP Passthrough on AT&T, Verizon, and CenturyLink.",
     "keywords": "fiber ont bridge mode double nat ip passthrough bgw320 cr1000a"
   },
