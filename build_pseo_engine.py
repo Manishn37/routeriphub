@@ -12608,7 +12608,7 @@ def generate_tool_pages():
               </select>
             </div>
             <div style="margin-bottom: 1rem;">
-              <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
+              <label for="wifi-hidden" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;">
                 <input type="checkbox" id="wifi-hidden"> Hidden Network (SSID Broadcast Disabled)
               </label>
             </div>
@@ -12652,10 +12652,10 @@ def generate_tool_pages():
           <input type="range" id="pass-length" min="12" max="32" value="20" style="width: 100%;">
         </div>
         <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-          <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.875rem;">
+          <label for="pass-symbols" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.875rem;">
             <input type="checkbox" id="pass-symbols" checked> Include Symbols (@#$%^&*)
           </label>
-          <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.875rem;">
+          <label for="pass-numbers" style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.875rem;">
             <input type="checkbox" id="pass-numbers" checked> Include Numbers (0-9)
           </label>
         </div>
