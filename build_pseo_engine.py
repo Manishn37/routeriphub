@@ -303,7 +303,7 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
         <ul class="mobile-nav-list">
                     <li class="mobile-dropdown-wrapper">
             <div class="mobile-dropdown-row">
-              <a href="/routers/"><span>📡 Router Models Directory</span></a>
+              <a href="/routers/"><span>Router Models Directory</span></a>
               <button type="button" class="mobile-dropdown-btn" id="mobile-routers-toggle" aria-expanded="false" aria-label="Toggle brand categories list">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
@@ -326,15 +326,15 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
               </div>
             </div>
           </li>
-          <li><a href="/isp/"><span>🏢 ISP Gateway Portals (Xfinity, AT&T, Fios)</span><span>&rarr;</span></a></li>
-          <li><a href="/extenders/"><span>📶 Wi-Fi Extenders &amp; Repeaters</span><span>&rarr;</span></a></li>
-          <li><a href="/tools/"><span>🛠️ Interactive Networking Tools</span><span>&rarr;</span></a></li>
-          <li><a href="/brands/"><span>🏷️ Brand Directories (Netgear, ASUS, TP-Link)</span><span>&rarr;</span></a></li>
-          <li><a href="/ip/"><span>⚡ Gateway IP Directory (192.168.1.1, 10.0.0.1)</span><span>&rarr;</span></a></li>
-          <li><a href="/howto/"><span>📖 Setup & Troubleshooting Guides</span><span>&rarr;</span></a></li>
+          <li><a href="/isp/"><span>ISP Gateway Portals</span><span>&rarr;</span></a></li>
+          <li><a href="/extenders/"><span>Wi-Fi Extenders &amp; Repeaters</span><span>&rarr;</span></a></li>
+          <li><a href="/tools/"><span>Interactive Networking Tools</span><span>&rarr;</span></a></li>
+          <li><a href="/brands/"><span>Brand Directories</span><span>&rarr;</span></a></li>
+          <li><a href="/ip/"><span>Gateway IP Directory</span><span>&rarr;</span></a></li>
+          <li><a href="/howto/"><span>Setup &amp; Troubleshooting Guides</span><span>&rarr;</span></a></li>
           <li style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
             <button class="theme-toggle-btn" style="width: 100%; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.15rem; background: var(--bg-card); height: auto; min-height: 48px;">
-              <span>🌓 Switch Dark / Light Mode</span>
+              <span>Switch Theme</span>
               <span style="font-size: 0.8rem; color: var(--text-muted);">Toggle</span>
             </button>
           </li>
@@ -568,7 +568,7 @@ def generate_custom_synology_rt2600ac_page(m):
     content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-router">📡 Hardware Model Setup Sheet</div>
+      <div class="silo-badge silo-badge-router">Hardware Setup Sheet</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Synology RT2600ac — Setup, Login, Wi-Fi Settings &amp; Troubleshooting Guide
       </h1>
@@ -912,7 +912,7 @@ def generate_custom_synology_rt2600ac_page(m):
           <li><code>router.synology.com.com</code></li>
           <li><code>192.168.1.1.com</code></li>
         </ul>
-        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #16a34a;">✅ Correct Entries:</p>
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: var(--success-text);">Correct Entries:</p>
         <ul style="margin: 0; padding-left: 1.5rem; color: #16a34a; line-height: 1.6;">
           <li><strong>Correct:</strong> <code>http://192.168.1.1</code></li>
           <li><strong>Correct:</strong> <code>http://router.synology.com</code></li>
@@ -964,7 +964,7 @@ def generate_custom_synology_rt2600ac_page(m):
       <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
           <h2 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
-            <span>⚡ Live Gateway Reachability Probe</span>
+            <span>Gateway Reachability Probe</span>
           </h2>
           <span style="font-size: 0.8rem; background: var(--info-bg, rgba(2, 132, 199, 0.1)); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
             Target: 192.168.1.1
@@ -1169,7 +1169,7 @@ def generate_custom_synology_rt6600ax_page(m):
     content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-router">📡 Hardware Model Setup Sheet</div>
+      <div class="silo-badge silo-badge-router">Hardware Setup Sheet</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Synology RT6600ax — Setup, Login, Wi-Fi Settings &amp; Troubleshooting Guide
       </h1>
@@ -1518,7 +1518,7 @@ def generate_custom_synology_rt6600ax_page(m):
           <li><code>router.synology.com.com</code></li>
           <li><code>192.168.1.1.com</code></li>
         </ul>
-        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #16a34a;">✅ Correct Entries:</p>
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: var(--success-text);">Correct Entries:</p>
         <ul style="margin: 0; padding-left: 1.5rem; color: #16a34a; line-height: 1.6;">
           <li><strong>Correct:</strong> <code>http://192.168.1.1</code></li>
           <li><strong>Correct:</strong> <code>http://router.synology.com</code></li>
@@ -1570,7 +1570,7 @@ def generate_custom_synology_rt6600ax_page(m):
       <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
           <h2 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
-            <span>⚡ Live Gateway Reachability Probe</span>
+            <span>Gateway Reachability Probe</span>
           </h2>
           <span style="font-size: 0.8rem; background: var(--info-bg, rgba(2, 132, 199, 0.1)); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
             Target: 192.168.1.1
@@ -1777,7 +1777,7 @@ def generate_custom_pldt_page(m):
     content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-router">📡 Hardware Model Setup Sheet</div>
+      <div class="silo-badge silo-badge-router">Hardware Setup Sheet</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         PLDT Default Login — Username, Password and IP Address
       </h1>
@@ -2328,7 +2328,7 @@ def generate_router_model_pages():
         content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-router">📡 Hardware Model Setup Sheet</div>
+      <div class="silo-badge silo-badge-router">Hardware Setup Sheet</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         {escape(m['brand'])} {escape(m['model_name'])}
       </h1>
@@ -2440,7 +2440,7 @@ def generate_router_model_pages():
       <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
           <h3 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
-            <span>⚡ Live Gateway Reachability Probe</span>
+            <span>Gateway Reachability Probe</span>
           </h3>
           <span style="font-size: 0.8rem; background: var(--info-bg); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
             Target: {escape(m['default_ip'])}
@@ -2536,7 +2536,7 @@ def generate_router_index_page():
     content = f"""
   <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
     <div style="text-align: center; max-width: 800px; margin: 0 auto 2rem auto;">
-      <div class="silo-badge silo-badge-router">📡 Programmatic Hardware Silo</div>
+      <div class="silo-badge silo-badge-router">Hardware Directory</div>
       <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem;">
         Router Hardware Models Directory
       </h1>
@@ -2587,7 +2587,7 @@ def generate_router_index_page():
 
     <!-- No Results Placeholder -->
     <div id="no-models-found" style="display: none; text-align: center; padding: 3.5rem 1.5rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px dashed var(--border-color); margin: 2rem 0; width: 100%;">
-      <div style="font-size: 2.25rem; margin-bottom: 0.75rem;">🔍</div>
+      <div style="margin-bottom: 0.75rem; color: var(--text-muted);"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
       <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">
         No router models found matching your search
       </h3>
@@ -2725,7 +2725,7 @@ def generate_custom_xfinity_xfi_page(isp):
     content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-isp">🏢 Service Provider Gateway Hub</div>
+      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Xfinity (Comcast) Gateway Login — 10.0.0.1 Admin Access
       </h1>
@@ -3019,7 +3019,7 @@ def generate_custom_xfinity_xfi_page(isp):
         Enter the Address Correctly
       </h2>
       <div class="card" style="margin: 1rem 0 2rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <p style="margin-bottom: 0.5rem; font-weight: 600; color: #16a34a;">✅ Correct Address:</p>
+        <p style="margin-bottom: 0.5rem; font-weight: 600; color: var(--success-text);">Correct Address:</p>
         <p style="margin-bottom: 1rem; font-family: var(--font-mono); font-size: 1rem; color: #16a34a; font-weight: 700;">
           <code>http://10.0.0.1</code>
         </p>
@@ -3083,7 +3083,7 @@ def generate_custom_xfinity_xfi_page(isp):
       <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
           <h2 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
-            <span>⚡ Live Gateway Reachability Probe</span>
+            <span>Gateway Reachability Probe</span>
           </h2>
           <span style="font-size: 0.8rem; background: var(--info-bg, rgba(2, 132, 199, 0.1)); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
             Target: 10.0.0.1
@@ -3248,7 +3248,7 @@ def generate_custom_att_bgw320_page(isp):
     content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-isp">🏢 Service Provider Gateway Hub</div>
+      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         AT&amp;T Fiber Gateway Login — 192.168.1.254 Admin Access
       </h1>
@@ -3369,7 +3369,7 @@ def generate_custom_att_bgw320_page(isp):
       </div>
       <div class="card" style="padding: 1rem 1.25rem; background: var(--bg-alt, rgba(0,0,0,0.02)); border-left: 3px solid var(--accent); margin-bottom: 2rem; border-radius: 4px;">
         <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-          💡 <strong>Diagnostic Tip:</strong> Choose the task first so you do not change unrelated settings or reset the gateway unnecessarily.
+          <strong>Diagnostic Tip:</strong> Choose the task first so you do not change unrelated settings or reset the gateway unnecessarily.
         </p>
       </div>
 
@@ -3485,7 +3485,7 @@ def generate_custom_att_bgw320_page(isp):
       </p>
       <div class="card" style="padding: 1rem 1.25rem; background: var(--warning-bg, rgba(234, 179, 8, 0.08)); border-left: 4px solid #f59e0b; margin-bottom: 2rem; border-radius: var(--radius-sm);">
         <p style="margin: 0; font-size: 0.95rem; color: var(--text-primary); line-height: 1.5;">
-          ⚠️ <strong>Security Notice:</strong> Passthrough is not just a login setting. It removes the gateway’s firewall protection for the passthrough device, so understand the security implications before enabling it. Ensure your secondary router has an active, configured SPI firewall.
+          <strong>Security Notice:</strong> Passthrough is not just a login setting. It removes the gateway’s firewall protection for the passthrough device, so understand the security implications before enabling it. Ensure your secondary router has an active, configured SPI firewall.
         </p>
       </div>
 
@@ -3599,7 +3599,7 @@ def generate_custom_att_bgw320_page(isp):
       <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
           <h2 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
-            <span>⚡ Live Gateway Reachability Probe</span>
+            <span>Gateway Reachability Probe</span>
           </h2>
           <span style="font-size: 0.8rem; background: var(--info-bg, rgba(2, 132, 199, 0.1)); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
             Target: 192.168.1.254
@@ -3758,7 +3758,7 @@ def generate_custom_verizon_cr1000a_page(isp):
     content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-isp">🏢 Service Provider Gateway Hub</div>
+      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Verizon Fios Gateway Login — 192.168.1.1 Admin Access
       </h1>
@@ -3835,7 +3835,7 @@ def generate_custom_verizon_cr1000a_page(isp):
       </div>
       <div class="card" style="padding: 1rem 1.25rem; background: var(--bg-alt, rgba(0,0,0,0.02)); border-left: 3px solid var(--accent); margin-bottom: 2rem; border-radius: 4px;">
         <p style="margin: 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-          🔍 <strong>Label Inspection Tip:</strong> Check the administrator or Network Settings Password field—not automatically the Wi-Fi password field. The wireless-network credentials and the password used to manage router settings serve different purposes.
+          <strong>Label Inspection Tip:</strong> Check the administrator or Network Settings Password field—not automatically the Wi-Fi password field. The wireless-network credentials and the password used to manage router settings serve different purposes.
         </p>
       </div>
 
@@ -4109,7 +4109,7 @@ def generate_custom_verizon_cr1000a_page(isp):
       <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
           <h2 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
-            <span>⚡ Live Gateway Reachability Probe</span>
+            <span>Gateway Reachability Probe</span>
           </h2>
           <span style="font-size: 0.8rem; background: var(--info-bg, rgba(2, 132, 199, 0.1)); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
             Target: 192.168.1.1
@@ -4232,7 +4232,7 @@ def generate_isp_pages():
         content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-isp">🏢 Service Provider Gateway Hub</div>
+      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         {escape(isp['isp_name'])} Gateway Login ({escape(isp['default_ip'])})
       </h1>
@@ -4313,7 +4313,7 @@ def generate_isp_pages():
       <!-- Probe Console -->
       <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
-          <h3 style="font-size: 1.15rem; font-weight: 700;">⚡ Test Connection to {escape(isp['isp_name'])} Gateway</h3>
+          <h3 style="font-size: 1.15rem; font-weight: 600;">Test Connection to {escape(isp['isp_name'])} Gateway</h3>
           <span style="font-size: 0.8rem; background: var(--info-bg); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
             Target: {escape(isp['default_ip'])}
           </span>
@@ -4377,7 +4377,7 @@ def generate_isp_pages():
     content_master = f"""
   <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
     <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem auto;">
-      <div class="silo-badge silo-badge-isp">🏢 Service Provider Silo</div>
+      <div class="silo-badge silo-badge-isp">ISP Gateway Directory</div>
       <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem;">
         ISP Router Gateway Login Directory
       </h1>
@@ -4442,7 +4442,7 @@ def generate_brand_pages():
         content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-router">🏷️ Brand Master Hub</div>
+      <div class="silo-badge silo-badge-router">Brand Directory</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         {escape(b['name'])} Router Login Directory
       </h1>
@@ -4495,7 +4495,7 @@ def generate_brand_pages():
       <!-- Diagnostic Console -->
       <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">
-          ⚡ Reachability Check for {escape(b['name'])} Subnets
+          Reachability Check for {escape(b['name'])} Subnets
         </h3>
         <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem;">
           Test if your computer or smartphone is currently connected to {escape(b['name'])}'s primary gateway ({escape(b['default_ips'][0])}):
@@ -4615,7 +4615,7 @@ def generate_brand_pages():
     content_master = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-router">🏷️ Brands Silo</div>
+      <div class="silo-badge silo-badge-router">Brand Directory</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Router Brands — Find Your Router Login &amp; Setup Guide
       </h1>
@@ -5463,7 +5463,7 @@ def generate_custom_10_10_10_1_page():
       <section style="margin-bottom: 2.5rem;">
         <h2>Quick Answer</h2>
         <div class="verdict-box" style="background: var(--bg-secondary); border-left: 4px solid var(--bg-accent); padding: 1.5rem; border-radius: var(--radius-md); margin-top: 1rem;">
-          <div class="verdict-tag" style="display: inline-block; padding: 0.25rem 0.6rem; background: var(--info-bg); color: var(--text-accent); font-weight: 700; font-size: 0.8rem; border-radius: 4px; margin-bottom: 0.75rem; text-transform: uppercase;">⚡ Verified Quick Answer</div>
+          <div class="verdict-tag" style="display: inline-block; padding: 0.25rem 0.6rem; background: var(--info-bg); color: var(--text-accent); font-weight: 700; font-size: 0.8rem; border-radius: 4px; margin-bottom: 0.75rem; text-transform: uppercase;">Verified Quick Answer</div>
           <p style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
             <strong><code>10.10.10.1</code> is a private IP address used by some routers, modems, and gateway devices as their local admin login address.</strong> To access it, connect to the device’s Wi-Fi network or Ethernet port, then enter <a href="http://10.10.10.1" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent); text-decoration: underline;"><code>http://10.10.10.1</code></a> in your browser’s address bar.
           </p>
@@ -5483,7 +5483,7 @@ def generate_custom_10_10_10_1_page():
               Open http://10.10.10.1 in Browser &rarr;
             </a>
             <button class="btn btn-secondary copy-btn" data-copy="10.10.10.1">Copy Gateway IP (10.10.10.1)</button>
-            <a href="/tools/detect-gateway/" class="btn btn-secondary">⚡ Auto-Detect My Actual Gateway</a>
+            <a href="/tools/detect-gateway/" class="btn btn-secondary">Auto-Detect Active Gateway</a>
           </div>
         </div>
       </section>
@@ -5807,7 +5807,7 @@ def generate_custom_10_10_10_1_page():
           <li>Open <code>http://10.10.10.1</code> and set up the router again.</li>
         </ol>
         <div class="warning-box" style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.25rem; border-radius: var(--radius-md); color: #92400e;">
-          <strong>⚠️ Important Warning:</strong> A factory reset erases your custom Wi-Fi name, password, admin password, and other settings. Only reset the router if you are prepared to set it up again.
+          <strong>Important:</strong> A factory reset erases your custom Wi-Fi name, password, admin password, and other settings. Only reset the router if you are prepared to set it up again.
         </div>
       </section>
 
@@ -5835,7 +5835,7 @@ def generate_custom_10_10_10_1_page():
           <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.1 login in Google</span>
           <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.01</span>
           <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.10.10.1.</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #047857; font-weight: 600;">✅ Correct: http://10.10.10.1</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #047857; font-weight: 600;">Correct: http://10.10.10.1</span>
         </div>
       </section>
 
@@ -5898,7 +5898,7 @@ def generate_custom_10_10_10_1_page():
         <h2>Explore Other Gateway IPs &amp; Tools</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
           <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">⚡ Auto-Detect Local Gateway &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
           <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
           <a href="/find-router-ip.html" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
         </div>
@@ -6053,7 +6053,7 @@ def generate_custom_10_0_0_1_page():
       <section style="margin-bottom: 2.5rem;">
         <h2>Quick Answer</h2>
         <div class="verdict-box" style="background: var(--bg-secondary); border-left: 4px solid var(--bg-accent); padding: 1.5rem; border-radius: var(--radius-md); margin-top: 1rem;">
-          <div class="verdict-tag" style="display: inline-block; padding: 0.25rem 0.6rem; background: var(--info-bg); color: var(--text-accent); font-weight: 700; font-size: 0.8rem; border-radius: 4px; margin-bottom: 0.75rem; text-transform: uppercase;">⚡ Verified Quick Answer</div>
+          <div class="verdict-tag" style="display: inline-block; padding: 0.25rem 0.6rem; background: var(--info-bg); color: var(--text-accent); font-weight: 700; font-size: 0.8rem; border-radius: 4px; margin-bottom: 0.75rem; text-transform: uppercase;">Verified Quick Answer</div>
           <p style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
             <strong><code>10.0.0.1</code> is a private IP address often used by routers, modems, and gateway devices as their local admin login address.</strong> To access it, connect to the router’s Wi-Fi network or Ethernet port, then enter <a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent); text-decoration: underline;"><code>http://10.0.0.1</code></a> in your browser’s address bar.
           </p>
@@ -6073,7 +6073,7 @@ def generate_custom_10_0_0_1_page():
               Open http://10.0.0.1 in Browser &rarr;
             </a>
             <button class="btn btn-secondary copy-btn" data-copy="10.0.0.1">Copy Gateway IP (10.0.0.1)</button>
-            <a href="/tools/detect-gateway/" class="btn btn-secondary">⚡ Auto-Detect My Actual Gateway</a>
+            <a href="/tools/detect-gateway/" class="btn btn-secondary">Auto-Detect Active Gateway</a>
           </div>
         </div>
       </section>
@@ -6397,7 +6397,7 @@ def generate_custom_10_0_0_1_page():
           <li>Open <code>http://10.0.0.1</code> and set up the router again.</li>
         </ol>
         <div class="warning-box" style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.25rem; border-radius: var(--radius-md); color: #92400e;">
-          <strong>⚠️ Important Warning:</strong> A factory reset erases your custom Wi-Fi name, password, admin password, and other settings. Only reset the router if you are prepared to set it up again.
+          <strong>Important:</strong> A factory reset erases your custom Wi-Fi name, password, admin password, and other settings. Only reset the router if you are prepared to set it up again.
         </div>
       </section>
 
@@ -6425,7 +6425,7 @@ def generate_custom_10_0_0_1_page():
           <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.0.0.1 login in Google</span>
           <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.0.0.01</span>
           <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #b91c1c;">❌ 10.0.0.1.</span>
-          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #047857; font-weight: 600;">✅ Correct: http://10.0.0.1</span>
+          <span style="display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.4rem 0.8rem; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 6px; font-family: var(--font-mono); font-size: 0.875rem; color: #047857; font-weight: 600;">Correct: http://10.0.0.1</span>
         </div>
       </section>
 
@@ -6488,7 +6488,7 @@ def generate_custom_10_0_0_1_page():
         <h2>Explore Other Gateway IPs &amp; Tools</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
           <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">⚡ Auto-Detect Local Gateway &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
           <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
           <a href="/find-router-ip.html" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
         </div>
@@ -6674,7 +6674,7 @@ def generate_ip_pages():
             """
             quick_answer_html = f"""
         <div class="verdict-box">
-          <div class="verdict-tag">⚠️ Central Address Correction &amp; Verdict</div>
+          <div class="verdict-tag">Address Correction &amp; Verdict</div>
           <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
             Verdict: {escape(ip)} is a client device or secondary repeater, NOT your primary router gateway.
           </p>
@@ -6700,7 +6700,7 @@ def generate_ip_pages():
             """
             quick_answer_html = f"""
         <div class="verdict-box">
-          <div class="verdict-tag">⚡ Immediate Diagnostic Verdict &amp; Login Fix</div>
+          <div class="verdict-tag">Diagnostic Verdict &amp; Resolution</div>
           <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
             Verdict: {escape(meta['verdict'])}
           </p>
@@ -6712,7 +6712,7 @@ def generate_ip_pages():
               Open http://{escape(ip)} in Browser &rarr;
             </a>
             <button class="btn btn-secondary copy-btn" data-copy="{escape(ip)}">Copy Gateway IP ({escape(ip)})</button>
-            <a href="/tools/detect-gateway/" class="btn btn-secondary">⚡ Auto-Detect My Actual Gateway</a>
+            <a href="/tools/detect-gateway/" class="btn btn-secondary">Auto-Detect Active Gateway</a>
           </div>
         </div>
             """
@@ -6835,7 +6835,7 @@ def generate_ip_pages():
         content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">⚡ Intent-First Technical SEO Reference</div>
+      <div class="silo-badge silo-badge-ip">Technical Reference</div>
       
       <!-- Contrarian / Problem H1 -->
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
@@ -6949,7 +6949,7 @@ def generate_ip_pages():
       <!-- Live Reachability Console Card -->
       <div class="card" style="margin: 2rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">
-          ⚡ Live Gateway Reachability Probe
+          Gateway Reachability Probe
         </h3>
         <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem;">
           Test whether your current browser can communicate with {escape(ip)} across your local network:
@@ -6991,7 +6991,7 @@ def generate_ip_pages():
           <strong>Power Cycle Router &amp; Modem (Clean Reboot):</strong> Unplug the power adapter from both the modem and router. Wait 30 seconds for capacitors to discharge, plug the modem back in, wait 2 minutes for WAN sync, then power on the router.
         </li>
         <li style="margin-bottom: 0.75rem;">
-          <strong>⚠️ The 30-Second Factory Reset (Destructive Action Warning):</strong>
+          <strong>The 30-Second Factory Reset:</strong>
           <div class="warning-box">
             <strong>Warning:</strong> A factory reset wipes all customized network names (SSID), Wi-Fi passwords, port forwarding rules, and static IP reservations. Only execute this if you cannot recover your login password.
           </div>
@@ -7064,7 +7064,7 @@ def generate_ip_pages():
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Explore Other Gateway IPs &amp; Tools</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
           <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">⚡ Auto-Detect Local Gateway &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
           <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
           <a href="/find-router-ip.html" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
         </div>
@@ -7113,7 +7113,7 @@ def generate_ip_pages():
     content_master = f"""
   <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
     <div style="text-align: center; max-width: 820px; margin: 0 auto 2.5rem auto;">
-      <div class="silo-badge silo-badge-ip">⚡ Private Gateway IP Directory</div>
+      <div class="silo-badge silo-badge-ip">Private Gateway IP Directory</div>
       <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem;">
         Default Router IP Directory
       </h1>
@@ -7122,10 +7122,10 @@ def generate_ip_pages():
       </p>
       <div style="display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap;">
         <a href="/tools/detect-gateway/" class="btn btn-primary" style="padding: 0.65rem 1.25rem;">
-          ⚡ Auto-Detect My Router Gateway
+          Auto-Detect Router Gateway
         </a>
         <a href="/tools/ip-address-checker/" class="btn btn-secondary" style="padding: 0.65rem 1.25rem;">
-          🔍 Public IP &amp; ASN Checker
+          Public IP &amp; ASN Checker
         </a>
       </div>
     </div>
@@ -7294,7 +7294,7 @@ def generate_extender_pages():
     master_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">📶 Wi-Fi Range Extender &amp; Repeater Reference</div>
+      <div class="silo-badge silo-badge-ip">Wi-Fi Range Extender Reference</div>
       
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Wi-Fi Range Extender Setup: Default IPs, Local Domains &amp; Login Guide
@@ -7307,7 +7307,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Immediate Extender Diagnostic Verdict</div>
+        <div class="verdict-tag">Extender Diagnostic Verdict</div>
         <p style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.6;">
           Extender addresses are temporary setup gateways, not permanent routers.
         </p>
@@ -7317,7 +7317,7 @@ def generate_extender_pages():
         <div class="action-btn-group">
           <a href="/extenders/mywifiext-net/" class="btn btn-primary">NETGEAR mywifiext.net Guide &rarr;</a>
           <a href="/extenders/tplinkrepeater-net/" class="btn btn-secondary">TP-Link tplinkrepeater.net Guide &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary">⚡ Detect Active Network Gateway</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary">Detect Active Network Gateway</a>
         </div>
       </div>
 
@@ -7482,7 +7482,7 @@ def generate_extender_pages():
           <a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">mywifiext.net Guide &rarr;</a>
           <a href="/extenders/tplinkrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">tplinkrepeater.net Guide &rarr;</a>
           <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Router Gateway &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">⚡ Auto-Detect Gateway &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Gateway &rarr;</a>
         </div>
       </div>
     </div>
@@ -7596,7 +7596,7 @@ def generate_extender_pages():
             guide_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">⚡ Intent-First Technical SEO Guide</div>
+      <div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         192.168.1.250 — Netgear Extender Login: What This IP Is and How to Access It
@@ -7609,7 +7609,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Quick Answer</div>
+        <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           192.168.1.250 is the default fallback IP address for most NETGEAR Wi-Fi range extenders before they are paired with your home router.
         </p>
@@ -7997,7 +7997,7 @@ def generate_extender_pages():
             tplink_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">⚡ Intent-First Technical SEO Guide</div>
+      <div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         tplinkrepeater.net — TP-Link Extender Setup &amp; 192.168.0.254 Login
@@ -8010,7 +8010,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Quick Answer</div>
+        <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>tplinkrepeater.net</code> is the local management address for TP-Link Wi-Fi range extenders, and <code>192.168.0.254</code> is its default fallback IP address.
         </p>
@@ -8470,7 +8470,7 @@ def generate_extender_pages():
             linksys_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">⚡ Intent-First Technical SEO Guide</div>
+      <div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         extender.linksys.com — Linksys Extender Setup &amp; 192.168.1.1 Login
@@ -8483,7 +8483,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Quick Answer</div>
+        <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>extender.linksys.com</code> is the local setup portal for Linksys Wi-Fi range extenders, and <code>192.168.1.1</code> is the default fallback IP address when no DHCP server is detected.
         </p>
@@ -8972,7 +8972,7 @@ def generate_extender_pages():
             dlink_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">⚡ Intent-First Technical SEO Guide</div>
+      <div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         dlinkap.local — D-Link Extender Setup &amp; 192.168.0.50 Login
@@ -8985,7 +8985,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Quick Answer</div>
+        <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>dlinkap.local</code> is the local management URL for D-Link Wi-Fi range extenders, and <code>192.168.0.50</code> is the default IP address used when the extender is unconfigured or cannot detect a DHCP server.
         </p>
@@ -9520,7 +9520,7 @@ def generate_extender_pages():
             myrepeater_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">⚡ Intent-First Technical SEO Guide</div>
+      <div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         myrepeater.net — Wireless-N Repeater Setup &amp; 192.168.1.254 Login
@@ -9533,7 +9533,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Quick Answer</div>
+        <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>myrepeater.net</code> is the local setup portal for many Wireless-N Wi-Fi repeaters, and <code>192.168.1.254</code> is the default IP address used to access the repeater’s admin page.
         </p>
@@ -10057,7 +10057,7 @@ def generate_extender_pages():
             apsetup_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">⚡ Intent-First Technical SEO Guide</div>
+      <div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         ap.setup — Wavlink Extender Setup &amp; 192.168.10.1 Login
@@ -10070,7 +10070,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Quick Answer</div>
+        <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>ap.setup</code> is the local setup portal for Wavlink Wi-Fi repeaters and outdoor access points, and <code>192.168.10.1</code> is the default IP address used to access the device’s admin page.
         </p>
@@ -10612,7 +10612,7 @@ def generate_extender_pages():
             topvision_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">⚡ Intent-First Technical SEO Guide</div>
+      <div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Topvision WiFi Extender — 192.168.188.1 Login &amp; Setup Guide
@@ -10625,7 +10625,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Quick Answer</div>
+        <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>192.168.188.1</code> is the default admin IP address for many Topvision WiFi extenders.
         </p>
@@ -11137,7 +11137,7 @@ def generate_extender_pages():
             sewot_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">⚡ Intent-First Technical SEO Guide</div>
+      <div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         SEWOT SW-01 WiFi Extender — 192.168.188.1 Login &amp; Setup Guide
@@ -11150,7 +11150,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Quick Answer</div>
+        <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>192.168.188.1</code> is the default admin IP address for the SEWOT SW-01 WiFi extender.
         </p>
@@ -11645,7 +11645,7 @@ def generate_extender_pages():
             rangextd_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">⚡ Intent-First Technical SEO Guide</div>
+      <div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         RANGEXTD WiFi Range Extender — 192.168.188.1 Login &amp; Setup Guide
@@ -11658,7 +11658,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Quick Answer</div>
+        <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>192.168.188.1</code> is the default admin IP address for many RANGEXTD WiFi range extenders.
         </p>
@@ -12076,7 +12076,7 @@ def generate_extender_pages():
             generic_content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-ip">📶 {escape(ext['brand'])} Extender Setup</div>
+      <div class="silo-badge silo-badge-ip">{escape(ext['brand'])} Extender Setup</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         {escape(ext['domain'])} — {escape(ext['brand'])} Extender Setup &amp; {escape(ext['fallback_ip'])} Login
@@ -12089,7 +12089,7 @@ def generate_extender_pages():
             {get_byline_html()}
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
-        <div class="verdict-tag">⚡ Quick Answer</div>
+        <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           {escape(ext['domain'])} is the local web management portal for {escape(ext['brand'])} range extenders.
         </p>
@@ -12516,7 +12516,7 @@ def generate_tool_pages():
           Click the button below to allow the browser to analyze your active network interface and detect whether your default gateway is running on 192.168.1.1, 192.168.0.1, or 10.0.0.1.
         </p>
         <button id="detect-local-ip-btn" class="btn btn-primary" style="font-size: 1.05rem; padding: 0.75rem 1.75rem;">
-          ⚡ Auto-Detect My Router IP
+          Auto-Detect Router IP
         </button>
         <div id="local-ip-results" style="margin-top: 1.5rem; text-align: left;"></div>
       </div>
@@ -12586,10 +12586,10 @@ def generate_tool_pages():
         <div style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem; flex-wrap: wrap;">
           <input type="text" id="ip-lookup-input" class="form-control" style="flex: 1; min-width: 260px; font-family: var(--font-mono);" placeholder="Enter IPv4, IPv6, or domain (e.g. 8.8.8.8, 1.1.1.1, github.com)...">
           <button id="ip-lookup-btn" class="btn btn-primary" style="padding: 0.65rem 1.25rem;">
-            🔍 Inspect IP
+            Inspect IP
           </button>
           <button id="ip-my-ip-btn" class="btn btn-secondary" style="padding: 0.65rem 1rem;">
-            ⚡ My Public IP
+            My Public IP
           </button>
         </div>
         <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.25rem; font-size: 0.825rem; color: var(--text-muted);">
@@ -12624,7 +12624,7 @@ def generate_tool_pages():
             <option value="PTR">PTR (Reverse)</option>
           </select>
           <button id="dns-check-btn" class="btn btn-primary" style="padding: 0.65rem 1.5rem;">
-            ⚡ Check Global DNS
+            Check Global DNS
           </button>
         </div>
 
@@ -13137,7 +13137,7 @@ def generate_tool_pages():
         content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
     <div class="content-container">
-      <div class="silo-badge silo-badge-tool">🛠️ Interactive Utility</div>
+      <div class="silo-badge silo-badge-tool">Interactive Utility</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         {escape(t['title'])}
       </h1>
