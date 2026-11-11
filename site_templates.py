@@ -603,49 +603,98 @@ def generate_trust_and_legal_pages(public_dir, get_header_fn, get_footer_fn):
     # 3. /privacy/
     privacy_schema = {
         "@type": "WebPage",
-        "name": "Privacy Policy — RouterIPHub",
+        "name": "Privacy Policy & Data Practices — RouterIPHub",
         "url": "https://routeriphub.com/privacy/",
+        "dateModified": "2026-11-12T00:00:00+00:00",
         "publisher": ORG_PUBLISHER
     }
     privacy_body = """
   <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
     <div class="content-container">
       <div class="silo-badge silo-badge-ip" style="margin-bottom: 1rem;">Legal &amp; Privacy</div>
-      <h1 style="font-size: 2.15rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+      <h1 style="font-size: 2.15rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.02em;">
         Privacy Policy
       </h1>
-      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.75rem;">
-        Effective Date: November 11, 2026 &bull; Applicable to routeriphub.com
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        Effective Date: November 11, 2026 &bull; Last Updated: November 12, 2026 &bull; Applies to routeriphub.com
       </p>
 
-      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.65rem;">1. Client-Side Utility Execution (Zero Credential Collection)</h2>
+      <div class="answer-box" style="margin-bottom: 2rem;">
+        <div class="answer-box-title">Plain-English Privacy Summary</div>
+        <p style="margin: 0;">
+          RouterIPHub requires <strong>no user accounts, sign-ups, or logins</strong>. Interactive client tools (such as Wi-Fi QR Code generation, password generation, CIDR subnet math, and local gateway probing) run inside your browser without uploading your SSIDs, router passwords, or private LAN IP ranges to our servers. We use minimal analytics and an interaction-deferred support chat widget as detailed below.
+        </p>
+      </div>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">1. Information We Do Not Collect</h2>
       <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
-        RouterIPHub executes our interactive utilities&mdash;including the Wi-Fi QR Code Generator, CIDR Subnet Calculator, Router Password Generator, Gateway Auto-Detector, and Port Directory&mdash;entirely inside your web browser using local JavaScript. Network SSIDs, Wi-Fi passphrases, generated passwords, and private local IP addresses entered into client-side tools are never transmitted to or stored on RouterIPHub servers.
+        Our core mission is safe, read-only technical reference and local diagnostics. RouterIPHub does <strong>not</strong> ask for, collect, or store:
       </p>
-
-      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.65rem;">2. Public DNS &amp; IP Inspection Requests</h2>
-      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
-        When you explicitly initiate a lookup in the IP Address Checker or DNS Propagation Tester, your browser communicates directly with public resolver endpoints (Google Public DNS, Cloudflare DNS-over-HTTPS, Quad9, AdGuard DNS, and ipwho.is / api.ipify.org) to retrieve public routing telemetry. Those third-party services process requests subject to their own privacy notices.
-      </p>
-
-      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.65rem;">3. Telemetry, Analytics &amp; Local Preferences</h2>
-      <ul style="margin-left: 1.25rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1rem;">
-        <li><strong>Theme Preference:</strong> Stored strictly in browser <code>localStorage</code> under key <code>theme</code> (light/dark).</li>
-        <li><strong>Site Analytics:</strong> We utilize privacy-conscious telemetry via Google Tag Manager and Microsoft Clarity to measure page performance, broken links, and usability patterns.</li>
-        <li><strong>Support Widget:</strong> An optional live support chat widget powered by Tawk.to loads interactively for visitors requesting troubleshooting assistance.</li>
+      <ul style="margin-left: 1.25rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.25rem;">
+        <li><strong>Credentials &amp; Wi-Fi Keys:</strong> Network names (SSIDs), Wi-Fi pre-shared keys, or generated passwords entered into the <a href="/tools/wifi-qr-code/">Wi-Fi QR Code Generator</a> or <a href="/tools/router-password-generator/">Router Password Generator</a> remain strictly in browser memory and are discarded when you close or refresh the tab.</li>
+        <li><strong>Private Subnet &amp; LAN Topologies:</strong> Inputs entered into the <a href="/tools/subnet-calculator/">CIDR Subnet Calculator</a> or <a href="/tools/port-checker/">Port Lookup</a> execute locally in JavaScript.</li>
+        <li><strong>Private Gateway Probes &amp; WebRTC Checks:</strong> The <a href="/tools/detect-gateway/">Gateway Auto-Detector</a> initializes WebRTC with an empty ICE server configuration (<code>iceServers: []</code>), so no external STUN or TURN server is contacted, and probes only standard private RFC 1918 router addresses directly inside your local network.</li>
+        <li><strong>Personal Accounts or Payment Information:</strong> RouterIPHub does not offer paid accounts, billing portals, or newsletter sign-ups.</li>
       </ul>
 
-      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.65rem;">4. Your Rights &amp; Inquiries</h2>
-      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
-        Visitors under GDPR, CCPA, or equivalent frameworks may request information regarding telemetry or contact <a href="mailto:editorial@routeriphub.com">editorial@routeriphub.com</a> or visit our <a href="/contact/">Contact page</a>.
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">2. Information Processed Automatically</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem;">
+        When you browse any standard static website over HTTPS, limited technical metadata is processed to deliver pages reliably and prevent abuse:
       </p>
+      <ul style="margin-left: 1.25rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.25rem;">
+        <li><strong>Hosting &amp; Edge Delivery Logs:</strong> RouterIPHub is served over Vercel&rsquo;s edge infrastructure. Standard HTTP request headers (public IP address, requested URL, HTTP status code, timestamp, referrer, and browser User-Agent) are processed ephemerally for TLS encryption, caching, and DDoS mitigation.</li>
+        <li><strong>Local Browser Preferences:</strong> Selecting Dark or Light theme writes a single non-identifying setting in browser <code>localStorage</code> under the key <code>theme</code>. No personal identifiers are stored there.</li>
+      </ul>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">3. Third-Party Telemetry, Chat &amp; Diagnostic APIs</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem;">
+        To measure site reliability, understand broken search flows, and support optional live assistance, we integrate carefully scoped third-party services:
+      </p>
+      <ul style="margin-left: 1.25rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.25rem;">
+        <li><strong>Google Tag Manager &amp; Google Analytics:</strong> Used for aggregated traffic measurement (page views, search queries inside the site filter, and page performance). Data is governed by Google&rsquo;s Privacy Policy. You may block analytics scripts via browser privacy controls or the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.</li>
+        <li><strong>Microsoft Clarity:</strong> Used for aggregated performance telemetry and anonymous interaction insights (scroll depth, dead clicks, layout shifts) to identify broken UI elements. Clarity does not associate sessions with personal accounts. See the <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft Privacy Statement</a>.</li>
+        <li><strong>Live Chat Support (Tawk.to):</strong> An optional customer troubleshooting chat script (<code>embed.tawk.to</code>) is deferred on initial page load and loads only after visitor interaction (scrolling, clicking, or keypress). If you initiate a conversation, messages and support session metadata are processed by Tawk.to under <a href="https://www.tawk.to/privacy-policy/" target="_blank" rel="noopener noreferrer">Tawk.to&rsquo;s Privacy Policy</a>. <strong>Important:</strong> Never paste live router administrator passwords, Wi-Fi keys, or private ISP account credentials into any support chat.</li>
+        <li><strong>Explicit User-Initiated Public Lookups:</strong> When you click lookup or test buttons in the <a href="/tools/ip-address-checker/">IP Address Checker</a> or <a href="/tools/dns-propagation/">DNS Propagation Checker</a>, your browser sends queries directly to external public resolver APIs (<code>ipwho.is</code>, <code>api.ipify.org</code>, Google Public DNS, Cloudflare DNS-over-HTTPS, Quad9, AdGuard DNS, and AliDNS). Private RFC 1918 addresses entered into the IP Address Checker are detected locally in your browser and never sent to external IP APIs.</li>
+      </ul>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">4. Cookies &amp; How to Control Tracking</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        RouterIPHub itself does not set advertising or cross-site retargeting cookies. Third-party analytics or chat providers listed in Section 3 may set cookies or session identifiers in your browser subject to your browser settings. You can clear cookies, enable Global Privacy Control (GPC), browse in private/incognito mode, or block third-party scripts at any time&mdash;our reference guides and client-side tools remain fully usable even when third-party telemetry scripts are blocked.
+      </p>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">5. Data Sharing, Sale &amp; Retention</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        RouterIPHub does <strong>not sell</strong>, rent, or trade personal data to data brokers, ad networks, or marketers (including as defined under the California Consumer Privacy Act / CPRA). If you email us hardware errata or feedback, we retain your correspondence only for as long as needed to verify and resolve the technical correction or comply with legal obligations.
+      </p>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">6. Children&rsquo;s Privacy</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        RouterIPHub is a general technical documentation site intended for network owners and administrators and is not directed at children under the age of 13 (or under 16 in jurisdictions such as the EEA/UK where higher consent thresholds apply). We do not knowingly collect personal information from children.
+      </p>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">7. Your Privacy Rights (GDPR, UK GDPR &amp; US State Laws)</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        Depending on your jurisdiction (including residents of the EEA, UK, Switzerland, California, and other US states with comprehensive privacy laws), you may have the right to request access to, correction of, restriction of, or deletion of personal data we hold directly, or object to processing and exercise rights without discrimination. Because we maintain no user accounts, most requests apply only to email correspondence sent to us or telemetry managed directly by third-party providers listed in Section 3.
+      </p>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">8. External Links &amp; Policy Updates</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        Guides include outbound links to router manufacturers, ISP portals, GitHub repositories, and third-party security references. We do not control the privacy practices of external websites. We may revise this Privacy Policy when our tools or third-party integrations change; updates take effect when posted on this page with an updated revision date.
+      </p>
+
+      <div class="bottom-line-callout" style="margin-top: 2rem;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">Privacy Inquiries</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65; margin: 0;">
+          To exercise privacy rights or ask questions regarding telemetry and data handling, contact <a href="mailto:editorial@routeriphub.com">editorial@routeriphub.com</a> or visit our <a href="/contact/">Contact page</a>.
+        </p>
+      </div>
     </div>
   </main>
 """
     write_page(
         "privacy",
-        "Privacy Policy | RouterIPHub",
-        "Read RouterIPHub privacy policy covering zero server storage for local networking tools, DNS/IP lookup requests, analytics, and user rights.",
+        "Privacy Policy & Data Practices | RouterIPHub",
+        "RouterIPHub Privacy Policy: client-side diagnostic tool isolation, zero password logging, analytics disclosure, Tawk.to deferral, and GDPR/CCPA rights.",
         "https://routeriphub.com/privacy/",
         [("Home", "/"), ("Privacy Policy", "/privacy/")],
         privacy_schema,
@@ -655,34 +704,82 @@ def generate_trust_and_legal_pages(public_dir, get_header_fn, get_footer_fn):
     # 4. /terms/
     terms_schema = {
         "@type": "WebPage",
-        "name": "Terms of Use — RouterIPHub",
+        "name": "Terms of Use & Open Data License — RouterIPHub",
         "url": "https://routeriphub.com/terms/",
+        "dateModified": "2026-11-12T00:00:00+00:00",
         "publisher": ORG_PUBLISHER
     }
     terms_body = """
   <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
     <div class="content-container">
       <div class="silo-badge silo-badge-ip" style="margin-bottom: 1rem;">Terms &amp; Licensing</div>
-      <h1 style="font-size: 2.15rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+      <h1 style="font-size: 2.15rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.02em;">
         Terms of Use
       </h1>
-      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.75rem;">
-        Effective Date: November 11, 2026 &bull; Governed by open technical reference standards
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+        Effective Date: November 11, 2026 &bull; Last Updated: November 12, 2026 &bull; Applicable to routeriphub.com
       </p>
 
-      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.65rem;">1. Technical Reference Purpose</h2>
+      <div class="answer-box" style="margin-bottom: 2rem;">
+        <div class="answer-box-title">Important Safety &amp; Authorization Notice</div>
+        <p style="margin: 0;">
+          RouterIPHub documentation and interactive utilities are published strictly for lawful, authorized administration of networking equipment you own or manage with permission. Before resetting any router or ISP gateway, record active PPPoE/VLAN credentials and verify model-specific OEM instructions.
+        </p>
+      </div>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">1. Acceptance of These Terms</h2>
       <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
-        All setup guides, default gateway IP tables, factory credential matrices, and reset durations on RouterIPHub are provided for informational and authorized network administration purposes only. Always ensure you own or hold explicit permission to administer any router or gateway before modifying settings or initiating a factory reset.
+        By accessing or using <code>routeriphub.com</code>, any documentation pages, interactive networking utilities, or downloadable JSON/CSV/SQL data feeds (collectively, the &ldquo;Service&rdquo;), you agree to be bound by these Terms of Use and acknowledge our <a href="/privacy/">Privacy Policy</a>. If you do not agree to these terms, discontinue use of the Service.
       </p>
 
-      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.65rem;">2. Factory Reset &amp; Configuration Liability</h2>
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">2. Permitted Educational &amp; Administrative Use</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem;">
+        All default IP tables, factory credential references, LED indicators, and troubleshooting steps are provided solely to assist legitimate device owners, IT support personnel, and network engineers in recovering or configuring hardware under their authorized control. You agree <strong>not</strong> to use the Service to:
+      </p>
+      <ul style="margin-left: 1.25rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.25rem;">
+        <li>Attempt unauthorized login, access, interference, or configuration changes on any router, Wi-Fi network, modem, or gateway you do not own or hold documented authorization to administer.</li>
+        <li>Conduct automated credential stuffing, unauthorized network probing, denial-of-service traffic, or malicious port scanning against third-party systems.</li>
+        <li>Scrape, mirror, or repackage our pages to spoof official router portals, deceive end users, or inject malware.</li>
+      </ul>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">3. Hardware Revisions, ISP Customization &amp; Accuracy Disclaimer</h2>
       <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
-        Performing a hard factory reset erases custom ISP PPPoE logins, static routes, VPN tunnels, and Wi-Fi keys. While our documentation is verified against OEM hardware manuals, firmware updates issued by manufacturers or ISPs can alter behavior without prior notice. RouterIPHub assumes no liability for service interruptions or configuration loss.
+        Router manufacturers and Internet Service Providers periodically release hardware revisions (e.g., V1 vs. V2), regional SKUs, and firmware updates that alter default gateway subnets, replace static preset passwords with unique chassis-printed passwords, or disable local web dashboards in favor of mobile management apps. While our <a href="/editorial-policy/">Editorial Policy</a> enforces cross-referencing against OEM manuals and FCC documentation, hardware variations can occur without public notice. Always confirm physical sticker labels and carrier documentation for your exact revision.
       </p>
 
-      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.65rem;">3. Open Dataset Licensing (CC BY 4.0) &amp; Trademarks</h2>
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">4. Disclaimer of Warranties (&ldquo;AS IS&rdquo;)</h2>
       <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
-        Structured hardware datasets published under <a href="/developers/">/developers/</a> (<code>routers.json</code>, <code>routers.csv</code>, <code>routers.sql</code>, <code>gateways.json</code>) are licensed under Creative Commons Attribution 4.0 (CC BY 4.0). All manufacturer names, model codes, and product trademarks belong to their respective owners and do not imply endorsement.
+        THE SERVICE, ALL HARDWARE GUIDES, DIAGNOSTIC TOOLS, AND DATASETS ARE PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR CONTINUOUS AVAILABILITY. WE DO NOT WARRANT THAT CLIENT TOOLS OR THIRD-PARTY DNS/IP LOOKUP SERVICES WILL BE ERROR-FREE OR UNINTERRUPTED.
+      </p>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">5. Assumption of Risk &amp; Limitation of Liability</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        Modifying firewall rules, bridge/IP passthrough modes, firmware images, or executing a factory reset carries inherent operational risks, including loss of internet connectivity, erasure of ISP PPPoE logins, static routes, VPN keys, VLAN tags, and Wi-Fi settings. You assume sole responsibility for backing up device configurations prior to making changes.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, ROUTERIPHUB, ITS MAINTAINERS, AND CONTRIBUTORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, NOR ANY LOSS OF DATA, BUSINESS INTERRUPTION, HARDWARE BRICKING, OR NETWORK OUTAGE ARISING OUT OF OR RELATED TO YOUR USE OF OR INABILITY TO USE THE SERVICE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+      </p>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">6. Open Dataset License (CC BY 4.0) &amp; Intellectual Property</h2>
+      <ul style="margin-left: 1.25rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 1.25rem;">
+        <li><strong>Open Hardware Datasets:</strong> Structured machine-readable datasets published under <a href="/developers/">/developers/</a> (<code>routers.json</code>, <code>routers.csv</code>, <code>routers.sql</code>, <code>gateways.json</code>) and our companion GitHub repository are licensed under <strong>Creative Commons Attribution 4.0 International (CC BY 4.0)</strong>. Redistribution or integration requires appropriate credit to RouterIPHub (<code>https://routeriphub.com</code>) and indication if changes were made.</li>
+        <li><strong>Site Design &amp; Original Guides:</strong> Except for CC BY 4.0 datasets above, website source code, editorial troubleshooting guides, layout templates, and original hardware diagrams are protected by applicable copyright laws.</li>
+        <li><strong>Nominative Trademark Notice:</strong> All manufacturer names, product series, carrier brands, and logos mentioned for hardware identification (including Netgear, TP-Link, ASUS, Linksys, Cisco, Ubiquiti, MikroTik, Xfinity, AT&amp;T, Verizon, and PLDT) are trademarks of their respective owners. Reference does not imply sponsorship, affiliation, or endorsement.</li>
+      </ul>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">7. Third-Party Services &amp; Outbound Links</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        Diagnostic tools rely in part on external public DNS and IP APIs, and pages may link to manufacturer downloads or ISP documentation. RouterIPHub does not control and is not responsible for the availability, accuracy, or terms of third-party websites or resolver endpoints.
+      </p>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">8. Indemnification &amp; General Provisions</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        You agree to defend, indemnify, and hold harmless RouterIPHub and its contributors from claims, damages, or expenses resulting from your unlawful use of the Service, unauthorized access to third-party networks, or violation of these Terms. If any provision of these Terms is determined unenforceable under applicable law, the remaining provisions remain in full effect. Failure to enforce any right does not constitute a waiver of that right.
+      </p>
+
+      <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.65rem;">9. Modifications, Errata &amp; Contact</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        We may update these Terms of Use at any time to reflect new diagnostic tools, dataset updates, or legal requirements; continued use after updates are posted constitutes acceptance. To report copyright/trademark concerns, technical inaccuracies, or legal questions, email <a href="mailto:editorial@routeriphub.com">editorial@routeriphub.com</a> or visit our <a href="/contact/">Contact &amp; Corrections page</a>.
       </p>
     </div>
   </main>
@@ -690,7 +787,7 @@ def generate_trust_and_legal_pages(public_dir, get_header_fn, get_footer_fn):
     write_page(
         "terms",
         "Terms of Use & Open Data License | RouterIPHub",
-        "RouterIPHub terms of use covering authorized network administration, factory reset disclaimers, CC BY 4.0 open dataset terms, and trademark notices.",
+        "RouterIPHub Terms of Use: authorized network administration, factory reset disclaimers, AS-IS warranty, limitation of liability, and CC BY 4.0 data license.",
         "https://routeriphub.com/terms/",
         [("Home", "/"), ("Terms of Use", "/terms/")],
         terms_schema,
