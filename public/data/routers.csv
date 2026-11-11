@@ -250,3 +250,4 @@ motorola-mg7700,Motorola,Motorola MG7700,DOCSIS 3.0 AC1900 Gateway,192.168.0.1,h
 motorola-mg7550,Motorola,Motorola MG7550,DOCSIS 3.0 AC1900 Gateway,192.168.0.1,http://192.168.0.1,admin,motorola,Wi-Fi 5 (AC1900 16x4)
 motorola-mt7711,Motorola,Motorola MT7711,DOCSIS 3.0 with Voice,192.168.0.1,http://192.168.0.1,admin,motorola,Wi-Fi 5 (AC1900 24x8 Telephone)
 motorola-mr2600,Motorola,Motorola MR2600,Smart Wi-Fi Gigabit Router,192.168.1.1,http://192.168.1.1,admin,motorola,Wi-Fi 5 (AC2600 4x4)
+pldt,PLDT,Default Router Login (Home WiFi & Fiber),Home Wi-Fi & Fiber Gateway,192.168.1.1,https://192.168.1.1,admin,1234,Wi-Fi 6 / Wi-Fi 5

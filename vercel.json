@@ -5,6 +5,11 @@
   "outputDirectory": "public",
   "redirects": [
     {
+      "source": "/isp/pldt",
+      "destination": "/routers/pldt/",
+      "permanent": true
+    },
+    {
       "source": "/192-168-1-1.html",
       "destination": "/ip/192-168-1-1/",
       "permanent": true

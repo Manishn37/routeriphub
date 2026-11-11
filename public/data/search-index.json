@@ -2008,6 +2008,14 @@
     "keywords": "motorola motorola mr2600 192.168.1.1 motorola-mr2600 password reset smart wi-fi gigabit router"
   },
   {
+    "title": "PLDT Default Router Login (Home WiFi & Fiber) Setup Sheet",
+    "category": "Router Model",
+    "badge": "PLDT",
+    "url": "/routers/pldt/",
+    "snippet": "Default IP 192.168.1.1, username 'admin', password '1234', Wi-Fi 6 / Wi-Fi 5.",
+    "keywords": "pldt default router login (home wifi & fiber) 192.168.1.1 pldt password reset home wi-fi & fiber gateway"
+  },
+  {
     "title": "Xfinity Gateway Login \u2014 10.0.0.1 Admin Access & Fixes",
     "category": "ISP Gateway",
     "badge": "Xfinity",

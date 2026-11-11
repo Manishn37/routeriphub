@@ -417,6 +417,19 @@ def get_footer():
     </div>
   </footer>
 
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/6af46cbb33168a3c42864ac2/1k75chg69';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
 </body>
 </html>
 """
@@ -1632,6 +1645,560 @@ def generate_custom_synology_rt6600ax_page(m):
 
     return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
+
+# ==============================================================================
+# CUSTOM HIGH-INTENT MODEL PAGE: PLDT Default Router Login
+# ==============================================================================
+def generate_custom_pldt_page(m):
+    canonical = "https://routeriphub.com/routers/pldt/"
+    title = "PLDT Default Login — Username, Password & IP Address"
+    desc = "Access your PLDT router at 192.168.1.1 using the default login details. Learn how to change Wi-Fi settings and fix common administrator login problems."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Routers", "/routers/"),
+        ("PLDT", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": title,
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to Your PLDT Router",
+        "description": "Step-by-step instructions to connect, open 192.168.1.1, and enter admin credentials for PLDT home Wi-Fi and fiber routers.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to your PLDT network",
+                "text": "Connect your phone or computer to the router you want to manage using its Wi-Fi network or a direct Ethernet connection. If you have a separate router or repeater, make sure you are accessing the intended device."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open the router address",
+                "text": "Enter https://192.168.1.1 directly into your browser's address bar. Do not enter it into a search engine."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Enter the default credentials",
+                "text": "Use username admin and password 1234. If you previously changed the administrator login, enter your current credentials instead."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Complete any first-login setup",
+                "text": "On first use, the dashboard may prompt you to change the default administrator credentials under Account Management. PLDT instructions also describe updating the Wi-Fi name and password during initial configuration."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Open the settings you need",
+                "text": "Once signed in, select the relevant settings section. Menu names can vary by router model and firmware."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the default PLDT router username?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The standard username in PLDT’s general router-login instructions is admin."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default PLDT router password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The standard password is 1234. Use your current administrator password if you changed it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default PLDT router IP address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The standard management address is 192.168.1.1. Open https://192.168.1.1 from a device connected to your home network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does admin / 1234 not work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The administrator credentials may have been changed, or your device may use different model-specific login details. Check the instructions for your exact router rather than assuming every PLDT device uses the same login."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the PLDT Wi-Fi password the same as the administrator password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Do not assume they are the same. The Wi-Fi password connects devices to the wireless network; the administrator password opens the router’s settings."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the myHome password used for router login?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Your myHome account login is separate from the local router administrator login."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do PLDT repeaters use 192.168.1.1?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not necessarily. The PLDT Prolink Home Repeater guide specifies 192.168.1.253, so use the instructions for the particular repeater."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-router">📡 Hardware Model Setup Sheet</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        PLDT Default Login — Username, Password and IP Address
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+        The standard PLDT router login is username <strong>admin</strong>, password <strong>1234</strong>, and IP address <strong>192.168.1.1</strong>. These are the default details in PLDT’s general Wi-Fi management instructions, but they will not work if your administrator credentials have already been changed.<sup style="font-size: 0.75rem; margin-left: 0.25rem;"><a href="https://www.pldthome.com/change-wifi-password" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent);">[pldthome]</a></sup>
+      </p>
+      <p style="font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem; line-height: 1.6;">
+        Start with the standard login below. If your router uses different credentials, follow the instructions supplied for your exact model rather than trying random administrator passwords.
+      </p>
+
+      <!-- Quick Answer Card -->
+      <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--text-accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-accent);">Quick Answer</h2>
+        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
+          Connect to your PLDT home network, open <a href="https://192.168.1.1" target="_blank" rel="noopener noreferrer"><code>https://192.168.1.1</code></a>, and enter:
+        </p>
+        <div class="table-responsive" style="margin-bottom: 1rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Login detail</th>
+                <th>Default value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Router IP address</strong></td>
+                <td><code>192.168.1.1</code></td>
+              </tr>
+              <tr>
+                <td><strong>Login address</strong></td>
+                <td><a href="https://192.168.1.1" target="_blank" rel="noopener noreferrer"><code>https://192.168.1.1</code></a></td>
+              </tr>
+              <tr>
+                <td><strong>Username</strong></td>
+                <td><code>admin</code></td>
+              </tr>
+              <tr>
+                <td><strong>Password</strong></td>
+                <td><code>1234</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+          These are the standard credentials in PLDT’s general instructions—not a guarantee that every PLDT-supplied device or previously configured router still uses them.<sup style="font-size: 0.75rem; margin-left: 0.25rem;"><a href="https://www.pldthome.com/change-wifi-password" target="_blank" rel="noopener noreferrer" style="color: var(--text-accent);">[pldthome]</a></sup>
+        </p>
+      </div>
+
+      <!-- Section: How to Log In to Your PLDT Router -->
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">
+        How to Log In to Your PLDT Router
+      </h2>
+      <div class="steps-grid" style="display: grid; gap: 1.25rem; margin-bottom: 2.5rem;">
+        <div class="step-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.25rem;">Step 1</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Connect to your PLDT network</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Connect your phone or computer to the router you want to manage. Use its Wi-Fi network or a direct Ethernet connection. If you have a separate router or repeater, make sure you are accessing the intended device rather than another management page on your network.
+          </p>
+        </div>
+
+        <div class="step-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.25rem;">Step 2</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Open the router address</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.5rem;">
+            Enter this directly into your browser’s address bar:
+          </p>
+          <p style="font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; color: var(--text-accent); margin: 0;">
+            https://192.168.1.1
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 0.5rem;">
+            Do not enter it into a search engine. You want the local router interface, not a website listing router passwords.
+          </p>
+        </div>
+
+        <div class="step-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.25rem;">Step 3</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Enter the default credentials</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Use <strong>Username:</strong> <code>admin</code> and <strong>Password:</strong> <code>1234</code>. If you previously changed the administrator login, enter your current credentials instead.
+          </p>
+        </div>
+
+        <div class="step-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.25rem;">Step 4</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Complete any first-login setup</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            On first use, the dashboard may prompt you to change the default administrator credentials under <strong>Account Management</strong>. PLDT’s instructions also describe fields for updating the Wi-Fi name and password during initial configuration.
+          </p>
+        </div>
+
+        <div class="step-card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.25rem;">Step 5</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;">Open the settings you need</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Once signed in, select the relevant settings section. Menu names can vary by router model and firmware.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section: Which PLDT Password Do You Need? -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        Which PLDT Password Do You Need?
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+        A router administrator password, a Wi-Fi password, and a myHome account password are completely different credentials:
+      </p>
+      <div class="table-responsive" style="margin-bottom: 1.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Credential</th>
+              <th>What it does</th>
+              <th>Where you use it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Router administrator password</strong></td>
+              <td>Opens the router’s management dashboard</td>
+              <td>Local router login page</td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi password</strong></td>
+              <td>Connects devices to your wireless network</td>
+              <td>Phone, computer, or other device’s Wi-Fi settings</td>
+            </tr>
+            <tr>
+              <td><strong>myHome account password</strong></td>
+              <td>Opens your PLDT online account</td>
+              <td>myHome account sign-in</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
+        PLDT provides separate procedures for router Wi-Fi management and myHome account-password recovery. Resetting your myHome password is not the same as changing the router login.
+      </p>
+
+      <!-- Section: How to Change Your PLDT Wi-Fi Name -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        How to Change Your PLDT Wi-Fi Name
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+        PLDT’s general instructions use this menu path:
+      </p>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--text-secondary);">
+        <li>Sign in to the router dashboard.</li>
+        <li>Open <strong>Basic</strong>.</li>
+        <li>Select <strong>Wireless LAN (WLAN) Settings</strong>.</li>
+        <li>Find <strong>SSID Name</strong>.</li>
+        <li>Enter your preferred Wi-Fi name.</li>
+        <li>Select <strong>Apply Changes</strong> and <strong>Save</strong>.</li>
+      </ol>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
+        The SSID is the network name your devices see when searching for Wi-Fi. Your router’s exact interface may use slightly different labels.
+      </p>
+
+      <!-- Section: How to Change Your PLDT Wi-Fi Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        How to Change Your PLDT Wi-Fi Password
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+        After signing in:
+      </p>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--text-secondary);">
+        <li>Open <strong>Wireless LAN (WLAN) Settings</strong>.</li>
+        <li>Select <strong>Security</strong>.</li>
+        <li>Find the <strong>Pre-shared Key</strong> field.</li>
+        <li>Enter your new Wi-Fi password.</li>
+        <li>Apply and save the changes.</li>
+      </ol>
+      <div class="card" style="padding: 1rem 1.25rem; border-left: 4px solid var(--text-accent); background: var(--bg-card); margin-bottom: 2rem; border-radius: var(--radius-sm);">
+        <p style="font-size: 0.95rem; color: var(--text-primary); margin: 0; line-height: 1.5;">
+          <strong>Important:</strong> Make sure you are editing the wireless-network password, not the administrator-account password.
+        </p>
+      </div>
+
+      <!-- Section: How to Change the Administrator Login -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        How to Change the Administrator Login
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+        If the dashboard prompts you to replace the default credentials, open <strong>Account Management</strong> and complete the required fields.
+      </p>
+      <p style="color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6;">
+        Keep a record of your new administrator login. Once the default password has been replaced, <code>1234</code> is no longer the password to use for that account.
+      </p>
+
+      <!-- Section: PLDT Login Not Working? Identify the Problem First -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        PLDT Login Not Working? Identify the Problem First
+      </h2>
+      <div class="table-responsive" style="margin-bottom: 1.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>What you see</th>
+              <th>What to check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>The router page does not open</strong></td>
+              <td>Network connection and management address</td>
+            </tr>
+            <tr>
+              <td><strong>The login page opens, but credentials are rejected</strong></td>
+              <td>Current administrator username and password</td>
+            </tr>
+            <tr>
+              <td><strong>You can connect to Wi-Fi but cannot sign in</strong></td>
+              <td>Whether you are confusing the Wi-Fi password with the admin password</td>
+            </tr>
+            <tr>
+              <td><strong>A repeater login page appears</strong></td>
+              <td>Whether you are managing the intended device</td>
+            </tr>
+            <tr>
+              <td><strong>The interface differs from these instructions</strong></td>
+              <td>Your router model and firmware</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+        A page-access problem and a rejected-password problem need different fixes. If the login form appears, you have already reached a management interface; repeatedly changing the address will not correct an invalid password.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">1. Check the address carefully</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.35rem;">
+            Use: <code>https://192.168.1.1</code>. Avoid typing the lowercase letter l in place of the number 1.
+          </p>
+          <div class="typo-tag-list">
+            <span class="typo-chip"><span class="typo-wrong">192.168.l.l</span></span>
+            <span class="typo-chip"><span class="typo-wrong">192.168.1.l</span></span>
+            <span class="typo-chip"><span class="typo-wrong">192.168.1.1.com</span></span>
+            <span class="typo-chip"><span class="typo-correct">&check; https://192.168.1.1</span></span>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">2. Confirm which device you are managing</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Do not assume every PLDT-branded networking device uses the same address. For example, the PLDT Prolink Home Repeater guide specifies <code>192.168.1.253</code> with username <code>admin</code> and password <code>1234</code>. Those are repeater instructions, not the standard gateway address.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">3. Use your current administrator credentials</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            The standard admin / 1234 combination will not work after it has been changed. Check your saved credentials or the setup instructions provided for your router. Do not assume a password printed for Wi-Fi access is also the administrator password.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem;">4. Follow model-specific recovery instructions</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            If you cannot recover the administrator login, use the recovery procedure for your exact router or contact PLDT for assistance. Avoid using a generic reset-button timing from an unrelated model.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section: Should You Factory Reset the Router? -->
+      <div class="warning-box" style="margin: 2.5rem 0;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: #dc2626;">
+          Should You Factory Reset the Router?
+        </h2>
+        <p style="line-height: 1.6; margin-bottom: 0.5rem;">
+          <strong>Do not treat a factory reset as the first fix for a rejected password.</strong>
+        </p>
+        <p style="line-height: 1.6; margin: 0;">
+          Before proceeding, confirm the recovery instructions for your exact model and whether any service settings will need to be restored. Record the configuration you need to preserve. A reset is different from a normal restart. Only proceed when you understand what your model’s reset procedure changes.
+        </p>
+      </div>
+
+      <!-- Section: Common PLDT Login Mistakes -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        Common PLDT Login Mistakes
+      </h2>
+      <ul style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 2.5rem; color: var(--text-secondary);">
+        <li>Assuming <code>admin / 1234</code> must work after the credentials have been changed.</li>
+        <li>Entering the Wi-Fi password into the administrator login form.</li>
+        <li>Using a myHome account password for the local router dashboard.</li>
+        <li>Following repeater instructions when trying to manage the main router.</li>
+        <li>Typing the IP address into a search engine instead of the browser’s address bar.</li>
+        <li>Resetting the router before checking model-specific recovery instructions.</li>
+      </ul>
+
+      <!-- FAQs Section -->
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 3rem; margin-bottom: 1.25rem;">
+        Frequently Asked Questions (FAQs)
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">What is the default PLDT router username?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            The standard username in PLDT’s general router-login instructions is <code>admin</code>.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">What is the default PLDT router password?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            The standard password is <code>1234</code>. Use your current administrator password if you changed it.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">What is the default PLDT router IP address?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            The standard management address is <code>192.168.1.1</code>. Open <a href="https://192.168.1.1" target="_blank" rel="noopener noreferrer"><code>https://192.168.1.1</code></a> from a device connected to your home network.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Why does admin / 1234 not work?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            The administrator credentials may have been changed, or your device may use different model-specific login details. Check the instructions for your exact router rather than assuming every PLDT device uses the same login.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Is the PLDT Wi-Fi password the same as the administrator password?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Do not assume they are the same. The Wi-Fi password connects devices to the wireless network; the administrator password opens the router’s settings.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Is the myHome password used for router login?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            No. Your myHome account login is separate from the local router administrator login.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Do PLDT repeaters use 192.168.1.1?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Not necessarily. The PLDT Prolink Home Repeater guide specifies <code>192.168.1.253</code>, so use the instructions for the particular repeater.
+          </p>
+        </div>
+      </div>
+
+      <!-- Section: The Bottom Line -->
+      <div class="bottom-line-callout" style="margin-bottom: 2.5rem;">
+        <h2 style="font-size: 1.25rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: #16a34a;">
+          The Bottom Line
+        </h2>
+        <p style="font-size: 1.05rem; line-height: 1.6; margin: 0;">
+          Start with <a href="https://192.168.1.1" target="_blank" rel="noopener noreferrer"><code>https://192.168.1.1</code></a>, username <code>admin</code>, and password <code>1234</code>. If the login page opens but rejects those credentials, check your current administrator password and your router’s model-specific instructions before considering a reset.
+        </p>
+      </div>
+
+      <!-- Local Network Ping Probe Tool -->
+      <div class="card" style="margin: 2rem 0; padding: 1.25rem; border: 1px dashed var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;">
+          <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-accent);">
+            &bull; Live Browser Gateway Probe
+          </span>
+          <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">
+            Target: 192.168.1.1
+          </span>
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Test whether your device is currently connected to this gateway subnet via local browser ping probes:
+        </p>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button id="probe-btn" class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.875rem;">
+            Test Connection to 192.168.1.1
+          </button>
+          <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
+        </div>
+      </div>
+
+      <!-- Author Card -->
+      <div class="card" style="margin: 2.5rem 0; padding: 1.5rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md); display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap;">
+        <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--accent, #0284c7); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 700; flex-shrink: 0;">
+          VB
+        </div>
+        <div style="flex: 1; min-width: 250px;">
+          <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-accent); font-weight: 700; margin-bottom: 0.25rem;">
+            Verified Technical Reference
+          </div>
+          <div style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">
+            Written by <a href="/authors/vikas-behl/" style="color: inherit; text-decoration: underline;">Vikas Behl</a>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0; line-height: 1.5;">
+            Senior Network Engineer with 12+ years of field experience in router management, gateway provisioning, Wi-Fi security, and home network architecture.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/routers/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            All Router Models &rarr;
+          </a>
+          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            192.168.1.1 Gateway Hub &rarr;
+          </a>
+          <a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            Wi-Fi QR Code Generator &rarr;
+          </a>
+          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            Password Generator &rarr;
+          </a>
+          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">
+            Subnet Calculator &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
 def generate_router_model_pages():
     print(f"Generating {len(ROUTER_MODELS)} router model pages...")
     for m in ROUTER_MODELS:
@@ -1646,6 +2213,10 @@ def generate_router_model_pages():
         elif slug == "synology-rt2600ac":
             with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_synology_rt2600ac_page(m))
+            continue
+        elif slug == "pldt":
+            with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_pldt_page(m))
             continue
 
         canonical = f"https://routeriphub.com/routers/{slug}/"
@@ -12980,6 +13551,7 @@ def update_search_index():
 def update_vercel_config():
     print("Updating vercel.json with 301 redirects & clean URLs...")
     redirects = [
+        {"source": "/isp/pldt", "destination": "/routers/pldt/", "permanent": True},
         {"source": "/192-168-1-1.html", "destination": "/ip/192-168-1-1/", "permanent": True},
         {"source": "/192-168-0-1.html", "destination": "/ip/192-168-0-1/", "permanent": True},
         {"source": "/10-10-10-1.html", "destination": "/ip/10-10-10-1/", "permanent": True},
