@@ -188,6 +188,14 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
 {schema_block}
   </script>
 
+  <!-- Google Tag Manager / gtag.js -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-547N7K2L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag('js', new Date());
+  </script>
+
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){{
         c[a]=c[a]||function(){{(c[a].q=c[a].q||[]).push(arguments)}};
