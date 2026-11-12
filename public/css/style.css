@@ -765,4 +765,234 @@ table.data-table code,table.table code{font-size:0.875rem;padding:0.18rem 0.45re
   text-align: center;
 }
 
+/* Interactive NETGEAR Extender Step-by-Step Setup Simulator */
+.ext-wizard-card {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--bg-accent);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+.ext-wizard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.ext-wizard-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 9999px;
+  background: var(--info-bg);
+  color: var(--text-accent);
+  border: 1px solid var(--border-color);
+}
+.ext-wizard-progress-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--bg-secondary);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.ext-wizard-progress-fill {
+  height: 100%;
+  width: 16.66%;
+  background: var(--bg-accent);
+  border-radius: 9999px;
+  transition: width 0.35s ease;
+}
+.ext-wizard-pills {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+.ext-wizard-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.5rem 0.35rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: center;
+}
+.ext-wizard-pill:hover {
+  border-color: var(--text-accent);
+  color: var(--text-primary);
+}
+.ext-wizard-pill.is-done {
+  background: var(--success-bg);
+  color: var(--success-text);
+  border-color: rgba(22, 163, 74, 0.35);
+}
+.ext-wizard-pill.is-active {
+  background: var(--bg-accent);
+  color: #ffffff;
+  border-color: var(--bg-accent);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+.ext-wizard-pill-num {
+  font-size: 0.7rem;
+  opacity: 0.85;
+  font-weight: 700;
+}
+.ext-wizard-stage {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  margin-bottom: 1.15rem;
+  overflow: hidden;
+}
+[data-theme="dark"] .ext-wizard-stage {
+  background: #0f172a;
+}
+.ext-wizard-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ext-wizard-scene {
+  display: none;
+  animation: extSceneFadeIn 0.35s ease;
+}
+.ext-wizard-stage[data-step="1"] .ext-scene-1,
+.ext-wizard-stage[data-step="2"] .ext-scene-2,
+.ext-wizard-stage[data-step="3"] .ext-scene-3,
+.ext-wizard-stage[data-step="4"] .ext-scene-4,
+.ext-wizard-stage[data-step="5"] .ext-scene-5,
+.ext-wizard-stage[data-step="6"] .ext-scene-6 {
+  display: block;
+}
+.ext-wizard-copy {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  margin-bottom: 1rem;
+}
+.ext-wizard-step-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-accent);
+  margin-bottom: 0.25rem;
+}
+.ext-wizard-step-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.45rem 0;
+}
+.ext-wizard-step-desc {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin: 0 0 0.55rem 0;
+}
+.ext-wizard-step-tip {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--info-bg);
+  border-left: 3px solid var(--bg-accent);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  margin: 0;
+}
+.ext-wizard-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+.ext-wizard-controls-left,
+.ext-wizard-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+@keyframes extSceneFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes extPlugSlide {
+  0%, 15% { transform: translateX(48px); }
+  45%, 100% { transform: translateX(0); }
+}
+@keyframes extLedGreen {
+  0%, 45% { fill: #f59e0b; opacity: 0.55; }
+  55%, 100% { fill: #22c55e; opacity: 1; }
+}
+@keyframes extPulseHalo {
+  0% { transform: scale(0.85); opacity: 0.75; }
+  70% { transform: scale(1.75); opacity: 0; }
+  100% { transform: scale(1.75); opacity: 0; }
+}
+@keyframes extWavePulse {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+@keyframes extLoadBar {
+  0% { width: 20px; }
+  65% { width: 320px; }
+  100% { width: 340px; }
+}
+@keyframes extPacketMove {
+  0% { stroke-dashoffset: 48; }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes extMoveHalfway {
+  0%, 15% { transform: translateX(-125px); }
+  55%, 100% { transform: translateX(0); }
+}
+@keyframes extClickPulse {
+  0%, 40% { transform: scale(1); }
+  55% { transform: scale(0.94); }
+  70%, 100% { transform: scale(1); }
+}
+.anim-plug-slide { animation: extPlugSlide 2.8s ease-in-out infinite alternate; }
+.anim-led-green { animation: extLedGreen 2.8s ease-in-out infinite alternate; }
+.anim-pulse-halo { transform-box: fill-box; transform-origin: center; animation: extPulseHalo 1.8s ease-out infinite; }
+.anim-wave-1 { animation: extWavePulse 1.6s ease-in-out infinite; }
+.anim-wave-2 { animation: extWavePulse 1.6s ease-in-out 0.35s infinite; }
+.anim-wave-3 { animation: extWavePulse 1.6s ease-in-out 0.7s infinite; }
+.anim-load-bar { animation: extLoadBar 2.2s ease-out infinite; }
+.anim-packet-flow { stroke-dasharray: 8 8; animation: extPacketMove 1.1s linear infinite; }
+.anim-move-halfway { animation: extMoveHalfway 3.2s ease-in-out infinite alternate; }
+.anim-click-pulse { transform-box: fill-box; transform-origin: center; animation: extClickPulse 2s ease-in-out infinite; }
+@media (max-width: 720px) {
+  .ext-wizard-card { padding: 1.05rem; }
+  .ext-wizard-pills { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-plug-slide, .anim-led-green, .anim-pulse-halo,
+  .anim-wave-1, .anim-wave-2, .anim-wave-3,
+  .anim-load-bar, .anim-packet-flow, .anim-move-halfway, .anim-click-pulse {
+    animation: none !important;
+  }
+}
+
 

@@ -22,6 +22,7 @@ function initApp() {
   initCopyButtons();
   initFaqAccordion();
   initGatewayProbe();
+  initExtenderSetupWizard();
   initInstantPrefetch();
 }
 
@@ -1060,7 +1061,184 @@ function initGuideIndexFilter() {
 }
 
 /* ==========================================================================
-   9. Instant Speculative Link Prefetching
+   9. Interactive NETGEAR Extender Step-by-Step Setup Wizard
+   ========================================================================== */
+function initExtenderSetupWizard() {
+  const wizard = document.getElementById('mywifiext-setup-wizard');
+  if (!wizard) return;
+
+  const steps = [
+    {
+      num: 1,
+      label: 'Step 1 of 6 — Power & Placement',
+      title: 'Plug the NETGEAR Extender Into Power (Same Room as Router)',
+      desc: 'Plug your NETGEAR range extender into a wall outlet in the same room as your main Wi-Fi router. Wait 1 to 2 minutes until the Power LED turns solid green (or white).',
+      tip: 'Setting up close to your main router first prevents weak pairing signals. You will move it halfway to your dead zone in Step 6.'
+    },
+    {
+      num: 2,
+      label: 'Step 2 of 6 — Local Connection',
+      title: 'Connect Directly to NETGEAR_EXT Wi-Fi (Turn Off Mobile Data)',
+      desc: 'On your phone or laptop, open Wi-Fi settings and connect to NETGEAR_EXT (or plug an Ethernet cable into the extender LAN port). If using a phone, turn OFF cellular/mobile data so traffic stays local.',
+      tip: 'Ignore "No Internet Connection" warnings right now—that is normal until Step 5 pairs the extender with your router.'
+    },
+    {
+      num: 3,
+      label: 'Step 3 of 6 — Open Setup Portal',
+      title: 'Type http://www.mywifiext.net or http://192.168.1.250 in Address Bar',
+      desc: 'Open Chrome, Safari, Edge, or Firefox and type http://www.mywifiext.net (Windows/Android) or http://mywifiext.local (Mac/iOS) into the top address bar. If the domain fails, use http://192.168.1.250.',
+      tip: 'Never type mywifiext.net into Google Search. Always use the browser URL bar directly.'
+    },
+    {
+      num: 4,
+      label: 'Step 4 of 6 — Sign In / Create Admin Login',
+      title: 'Sign In (admin / password) or Create Your Extender Admin Account',
+      desc: 'For already-configured or older extenders, sign in with Username: admin and Password: password. On brand-new or freshly reset models, click New Extender Setup and create a custom admin password plus security questions.',
+      tip: 'Save this admin password separately—it opens the extender settings page later.'
+    },
+    {
+      num: 5,
+      label: 'Step 5 of 6 — Pair With Main Router',
+      title: 'Select Your Home Wi-Fi Networks (2.4 GHz & 5 GHz) & Enter Wi-Fi Password',
+      desc: 'Inside the NETGEAR setup wizard, pick your main router Wi-Fi network(s), enter your existing home Wi-Fi password accurately, and customize or keep the extended SSID (usually YourWiFi_EXT). Click Continue and wait for the Link LED to turn solid green.',
+      tip: 'If pairing fails or hangs, double-check your main router Wi-Fi password for capitalization typos.'
+    },
+    {
+      num: 6,
+      label: 'Step 6 of 6 — Relocate & Finish',
+      title: 'Move Extender Halfway to Your Dead Zone & Reconnect Devices',
+      desc: 'Unplug the extender and move it roughly halfway between your main router and the area with weak Wi-Fi. Plug it back in, confirm the Router Link LED lights solid green or blue (not red), and connect your devices to the extended Wi-Fi network.',
+      tip: 'Done! Remember that once paired, your main router assigns a new DHCP IP to the extender—so check your router Attached Devices list for future logins.'
+    }
+  ];
+
+  const stage = document.getElementById('ext-wizard-stage');
+  const progressFill = document.getElementById('ext-wizard-progress-fill');
+  const stepLabel = document.getElementById('ext-wizard-step-label');
+  const stepTitle = document.getElementById('ext-wizard-step-title');
+  const stepDesc = document.getElementById('ext-wizard-step-desc');
+  const stepTip = document.getElementById('ext-wizard-step-tip');
+  const pills = wizard.querySelectorAll('.ext-wizard-pill');
+  const prevBtn = document.getElementById('wizard-prev-btn');
+  const nextBtn = document.getElementById('wizard-next-btn');
+  const playBtn = document.getElementById('wizard-play-btn');
+  const restartBtn = document.getElementById('wizard-restart-btn');
+  const launchBtn = document.getElementById('launch-extender-wizard-btn');
+
+  let currentStep = 1;
+  let playTimer = null;
+
+  function stopAutoPlay() {
+    if (playTimer) {
+      clearInterval(playTimer);
+      playTimer = null;
+    }
+    if (playBtn) {
+      playBtn.textContent = currentStep >= steps.length ? 'Replay All Steps' : 'Auto-Play Steps';
+      playBtn.setAttribute('aria-pressed', 'false');
+    }
+  }
+
+  function renderStep(stepNum) {
+    currentStep = Math.max(1, Math.min(steps.length, stepNum));
+    const data = steps[currentStep - 1];
+
+    if (stage) stage.setAttribute('data-step', String(currentStep));
+    if (progressFill) progressFill.style.width = `${(currentStep / steps.length) * 100}%`;
+    if (stepLabel) stepLabel.textContent = data.label;
+    if (stepTitle) stepTitle.textContent = data.title;
+    if (stepDesc) stepDesc.textContent = data.desc;
+    if (stepTip) stepTip.textContent = `Tip: ${data.tip}`;
+
+    pills.forEach(p => {
+      const n = parseInt(p.getAttribute('data-step-btn') || '0', 10);
+      p.classList.toggle('is-active', n === currentStep);
+      p.classList.toggle('is-done', n < currentStep);
+      p.setAttribute('aria-current', n === currentStep ? 'step' : 'false');
+    });
+
+    if (prevBtn) prevBtn.disabled = currentStep === 1;
+    if (nextBtn) {
+      nextBtn.textContent = currentStep === steps.length ? 'Restart (Step 1)' : 'Next Step ->';
+    }
+    if (playBtn && !playTimer) {
+      playBtn.textContent = currentStep >= steps.length ? 'Replay All Steps' : 'Auto-Play Steps';
+    }
+  }
+
+  function startAutoPlay(fromBeginning) {
+    stopAutoPlay();
+    if (fromBeginning || currentStep >= steps.length) {
+      renderStep(1);
+    }
+    if (playBtn) {
+      playBtn.textContent = 'Pause Animation';
+      playBtn.setAttribute('aria-pressed', 'true');
+    }
+    playTimer = setInterval(() => {
+      if (currentStep >= steps.length) {
+        stopAutoPlay();
+      } else {
+        renderStep(currentStep + 1);
+      }
+    }, 4500);
+  }
+
+  pills.forEach(p => {
+    p.addEventListener('click', () => {
+      stopAutoPlay();
+      const target = parseInt(p.getAttribute('data-step-btn') || '1', 10);
+      renderStep(target);
+    });
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      stopAutoPlay();
+      renderStep(currentStep - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      stopAutoPlay();
+      if (currentStep >= steps.length) {
+        renderStep(1);
+      } else {
+        renderStep(currentStep + 1);
+      }
+    });
+  }
+
+  if (playBtn) {
+    playBtn.addEventListener('click', () => {
+      if (playTimer) {
+        stopAutoPlay();
+      } else {
+        startAutoPlay(currentStep >= steps.length);
+      }
+    });
+  }
+
+  if (restartBtn) {
+    restartBtn.addEventListener('click', () => {
+      stopAutoPlay();
+      renderStep(1);
+    });
+  }
+
+  if (launchBtn) {
+    launchBtn.addEventListener('click', () => {
+      wizard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      startAutoPlay(true);
+    });
+  }
+
+  renderStep(1);
+}
+
+/* ==========================================================================
+   10. Instant Speculative Link Prefetching
    ========================================================================== */
 function initInstantPrefetch() {
   document.querySelectorAll('a[href^="/"]').forEach(link => {
