@@ -19,7 +19,7 @@ RouterIPHub indexes 252 specific router models, 20 major hardware brands, 10 car
 - [Why Can't I Access My BT Hub Manager?](https://routeriphub.com/howto/why-cant-i-access-my-bt-hub-manager/): Fixes for 192.168.1.254, bthomehub.home, browser HTTPS warnings, and BT settings card admin password errors.
 
 ## Machine-Readable Datasets & APIs
-- [Open-Source Router Dataset (GitHub)](https://github.com/routeriphub/default-router-ip-databas): Official public GitHub repository containing raw router IP mappings, default passwords, and schema dumps.
+- [Open-Source Router Dataset (GitHub)](https://github.com/routeriphub/default-router-ip-database): Official public GitHub repository containing raw router IP mappings, default passwords, and schema dumps.
 - [Full LLM Knowledgebase Context](https://routeriphub.com/llms-full.txt): Complete uncompressed dataset containing full hardware models, credentials, subnets, and setup guides.
 - [Router Hardware Catalog JSON](https://routeriphub.com/data/routers.json): Programmatic REST API dataset of 252 router specifications and credentials.
 - [Hardware Tabular CSV Export](https://routeriphub.com/data/routers.csv): Comma-delimited dataset for spreadsheet ingestion and offline auditing.

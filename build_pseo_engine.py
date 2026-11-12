@@ -451,7 +451,7 @@ def get_footer():
       <div class="footer-col">
         <p class="footer-col-title">Open Data &amp; Developers</p>
         <ul class="footer-links">
-          <li><a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener">Open-Source Router Dataset (GitHub)</a></li>
+          <li><a href="https://github.com/routeriphub/default-router-ip-database" target="_blank" rel="noopener">Open-Source Router Dataset (GitHub)</a></li>
           <li><a href="/developers/">Developer API &amp; Datasets</a></li>
           <li><a href="/data/routers.json" download>routers.json (REST API)</a></li>
           <li><a href="/llms.txt">llms.txt (AI Directory)</a></li>
@@ -12496,7 +12496,7 @@ def generate_author_and_about_pages():
         We believe in open networking standards. In addition to our web interface, we maintain a free, open-source repository of router credentials and gateway subnets on GitHub, formatted for programmatic consumption:
       </p>
       <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
-        <a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 0.85rem;">GitHub Open-Source Dataset &rarr;</a>
+        <a href="https://github.com/routeriphub/default-router-ip-database" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 0.85rem;">GitHub Open-Source Dataset &rarr;</a>
         <a href="/developers/" class="btn btn-secondary" style="font-size: 0.85rem;">Developer API Documentation &rarr;</a>
         <a href="/data/routers.json" download class="btn btn-secondary" style="font-size: 0.85rem;">Download routers.json &rarr;</a>
       </div>
@@ -13888,7 +13888,7 @@ RouterIPHub indexes {model_count} specific router models, {brand_count} major ha
 - [Why Can't I Access My BT Hub Manager?](https://routeriphub.com/howto/why-cant-i-access-my-bt-hub-manager/): Fixes for 192.168.1.254, bthomehub.home, browser HTTPS warnings, and BT settings card admin password errors.
 
 ## Machine-Readable Datasets & APIs
-- [Open-Source Router Dataset (GitHub)](https://github.com/routeriphub/default-router-ip-databas): Official public GitHub repository containing raw router IP mappings, default passwords, and schema dumps.
+- [Open-Source Router Dataset (GitHub)](https://github.com/routeriphub/default-router-ip-database): Official public GitHub repository containing raw router IP mappings, default passwords, and schema dumps.
 - [Full LLM Knowledgebase Context](https://routeriphub.com/llms-full.txt): Complete uncompressed dataset containing full hardware models, credentials, subnets, and setup guides.
 - [Router Hardware Catalog JSON](https://routeriphub.com/data/routers.json): Programmatic REST API dataset of {model_count} router specifications and credentials.
 - [Hardware Tabular CSV Export](https://routeriphub.com/data/routers.csv): Comma-delimited dataset for spreadsheet ingestion and offline auditing.

@@ -579,7 +579,7 @@ def generate_trust_and_legal_pages(public_dir, get_header_fn, get_footer_fn):
           <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
             Engineers can report new hardware revisions, revised subnet defaults, or API schema suggestions directly on our public GitHub repository.
           </p>
-          <a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.875rem;">GitHub Repository &rarr;</a>
+          <a href="https://github.com/routeriphub/default-router-ip-database" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.875rem;">GitHub Repository &rarr;</a>
         </div>
       </div>
 

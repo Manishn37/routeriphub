@@ -780,6 +780,19 @@ function renderTableRows(items, container) {
     const pass = item.default_password || item.password || '';
     const notes = item.notes || item.hardware_type || '';
 
+    const slug = item.slug || '';
+    const knownIps = new Set([
+      '10.0.0.1', '10.0.0.138', '10.0.1.1', '10.10.10.1',
+      '192.168.0.1', '192.168.1.1', '192.168.1.2', '192.168.1.250', '192.168.1.254',
+      '192.168.10.1', '192.168.100.1', '192.168.11.1', '192.168.112.1', '192.168.12.1',
+      '192.168.128.1', '192.168.178.1', '192.168.2.1', '192.168.212.1', '192.168.3.1',
+      '192.168.31.1', '192.168.4.1', '192.168.50.1', '192.168.68.1', '192.168.8.1',
+      '192.168.86.1', '192.168.88.1'
+    ]);
+    const ipHref = knownIps.has(ip)
+      ? `/ip/${ip.replace(/\./g, '-')}/`
+      : (slug ? `/routers/${escapeHtml(slug)}/` : '/ip/');
+
     return `
     <tr>
       <td class="cell-brand" data-label="Brand &amp; Model">
@@ -788,7 +801,7 @@ function renderTableRows(items, container) {
       </td>
       <td data-label="Default Gateway IP">
         <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <a href="http://${escapeHtml(ip)}" target="_blank" rel="noopener noreferrer" class="cell-code">
+          <a href="${ipHref}" class="cell-code">
             ${escapeHtml(ip)}
           </a>
           <button class="copy-btn" data-copy="${escapeHtml(ip)}" title="Copy IP" aria-label="Copy IP ${escapeHtml(ip)}">
