@@ -2568,6 +2568,14 @@
     "keywords": "why is 192.168.1.1 not working in my browser? why is 192 168 1 1 not working 192.168.1.1 browser fixes vpn / proxy gateway"
   },
   {
+    "title": "Why Can\u2019t I Access BT Hub Manager? \u2014 Fixes for 192.168.1.254",
+    "category": "Setup Guide",
+    "badge": "ISP Hub Fixes",
+    "url": "/howto/why-cant-i-access-my-bt-hub-manager/",
+    "snippet": "Can't open BT Hub Manager at 192.168.1.254 or bthomehub.home? Resolve HTTPS certificate warnings, VPN/proxy blocks, and settings card admin password errors.",
+    "keywords": "why can\u2019t i access my bt hub manager? why cant i access my bt hub manager 192.168.1.254 bt hub manager bthomehub.home https"
+  },
+  {
     "title": "How to Change Your Wi-Fi Name & Password (2026)",
     "category": "Setup Guide",
     "badge": "Wi-Fi Security",

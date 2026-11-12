@@ -431,7 +431,7 @@ def generate_brand_rich_sections(b, brand_models, escape_fn):
 
 def get_sitemap_lastmod(category, slug=""):
     """Emit realistic per-URL modification dates in YYYY-MM-DD based on release batch and deterministic verification schedule."""
-    if slug in ("access-my-router-settings-page", "why-is-192-168-1-1-not-working", "howto", "privacy", "terms"):
+    if slug in ("access-my-router-settings-page", "why-is-192-168-1-1-not-working", "why-cant-i-access-my-bt-hub-manager", "howto", "privacy", "terms"):
         return "2026-11-12"
     recent_updates = {
         "pldt", "verizon-cr1000a", "xfinity-xfi", "att-bgw320",
