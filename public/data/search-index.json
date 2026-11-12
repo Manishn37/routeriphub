@@ -2560,6 +2560,14 @@
     "keywords": "how do i access my router settings page? access my router settings page 192.168.1.1 192.168.0.1 admin panel login fixes"
   },
   {
+    "title": "Why Is 192.168.1.1 Not Working? \u2014 Browser Fixes",
+    "category": "Setup Guide",
+    "badge": "Troubleshooting",
+    "url": "/howto/why-is-192-168-1-1-not-working/",
+    "snippet": "Resolve 192.168.1.1 timeouts and site-unreachable errors by checking your local Wi-Fi or Ethernet link, gateway address, VPN, proxy, private DNS, and router status lights.",
+    "keywords": "why is 192.168.1.1 not working in my browser? why is 192 168 1 1 not working 192.168.1.1 browser fixes vpn / proxy gateway"
+  },
+  {
     "title": "How to Change Your Wi-Fi Name & Password (2026)",
     "category": "Setup Guide",
     "badge": "Wi-Fi Security",

@@ -550,6 +550,7 @@ function renderQuickSuggestions(container) {
       <a href="/tools/subnet-calculator/" class="search-chip">Subnet CIDR Calculator</a>
       <a href="/tools/detect-gateway/" class="search-chip">Auto-Detect Gateway IP</a>
       <a href="/howto/access-my-router-settings-page/" class="search-chip">Access Router Settings Page</a>
+      <a href="/howto/why-is-192-168-1-1-not-working/" class="search-chip">192.168.1.1 Not Working Fixes</a>
       <a href="/howto/wifi-7-6ghz-setup-guide/" class="search-chip">Wi-Fi 7 (320 MHz) Setup</a>
       <a href="/howto/30-second-hard-factory-reset/" class="search-chip">Router Factory Reset Guide</a>
       <a href="/ip/192-168-1-1/" class="search-chip">192.168.1.1 (Netgear / ASUS)</a>

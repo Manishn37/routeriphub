@@ -288,6 +288,7 @@ Website: https://routeriphub.com
 
 ## 3. Network Setup & Troubleshooting Guides
 - [How Do I Access My Router Settings Page?](https://routeriphub.com/howto/access-my-router-settings-page/): Connect to your home Wi-Fi or LAN, enter your router management IP (192.168.1.1, 192.168.0.1, or 10.0.0.1), find credentials on your label, and resolve rejected logins.
+- [Why Is 192.168.1.1 Not Working in My Browser?](https://routeriphub.com/howto/why-is-192-168-1-1-not-working/): Resolve 192.168.1.1 timeouts and site-unreachable errors by checking your local Wi-Fi or Ethernet link, gateway address, VPN, proxy, private DNS, and router status lights.
 - [How to Change Your Wi-Fi Name (SSID) & Password](https://routeriphub.com/howto/change-wifi-password/): Update your wireless SSID and switch encryption cleanly to WPA2-PSK (AES) or WPA3-Personal from your router web interface.
 - [How to Perform a Clean Router Hard Factory Reset](https://routeriphub.com/howto/30-second-hard-factory-reset/): Recover locked admin passwords cleanly using model-safe pinhole Reset timing without damaging firmware or wiping needed ISP PPPoE logins unexpectedly.
 - [How to Connect Two Routers Together (Access Point Mode)](https://routeriphub.com/howto/two-routers-access-point-mode/): Turn any spare wireless router into a wired Access Point via LAN-to-LAN cabling, static IP assignment outside DHCP, and disabled secondary NAT.

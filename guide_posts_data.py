@@ -335,6 +335,329 @@ ACCESS_SETTINGS_BODY = """
       </ul>
 """
 
+WHY_192_168_1_1_NOT_WORKING_BODY = """
+      <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
+        <a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a> may not work because your device is not connected to the router, your router uses a different management address, or a browser, VPN, proxy, or network setting is blocking the local page. It does not automatically mean your router is broken.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.75;">
+        Start by confirming that you are connected to the correct home network. Then check the address, browser settings, and gateway address before considering a router restart or reset.
+      </p>
+
+      <h2>Quick Answer</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Likely cause</th>
+              <th>What to check</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-brand">Wrong network connection</td>
+              <td>Connect to the router&rsquo;s Wi-Fi or use an Ethernet cable</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Router uses a different address</td>
+              <td>Try <a href="/ip/192-168-0-1/"><code>192.168.0.1</code></a>, <a href="/ip/10-0-0-1/"><code>10.0.0.1</code></a>, or your <a href="/find-router-ip/">gateway address</a></td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Browser or DNS issue</td>
+              <td>Use another browser or disable VPN, proxy, and private DNS</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Typing mistake</td>
+              <td>Enter <code>192.168.1.1</code> exactly, without <code>.com</code></td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Router is offline or unresponsive</td>
+              <td>Restart the router</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Router has been reset or reassigned</td>
+              <td>Find the current gateway address</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        <code>192.168.1.1</code> is a private IP address used by many routers. It is not a public website address, so it must be opened from a device connected to the router&rsquo;s local network.
+      </p>
+
+      <h2>First: Confirm You Are on the Right Network</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Connect your phone, tablet, or computer to the Wi-Fi network broadcast by the router you want to manage. For a more reliable test, connect a computer directly to one of the router&rsquo;s LAN ports using Ethernet.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Do not use mobile data. The router settings page is a local interface, not an internet website.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If you have a mesh system, extender, modem, or separate router, you may be connected to a device that does not use <code>192.168.1.1</code>. In that case, use the gateway address of the device you want to manage.
+      </p>
+
+      <h2>Check the Address First</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Enter the address directly into your browser&rsquo;s address bar:
+      </p>
+      <p style="margin-bottom: 1rem;"><code>http://192.168.1.1</code></p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Do not type it into a search engine. A search result page is not your router&rsquo;s login page.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0 1.5rem 0;">
+        <div style="background: var(--success-bg); border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-md);">
+          <div style="font-weight: 700; color: var(--success-text); margin-bottom: 0.4rem;">Correct entry</div>
+          <ul style="margin: 0; padding-left: 1.25rem;">
+            <li><code>http://192.168.1.1</code></li>
+          </ul>
+        </div>
+        <div style="background: var(--warning-bg); border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-md);">
+          <div style="font-weight: 700; color: var(--warning-text); margin-bottom: 0.4rem;">Common incorrect entries</div>
+          <ul style="margin: 0; padding-left: 1.25rem;">
+            <li><code>192.168.l.1</code></li>
+            <li><code>192.168.1.l</code></li>
+            <li><code>192.168.1.1.com</code></li>
+            <li><code>192.168.1.1 router login</code></li>
+            <li><code>192.168.1.1/admin</code> when you only need the main login page</li>
+          </ul>
+        </div>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        The lowercase letter <code>l</code> can look similar to the number <code>1</code>, but it will not open the router page. Enter the numbers exactly.
+      </p>
+
+      <h2>Try Another Common Router Address</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Many routers use <code>192.168.1.1</code>, but not all do. If it does not load, try these addresses one at a time:
+      </p>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Address</th>
+              <th>Common use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="/ip/192-168-0-1/"><code>http://192.168.0.1</code></a></td>
+              <td>Common on <a href="/brands/tp-link/">TP-Link</a>, <a href="/brands/d-link/">D-Link</a>, and some other routers</td>
+            </tr>
+            <tr>
+              <td><a href="/ip/192-168-1-1/"><code>http://192.168.1.1</code></a></td>
+              <td>Common on <a href="/brands/linksys/">Linksys</a>, <a href="/brands/asus/">ASUS</a>, <a href="/brands/netgear/">Netgear</a>, and many other routers</td>
+            </tr>
+            <tr>
+              <td><a href="/ip/10-0-0-1/"><code>http://10.0.0.1</code></a></td>
+              <td>Common on <a href="/isp/xfinity-xfi/">Xfinity gateways</a> and some other networks</td>
+            </tr>
+            <tr>
+              <td><a href="/ip/192-168-1-254/"><code>http://192.168.1.254</code></a></td>
+              <td>Common on <a href="/isp/att-bgw320/">AT&amp;T gateways</a></td>
+            </tr>
+            <tr>
+              <td><code>http://192.168.1.253</code></td>
+              <td>Used by some repeaters and <a href="/extenders/">extenders</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Do not assume that every device in your home uses the same address. A repeater, extender, mesh node, or separate router may have its own management address.
+      </p>
+
+      <h2>Find Your Router&rsquo;s Real Gateway Address</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If common addresses do not open the settings page, find the gateway address on your connected device (or test locally with our <a href="/tools/detect-gateway/">Gateway Auto-Detector tool</a>).
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0; font-size: 1.05rem;">On Windows</h3>
+          <ol style="margin-bottom: 0; padding-left: 1.25rem;">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Go to <strong>Network &amp; Internet</strong>.</li>
+            <li>Open your active Wi-Fi or Ethernet connection.</li>
+            <li>Find <strong>Default gateway</strong> or <strong>IPv4 Default Gateway</strong>.</li>
+            <li>Enter that address in your browser.</li>
+          </ol>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0; font-size: 1.05rem;">On Mac</h3>
+          <ol style="margin-bottom: 0; padding-left: 1.25rem;">
+            <li>Open <strong>System Settings</strong>.</li>
+            <li>Go to <strong>Wi-Fi</strong> or <strong>Network</strong>.</li>
+            <li>Open the details for your active connection.</li>
+            <li>Find <strong>Router</strong> or <strong>Gateway</strong>.</li>
+            <li>Enter that address in your browser.</li>
+          </ol>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0; font-size: 1.05rem;">On Android</h3>
+          <ol style="margin-bottom: 0; padding-left: 1.25rem;">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Go to <strong>Network &amp; internet</strong> or <strong>Connections</strong>.</li>
+            <li>Open <strong>Wi-Fi</strong>.</li>
+            <li>Tap your connected network.</li>
+            <li>Look for <strong>Gateway</strong> or <strong>Router</strong>.</li>
+          </ol>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0; font-size: 1.05rem;">On iPhone or iPad</h3>
+          <ol style="margin-bottom: 0; padding-left: 1.25rem;">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Go to <strong>Wi-Fi</strong>.</li>
+            <li>Tap the information icon next to your connected network.</li>
+            <li>Find <strong>Router</strong>.</li>
+            <li>Enter that address in your browser.</li>
+          </ol>
+        </div>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        The gateway address is the address your device uses to reach the router. Enter it exactly into the browser&rsquo;s address bar.
+      </p>
+
+      <h2>Fix Browser and Network Settings</h2>
+
+      <h3>1. Try another browser</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Open the address in Chrome, Firefox, Edge, or Safari. If it works in another browser, clear the cache and site data in the original browser.
+      </p>
+
+      <h3>2. Disable VPN temporarily</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        A VPN can route traffic away from your local network and prevent access to <code>192.168.1.1</code>. Disconnect the VPN, then try the address again.
+      </p>
+
+      <h3>3. Disable proxy settings</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        A proxy can interfere with access to a local router address. Check your device&rsquo;s network settings and turn off any proxy or manual proxy configuration temporarily.
+      </p>
+
+      <h3>4. Check private DNS</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        On Android, private DNS can sometimes affect local-address access. Temporarily set Private DNS to <strong>Automatic</strong> or <strong>Off</strong>, then try again.
+      </p>
+
+      <h3>5. Disable browser extensions</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Ad blockers, privacy extensions, and security extensions can block local addresses. Open the page in an incognito or private window, or temporarily disable extensions.
+      </p>
+
+      <h2>Restart the Router</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If the router page still will not open:
+      </p>
+      <ol>
+        <li>Turn off the router.</li>
+        <li>Wait about 30 seconds.</li>
+        <li>Turn it back on.</li>
+        <li>Wait for the power, Wi-Fi, and internet lights to stabilize.</li>
+        <li>Reconnect your device to the router&rsquo;s network.</li>
+        <li>Try <code>http://192.168.1.1</code> again.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        A restart preserves your router settings. Do not confuse it with a factory reset.
+      </p>
+
+      <h2>Check the Router Status Lights</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Light behavior</th>
+              <th>What it may mean</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-brand">No power light</td>
+              <td>Check the power adapter and outlet</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Wi-Fi light off</td>
+              <td>Wi-Fi may be disabled or the router may need a restart</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Internet light off</td>
+              <td>The router may be connected but not receiving service</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Lights flashing normally</td>
+              <td>The router may be working; check the management address</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Lights stuck or unusual</td>
+              <td>Restart the router and check its manual</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        A router can be online without its settings page opening. The issue may be the address, connection, or browser rather than the internet service itself.
+      </p>
+
+      <h2>If the Page Opens but Login Fails</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If <code>192.168.1.1</code> opens a login form, the address is working. The problem is now the administrator username or password.
+      </p>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Login situation</th>
+              <th>What to use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Router label lists credentials</td>
+              <td>Use the exact default username and password</td>
+            </tr>
+            <tr>
+              <td>You created a password during setup</td>
+              <td>Use your custom administrator password</td>
+            </tr>
+            <tr>
+              <td>The page asks you to create a password</td>
+              <td>Create and save a strong new password</td>
+            </tr>
+            <tr>
+              <td>The page asks for Wi-Fi credentials</td>
+              <td>Check whether you are on the correct login page</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        The router administrator password is not necessarily the Wi-Fi password. Check the label field labeled Admin Password, Router Password, or Network Settings Password, or review our <a href="/howto/access-my-router-settings-page/">Router Settings Login Guide</a>.
+      </p>
+
+      <h2>When to Factory Reset the Router</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Use a factory reset only after confirming the correct address, testing another browser, disabling VPN or proxy settings, and restarting the router. A factory reset can erase:
+      </p>
+      <ul>
+        <li>Custom Wi-Fi names and passwords.</li>
+        <li>Administrator passwords.</li>
+        <li>Parental-control settings.</li>
+        <li>Port-forwarding rules.</li>
+        <li>Other custom router configuration.</li>
+      </ul>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Before resetting, record the settings you need to restore. Follow the reset instructions for your exact router model, because reset-button timing and recovery behavior vary (<a href="/howto/30-second-hard-factory-reset/">see factory reset steps</a>).
+      </p>
+
+      <h2>Common Mistakes</h2>
+      <ul>
+        <li>Using mobile data instead of connecting to the router&rsquo;s network.</li>
+        <li>Typing <code>192.168.1.1</code> into a search engine.</li>
+        <li>Adding <code>.com</code> to an IP address.</li>
+        <li>Assuming every router uses <code>192.168.1.1</code>.</li>
+        <li>Using the Wi-Fi password as the administrator password.</li>
+        <li>Factory resetting before checking the router&rsquo;s exact recovery instructions.</li>
+      </ul>
+"""
+
 GUIDE_POSTS = [
     {
         "slug": "access-my-router-settings-page",
@@ -381,6 +704,52 @@ GUIDE_POSTS = [
             ),
         ],
         "bottom_line": "Connect to your router&rsquo;s network, enter its management address directly into the browser&rsquo;s address bar, and sign in with the administrator credentials. Start with <code>192.168.1.1</code> or <code>192.168.0.1</code>, then check the router label or your device&rsquo;s gateway address if those do not work.",
+    },
+    {
+        "slug": "why-is-192-168-1-1-not-working",
+        "url": "/howto/why-is-192-168-1-1-not-working/",
+        "anchor_id": "192-168-1-1-not-working",
+        "featured": False,
+        "badge": "Troubleshooting",
+        "category": "Login & Access",
+        "category_key": "login",
+        "meta_title": "Why Is 192.168.1.1 Not Working? — Browser Fixes",
+        "meta_desc": "If 192.168.1.1 is not working in your browser, check your network connection, router address, browser settings, VPN, and administrator login. Fix it step by step.",
+        "headline": "Why Is 192.168.1.1 Not Working in My Browser?",
+        "short_title": "192.168.1.1 Not Working",
+        "excerpt": "Resolve 192.168.1.1 timeouts and site-unreachable errors by checking your local Wi-Fi or Ethernet link, gateway address, VPN, proxy, private DNS, and router status lights.",
+        "date_published": "2026-11-12",
+        "date_modified": "2026-11-12",
+        "read_time": "6 min read",
+        "tags": ["192.168.1.1", "Browser Fixes", "VPN / Proxy", "Gateway"],
+        "body_html": WHY_192_168_1_1_NOT_WORKING_BODY,
+        "faqs": [
+            (
+                "Why is 192.168.1.1 not opening?",
+                "Your device may not be connected to the router, the router may use a different address, or a VPN, proxy, or browser setting may be blocking access. Start by confirming the connection and gateway address.",
+            ),
+            (
+                "Is 192.168.1.1 the same for every router?",
+                "No. Many routers use 192.168.1.1, but others use 192.168.0.1, 10.0.0.1, 192.168.1.254, or another address.",
+            ),
+            (
+                "Can I open 192.168.1.1 without Wi-Fi?",
+                "You need a connection to the router's local network. Use Wi-Fi or an Ethernet cable. Mobile data will not open a local router page.",
+            ),
+            (
+                "Why does 192.168.1.1 say “site can’t be reached”?",
+                "This usually means the browser cannot reach the local address. Check the network connection, address, VPN, proxy, and gateway address.",
+            ),
+            (
+                "Does 192.168.1.1 require internet?",
+                "No. You can open the router settings page from the local network even if the internet service is temporarily unavailable.",
+            ),
+            (
+                "What should I do if the login page opens but my password fails?",
+                "Use the administrator password, not the Wi-Fi password. If you changed the password previously, use the current custom password.",
+            ),
+        ],
+        "bottom_line": "If <code>192.168.1.1</code> is not working, first confirm that you are connected to the correct router network. Then enter the address exactly, try another common router address, disable VPN or proxy settings, and use your device&rsquo;s gateway address if needed. Restart the router before considering a factory reset.",
     },
     {
         "slug": "change-wifi-password",

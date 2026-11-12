@@ -13884,6 +13884,7 @@ RouterIPHub indexes {model_count} specific router models, {brand_count} major ha
 - [Gateway IP Discovery Guide](https://routeriphub.com/find-router-ip/): Platform-specific terminal commands (Windows, macOS, Linux, iOS, Android) to determine local gateway addresses.
 - [Router Setup & Reset Guides](https://routeriphub.com/howto/): Complete guides archive covering router settings access, Wi-Fi passwords, factory resets, Access Point mode, DNS, Wi-Fi 7, and ONT bridging.
 - [How Do I Access My Router Settings Page?](https://routeriphub.com/howto/access-my-router-settings-page/): Step-by-step tutorial on finding management IPs, admin logins, and troubleshooting access errors.
+- [Why Is 192.168.1.1 Not Working in My Browser?](https://routeriphub.com/howto/why-is-192-168-1-1-not-working/): Step-by-step browser, VPN, proxy, private DNS, and gateway troubleshooting fixes for 192.168.1.1.
 
 ## Machine-Readable Datasets & APIs
 - [Open-Source Router Dataset (GitHub)](https://github.com/routeriphub/default-router-ip-databas): Official public GitHub repository containing raw router IP mappings, default passwords, and schema dumps.
