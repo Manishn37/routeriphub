@@ -55,8 +55,8 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=3bf2afac">
-  <script src="/js/app.js?v=38d389ee" defer></script>
+  <link rel="stylesheet" href="/css/style.css?v=42e0fc35">
+  <script src="/js/app.js?v=3a848f00" defer></script>
 
   <script type="speculationrules">
   {
@@ -354,31 +354,6 @@
 
       <h1>IPv6 Default Gateway Discovery &amp; Link-Local (fe80::1) Guide</h1>
 
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
-            </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
-          </div>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Updated</span>
-          <time datetime="2026-11-11" class="byline-date">Nov 11, 2026</time>
-        </div>
-      </div>
-
       
       <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
         While IPv4 home routers isolate LAN devices behind private subnets like <a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a>, IPv6 assigns globally routable 128-bit prefixes to client devices and discovers routers dynamically using <strong>Link-Local</strong> addresses and <strong>ICMPv6 Neighbor Discovery</strong>.
@@ -424,6 +399,31 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
         <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
           IPv6 default gateways appear as Link-Local <code>fe80::</code> addresses (visible via <code>Get-NetRoute</code> or <code>ip -6 route</code>), while day-to-day router administration continues cleanly over your IPv4 gateway IP.
         </p>
+      </div>
+
+      <div class="byline-meta-card">
+        <div class="byline-author-group">
+          <div class="byline-avatar">VB</div>
+          <div class="byline-text">
+            <div class="byline-line-1">
+              <span class="byline-role">Written &amp; Tested by</span>
+              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+              <span class="byline-badge">12+ Yrs Exp</span>
+            </div>
+            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-review-group">
+          <span class="byline-role">Reviewed by</span>
+          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+          <span class="byline-status">&#10003; Hardware Verified</span>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-date-group">
+          <span class="byline-role">Updated</span>
+          <time datetime="2026-11-11" class="byline-date">Nov 11, 2026</time>
+        </div>
       </div>
 
       <nav class="guide-post-nav" aria-label="Guide Post Navigation">

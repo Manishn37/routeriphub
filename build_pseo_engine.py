@@ -2383,8 +2383,6 @@ def generate_router_model_pages():
         Complete default configuration parameters, factory credentials, hardware port diagram, LED indicator cheat-sheet, and reset procedure.
       </p>
 
-      {get_byline_html()}
-
       <!-- Google AIO / Featured Snippet Answer Box -->
       <div class="answer-box">
         <div class="answer-box-label">Quick Gateway Answer (RFC 1918 Verified)</div>
@@ -2522,6 +2520,8 @@ def generate_router_model_pages():
           <span>Download Official PDF Manual</span>
         </a>
       </div>
+
+      {get_byline_html()}
 
       <!-- Related Guides & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
@@ -4301,8 +4301,6 @@ def generate_isp_pages():
         Default login credentials, IP passthrough, bridge mode instructions, and factory reset procedure for {escape(isp['gateway_name'])}.
       </p>
 
-      {get_byline_html()}
-
       <!-- Answer Box -->
       <div class="answer-box">
         <div class="answer-box-label">Verified ISP Configuration</div>
@@ -4389,6 +4387,8 @@ def generate_isp_pages():
           <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
         </div>
       </div>
+
+      {get_byline_html()}
 
       <!-- Cross Silo Links -->
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
@@ -5547,7 +5547,6 @@ def generate_custom_10_10_10_1_page():
         <h1 style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: var(--text-primary);">
           10.10.10.1 Login Admin — Router, Modem &amp; Gateway Setup Guide
         </h1>
-        {byline_html}
       </header>
 
       <!-- Introduction -->
@@ -5991,6 +5990,8 @@ def generate_custom_10_10_10_1_page():
         </div>
       </section>
 
+      {byline_html}
+
       <!-- Cross Silo Links -->
       <section style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h2>Explore Other Gateway IPs &amp; Tools</h2>
@@ -6137,7 +6138,6 @@ def generate_custom_10_0_0_1_page():
         <h1 style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: var(--text-primary);">
           10.0.0.1 — Login Admin, Router Setup &amp; Troubleshooting Guide
         </h1>
-        {byline_html}
       </header>
 
       <!-- Introduction -->
@@ -6581,6 +6581,8 @@ def generate_custom_10_0_0_1_page():
         </div>
       </section>
 
+      {byline_html}
+
       <!-- Cross Silo Links -->
       <section style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h2>Explore Other Gateway IPs &amp; Tools</h2>
@@ -6947,8 +6949,6 @@ def generate_ip_pages():
       <!-- Intent-Matching Intro -->
       {intro_html}
 
-        {get_byline_html()}
-
       <!-- Quick Answer Box with Bold Verdict -->
       {quick_answer_html}
 
@@ -7160,6 +7160,8 @@ def generate_ip_pages():
           {'If you searched 192.168.1.2 to configure your Wi-Fi, stop trying to load .1.2: your router is at <strong><a href="/ip/192-168-1-1/" style="color: var(--text-accent); text-decoration: underline;">http://192.168.1.1</a></strong>. If you are investigating a device occupying 192.168.1.2, run <code>arp -a</code> in terminal to inspect its MAC address.' if is_correction else f'If <strong>{escape(ip)}</strong> will not open, 95% of failures stem from one of two causes: either an active VPN / cellular connection is bypassing your LAN, or your router is actually running on a different subnet (such as 192.168.0.1 or 10.0.0.1). Disconnect your VPN, run our <a href="/tools/detect-gateway/" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">Local Gateway Auto-Detector</a>, and open the confirmed IP over plain HTTP.'}
         </p>
       </div>
+
+      {get_byline_html()}
 
       <!-- Cross Silo Links -->
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
@@ -7413,9 +7415,7 @@ def generate_extender_pages():
         If you are setting up or troubleshooting a Wi-Fi range extender, repeater, or booster, standard router gateway addresses like <code>192.168.1.1</code> will not open your extender's settings. Extenders utilize dedicated <strong>local setup domains</strong> (such as <code>mywifiext.net</code> or <code>tplinkrepeater.net</code>) and factory <strong>fallback IP addresses</strong> (such as <code>192.168.1.250</code> or <code>192.168.0.254</code>) before they are paired with your main router.
       </p>
 
-            {get_byline_html()}
-
-<div class="verdict-box" style="margin-bottom: 2rem;">
+      <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Extender Diagnostic Verdict</div>
         <p style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.6;">
           Extender addresses are temporary setup gateways, not permanent routers.
@@ -7583,6 +7583,8 @@ def generate_extender_pages():
           If an extender setup page will not load, verify that you are connected directly to the extender's Wi-Fi network with mobile data turned off. If the extender was already paired with your router, find its new dynamically leased IP inside your main router's client list at <a href="/ip/192-168-1-1/" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">192.168.1.1</a>.
         </p>
       </div>
+
+      {get_byline_html()}
 
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Explore Other Hardware Hubs &amp; Gateways</h3>
@@ -7846,11 +7848,16 @@ def generate_extender_pages():
         192.168.1.250 — Netgear Extender Login: What This IP Is and How to Access It
       </h1>
 
-      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
         If you searched <code>192.168.1.250</code> expecting your main router’s login page, you are probably trying to reach a <strong>NETGEAR Wi-Fi range extender</strong>. This address is NETGEAR’s factory-default management IP for its EX, EAX, and EXS extender families—not the usual address for your router or modem.
       </p>
 
-            {get_byline_html()}
+      <div style="margin: 0.5rem 0 1.75rem 0;">
+        <button type="button" id="launch-extender-wizard-btn" class="btn btn-primary" aria-haspopup="dialog" aria-controls="mywifiext-setup-wizard" style="font-size: 1.05rem; padding: 0.75rem 1.4rem; display: inline-flex; align-items: center; gap: 0.55rem; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <span>Launch Interactive Setup Simulator (Popup) &rarr;</span>
+        </button>
+      </div>
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
@@ -7868,7 +7875,7 @@ def generate_extender_pages():
           If you want to set up the extender instead, NETGEAR also provides <code>http://www.mywifiext.net</code> for Windows and Android, while macOS and iOS devices can use <code>http://mywifiext.local</code>.
         </p>
         <div class="action-btn-group">
-          <button type="button" id="launch-extender-wizard-btn" class="btn btn-primary" aria-haspopup="dialog" aria-controls="mywifiext-setup-wizard">
+          <button type="button" class="btn btn-primary launch-extender-wizard-btn" aria-haspopup="dialog" aria-controls="mywifiext-setup-wizard">
             Launch Interactive Setup Simulator &rarr;
           </button>
           <a href="http://192.168.1.250" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
@@ -7910,8 +7917,9 @@ def generate_extender_pages():
           <button type="button" class="ext-wizard-pill" data-step-btn="6"><span class="ext-wizard-pill-num">Step 6</span><span>Move &amp; Done</span></button>
         </div>
 
-        <div id="ext-wizard-stage" class="ext-wizard-stage" data-step="1">
-          <svg class="ext-wizard-svg" viewBox="0 0 760 280" role="img" aria-label="Animated visual diagram of the current NETGEAR extender setup step">
+        <div class="ext-wizard-content-grid">
+          <div id="ext-wizard-stage" class="ext-wizard-stage" data-step="1">
+            <svg class="ext-wizard-svg" viewBox="0 0 760 280" role="img" aria-label="Animated visual diagram of the current NETGEAR extender setup step">
             <!-- Scene 1: Plug extender into wall outlet -->
             <g class="ext-wizard-scene ext-scene-1">
               <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
@@ -8069,29 +8077,32 @@ def generate_extender_pages():
           </svg>
         </div>
 
-        <div class="ext-wizard-copy" aria-live="polite">
-          <div id="ext-wizard-step-label" class="ext-wizard-step-label">Step 1 of 6 &mdash; Power &amp; Placement</div>
-          <h4 id="ext-wizard-step-title" class="ext-wizard-step-title">Plug the NETGEAR Extender Into Power (Same Room as Router)</h4>
-          <p id="ext-wizard-step-desc" class="ext-wizard-step-desc">
-            Plug your NETGEAR range extender into a wall outlet in the same room as your main Wi-Fi router. Wait 1 to 2 minutes until the Power LED turns solid green (or white).
-          </p>
-          <p id="ext-wizard-step-tip" class="ext-wizard-step-tip">
-            Tip: Setting up close to your main router first prevents weak pairing signals. You will move it halfway to your dead zone in Step 6.
-          </p>
-        </div>
-
-        <div class="ext-wizard-controls">
-          <div class="ext-wizard-controls-left">
-            <button type="button" id="wizard-prev-btn" class="btn btn-secondary" disabled>&larr; Previous</button>
-            <button type="button" id="wizard-next-btn" class="btn btn-primary">Next Step &rarr;</button>
+        <div class="ext-wizard-side-panel">
+          <div class="ext-wizard-copy" aria-live="polite">
+            <div id="ext-wizard-step-label" class="ext-wizard-step-label">Step 1 of 6 &mdash; Power &amp; Placement</div>
+            <h4 id="ext-wizard-step-title" class="ext-wizard-step-title">Plug the NETGEAR Extender Into Power (Same Room as Router)</h4>
+            <p id="ext-wizard-step-desc" class="ext-wizard-step-desc">
+              Plug your NETGEAR range extender into a wall outlet in the same room as your main Wi-Fi router. Wait 1 to 2 minutes until the Power LED turns solid green (or white).
+            </p>
+            <p id="ext-wizard-step-tip" class="ext-wizard-step-tip">
+              Tip: Setting up close to your main router first prevents weak pairing signals. You will move it halfway to your dead zone in Step 6.
+            </p>
           </div>
-          <div class="ext-wizard-controls-right">
-            <button type="button" id="wizard-play-btn" class="btn btn-secondary" aria-pressed="false">Auto-Play Steps</button>
-            <button type="button" id="wizard-restart-btn" class="btn btn-secondary">Restart</button>
+
+          <div class="ext-wizard-controls">
+            <div class="ext-wizard-controls-left">
+              <button type="button" id="wizard-prev-btn" class="btn btn-secondary" disabled>&larr; Previous</button>
+              <button type="button" id="wizard-next-btn" class="btn btn-primary">Next Step &rarr;</button>
+            </div>
+            <div class="ext-wizard-controls-right">
+              <button type="button" id="wizard-play-btn" class="btn btn-secondary" aria-pressed="false">Auto-Play Steps</button>
+              <button type="button" id="wizard-restart-btn" class="btn btn-secondary">Restart</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
         Which NETGEAR Extenders Use 192.168.1.250?
@@ -8339,6 +8350,8 @@ def generate_extender_pages():
         </p>
       </div>
 
+      {get_byline_html()}
+
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
@@ -8465,9 +8478,7 @@ def generate_extender_pages():
         If you searched <code>tplinkrepeater.net</code> because your TP-Link extender will not open, you are in the right place. This local setup address is used to configure TP-Link Wi-Fi range extenders, while <code>192.168.0.254</code> is the factory-default IP address you can use when the domain does not load.
       </p>
 
-            {get_byline_html()}
-
-<div class="verdict-box" style="margin-bottom: 2rem;">
+      <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>tplinkrepeater.net</code> is the local management address for TP-Link Wi-Fi range extenders, and <code>192.168.0.254</code> is its default fallback IP address.
@@ -8805,6 +8816,8 @@ def generate_extender_pages():
         </p>
       </div>
 
+      {get_byline_html()}
+
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
@@ -8938,9 +8951,7 @@ def generate_extender_pages():
         If you searched <code>extender.linksys.com</code> expecting to open your Linksys extender, you are in the right place—but the page may not load unless you are connected directly to the extender. <code>extender.linksys.com</code> is Linksys’s local setup address for its RE-series range extenders, while <code>192.168.1.1</code> is the fallback IP address used when the extender cannot detect a DHCP server.
       </p>
 
-            {get_byline_html()}
-
-<div class="verdict-box" style="margin-bottom: 2rem;">
+      <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>extender.linksys.com</code> is the local setup portal for Linksys Wi-Fi range extenders, and <code>192.168.1.1</code> is the default fallback IP address when no DHCP server is detected.
@@ -9306,6 +9317,8 @@ def generate_extender_pages():
         </p>
       </div>
 
+      {get_byline_html()}
+
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
@@ -9440,9 +9453,7 @@ def generate_extender_pages():
         If you searched <code>dlinkap.local</code> expecting to open your D-Link extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the D-Link extender. <code>dlinkap.local</code> is D-Link’s local setup address for its DAP-series and newer Wi-Fi extender models, while <code>192.168.0.50</code> is the default fallback IP address.
       </p>
 
-            {get_byline_html()}
-
-<div class="verdict-box" style="margin-bottom: 2rem;">
+      <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>dlinkap.local</code> is the local management URL for D-Link Wi-Fi range extenders, and <code>192.168.0.50</code> is the default IP address used when the extender is unconfigured or cannot detect a DHCP server.
@@ -9853,6 +9864,8 @@ def generate_extender_pages():
         </p>
       </div>
 
+      {get_byline_html()}
+
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
@@ -9988,9 +10001,7 @@ def generate_extender_pages():
         If you searched <code>myrepeater.net</code> expecting to open your Wireless-N repeater, you are in the right place—but the page will only load when your phone or computer is connected directly to the repeater. <code>myrepeater.net</code> is a local setup address used by many generic Wireless-N repeaters, while <code>192.168.1.254</code> is the default management IP address for these devices.
       </p>
 
-            {get_byline_html()}
-
-<div class="verdict-box" style="margin-bottom: 2rem;">
+      <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>myrepeater.net</code> is the local setup portal for many Wireless-N Wi-Fi repeaters, and <code>192.168.1.254</code> is the default IP address used to access the repeater’s admin page.
@@ -10390,6 +10401,8 @@ def generate_extender_pages():
         </p>
       </div>
 
+      {get_byline_html()}
+
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
@@ -10525,9 +10538,7 @@ def generate_extender_pages():
         If you searched <code>ap.setup</code> expecting to open your Wavlink extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the Wavlink device. <code>ap.setup</code> is Wavlink’s local setup address for its Wi-Fi repeaters and outdoor access points, while <code>192.168.10.1</code> is the default management IP address.
       </p>
 
-            {get_byline_html()}
-
-<div class="verdict-box" style="margin-bottom: 2rem;">
+      <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>ap.setup</code> is the local setup portal for Wavlink Wi-Fi repeaters and outdoor access points, and <code>192.168.10.1</code> is the default IP address used to access the device’s admin page.
@@ -10944,6 +10955,8 @@ def generate_extender_pages():
         </p>
       </div>
 
+      {get_byline_html()}
+
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
@@ -11080,9 +11093,7 @@ def generate_extender_pages():
         If you searched <code>192.168.188.1</code> expecting to open your Topvision WiFi extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the extender. <code>192.168.188.1</code> is the default management IP address used by many Topvision WiFi repeaters and range extenders.
       </p>
 
-            {get_byline_html()}
-
-<div class="verdict-box" style="margin-bottom: 2rem;">
+      <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>192.168.188.1</code> is the default admin IP address for many Topvision WiFi extenders.
@@ -11469,6 +11480,8 @@ def generate_extender_pages():
         </p>
       </div>
 
+      {get_byline_html()}
+
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
@@ -11605,9 +11618,7 @@ def generate_extender_pages():
         If you searched <code>192.168.188.1</code> expecting to open your SEWOT SW-01 WiFi extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the extender. <code>192.168.188.1</code> is the default management IP address used by the SEWOT SW-01 WiFi repeater and similar Wireless-N extender models.
       </p>
 
-            {get_byline_html()}
-
-<div class="verdict-box" style="margin-bottom: 2rem;">
+      <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>192.168.188.1</code> is the default admin IP address for the SEWOT SW-01 WiFi extender.
@@ -11976,6 +11987,8 @@ def generate_extender_pages():
         </p>
       </div>
 
+      {get_byline_html()}
+
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
@@ -12113,9 +12126,7 @@ def generate_extender_pages():
         If you searched <code>192.168.188.1</code> expecting to open your RANGEXTD WiFi range extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the extender. <code>192.168.188.1</code> is the default management IP address used by many RANGEXTD WiFi repeaters and Wireless-N range extender models.
       </p>
 
-            {get_byline_html()}
-
-<div class="verdict-box" style="margin-bottom: 2rem;">
+      <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           <code>192.168.188.1</code> is the default admin IP address for many RANGEXTD WiFi range extenders.
@@ -12484,6 +12495,8 @@ def generate_extender_pages():
         </p>
       </div>
 
+      {get_byline_html()}
+
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
         <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
@@ -12544,9 +12557,7 @@ def generate_extender_pages():
         {escape(ext['meta_desc'])}
       </p>
 
-            {get_byline_html()}
-
-<div class="verdict-box" style="margin-bottom: 2rem;">
+      <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
         <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
           {escape(ext['domain'])} is the local web management portal for {escape(ext['brand'])} range extenders.
@@ -12585,6 +12596,8 @@ def generate_extender_pages():
         <li style="margin-bottom: 0.75rem;"><strong>Open <code>{escape(ext['domain'])}</code></strong> or <code>http://{escape(ext['fallback_ip'])}</code> in your address bar.</li>
         <li style="margin-bottom: 0.75rem;"><strong>Follow the quick setup wizard</strong> to pair with your home Wi-Fi and set a secure admin password.</li>
       </ol>
+
+      {get_byline_html()}
 
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Explore Other Extender Guides</h3>

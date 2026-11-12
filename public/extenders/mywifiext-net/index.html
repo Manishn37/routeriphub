@@ -55,8 +55,8 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=3bf2afac">
-  <script src="/js/app.js?v=38d389ee" defer></script>
+  <link rel="stylesheet" href="/css/style.css?v=42e0fc35">
+  <script src="/js/app.js?v=3a848f00" defer></script>
 
   <script type="speculationrules">
   {
@@ -385,36 +385,16 @@
         192.168.1.250 — Netgear Extender Login: What This IP Is and How to Access It
       </h1>
 
-      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
         If you searched <code>192.168.1.250</code> expecting your main router’s login page, you are probably trying to reach a <strong>NETGEAR Wi-Fi range extender</strong>. This address is NETGEAR’s factory-default management IP for its EX, EAX, and EXS extender families—not the usual address for your router or modem.
       </p>
 
-            
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
-            </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
-          </div>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Last Updated</span>
-          <time datetime="2026-11-11" class="byline-date">November 2026</time>
-        </div>
+      <div style="margin: 0.5rem 0 1.75rem 0;">
+        <button type="button" id="launch-extender-wizard-btn" class="btn btn-primary" aria-haspopup="dialog" aria-controls="mywifiext-setup-wizard" style="font-size: 1.05rem; padding: 0.75rem 1.4rem; display: inline-flex; align-items: center; gap: 0.55rem; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <span>Launch Interactive Setup Simulator (Popup) &rarr;</span>
+        </button>
       </div>
-
 
 <div class="verdict-box" style="margin-bottom: 2rem;">
         <div class="verdict-tag">Quick Answer</div>
@@ -432,7 +412,7 @@
           If you want to set up the extender instead, NETGEAR also provides <code>http://www.mywifiext.net</code> for Windows and Android, while macOS and iOS devices can use <code>http://mywifiext.local</code>.
         </p>
         <div class="action-btn-group">
-          <button type="button" id="launch-extender-wizard-btn" class="btn btn-primary" aria-haspopup="dialog" aria-controls="mywifiext-setup-wizard">
+          <button type="button" class="btn btn-primary launch-extender-wizard-btn" aria-haspopup="dialog" aria-controls="mywifiext-setup-wizard">
             Launch Interactive Setup Simulator &rarr;
           </button>
           <a href="http://192.168.1.250" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
@@ -474,8 +454,9 @@
           <button type="button" class="ext-wizard-pill" data-step-btn="6"><span class="ext-wizard-pill-num">Step 6</span><span>Move &amp; Done</span></button>
         </div>
 
-        <div id="ext-wizard-stage" class="ext-wizard-stage" data-step="1">
-          <svg class="ext-wizard-svg" viewBox="0 0 760 280" role="img" aria-label="Animated visual diagram of the current NETGEAR extender setup step">
+        <div class="ext-wizard-content-grid">
+          <div id="ext-wizard-stage" class="ext-wizard-stage" data-step="1">
+            <svg class="ext-wizard-svg" viewBox="0 0 760 280" role="img" aria-label="Animated visual diagram of the current NETGEAR extender setup step">
             <!-- Scene 1: Plug extender into wall outlet -->
             <g class="ext-wizard-scene ext-scene-1">
               <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
@@ -633,29 +614,32 @@
           </svg>
         </div>
 
-        <div class="ext-wizard-copy" aria-live="polite">
-          <div id="ext-wizard-step-label" class="ext-wizard-step-label">Step 1 of 6 &mdash; Power &amp; Placement</div>
-          <h4 id="ext-wizard-step-title" class="ext-wizard-step-title">Plug the NETGEAR Extender Into Power (Same Room as Router)</h4>
-          <p id="ext-wizard-step-desc" class="ext-wizard-step-desc">
-            Plug your NETGEAR range extender into a wall outlet in the same room as your main Wi-Fi router. Wait 1 to 2 minutes until the Power LED turns solid green (or white).
-          </p>
-          <p id="ext-wizard-step-tip" class="ext-wizard-step-tip">
-            Tip: Setting up close to your main router first prevents weak pairing signals. You will move it halfway to your dead zone in Step 6.
-          </p>
-        </div>
-
-        <div class="ext-wizard-controls">
-          <div class="ext-wizard-controls-left">
-            <button type="button" id="wizard-prev-btn" class="btn btn-secondary" disabled>&larr; Previous</button>
-            <button type="button" id="wizard-next-btn" class="btn btn-primary">Next Step &rarr;</button>
+        <div class="ext-wizard-side-panel">
+          <div class="ext-wizard-copy" aria-live="polite">
+            <div id="ext-wizard-step-label" class="ext-wizard-step-label">Step 1 of 6 &mdash; Power &amp; Placement</div>
+            <h4 id="ext-wizard-step-title" class="ext-wizard-step-title">Plug the NETGEAR Extender Into Power (Same Room as Router)</h4>
+            <p id="ext-wizard-step-desc" class="ext-wizard-step-desc">
+              Plug your NETGEAR range extender into a wall outlet in the same room as your main Wi-Fi router. Wait 1 to 2 minutes until the Power LED turns solid green (or white).
+            </p>
+            <p id="ext-wizard-step-tip" class="ext-wizard-step-tip">
+              Tip: Setting up close to your main router first prevents weak pairing signals. You will move it halfway to your dead zone in Step 6.
+            </p>
           </div>
-          <div class="ext-wizard-controls-right">
-            <button type="button" id="wizard-play-btn" class="btn btn-secondary" aria-pressed="false">Auto-Play Steps</button>
-            <button type="button" id="wizard-restart-btn" class="btn btn-secondary">Restart</button>
+
+          <div class="ext-wizard-controls">
+            <div class="ext-wizard-controls-left">
+              <button type="button" id="wizard-prev-btn" class="btn btn-secondary" disabled>&larr; Previous</button>
+              <button type="button" id="wizard-next-btn" class="btn btn-primary">Next Step &rarr;</button>
+            </div>
+            <div class="ext-wizard-controls-right">
+              <button type="button" id="wizard-play-btn" class="btn btn-secondary" aria-pressed="false">Auto-Play Steps</button>
+              <button type="button" id="wizard-restart-btn" class="btn btn-secondary">Restart</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 
       <figure class="guide-figure">
@@ -914,6 +898,33 @@
           <strong>192.168.1.250 is the initial setup address for NETGEAR Wi-Fi extenders, not your main router.</strong> If it does not load, you are either not connected directly to the extender, or the extender has already joined your router and received a new local IP through DHCP.
         </p>
       </div>
+
+      
+      <div class="byline-meta-card">
+        <div class="byline-author-group">
+          <div class="byline-avatar">VB</div>
+          <div class="byline-text">
+            <div class="byline-line-1">
+              <span class="byline-role">Written &amp; Tested by</span>
+              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+              <span class="byline-badge">12+ Yrs Exp</span>
+            </div>
+            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-review-group">
+          <span class="byline-role">Reviewed by</span>
+          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+          <span class="byline-status">&#10003; Hardware Verified</span>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-date-group">
+          <span class="byline-role">Last Updated</span>
+          <time datetime="2026-11-11" class="byline-date">November 2026</time>
+        </div>
+      </div>
+
 
       <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
         <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>

@@ -1127,7 +1127,7 @@ function initExtenderSetupWizard() {
   const nextBtn = document.getElementById('wizard-next-btn');
   const playBtn = document.getElementById('wizard-play-btn');
   const restartBtn = document.getElementById('wizard-restart-btn');
-  const launchBtn = document.getElementById('launch-extender-wizard-btn');
+  const launchBtns = document.querySelectorAll('#launch-extender-wizard-btn, .launch-extender-wizard-btn');
   const closeBtn = document.getElementById('wizard-close-btn');
 
   let currentStep = 1;
@@ -1260,12 +1260,12 @@ function initExtenderSetupWizard() {
     });
   }
 
-  if (launchBtn) {
-    launchBtn.addEventListener('click', (e) => {
+  launchBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
       e.preventDefault();
       openWizardModal(true);
     });
-  }
+  });
 
   if (closeBtn) {
     closeBtn.addEventListener('click', (e) => {

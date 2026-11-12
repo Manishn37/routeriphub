@@ -1066,6 +1066,20 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
 
       <h1>{escape(p['headline'])}</h1>
 
+      {p['body_html']}
+
+      <h2>FAQs</h2>
+      <div style="margin-top: 1rem;">
+        {"".join(faq_cards)}
+      </div>
+
+      <h2>The Bottom Line</h2>
+      <div class="bottom-line-callout">
+        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+          {p['bottom_line']}
+        </p>
+      </div>
+
       <div class="byline-meta-card">
         <div class="byline-author-group">
           <div class="byline-avatar">VB</div>
@@ -1089,20 +1103,6 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
           <span class="byline-role">Updated</span>
           <time datetime="{escape(p['date_modified'])}" class="byline-date">{escape(pub_disp)}</time>
         </div>
-      </div>
-
-      {p['body_html']}
-
-      <h2>FAQs</h2>
-      <div style="margin-top: 1rem;">
-        {"".join(faq_cards)}
-      </div>
-
-      <h2>The Bottom Line</h2>
-      <div class="bottom-line-callout">
-        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
-          {p['bottom_line']}
-        </p>
       </div>
 
       <nav class="guide-post-nav" aria-label="Guide Post Navigation">
