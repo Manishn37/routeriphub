@@ -11,6 +11,11 @@ ACCESS_SETTINGS_BODY = """
         The settings page is usually called the router admin panel, web management page, or gateway interface. It lets you manage Wi-Fi names, passwords, connected devices, security settings, and other router functions.
       </p>
 
+      <figure class="guide-figure">
+        <img src="/images/howto/access-router-settings-page-steps.webp" width="1200" height="675" fetchpriority="high" alt="Three-step diagram to access your router settings page: connect over Wi-Fi or Ethernet, enter 192.168.1.1 or 192.168.0.1 in browser address bar, and sign in to the router admin panel">
+        <figcaption>Standard workflow to open any router admin dashboard: connect locally, type the gateway IP into the address bar, and log in.</figcaption>
+      </figure>
+
       <h2>Quick Answer</h2>
       <div class="table-responsive">
         <table class="data-table">
@@ -106,6 +111,11 @@ ACCESS_SETTINGS_BODY = """
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Use the administrator credentials&mdash;not the Wi-Fi password&mdash;when the settings page asks for a router login. Some newer routers require you to create an administrator password during first-time setup instead of using a default one.
       </p>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/router-bottom-label-admin-ip-password.webp" width="1200" height="675" loading="lazy" alt="Diagram of a router underside sticker label highlighting the difference between Router Admin Login fields (Default IP, Username, Admin Password) and the Wi-Fi Key">
+        <figcaption>How to distinguish your Router Admin Login (Default IP, Username, Admin Password) from your wireless Wi-Fi Key on a router sticker.</figcaption>
+      </figure>
 
       <h2>Step-by-Step: Open Router Settings</h2>
 
@@ -343,6 +353,11 @@ WHY_192_168_1_1_NOT_WORKING_BODY = """
         Start by confirming that you are connected to the correct home network. Then check the address, browser settings, and gateway address before considering a router restart or reset.
       </p>
 
+      <figure class="guide-figure">
+        <img src="/images/howto/why-192-168-1-1-not-working-fixes.webp" width="1200" height="675" fetchpriority="high" alt="Troubleshooting flowchart for 192.168.1.1 not loading: check router Wi-Fi or LAN connection, try 192.168.0.1 or 10.0.0.1, disable VPN, proxy, or private DNS, and check real gateway IP">
+        <figcaption>Top four checks when 192.168.1.1 fails to load: verify local Wi-Fi/LAN, test alternate gateway IPs, disable VPN/proxy/private DNS, and inspect your active default gateway.</figcaption>
+      </figure>
+
       <h2>Quick Answer</h2>
       <div class="table-responsive">
         <table class="data-table">
@@ -425,6 +440,11 @@ WHY_192_168_1_1_NOT_WORKING_BODY = """
       <p style="color: var(--text-secondary); line-height: 1.7;">
         The lowercase letter <code>l</code> can look similar to the number <code>1</code>, but it will not open the router page. Enter the numbers exactly.
       </p>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" width="1200" height="675" loading="lazy" alt="Browser UI comparison showing http://192.168.1.1 entered directly in the top address bar instead of typing 192.168.1.1.com into a web search box, with VPN and proxy turned off">
+        <figcaption>Type http://192.168.1.1 directly into your browser&rsquo;s address bar (not a search box or .com domain) and temporarily switch VPN and proxy settings off.</figcaption>
+      </figure>
 
       <h2>Try Another Common Router Address</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
@@ -666,6 +686,11 @@ WHY_BT_HUB_BODY = """
         Start with the connection and address before changing any Hub settings. Do not factory reset the Hub until you have ruled out the simpler causes.
       </p>
 
+      <figure class="guide-figure">
+        <img src="/images/howto/bt-hub-manager-192-168-1-254-access-guide.webp" width="1200" height="675" fetchpriority="high" alt="BT Hub Manager access diagram showing a BT Hub connected to a laptop opening 192.168.1.254 or bthomehub.home alongside the pull-out rear Settings Card listing the Hub Admin Password">
+        <figcaption>Connect locally to your BT Hub to reach 192.168.1.254 or bthomehub.home, and locate the Hub Admin Password on the pull-out rear Settings Card.</figcaption>
+      </figure>
+
       <h2>Quick Answer</h2>
       <div class="table-responsive">
         <table class="data-table">
@@ -801,6 +826,11 @@ WHY_BT_HUB_BODY = """
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Only proceed if you entered <code>192.168.1.254</code> directly and you are connected to your own home network.
       </p>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/bt-hub-manager-https-warning-continue.webp" width="1200" height="675" loading="lazy" alt="Diagram explaining the local BT Hub HTTPS security notice for https://192.168.1.254 and how to choose Advanced then Proceed to 192.168.1.254 safely on your home network">
+        <figcaption>How to handle the expected self-signed certificate prompt for https://192.168.1.254 across Chrome, Edge, Safari, and Firefox when connected locally.</figcaption>
+      </figure>
 
       <h3>4. Enter the admin password</h3>
       <p style="color: var(--text-secondary); line-height: 1.7;">
@@ -1230,6 +1260,7 @@ GUIDE_POSTS = [
         "date_modified": "2026-11-12",
         "read_time": "6 min read",
         "tags": ["192.168.1.1", "192.168.0.1", "Admin Panel", "Login Fixes"],
+        "image": "/images/howto/access-router-settings-page-steps.webp",
         "body_html": ACCESS_SETTINGS_BODY,
         "faqs": [
             (
@@ -1276,6 +1307,7 @@ GUIDE_POSTS = [
         "date_modified": "2026-11-12",
         "read_time": "6 min read",
         "tags": ["192.168.1.1", "Browser Fixes", "VPN / Proxy", "Gateway"],
+        "image": "/images/howto/why-192-168-1-1-not-working-fixes.webp",
         "body_html": WHY_192_168_1_1_NOT_WORKING_BODY,
         "faqs": [
             (
@@ -1322,6 +1354,7 @@ GUIDE_POSTS = [
         "date_modified": "2026-11-12",
         "read_time": "6 min read",
         "tags": ["192.168.1.254", "BT Hub Manager", "bthomehub.home", "HTTPS"],
+        "image": "/images/howto/bt-hub-manager-192-168-1-254-access-guide.webp",
         "body_html": WHY_BT_HUB_BODY,
         "faqs": [
             (
