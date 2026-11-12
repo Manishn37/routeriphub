@@ -19,6 +19,7 @@ import shutil
 import json
 import csv
 import html
+import re
 from datetime import datetime
 from generate_pseo_data import (
     ROUTER_MODELS,
@@ -7605,6 +7606,127 @@ def generate_extender_pages():
         "sewot-sw-01": "SEWOT SW-01 WiFi Extender — 192.168.188.1 Login Guide",
         "rangextd-extender": "RANGEXTD Range Extender — 192.168.188.1 Login Guide",
     }
+    extender_media = {
+        "mywifiext-net": (
+            "/images/extenders/mywifiext-net-192-168-1-250-setup-login.webp",
+            "Three-step NETGEAR extender setup diagram: connect to NETGEAR_EXT, open mywifiext.net or 192.168.1.250, and log in with admin and password",
+            "Quick 3-step NETGEAR extender login flow via mywifiext.net, mywifiext.local, or fallback IP 192.168.1.250.",
+            "/images/extenders/mywifiext-net-before-after-pairing-ip.webp",
+            "Network diagram comparing NETGEAR extender fallback IP 192.168.1.250 before pairing versus router-assigned DHCP IP after pairing",
+            "Why 192.168.1.250 and mywifiext.net work in factory setup mode but change to a router DHCP IP after pairing.",
+        ),
+        "tplinkrepeater-net": (
+            "/images/extenders/tplinkrepeater-net-192-168-0-254-setup-login.webp",
+            "Three-step TP-Link extender setup diagram: join TP-Link_Extender Wi-Fi, open tplinkrepeater.net or 192.168.0.254, and log in",
+            "Quick 3-step TP-Link RE series login flow via http://tplinkrepeater.net or fallback IP 192.168.0.254.",
+            "/images/extenders/tplinkrepeater-net-before-after-pairing-ip.webp",
+            "Network diagram showing tplinkrepeater.net and 192.168.0.254 active before pairing and replaced by main router DHCP after setup",
+            "Why tplinkrepeater.net and 192.168.0.254 stop opening once the TP-Link extender joins your main router's DHCP subnet.",
+        ),
+        "extender-linksys-com": (
+            "/images/extenders/extender-linksys-com-192-168-1-1-setup-login.webp",
+            "Three-step Linksys extender setup diagram: join Linksys Extender Setup, open extender.linksys.com or 192.168.1.1, and sign in with password admin",
+            "Quick 3-step Linksys RE extender login flow using http://extender.linksys.com or fallback IP 192.168.1.1.",
+            "/images/extenders/extender-linksys-com-before-after-pairing-ip.webp",
+            "Network comparison of Linksys extender portal extender.linksys.com before pairing vs router DHCP assignment after pairing",
+            "How Linksys extender addressing shifts from local setup fallback IP 192.168.1.1 to a dynamic router-assigned IP after pairing.",
+        ),
+        "dlinkap-local": (
+            "/images/extenders/dlinkap-local-192-168-0-50-setup-login.webp",
+            "Three-step D-Link extender setup diagram: connect to D-Link setup SSID, open dlinkap.local or 192.168.0.50, and log in as Admin",
+            "Quick 3-step D-Link DAP extender setup workflow via http://dlinkap.local or fallback IP 192.168.0.50.",
+            "/images/extenders/dlinkap-local-before-after-pairing-ip.webp",
+            "Network diagram contrasting D-Link dlinkap.local and 192.168.0.50 before pairing against router DHCP IP assignment after pairing",
+            "Why dlinkap.local and 192.168.0.50 stop responding after your D-Link extender connects to your main router.",
+        ),
+        "myrepeater-net": (
+            "/images/extenders/myrepeater-net-192-168-1-254-setup-login.webp",
+            "Three-step Wireless-N repeater setup diagram: connect to Wireless-N Wi-Fi, visit myrepeater.net or 192.168.1.254, and log in with admin/admin",
+            "Standard Wireless-N repeater login steps using http://myrepeater.net or fallback gateway 192.168.1.254.",
+            "/images/extenders/myrepeater-net-before-after-pairing-ip.webp",
+            "Network diagram showing myrepeater.net and 192.168.1.254 behavior before repeater pairing vs after connecting to the main router",
+            "Before vs. after pairing IP routing explaining why myrepeater.net requires direct repeater connection or router DHCP lookup.",
+        ),
+        "ap-setup": (
+            "/images/extenders/ap-setup-wavlink-192-168-10-1-setup-login.webp",
+            "Three-step Wavlink extender setup diagram: connect to WAVLINK SSID, open ap.setup or 192.168.10.1, and sign in with password admin",
+            "Quick 3-step Wavlink extender login flow via http://ap.setup or fallback gateway IP 192.168.10.1.",
+            "/images/extenders/ap-setup-wavlink-before-after-pairing-ip.webp",
+            "Network diagram showing ap.setup and 192.168.10.1 active in factory setup mode vs router DHCP IP after pairing",
+            "How Wavlink extenders transition from 192.168.10.1 / ap.setup during initial setup to a router-assigned DHCP IP after pairing.",
+        ),
+        "topvision-extender": (
+            "/images/extenders/topvision-extender-192-168-188-1-setup-login.webp",
+            "Three-step Topvision WiFi extender setup diagram: connect to Topvision setup Wi-Fi, open 192.168.188.1, and sign in with admin/admin",
+            "Quick 3-step Topvision repeater access steps using http://192.168.188.1 and default credentials admin / admin.",
+            "/images/extenders/topvision-extender-before-after-pairing-ip.webp",
+            "Network diagram explaining why Topvision extender IP 192.168.188.1 stops opening once paired with a main home router",
+            "Why 192.168.188.1 loads directly before Topvision pairing and switches to a router-assigned DHCP address afterward.",
+        ),
+        "sewot-sw-01": (
+            "/images/extenders/sewot-sw-01-192-168-188-1-setup-login.webp",
+            "Three-step SEWOT SW-01 WiFi extender setup diagram: connect to SEWOT SSID, open 192.168.188.1, and log in with admin/admin",
+            "Quick 3-step SEWOT SW-01 setup workflow using gateway IP http://192.168.188.1 and default admin / admin credentials.",
+            "/images/extenders/sewot-sw-01-before-after-pairing-ip.webp",
+            "Network diagram contrasting SEWOT SW-01 factory IP 192.168.188.1 before pairing with main router DHCP IP after setup",
+            "How SEWOT SW-01 IP addressing changes from 192.168.188.1 during setup to your router's DHCP lease after pairing.",
+        ),
+        "rangextd-extender": (
+            "/images/extenders/rangextd-extender-192-168-188-1-setup-login.webp",
+            "Three-step RANGEXTD extender setup diagram: join RANGEXTD Wi-Fi, open 192.168.188.1, and sign in with admin/admin",
+            "Quick 3-step RANGEXTD range extender login steps using http://192.168.188.1 and default admin / admin credentials.",
+            "/images/extenders/rangextd-extender-before-after-pairing-ip.webp",
+            "Network diagram showing RANGEXTD fallback IP 192.168.188.1 before pairing vs router-assigned DHCP IP after setup",
+            "Why 192.168.188.1 works before RANGEXTD pairing and how to locate the new DHCP IP after extending your router.",
+        ),
+    }
+
+    def finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, content_html):
+        media = extender_media.get(slug)
+        if media:
+            hero_src, hero_alt, hero_cap, pair_src, pair_alt, pair_cap = media
+            hero_fig = (
+                f'\n      <figure class="guide-figure">\n'
+                f'        <img src="{hero_src}" width="1200" height="675" fetchpriority="high" alt="{hero_alt}">\n'
+                f'        <figcaption>{hero_cap}</figcaption>\n'
+                f'      </figure>\n\n'
+            )
+            pair_fig = (
+                f'\n      <figure class="guide-figure">\n'
+                f'        <img src="{pair_src}" width="1200" height="675" loading="lazy" alt="{pair_alt}">\n'
+                f'        <figcaption>{pair_cap}</figcaption>\n'
+                f'      </figure>\n\n'
+            )
+            h2_matches = list(re.finditer(r'      <h2\b[^>]*>', content_html))
+            if len(h2_matches) >= 5:
+                pos1 = h2_matches[0].start()
+                pos5 = h2_matches[4].start()
+                content_html = (
+                    content_html[:pos1]
+                    + hero_fig
+                    + content_html[pos1:pos5]
+                    + pair_fig
+                    + content_html[pos5:]
+                )
+            elif h2_matches:
+                pos1 = h2_matches[0].start()
+                content_html = content_html[:pos1] + hero_fig + content_html[pos1:]
+            tech_schema["image"] = f"https://routeriphub.com{hero_src}"
+            og_img = f"https://routeriphub.com{hero_src}"
+            return (
+                get_header(
+                    title, desc, canonical,
+                    active_nav="extenders",
+                    breadcrumbs=breadcrumbs,
+                    schemas_json_ld=[tech_schema, howto_schema, faq_schema],
+                    og_image=og_img,
+                    og_image_alt=title,
+                    og_type="article",
+                )
+                + content_html
+                + get_footer()
+            )
+        return get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content_html + get_footer()
     for ext in EXTENDER_PROFILES:
         slug = ext["slug"]
         ext_dir = os.path.join(extenders_root_dir, slug)
@@ -8003,7 +8125,7 @@ def generate_extender_pages():
     </div>
   </main>
 """
-            full_html = get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + guide_content + get_footer()
+            full_html = finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, guide_content)
             with open(os.path.join(ext_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(full_html)
         elif slug == "tplinkrepeater-net":
@@ -8469,7 +8591,7 @@ def generate_extender_pages():
     </div>
   </main>
 """
-            full_html = get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + tplink_content + get_footer()
+            full_html = finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, tplink_content)
             with open(os.path.join(ext_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(full_html)
 
@@ -8971,7 +9093,7 @@ def generate_extender_pages():
     </div>
   </main>
 """
-            full_html = get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + linksys_content + get_footer()
+            full_html = finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, linksys_content)
             with open(os.path.join(ext_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(full_html)
 
@@ -9519,7 +9641,7 @@ def generate_extender_pages():
     </div>
   </main>
 """
-            full_html = get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + dlink_content + get_footer()
+            full_html = finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, dlink_content)
             with open(os.path.join(ext_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(full_html)
 
@@ -10056,7 +10178,7 @@ def generate_extender_pages():
     </div>
   </main>
 """
-            full_html = get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + myrepeater_content + get_footer()
+            full_html = finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, myrepeater_content)
             with open(os.path.join(ext_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(full_html)
 
@@ -10611,7 +10733,7 @@ def generate_extender_pages():
     </div>
   </main>
 """
-            full_html = get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + apsetup_content + get_footer()
+            full_html = finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, apsetup_content)
             with open(os.path.join(ext_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(full_html)
 
@@ -11136,7 +11258,7 @@ def generate_extender_pages():
     </div>
   </main>
 """
-            full_html = get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + topvision_content + get_footer()
+            full_html = finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, topvision_content)
             with open(os.path.join(ext_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(full_html)
 
@@ -11644,7 +11766,7 @@ def generate_extender_pages():
     </div>
   </main>
 """
-            full_html = get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + sewot_content + get_footer()
+            full_html = finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, sewot_content)
             with open(os.path.join(ext_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(full_html)
 
@@ -12153,7 +12275,7 @@ def generate_extender_pages():
     </div>
   </main>
 """
-            full_html = get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + rangextd_content + get_footer()
+            full_html = finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, rangextd_content)
             with open(os.path.join(ext_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(full_html)
 
