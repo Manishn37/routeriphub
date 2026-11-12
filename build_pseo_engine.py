@@ -5795,6 +5795,597 @@ def generate_custom_virgin_media_hub_page(isp):
 
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
+
+def generate_custom_bt_smart_hub_page(isp):
+    canonical = "https://routeriphub.com/isp/bt-smart-hub/"
+    title = "BT Gateway Login — 192.168.1.254 Admin Access & Fixes"
+    desc = "Access your BT Hub at 192.168.1.254. Find the admin password, change Wi-Fi settings, manage connected devices, and fix common BT Hub login issues."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("ISP Gateways", "/isp/"),
+        ("BT (British Telecom)", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "BT Gateway Login — 192.168.1.254 Admin Access & Fixes",
+        "description": desc,
+        "image": "https://routeriphub.com/images/isp/bt-smart-hub-192-168-1-254-gateway-login-guide.webp",
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to Your BT Hub",
+        "description": "Step-by-step instructions to connect to your BT Hub, open 192.168.1.254 or bthomehub.home, accept the HTTPS security warning, and sign in with the admin password.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to the BT Hub",
+                "text": "Connect your phone, tablet, or computer to the BT Hub’s Wi-Fi network. For a more reliable connection, use an Ethernet cable between your computer and one of the Hub’s LAN ports. Do not use mobile data."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open the Hub Manager address",
+                "text": "Enter 192.168.1.254 or http://bthomehub.home directly into your browser’s address bar. Do not enter the address into a search engine."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Accept the HTTPS security warning if it appears",
+                "text": "If your browser shows 'Your connection is not private', select Advanced, then choose the option to proceed to 192.168.1.254."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Enter the admin password",
+                "text": "When prompted, enter the Hub admin password found on the Hub settings card on the back of the Hub, or your current custom admin password."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Open the settings you need",
+                "text": "Once signed in, select the section related to your task. BT Hub Manager supports settings such as Wi-Fi network names and passwords, device management, security settings, and advanced Hub configuration."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the BT Hub Manager address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The standard address is 192.168.1.254. You can also use http://bthomehub.home."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default BT Hub admin password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is printed on the Hub settings card on the back of the Hub, unless you changed it. The location can vary slightly by Hub model."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the BT Hub admin password the same as the Wi-Fi password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The admin password opens Hub Manager settings; the Wi-Fi password connects devices to the wireless network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I change my Wi-Fi password from the Hub Manager page?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Sign in, open Advanced Settings, select Wireless, and update the Wi-Fi name or password before saving."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why can’t I open 192.168.1.254?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You may not be connected to the BT Hub, or a VPN, proxy, or browser setting may be blocking the local address. Confirm the connection and try the alternative address."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I access BT Hub Manager from outside my home?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Hub Manager is a local management interface and must be accessed from a device connected to the Hub’s network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I reset my BT Hub if 192.168.1.254 does not work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not immediately. First check the connection, try the alternative address, disable VPN or proxy settings, test another browser, and restart the Hub."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        BT (British Telecom) Gateway Login — 192.168.1.254 Admin Access
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+        If you searched <code>192.168.1.254</code> expecting your BT Hub’s settings page, you have the right address. The important detail is the password: BT Hubs use an <strong>admin password</strong>, which is separate from the Wi-Fi password.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        Open <code>192.168.1.254</code> from a device connected to your BT home network. When prompted, enter the admin password printed on the Hub.
+      </p>
+
+      <!-- Quick Answer Card -->
+      <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <div class="table-responsive" style="margin-bottom: 1rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Setting</th>
+                <th>What to use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hub Manager address</strong></td>
+                <td><code>http://192.168.1.254</code></td>
+              </tr>
+              <tr>
+                <td><strong>Alternative address</strong></td>
+                <td><code>http://bthomehub.home</code></td>
+              </tr>
+              <tr>
+                <td><strong>Secure address</strong></td>
+                <td><code>https://192.168.1.254</code></td>
+              </tr>
+              <tr>
+                <td><strong>Login credential</strong></td>
+                <td>Hub admin password</td>
+              </tr>
+              <tr>
+                <td><strong>Default password location</strong></td>
+                <td>Hub settings card on the back of the Hub</td>
+              </tr>
+              <tr>
+                <td><strong>Wi-Fi password</strong></td>
+                <td>Separate from the Hub admin password</td>
+              </tr>
+              <tr>
+                <td><strong>Previously changed password</strong></td>
+                <td>Use your custom admin password</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          The admin password allows you to make changes to the Hub. The Wi-Fi password connects devices to your wireless network.
+        </p>
+        <div class="action-btn-group" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="http://192.168.1.254" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Open 192.168.1.254 &rarr;
+          </a>
+          <a href="http://bthomehub.home" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            Open http://bthomehub.home
+          </a>
+        </div>
+      </div>
+
+      <!-- Figure 1: Hero Guide -->
+      <figure class="guide-figure">
+        <img src="/images/isp/bt-smart-hub-192-168-1-254-gateway-login-guide.webp" alt="BT Smart Hub gateway login guide showing 192.168.1.254 and bthomehub.home admin access credentials" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>BT Smart Hub gateway login: connect locally, open 192.168.1.254 or bthomehub.home, and enter the admin password from the settings card.</figcaption>
+      </figure>
+
+      <!-- BT Hub Login Details -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">BT Hub Login Details</h2>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>What to use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hub Manager address</strong></td>
+              <td><code>192.168.1.254</code></td>
+            </tr>
+            <tr>
+              <td><strong>Alternative address</strong></td>
+              <td><code>bthomehub.home</code></td>
+            </tr>
+            <tr>
+              <td><strong>Secure address</strong></td>
+              <td><code>https://192.168.1.254</code></td>
+            </tr>
+            <tr>
+              <td><strong>Login credential</strong></td>
+              <td>Hub admin password</td>
+            </tr>
+            <tr>
+              <td><strong>Default password location</strong></td>
+              <td>Hub settings card on the back of the Hub</td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi password location</strong></td>
+              <td>Hub settings card on the back of the Hub</td>
+            </tr>
+            <tr>
+              <td><strong>Custom admin password</strong></td>
+              <td>Use the password you created</td>
+            </tr>
+            <tr>
+              <td><strong>Generic admin / password login</strong></td>
+              <td>Do not assume this applies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-bottom: 2rem;">
+        The admin password is printed on the Hub settings card unless you changed it. It is not the same as the Wi-Fi password.
+      </p>
+
+      <!-- How to Log In to Your BT Hub -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Log In to Your BT Hub</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Connect to the BT Hub</h3>
+      <p>
+        Connect your phone, tablet, or computer to the BT Hub’s Wi-Fi network. For a more reliable connection, use an Ethernet cable between your computer and one of the Hub’s LAN ports.
+      </p>
+      <p>
+        Do not use mobile data. The Hub Manager is a local interface and must be accessed from the home network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Open the Hub Manager address</h3>
+      <p>Enter this directly into your browser’s address bar:</p>
+      <div style="margin: 0.75rem 0 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <code style="padding: 0.35rem 0.65rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">192.168.1.254</code>
+        <span style="align-self: center; color: var(--text-muted); font-size: 0.9rem;">or</span>
+        <code style="padding: 0.35rem 0.65rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">http://bthomehub.home</code>
+      </div>
+      <p>
+        Do not enter the address into a search engine. You need the local Hub Manager page, not a web search result.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Accept the HTTPS security warning if it appears</h3>
+      <p>
+        If your browser shows a message such as <strong>“Your connection is not private,”</strong> select <strong>Advanced</strong>, then choose the option to proceed to <code>192.168.1.254</code>.
+      </p>
+      <p>
+        This warning can appear because the Hub uses a self-signed certificate for its local HTTPS page. Only proceed if you entered the address yourself and are connected to your own home network.
+      </p>
+      <div class="table-responsive" style="margin: 1rem 0 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Browser</th>
+              <th>What to select</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Chrome</strong></td>
+              <td><strong>Advanced</strong> &rarr; <strong>Proceed to 192.168.1.254 (unsafe)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Microsoft Edge</strong></td>
+              <td><strong>Advanced</strong> &rarr; <strong>Continue to 192.168.1.254 (unsafe)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Safari</strong></td>
+              <td><strong>Show Details</strong> &rarr; <strong>Visit this website</strong> &rarr; <strong>Visit Website</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Firefox</strong></td>
+              <td><strong>Advanced</strong> &rarr; <strong>Accept the Risk and Continue</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Figure 2: HTTPS Warning -->
+      <figure class="guide-figure">
+        <img src="/images/isp/bt-hub-manager-https-warning-browser-steps.webp" alt="Browser HTTPS certificate warning screen for 192.168.1.254 showing steps to click Advanced and proceed" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Accepting the self-signed HTTPS certificate warning in web browsers when opening https://192.168.1.254.</figcaption>
+      </figure>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Enter the admin password</h3>
+      <p>When prompted, enter the Hub admin password.</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>If you have not changed it, use the password on the Hub settings card on the back of the Hub.</li>
+        <li>If you changed it previously, use your current custom admin password.</li>
+        <li>Do not use the Wi-Fi password unless it is the same password you deliberately set for Hub Manager.</li>
+      </ul>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Open the settings you need</h3>
+      <p>
+        Once signed in, select the section related to your task. BT Hub Manager supports settings such as Wi-Fi network names and passwords, device management, security settings, and advanced Hub configuration.
+      </p>
+
+      <!-- Change Your BT Wi-Fi Name and Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Change Your BT Wi-Fi Name and Password</h2>
+      <p>To change the wireless network details:</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
+        <li>Sign in to the Hub at <code>192.168.1.254</code>.</li>
+        <li>Open <strong>Advanced Settings</strong>.</li>
+        <li>Select <strong>Wireless</strong>.</li>
+        <li>Select <strong>Wi-Fi name (SSID)</strong> or <strong>Wi-Fi password</strong>.</li>
+        <li>Enter your preferred Wi-Fi name and password.</li>
+        <li>Select <strong>Apply</strong> or <strong>Save</strong>.</li>
+      </ol>
+      <p>
+        Changing the Wi-Fi name or password disconnects devices using the old credentials. Reconnect them using the updated details.
+      </p>
+
+      <!-- Admin Password vs. Wi-Fi Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Admin Password vs. Wi-Fi Password</h2>
+      <p>
+        The <strong>Hub admin password</strong> opens the BT Hub’s management interface. The <strong>Wi-Fi password</strong> connects phones, computers, TVs, and other devices to the wireless network.
+      </p>
+      <p>
+        Both may appear on the same Hub settings card, so read the field names carefully. The admin password is specifically used to access and change Hub settings.
+      </p>
+      <p>
+        If your phone is connected to Wi-Fi but the Hub rejects your login, that does not necessarily mean the Wi-Fi password is wrong. Check that you are entering the admin password in the login form.
+      </p>
+
+      <!-- Figure 3: Settings Card -->
+      <figure class="guide-figure">
+        <img src="/images/isp/bt-smart-hub-slide-out-settings-card-admin-password.webp" alt="BT Smart Hub rear slide-out settings card showing admin password distinctly separate from Wi-Fi password" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Locating the admin password on the removable slide-out plastic settings card on the rear of the BT Smart Hub.</figcaption>
+      </figure>
+
+      <!-- If 192.168.1.254 Will Not Open -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If 192.168.1.254 Will Not Open</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Confirm the connection</h3>
+      <p>
+        Make sure your device is connected to the correct BT Hub. If you have a mesh system, extender, powerline adapter, or separate router, you may be connected to a different device.
+      </p>
+      <p>
+        Use a direct Ethernet connection to the BT Hub when possible. This removes Wi-Fi signal issues from the troubleshooting process.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Check the address carefully</h3>
+      <p>Use:</p>
+      <p><code>http://192.168.1.254</code></p>
+      <p>Avoid incorrect entries such as:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li><code>192.168.l.254</code></li>
+        <li><code>192.168.1.254.com</code></li>
+        <li><code>192.168.1.254 router login</code></li>
+        <li><code>192.168.1.254/admin</code> when you only want the main Hub Manager page</li>
+      </ul>
+      <p>
+        Enter the address directly into the browser’s address bar rather than a search engine.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Try the alternative address</h3>
+      <p>Use:</p>
+      <p><code>http://bthomehub.home</code></p>
+      <p>This is an alternative way to reach Hub Manager.</p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Try the secure address</h3>
+      <p>Use:</p>
+      <p><code>https://192.168.1.254</code></p>
+      <p>
+        If your browser shows a security warning, it may be because the Hub uses a self-signed certificate for its local HTTPS page. Only proceed if you entered the address yourself and are connected to your own home network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Disable VPN or proxy temporarily</h3>
+      <p>
+        A VPN, proxy, or privacy-focused browser setting can interfere with access to a local Hub address. Disconnect the VPN and disable proxy settings, then try again.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">6. Try another browser or device</h3>
+      <p>
+        Try Chrome, Firefox, Edge, or Safari. If one browser fails, test the page from another phone, tablet, or computer connected to the same BT network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">7. Restart the Hub</h3>
+      <p>
+        Turn the Hub off, wait about 30 seconds, then turn it back on. Wait for the lights to stabilize, reconnect your device, and try <code>192.168.1.254</code> again.
+      </p>
+      <p>
+        A restart preserves your Hub settings. Do not confuse it with a factory reset.
+      </p>
+
+      <!-- If the Admin Password Is Rejected -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If the Admin Password Is Rejected</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the correct password field</h3>
+      <p>
+        Look for the <strong>admin password</strong>, not the Wi-Fi password. The admin password opens Hub Manager settings; the Wi-Fi password connects devices to the wireless network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the Hub model</h3>
+      <p>The location of the default password depends on the Hub version:</p>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Hub model</th>
+              <th>Default admin password location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>BT Smart Hub 2</strong></td>
+              <td>Hub settings card on the back</td>
+            </tr>
+            <tr>
+              <td><strong>BT Smart Hub</strong></td>
+              <td>Hub settings card on the back</td>
+            </tr>
+            <tr>
+              <td><strong>BT Home Hub 4 or Hub 5</strong></td>
+              <td>Hub settings card or label on the base</td>
+            </tr>
+            <tr>
+              <td><strong>BT Home Hub 3</strong></td>
+              <td>Hub settings card or label on the base</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Consider whether the password was changed</h3>
+      <p>
+        If you previously changed the admin password, use that custom password. The original password on the settings card will no longer work.
+      </p>
+      <p>
+        If you cannot remember the changed admin password, check the password-reset guidance for your Hub model. Do not reset the Hub until you understand what settings may be lost.
+      </p>
+
+      <!-- Why You May Reach a Different Router Page -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Why You May Reach a Different Router Page</h2>
+      <p>
+        If you have another router, mesh system, or extender, your device may be connected to a network that uses a different gateway address.
+      </p>
+      <p>
+        In that case, <code>192.168.1.254</code> may not be the address of the device you are trying to manage. Check your device’s gateway address and use that instead.
+      </p>
+      <p>
+        A Hub Manager page should only be reached from within your local home network.
+      </p>
+
+      <!-- When to Factory Reset the BT Hub -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">When to Factory Reset the BT Hub</h2>
+      <p>Do not factory reset the Hub as the first fix.</p>
+      <p>Before resetting:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Confirm you are connected to the BT Hub.</li>
+        <li>Try <code>192.168.1.254</code> and <code>bthomehub.home</code>.</li>
+        <li>Disable VPN and proxy settings.</li>
+        <li>Try another browser or device.</li>
+        <li>Restart the Hub.</li>
+        <li>Check the correct admin password.</li>
+      </ul>
+      <p>
+        A factory reset can remove custom Hub settings, including Wi-Fi names, passwords, and the admin password. Record anything you need before resetting, and follow the reset instructions for your exact Hub model.
+      </p>
+
+      <!-- Common Mistakes -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Mistakes</h2>
+      <ul style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+        <li>Using mobile data instead of connecting to the BT Hub.</li>
+        <li>Assuming the Wi-Fi password is the Hub admin password.</li>
+        <li>Closing the browser when the HTTPS warning appears without checking that it is the local Hub page.</li>
+        <li>Trying <code>192.168.1.1</code> when the BT Hub uses <code>192.168.1.254</code>.</li>
+        <li>Leaving a VPN or proxy enabled.</li>
+        <li>Factory resetting before trying the simpler access fixes.</li>
+      </ul>
+
+      <!-- FAQs -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">FAQs</h2>
+      <div class="faq-list" style="margin-bottom: 2.5rem;">
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the BT Hub Manager address?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            The standard address is <code>192.168.1.254</code>. You can also use <code>http://bthomehub.home</code>.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the default BT Hub admin password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            It is printed on the Hub settings card on the back of the Hub, unless you changed it. The location can vary slightly by Hub model.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Is the BT Hub admin password the same as the Wi-Fi password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            No. The admin password opens Hub Manager settings; the Wi-Fi password connects devices to the wireless network.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I change my Wi-Fi password from the Hub Manager page?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes. Sign in, open <strong>Advanced Settings</strong>, select <strong>Wireless</strong>, and update the Wi-Fi name or password before saving.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Why can’t I open 192.168.1.254?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            You may not be connected to the BT Hub, or a VPN, proxy, or browser setting may be blocking the local address. Confirm the connection and try the alternative address.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I access BT Hub Manager from outside my home?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            No. Hub Manager is a local management interface and must be accessed from a device connected to the Hub’s network.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Should I reset my BT Hub if 192.168.1.254 does not work?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Not immediately. First check the connection, try the alternative address, disable VPN or proxy settings, test another browser, and restart the Hub.
+          </div>
+        </details>
+      </div>
+
+      <!-- The Bottom Line -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">The Bottom Line</h2>
+      <div class="bottom-line-callout" style="background: var(--bg-card); border-left: 4px solid var(--primary); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+          Open <code>192.168.1.254</code> from your BT home network and enter the Hub admin password from the back of the Hub. Do not confuse it with the Wi-Fi password. If the page will not open, disconnect VPN or proxy settings and restart the Hub before considering a reset.
+        </p>
+      </div>
+
+      <!-- Diagnostic Probe Tool -->
+      <div class="card" style="margin: 2rem 0; padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+        <div style="font-weight: 700; margin-bottom: 0.5rem;">Diagnostic Connection Probe</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+          Quickly test whether your device can reach the BT Hub Gateway IP on your local home network.
+        </p>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button id="probe-btn" class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.875rem;">
+            Test Connection to 192.168.1.254
+          </button>
+          <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
+        </div>
+      </div>
+
+      <!-- Author/Reviewer Byline Card at End of Article -->
+      {get_byline_html()}
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/ip/192-168-1-254/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.254 Gateway Guide &rarr;</a>
+          <a href="/isp/sky-broadband/" class="btn btn-secondary" style="font-size: 0.85rem;">Sky Broadband Hub &rarr;</a>
+          <a href="/isp/virgin-media-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">Virgin Media Hub &rarr;</a>
+          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
     for isp in ISP_GATEWAYS:
@@ -5830,6 +6421,11 @@ def generate_isp_pages():
         if slug == "virgin-media-hub":
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_virgin_media_hub_page(isp))
+            continue
+
+        if slug == "bt-smart-hub":
+            with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_bt_smart_hub_page(isp))
             continue
 
         canonical = f"https://routeriphub.com/isp/{slug}/"
