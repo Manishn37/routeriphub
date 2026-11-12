@@ -1113,6 +1113,7 @@ function initExtenderSetupWizard() {
   ];
 
   const stage = document.getElementById('ext-wizard-stage');
+  const scenes = wizard.querySelectorAll('.ext-wizard-scene');
   const progressFill = document.getElementById('ext-wizard-progress-fill');
   const stepLabel = document.getElementById('ext-wizard-step-label');
   const stepTitle = document.getElementById('ext-wizard-step-title');
@@ -1124,6 +1125,7 @@ function initExtenderSetupWizard() {
   const playBtn = document.getElementById('wizard-play-btn');
   const restartBtn = document.getElementById('wizard-restart-btn');
   const launchBtn = document.getElementById('launch-extender-wizard-btn');
+  const closeBtn = document.getElementById('wizard-close-btn');
 
   let currentStep = 1;
   let playTimer = null;
@@ -1144,6 +1146,9 @@ function initExtenderSetupWizard() {
     const data = steps[currentStep - 1];
 
     if (stage) stage.setAttribute('data-step', String(currentStep));
+    scenes.forEach((scene, idx) => {
+      scene.style.display = idx + 1 === currentStep ? 'block' : 'none';
+    });
     if (progressFill) progressFill.style.width = `${(currentStep / steps.length) * 100}%`;
     if (stepLabel) stepLabel.textContent = data.label;
     if (stepTitle) stepTitle.textContent = data.title;
@@ -1182,6 +1187,31 @@ function initExtenderSetupWizard() {
         renderStep(currentStep + 1);
       }
     }, 4500);
+  }
+
+  function openWizardModal(autoplay = true) {
+    wizard.style.display = 'flex';
+    wizard.classList.add('open');
+    wizard.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    renderStep(1);
+    if (autoplay) {
+      startAutoPlay(true);
+    }
+    if (closeBtn) {
+      setTimeout(() => closeBtn.focus(), 60);
+    }
+  }
+
+  function closeWizardModal() {
+    stopAutoPlay();
+    wizard.classList.remove('open');
+    wizard.style.display = 'none';
+    wizard.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (launchBtn) {
+      launchBtn.focus();
+    }
   }
 
   pills.forEach(p => {
@@ -1228,11 +1258,30 @@ function initExtenderSetupWizard() {
   }
 
   if (launchBtn) {
-    launchBtn.addEventListener('click', () => {
-      wizard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      startAutoPlay(true);
+    launchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openWizardModal(true);
     });
   }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeWizardModal();
+    });
+  }
+
+  wizard.addEventListener('click', (e) => {
+    if (e.target === wizard) {
+      closeWizardModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && wizard.classList.contains('open')) {
+      closeWizardModal();
+    }
+  });
 
   renderStep(1);
 }

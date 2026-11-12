@@ -20,6 +20,7 @@ import json
 import csv
 import html
 import re
+import hashlib
 from datetime import datetime
 from generate_pseo_data import (
     ROUTER_MODELS,
@@ -151,7 +152,18 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
         
     schema_block = json.dumps({"@context": "https://schema.org", "@graph": all_schemas}, indent=2)
 
-    tools_script_tag = '\n  <script src="/js/tools.js" defer></script>' if (include_tools or active_nav == "tools") else ""
+    def _asset_hash(rel_path):
+        full = os.path.join(PUBLIC_DIR, rel_path)
+        try:
+            with open(full, "rb") as af:
+                return hashlib.md5(af.read()).hexdigest()[:8]
+        except OSError:
+            return "1"
+
+    css_ver = _asset_hash(os.path.join("css", "style.css"))
+    app_ver = _asset_hash(os.path.join("js", "app.js"))
+    tools_ver = _asset_hash(os.path.join("js", "tools.js"))
+    tools_script_tag = f'\n  <script src="/js/tools.js?v={tools_ver}" defer></script>' if (include_tools or active_nav == "tools") else ""
 
     # Breadcrumbs HTML
     bc_html_parts = []
@@ -219,8 +231,8 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
       }} catch (e) {{}}
     }})();
   </script>
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/app.js" defer></script>{tools_script_tag}
+  <link rel="stylesheet" href="/css/style.css?v={css_ver}">
+  <script src="/js/app.js?v={app_ver}" defer></script>{tools_script_tag}
 
   <script type="speculationrules">
   {{
@@ -7856,8 +7868,8 @@ def generate_extender_pages():
           If you want to set up the extender instead, NETGEAR also provides <code>http://www.mywifiext.net</code> for Windows and Android, while macOS and iOS devices can use <code>http://mywifiext.local</code>.
         </p>
         <div class="action-btn-group">
-          <button type="button" id="launch-extender-wizard-btn" class="btn btn-primary">
-            Start Interactive Setup Animation &rarr;
+          <button type="button" id="launch-extender-wizard-btn" class="btn btn-primary" aria-haspopup="dialog" aria-controls="mywifiext-setup-wizard">
+            Launch Interactive Setup Simulator &rarr;
           </button>
           <a href="http://192.168.1.250" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
             Open http://192.168.1.250 &rarr;
@@ -7870,16 +7882,20 @@ def generate_extender_pages():
         </div>
       </div>
 
-      <section id="mywifiext-setup-wizard" class="ext-wizard-card" aria-label="Interactive NETGEAR Extender Step-by-Step Setup Walkthrough">
-        <div class="ext-wizard-header">
-          <div>
-            <span class="ext-wizard-badge">Interactive Setup Simulator</span>
-            <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin: 0.4rem 0 0 0;">
-              NETGEAR Extender Setup Animation (Step by Step)
-            </h3>
+      <div id="mywifiext-setup-wizard" class="ext-wizard-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="ext-wizard-modal-title" aria-hidden="true" style="display: none;">
+        <div class="ext-wizard-modal-container">
+          <div class="ext-wizard-header">
+            <div>
+              <span class="ext-wizard-badge">Interactive Setup Simulator</span>
+              <h3 id="ext-wizard-modal-title" style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0.4rem 0 0 0;">
+                NETGEAR Extender Setup Animation (Step by Step)
+              </h3>
+            </div>
+            <div class="ext-wizard-header-actions">
+              <span class="ext-wizard-subflow">Plug in &rarr; Connect &rarr; Pair &rarr; Finish</span>
+              <button type="button" id="wizard-close-btn" class="ext-wizard-close-btn" aria-label="Close setup simulator popup" title="Close (Esc)">&times;</button>
+            </div>
           </div>
-          <span style="font-size: 0.85rem; color: var(--text-muted);">Plug in &rarr; Connect &rarr; Pair &rarr; Finish</span>
-        </div>
 
         <div class="ext-wizard-progress-track" aria-hidden="true">
           <div id="ext-wizard-progress-fill" class="ext-wizard-progress-fill"></div>
@@ -7933,7 +7949,7 @@ def generate_extender_pages():
             </g>
 
             <!-- Scene 2: Connect directly to NETGEAR_EXT & turn off mobile data -->
-            <g class="ext-wizard-scene ext-scene-2">
+            <g class="ext-wizard-scene ext-scene-2" style="display: none;">
               <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
               <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 2: Connect Device to NETGEAR_EXT (Mobile Data OFF)</text>
               <!-- Phone / Laptop card -->
@@ -7958,7 +7974,7 @@ def generate_extender_pages():
             </g>
 
             <!-- Scene 3: Browser URL bar loading mywifiext.net / 192.168.1.250 -->
-            <g class="ext-wizard-scene ext-scene-3">
+            <g class="ext-wizard-scene ext-scene-3" style="display: none;">
               <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
               <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 3: Enter Address Directly Into Browser Address Bar</text>
               <rect x="130" y="74" width="500" height="162" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
@@ -7976,7 +7992,7 @@ def generate_extender_pages():
             </g>
 
             <!-- Scene 4: Sign in with admin / password -->
-            <g class="ext-wizard-scene ext-scene-4">
+            <g class="ext-wizard-scene ext-scene-4" style="display: none;">
               <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
               <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 4: Sign In (admin / password) or Create Admin Account</text>
               <rect x="210" y="72" width="340" height="168" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
@@ -7992,7 +8008,7 @@ def generate_extender_pages():
             </g>
 
             <!-- Scene 5: Pair extender with main router Wi-Fi -->
-            <g class="ext-wizard-scene ext-scene-5">
+            <g class="ext-wizard-scene ext-scene-5" style="display: none;">
               <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
               <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 5: Choose Home Wi-Fi, Enter Router Password &amp; Pair</text>
               <!-- Extender -->
@@ -8020,7 +8036,7 @@ def generate_extender_pages():
             </g>
 
             <!-- Scene 6: Relocate halfway to dead zone -->
-            <g class="ext-wizard-scene ext-scene-6">
+            <g class="ext-wizard-scene ext-scene-6" style="display: none;">
               <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
               <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 6: Unplug &amp; Move Halfway Between Router and Dead Zone</text>
               <!-- Zone backgrounds -->
@@ -8074,7 +8090,8 @@ def generate_extender_pages():
             <button type="button" id="wizard-restart-btn" class="btn btn-secondary">Restart</button>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
 
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
         Which NETGEAR Extenders Use 192.168.1.250?
