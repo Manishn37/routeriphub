@@ -431,7 +431,7 @@ def generate_brand_rich_sections(b, brand_models, escape_fn):
 
 def get_sitemap_lastmod(category, slug=""):
     """Emit realistic per-URL modification dates in YYYY-MM-DD based on release batch and deterministic verification schedule."""
-    if slug in ("access-my-router-settings-page", "why-is-192-168-1-1-not-working", "why-cant-i-access-my-bt-hub-manager", "howto", "privacy", "terms"):
+    if slug in ("access-my-router-settings-page", "why-is-192-168-1-1-not-working", "why-cant-i-access-my-bt-hub-manager", "change-tenda-wifi-password-without-previous-password", "howto", "privacy", "terms"):
         return "2026-11-12"
     recent_updates = {
         "pldt", "verizon-cr1000a", "xfinity-xfi", "att-bgw320",
@@ -941,7 +941,7 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
             <a href="{escape(p['url'])}" class="btn btn-secondary" style="font-size: 0.85rem;">Read Full Guide &rarr;</a>
           </div>
         </article>""")
-        blog_post_items.append({
+        blog_item = {
             "@type": "BlogPosting",
             "headline": p["headline"],
             "url": f"https://routeriphub.com{p['url']}",
@@ -949,7 +949,10 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
             "dateModified": f"{p.get('date_modified', p.get('date_published', '2026-11-11'))}T08:00:00+00:00",
             "author": {"@type": "Person", "name": "Vikas Behl", "url": "https://routeriphub.com/authors/vikas-behl/"},
             "publisher": ORG_PUBLISHER,
-        })
+        }
+        if p.get("image"):
+            blog_item["image"] = f"https://routeriphub.com{p['image']}"
+        blog_post_items.append(blog_item)
 
     howto_body = f"""
   <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
@@ -1120,10 +1123,13 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
             "author": {"@type": "Person", "name": "Vikas Behl", "url": "https://routeriphub.com/authors/vikas-behl/"},
             "publisher": ORG_PUBLISHER,
         }
+        if p.get("image"):
+            article_schema["image"] = f"https://routeriphub.com{p['image']}"
         faq_schema = {
             "@type": "FAQPage",
             "mainEntity": faq_entities,
         }
+        post_og_img = f"https://routeriphub.com{p['image']}" if p.get("image") else None
         post_out = (
             get_header_fn(
                 p["meta_title"],
@@ -1132,6 +1138,9 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
                 active_nav="howto",
                 breadcrumbs=[("Home", "/"), ("How-To Guides", "/howto/"), (p["short_title"], p["url"])],
                 schemas_json_ld=[article_schema, faq_schema],
+                og_image=post_og_img,
+                og_image_alt=p["headline"] if post_og_img else None,
+                og_type="article",
             )
             + post_body
             + get_footer_fn()

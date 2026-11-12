@@ -17,6 +17,7 @@ RouterIPHub indexes 252 specific router models, 20 major hardware brands, 10 car
 - [How Do I Access My Router Settings Page?](https://routeriphub.com/howto/access-my-router-settings-page/): Step-by-step tutorial on finding management IPs, admin logins, and troubleshooting access errors.
 - [Why Is 192.168.1.1 Not Working in My Browser?](https://routeriphub.com/howto/why-is-192-168-1-1-not-working/): Step-by-step browser, VPN, proxy, private DNS, and gateway troubleshooting fixes for 192.168.1.1.
 - [Why Can't I Access My BT Hub Manager?](https://routeriphub.com/howto/why-cant-i-access-my-bt-hub-manager/): Fixes for 192.168.1.254, bthomehub.home, browser HTTPS warnings, and BT settings card admin password errors.
+- [How to Change Password of Tenda WiFi Without Entering the Previous Password](https://routeriphub.com/howto/change-tenda-wifi-password-without-previous-password/): Recovery via the Tenda WiFi app, web Forgot password?, and safe factory reset steps for tendawifi.com / 192.168.0.1.
 
 ## Machine-Readable Datasets & APIs
 - [Open-Source Router Dataset (GitHub)](https://github.com/routeriphub/default-router-ip-database): Official public GitHub repository containing raw router IP mappings, default passwords, and schema dumps.

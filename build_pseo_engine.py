@@ -117,8 +117,12 @@ def _sanitize_schema_node(node):
 
 
 # Common Header & Nav
-def get_header(title, description, canonical_url, active_nav="", breadcrumbs=None, schemas_json_ld=None, include_tools=False):
+def get_header(title, description, canonical_url, active_nav="", breadcrumbs=None, schemas_json_ld=None, include_tools=False, og_image=None, og_image_alt=None, og_type="website"):
     b_items = breadcrumbs or [("Home", "/")]
+    og_img_url = og_image or "https://routeriphub.com/og-image.png"
+    og_img_alt = og_image_alt or "RouterIPHub - The Definitive Default Router IP & Gateway Reference"
+    og_img_type = "image/webp" if og_img_url.lower().endswith(".webp") else "image/png"
+    og_img_height = "675" if og_img_url.lower().endswith(".webp") else "630"
     
     # Generate BreadcrumbList Schema
     breadcrumb_schema_items = []
@@ -180,17 +184,17 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
   <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Full LLM Context">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{escape(og_type)}">
   <meta property="og:url" content="{escape(canonical_url)}">
   <meta property="og:title" content="{escape(title)}">
   <meta property="og:description" content="{escape(description)}">
   <meta property="og:site_name" content="RouterIPHub">
-  <meta property="og:image" content="https://routeriphub.com/og-image.png">
-  <meta property="og:image:secure_url" content="https://routeriphub.com/og-image.png">
+  <meta property="og:image" content="{escape(og_img_url)}">
+  <meta property="og:image:secure_url" content="{escape(og_img_url)}">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:alt" content="RouterIPHub - The Definitive Default Router IP & Gateway Reference">
+  <meta property="og:image:height" content="{og_img_height}">
+  <meta property="og:image:type" content="{og_img_type}">
+  <meta property="og:image:alt" content="{escape(og_img_alt)}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -198,8 +202,8 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
   <meta name="twitter:creator" content="@RouterIPHub">
   <meta name="twitter:title" content="{escape(title)}">
   <meta name="twitter:description" content="{escape(description)}">
-  <meta name="twitter:image" content="https://routeriphub.com/og-image.png">
-  <meta name="twitter:image:alt" content="RouterIPHub - The Definitive Default Router IP & Gateway Reference">
+  <meta name="twitter:image" content="{escape(og_img_url)}">
+  <meta name="twitter:image:alt" content="{escape(og_img_alt)}">
 
   <!-- Instant Theme Initializer (Light Mode Default, 0ms FOUT) -->
   <script>
@@ -13886,6 +13890,7 @@ RouterIPHub indexes {model_count} specific router models, {brand_count} major ha
 - [How Do I Access My Router Settings Page?](https://routeriphub.com/howto/access-my-router-settings-page/): Step-by-step tutorial on finding management IPs, admin logins, and troubleshooting access errors.
 - [Why Is 192.168.1.1 Not Working in My Browser?](https://routeriphub.com/howto/why-is-192-168-1-1-not-working/): Step-by-step browser, VPN, proxy, private DNS, and gateway troubleshooting fixes for 192.168.1.1.
 - [Why Can't I Access My BT Hub Manager?](https://routeriphub.com/howto/why-cant-i-access-my-bt-hub-manager/): Fixes for 192.168.1.254, bthomehub.home, browser HTTPS warnings, and BT settings card admin password errors.
+- [How to Change Password of Tenda WiFi Without Entering the Previous Password](https://routeriphub.com/howto/change-tenda-wifi-password-without-previous-password/): Recovery via the Tenda WiFi app, web Forgot password?, and safe factory reset steps for tendawifi.com / 192.168.0.1.
 
 ## Machine-Readable Datasets & APIs
 - [Open-Source Router Dataset (GitHub)](https://github.com/routeriphub/default-router-ip-database): Official public GitHub repository containing raw router IP mappings, default passwords, and schema dumps.

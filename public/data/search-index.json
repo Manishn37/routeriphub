@@ -2576,6 +2576,14 @@
     "keywords": "why can\u2019t i access my bt hub manager? why cant i access my bt hub manager 192.168.1.254 bt hub manager bthomehub.home https"
   },
   {
+    "title": "Change Tenda WiFi Password \u2014 Reset Without Old Password",
+    "category": "Setup Guide",
+    "badge": "Tenda Recovery",
+    "url": "/howto/change-tenda-wifi-password-without-previous-password/",
+    "snippet": "Recover Tenda router access via the Tenda WiFi app or 192.168.0.1 web login, or perform a safe 8\u201310 second factory reset and set a strong new Wi-Fi password.",
+    "keywords": "how to change password of tenda wifi without entering the previous password change tenda wifi password without previous password tenda wi-fi password 192.168.0.1 factory reset"
+  },
+  {
     "title": "How to Change Your Wi-Fi Name & Password (2026)",
     "category": "Setup Guide",
     "badge": "Wi-Fi Security",

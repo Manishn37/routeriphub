@@ -950,6 +950,268 @@ WHY_BT_HUB_BODY = """
       </ul>
 """
 
+TENDA_WIFI_PASSWORD_BODY = """
+      <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
+        You generally cannot change a Tenda Wi-Fi password without either signing in with the current administrator password or resetting the router to factory settings. If you do not know the previous password, use the Tenda WiFi app&rsquo;s password-recovery option first; if that is unavailable, a factory reset is the reliable fallback.
+      </p>
+      <div class="callout callout-warning" style="background: var(--warning-bg); border: 1px solid var(--border-color); border-left: 4px solid #d97706; border-radius: var(--radius-md); padding: 1rem 1.25rem; margin: 1.25rem 0;">
+        <p style="margin: 0; color: var(--text-secondary); line-height: 1.65;">
+          A factory reset removes custom settings, including your Wi-Fi name, Wi-Fi password, and router administrator password. Record any settings you need before proceeding.
+        </p>
+      </div>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/change-tenda-wifi-password-without-previous-password.webp" width="1200" height="675" fetchpriority="high" alt="Diagram showing three ways to change a Tenda WiFi password without the old password: Tenda WiFi app recovery, 192.168.0.1 web login password recovery, and holding the rear reset button for 8 to 10 seconds">
+        <figcaption>Three ways to recover access and change your Tenda Wi-Fi password: Tenda WiFi App recovery, the 192.168.0.1 web login Forgot password? link, or an 8&ndash;10 second factory reset.</figcaption>
+      </figure>
+
+      <h2>Quick Answer</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Your situation</th>
+              <th>Best option</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-brand">You know the router administrator password</td>
+              <td>Sign in and change the Wi-Fi password</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">You do not know the admin password but use the Tenda WiFi app</td>
+              <td>Use <strong>Forgot password?</strong> in the app or web login</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">You are still connected to the Wi-Fi network</td>
+              <td>Try changing the password from the connected device</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">You cannot sign in and recovery fails</td>
+              <td>Factory reset the Tenda router</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">You only want to change the Wi-Fi password</td>
+              <td>Use <strong>WiFi Settings &rarr; WiFi Name &amp; Password</strong> after signing in</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        The normal Wi-Fi password-change process requires signing in to the router&rsquo;s <a href="/howto/access-my-router-settings-page/">management page</a>, opening the Wi-Fi settings, entering a new password, and saving it.
+      </p>
+
+      <h2>Before You Start</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Confirm which password you are trying to change:
+      </p>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Password</th>
+              <th>What it controls</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-brand">Wi-Fi password</td>
+              <td>The password devices use to join your wireless network</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Router administrator password</td>
+              <td>The password used to open Tenda router settings</td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Tenda WiFi app account password</td>
+              <td>The password for your Tenda online account</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Do not assume these are the same. Changing the Wi-Fi password does not automatically change the administrator password, and changing the administrator password does not automatically change the Wi-Fi password.
+      </p>
+
+      <h2>Option 1: Use the Tenda WiFi App</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If your router is already added to the Tenda WiFi app, try this first.
+      </p>
+      <ol>
+        <li>Open the <strong>Tenda WiFi</strong> app.</li>
+        <li>Tap your router.</li>
+        <li>Tap <strong>More Functions</strong>.</li>
+        <li>Tap <strong>Management Password</strong>.</li>
+        <li>Follow the prompts to verify or reset the password.</li>
+        <li>Set a new password and tap <strong>Confirm</strong>.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        On some Tenda Wi-Fi 7 models, the old management password may be the Wi-Fi password. This can let you recover access without knowing the separate administrator password.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If you are not signed in to the app, or the router is no longer bound to your account, this method may not work.
+      </p>
+
+      <h2>Option 2: Use Forgot Password in the Web Login</h2>
+      <ol>
+        <li>Connect your phone or computer to the Tenda router.</li>
+        <li>Open a browser.</li>
+        <li>Enter <code>http://tendawifi.com</code> or <a href="/ip/192-168-0-1/"><code>http://192.168.0.1</code></a>.</li>
+        <li>On the login screen, select <strong>Forgot password?</strong></li>
+        <li>Follow the on-screen verification or reset instructions.</li>
+        <li>Set a new administrator password.</li>
+        <li>Sign in and change the Wi-Fi password.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        The <strong>Forgot password?</strong> option is intended for users who previously set a router login password but cannot remember it.
+      </p>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/tenda-wifi-app-management-password-recovery.webp" width="1200" height="675" loading="lazy" alt="Side-by-side comparison of Tenda password recovery via the Tenda WiFi mobile app More Functions Management Password menu and the tendawifi.com or 192.168.0.1 router login page Forgot password link">
+        <figcaption>Password recovery options before resetting: Tenda WiFi app (More Functions &rarr; Management Password) and the browser login screen&rsquo;s Forgot password? prompt.</figcaption>
+      </figure>
+
+      <h2>Option 3: Change the Wi-Fi Password While Connected</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If your phone or computer is still connected to the Tenda Wi-Fi network, try signing in and changing the password directly.
+      </p>
+      <ol>
+        <li>Connect to the Tenda Wi-Fi network.</li>
+        <li>Open a browser.</li>
+        <li>Enter <code>http://tendawifi.com</code> or <a href="/ip/192-168-0-1/"><code>http://192.168.0.1</code></a>.</li>
+        <li>Sign in with the administrator password.</li>
+        <li>Open <strong>WiFi Settings</strong>.</li>
+        <li>Select <strong>WiFi Name &amp; Password</strong>.</li>
+        <li>Enter the new Wi-Fi password.</li>
+        <li>Tap <strong>Save</strong>.</li>
+        <li>Reconnect your devices using the new password.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Changing the Wi-Fi password disconnects currently connected wireless devices. They must reconnect using the new password.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If the router asks for the previous administrator password and you do not know it, this method will not work. Move to the recovery or reset option.
+      </p>
+
+      <h2>Option 4: Factory Reset the Tenda Router</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Use this only if you cannot recover the administrator password and no longer have access to the router settings.
+      </p>
+
+      <h3>What a reset changes</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        A factory reset restores the Tenda router to its original settings. You may need to set up the router again, including its internet connection, Wi-Fi name, Wi-Fi password, and administrator password.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Before resetting, check whether you have:
+      </p>
+      <ul>
+        <li>A saved configuration backup.</li>
+        <li>The internet-service details required for setup.</li>
+        <li>Access to the router&rsquo;s physical reset button.</li>
+        <li>The ability to reconnect and configure the router afterward.</li>
+      </ul>
+
+      <h3>Reset using the physical button</h3>
+      <ol>
+        <li>Keep the Tenda router powered on.</li>
+        <li>Find the <strong>RST</strong>, <strong>RESET</strong>, or <strong>WPS/RESET</strong> button on the back.</li>
+        <li>Press and hold it for about 8 to 10 seconds.</li>
+        <li>Release when the indicator light begins flashing quickly.</li>
+        <li>Wait for the router to reboot.</li>
+        <li>Connect to the router&rsquo;s default Wi-Fi network or use an Ethernet cable.</li>
+        <li>Open the management address shown on the router label.</li>
+        <li>Follow the first-time setup instructions.</li>
+        <li>Create a new Wi-Fi name and password.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Some Tenda models use a WPS/RESET button held for more than 10 seconds. Follow the instructions printed on your router or in its manual (also see our general <a href="/howto/30-second-hard-factory-reset/">router factory reset guide</a>).
+      </p>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/tenda-router-factory-reset-button-pinhole.webp" width="1200" height="675" loading="lazy" alt="Close-up diagram of the rear panel of a Tenda router showing a straightened paperclip pressing the recessed RST or RESET pinhole button for 8 to 10 seconds">
+        <figcaption>Locate the recessed RST / RESET (or WPS/RESET) pinhole on the rear panel while powered on, then hold for 8&ndash;10 seconds until status LEDs flash rapidly.</figcaption>
+      </figure>
+
+      <h3>Reset through the web interface</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If you can still sign in to the router:
+      </p>
+      <ol>
+        <li>Open the Tenda web interface.</li>
+        <li>Go to <strong>More</strong>.</li>
+        <li>Select <strong>System Settings</strong>.</li>
+        <li>Open <strong>Backup &amp; Restore</strong>.</li>
+        <li>Select <strong>Reset</strong>.</li>
+        <li>Confirm the reset and wait for the router to reboot.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        This method is only useful if you already have administrator access.
+      </p>
+
+      <h2>Set a New Wi-Fi Password After Reset</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        After the reset and first-time setup:
+      </p>
+      <ol>
+        <li>Connect to the Tenda router.</li>
+        <li>Open <code>http://tendawifi.com</code> or the management IP address on the router label.</li>
+        <li>Create or enter the new administrator password.</li>
+        <li>Open <strong>WiFi Settings</strong>.</li>
+        <li>Select <strong>WiFi Name &amp; Password</strong>.</li>
+        <li>Enter a strong new Wi-Fi password.</li>
+        <li>Save the settings.</li>
+        <li>Reconnect your devices.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Use a Wi-Fi password of at least eight characters. Prefer WPA2 or WPA3 security if your router offers it.
+      </p>
+
+      <h2>Create a Strong New Password</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Use a password that is (or generate one locally with our <a href="/tools/router-password-generator/">Router Password Generator</a>):
+      </p>
+      <ul>
+        <li>At least 12 characters long where the router allows it.</li>
+        <li>A mix of uppercase letters, lowercase letters, numbers, and symbols.</li>
+        <li>Different from your router administrator password.</li>
+        <li>Not based on your name, address, phone number, or common words.</li>
+      </ul>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Example format: <code>Blue-Tea-47-Lamp!</code>
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Do not reuse a password from another account.
+      </p>
+
+      <h2>If You Cannot Access the Router at All</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If the router page will not open after a reset, try:
+      </p>
+      <ul>
+        <li>Connecting by Ethernet cable instead of Wi-Fi.</li>
+        <li>Using the management address printed on the router label (or check your device&rsquo;s <a href="/find-router-ip/">active gateway address</a>).</li>
+        <li>Trying <a href="/ip/192-168-0-1/"><code>http://192.168.0.1</code></a> if that is the address shown for your model.</li>
+        <li>Waiting several minutes for the router to finish rebooting.</li>
+        <li>Trying another browser or device.</li>
+        <li>Checking that VPN, proxy, or private DNS settings are disabled.</li>
+      </ul>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        The management IP address and login details are usually printed on the label on the back of the device. If the IP address or password was changed, use the new values.
+      </p>
+
+      <h2>Common Mistakes</h2>
+      <ul>
+        <li>Confusing the Wi-Fi password with the router administrator password.</li>
+        <li>Trying to change the Wi-Fi password without administrator access.</li>
+        <li>Assuming the Tenda WiFi app can recover a router that is not bound to your account.</li>
+        <li>Resetting the router before checking whether the app&rsquo;s password-recovery option works.</li>
+        <li>Forgetting to reconnect devices after changing the Wi-Fi password.</li>
+        <li>Using a weak or reused password after resetting the router.</li>
+      </ul>
+"""
+
 GUIDE_POSTS = [
     {
         "slug": "access-my-router-settings-page",
@@ -1088,6 +1350,53 @@ GUIDE_POSTS = [
             ),
         ],
         "bottom_line": "Connect to your BT Hub, open <code>192.168.1.254</code> or <code>http://bthomehub.home</code>, and accept the expected HTTPS warning if it appears. Use the Hub admin password&mdash;not the Wi-Fi password&mdash;to make changes. If the page will not open, disconnect VPN or proxy settings and restart the Hub before considering a reset.",
+    },
+    {
+        "slug": "change-tenda-wifi-password-without-previous-password",
+        "url": "/howto/change-tenda-wifi-password-without-previous-password/",
+        "anchor_id": "tenda-wifi-password-reset",
+        "featured": False,
+        "badge": "Tenda Recovery",
+        "category": "Wi-Fi & Mesh",
+        "category_key": "wifi",
+        "meta_title": "Change Tenda WiFi Password — Reset Without Old Password",
+        "meta_desc": "Can’t change your Tenda WiFi password without the old password? Recover access, reset the router safely, and set a new Wi-Fi password step by step.",
+        "headline": "How to Change Password of Tenda WiFi Without Entering the Previous Password",
+        "short_title": "Change Tenda WiFi Password",
+        "excerpt": "Recover Tenda router access via the Tenda WiFi app or 192.168.0.1 web login, or perform a safe 8–10 second factory reset and set a strong new Wi-Fi password.",
+        "date_published": "2026-11-12",
+        "date_modified": "2026-11-12",
+        "read_time": "7 min read",
+        "tags": ["Tenda", "Wi-Fi Password", "192.168.0.1", "Factory Reset"],
+        "image": "/images/howto/change-tenda-wifi-password-without-previous-password.webp",
+        "body_html": TENDA_WIFI_PASSWORD_BODY,
+        "faqs": [
+            (
+                "Can I change my Tenda Wi-Fi password without the old password?",
+                "Not directly through the normal settings page. You need either the current administrator password, access through the Tenda WiFi app’s recovery option, or a factory reset.",
+            ),
+            (
+                "Does resetting a Tenda router delete the Wi-Fi password?",
+                "Yes. A factory reset restores default settings, so your previous custom Wi-Fi name and password are removed. You will need to set up the router again.",
+            ),
+            (
+                "What is the default Tenda router login?",
+                "Older Tenda routers commonly use admin for both the username and password. Newer models may not use a default username and password in the same way, so check the router label and first-time setup screen.",
+            ),
+            (
+                "What is the Tenda router management address?",
+                "Common addresses include http://tendawifi.com and http://192.168.0.1. Some models use a different address, so check the label on the back of the router.",
+            ),
+            (
+                "Will changing the Wi-Fi password disconnect my devices?",
+                "Yes. Devices connected to the old Wi-Fi password will disconnect and must reconnect using the new password.",
+            ),
+            (
+                "Can I recover the administrator password through the Tenda WiFi app?",
+                "Sometimes. If the router is bound to your Tenda WiFi app account, open the router, go to More Functions, then Management Password, and follow the recovery prompts.",
+            ),
+        ],
+        "bottom_line": "If you do not know the previous Tenda password, first try the Tenda WiFi app&rsquo;s <strong>Management Password</strong> recovery option or the web login&rsquo;s <strong>Forgot password?</strong> link. If neither works, factory reset the router, complete setup again, and create a new strong Wi-Fi password.",
     },
     {
         "slug": "change-wifi-password",
