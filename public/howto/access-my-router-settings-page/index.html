@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Do I Access My Router Settings Page? — Login &amp; Fixes</title>
+  <meta name="description" content="Access your router settings page by connecting to your home network and opening its management address. Find your router IP, sign in, and fix common login issues.">
+  <link rel="canonical" href="https://routeriphub.com/howto/access-my-router-settings-page/">
+
+  <!-- Favicon Suite -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0284c7">
+
+  <!-- LLM / AI Manifest Discovery -->
+  <link rel="describedby" type="text/markdown" href="/llms.txt">
+  <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Full LLM Context">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://routeriphub.com/howto/access-my-router-settings-page/">
+  <meta property="og:title" content="How Do I Access My Router Settings Page? — Login &amp; Fixes">
+  <meta property="og:description" content="Access your router settings page by connecting to your home network and opening its management address. Find your router IP, sign in, and fix common login issues.">
+  <meta property="og:site_name" content="RouterIPHub">
+  <meta property="og:image" content="https://routeriphub.com/og-image.png">
+  <meta property="og:image:secure_url" content="https://routeriphub.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="RouterIPHub - The Definitive Default Router IP & Gateway Reference">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@RouterIPHub">
+  <meta name="twitter:creator" content="@RouterIPHub">
+  <meta name="twitter:title" content="How Do I Access My Router Settings Page? — Login &amp; Fixes">
+  <meta name="twitter:description" content="Access your router settings page by connecting to your home network and opening its management address. Find your router IP, sign in, and fix common login issues.">
+  <meta name="twitter:image" content="https://routeriphub.com/og-image.png">
+  <meta name="twitter:image:alt" content="RouterIPHub - The Definitive Default Router IP & Gateway Reference">
+
+  <!-- Instant Theme Initializer (Light Mode Default, 0ms FOUT) -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/app.js" defer></script>
+
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "where": {
+          "and": [
+            {"href_matches": "/*"},
+            {"not": {"href_matches": "/data/*"}}
+          ]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://routeriphub.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How-To Guides",
+          "item": "https://routeriphub.com/howto/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Access Router Settings Page",
+          "item": "https://routeriphub.com/howto/access-my-router-settings-page/"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "How Do I Access My Router Settings Page?",
+      "description": "Access your router settings page by connecting to your home network and opening its management address. Find your router IP, sign in, and fix common login issues.",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://routeriphub.com/howto/access-my-router-settings-page/",
+      "datePublished": "2026-11-12T08:00:00+00:00",
+      "dateModified": "2026-11-12T08:00:00+00:00",
+      "author": {
+        "@type": "Person",
+        "name": "Vikas Behl",
+        "url": "https://routeriphub.com/authors/vikas-behl/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RouterIPHub",
+        "url": "https://routeriphub.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://routeriphub.com/android-chrome-512x512.png",
+          "width": 512,
+          "height": 512
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the most common router settings-page address?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The most common addresses are 192.168.1.1 and 192.168.0.1. Some routers and gateways use different addresses, such as 10.0.0.1 or 192.168.1.254."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need internet access to open router settings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You need a connection to the router's local network, not necessarily an active internet connection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What username and password should I use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check the router label for the default administrator credentials. If you changed the password during setup, use your custom password instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can I connect to Wi-Fi but not open the router page?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You may be using the wrong management address, connected to a different device, or using a browser setting that blocks the local address. Confirm the gateway address and try a direct Ethernet connection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I access router settings from my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Connect your phone to the router's Wi-Fi network, open a browser, and enter the router's management address in the address bar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the router settings page safe to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, when you access it from your own home network and use a strong, unique administrator password. Avoid changing security settings you do not understand."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <!-- Google Tag Manager / gtag.js -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-547N7K2L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zbfhxripke");
+  </script>
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-logo" aria-label="RouterIPHub Home">
+        <svg class="brand-mark" width="44" height="30" viewBox="0 0 118 82" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Antenna -->
+  <path class="logo-navy" d="M13 46L7.5 13C7.1 10.8 8.7 8.8 10.9 8.8C12.8 8.8 14.4 10.1 14.8 12L21 46H13Z"/>
+  <!-- Wi-Fi Waves -->
+  <path class="logo-wave" d="M23 19C32.5 10.5 46.5 10.5 56 19" stroke-width="5.5" stroke-linecap="round"/>
+  <path class="logo-wave" d="M29 28.5C35 23 44 23 50 28.5" stroke-width="5.2" stroke-linecap="round"/>
+  <circle class="logo-navy" cx="39.5" cy="37" r="4"/>
+  <!-- Router Chassis & Foot -->
+  <rect class="logo-navy" x="10" y="68" width="14" height="5" rx="2"/>
+  <path class="logo-blue" d="M6 52C6 48.134 9.134 45 13 45H57L49 69H13C9.134 69 6 65.866 6 62V52Z"/>
+  <circle fill="#ffffff" cx="15.5" cy="57" r="4.2"/>
+  <circle fill="#ffffff" cx="26.5" cy="57" r="2.2"/>
+  <circle fill="#ffffff" cx="34.5" cy="57" r="2.2"/>
+  <!-- Orange Network Branch -->
+  <path class="logo-orange" d="M72 15L60 32L72 28" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-orange" cx="72" cy="14" r="5"/>
+  <circle class="logo-orange" cx="59" cy="32" r="5"/>
+  <!-- Teal Network Graph -->
+  <path class="logo-teal" d="M74 42L90 27V57L74 72V53" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-teal" cx="90" cy="27" r="5"/>
+  <circle class="logo-teal" cx="90" cy="57" r="5"/>
+  <circle class="logo-teal" cx="74" cy="72" r="5"/>
+  <!-- Diagnostic Wrench Overlay -->
+  <path class="logo-cutout" stroke-width="3.5" stroke-linejoin="round" d="M77.5 34.5C73.5 32.5 68.5 33.5 65.5 37C63.2 39.7 62.7 43.4 64 46.5L51.5 59C49.5 61 49.5 64.2 51.5 66.2C53.5 68.2 56.7 68.2 58.7 66.2L71.2 53.7C74.3 55 78 54.5 80.7 52.2C84.2 49.2 85.2 44.2 83.2 40.2L77.5 45.9L71.8 40.2L77.5 34.5Z"/>
+  <circle fill="#ffffff" cx="55.1" cy="62.6" r="2.2"/>
+</svg>
+<span class="brand-wordmark">
+  <span class="brand-name">Router<span class="brand-ip">IP</span>Hub</span>
+  <span class="brand-tld">.com</span>
+</span>
+        <span class="brand-badge">2026</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Main Navigation" class="desktop-nav">
+        <ul class="nav-links">
+                    <li class="nav-dropdown-wrapper">
+            <a href="/routers/" class="nav-dropdown-trigger ">
+              <span>Routers</span>
+              <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="nav-dropdown-menu" aria-label="Router Brands">
+              <div class="dropdown-top-bar">
+                <span class="dropdown-title">Hardware Brand Categories</span>
+                <a href="/routers/" class="dropdown-all-link">All 252 Models &rarr;</a>
+              </div>
+              <div class="dropdown-brands-grid">
+                <a href="/brands/eero/" class="dropdown-brand-item">Amazon Eero</a>
+                <a href="/brands/arris/" class="dropdown-brand-item">Arris</a>
+                <a href="/brands/asus/" class="dropdown-brand-item">ASUS</a>
+                <a href="/brands/avm-fritzbox/" class="dropdown-brand-item">AVM FRITZ!Box</a>
+                <a href="/brands/cisco/" class="dropdown-brand-item">Cisco</a>
+                <a href="/brands/d-link/" class="dropdown-brand-item">D-Link</a>
+                <a href="/brands/draytek/" class="dropdown-brand-item">DrayTek</a>
+                <a href="/brands/gl-inet/" class="dropdown-brand-item">GL.iNet</a>
+                <a href="/brands/google-nest/" class="dropdown-brand-item">Google Nest</a>
+                <a href="/brands/huawei/" class="dropdown-brand-item">Huawei</a>
+                <a href="/brands/linksys/" class="dropdown-brand-item">Linksys</a>
+                <a href="/brands/mikrotik/" class="dropdown-brand-item">MikroTik</a>
+                <a href="/brands/motorola/" class="dropdown-brand-item">Motorola</a>
+                <a href="/brands/netgear/" class="dropdown-brand-item">Netgear</a>
+                <a href="/routers/pldt/" class="dropdown-brand-item">PLDT</a>
+                <a href="/brands/synology/" class="dropdown-brand-item">Synology</a>
+                <a href="/brands/tp-link/" class="dropdown-brand-item">TP-Link</a>
+                <a href="/brands/ubiquiti/" class="dropdown-brand-item">Ubiquiti</a>
+                <a href="/brands/xfinity/" class="dropdown-brand-item">Xfinity</a>
+                <a href="/brands/zyxel/" class="dropdown-brand-item">Zyxel</a>
+              </div>
+              <div class="dropdown-bottom-bar">
+                <a href="/brands/"><span>Explore all 20 Brand Directories</span> &rarr;</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="/isp/" class="">ISP Gateways</a></li>
+          <li><a href="/extenders/" class="">Extenders</a></li>
+          <li><a href="/tools/" class="">Tools</a></li>
+          <li><a href="/brands/" class="">Brands</a></li>
+          <li><a href="/ip/" class="">IP Directory</a></li>
+          <li><a href="/howto/" class="active">Guides</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Global Search Bar Button -->
+        <button class="search-trigger-btn" aria-label="Search entire website" title="Search site (Press / or Ctrl+K)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="search-trigger-text">Search site...</span>
+          <kbd class="search-trigger-kbd">Ctrl K</kbd>
+        </button>
+
+        <!-- Theme Switcher Button -->
+        <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+      <div class="container">
+        <div style="margin-bottom: 0.75rem;">
+          <button class="search-trigger-btn" style="width: 100%; border-radius: var(--radius-md); justify-content: flex-start; padding: 0.75rem 1rem; min-height: 48px; background: var(--bg-card); gap: 0.75rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span style="font-size: 0.95rem; color: var(--text-muted);">Search 252+ models, IPs, tools...</span>
+          </button>
+        </div>
+
+        <ul class="mobile-nav-list">
+                    <li class="mobile-dropdown-wrapper">
+            <div class="mobile-dropdown-row">
+              <a href="/routers/"><span>Router Models Directory</span></a>
+              <button type="button" class="mobile-dropdown-btn" id="mobile-routers-toggle" aria-expanded="false" aria-label="Toggle brand categories list">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+            </div>
+            <div class="mobile-dropdown-sub" id="mobile-routers-sub">
+              <div class="mobile-brands-chips">
+                <a href="/brands/asus/">ASUS</a>
+                <a href="/brands/cisco/">Cisco</a>
+                <a href="/brands/d-link/">D-Link</a>
+                <a href="/brands/eero/">Eero</a>
+                <a href="/brands/google-nest/">Google Nest</a>
+                <a href="/brands/linksys/">Linksys</a>
+                <a href="/brands/mikrotik/">MikroTik</a>
+                <a href="/brands/netgear/">Netgear</a>
+                <a href="/routers/pldt/">PLDT</a>
+                <a href="/brands/synology/">Synology</a>
+                <a href="/brands/tp-link/">TP-Link</a>
+                <a href="/brands/ubiquiti/">Ubiquiti</a>
+                <a href="/brands/">+ All Brands &rarr;</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="/isp/"><span>ISP Gateway Portals</span><span>&rarr;</span></a></li>
+          <li><a href="/extenders/"><span>Wi-Fi Extenders &amp; Repeaters</span><span>&rarr;</span></a></li>
+          <li><a href="/tools/"><span>Interactive Networking Tools</span><span>&rarr;</span></a></li>
+          <li><a href="/brands/"><span>Brand Directories</span><span>&rarr;</span></a></li>
+          <li><a href="/ip/"><span>Gateway IP Directory</span><span>&rarr;</span></a></li>
+          <li><a href="/howto/"><span>Setup &amp; Troubleshooting Guides</span><span>&rarr;</span></a></li>
+          <li style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+            <button class="theme-toggle-btn" style="width: 100%; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.15rem; background: var(--bg-card); height: auto; min-height: 48px;">
+              <span>Switch Theme</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Toggle</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs Bar -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumbs">
+        <a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/howto/">How-To Guides</a> <span class="sep">&rsaquo;</span> <span aria-current="page">Access Router Settings Page</span>
+      </nav>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
+    <article class="prose content-container">
+      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        <span class="guide-category-badge">Login &amp; Access</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">6 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+      </div>
+
+      <h1>How Do I Access My Router Settings Page?</h1>
+
+      <div class="byline-meta-card">
+        <div class="byline-author-group">
+          <div class="byline-avatar">VB</div>
+          <div class="byline-text">
+            <div class="byline-line-1">
+              <span class="byline-role">Written &amp; Tested by</span>
+              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+              <span class="byline-badge">12+ Yrs Exp</span>
+            </div>
+            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-review-group">
+          <span class="byline-role">Reviewed by</span>
+          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+          <span class="byline-status">&#10003; Hardware Verified</span>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-date-group">
+          <span class="byline-role">Updated</span>
+          <time datetime="2026-11-12" class="byline-date">Nov 12, 2026</time>
+        </div>
+      </div>
+
+      
+      <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
+        To access your router&rsquo;s settings page, connect to your home Wi-Fi network, open a browser, and enter your router&rsquo;s management IP address&mdash;commonly <a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a> or <a href="/ip/192-168-0-1/"><code>192.168.0.1</code></a>. Then sign in with the administrator credentials for that specific router.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.75;">
+        The settings page is usually called the router admin panel, web management page, or gateway interface. It lets you manage Wi-Fi names, passwords, connected devices, security settings, and other router functions.
+      </p>
+
+      <h2>Quick Answer</h2>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>What to do</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1</strong></td>
+              <td>Connect your phone or computer to the router&rsquo;s Wi-Fi network, or use an Ethernet cable</td>
+            </tr>
+            <tr>
+              <td><strong>2</strong></td>
+              <td>Open a browser such as Chrome, Firefox, Edge, or Safari</td>
+            </tr>
+            <tr>
+              <td><strong>3</strong></td>
+              <td>Enter the router&rsquo;s management address in the browser&rsquo;s address bar</td>
+            </tr>
+            <tr>
+              <td><strong>4</strong></td>
+              <td>Sign in with the router&rsquo;s administrator username and password</td>
+            </tr>
+            <tr>
+              <td><strong>5</strong></td>
+              <td>Open the settings section you need</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Common router management addresses include <a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a>, <a href="/ip/192-168-0-1/"><code>192.168.0.1</code></a>, and <a href="/ip/10-0-0-1/"><code>10.0.0.1</code></a>. The correct address depends on the router brand, model, and network configuration.
+      </p>
+
+      <h2>Find Your Router&rsquo;s Management Address</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Try these addresses first, one at a time:
+      </p>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Router type</th>
+              <th>Common management address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-brand"><a href="/brands/tp-link/">TP-Link standard router</a></td>
+              <td><a href="/ip/192-168-0-1/"><code>192.168.0.1</code></a> or <a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a></td>
+            </tr>
+            <tr>
+              <td class="cell-brand">TP-Link DSL modem router</td>
+              <td><a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a></td>
+            </tr>
+            <tr>
+              <td class="cell-brand"><a href="/brands/linksys/">Linksys</a>, <a href="/brands/asus/">ASUS</a>, and many other routers</td>
+              <td><a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a></td>
+            </tr>
+            <tr>
+              <td class="cell-brand"><a href="/isp/xfinity-xfi/">Xfinity gateway</a></td>
+              <td><a href="/ip/10-0-0-1/"><code>10.0.0.1</code></a></td>
+            </tr>
+            <tr>
+              <td class="cell-brand"><a href="/isp/att-bgw320/">AT&amp;T gateway</a></td>
+              <td><a href="/ip/192-168-1-254/"><code>192.168.1.254</code></a></td>
+            </tr>
+            <tr>
+              <td class="cell-brand">Router with a custom address</td>
+              <td>Check the router label or your network&rsquo;s <a href="/find-router-ip/">gateway address</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        For TP-Link routers, <code>tplinkwifi.net</code> or <code>192.168.0.1</code> are commonly used. TP-Link DSL modem routers may use <code>tplinkmodem.net</code> or <code>192.168.1.1</code>.
+      </p>
+
+      <h2>Check the Router Label</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Turn the router over or look at its back panel. The label often lists:
+      </p>
+      <ul>
+        <li>The router&rsquo;s default management IP address.</li>
+        <li>The default administrator username.</li>
+        <li>The default administrator password.</li>
+        <li>The Wi-Fi network name.</li>
+        <li>The Wi-Fi password.</li>
+      </ul>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Use the administrator credentials&mdash;not the Wi-Fi password&mdash;when the settings page asks for a router login. Some newer routers require you to create an administrator password during first-time setup instead of using a default one.
+      </p>
+
+      <h2>Step-by-Step: Open Router Settings</h2>
+
+      <h3>1. Connect to the router</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Connect your device to the router&rsquo;s Wi-Fi network. For more reliable access, use an Ethernet cable between your computer and one of the router&rsquo;s LAN ports.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Do not rely on mobile data. The settings page is a local interface, so your device must be connected to the router&rsquo;s network.
+      </p>
+
+      <h3>2. Open a browser</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Use Chrome, Firefox, Edge, or Safari. Open a new tab and find the address bar at the top of the browser window.
+      </p>
+
+      <h3>3. Enter the management address</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Type the address directly into the browser&rsquo;s address bar and press Enter. Common examples:
+      </p>
+      <ul>
+        <li><code>http://192.168.1.1</code></li>
+        <li><code>http://192.168.0.1</code></li>
+        <li><code>http://10.0.0.1</code></li>
+        <li><code>http://192.168.1.254</code></li>
+      </ul>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Do not enter the address into a search engine. A search result page is not the router&rsquo;s settings page.
+      </p>
+
+      <h3>4. Sign in</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Enter the administrator username and password:
+      </p>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Login situation</th>
+              <th>What to use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Router label lists a default username and password</td>
+              <td>Use those exact details</td>
+            </tr>
+            <tr>
+              <td>You created a password during setup</td>
+              <td>Use your custom administrator password</td>
+            </tr>
+            <tr>
+              <td>The page asks you to create a password</td>
+              <td>Create and save a strong new password</td>
+            </tr>
+            <tr>
+              <td>The page asks for Wi-Fi credentials</td>
+              <td>You may be on the wrong login page or entering the wrong password</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Some older routers use <code>admin</code> as both the default username and password. Other brands and models use different credentials, so check the label or search our <a href="/routers/">router model directory</a> before trying generic passwords.
+      </p>
+
+      <h3>5. Open the setting you need</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        After signing in, look for menus such as:
+      </p>
+      <ul>
+        <li>Wireless or Wi-Fi</li>
+        <li>LAN</li>
+        <li>WAN or Internet</li>
+        <li>Security</li>
+        <li>Administration</li>
+        <li>Connected Devices</li>
+        <li>Parental Controls</li>
+        <li>Port Forwarding</li>
+        <li>Firmware Update</li>
+      </ul>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Menu names vary by brand and model. Do not change settings you do not recognize.
+      </p>
+
+      <h2>Find the Router IP If Common Addresses Fail</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If <code>192.168.1.1</code> and <code>192.168.0.1</code> do not open your settings page, find your network&rsquo;s gateway address (or try our <a href="/tools/detect-gateway/">Gateway Auto-Detector tool</a>).
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0; font-size: 1.05rem;">On Windows</h3>
+          <ol style="margin-bottom: 0; padding-left: 1.25rem;">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Go to <strong>Network &amp; Internet</strong>.</li>
+            <li>Open your active Wi-Fi or Ethernet connection.</li>
+            <li>Find the <strong>Default gateway</strong> or <strong>IPv4 Default Gateway</strong>.</li>
+            <li>Enter that address in your browser.</li>
+          </ol>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0; font-size: 1.05rem;">On Mac</h3>
+          <ol style="margin-bottom: 0; padding-left: 1.25rem;">
+            <li>Open <strong>System Settings</strong>.</li>
+            <li>Go to <strong>Wi-Fi</strong> or <strong>Network</strong>.</li>
+            <li>Open the details for your active connection.</li>
+            <li>Find <strong>Router</strong> or <strong>Gateway</strong>.</li>
+            <li>Enter that address in your browser.</li>
+          </ol>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0; font-size: 1.05rem;">On Android</h3>
+          <ol style="margin-bottom: 0; padding-left: 1.25rem;">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Go to <strong>Network &amp; internet</strong> or <strong>Connections</strong>.</li>
+            <li>Open <strong>Wi-Fi</strong>.</li>
+            <li>Tap your connected network.</li>
+            <li>Look for <strong>Gateway</strong> or <strong>Router</strong>.</li>
+          </ol>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+          <h3 style="margin-top: 0; font-size: 1.05rem;">On iPhone or iPad</h3>
+          <ol style="margin-bottom: 0; padding-left: 1.25rem;">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Go to <strong>Wi-Fi</strong>.</li>
+            <li>Tap the information icon next to your connected network.</li>
+            <li>Find <strong>Router</strong>.</li>
+            <li>Enter that address in your browser.</li>
+          </ol>
+        </div>
+      </div>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        The gateway address is the address to use for the router&rsquo;s local management interface. For terminal commands across every operating system, read our complete <a href="/find-router-ip/">Router IP Discovery Guide</a>.
+      </p>
+
+      <h2>If the Settings Page Will Not Open</h2>
+
+      <h3>1. Confirm the connection</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Make sure your device is connected to the correct router. If you have a modem, mesh system, extender, or separate router, you may be reaching a different device.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Use a direct Ethernet connection to the router when possible. This removes Wi-Fi signal problems from the troubleshooting process.
+      </p>
+
+      <h3>2. Check the address</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Enter the IP address exactly. Do not add <code>.com</code> to an IP address.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0 1.5rem 0;">
+        <div style="background: var(--success-bg); border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-md);">
+          <div style="font-weight: 700; color: var(--success-text); margin-bottom: 0.4rem;">Correct examples</div>
+          <ul style="margin: 0; padding-left: 1.25rem;">
+            <li><code>http://192.168.1.1</code></li>
+            <li><code>http://192.168.0.1</code></li>
+          </ul>
+        </div>
+        <div style="background: var(--warning-bg); border: 1px solid var(--border-color); padding: 1rem; border-radius: var(--radius-md);">
+          <div style="font-weight: 700; color: var(--warning-text); margin-bottom: 0.4rem;">Incorrect examples</div>
+          <ul style="margin: 0; padding-left: 1.25rem;">
+            <li><code>192.168.l.1</code> (lowercase letter l)</li>
+            <li><code>192.168.1.l</code></li>
+            <li><code>192.168.1.1.com</code></li>
+            <li><code>192.168.1.1 router login</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>3. Try another common address</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If one address does not load, try:
+      </p>
+      <ul>
+        <li><code>http://192.168.0.1</code></li>
+        <li><code>http://192.168.1.1</code></li>
+        <li><code>http://10.0.0.1</code></li>
+      </ul>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Do not change router settings at random. Use the address shown on the router label or found through your device&rsquo;s gateway settings.
+      </p>
+
+      <h3>4. Disable VPN or proxy temporarily</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        A VPN, proxy, or privacy-focused browser setting can interfere with access to a local router address. Temporarily disconnect the VPN and try again.
+      </p>
+
+      <h3>5. Restart the router</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Turn the router off, wait about 30 seconds, then turn it back on. Wait for the Wi-Fi and internet lights to stabilize before trying again.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Restarting is different from factory resetting. A restart preserves your settings; a factory reset removes them.
+      </p>
+
+      <h2>If the Router Password Is Rejected</h2>
+
+      <h3>Check the correct password field</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        The router administrator password is not necessarily the same as the Wi-Fi password. Check the label field labeled Admin Password, Router Password, or Network Settings Password.
+      </p>
+
+      <h3>Check whether the password was changed</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        If you or someone else changed the administrator password, the label&rsquo;s original password will no longer work.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Use the password created during setup. If you cannot recover it, follow the recovery procedure for your exact router model.
+      </p>
+
+      <h3>Do not reset immediately</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        A factory reset can erase custom Wi-Fi names, passwords, parental controls, port-forwarding rules, and other configuration. Record any settings you need before resetting.
+      </p>
+      <p style="color: var(--text-secondary); line-height: 1.7;">
+        Use a reset only after checking the exact instructions for your router model. When a reset is genuinely required, see our <a href="/howto/30-second-hard-factory-reset/">30-Second Factory Reset Guide</a>.
+      </p>
+
+      <h2>Common Mistakes</h2>
+      <ul>
+        <li>Using mobile data instead of connecting to the router&rsquo;s network.</li>
+        <li>Typing the management address into a search engine.</li>
+        <li>Entering the Wi-Fi password as the router administrator password.</li>
+        <li>Assuming every router uses <code>192.168.1.1</code>.</li>
+        <li>Adding <code>.com</code> to an IP address.</li>
+        <li>Factory resetting before checking model-specific recovery instructions.</li>
+      </ul>
+
+
+      <h2>FAQs</h2>
+      <div style="margin-top: 1rem;">
+        
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">What is the most common router settings-page address?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">The most common addresses are 192.168.1.1 and 192.168.0.1. Some routers and gateways use different addresses, such as 10.0.0.1 or 192.168.1.254.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Do I need internet access to open router settings?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">No. You need a connection to the router&#x27;s local network, not necessarily an active internet connection.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">What username and password should I use?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Check the router label for the default administrator credentials. If you changed the password during setup, use your custom password instead.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Why can I connect to Wi-Fi but not open the router page?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">You may be using the wrong management address, connected to a different device, or using a browser setting that blocks the local address. Confirm the gateway address and try a direct Ethernet connection.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Can I access router settings from my phone?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Yes. Connect your phone to the router&#x27;s Wi-Fi network, open a browser, and enter the router&#x27;s management address in the address bar.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Is the router settings page safe to use?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Yes, when you access it from your own home network and use a strong, unique administrator password. Avoid changing security settings you do not understand.</p>
+        </div>
+      </div>
+
+      <h2>The Bottom Line</h2>
+      <div class="bottom-line-callout">
+        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+          Connect to your router&rsquo;s network, enter its management address directly into the browser&rsquo;s address bar, and sign in with the administrator credentials. Start with <code>192.168.1.1</code> or <code>192.168.0.1</code>, then check the router label or your device&rsquo;s gateway address if those do not work.
+        </p>
+      </div>
+
+      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+        
+        
+        <a href="/howto/change-wifi-password/" class="guide-nav-card" style="text-align: right;">
+          <span class="guide-nav-label">Next Guide &rarr;</span>
+          <span class="guide-nav-title">How to Change Your Wi-Fi Name (SSID) &amp; Password</span>
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="/" class="brand-logo" style="margin-bottom: 0.75rem;" aria-label="RouterIPHub Home">
+          <svg class="brand-mark" width="44" height="30" viewBox="0 0 118 82" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Antenna -->
+  <path class="logo-navy" d="M13 46L7.5 13C7.1 10.8 8.7 8.8 10.9 8.8C12.8 8.8 14.4 10.1 14.8 12L21 46H13Z"/>
+  <!-- Wi-Fi Waves -->
+  <path class="logo-wave" d="M23 19C32.5 10.5 46.5 10.5 56 19" stroke-width="5.5" stroke-linecap="round"/>
+  <path class="logo-wave" d="M29 28.5C35 23 44 23 50 28.5" stroke-width="5.2" stroke-linecap="round"/>
+  <circle class="logo-navy" cx="39.5" cy="37" r="4"/>
+  <!-- Router Chassis & Foot -->
+  <rect class="logo-navy" x="10" y="68" width="14" height="5" rx="2"/>
+  <path class="logo-blue" d="M6 52C6 48.134 9.134 45 13 45H57L49 69H13C9.134 69 6 65.866 6 62V52Z"/>
+  <circle fill="#ffffff" cx="15.5" cy="57" r="4.2"/>
+  <circle fill="#ffffff" cx="26.5" cy="57" r="2.2"/>
+  <circle fill="#ffffff" cx="34.5" cy="57" r="2.2"/>
+  <!-- Orange Network Branch -->
+  <path class="logo-orange" d="M72 15L60 32L72 28" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-orange" cx="72" cy="14" r="5"/>
+  <circle class="logo-orange" cx="59" cy="32" r="5"/>
+  <!-- Teal Network Graph -->
+  <path class="logo-teal" d="M74 42L90 27V57L74 72V53" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-teal" cx="90" cy="27" r="5"/>
+  <circle class="logo-teal" cx="90" cy="57" r="5"/>
+  <circle class="logo-teal" cx="74" cy="72" r="5"/>
+  <!-- Diagnostic Wrench Overlay -->
+  <path class="logo-cutout" stroke-width="3.5" stroke-linejoin="round" d="M77.5 34.5C73.5 32.5 68.5 33.5 65.5 37C63.2 39.7 62.7 43.4 64 46.5L51.5 59C49.5 61 49.5 64.2 51.5 66.2C53.5 68.2 56.7 68.2 58.7 66.2L71.2 53.7C74.3 55 78 54.5 80.7 52.2C84.2 49.2 85.2 44.2 83.2 40.2L77.5 45.9L71.8 40.2L77.5 34.5Z"/>
+  <circle fill="#ffffff" cx="55.1" cy="62.6" r="2.2"/>
+</svg>
+<span class="brand-wordmark">
+  <span class="brand-name">Router<span class="brand-ip">IP</span>Hub</span>
+  <span class="brand-tld">.com</span>
+</span>
+        </a>
+        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
+          Open reference platform for router default gateway IPs, factory credentials, LED diagnostics, and networking utilities.
+        </p>
+        <ul class="footer-links">
+          <li><a href="/routers/">Router Directory (252 Models)</a></li>
+          <li><a href="/extenders/">Wi-Fi Extenders &amp; Repeaters</a></li>
+          <li><a href="/brands/">Hardware Brands (20)</a></li>
+          <li><a href="/isp/">ISP Gateway Portals</a></li>
+          <li><a href="/tools/">Interactive Tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Popular Gateway IPs</p>
+        <ul class="footer-links">
+          <li><a href="/ip/192-168-1-1/">192.168.1.1 (Netgear/ASUS)</a></li>
+          <li><a href="/ip/192-168-0-1/">192.168.0.1 (TP-Link/D-Link)</a></li>
+          <li><a href="/ip/10-0-0-1/">10.0.0.1 (Xfinity/Comcast)</a></li>
+          <li><a href="/ip/192-168-1-254/">192.168.1.254 (AT&amp;T/BT)</a></li>
+          <li><a href="/ip/192-168-2-1/">192.168.2.1 (Belkin/SMC)</a></li>
+          <li><a href="/ip/192-168-1-250/">192.168.1.250 (Netgear Extenders)</a></li>
+          <li><a href="/ip/">All Gateway IPs &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Diagnostics &amp; Guides</p>
+        <ul class="footer-links">
+          <li><a href="/find-router-ip/">Find Router IP on Windows</a></li>
+          <li><a href="/find-router-ip/#mac">Find Router IP on macOS</a></li>
+          <li><a href="/find-router-ip/#ios">Find Router IP on Mobile</a></li>
+          <li><a href="/howto/">How-To Setup Guides</a></li>
+          <li><a href="/tools/subnet-calculator/">Subnet Calculator</a></li>
+          <li><a href="/tools/router-password-generator/">Password Generator</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Open Data &amp; Developers</p>
+        <ul class="footer-links">
+          <li><a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener">Open-Source Router Dataset (GitHub)</a></li>
+          <li><a href="/developers/">Developer API &amp; Datasets</a></li>
+          <li><a href="/data/routers.json" download>routers.json (REST API)</a></li>
+          <li><a href="/llms.txt">llms.txt (AI Directory)</a></li>
+          <li><a href="/llms-full.txt">llms-full.txt (Direct Dataset)</a></li>
+          <li><a href="/sitemap.xml">XML Sitemap Index</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-trust-bar">
+      <a href="/about/">About &amp; Test Lab</a>
+      <a href="/authors/">Editorial Team</a>
+      <a href="/authors/vikas-behl/">Vikas Behl</a>
+      <a href="/editorial-policy/">Editorial Policy</a>
+      <a href="/contact/">Contact &amp; Corrections</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 RouterIPHub. All rights reserved. Open data licensed under CC BY 4.0.</div>
+      <div style="font-size: 0.8rem; color: var(--text-muted);">Independent technical reference. All trademarks belong to their respective owners.</div>
+    </div>
+  </footer>
+
+  <!-- Interaction-Deferred Support Chat Widget (Zero Initial CORS/TBT Impact) -->
+  <script type="text/javascript">
+  (function(){
+    var loaded = false;
+    function loadTawk() {
+      if (loaded) return;
+      loaded = true;
+      window.Tawk_API = window.Tawk_API || {};
+      window.Tawk_LoadStart = new Date();
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6af46cbb33168a3c42864ac2/1k75chg69';
+      s1.charset = 'UTF-8';
+      s0.parentNode.insertBefore(s1, s0);
+    }
+    ['pointerdown', 'keydown', 'scroll'].forEach(function(evt) {
+      window.addEventListener(evt, loadTawk, { once: true, passive: true });
+    });
+  })();
+  </script>
+</body>
+</html>

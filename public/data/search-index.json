@@ -2552,28 +2552,100 @@
     "keywords": "dns propagation dns-propagation tool utility networking"
   },
   {
+    "title": "How Do I Access My Router Settings Page? \u2014 Login & Fixes",
+    "category": "Setup Guide",
+    "badge": "Featured Guide",
+    "url": "/howto/access-my-router-settings-page/",
+    "snippet": "Connect to your home Wi-Fi or LAN, enter your router management IP (192.168.1.1, 192.168.0.1, or 10.0.0.1), find credentials on your label, and resolve rejected logins.",
+    "keywords": "how do i access my router settings page? access my router settings page 192.168.1.1 192.168.0.1 admin panel login fixes"
+  },
+  {
+    "title": "How to Change Your Wi-Fi Name & Password (2026)",
+    "category": "Setup Guide",
+    "badge": "Wi-Fi Security",
+    "url": "/howto/change-wifi-password/",
+    "snippet": "Update your wireless SSID and switch encryption cleanly to WPA2-PSK (AES) or WPA3-Personal from your router web interface.",
+    "keywords": "how to change your wi-fi name (ssid) & password change wifi password ssid wpa3-personal wi-fi password"
+  },
+  {
+    "title": "How to Factory Reset a Router (Timing & Recovery) (2026)",
+    "category": "Setup Guide",
+    "badge": "Recovery",
+    "url": "/howto/30-second-hard-factory-reset/",
+    "snippet": "Recover locked admin passwords cleanly using model-safe pinhole Reset timing without damaging firmware or wiping needed ISP PPPoE logins unexpectedly.",
+    "keywords": "how to perform a clean router hard factory reset 30 second hard factory reset factory reset lost password pinhole reset"
+  },
+  {
+    "title": "Connect Two Routers Together (Access Point Mode) (2026)",
+    "category": "Setup Guide",
+    "badge": "Network Topology",
+    "url": "/howto/two-routers-access-point-mode/",
+    "snippet": "Turn any spare wireless router into a wired Access Point via LAN-to-LAN cabling, static IP assignment outside DHCP, and disabled secondary NAT.",
+    "keywords": "how to connect two routers together (access point mode) two routers access point mode access point double nat lan-to-lan"
+  },
+  {
+    "title": "How to Configure Router Port Forwarding (2026 Guide)",
+    "category": "Setup Guide",
+    "badge": "Gaming & NAT",
+    "url": "/howto/port-forwarding-gaming-servers/",
+    "snippet": "Reserve a static local IP via DHCP, map external TCP/UDP port ranges safely, and verify whether CGNAT blocks inbound connections.",
+    "keywords": "how to configure port forwarding for gaming & servers port forwarding gaming servers port forwarding dhcp reservation gaming nat"
+  },
+  {
+    "title": "How to Change Router DNS Settings (1.1.1.1 / Quad9)",
+    "category": "Setup Guide",
+    "badge": "DNS & Privacy",
+    "url": "/howto/change-router-dns/",
+    "snippet": "Configure Cloudflare 1.1.1.1, Quad9, or AdGuard DNS once at the router WAN/LAN level to accelerate lookups and filter ads across every home device.",
+    "keywords": "how to change router dns for faster browsing & privacy change router dns 1.1.1.1 quad9 adguard dns privacy"
+  },
+  {
+    "title": "How to Set Up a Secure Guest Wi-Fi Network (2026)",
+    "category": "Setup Guide",
+    "badge": "Security",
+    "url": "/howto/guest-wifi-network-setup/",
+    "snippet": "Segment visitors and untrusted IoT gadgets onto an isolated Guest SSID with local-network access blocked so personal laptops and NAS drives stay unreachable.",
+    "keywords": "how to set up a secure guest wi-fi network guest wifi network setup guest network ap isolation iot security"
+  },
+  {
+    "title": "Wi-Fi 7 (802.11be) & 6 GHz 320 MHz Setup Guide (2026)",
+    "category": "Setup Guide",
+    "badge": "Next-Gen Wireless",
+    "url": "/howto/wifi-7-6ghz-setup-guide/",
+    "snippet": "Unlock 320 MHz ultra-wide channels, Multi-Link Operation (MLO), and uncongested 6 GHz spectrum while avoiding WPA2 client incompatibility traps.",
+    "keywords": "wi-fi 7 (802.11be) & wi-fi 6e 6 ghz configuration guide wifi 7 6ghz setup guide wi-fi 7 6 ghz 320 mhz mlo"
+  },
+  {
+    "title": "Mesh Wi-Fi Backhaul & Node Placement Guide (2026)",
+    "category": "Setup Guide",
+    "badge": "Mesh Networking",
+    "url": "/howto/mesh-wifi-backhaul-optimization/",
+    "snippet": "Maximize real-world mesh throughput on Eero, Orbi, Deco, and Velop systems using Cat6/MoCA wired backhaul, mid-point spacing, and 802.11k/v/r fast roaming.",
+    "keywords": "mesh wi-fi backhaul & node placement optimization mesh wifi backhaul optimization mesh wi-fi wired backhaul orbi / deco / eero"
+  },
+  {
+    "title": "Fiber ONT Bridge Mode & IP Passthrough Guide (2026)",
+    "category": "Setup Guide",
+    "badge": "ISP & Fiber",
+    "url": "/howto/fiber-ont-bridge-mode-setup/",
+    "snippet": "Bypass ISP combo gateways cleanly on AT&T Fiber, Verizon Fios, Xfinity, and CenturyLink using IP Passthrough, direct Ethernet ONT handoff, or VLAN 201 tagging.",
+    "keywords": "fiber ont setup & isp gateway bridge / ip passthrough guide fiber ont bridge mode setup ip passthrough bridge mode fiber ont double nat"
+  },
+  {
+    "title": "IPv6 Default Gateway Discovery & fe80::1 Guide (2026)",
+    "category": "Setup Guide",
+    "badge": "IPv6 Networking",
+    "url": "/howto/ipv6-default-gateway-discovery/",
+    "snippet": "Learn why IPv6 routers show link-local fe80:: addresses instead of 192.168.1.1, and find your active IPv6 default route on Windows, macOS, and Linux.",
+    "keywords": "ipv6 default gateway discovery & link-local (fe80::1) guide ipv6 default gateway discovery ipv6 fe80::1 link-local terminal"
+  },
+  {
     "title": "Universal Router IP Discovery Guide (Windows, Mac, iOS, Android)",
     "category": "Setup Guide",
     "badge": "Guide",
     "url": "/find-router-ip/",
     "snippet": "Terminal commands (ipconfig, netstat -nr) and graphical settings to find your local gateway IP.",
     "keywords": "find my ip ipconfig default gateway windows mac iphone android"
-  },
-  {
-    "title": "Wi-Fi 7 Setup, 320 MHz Channels & MLO Optimization Guide",
-    "category": "Setup Guide",
-    "badge": "Guide",
-    "url": "/howto/#wifi7-setup",
-    "snippet": "How to configure 320 MHz channels, Multi-Link Operation (MLO), and 6 GHz AFC coordination.",
-    "keywords": "wifi 7 320 mhz mlo 6 ghz be800 be96u wireless 802.11be"
-  },
-  {
-    "title": "Fiber ONT Bridging & Double NAT Elimination Guide",
-    "category": "Setup Guide",
-    "badge": "Guide",
-    "url": "/howto/#ont-bridging",
-    "snippet": "How to bypass ISP combo gateways and configure IP Passthrough on AT&T, Verizon, and CenturyLink.",
-    "keywords": "fiber ont bridge mode double nat ip passthrough bgw320 cr1000a"
   },
   {
     "title": "Interactive Networking Tools Suite",

@@ -18,6 +18,7 @@ function initApp() {
   initGlobalSiteSearch();
   initSearch();
   initModelCardsSearch();
+  initGuideIndexFilter();
   initCopyButtons();
   initFaqAccordion();
   initGatewayProbe();
@@ -548,8 +549,9 @@ function renderQuickSuggestions(container) {
       <a href="/tools/wifi-qr-code/" class="search-chip">Wi-Fi QR Code Generator</a>
       <a href="/tools/subnet-calculator/" class="search-chip">Subnet CIDR Calculator</a>
       <a href="/tools/detect-gateway/" class="search-chip">Auto-Detect Gateway IP</a>
-      <a href="/howto/#wifi7-setup" class="search-chip">Wi-Fi 7 (320 MHz) Setup</a>
-      <a href="/howto/#hard-reset" class="search-chip">30-30-30 Hard Reset Guide</a>
+      <a href="/howto/access-my-router-settings-page/" class="search-chip">Access Router Settings Page</a>
+      <a href="/howto/wifi-7-6ghz-setup-guide/" class="search-chip">Wi-Fi 7 (320 MHz) Setup</a>
+      <a href="/howto/30-second-hard-factory-reset/" class="search-chip">Router Factory Reset Guide</a>
       <a href="/ip/192-168-1-1/" class="search-chip">192.168.1.1 (Netgear / ASUS)</a>
       <a href="/ip/192-168-0-1/" class="search-chip">192.168.0.1 (TP-Link / D-Link)</a>
       <a href="/ip/10-0-0-1/" class="search-chip">10.0.0.1 (Xfinity Comcast)</a>
@@ -991,6 +993,55 @@ function initGatewayProbe() {
       html += '</div>';
       probeStatus.innerHTML = `<div style="margin-top: 0.5rem;">Select a gateway candidate below to test local router reachability:</div>${html}`;
     }, 350);
+  });
+}
+
+/* ==========================================================================
+   10. Guides Blog Hub Filter (#guide-search-input & .guide-filter-pill)
+   ========================================================================== */
+function initGuideIndexFilter() {
+  const input = document.getElementById('guide-search-input');
+  const feed = document.getElementById('guide-posts-feed');
+  const countEl = document.getElementById('guide-posts-count');
+  const pills = document.querySelectorAll('.guide-filter-pill');
+  if (!feed) return;
+
+  const cards = Array.from(feed.querySelectorAll('.guide-post-card'));
+  let activeCategory = 'all';
+
+  function applyFilter() {
+    const q = (input ? input.value : '').trim().toLowerCase();
+    let visible = 0;
+
+    cards.forEach(card => {
+      const cat = card.getAttribute('data-category') || '';
+      const text = (card.textContent || '').toLowerCase();
+      const catMatch = activeCategory === 'all' || cat === activeCategory;
+      const queryMatch = !q || text.includes(q);
+      const show = catMatch && queryMatch;
+      card.style.display = show ? 'block' : 'none';
+      if (show) visible++;
+    });
+
+    if (countEl) {
+      countEl.textContent = `Showing ${visible} ${visible === 1 ? 'guide post' : 'guide posts'}`;
+    }
+  }
+
+  if (input) {
+    input.addEventListener('input', applyFilter);
+  }
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-pressed', 'false');
+      });
+      pill.classList.add('active');
+      pill.setAttribute('aria-pressed', 'true');
+      activeCategory = pill.getAttribute('data-cat') || 'all';
+      applyFilter();
+    });
   });
 }
 

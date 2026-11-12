@@ -658,6 +658,26 @@
       "source": "/routers/arris-surfboard-sb8200/",
       "destination": "/brands/arris/",
       "permanent": true
+    },
+    {
+      "source": "/howto/Access-My-Router-Settings-Page",
+      "destination": "/howto/access-my-router-settings-page/",
+      "permanent": true
+    },
+    {
+      "source": "/howto/Access-My-Router-Settings-Page/",
+      "destination": "/howto/access-my-router-settings-page/",
+      "permanent": true
+    },
+    {
+      "source": "/howto/Access%20My%20Router%20Settings%20Page",
+      "destination": "/howto/access-my-router-settings-page/",
+      "permanent": true
+    },
+    {
+      "source": "/howto/Access%20My%20Router%20Settings%20Page/",
+      "destination": "/howto/access-my-router-settings-page/",
+      "permanent": true
     }
   ],
   "headers": [

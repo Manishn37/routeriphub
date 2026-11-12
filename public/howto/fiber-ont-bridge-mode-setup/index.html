@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiber ONT Bridge Mode &amp; IP Passthrough Guide (2026)</title>
+  <meta name="description" content="Configure IP Passthrough or Transparent Bridge Mode on AT&amp;T BGW320, Verizon Fios, Xfinity, and CenturyLink Quantum fiber ONTs to eliminate Double NAT.">
+  <link rel="canonical" href="https://routeriphub.com/howto/fiber-ont-bridge-mode-setup/">
+
+  <!-- Favicon Suite -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0284c7">
+
+  <!-- LLM / AI Manifest Discovery -->
+  <link rel="describedby" type="text/markdown" href="/llms.txt">
+  <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Full LLM Context">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://routeriphub.com/howto/fiber-ont-bridge-mode-setup/">
+  <meta property="og:title" content="Fiber ONT Bridge Mode &amp; IP Passthrough Guide (2026)">
+  <meta property="og:description" content="Configure IP Passthrough or Transparent Bridge Mode on AT&amp;T BGW320, Verizon Fios, Xfinity, and CenturyLink Quantum fiber ONTs to eliminate Double NAT.">
+  <meta property="og:site_name" content="RouterIPHub">
+  <meta property="og:image" content="https://routeriphub.com/og-image.png">
+  <meta property="og:image:secure_url" content="https://routeriphub.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="RouterIPHub - The Definitive Default Router IP & Gateway Reference">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@RouterIPHub">
+  <meta name="twitter:creator" content="@RouterIPHub">
+  <meta name="twitter:title" content="Fiber ONT Bridge Mode &amp; IP Passthrough Guide (2026)">
+  <meta name="twitter:description" content="Configure IP Passthrough or Transparent Bridge Mode on AT&amp;T BGW320, Verizon Fios, Xfinity, and CenturyLink Quantum fiber ONTs to eliminate Double NAT.">
+  <meta name="twitter:image" content="https://routeriphub.com/og-image.png">
+  <meta name="twitter:image:alt" content="RouterIPHub - The Definitive Default Router IP & Gateway Reference">
+
+  <!-- Instant Theme Initializer (Light Mode Default, 0ms FOUT) -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/app.js" defer></script>
+
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "where": {
+          "and": [
+            {"href_matches": "/*"},
+            {"not": {"href_matches": "/data/*"}}
+          ]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://routeriphub.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How-To Guides",
+          "item": "https://routeriphub.com/howto/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Fiber ONT Bridging",
+          "item": "https://routeriphub.com/howto/fiber-ont-bridge-mode-setup/"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Fiber ONT Setup & ISP Gateway Bridge / IP Passthrough Guide",
+      "description": "Configure IP Passthrough or Transparent Bridge Mode on AT&T BGW320, Verizon Fios, Xfinity, and CenturyLink Quantum fiber ONTs to eliminate Double NAT.",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://routeriphub.com/howto/fiber-ont-bridge-mode-setup/",
+      "datePublished": "2026-03-01T08:00:00+00:00",
+      "dateModified": "2026-11-11T08:00:00+00:00",
+      "author": {
+        "@type": "Person",
+        "name": "Vikas Behl",
+        "url": "https://routeriphub.com/authors/vikas-behl/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RouterIPHub",
+        "url": "https://routeriphub.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://routeriphub.com/android-chrome-512x512.png",
+          "width": 512,
+          "height": 512
+        }
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What happens if I don't enable Bridge Mode when plugging in my own router?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both routers perform Network Address Translation (Double NAT), which commonly breaks console multiplayer, self-hosted VPNs, and remote access while causing Wi-Fi channel interference if the ISP Wi-Fi stays enabled."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I turn off Wi-Fi on the ISP gateway after enabling IP Passthrough?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Disabling the ISP box's built-in 2.4 GHz and 5 GHz radios prevents overlapping wireless interference and ensures devices only connect through your personal router."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <!-- Google Tag Manager / gtag.js -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-547N7K2L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zbfhxripke");
+  </script>
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-logo" aria-label="RouterIPHub Home">
+        <svg class="brand-mark" width="44" height="30" viewBox="0 0 118 82" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Antenna -->
+  <path class="logo-navy" d="M13 46L7.5 13C7.1 10.8 8.7 8.8 10.9 8.8C12.8 8.8 14.4 10.1 14.8 12L21 46H13Z"/>
+  <!-- Wi-Fi Waves -->
+  <path class="logo-wave" d="M23 19C32.5 10.5 46.5 10.5 56 19" stroke-width="5.5" stroke-linecap="round"/>
+  <path class="logo-wave" d="M29 28.5C35 23 44 23 50 28.5" stroke-width="5.2" stroke-linecap="round"/>
+  <circle class="logo-navy" cx="39.5" cy="37" r="4"/>
+  <!-- Router Chassis & Foot -->
+  <rect class="logo-navy" x="10" y="68" width="14" height="5" rx="2"/>
+  <path class="logo-blue" d="M6 52C6 48.134 9.134 45 13 45H57L49 69H13C9.134 69 6 65.866 6 62V52Z"/>
+  <circle fill="#ffffff" cx="15.5" cy="57" r="4.2"/>
+  <circle fill="#ffffff" cx="26.5" cy="57" r="2.2"/>
+  <circle fill="#ffffff" cx="34.5" cy="57" r="2.2"/>
+  <!-- Orange Network Branch -->
+  <path class="logo-orange" d="M72 15L60 32L72 28" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-orange" cx="72" cy="14" r="5"/>
+  <circle class="logo-orange" cx="59" cy="32" r="5"/>
+  <!-- Teal Network Graph -->
+  <path class="logo-teal" d="M74 42L90 27V57L74 72V53" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-teal" cx="90" cy="27" r="5"/>
+  <circle class="logo-teal" cx="90" cy="57" r="5"/>
+  <circle class="logo-teal" cx="74" cy="72" r="5"/>
+  <!-- Diagnostic Wrench Overlay -->
+  <path class="logo-cutout" stroke-width="3.5" stroke-linejoin="round" d="M77.5 34.5C73.5 32.5 68.5 33.5 65.5 37C63.2 39.7 62.7 43.4 64 46.5L51.5 59C49.5 61 49.5 64.2 51.5 66.2C53.5 68.2 56.7 68.2 58.7 66.2L71.2 53.7C74.3 55 78 54.5 80.7 52.2C84.2 49.2 85.2 44.2 83.2 40.2L77.5 45.9L71.8 40.2L77.5 34.5Z"/>
+  <circle fill="#ffffff" cx="55.1" cy="62.6" r="2.2"/>
+</svg>
+<span class="brand-wordmark">
+  <span class="brand-name">Router<span class="brand-ip">IP</span>Hub</span>
+  <span class="brand-tld">.com</span>
+</span>
+        <span class="brand-badge">2026</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Main Navigation" class="desktop-nav">
+        <ul class="nav-links">
+                    <li class="nav-dropdown-wrapper">
+            <a href="/routers/" class="nav-dropdown-trigger ">
+              <span>Routers</span>
+              <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="nav-dropdown-menu" aria-label="Router Brands">
+              <div class="dropdown-top-bar">
+                <span class="dropdown-title">Hardware Brand Categories</span>
+                <a href="/routers/" class="dropdown-all-link">All 252 Models &rarr;</a>
+              </div>
+              <div class="dropdown-brands-grid">
+                <a href="/brands/eero/" class="dropdown-brand-item">Amazon Eero</a>
+                <a href="/brands/arris/" class="dropdown-brand-item">Arris</a>
+                <a href="/brands/asus/" class="dropdown-brand-item">ASUS</a>
+                <a href="/brands/avm-fritzbox/" class="dropdown-brand-item">AVM FRITZ!Box</a>
+                <a href="/brands/cisco/" class="dropdown-brand-item">Cisco</a>
+                <a href="/brands/d-link/" class="dropdown-brand-item">D-Link</a>
+                <a href="/brands/draytek/" class="dropdown-brand-item">DrayTek</a>
+                <a href="/brands/gl-inet/" class="dropdown-brand-item">GL.iNet</a>
+                <a href="/brands/google-nest/" class="dropdown-brand-item">Google Nest</a>
+                <a href="/brands/huawei/" class="dropdown-brand-item">Huawei</a>
+                <a href="/brands/linksys/" class="dropdown-brand-item">Linksys</a>
+                <a href="/brands/mikrotik/" class="dropdown-brand-item">MikroTik</a>
+                <a href="/brands/motorola/" class="dropdown-brand-item">Motorola</a>
+                <a href="/brands/netgear/" class="dropdown-brand-item">Netgear</a>
+                <a href="/routers/pldt/" class="dropdown-brand-item">PLDT</a>
+                <a href="/brands/synology/" class="dropdown-brand-item">Synology</a>
+                <a href="/brands/tp-link/" class="dropdown-brand-item">TP-Link</a>
+                <a href="/brands/ubiquiti/" class="dropdown-brand-item">Ubiquiti</a>
+                <a href="/brands/xfinity/" class="dropdown-brand-item">Xfinity</a>
+                <a href="/brands/zyxel/" class="dropdown-brand-item">Zyxel</a>
+              </div>
+              <div class="dropdown-bottom-bar">
+                <a href="/brands/"><span>Explore all 20 Brand Directories</span> &rarr;</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="/isp/" class="">ISP Gateways</a></li>
+          <li><a href="/extenders/" class="">Extenders</a></li>
+          <li><a href="/tools/" class="">Tools</a></li>
+          <li><a href="/brands/" class="">Brands</a></li>
+          <li><a href="/ip/" class="">IP Directory</a></li>
+          <li><a href="/howto/" class="active">Guides</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Global Search Bar Button -->
+        <button class="search-trigger-btn" aria-label="Search entire website" title="Search site (Press / or Ctrl+K)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="search-trigger-text">Search site...</span>
+          <kbd class="search-trigger-kbd">Ctrl K</kbd>
+        </button>
+
+        <!-- Theme Switcher Button -->
+        <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+      <div class="container">
+        <div style="margin-bottom: 0.75rem;">
+          <button class="search-trigger-btn" style="width: 100%; border-radius: var(--radius-md); justify-content: flex-start; padding: 0.75rem 1rem; min-height: 48px; background: var(--bg-card); gap: 0.75rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span style="font-size: 0.95rem; color: var(--text-muted);">Search 252+ models, IPs, tools...</span>
+          </button>
+        </div>
+
+        <ul class="mobile-nav-list">
+                    <li class="mobile-dropdown-wrapper">
+            <div class="mobile-dropdown-row">
+              <a href="/routers/"><span>Router Models Directory</span></a>
+              <button type="button" class="mobile-dropdown-btn" id="mobile-routers-toggle" aria-expanded="false" aria-label="Toggle brand categories list">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+            </div>
+            <div class="mobile-dropdown-sub" id="mobile-routers-sub">
+              <div class="mobile-brands-chips">
+                <a href="/brands/asus/">ASUS</a>
+                <a href="/brands/cisco/">Cisco</a>
+                <a href="/brands/d-link/">D-Link</a>
+                <a href="/brands/eero/">Eero</a>
+                <a href="/brands/google-nest/">Google Nest</a>
+                <a href="/brands/linksys/">Linksys</a>
+                <a href="/brands/mikrotik/">MikroTik</a>
+                <a href="/brands/netgear/">Netgear</a>
+                <a href="/routers/pldt/">PLDT</a>
+                <a href="/brands/synology/">Synology</a>
+                <a href="/brands/tp-link/">TP-Link</a>
+                <a href="/brands/ubiquiti/">Ubiquiti</a>
+                <a href="/brands/">+ All Brands &rarr;</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="/isp/"><span>ISP Gateway Portals</span><span>&rarr;</span></a></li>
+          <li><a href="/extenders/"><span>Wi-Fi Extenders &amp; Repeaters</span><span>&rarr;</span></a></li>
+          <li><a href="/tools/"><span>Interactive Networking Tools</span><span>&rarr;</span></a></li>
+          <li><a href="/brands/"><span>Brand Directories</span><span>&rarr;</span></a></li>
+          <li><a href="/ip/"><span>Gateway IP Directory</span><span>&rarr;</span></a></li>
+          <li><a href="/howto/"><span>Setup &amp; Troubleshooting Guides</span><span>&rarr;</span></a></li>
+          <li style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+            <button class="theme-toggle-btn" style="width: 100%; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.15rem; background: var(--bg-card); height: auto; min-height: 48px;">
+              <span>Switch Theme</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Toggle</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs Bar -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumbs">
+        <a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/howto/">How-To Guides</a> <span class="sep">&rsaquo;</span> <span aria-current="page">Fiber ONT Bridging</span>
+      </nav>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
+    <article class="prose content-container">
+      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        <span class="guide-category-badge">Resets &amp; ISP Bridge</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">5 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+      </div>
+
+      <h1>Fiber ONT Setup &amp; ISP Gateway Bridge / IP Passthrough Guide</h1>
+
+      <div class="byline-meta-card">
+        <div class="byline-author-group">
+          <div class="byline-avatar">VB</div>
+          <div class="byline-text">
+            <div class="byline-line-1">
+              <span class="byline-role">Written &amp; Tested by</span>
+              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+              <span class="byline-badge">12+ Yrs Exp</span>
+            </div>
+            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-review-group">
+          <span class="byline-role">Reviewed by</span>
+          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+          <span class="byline-status">&#10003; Hardware Verified</span>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-date-group">
+          <span class="byline-role">Updated</span>
+          <time datetime="2026-11-11" class="byline-date">Nov 11, 2026</time>
+        </div>
+      </div>
+
+      
+      <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
+        Optical fiber connections (AT&amp;T Fiber, Verizon Fios, Google Fiber, CenturyLink Quantum) terminate at an <strong>Optical Network Terminal (ONT)</strong> or combo gateway. Using your own ASUS, Netgear, Ubiquiti, or TP-Link router behind a carrier box requires enabling IP Passthrough or Bridge Mode so your personal router gets the public IP directly.
+      </p>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Fiber / ISP Provider</th>
+              <th>Common Hardware</th>
+              <th>Console IP</th>
+              <th>Recommended Bypass Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cell-brand"><a href="/isp/att-bgw320/">AT&amp;T Fiber</a></td>
+              <td>BGW320-500 / BGW210</td>
+              <td><a href="/ip/192-168-1-254/"><code>192.168.1.254</code></a></td>
+              <td><strong>IP Passthrough (DHCPS-fixed):</strong> Passes public IPv4 cleanly to your router&rsquo;s WAN MAC address.</td>
+            </tr>
+            <tr>
+              <td class="cell-brand"><a href="/isp/verizon-cr1000a/">Verizon Fios</a></td>
+              <td>CR1000A / G3100</td>
+              <td><a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a></td>
+              <td><strong>Direct ONT Ethernet:</strong> Internet-only plans can plug Ethernet straight from the Nokia/Calix ONT into your own router.</td>
+            </tr>
+            <tr>
+              <td class="cell-brand"><a href="/isp/centurylink-c4000/">CenturyLink / Quantum</a></td>
+              <td>C4000XG / C5500XK</td>
+              <td><a href="/ip/192-168-0-1/"><code>192.168.0.1</code></a></td>
+              <td><strong>Transparent Bridging + VLAN 201:</strong> Requires setting 802.1Q VLAN ID <code>201</code> on your personal router&rsquo;s WAN interface.</td>
+            </tr>
+            <tr>
+              <td class="cell-brand"><a href="/isp/xfinity-xfi/">Xfinity xFi</a></td>
+              <td>XB6 / XB7 / XB8</td>
+              <td><a href="/ip/10-0-0-1/"><code>10.0.0.1</code></a></td>
+              <td><strong>Gateway Bridge Mode:</strong> Toggle under <em>Gateway &rsaquo; At a Glance &rsaquo; Bridge Mode</em> (after enabling Admin Tool in Xfinity App).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h2>How to Configure AT&amp;T Fiber BGW320 IP Passthrough</h2>
+      <ol>
+        <li>Open <a href="/ip/192-168-1-254/"><code>http://192.168.1.254</code></a> and navigate to <strong>Firewall &rsaquo; IP Passthrough</strong>.</li>
+        <li>Enter the Device Access Code printed on the rear/side label of the BGW320.</li>
+        <li>Set <em>Allocation Mode</em> to <strong>Passthrough</strong> and <em>Passthrough Mode</em> to <strong>DHCPS-fixed</strong>.</li>
+        <li>Choose your personal router&rsquo;s MAC address from the Passthrough Fixed MAC Address dropdown and click <strong>Save</strong>.</li>
+        <li>Navigate to <strong>Home Network &rsaquo; Wi-Fi</strong> and turn off the BGW320 2.4 GHz and 5 GHz radios so they do not compete with your personal router.</li>
+        <li>Reboot your personal router; its WAN port should now lease your live public IPv4 address directly.</li>
+      </ol>
+
+
+      <h2>FAQs</h2>
+      <div style="margin-top: 1rem;">
+        
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">What happens if I don&#x27;t enable Bridge Mode when plugging in my own router?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Both routers perform Network Address Translation (Double NAT), which commonly breaks console multiplayer, self-hosted VPNs, and remote access while causing Wi-Fi channel interference if the ISP Wi-Fi stays enabled.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Should I turn off Wi-Fi on the ISP gateway after enabling IP Passthrough?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Yes. Disabling the ISP box&#x27;s built-in 2.4 GHz and 5 GHz radios prevents overlapping wireless interference and ensures devices only connect through your personal router.</p>
+        </div>
+      </div>
+
+      <h2>The Bottom Line</h2>
+      <div class="bottom-line-callout">
+        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+          To use your own router cleanly behind ISP fiber or cable hardware, enable IP Passthrough or Bridge Mode inside the carrier gateway console and turn off the carrier box's Wi-Fi radios.
+        </p>
+      </div>
+
+      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+        
+        <a href="/howto/mesh-wifi-backhaul-optimization/" class="guide-nav-card">
+          <span class="guide-nav-label">&larr; Previous Guide</span>
+          <span class="guide-nav-title">Mesh Wi-Fi Backhaul &amp; Node Placement Optimization</span>
+        </a>
+        
+        <a href="/howto/ipv6-default-gateway-discovery/" class="guide-nav-card" style="text-align: right;">
+          <span class="guide-nav-label">Next Guide &rarr;</span>
+          <span class="guide-nav-title">IPv6 Default Gateway Discovery &amp; Link-Local (fe80::1) Guide</span>
+        </a>
+      </nav>
+    </article>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="/" class="brand-logo" style="margin-bottom: 0.75rem;" aria-label="RouterIPHub Home">
+          <svg class="brand-mark" width="44" height="30" viewBox="0 0 118 82" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Antenna -->
+  <path class="logo-navy" d="M13 46L7.5 13C7.1 10.8 8.7 8.8 10.9 8.8C12.8 8.8 14.4 10.1 14.8 12L21 46H13Z"/>
+  <!-- Wi-Fi Waves -->
+  <path class="logo-wave" d="M23 19C32.5 10.5 46.5 10.5 56 19" stroke-width="5.5" stroke-linecap="round"/>
+  <path class="logo-wave" d="M29 28.5C35 23 44 23 50 28.5" stroke-width="5.2" stroke-linecap="round"/>
+  <circle class="logo-navy" cx="39.5" cy="37" r="4"/>
+  <!-- Router Chassis & Foot -->
+  <rect class="logo-navy" x="10" y="68" width="14" height="5" rx="2"/>
+  <path class="logo-blue" d="M6 52C6 48.134 9.134 45 13 45H57L49 69H13C9.134 69 6 65.866 6 62V52Z"/>
+  <circle fill="#ffffff" cx="15.5" cy="57" r="4.2"/>
+  <circle fill="#ffffff" cx="26.5" cy="57" r="2.2"/>
+  <circle fill="#ffffff" cx="34.5" cy="57" r="2.2"/>
+  <!-- Orange Network Branch -->
+  <path class="logo-orange" d="M72 15L60 32L72 28" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-orange" cx="72" cy="14" r="5"/>
+  <circle class="logo-orange" cx="59" cy="32" r="5"/>
+  <!-- Teal Network Graph -->
+  <path class="logo-teal" d="M74 42L90 27V57L74 72V53" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-teal" cx="90" cy="27" r="5"/>
+  <circle class="logo-teal" cx="90" cy="57" r="5"/>
+  <circle class="logo-teal" cx="74" cy="72" r="5"/>
+  <!-- Diagnostic Wrench Overlay -->
+  <path class="logo-cutout" stroke-width="3.5" stroke-linejoin="round" d="M77.5 34.5C73.5 32.5 68.5 33.5 65.5 37C63.2 39.7 62.7 43.4 64 46.5L51.5 59C49.5 61 49.5 64.2 51.5 66.2C53.5 68.2 56.7 68.2 58.7 66.2L71.2 53.7C74.3 55 78 54.5 80.7 52.2C84.2 49.2 85.2 44.2 83.2 40.2L77.5 45.9L71.8 40.2L77.5 34.5Z"/>
+  <circle fill="#ffffff" cx="55.1" cy="62.6" r="2.2"/>
+</svg>
+<span class="brand-wordmark">
+  <span class="brand-name">Router<span class="brand-ip">IP</span>Hub</span>
+  <span class="brand-tld">.com</span>
+</span>
+        </a>
+        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
+          Open reference platform for router default gateway IPs, factory credentials, LED diagnostics, and networking utilities.
+        </p>
+        <ul class="footer-links">
+          <li><a href="/routers/">Router Directory (252 Models)</a></li>
+          <li><a href="/extenders/">Wi-Fi Extenders &amp; Repeaters</a></li>
+          <li><a href="/brands/">Hardware Brands (20)</a></li>
+          <li><a href="/isp/">ISP Gateway Portals</a></li>
+          <li><a href="/tools/">Interactive Tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Popular Gateway IPs</p>
+        <ul class="footer-links">
+          <li><a href="/ip/192-168-1-1/">192.168.1.1 (Netgear/ASUS)</a></li>
+          <li><a href="/ip/192-168-0-1/">192.168.0.1 (TP-Link/D-Link)</a></li>
+          <li><a href="/ip/10-0-0-1/">10.0.0.1 (Xfinity/Comcast)</a></li>
+          <li><a href="/ip/192-168-1-254/">192.168.1.254 (AT&amp;T/BT)</a></li>
+          <li><a href="/ip/192-168-2-1/">192.168.2.1 (Belkin/SMC)</a></li>
+          <li><a href="/ip/192-168-1-250/">192.168.1.250 (Netgear Extenders)</a></li>
+          <li><a href="/ip/">All Gateway IPs &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Diagnostics &amp; Guides</p>
+        <ul class="footer-links">
+          <li><a href="/find-router-ip/">Find Router IP on Windows</a></li>
+          <li><a href="/find-router-ip/#mac">Find Router IP on macOS</a></li>
+          <li><a href="/find-router-ip/#ios">Find Router IP on Mobile</a></li>
+          <li><a href="/howto/">How-To Setup Guides</a></li>
+          <li><a href="/tools/subnet-calculator/">Subnet Calculator</a></li>
+          <li><a href="/tools/router-password-generator/">Password Generator</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Open Data &amp; Developers</p>
+        <ul class="footer-links">
+          <li><a href="https://github.com/routeriphub/default-router-ip-databas" target="_blank" rel="noopener">Open-Source Router Dataset (GitHub)</a></li>
+          <li><a href="/developers/">Developer API &amp; Datasets</a></li>
+          <li><a href="/data/routers.json" download>routers.json (REST API)</a></li>
+          <li><a href="/llms.txt">llms.txt (AI Directory)</a></li>
+          <li><a href="/llms-full.txt">llms-full.txt (Direct Dataset)</a></li>
+          <li><a href="/sitemap.xml">XML Sitemap Index</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-trust-bar">
+      <a href="/about/">About &amp; Test Lab</a>
+      <a href="/authors/">Editorial Team</a>
+      <a href="/authors/vikas-behl/">Vikas Behl</a>
+      <a href="/editorial-policy/">Editorial Policy</a>
+      <a href="/contact/">Contact &amp; Corrections</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 RouterIPHub. All rights reserved. Open data licensed under CC BY 4.0.</div>
+      <div style="font-size: 0.8rem; color: var(--text-muted);">Independent technical reference. All trademarks belong to their respective owners.</div>
+    </div>
+  </footer>
+
+  <!-- Interaction-Deferred Support Chat Widget (Zero Initial CORS/TBT Impact) -->
+  <script type="text/javascript">
+  (function(){
+    var loaded = false;
+    function loadTawk() {
+      if (loaded) return;
+      loaded = true;
+      window.Tawk_API = window.Tawk_API || {};
+      window.Tawk_LoadStart = new Date();
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6af46cbb33168a3c42864ac2/1k75chg69';
+      s1.charset = 'UTF-8';
+      s0.parentNode.insertBefore(s1, s0);
+    }
+    ['pointerdown', 'keydown', 'scroll'].forEach(function(evt) {
+      window.addEventListener(evt, loadTawk, { once: true, passive: true });
+    });
+  })();
+  </script>
+</body>
+</html>

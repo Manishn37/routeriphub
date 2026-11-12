@@ -5,6 +5,8 @@ RouterIPHub Architectural Templates, SEO Normalization Helpers & Trust/Legal Bui
 import os
 import re
 import hashlib
+from html import escape
+from guide_posts_data import GUIDE_POSTS, EXTERNAL_HUB_GUIDE_CARD
 
 LOGO_SCHEMA = {
     "@type": "ImageObject",
@@ -429,11 +431,13 @@ def generate_brand_rich_sections(b, brand_models, escape_fn):
 
 def get_sitemap_lastmod(category, slug=""):
     """Emit realistic per-URL modification dates in YYYY-MM-DD based on release batch and deterministic verification schedule."""
+    if slug in ("access-my-router-settings-page", "howto", "privacy", "terms"):
+        return "2026-11-12"
     recent_updates = {
         "pldt", "verizon-cr1000a", "xfinity-xfi", "att-bgw320",
         "synology-rt2600ac", "synology-rt6600ax", "mywifiext-net",
         "tplinkrepeater-net", "about", "authors", "vikas-behl",
-        "contact", "privacy", "terms", "editorial-policy", "xfinity",
+        "contact", "editorial-policy", "xfinity",
     }
     if slug in recent_updates or category in ("index", "legal"):
         return "2026-11-11"
@@ -892,25 +896,113 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
     with open(os.path.join(public_dir, "tools", "index.html"), "w", encoding="utf-8") as f:
         f.write(tools_out)
 
-    # 2. /howto/
-    with open(os.path.join(tpl_dir, "howto.html"), "r", encoding="utf-8") as f:
-        howto_body = f.read()
+    # 2. /howto/ (WordPress-style Blog / Guides Archive Hub) & Individual /howto/<slug>/ Posts
+    all_hub_cards = list(GUIDE_POSTS) + [EXTERNAL_HUB_GUIDE_CARD]
+
+    def fmt_display_date(iso_date):
+        months = {
+            "01": "Jan", "02": "Feb", "03": "Mar", "04": "Apr",
+            "05": "May", "06": "Jun", "07": "Jul", "08": "Aug",
+            "09": "Sep", "10": "Oct", "11": "Nov", "12": "Dec",
+        }
+        parts = iso_date.split("-")
+        return f"{months.get(parts[1], parts[1])} {int(parts[2])}, {parts[0]}" if len(parts) == 3 else iso_date
+
+    cards_html = []
+    blog_post_items = []
+    for idx, p in enumerate(all_hub_cards, start=1):
+        feat_cls = " guide-post-card--featured" if p.get("featured") else ""
+        extra_anchor = ""
+        if p.get("anchor_id") == "hard-reset":
+            extra_anchor = '<span id="factory-reset"></span>'
+        elif p.get("anchor_id") == "ont-bridging":
+            extra_anchor = '<span id="ont-setup"></span>'
+        tags_html = "".join(f'<span class="guide-tag">{escape(t)}</span>' for t in p.get("tags", []))
+        pub_str = fmt_display_date(p.get("date_modified") or p.get("date_published", "2026-11-11"))
+        cards_html.append(f"""
+        <article id="{escape(p['anchor_id'])}" class="guide-post-card{feat_cls}" data-category="{escape(p['category_key'])}">
+          {extra_anchor}
+          <div class="guide-post-meta">
+            <span class="guide-category-badge">{escape(p['badge'])}</span>
+            <span>{escape(p['category'])}</span>
+            <span>&bull;</span>
+            <time datetime="{escape(p.get('date_modified') or p.get('date_published', '2026-11-11'))}">{escape(pub_str)}</time>
+            <span>&bull;</span>
+            <span>{escape(p['read_time'])}</span>
+            <span>&bull;</span>
+            <span>By <a href="/authors/vikas-behl/">Vikas Behl</a></span>
+          </div>
+          <h2 class="guide-post-title">
+            <a href="{escape(p['url'])}">{escape(p['headline'])}</a>
+          </h2>
+          <p class="guide-post-excerpt">{escape(p['excerpt'])}</p>
+          <div class="guide-post-footer">
+            <div class="guide-tag-list">{tags_html}</div>
+            <a href="{escape(p['url'])}" class="btn btn-secondary" style="font-size: 0.85rem;">Read Full Guide &rarr;</a>
+          </div>
+        </article>""")
+        blog_post_items.append({
+            "@type": "BlogPosting",
+            "headline": p["headline"],
+            "url": f"https://routeriphub.com{p['url']}",
+            "datePublished": f"{p.get('date_published', '2026-11-11')}T08:00:00+00:00",
+            "dateModified": f"{p.get('date_modified', p.get('date_published', '2026-11-11'))}T08:00:00+00:00",
+            "author": {"@type": "Person", "name": "Vikas Behl", "url": "https://routeriphub.com/authors/vikas-behl/"},
+            "publisher": ORG_PUBLISHER,
+        })
+
+    howto_body = f"""
+  <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-ip" style="margin-bottom: 0.85rem;">Engineering Guides &amp; Tutorials</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.6rem; letter-spacing: -0.025em;">
+        Router &amp; Network Setup Guides
+      </h1>
+      <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.75rem;">
+        Step-by-step troubleshooting articles for accessing router settings pages, discovering gateway IPs, updating Wi-Fi credentials, eliminating Double NAT, and configuring fiber ONT bridging.
+      </p>
+
+      <div class="guides-filter-bar">
+        <div class="search-input-wrap" style="max-width: 100%;">
+          <label for="guide-search-input" class="sr-only">Filter guides by topic or keyword</label>
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="guide-search-input" class="search-input" placeholder="Search guides (e.g. settings, factory reset, Wi-Fi 7, DNS, fiber ONT)...">
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+          <div class="guides-category-pills" role="group" aria-label="Filter guide posts by category">
+            <button type="button" class="brand-filter-pill guide-filter-pill active" data-cat="all" aria-pressed="true">All Guides ({len(all_hub_cards)})</button>
+            <button type="button" class="brand-filter-pill guide-filter-pill" data-cat="login" aria-pressed="false">Login &amp; Access</button>
+            <button type="button" class="brand-filter-pill guide-filter-pill" data-cat="wifi" aria-pressed="false">Wi-Fi &amp; Mesh</button>
+            <button type="button" class="brand-filter-pill guide-filter-pill" data-cat="security" aria-pressed="false">Security &amp; DNS</button>
+            <button type="button" class="brand-filter-pill guide-filter-pill" data-cat="recovery" aria-pressed="false">Resets &amp; ISP Bridge</button>
+          </div>
+          <div id="guide-posts-count" class="result-count">Showing {len(all_hub_cards)} guide posts</div>
+        </div>
+      </div>
+
+      <div id="guide-posts-feed" class="guide-feed">
+        {"".join(cards_html)}
+      </div>
+    </div>
+  </main>
+"""
     howto_schema = {
-        "@type": "TechArticle",
-        "headline": "Router Setup, Wi-Fi Password & Factory Reset Guides (2026)",
-        "description": "Step-by-step instructions for initial router setup, physical 30-30-30 hard resets, firmware updates, and troubleshooting default login failures.",
-        "inLanguage": "en",
-        "mainEntityOfPage": "https://routeriphub.com/howto/",
-        "datePublished": "2026-02-15T08:00:00+00:00",
-        "dateModified": "2026-11-11T02:00:00+00:00",
-        "author": {"@type": "Person", "name": "Vikas Behl", "url": "https://routeriphub.com/authors/vikas-behl/"},
+        "@type": "CollectionPage",
+        "name": "Router & Network Setup Guides | RouterIPHub",
+        "url": "https://routeriphub.com/howto/",
+        "description": "Step-by-step troubleshooting articles for accessing router settings pages, resetting gateways, configuring DNS, and optimizing Wi-Fi 7 and mesh networks.",
         "publisher": ORG_PUBLISHER,
+        "mainEntity": {
+            "@type": "Blog",
+            "name": "RouterIPHub Guides",
+            "blogPost": blog_post_items,
+        },
     }
     os.makedirs(os.path.join(public_dir, "howto"), exist_ok=True)
     howto_out = (
         get_header_fn(
-            "Router Setup & Factory Reset Instructions (2026)",
-            "Step-by-step instructions for initial router setup, physical 30-30-30 hard resets, firmware updates, and troubleshooting default login failures.",
+            "Router Setup, Login & Troubleshooting Guides (2026)",
+            "Browse verified router guides covering admin settings login, Wi-Fi password updates, factory resets, Access Point mode, DNS privacy, Wi-Fi 7, and fiber ONT bridging.",
             "https://routeriphub.com/howto/",
             active_nav="howto",
             breadcrumbs=[("Home", "/"), ("How-To Guides", "/howto/")],
@@ -921,6 +1013,132 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
     )
     with open(os.path.join(public_dir, "howto", "index.html"), "w", encoding="utf-8") as f:
         f.write(howto_out)
+
+    # 2b. Individual /howto/<slug>/ Guide Post Pages
+    for i, p in enumerate(GUIDE_POSTS):
+        post_dir = os.path.join(public_dir, "howto", p["slug"])
+        os.makedirs(post_dir, exist_ok=True)
+        canonical_post = f"https://routeriphub.com{p['url']}"
+        pub_disp = fmt_display_date(p["date_modified"])
+
+        faq_cards = []
+        faq_entities = []
+        for q, a in p["faqs"]:
+            faq_cards.append(f"""
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">{escape(q)}</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">{escape(a)}</p>
+        </div>""")
+            faq_entities.append({
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            })
+
+        prev_card = ""
+        if i > 0:
+            prev_p = GUIDE_POSTS[i - 1]
+            prev_card = f"""
+        <a href="{escape(prev_p['url'])}" class="guide-nav-card">
+          <span class="guide-nav-label">&larr; Previous Guide</span>
+          <span class="guide-nav-title">{escape(prev_p['headline'])}</span>
+        </a>"""
+
+        next_card = ""
+        if i + 1 < len(GUIDE_POSTS):
+            next_p = GUIDE_POSTS[i + 1]
+            next_card = f"""
+        <a href="{escape(next_p['url'])}" class="guide-nav-card" style="text-align: right;">
+          <span class="guide-nav-label">Next Guide &rarr;</span>
+          <span class="guide-nav-title">{escape(next_p['headline'])}</span>
+        </a>"""
+
+        post_body = f"""
+  <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
+    <article class="prose content-container">
+      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        <span class="guide-category-badge">{escape(p['category'])}</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">{escape(p['read_time'])} &bull; <a href="/howto/">All Setup Guides</a></span>
+      </div>
+
+      <h1>{escape(p['headline'])}</h1>
+
+      <div class="byline-meta-card">
+        <div class="byline-author-group">
+          <div class="byline-avatar">VB</div>
+          <div class="byline-text">
+            <div class="byline-line-1">
+              <span class="byline-role">Written &amp; Tested by</span>
+              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+              <span class="byline-badge">12+ Yrs Exp</span>
+            </div>
+            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-review-group">
+          <span class="byline-role">Reviewed by</span>
+          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+          <span class="byline-status">&#10003; Hardware Verified</span>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-date-group">
+          <span class="byline-role">Updated</span>
+          <time datetime="{escape(p['date_modified'])}" class="byline-date">{escape(pub_disp)}</time>
+        </div>
+      </div>
+
+      {p['body_html']}
+
+      <h2>FAQs</h2>
+      <div style="margin-top: 1rem;">
+        {"".join(faq_cards)}
+      </div>
+
+      <h2>The Bottom Line</h2>
+      <div class="bottom-line-callout">
+        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+          {p['bottom_line']}
+        </p>
+      </div>
+
+      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+        {prev_card}
+        {next_card}
+      </nav>
+    </article>
+  </main>
+"""
+        article_schema = {
+            "@type": "TechArticle",
+            "headline": p["headline"],
+            "description": p["meta_desc"],
+            "inLanguage": "en",
+            "mainEntityOfPage": canonical_post,
+            "datePublished": f"{p['date_published']}T08:00:00+00:00",
+            "dateModified": f"{p['date_modified']}T08:00:00+00:00",
+            "author": {"@type": "Person", "name": "Vikas Behl", "url": "https://routeriphub.com/authors/vikas-behl/"},
+            "publisher": ORG_PUBLISHER,
+        }
+        faq_schema = {
+            "@type": "FAQPage",
+            "mainEntity": faq_entities,
+        }
+        post_out = (
+            get_header_fn(
+                p["meta_title"],
+                p["meta_desc"],
+                canonical_post,
+                active_nav="howto",
+                breadcrumbs=[("Home", "/"), ("How-To Guides", "/howto/"), (p["short_title"], p["url"])],
+                schemas_json_ld=[article_schema, faq_schema],
+            )
+            + post_body
+            + get_footer_fn()
+        )
+        with open(os.path.join(post_dir, "index.html"), "w", encoding="utf-8") as f:
+            f.write(post_out)
+    print(f"  -> Generated /howto/ index + {len(GUIDE_POSTS)} guide post pages")
 
     # 3. /find-router-ip/
     with open(os.path.join(tpl_dir, "find_router_ip.html"), "r", encoding="utf-8") as f:

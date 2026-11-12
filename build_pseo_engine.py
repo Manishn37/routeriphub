@@ -41,6 +41,7 @@ from site_templates import (
     generate_trust_and_legal_pages,
     generate_static_guide_pages,
 )
+from guide_posts_data import GUIDE_POSTS
 
 ROOT_DIR = r"C:\Users\acer\.gemini\antigravity\scratch\routeriphub"
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
@@ -13383,6 +13384,9 @@ def generate_sitemaps():
         ("https://routeriphub.com/find-router-ip/", "0.8", "monthly", get_sitemap_lastmod("guide", "find-router-ip")),
         ("https://routeriphub.com/developers/", "0.8", "monthly", get_sitemap_lastmod("guide", "developers")),
     ]
+    for gp in GUIDE_POSTS:
+        prio = "0.9" if gp.get("featured") else "0.8"
+        guide_urls.append((f"https://routeriphub.com{gp['url']}", prio, "monthly", get_sitemap_lastmod("guide", gp["slug"])))
     guides_lastmod = write_sub_sitemap("guides.xml", guide_urls)
 
     # Master sitemap.xml (<sitemapindex>)
@@ -13659,6 +13663,15 @@ def update_search_index():
         })
 
     # 6. Guides & Hubs
+    for gp in GUIDE_POSTS:
+        search_index.append({
+            "title": gp["meta_title"],
+            "category": "Setup Guide",
+            "badge": gp["badge"],
+            "url": gp["url"],
+            "snippet": gp["excerpt"],
+            "keywords": f"{gp['headline'].lower()} {gp['slug'].replace('-', ' ')} {' '.join(t.lower() for t in gp['tags'])}"
+        })
     search_index.append({
         "title": "Universal Router IP Discovery Guide (Windows, Mac, iOS, Android)",
         "category": "Setup Guide",
@@ -13666,22 +13679,6 @@ def update_search_index():
         "url": "/find-router-ip/",
         "snippet": "Terminal commands (ipconfig, netstat -nr) and graphical settings to find your local gateway IP.",
         "keywords": "find my ip ipconfig default gateway windows mac iphone android"
-    })
-    search_index.append({
-        "title": "Wi-Fi 7 Setup, 320 MHz Channels & MLO Optimization Guide",
-        "category": "Setup Guide",
-        "badge": "Guide",
-        "url": "/howto/#wifi7-setup",
-        "snippet": "How to configure 320 MHz channels, Multi-Link Operation (MLO), and 6 GHz AFC coordination.",
-        "keywords": "wifi 7 320 mhz mlo 6 ghz be800 be96u wireless 802.11be"
-    })
-    search_index.append({
-        "title": "Fiber ONT Bridging & Double NAT Elimination Guide",
-        "category": "Setup Guide",
-        "badge": "Guide",
-        "url": "/howto/#ont-bridging",
-        "snippet": "How to bypass ISP combo gateways and configure IP Passthrough on AT&T, Verizon, and CenturyLink.",
-        "keywords": "fiber ont bridge mode double nat ip passthrough bgw320 cr1000a"
     })
     search_index.append({
         "title": "Interactive Networking Tools Suite",
@@ -13781,6 +13778,10 @@ def update_vercel_config():
         ("/routers/d-link-exo-ax5400/", "/brands/d-link/"),
         ("/routers/arris-surfboard-sb8200", "/brands/arris/"),
         ("/routers/arris-surfboard-sb8200/", "/brands/arris/"),
+        ("/howto/Access-My-Router-Settings-Page", "/howto/access-my-router-settings-page/"),
+        ("/howto/Access-My-Router-Settings-Page/", "/howto/access-my-router-settings-page/"),
+        ("/howto/Access%20My%20Router%20Settings%20Page", "/howto/access-my-router-settings-page/"),
+        ("/howto/Access%20My%20Router%20Settings%20Page/", "/howto/access-my-router-settings-page/"),
     ]
     for src, dst in other_redirects:
         add_redirect(src, dst)
@@ -13881,7 +13882,8 @@ RouterIPHub indexes {model_count} specific router models, {brand_count} major ha
 - [PLDT Default Login Guide](https://routeriphub.com/routers/pldt/): Verified 192.168.1.1 admin credentials, Wi-Fi setup, and model troubleshooting for PLDT Home routers.
 - [mywifiext.net Netgear Setup Guide](https://routeriphub.com/extenders/mywifiext-net/): Official login and fallback IP guide for Netgear EX, EAX, and EXS series extenders.
 - [Gateway IP Discovery Guide](https://routeriphub.com/find-router-ip/): Platform-specific terminal commands (Windows, macOS, Linux, iOS, Android) to determine local gateway addresses.
-- [Router Setup & Reset Guides](https://routeriphub.com/howto/): Step-by-step instructions for initial router setup, 30-30-30 hard resets, and factory restoration.
+- [Router Setup & Reset Guides](https://routeriphub.com/howto/): Complete guides archive covering router settings access, Wi-Fi passwords, factory resets, Access Point mode, DNS, Wi-Fi 7, and ONT bridging.
+- [How Do I Access My Router Settings Page?](https://routeriphub.com/howto/access-my-router-settings-page/): Step-by-step tutorial on finding management IPs, admin logins, and troubleshooting access errors.
 
 ## Machine-Readable Datasets & APIs
 - [Open-Source Router Dataset (GitHub)](https://github.com/routeriphub/default-router-ip-databas): Official public GitHub repository containing raw router IP mappings, default passwords, and schema dumps.
@@ -13927,6 +13929,10 @@ Website: https://routeriphub.com
     for m in ROUTER_MODELS:
         clean_title = smart_model_name(m["brand"], m["model_name"])
         llms_full_txt += f"- [{clean_title}](https://routeriphub.com/routers/{m['slug']}/): Gateway {m['default_ip']} ({m['web_domain']}). Credentials: {m['default_username']} / {m['default_password']}. Reset: {m['reset_instructions']}\n"
+
+    llms_full_txt += "\n## 3. Network Setup & Troubleshooting Guides\n"
+    for gp in GUIDE_POSTS:
+        llms_full_txt += f"- [{gp['headline']}](https://routeriphub.com{gp['url']}): {gp['excerpt']}\n"
 
     for target in [os.path.join(PUBLIC_DIR, "llms-full.txt"), os.path.join(ROOT_DIR, "llms-full.txt")]:
         with open(target, "w", encoding="utf-8") as f:

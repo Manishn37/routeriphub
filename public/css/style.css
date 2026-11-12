@@ -597,3 +597,148 @@ table.data-table code,table.table code{font-size:0.875rem;padding:0.18rem 0.45re
   color: var(--text-primary);
 }
 
+/* WordPress-Style Guides Blog Hub & Single Post Cards */
+.guides-filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+.guides-category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.guide-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.guide-post-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+.guide-post-card:hover {
+  border-color: var(--text-accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.guide-post-card--featured {
+  border-left: 4px solid var(--bg-accent);
+}
+.guide-post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.9rem;
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  margin-bottom: 0.65rem;
+}
+.guide-category-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: var(--info-bg);
+  color: var(--text-accent);
+  border: 1px solid var(--border-color);
+}
+.guide-post-card--featured .guide-category-badge {
+  background-color: var(--bg-accent);
+  color: #ffffff;
+  border-color: var(--bg-accent);
+}
+.guide-post-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 0.6rem 0;
+  letter-spacing: -0.015em;
+}
+.guide-post-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+.guide-post-title a:hover {
+  color: var(--text-accent);
+  text-decoration: none;
+}
+.guide-post-excerpt {
+  font-size: 0.975rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0 0 1.1rem 0;
+}
+.guide-post-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-color);
+}
+.guide-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.guide-tag {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+.guide-post-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-color);
+}
+.guide-nav-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  text-decoration: none;
+}
+.guide-nav-card:hover {
+  border-color: var(--text-accent);
+  text-decoration: none;
+}
+.guide-nav-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.guide-nav-title {
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--text-primary);
+}
+@media (max-width: 640px) {
+  .guide-post-card {
+    padding: 1.15rem 1.15rem;
+  }
+  .guide-post-title {
+    font-size: 1.2rem;
+  }
+}
+
