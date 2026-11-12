@@ -4767,6 +4767,534 @@ def generate_custom_telstra_smart_modem_page(isp):
 
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
+
+def generate_custom_sky_broadband_page(isp):
+    canonical = "https://routeriphub.com/isp/sky-broadband/"
+    title = "Sky Broadband Hub Login — 192.168.0.1 Admin Access & Fixes"
+    desc = "Access your Sky Broadband hub at 192.168.0.1. Find the correct admin password, change Wi-Fi settings, and fix common Sky Hub login issues."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("ISP Gateways", "/isp/"),
+        ("Sky Broadband (UK)", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Sky Broadband Hub Login — 192.168.0.1 Admin Access & Fixes",
+        "description": desc,
+        "image": "https://routeriphub.com/images/isp/sky-broadband-hub-192-168-0-1-login-guide.webp",
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to Your Sky Hub",
+        "description": "Step-by-step instructions to connect to your Sky home network, open 192.168.0.1 in your browser, accept the HTTPS warning if shown, and enter admin credentials.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to the Sky home network",
+                "text": "Connect your phone, tablet, or computer to the Sky hub’s Wi-Fi network. For a more reliable connection, use an Ethernet cable between your computer and one of the hub’s LAN ports. Do not use mobile data."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open the management address",
+                "text": "Enter 192.168.0.1 or https://192.168.0.1 directly into your browser’s address bar. Do not enter the address into a search engine."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Accept the HTTPS warning if it appears",
+                "text": "If your browser shows a message such as 'Your connection is not private', select Advanced, then choose the option to proceed to 192.168.0.1."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Enter the administrator credentials",
+                "text": "Use username 'admin' and password 'sky' for older Sky hubs, or the Wi-Fi password on the hub label for newer models."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Open the settings you need",
+                "text": "Once signed in, open the section related to your task. Common options include Wi-Fi settings, connected devices, security settings, and advanced hub configuration."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the Sky Broadband hub login address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The standard address is 192.168.0.1. You can also use https://192.168.0.1."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default Sky hub username?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The default username is admin."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default Sky hub password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For older Sky hubs, use sky. For newer Sky Broadband Hubs, use the Wi-Fi password printed on the hub label."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does sky not work on my hub?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your hub may be a newer model that uses the Wi-Fi password on its label instead. Alternatively, the administrator password may have been changed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I change my Wi-Fi password from the hub page?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Sign in, open Wireless or WiFi, update the Wi-Fi name and password, then select Apply or Save."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the Sky hub admin password the same as the Wi-Fi password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On newer Sky hubs, the default administrator password may be the original Wi-Fi password. They are separate settings and can be changed independently."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        Sky Broadband (UK) Gateway Login — 192.168.0.1 Admin Access
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+        If you searched <code>192.168.0.1</code> expecting your Sky Broadband hub’s settings page, you have the right address for many Sky hubs. The password depends on the hub model: some older Sky hubs use <code>sky</code>, while newer Sky Broadband Hubs use the Wi-Fi password printed on the hub label.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        Open <code>192.168.0.1</code> from a device connected to your Sky home network. Sign in with <code>admin</code> and the correct password for your hub.
+      </p>
+
+      <!-- Quick Answer Card -->
+      <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <div class="table-responsive" style="margin-bottom: 1rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Setting</th>
+                <th>What to use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hub settings address</strong></td>
+                <td><code>192.168.0.1</code></td>
+              </tr>
+              <tr>
+                <td><strong>Secure hub settings address</strong></td>
+                <td><code>https://192.168.0.1</code></td>
+              </tr>
+              <tr>
+                <td><strong>Default username</strong></td>
+                <td><code>admin</code></td>
+              </tr>
+              <tr>
+                <td><strong>Older Sky Hub password</strong></td>
+                <td><code>sky</code></td>
+              </tr>
+              <tr>
+                <td><strong>Newer Sky Broadband Hub password</strong></td>
+                <td>Wi-Fi password on the hub label</td>
+              </tr>
+              <tr>
+                <td><strong>Previously changed password</strong></td>
+                <td>Your custom hub administrator password</td>
+              </tr>
+              <tr>
+                <td><strong>Wi-Fi password</strong></td>
+                <td>Separate from the hub administrator password</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          The hub login password is different from the Wi-Fi password. The exact credential depends on the hub you have.
+        </p>
+        <div class="action-btn-group" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Open 192.168.0.1 &rarr;
+          </a>
+          <a href="https://192.168.0.1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            Open https://192.168.0.1
+          </a>
+        </div>
+      </div>
+
+      <!-- Figure 1: Hero Guide -->
+      <figure class="guide-figure">
+        <img src="/images/isp/sky-broadband-hub-192-168-0-1-login-guide.webp" alt="Sky Broadband Hub gateway login guide showing 192.168.0.1 admin access credentials and model password differences" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Sky Broadband Hub admin login overview: access 192.168.0.1 locally, enter admin, and use the correct password for your Sky hub generation.</figcaption>
+      </figure>
+
+      <!-- Sky Hub Login Details -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Sky Hub Login Details</h2>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Hub type</th>
+              <th>Default username</th>
+              <th>Default password</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Older Sky Hub</strong></td>
+              <td><code>admin</code></td>
+              <td><code>sky</code></td>
+            </tr>
+            <tr>
+              <td><strong>Sky Q Hub</strong></td>
+              <td><code>admin</code></td>
+              <td><code>sky</code></td>
+            </tr>
+            <tr>
+              <td><strong>Newer Sky Broadband Hub</strong></td>
+              <td><code>admin</code></td>
+              <td>Wi-Fi password on the hub label</td>
+            </tr>
+            <tr>
+              <td><strong>Sky Router 4</strong></td>
+              <td><code>admin</code></td>
+              <td>Wi-Fi password on the hub label</td>
+            </tr>
+            <tr>
+              <td><strong>Previously configured hub</strong></td>
+              <td><code>admin</code></td>
+              <td>Your custom administrator password</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-bottom: 2rem;">
+        Do not assume <code>sky</code> works on every Sky hub. Newer models commonly use the default Wi-Fi password shown on the hub’s label instead.
+      </p>
+
+      <!-- How to Log In to Your Sky Hub -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Log In to Your Sky Hub</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Connect to the Sky home network</h3>
+      <p>
+        Connect your phone, tablet, or computer to the Sky hub’s Wi-Fi network. For a more reliable connection, use an Ethernet cable between your computer and one of the hub’s LAN ports.
+      </p>
+      <p>
+        Do not use mobile data. The hub settings page is a local interface and must be accessed from the home network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Open the management address</h3>
+      <p>Enter this directly into your browser’s address bar:</p>
+      <div style="margin: 0.75rem 0 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <code style="padding: 0.35rem 0.65rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">192.168.0.1</code>
+        <span style="align-self: center; color: var(--text-muted); font-size: 0.9rem;">or</span>
+        <code style="padding: 0.35rem 0.65rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">https://192.168.0.1</code>
+      </div>
+      <p>
+        Do not enter the address into a search engine. You need the local hub interface, not a web search result.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Accept the HTTPS warning if it appears</h3>
+      <p>
+        If your browser shows a message such as <strong>“Your connection is not private,”</strong> select <strong>Advanced</strong>, then choose the option to proceed to <code>192.168.0.1</code>.
+      </p>
+      <p>
+        This warning can appear because the hub uses a self-signed certificate for its local HTTPS page. Only proceed if you entered the address yourself and are connected to your own home network.
+      </p>
+
+      <!-- Figure 2: HTTPS Warning -->
+      <figure class="guide-figure">
+        <img src="/images/isp/sky-hub-https-certificate-warning-bypass.webp" alt="Browser HTTPS certificate warning screen when opening 192.168.0.1 showing how to click Advanced and proceed" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Bypassing the self-signed local SSL certificate prompt in Chrome/Edge when accessing https://192.168.0.1.</figcaption>
+      </figure>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Enter the administrator credentials</h3>
+      <p>Use:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li><strong>Username:</strong> <code>admin</code></li>
+        <li><strong>Password:</strong> <code>sky</code> for older Sky hubs, or the Wi-Fi password on the hub label for newer models</li>
+      </ul>
+      <p>
+        If you changed the hub administrator password previously, use your current custom password instead.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Open the settings you need</h3>
+      <p>
+        Once signed in, open the section related to your task. Common options include Wi-Fi settings, connected devices, security settings, and advanced hub configuration.
+      </p>
+
+      <!-- Change Your Sky Wi-Fi Name and Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Change Your Sky Wi-Fi Name and Password</h2>
+      <p>To change the wireless network details:</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
+        <li>Sign in to the hub at <code>192.168.0.1</code>.</li>
+        <li>Open <strong>Wireless</strong>, <strong>WiFi</strong>, or <strong>Wireless Settings</strong>.</li>
+        <li>Find the Wi-Fi network name and password fields.</li>
+        <li>Enter your preferred Wi-Fi name and password.</li>
+        <li>Select <strong>Apply</strong> or <strong>Save</strong>.</li>
+      </ol>
+      <p>
+        Changing the Wi-Fi password disconnects devices using the old password. Reconnect them using the new password.
+      </p>
+
+      <!-- Admin Password vs. Wi-Fi Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Admin Password vs. Wi-Fi Password</h2>
+      <p>
+        The <strong>hub administrator password</strong> opens the Sky hub’s settings page. The <strong>Wi-Fi password</strong> connects devices to the wireless network.
+      </p>
+      <p>
+        On newer Sky Broadband Hubs, the default administrator password may be the same as the original Wi-Fi password. That does not mean they remain the same after either password is changed.
+      </p>
+      <p>
+        If you changed the Wi-Fi password but not the administrator password, use the original hub-label password to sign in. If you changed the administrator password, use that custom password instead.
+      </p>
+
+      <!-- Figure 3: Barcode Label -->
+      <figure class="guide-figure">
+        <img src="/images/isp/sky-broadband-hub-label-wifi-admin-password.webp" alt="Sky Broadband Hub rear label showing default Wi-Fi password used as admin login password on newer models" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Locating the default Wi-Fi password on the Sky Hub label used as the administrator password on newer Sky Broadband models.</figcaption>
+      </figure>
+
+      <!-- If 192.168.0.1 Will Not Open -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If 192.168.0.1 Will Not Open</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Confirm the connection</h3>
+      <p>
+        Make sure your device is connected to the correct Sky hub. If you have a mesh system, extender, powerline adapter, or separate router, you may be connected to a different device.
+      </p>
+      <p>
+        Use a direct Ethernet connection to the Sky hub when possible. This removes Wi-Fi signal issues from the troubleshooting process.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Check the address carefully</h3>
+      <p>Use:</p>
+      <p><code>http://192.168.0.1</code> or <code>https://192.168.0.1</code></p>
+      <p>Avoid incorrect entries such as:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li><code>192.168.o.1</code></li>
+        <li><code>192.168.0.l</code></li>
+        <li><code>192.168.0.1.com</code></li>
+        <li><code>192.168.0.1 router login</code></li>
+      </ul>
+      <p>
+        Enter the address directly into the browser’s address bar rather than a search engine.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Try the secure address</h3>
+      <p>If the standard address does not load, use:</p>
+      <p><code>https://192.168.0.1</code></p>
+      <p>
+        Sky’s hub-settings guidance specifies using <code>https</code> rather than <code>http</code> for the hub address.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Disable VPN or proxy temporarily</h3>
+      <p>
+        A VPN, proxy, or privacy-focused browser setting can interfere with access to a local hub address. Disconnect the VPN and disable proxy settings, then try again.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Try another browser or device</h3>
+      <p>
+        Try Chrome, Firefox, Edge, or Safari. If one browser fails, test the page from another phone, tablet, or computer connected to the same Sky network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">6. Restart the hub</h3>
+      <p>
+        Turn the hub off, wait about 30 seconds, then turn it back on. Wait for the lights to stabilize, reconnect your device, and try <code>192.168.0.1</code> again.
+      </p>
+      <p>
+        A restart preserves your hub settings. Do not confuse it with a factory reset.
+      </p>
+
+      <!-- If the Password Is Rejected -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If the Password Is Rejected</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the hub model</h3>
+      <p>The default password changes by hub type:</p>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>What you have</th>
+              <th>Password to try</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Older Sky Hub</strong></td>
+              <td><code>sky</code></td>
+            </tr>
+            <tr>
+              <td><strong>Sky Q Hub</strong></td>
+              <td><code>sky</code></td>
+            </tr>
+            <tr>
+              <td><strong>Newer Sky Broadband Hub</strong></td>
+              <td>Wi-Fi password on the hub label</td>
+            </tr>
+            <tr>
+              <td><strong>Sky Router 4</strong></td>
+              <td>Wi-Fi password on the hub label</td>
+            </tr>
+            <tr>
+              <td><strong>Previously configured hub</strong></td>
+              <td>Your custom administrator password</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the correct password field</h3>
+      <p>
+        Do not automatically enter your current Wi-Fi password. For newer hubs, the default administrator password is the <strong>original</strong> Wi-Fi password printed on the hub label—not necessarily the password currently used to connect devices.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check whether the password was changed</h3>
+      <p>
+        If you or someone else changed the administrator password, the original label password will no longer work. Use the current custom password instead.
+      </p>
+
+      <!-- When to Factory Reset the Hub -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">When to Factory Reset the Hub</h2>
+      <p>Do not factory reset the hub as the first fix.</p>
+      <p>Before resetting:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Confirm you are connected to the Sky hub.</li>
+        <li>Try <code>http://192.168.0.1</code> and <code>https://192.168.0.1</code>.</li>
+        <li>Disable VPN and proxy settings.</li>
+        <li>Try another browser or device.</li>
+        <li>Restart the hub.</li>
+        <li>Check the correct default or custom administrator password.</li>
+      </ul>
+      <p>
+        A factory reset can remove custom settings, including Wi-Fi names, passwords, and other configuration. Record anything you need before resetting, and follow the reset instructions for your exact hub model.
+      </p>
+
+      <!-- Common Mistakes -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Mistakes</h2>
+      <ul style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+        <li>Using mobile data instead of connecting to the Sky home network.</li>
+        <li>Assuming every Sky hub uses <code>sky</code> as the password.</li>
+        <li>Using your current Wi-Fi password when the hub expects the original label password.</li>
+        <li>Treating the Wi-Fi password and administrator password as permanently identical.</li>
+        <li>Trying <code>192.168.1.1</code> when your Sky hub uses <code>192.168.0.1</code>.</li>
+        <li>Factory resetting before trying the simpler access fixes.</li>
+      </ul>
+
+      <!-- FAQs -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">FAQs</h2>
+      <div class="faq-list" style="margin-bottom: 2.5rem;">
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the Sky Broadband hub login address?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            The standard address is <code>192.168.0.1</code>. You can also use <code>https://192.168.0.1</code>.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the default Sky hub username?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            The default username is <code>admin</code>.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the default Sky hub password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            For older Sky hubs, use <code>sky</code>. For newer Sky Broadband Hubs, use the Wi-Fi password printed on the hub label.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Why does sky not work on my hub?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Your hub may be a newer model that uses the Wi-Fi password on its label instead. Alternatively, the administrator password may have been changed.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I change my Wi-Fi password from the hub page?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes. Sign in, open <strong>Wireless</strong> or <strong>WiFi</strong>, update the Wi-Fi name and password, then select <strong>Apply</strong> or <strong>Save</strong>.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Is the Sky hub admin password the same as the Wi-Fi password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            On newer Sky hubs, the default administrator password may be the original Wi-Fi password. They are separate settings and can be changed independently.
+          </div>
+        </details>
+      </div>
+
+      <!-- The Bottom Line -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">The Bottom Line</h2>
+      <div class="bottom-line-callout" style="background: var(--bg-card); border-left: 4px solid var(--primary); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+          Open <code>192.168.0.1</code> from your Sky home network and sign in as <code>admin</code>. Use <code>sky</code> for older Sky hubs, the Wi-Fi password on the hub label for newer models, and your custom password if you changed it. If the page will not open, check the connection and disable VPN or proxy settings before restarting the hub.
+        </p>
+      </div>
+
+      <!-- Diagnostic Probe Tool -->
+      <div class="card" style="margin: 2rem 0; padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+        <div style="font-weight: 700; margin-bottom: 0.5rem;">Diagnostic Connection Probe</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+          Quickly test whether your device can reach the Sky Hub Gateway IP on your local home network.
+        </p>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button id="probe-btn" class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.875rem;">
+            Test Connection to 192.168.0.1
+          </button>
+          <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
+        </div>
+      </div>
+
+      <!-- Author/Reviewer Byline Card at End of Article -->
+      {get_byline_html()}
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Guide &rarr;</a>
+          <a href="/isp/bt-smart-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">BT Smart Hub Guide &rarr;</a>
+          <a href="/isp/virgin-media-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">Virgin Media Hub &rarr;</a>
+          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
     for isp in ISP_GATEWAYS:
@@ -4792,6 +5320,11 @@ def generate_isp_pages():
         if slug == "telstra-smart-modem":
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_telstra_smart_modem_page(isp))
+            continue
+
+        if slug == "sky-broadband":
+            with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_sky_broadband_page(isp))
             continue
 
         canonical = f"https://routeriphub.com/isp/{slug}/"
