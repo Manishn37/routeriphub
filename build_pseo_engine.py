@@ -5295,6 +5295,506 @@ def generate_custom_sky_broadband_page(isp):
 
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
+
+def generate_custom_virgin_media_hub_page(isp):
+    canonical = "https://routeriphub.com/isp/virgin-media-hub/"
+    title = "Virgin Media Hub Login — 192.168.0.1 Admin Access & Fixes"
+    desc = "Access your Virgin Media Hub at 192.168.0.1. Find the Hub settings password, change Wi-Fi settings, and fix common Virgin Media login issues."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("ISP Gateways", "/isp/"),
+        ("Virgin Media (UK)", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Virgin Media Hub Login — 192.168.0.1 Admin Access & Fixes",
+        "description": desc,
+        "image": "https://routeriphub.com/images/isp/virgin-media-hub-192-168-0-1-login-guide.webp",
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to Your Virgin Media Hub",
+        "description": "Step-by-step instructions to connect to your Virgin Media Hub, open 192.168.0.1 (or 192.168.100.1 in Modem Mode), and enter the settings password.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to the Hub’s network",
+                "text": "Connect your phone, tablet, or computer to the Virgin Media Hub’s Wi-Fi network. For a more reliable connection, use an Ethernet cable between your computer and one of the Hub’s LAN ports. Do not use mobile data."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open the management address",
+                "text": "Enter 192.168.0.1 directly into your browser’s address bar. Do not enter the address into a search engine."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Enter the Hub settings password",
+                "text": "When prompted, enter the settings password printed on the base of the Hub. If you changed the settings password previously, use your custom password instead."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Open the settings you need",
+                "text": "Once signed in, select the section related to your task. Virgin Media Hubs support settings such as Wi-Fi network names and passwords, guest networks, diagnostics, and Modem Mode."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the Virgin Media Hub login address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The standard Hub settings address is 192.168.0.1. If Modem Mode is enabled, use 192.168.100.1."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default Virgin Media Hub password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use the Hub settings password printed on the base of the Hub. It is separate from the Wi-Fi password."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the Virgin Media Hub settings password the same as the Wi-Fi password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The settings password opens the Hub’s management interface; the Wi-Fi password connects devices to the wireless network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I change my Wi-Fi password from the Hub page?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Sign in, go to Advanced settings, select Wireless, then Security, and update the Wi-Fi password before selecting Apply changes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why can’t I open 192.168.0.1?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You may not be connected to the Hub, or you may have Modem Mode enabled. If Modem Mode is enabled, use 192.168.100.1 instead."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I manage the Hub without opening the browser page?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The My Virgin Media app can manage Hub settings, including Wi-Fi network details and the Hub settings password, once the Hub is linked to your account."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        Virgin Media (UK) Gateway Login — 192.168.0.1 Admin Access
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+        If you searched <code>192.168.0.1</code> expecting your Virgin Media Hub’s settings page, you have the right address. The important detail is the password: Virgin Media Hubs use a <strong>Hub settings password</strong>, which is separate from the Wi-Fi password.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        Open <code>192.168.0.1</code> from a device connected to your Virgin Media home network. When prompted, enter the settings password printed on the base of the Hub.
+      </p>
+
+      <!-- Quick Answer Card -->
+      <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <div class="table-responsive" style="margin-bottom: 1rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Setting</th>
+                <th>What to use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Hub settings address</strong></td>
+                <td><code>http://192.168.0.1</code></td>
+              </tr>
+              <tr>
+                <td><strong>Modem Mode address</strong></td>
+                <td><code>http://192.168.100.1</code></td>
+              </tr>
+              <tr>
+                <td><strong>Login credential</strong></td>
+                <td>Hub settings password</td>
+              </tr>
+              <tr>
+                <td><strong>Default settings password location</strong></td>
+                <td>Label on the base of the Hub</td>
+              </tr>
+              <tr>
+                <td><strong>Wi-Fi password</strong></td>
+                <td>Separate from the Hub settings password</td>
+              </tr>
+              <tr>
+                <td><strong>Previously changed password</strong></td>
+                <td>Use your custom settings password</td>
+              </tr>
+              <tr>
+                <td><strong>Generic admin / password login</strong></td>
+                <td>Do not assume this applies</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          The Hub settings password allows you to make changes to the Hub. The Wi-Fi password connects devices to your wireless network.
+        </p>
+        <div class="action-btn-group" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Open 192.168.0.1 &rarr;
+          </a>
+          <a href="http://192.168.100.1" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            Open 192.168.100.1 (Modem Mode)
+          </a>
+        </div>
+      </div>
+
+      <!-- Figure 1: Hero Guide -->
+      <figure class="guide-figure">
+        <img src="/images/isp/virgin-media-hub-192-168-0-1-login-guide.webp" alt="Virgin Media Hub gateway login guide showing 192.168.0.1 and 192.168.100.1 admin access with Hub settings password" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Virgin Media Hub admin login: connect locally, open 192.168.0.1 (or 192.168.100.1 in Modem Mode), and enter your Hub settings password.</figcaption>
+      </figure>
+
+      <!-- Virgin Media Hub Login Details -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Virgin Media Hub Login Details</h2>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>What to use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Hub settings address</strong></td>
+              <td><code>192.168.0.1</code></td>
+            </tr>
+            <tr>
+              <td><strong>Secure address</strong></td>
+              <td><code>https://192.168.0.1</code></td>
+            </tr>
+            <tr>
+              <td><strong>Login credential</strong></td>
+              <td>Hub settings password</td>
+            </tr>
+            <tr>
+              <td><strong>Default password location</strong></td>
+              <td>Label on the base of the Hub</td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi password location</strong></td>
+              <td>Label on the base of the Hub</td>
+            </tr>
+            <tr>
+              <td><strong>Custom settings password</strong></td>
+              <td>Use the password you created</td>
+            </tr>
+            <tr>
+              <td><strong>Modem Mode address</strong></td>
+              <td><code>192.168.100.1</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-bottom: 2rem;">
+        The settings password is the credential needed to access and change Hub settings. It is not the same as the Wi-Fi password.
+      </p>
+
+      <!-- How to Log In to Your Virgin Media Hub -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Log In to Your Virgin Media Hub</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Connect to the Hub’s network</h3>
+      <p>
+        Connect your phone, tablet, or computer to the Virgin Media Hub’s Wi-Fi network. For a more reliable connection, use an Ethernet cable between your computer and one of the Hub’s LAN ports.
+      </p>
+      <p>
+        Do not use mobile data. The Hub settings page is a local interface and must be accessed from the home network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Open the management address</h3>
+      <p>Enter this directly into your browser’s address bar:</p>
+      <div style="margin: 0.75rem 0 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <code style="padding: 0.35rem 0.65rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">192.168.0.1</code>
+      </div>
+      <p>
+        Do not enter the address into a search engine. You need the local Hub settings page, not a web search result.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Enter the Hub settings password</h3>
+      <p>
+        When prompted, enter the settings password printed on the base of the Hub.
+      </p>
+      <p>
+        If you changed the settings password previously, use your custom password instead. Do not assume the original label password will override a changed credential.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Open the settings you need</h3>
+      <p>
+        Once signed in, select the section related to your task. Virgin Media Hubs support settings such as Wi-Fi network names and passwords, guest networks, diagnostics, and Modem Mode.
+      </p>
+
+      <!-- Change Your Virgin Media Wi-Fi Name and Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Change Your Virgin Media Wi-Fi Name and Password</h2>
+      <p>To change the wireless network details:</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
+        <li>Sign in to the Hub at <code>192.168.0.1</code>.</li>
+        <li>Select <strong>Advanced settings</strong>.</li>
+        <li>Select <strong>Wireless</strong>.</li>
+        <li>Select <strong>Security</strong>.</li>
+        <li>Change the <strong>Wi-Fi Network Name (SSID)</strong> and/or <strong>Wi-Fi password (security key)</strong>.</li>
+        <li>Select <strong>Apply changes</strong>.</li>
+      </ol>
+      <p>
+        Changing the Wi-Fi name or password disconnects devices using the old credentials. Reconnect them using the updated details.
+      </p>
+
+      <!-- Hub Settings Password vs. Wi-Fi Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Hub Settings Password vs. Wi-Fi Password</h2>
+      <p>
+        The <strong>Hub settings password</strong> opens the router’s management interface. The <strong>Wi-Fi password</strong> connects phones, computers, TVs, and other devices to the wireless network.
+      </p>
+      <p>
+        Both may appear on the label on the base of the Hub, so read the field names carefully. The settings password is specifically used to access and change Hub settings.
+      </p>
+      <p>
+        If your phone is connected to Wi-Fi but the Hub rejects your login, that does not necessarily mean the Wi-Fi password is wrong. Check that you are entering the Hub settings password in the login form.
+      </p>
+
+      <!-- Figure 2: Base Sticker -->
+      <figure class="guide-figure">
+        <img src="/images/isp/virgin-media-hub-bottom-label-settings-password.webp" alt="Virgin Media Hub base sticker showing Hub settings password separated from Wi-Fi password" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Locating the Hub settings password on the base sticker of a Virgin Media Hub, distinctly separate from the Wi-Fi network key.</figcaption>
+      </figure>
+
+      <!-- If 192.168.0.1 Will Not Open -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If 192.168.0.1 Will Not Open</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Confirm the connection</h3>
+      <p>
+        Make sure your device is connected to the correct Virgin Media Hub. If you have a mesh system, extender, powerline adapter, or separate router, you may be connected to a different device.
+      </p>
+      <p>
+        Use a direct Ethernet connection to the Virgin Media Hub when possible. This removes Wi-Fi signal issues from the troubleshooting process.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Check the address carefully</h3>
+      <p>Use:</p>
+      <p><code>http://192.168.0.1</code></p>
+      <p>Avoid incorrect entries such as:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li><code>192.168.o.1</code></li>
+        <li><code>192.168.0.l</code></li>
+        <li><code>192.168.0.1.com</code></li>
+        <li><code>192.168.0.1 router login</code></li>
+        <li><code>192.168.0.01</code></li>
+      </ul>
+      <p>
+        Enter the address directly into the browser’s address bar rather than a search engine.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Try the secure address</h3>
+      <p>Use:</p>
+      <p><code>https://192.168.0.1</code></p>
+      <p>
+        If your browser shows a security warning, it may be because the Hub uses a self-signed certificate for its local HTTPS page. Only proceed if you entered the address yourself and are connected to your own home network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Disable VPN or proxy temporarily</h3>
+      <p>
+        A VPN, proxy, or privacy-focused browser setting can interfere with access to a local Hub address. Disconnect the VPN and disable proxy settings, then try again.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Try another browser or device</h3>
+      <p>
+        Try Chrome, Firefox, Edge, or Safari. If one browser fails, test the page from another phone, tablet, or computer connected to the same Virgin Media network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">6. Restart the Hub</h3>
+      <p>
+        Turn the Hub off, wait about 30 seconds, then turn it back on. Wait for the lights to stabilize, reconnect your device, and try <code>192.168.0.1</code> again.
+      </p>
+      <p>
+        A restart preserves your Hub settings. Do not confuse it with a factory reset.
+      </p>
+
+      <!-- If the Settings Password Is Rejected -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If the Settings Password Is Rejected</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the correct password field</h3>
+      <p>
+        Look for the <strong>Hub settings password</strong>, not the Wi-Fi password. Virgin Media separates these two credentials.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the label on the base of the Hub</h3>
+      <p>
+        The default settings password is printed on the label on the base of the Hub. The Wi-Fi password may appear nearby, so read the field names carefully.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Consider whether the password was changed</h3>
+      <p>
+        If you previously changed the Hub settings password, use that custom password. The original label password will no longer work.
+      </p>
+      <p>
+        If you cannot remember the changed settings password, you may need to reset the Hub to restore the default settings password.
+      </p>
+
+      <!-- Modem Mode Changes the Login Address -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Modem Mode Changes the Login Address</h2>
+      <p>
+        If you enabled Modem Mode on your Virgin Media Hub, <code>192.168.0.1</code> may no longer open the Hub settings page.
+      </p>
+      <p>Use:</p>
+      <div style="margin: 0.75rem 0 1rem;">
+        <code style="padding: 0.35rem 0.65rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">http://192.168.100.1</code>
+      </div>
+      <p>
+        Modem Mode changes the Hub’s management address. The Hub settings password is still separate from the Wi-Fi password.
+      </p>
+
+      <!-- Figure 3: Modem Mode Diagram -->
+      <figure class="guide-figure">
+        <img src="/images/isp/virgin-media-hub-modem-mode-192-168-100-1.webp" alt="Virgin Media Hub Modem Mode diagram showing IP address shift from 192.168.0.1 to 192.168.100.1" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Virgin Media Hub Modem Mode transition: Wi-Fi turns off, base light turns magenta, and management IP shifts to 192.168.100.1.</figcaption>
+      </figure>
+
+      <!-- When to Factory Reset the Hub -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">When to Factory Reset the Hub</h2>
+      <p>Do not factory reset the Hub as the first fix.</p>
+      <p>Before resetting:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Confirm you are connected to the Virgin Media Hub.</li>
+        <li>Try <code>http://192.168.0.1</code> and <code>192.168.100.1</code> if Modem Mode is enabled.</li>
+        <li>Disable VPN and proxy settings.</li>
+        <li>Try another browser or device.</li>
+        <li>Restart the Hub.</li>
+        <li>Check the correct settings password.</li>
+      </ul>
+      <p>
+        A factory reset can remove custom Hub settings, including Wi-Fi names, passwords, and the settings password. Record anything you need before resetting, and follow the reset instructions for your exact Hub model.
+      </p>
+
+      <!-- Common Mistakes -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Mistakes</h2>
+      <ul style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+        <li>Using mobile data instead of connecting to the Virgin Media Hub.</li>
+        <li>Entering the Wi-Fi password into the Hub settings login form.</li>
+        <li>Assuming the Hub settings password and Wi-Fi password are always the same.</li>
+        <li>Trying <code>192.168.100.1</code> when Modem Mode has not been enabled.</li>
+        <li>Typing the management address into a search engine.</li>
+        <li>Factory resetting before trying the simpler access fixes.</li>
+      </ul>
+
+      <!-- FAQs -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">FAQs</h2>
+      <div class="faq-list" style="margin-bottom: 2.5rem;">
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the Virgin Media Hub login address?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            The standard Hub settings address is <code>192.168.0.1</code>. If Modem Mode is enabled, use <code>192.168.100.1</code>.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the default Virgin Media Hub password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Use the Hub settings password printed on the base of the Hub. It is separate from the Wi-Fi password.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Is the Virgin Media Hub settings password the same as the Wi-Fi password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            No. The settings password opens the Hub’s management interface; the Wi-Fi password connects devices to the wireless network.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I change my Wi-Fi password from the Hub page?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes. Sign in, go to <strong>Advanced settings</strong>, select <strong>Wireless</strong>, then <strong>Security</strong>, and update the Wi-Fi password before selecting <strong>Apply changes</strong>.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Why can’t I open 192.168.0.1?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            You may not be connected to the Hub, or you may have Modem Mode enabled. If Modem Mode is enabled, use <code>192.168.100.1</code> instead.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I manage the Hub without opening the browser page?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes. The My Virgin Media app can manage Hub settings, including Wi-Fi network details and the Hub settings password, once the Hub is linked to your account.
+          </div>
+        </details>
+      </div>
+
+      <!-- The Bottom Line -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">The Bottom Line</h2>
+      <div class="bottom-line-callout" style="background: var(--bg-card); border-left: 4px solid var(--primary); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+          Open <code>192.168.0.1</code> from your Virgin Media home network and enter the Hub settings password from the base of the Hub. Do not confuse it with the Wi-Fi password. If Modem Mode is enabled, use <code>192.168.100.1</code> instead.
+        </p>
+      </div>
+
+      <!-- Diagnostic Probe Tool -->
+      <div class="card" style="margin: 2rem 0; padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+        <div style="font-weight: 700; margin-bottom: 0.5rem;">Diagnostic Connection Probe</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+          Quickly test whether your device can reach the Virgin Media Hub Gateway IP on your local home network.
+        </p>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button id="probe-btn" class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.875rem;">
+            Test Connection to 192.168.0.1
+          </button>
+          <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
+        </div>
+      </div>
+
+      <!-- Author/Reviewer Byline Card at End of Article -->
+      {get_byline_html()}
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Guide &rarr;</a>
+          <a href="/ip/192-168-100-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.100.1 (Modem Mode) &rarr;</a>
+          <a href="/isp/sky-broadband/" class="btn btn-secondary" style="font-size: 0.85rem;">Sky Broadband Hub &rarr;</a>
+          <a href="/isp/bt-smart-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">BT Smart Hub Guide &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
     for isp in ISP_GATEWAYS:
@@ -5325,6 +5825,11 @@ def generate_isp_pages():
         if slug == "sky-broadband":
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_sky_broadband_page(isp))
+            continue
+
+        if slug == "virgin-media-hub":
+            with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_virgin_media_hub_page(isp))
             continue
 
         canonical = f"https://routeriphub.com/isp/{slug}/"
