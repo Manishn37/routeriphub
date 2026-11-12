@@ -7384,6 +7384,640 @@ def generate_custom_tmobile_kvd21_page(isp):
 
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/isp/t-mobile-kvd21-192-168-12-1-gateway-login-guide.webp", og_image_alt="T-Mobile Home Internet 5G gateway login guide showing 192.168.12.1 web admin portal access", og_type="article") + content + get_footer()
 
+
+def generate_custom_spectrum_sac2v1k_page(isp):
+    canonical = "https://routeriphub.com/isp/spectrum-sac2v1k/"
+    title = "Spectrum Wi-Fi 6 Router (SAC2V1K/SAX1V1K) Login & Setup"
+    desc = "Login and setup guide for Spectrum Wi-Fi 6 routers SAC2V1K and SAX1V1K. Learn how to access 192.168.1.1, use the My Spectrum app, and change Wi-Fi settings."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("ISP Gateways", "/isp/"),
+        ("Spectrum (Charter)", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Spectrum Wi-Fi 6 Router (SAC2V1K, SAX1V1K): Login, Setup, and Settings Guide",
+        "description": desc,
+        "image": "https://routeriphub.com/images/isp/spectrum-wifi-6-router-sac2v1k-login-setup-guide.webp",
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to Your Spectrum Wi-Fi 6 Router",
+        "description": "Step-by-step instructions to connect to your Spectrum SAC2V1K or SAX1V1K router, open 192.168.1.1, or configure settings via the My Spectrum app.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to the Spectrum router",
+                "text": "Connect your computer, phone, or tablet to the Spectrum router using Wi-Fi (credentials on the label) or an Ethernet cable."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open browser or My Spectrum App",
+                "text": "Enter 192.168.1.1 into your browser address bar or launch the My Spectrum app on your iOS or Android smartphone."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Sign in with your Spectrum account",
+                "text": "Sign in with your Spectrum account credentials when prompted by the web portal or the My Spectrum app."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Manage Wi-Fi and network settings",
+                "text": "Select your router or Wi-Fi section to change network names, update passwords, view connected devices, and manage parental controls."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Can I log in to the SAC2V1K or SAX1V1K?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, but Spectrum may limit the local admin options. The My Spectrum app is the primary management method for these routers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default IP address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The most common local gateway address is 192.168.1.1. Enter it in your browser while connected to the Spectrum network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default username and password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "These routers generally do not use a traditional standalone admin username and password. Spectrum typically manages access through your Spectrum account and the My Spectrum app."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where is the Wi-Fi password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Check the sticker on the bottom or side of the router. It lists the default Wi-Fi name and password."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use my own router with Spectrum?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, in many cases. You can connect your own router directly to a standalone Spectrum modem and activate the connection."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I disable the Spectrum router’s Wi-Fi?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Some Spectrum gateways allow Wi-Fi settings to be changed through the My Spectrum app. If you want to use your own router, ask Spectrum about bridge mode or modem-only equipment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why can’t I see advanced settings?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Spectrum-managed routers intentionally restrict many advanced settings to prevent configuration problems and maintain network stability."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        Spectrum Wi-Fi 6 Router (SAC2V1K, SAX1V1K): Login, Setup, and Settings Guide
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+        The Spectrum Wi-Fi 6 routers <strong>SAC2V1K</strong> and <strong>SAX1V1K</strong> are Spectrum-provided gateway/routers that manage your home internet, Wi-Fi network, connected devices, and basic security settings.
+      </p>
+      <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+        For most settings, Spectrum expects you to use the <strong>My Spectrum app</strong> rather than a traditional router login page. You can usually reach the local admin page by entering <strong>192.168.1.1</strong> in a browser but options may be limited compared with a standard third-party router.
+      </p>
+      <div style="background: var(--bg-card); border-left: 4px solid var(--primary); padding: 1rem 1.25rem; border-radius: var(--radius-md); margin-bottom: 1.75rem;">
+        <strong>Fastest action:</strong> Connect to your Spectrum Wi-Fi network, open the <strong>My Spectrum app</strong>, and sign in with your Spectrum account to manage Wi-Fi, devices, and network settings.
+      </div>
+
+      <!-- Figure 1: Hero Diagram -->
+      <figure class="guide-figure">
+        <img src="/images/isp/spectrum-wifi-6-router-sac2v1k-login-setup-guide.webp" alt="Spectrum Wi-Fi 6 router SAC2V1K and SAX1V1K login and setup guide showing 192.168.1.1 admin access" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Step-by-step connection, 192.168.1.1 web portal access, and My Spectrum app management for SAC2V1K &amp; SAX1V1K routers.</figcaption>
+      </figure>
+
+      <!-- Quick Reference -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">Quick Reference</h2>
+      <div class="table-responsive" style="margin-bottom: 2rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Router models</strong></td>
+              <td>SAC2V1K, SAX1V1K, SAX2V1S</td>
+            </tr>
+            <tr>
+              <td><strong>Router type</strong></td>
+              <td>Spectrum-provided Wi-Fi 6 router/gateway</td>
+            </tr>
+            <tr>
+              <td><strong>Common local admin IP</strong></td>
+              <td><code>192.168.1.1</code></td>
+            </tr>
+            <tr>
+              <td><strong>Primary management method</strong></td>
+              <td>My Spectrum app (iOS / Android)</td>
+            </tr>
+            <tr>
+              <td><strong>Default admin username</strong></td>
+              <td>Usually no separate login required; app uses your Spectrum account</td>
+            </tr>
+            <tr>
+              <td><strong>Default Wi-Fi name</strong></td>
+              <td>Printed on the router label</td>
+            </tr>
+            <tr>
+              <td><strong>Default Wi-Fi password</strong></td>
+              <td>Printed on the router label</td>
+            </tr>
+            <tr>
+              <td><strong>Best use</strong></td>
+              <td>Spectrum internet, home Wi-Fi, device management, basic network controls</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Diagnostic Table -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Diagnostic Table</h2>
+      <div class="table-responsive" style="margin-bottom: 2rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Symptom</th>
+              <th>Likely cause</th>
+              <th>Quick fix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>192.168.1.1 does not open</strong></td>
+              <td>You are using mobile data or connected to another network</td>
+              <td>Connect to the Spectrum router’s Wi-Fi or use an Ethernet cable</td>
+            </tr>
+            <tr>
+              <td><strong>Browser shows a Spectrum page instead of a router login</strong></td>
+              <td>Spectrum may redirect the local admin page to its online account/app system</td>
+              <td>Use the My Spectrum app to manage the router</td>
+            </tr>
+            <tr>
+              <td><strong>Cannot find Wi-Fi name or password</strong></td>
+              <td>Default credentials are on the router label</td>
+              <td>Check the sticker on the bottom or side of the router</td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi is slow in one room</strong></td>
+              <td>Distance, walls, interference, or router placement</td>
+              <td>Move the router to a central, elevated location away from metal objects</td>
+            </tr>
+            <tr>
+              <td><strong>A device will not connect</strong></td>
+              <td>Wrong password, saved-network issue, or device compatibility</td>
+              <td>Forget the network on the device, reconnect, and re-enter the password</td>
+            </tr>
+            <tr>
+              <td><strong>Internet works but Wi-Fi does not</strong></td>
+              <td>Router Wi-Fi setting or temporary router issue</td>
+              <td>Restart the router; if needed, reset Wi-Fi settings through the My Spectrum app</td>
+            </tr>
+            <tr>
+              <td><strong>No internet on any device</strong></td>
+              <td>Service outage, loose cable, or modem/gateway issue</td>
+              <td>Check the router lights, restart it, and check the My Spectrum app for outage alerts</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- What Is the Spectrum Wi-Fi 6 Router? -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">What Is the Spectrum Wi-Fi 6 Router?</h2>
+      <p style="line-height: 1.6; margin-bottom: 1rem;">
+        The SAC2V1K and SAX1V1K are not ordinary standalone routers you configure through a full traditional admin dashboard. They are Spectrum-managed Wi-Fi 6 routers designed to work with Spectrum internet service and the My Spectrum app.
+      </p>
+      <p style="line-height: 1.6; margin-bottom: 1rem;">
+        Think of the router as the <strong>main control center</strong> for your home network. It receives internet from Spectrum, creates your Wi-Fi network, assigns local IP addresses to devices, and manages basic security and parental controls.
+      </p>
+      <p style="line-height: 1.6; margin-bottom: 1.25rem;">
+        Unlike many third-party routers, Spectrum limits some advanced settings. This is intentional: it reduces misconfiguration and allows Spectrum to manage firmware, security updates, and network features remotely.
+      </p>
+      <div style="background: var(--bg-card); border-left: 4px solid var(--primary); padding: 0.85rem 1.15rem; border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <strong>Next action:</strong> If you only need to change your Wi-Fi name or password, start with the My Spectrum app—not the router’s local IP address.
+      </div>
+
+      <!-- How to Log In -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Log In</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">On Windows or Mac</h3>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>Connect your computer to the Spectrum router using Wi-Fi or an Ethernet cable.</li>
+        <li>Open a browser such as Chrome, Edge, Safari, or Firefox.</li>
+        <li>Type <code>192.168.1.1</code> into the address bar.</li>
+        <li>Press Enter.</li>
+        <li>If prompted, sign in with your Spectrum account credentials or follow the on-screen instructions.</li>
+        <li>If the page redirects to Spectrum’s online portal or app download page, use the My Spectrum app instead.</li>
+      </ol>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">On iPhone</h3>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>Open <strong>Settings</strong>.</li>
+        <li>Tap <strong>Wi-Fi</strong>.</li>
+        <li>Connect to your Spectrum Wi-Fi network.</li>
+        <li>Open the <strong>My Spectrum app</strong>.</li>
+        <li>Sign in with your Spectrum username and password.</li>
+        <li>Select your internet service and choose <strong>Router</strong> or <strong>Wi-Fi</strong> settings.</li>
+        <li>Update the network name, password, or connected-device settings as needed.</li>
+      </ol>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">On Android</h3>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+        <li>Open <strong>Settings</strong>.</li>
+        <li>Tap <strong>Network &amp; internet</strong> or <strong>Connections</strong>.</li>
+        <li>Connect to your Spectrum Wi-Fi network.</li>
+        <li>Open the <strong>My Spectrum app</strong>.</li>
+        <li>Sign in to your Spectrum account.</li>
+        <li>Select your router or internet service.</li>
+        <li>Use the available options to manage Wi-Fi, devices, and network settings.</li>
+      </ol>
+
+      <!-- Figure 2: Hardware Label -->
+      <figure class="guide-figure">
+        <img src="/images/isp/spectrum-router-sac2v1k-label-default-credentials.webp" alt="Spectrum Wi-Fi 6 router label showing default Wi-Fi network name and password location" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Locating the factory Wi-Fi name, password, and serial number on the bottom or side label of Spectrum routers.</figcaption>
+      </figure>
+
+      <!-- Default Wi-Fi Credentials -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Default Wi-Fi Credentials</h2>
+      <p style="line-height: 1.6; margin-bottom: 1rem;">
+        The SAC2V1K and SAX1V1K usually include a preconfigured Wi-Fi name and password printed on the router label.
+      </p>
+      <div class="table-responsive" style="margin-bottom: 1.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Where to find it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Wi-Fi network name</strong></td>
+              <td>Bottom or side sticker on the router</td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi password</strong></td>
+              <td>Bottom or side sticker on the router</td>
+            </tr>
+            <tr>
+              <td><strong>Serial number</strong></td>
+              <td>Router label</td>
+            </tr>
+            <tr>
+              <td><strong>MAC address</strong></td>
+              <td>Router label</td>
+            </tr>
+            <tr>
+              <td><strong>Router model</strong></td>
+              <td>SAC2V1K or SAX1V1K on the label</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="line-height: 1.6; margin-bottom: 2rem;">
+        If you changed the Wi-Fi password and cannot remember it, use the My Spectrum app to view or update the Wi-Fi settings. If the app is unavailable, a router reset may restore the original label credentials.
+      </p>
+
+      <!-- My Spectrum App vs. Local Admin Page -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">My Spectrum App vs. Local Admin Page</h2>
+      <p style="line-height: 1.6; margin-bottom: 1rem;">
+        Spectrum splits router management between its app and the local admin interface.
+      </p>
+      <div class="table-responsive" style="margin-bottom: 1.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Best place to manage it</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Change Wi-Fi name</strong></td>
+              <td>My Spectrum app</td>
+            </tr>
+            <tr>
+              <td><strong>Change Wi-Fi password</strong></td>
+              <td>My Spectrum app</td>
+            </tr>
+            <tr>
+              <td><strong>View connected devices</strong></td>
+              <td>My Spectrum app</td>
+            </tr>
+            <tr>
+              <td><strong>Pause a device’s internet access</strong></td>
+              <td>My Spectrum app</td>
+            </tr>
+            <tr>
+              <td><strong>Set parental controls</strong></td>
+              <td>My Spectrum app</td>
+            </tr>
+            <tr>
+              <td><strong>Check for outages</strong></td>
+              <td>My Spectrum app</td>
+            </tr>
+            <tr>
+              <td><strong>Restart the router remotely</strong></td>
+              <td>My Spectrum app</td>
+            </tr>
+            <tr>
+              <td><strong>Access local gateway settings</strong></td>
+              <td><code>192.168.1.1</code></td>
+            </tr>
+            <tr>
+              <td><strong>Advanced router configuration</strong></td>
+              <td>Often limited or unavailable</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Figure 3: App vs Local Admin -->
+      <figure class="guide-figure">
+        <img src="/images/isp/my-spectrum-app-vs-local-admin-portal.webp" alt="My Spectrum app interface compared to 192.168.1.1 local web admin page for router configuration" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Feature comparison between the My Spectrum mobile application and the 192.168.1.1 local browser interface.</figcaption>
+      </figure>
+
+      <!-- How to Change Wi-Fi Name and Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Change Wi-Fi Name and Password</h2>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1.25rem;">
+        <li>Open the <strong>My Spectrum app</strong>.</li>
+        <li>Sign in to your Spectrum account.</li>
+        <li>Select your internet service.</li>
+        <li>Tap <strong>Router</strong> or <strong>Wi-Fi</strong>.</li>
+        <li>Choose <strong>Edit Wi-Fi</strong> or a similar option.</li>
+        <li>Enter a new Wi-Fi network name.</li>
+        <li>Enter a new Wi-Fi password.</li>
+        <li>Save the changes.</li>
+        <li>Reconnect your devices using the new password.</li>
+      </ol>
+      <p style="line-height: 1.6; margin-bottom: 2rem;">
+        Use a password with at least 12 characters, including uppercase letters, lowercase letters, numbers, and symbols. Avoid using your address, phone number, or common words.
+      </p>
+
+      <!-- Wi-Fi 6 Benefits -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Wi-Fi 6 Benefits</h2>
+      <p style="line-height: 1.6; margin-bottom: 1rem;">
+        Wi-Fi 6 improves performance in homes with many connected devices. It is especially useful if you use smart TVs, security cameras, gaming consoles, phones, laptops, tablets, and smart-home devices at the same time.
+      </p>
+      <div class="table-responsive" style="margin-bottom: 1.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>What it means for you</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Higher capacity</strong></td>
+              <td>More devices can use Wi-Fi without major slowdowns</td>
+            </tr>
+            <tr>
+              <td><strong>Better efficiency</strong></td>
+              <td>Devices send and receive data more efficiently</td>
+            </tr>
+            <tr>
+              <td><strong>Improved performance in busy homes</strong></td>
+              <td>Helpful for streaming, gaming, video calls, and smart-home devices</td>
+            </tr>
+            <tr>
+              <td><strong>Better battery efficiency</strong></td>
+              <td>Compatible devices may use less power during Wi-Fi communication</td>
+            </tr>
+            <tr>
+              <td><strong>Faster potential speeds</strong></td>
+              <td>Actual speed still depends on your Spectrum plan, wiring, distance, and interference</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="line-height: 1.6; margin-bottom: 2rem;">
+        Wi-Fi 6 does not automatically make every device faster. Older devices may still connect at their original supported speeds, but the router can manage traffic more efficiently across the network.
+      </p>
+
+      <!-- Best Router Placement -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Best Router Placement</h2>
+      <p style="line-height: 1.6; margin-bottom: 0.75rem;">Place the SAC2V1K or SAX1V1K in a central, open location:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>Keep it off the floor.</li>
+        <li>Avoid placing it inside a cabinet, closet, or entertainment center.</li>
+        <li>Keep it away from metal objects, thick concrete walls, and large appliances.</li>
+        <li>Do not place it directly beside a microwave, baby monitor, cordless phone base, or Bluetooth device.</li>
+        <li>Keep it away from aquariums and large mirrors.</li>
+        <li>Position it centrally between the rooms where you use Wi-Fi most.</li>
+      </ul>
+      <p style="line-height: 1.6; margin-bottom: 2rem;">
+        If your home is large or has multiple floors, one router may not cover every room effectively. A mesh system or Spectrum-provided extenders may be a better solution than repeatedly restarting the router.
+      </p>
+
+      <!-- Troubleshooting -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Troubleshooting</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Cannot Access 192.168.1.1</h3>
+      <p><strong>Cause:</strong> You may be using mobile data, connected to another network, or using an incorrect address.</p>
+      <p><strong>Fix:</strong> Connect to the Spectrum router’s Wi-Fi network or plug an Ethernet cable directly into the router. Then enter <code>192.168.1.1</code> in the browser address bar—not the search bar.</p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Browser Redirects to Spectrum</h3>
+      <p><strong>Cause:</strong> Spectrum may route gateway management through its online account system or app.</p>
+      <p><strong>Fix:</strong> Use the My Spectrum app. This is normal for many Spectrum-provided routers.</p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Wi-Fi Password Is Not Working</h3>
+      <p><strong>Cause:</strong> The password may have been changed, entered incorrectly, or the device may have saved an old network profile.</p>
+      <p><strong>Fix:</strong> On the device, choose <strong>Forget This Network</strong> or <strong>Forget Network</strong>, then reconnect using the current Wi-Fi password. Check the My Spectrum app if you are unsure of the current password.</p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Wi-Fi Is Slow</h3>
+      <p><strong>Cause:</strong> Distance, interference, too many devices, or a poor router location.</p>
+      <p><strong>Fix:</strong> Move closer to the router, restart it, and reduce interference. For best results, place the router centrally and away from obstructions.</p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">No Internet Connection</h3>
+      <p><strong>Cause:</strong> A service outage, loose coax/Ethernet cable, or a router issue.</p>
+      <p><strong>Fix:</strong> Check the router lights, confirm all cables are secure, restart the router, and check the My Spectrum app for outage information.</p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Router Keeps Restarting</h3>
+      <p><strong>Cause:</strong> Power issues, overheating, faulty cables, or a hardware problem.</p>
+      <p><strong>Fix:</strong> Plug the router directly into a working wall outlet, avoid power strips if possible, ensure ventilation, and check all cable connections. If the issue continues, contact Spectrum support.</p>
+
+      <!-- Factory Reset -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Factory Reset</h2>
+      <p style="line-height: 1.6; margin-bottom: 1rem;">A factory reset should be your last option.</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1.25rem;">
+        <li>Locate the <strong>Reset</strong> button on the router.</li>
+        <li>Keep the router powered on.</li>
+        <li>Press and hold the Reset button for about 10–15 seconds using a paperclip or similar tool.</li>
+        <li>Release the button when the router begins restarting.</li>
+        <li>Wait several minutes for the router to fully reboot.</li>
+        <li>Reconnect using the Wi-Fi name and password printed on the router label.</li>
+        <li>Reconfigure your network through the My Spectrum app if needed.</li>
+      </ol>
+      <p style="line-height: 1.6; margin-bottom: 2rem;">
+        <strong>Warning:</strong> A factory reset can erase custom Wi-Fi settings and may require reactivation through Spectrum. Do not reset the router unless you have tried simpler troubleshooting steps first.
+      </p>
+
+      <!-- Common Misspellings -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Misspellings</h2>
+      <p style="line-height: 1.6; margin-bottom: 0.75rem;">People often search for the Spectrum router login using incorrect versions of the address:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 2rem;">
+        <li><code>192.168.l.1</code> instead of <code>192.168.1.1</code></li>
+        <li><code>192.168.1.1.1</code></li>
+        <li><code>192.168.0.1</code></li>
+        <li><code>10.0.0.1</code></li>
+        <li><code>spectrumrouterlogin.com</code></li>
+        <li><code>spectrum wifi login</code></li>
+        <li><code>SAC2V1K login</code></li>
+        <li><code>SAX1V1K login</code></li>
+      </ul>
+
+      <!-- After You Log In -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">After You Log In</h2>
+      <p style="line-height: 1.6; margin-bottom: 0.75rem;">Once you can access your router or My Spectrum app settings:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 2.5rem;">
+        <li>Change the default Wi-Fi password if it is still the factory value.</li>
+        <li>Use a strong, unique Wi-Fi password.</li>
+        <li>Enable WPA2 or WPA3 security if the option is available.</li>
+        <li>Review connected devices and remove unfamiliar ones.</li>
+        <li>Keep the router powered on and ventilated.</li>
+        <li>Allow automatic firmware updates.</li>
+        <li>Avoid sharing your Wi-Fi password publicly.</li>
+        <li>Use a guest network if available for visitors.</li>
+      </ul>
+
+      <!-- FAQs -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">FAQs</h2>
+      <div class="faq-list" style="margin-bottom: 2.5rem;">
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I log in to the SAC2V1K or SAX1V1K?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes, but Spectrum may limit the local admin options. The My Spectrum app is the primary management method for these routers.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the default IP address?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            The most common local gateway address is <code>192.168.1.1</code>. Enter it in your browser while connected to the Spectrum network.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the default username and password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            These routers generally do not use a traditional standalone admin username and password. Spectrum typically manages access through your Spectrum account and the My Spectrum app.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Where is the Wi-Fi password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Check the sticker on the bottom or side of the router. It usually lists the default Wi-Fi name and password.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I use my own router with Spectrum?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes, in many cases. You can connect your own router directly to a standalone Spectrum modem and activate the connection.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I disable the Spectrum router’s Wi-Fi?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Some Spectrum gateways allow Wi-Fi settings to be changed through the My Spectrum app. If you want to use your own router, ask Spectrum about Bridge Mode or modem-only options where available.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Why can’t I see advanced settings?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Spectrum-managed routers intentionally restrict many advanced settings to prevent configuration problems and maintain network stability.
+          </div>
+        </details>
+      </div>
+
+      <!-- Bottom Line -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">The Bottom Line</h2>
+      <div class="bottom-line-callout" style="background: var(--bg-card); border-left: 4px solid var(--primary); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin: 0 0 0.75rem 0;">
+          For the Spectrum Wi-Fi 6 routers <strong>SAC2V1K</strong> and <strong>SAX1V1K</strong>, use the <strong>My Spectrum app</strong> for Wi-Fi name, password, device management, parental controls, and outage support. Use <strong>192.168.1.1</strong> only when connected to the Spectrum network and when the local admin page is available.
+        </p>
+        <p style="font-size: 1rem; line-height: 1.6; color: var(--text-secondary); margin: 0;">
+          <strong>Fastest fix:</strong> Connect to your Spectrum Wi-Fi, open the My Spectrum app, and manage the router from there. If the app does not solve the issue, restart the router and check all cable connections before performing a factory reset.
+        </p>
+      </div>
+
+      <!-- Diagnostic Probe Tool -->
+      <div class="card" style="margin: 2rem 0; padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+        <div style="font-weight: 700; margin-bottom: 0.5rem;">Diagnostic Connection Probe</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+          Quickly test whether your device can reach the Spectrum Router Gateway IP on your local home network.
+        </p>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button id="probe-btn" class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.875rem;">
+            Test Connection to 192.168.1.1
+          </button>
+          <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
+        </div>
+      </div>
+
+      <!-- Author/Reviewer Byline Card at End of Article -->
+      {get_byline_html()}
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Gateway Guide &rarr;</a>
+          <a href="/isp/xfinity-xfi/" class="btn btn-secondary" style="font-size: 0.85rem;">Xfinity xFi Gateway &rarr;</a>
+          <a href="/isp/att-bgw320/" class="btn btn-secondary" style="font-size: 0.85rem;">AT&amp;T BGW320 Gateway &rarr;</a>
+          <a href="/isp/verizon-cr1000a/" class="btn btn-secondary" style="font-size: 0.85rem;">Verizon Fios Gateway &rarr;</a>
+          <a href="/isp/t-mobile-kvd21/" class="btn btn-secondary" style="font-size: 0.85rem;">T-Mobile 5G Gateway &rarr;</a>
+          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/isp/spectrum-wifi-6-router-sac2v1k-login-setup-guide.webp", og_image_alt="Spectrum Wi-Fi 6 router SAC2V1K and SAX1V1K login and setup guide showing 192.168.1.1 admin access", og_type="article") + content + get_footer()
+
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
     for isp in ISP_GATEWAYS:
@@ -7434,6 +8068,11 @@ def generate_isp_pages():
         if slug == "t-mobile-kvd21":
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_tmobile_kvd21_page(isp))
+            continue
+
+        if slug == "spectrum-sac2v1k":
+            with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_spectrum_sac2v1k_page(isp))
             continue
 
         canonical = f"https://routeriphub.com/isp/{slug}/"
