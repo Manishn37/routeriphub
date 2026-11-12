@@ -4219,6 +4219,554 @@ def generate_custom_verizon_cr1000a_page(isp):
 
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
+
+def generate_custom_telstra_smart_modem_page(isp):
+    canonical = "https://routeriphub.com/isp/telstra-smart-modem/"
+    title = "Telstra Gateway Login — 192.168.0.1 Admin Access & Fixes"
+    desc = "Access your Telstra gateway at 192.168.0.1 or mymodem. Find the correct admin password, change Wi-Fi settings, and fix common login issues."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("ISP Gateways", "/isp/"),
+        ("Telstra (Australia)", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Telstra Gateway Login — 192.168.0.1 Admin Access & Fixes",
+        "description": desc,
+        "image": "https://routeriphub.com/images/isp/telstra-smart-modem-192-168-0-1-gateway-login-guide.webp",
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to Your Telstra Gateway",
+        "description": "Step-by-step instructions to connect to your Telstra home network, open 192.168.0.1 or mymodem, and sign in with admin credentials.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to the Telstra home network",
+                "text": "Connect your phone, tablet, or computer to the Telstra modem’s Wi-Fi network. For a more reliable connection, use an Ethernet cable between your computer and one of the modem’s LAN ports. Do not use mobile data."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open the management address",
+                "text": "Enter http://mymodem or http://192.168.0.1 directly into your browser’s address bar. Do not enter the address into a search engine."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Enter the administrator credentials",
+                "text": "Use username 'admin' and the password that matches your modem model (the Wi-Fi password printed on the bottom label or reusable sticker for Gen 4 and Gen 3; 'Telstra' for Gen 2 and 1.1)."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Open the settings you need",
+                "text": "Once signed in, choose the section related to your task. Common options include Wi-Fi settings, connected devices, security settings, and modem status."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the Telstra gateway login address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use http://mymodem or http://192.168.0.1 from a device connected to your Telstra home network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default Telstra gateway username?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The default username is admin."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default Telstra Smart Modem password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For Gen 4 and Gen 3, use the original Wi-Fi password printed on the modem label. For Gen 2 and 1.1, use Telstra."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does Telstra not work on my modem?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Your modem may be a Gen 4 or Gen 3 Smart Modem, which uses the original Wi-Fi password from its label. Alternatively, the administrator password may have been changed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I change my Wi-Fi password from the gateway page?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Sign in, open Wi-Fi Settings, update the Wi-Fi Name and Wi-Fi Security Key, then select Apply."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the Telstra Gateway Pro address 192.168.0.1?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The Telstra Gateway Pro uses 192.168.15.1, with the default username admin and password telstra."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        Telstra (Australia) Gateway Login — 192.168.0.1 Admin Access
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+        If you searched <code>192.168.0.1</code> expecting your Telstra gateway’s settings page, you have the right address for many Telstra Smart Modems. The important detail is the password: newer Telstra Smart Modems use the Wi-Fi password printed on the modem label, while some older models use <code>Telstra</code>.
+      </p>
+      <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+        Open <code>http://mymodem</code> or <code>http://192.168.0.1</code> from a device connected to your Telstra home network. Sign in with <code>admin</code> and the correct password for your modem model.
+      </p>
+
+      <!-- Quick Answer Card -->
+      <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <div class="table-responsive" style="margin-bottom: 1rem;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Setting</th>
+                <th>What to use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gateway management address</strong></td>
+                <td><code>http://mymodem</code> or <code>http://192.168.0.1</code></td>
+              </tr>
+              <tr>
+                <td><strong>Default username</strong></td>
+                <td><code>admin</code></td>
+              </tr>
+              <tr>
+                <td><strong>Smart Modem Gen 4 password</strong></td>
+                <td>Wi-Fi password on the bottom of the modem or reusable sticker</td>
+              </tr>
+              <tr>
+                <td><strong>Smart Modem Gen 3 password</strong></td>
+                <td>Wi-Fi password on the bottom of the modem</td>
+              </tr>
+              <tr>
+                <td><strong>Smart Modem Gen 2 password</strong></td>
+                <td><code>Telstra</code></td>
+              </tr>
+              <tr>
+                <td><strong>Smart Modem 1.1 password</strong></td>
+                <td><code>Telstra</code></td>
+              </tr>
+              <tr>
+                <td><strong>Previously changed password</strong></td>
+                <td>Use your custom administrator password</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          The correct password depends on the modem model. Do not assume that <code>Telstra</code> works on every Telstra gateway.
+        </p>
+        <div class="action-btn-group" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Open 192.168.0.1 &rarr;
+          </a>
+          <a href="http://mymodem" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            Open http://mymodem
+          </a>
+        </div>
+      </div>
+
+      <!-- Figure 1: Hero Guide -->
+      <figure class="guide-figure">
+        <img src="/images/isp/telstra-smart-modem-192-168-0-1-gateway-login-guide.webp" alt="Telstra Smart Modem gateway login guide showing 192.168.0.1 and mymodem admin access credentials" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Telstra Smart Modem gateway login process: connect locally, navigate to 192.168.0.1 or mymodem, and sign in with admin and model-specific credentials.</figcaption>
+      </figure>
+
+      <!-- Telstra Gateway Login Details -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Telstra Gateway Login Details</h2>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Modem or gateway</th>
+              <th>Default username</th>
+              <th>Default password</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Telstra Smart Modem Gen 4</strong></td>
+              <td><code>admin</code></td>
+              <td>Wi-Fi password on the modem’s bottom label or reusable sticker</td>
+            </tr>
+            <tr>
+              <td><strong>Telstra Smart Modem Gen 3</strong></td>
+              <td><code>admin</code></td>
+              <td>Wi-Fi password on the modem’s bottom label</td>
+            </tr>
+            <tr>
+              <td><strong>Telstra Smart Modem Gen 2</strong></td>
+              <td><code>admin</code></td>
+              <td><code>Telstra</code></td>
+            </tr>
+            <tr>
+              <td><strong>Telstra Smart Modem 1.1</strong></td>
+              <td><code>admin</code></td>
+              <td><code>Telstra</code></td>
+            </tr>
+            <tr>
+              <td><strong>Older Telstra Gateway Pro</strong></td>
+              <td><code>admin</code></td>
+              <td><code>telstra</code></td>
+            </tr>
+            <tr>
+              <td><strong>Previously configured modem</strong></td>
+              <td><code>admin</code></td>
+              <td>Your custom administrator password</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-bottom: 2rem;">
+        For Gen 4 and Gen 3 Smart Modems, use the original Wi-Fi password shown on the modem label—not a Wi-Fi password you later changed.
+      </p>
+
+      <!-- How to Log In to Your Telstra Gateway -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Log In to Your Telstra Gateway</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Connect to the Telstra home network</h3>
+      <p>
+        Connect your phone, tablet, or computer to the Telstra modem’s Wi-Fi network. For a more reliable connection, use an Ethernet cable between your computer and one of the modem’s LAN ports.
+      </p>
+      <p>
+        Do not use mobile data. The gateway settings page is a local interface and must be accessed from the home network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Open the management address</h3>
+      <p>Enter one of these directly into your browser’s address bar:</p>
+      <div style="margin: 0.75rem 0 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        <code style="padding: 0.35rem 0.65rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">http://mymodem</code>
+        <span style="align-self: center; color: var(--text-muted); font-size: 0.9rem;">or</span>
+        <code style="padding: 0.35rem 0.65rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">http://192.168.0.1</code>
+      </div>
+      <p>
+        Do not enter the address into a search engine. You need the local modem interface, not a web search result.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Enter the administrator credentials</h3>
+      <p>Use:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li><strong>Username:</strong> <code>admin</code></li>
+        <li><strong>Password:</strong> The password that matches your modem model</li>
+      </ul>
+      <p>
+        For a Gen 4 or Gen 3 Smart Modem, use the Wi-Fi password printed on the bottom label or reusable sticker. For Gen 2 and 1.1 models, use <code>Telstra</code>.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Open the settings you need</h3>
+      <p>
+        Once signed in, choose the section related to your task. Common options include Wi-Fi settings, connected devices, security settings, and modem status.
+      </p>
+
+      <!-- Change Your Telstra Wi-Fi Name and Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Change Your Telstra Wi-Fi Name and Password</h2>
+      <p>To change the wireless network details:</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
+        <li>Sign in to the gateway at <code>http://mymodem</code> or <code>http://192.168.0.1</code>.</li>
+        <li>Select <strong>Wi-Fi Settings</strong>.</li>
+        <li>Enter your preferred Wi-Fi name in <strong>Wi-Fi Name (SSID)</strong>.</li>
+        <li>Enter your preferred password in <strong>Wi-Fi Security Key</strong>.</li>
+        <li>Select <strong>Apply</strong> to save the changes.</li>
+      </ol>
+      <p>
+        Changing the Wi-Fi name or password disconnects devices using the old credentials. Reconnect them using the updated details.
+      </p>
+
+      <!-- Figure 2: Wi-Fi Settings UI -->
+      <figure class="guide-figure">
+        <img src="/images/isp/telstra-gateway-wifi-settings-name-password-change.webp" alt="Telstra gateway web interface showing Wi-Fi Settings to change network name and Wi-Fi security key" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Configuring Wi-Fi network name (SSID) and security key inside the Telstra Gateway web dashboard.</figcaption>
+      </figure>
+
+      <!-- Admin Password vs. Wi-Fi Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Admin Password vs. Wi-Fi Password</h2>
+      <p>
+        The <strong>administrator password</strong> opens the Telstra gateway’s settings page. The <strong>Wi-Fi password</strong> connects phones, computers, TVs, and other devices to the wireless network.
+      </p>
+      <p>
+        On Gen 4 and Gen 3 Smart Modems, the default administrator password happens to be the same as the original Wi-Fi password. That does not mean they remain the same after either password is changed.
+      </p>
+      <p>
+        If you changed the Wi-Fi password but not the administrator password, use the original modem-label password to sign in. If you changed the administrator password, use that custom password instead.
+      </p>
+
+      <!-- Figure 3: Modem Bottom Label -->
+      <figure class="guide-figure">
+        <img src="/images/isp/telstra-smart-modem-bottom-label-wifi-admin-password.webp" alt="Telstra Smart Modem bottom label showing default Wi-Fi password and 192.168.0.1 gateway access details" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Telstra Smart Modem bottom label layout illustrating where the default Wi-Fi network key and gateway IP are printed.</figcaption>
+      </figure>
+
+      <!-- If 192.168.0.1 Will Not Open -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If 192.168.0.1 Will Not Open</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Confirm the connection</h3>
+      <p>
+        Make sure your device is connected to the Telstra gateway’s network. If you have a mesh system, extender, or separate router, you may be connected to a different device.
+      </p>
+      <p>
+        Use a direct Ethernet connection to the Telstra modem when possible. This removes Wi-Fi signal problems from the troubleshooting process.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Check the address</h3>
+      <p>Enter:</p>
+      <p><code>http://192.168.0.1</code></p>
+      <p>Avoid incorrect entries such as:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li><code>192.168.o.1</code></li>
+        <li><code>192.168.0.l</code></li>
+        <li><code>192.168.0.1.com</code></li>
+        <li><code>192.168.0.1 router login</code></li>
+      </ul>
+      <p>
+        Enter the address directly into the browser’s address bar rather than a search engine.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Try the alternative address</h3>
+      <p>Use:</p>
+      <p><code>http://mymodem</code></p>
+      <p>This is an alternative address for accessing the modem settings page.</p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Disable VPN or proxy temporarily</h3>
+      <p>
+        A VPN, proxy, or privacy-focused browser setting can interfere with access to a local gateway address. Disconnect the VPN and disable proxy settings, then try again.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Try another browser or device</h3>
+      <p>
+        Try Chrome, Firefox, Edge, or Safari. If one browser fails, test the page from another phone, tablet, or computer connected to the same Telstra network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">6. Restart the modem</h3>
+      <p>
+        Turn the modem off, wait about 30 seconds, then turn it back on. Wait for the lights to stabilize, reconnect your device, and try <code>http://mymodem</code> or <code>http://192.168.0.1</code> again.
+      </p>
+      <p>
+        A restart preserves your settings. Do not confuse it with a factory reset.
+      </p>
+
+      <!-- If the Password Is Rejected -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If the Password Is Rejected</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the modem model</h3>
+      <p>The default password changes by model:</p>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>What you have</th>
+              <th>Password to try</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Smart Modem Gen 4</strong></td>
+              <td>Original Wi-Fi password from the modem label or reusable sticker</td>
+            </tr>
+            <tr>
+              <td><strong>Smart Modem Gen 3</strong></td>
+              <td>Original Wi-Fi password from the modem label</td>
+            </tr>
+            <tr>
+              <td><strong>Smart Modem Gen 2</strong></td>
+              <td><code>Telstra</code></td>
+            </tr>
+            <tr>
+              <td><strong>Smart Modem 1.1</strong></td>
+              <td><code>Telstra</code></td>
+            </tr>
+            <tr>
+              <td><strong>Older Gateway Pro</strong></td>
+              <td><code>telstra</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check whether the password was changed</h3>
+      <p>
+        If you or someone else changed the administrator password, the original label password will no longer work. Use the current custom password instead.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the correct password field</h3>
+      <p>
+        Do not automatically enter your current Wi-Fi password. For Gen 4 and Gen 3, the default administrator password is the <strong>original</strong> Wi-Fi password printed on the modem label—not necessarily the password currently used to connect devices.
+      </p>
+
+      <!-- Older Telstra Gateway Pro Login -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Older Telstra Gateway Pro Login</h2>
+      <p>The Telstra Gateway Pro uses a different management address and default password:</p>
+      <div class="table-responsive" style="margin-bottom: 1.25rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Management address</strong></td>
+              <td><code>192.168.15.1</code></td>
+            </tr>
+            <tr>
+              <td><strong>Username</strong></td>
+              <td><code>admin</code></td>
+            </tr>
+            <tr>
+              <td><strong>Default password</strong></td>
+              <td><code>telstra</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        This is not the same as the newer Smart Modem address <code>192.168.0.1</code>. Use the instructions for your exact gateway model.
+      </p>
+
+      <!-- When to Factory Reset the Modem -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">When to Factory Reset the Modem</h2>
+      <p>Do not factory reset the modem as the first fix.</p>
+      <p>Before resetting:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Confirm you are connected to the Telstra gateway.</li>
+        <li>Try <code>http://mymodem</code> and <code>http://192.168.0.1</code>.</li>
+        <li>Disable VPN and proxy settings.</li>
+        <li>Try another browser or device.</li>
+        <li>Restart the modem.</li>
+        <li>Check the correct default or custom administrator password.</li>
+      </ul>
+      <p>
+        A factory reset can remove custom settings, including Wi-Fi names, passwords, and other configuration. Record anything you need before resetting, and follow the reset instructions for your exact modem model.
+      </p>
+
+      <!-- Common Mistakes -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Mistakes</h2>
+      <ul style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+        <li>Using mobile data instead of connecting to the Telstra home network.</li>
+        <li>Assuming every Telstra modem uses <code>Telstra</code> as the password.</li>
+        <li>Using your current Wi-Fi password when the modem expects the original label password.</li>
+        <li>Treating the Wi-Fi password and administrator password as permanently identical.</li>
+        <li>Trying <code>192.168.1.1</code> when your Telstra gateway uses <code>192.168.0.1</code>.</li>
+        <li>Factory resetting before trying the simpler access fixes.</li>
+      </ul>
+
+      <!-- FAQs -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">FAQs</h2>
+      <div class="faq-list" style="margin-bottom: 2.5rem;">
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the Telstra gateway login address?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Use <code>http://mymodem</code> or <code>http://192.168.0.1</code> from a device connected to your Telstra home network.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the default Telstra gateway username?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            The default username is <code>admin</code>.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the default Telstra Smart Modem password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            For Gen 4 and Gen 3, use the original Wi-Fi password printed on the modem label. For Gen 2 and 1.1, use <code>Telstra</code>.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Why does Telstra not work on my modem?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Your modem may be a Gen 4 or Gen 3 Smart Modem, which uses the original Wi-Fi password from its label. Alternatively, the administrator password may have been changed.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I change my Wi-Fi password from the gateway page?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes. Sign in, open <strong>Wi-Fi Settings</strong>, update the Wi-Fi Name and Wi-Fi Security Key, then select <strong>Apply</strong>.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Is the Telstra Gateway Pro address 192.168.0.1?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            No. The Telstra Gateway Pro uses <code>192.168.15.1</code>, with the default username <code>admin</code> and password <code>telstra</code>.
+          </div>
+        </details>
+      </div>
+
+      <!-- The Bottom Line -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">The Bottom Line</h2>
+      <div class="bottom-line-callout" style="background: var(--bg-card); border-left: 4px solid var(--primary); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+          Open <code>http://mymodem</code> or <code>http://192.168.0.1</code> from your Telstra home network and sign in as <code>admin</code>. Use the original Wi-Fi password for Gen 4 and Gen 3 Smart Modems, <code>Telstra</code> for Gen 2 and 1.1 models, and your custom password if you changed it. If the page will not open, check the connection and disable VPN or proxy settings before restarting the modem.
+        </p>
+      </div>
+
+      <!-- Diagnostic Probe Tool -->
+      <div class="card" style="margin: 2rem 0; padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+        <div style="font-weight: 700; margin-bottom: 0.5rem;">Diagnostic Connection Probe</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+          Quickly test whether your device can reach the Telstra Gateway IP on your local home network.
+        </p>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button id="probe-btn" class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.875rem;">
+            Test Connection to 192.168.0.1
+          </button>
+          <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
+        </div>
+      </div>
+
+      <!-- Author/Reviewer Byline Card at End of Article -->
+      {get_byline_html()}
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Guide &rarr;</a>
+          <a href="/ip/10-0-0-138/" class="btn btn-secondary" style="font-size: 0.85rem;">10.0.0.138 (Legacy Telstra) &rarr;</a>
+          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
+          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
     for isp in ISP_GATEWAYS:
@@ -4239,6 +4787,11 @@ def generate_isp_pages():
         if slug == "verizon-cr1000a":
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_verizon_cr1000a_page(isp))
+            continue
+
+        if slug == "telstra-smart-modem":
+            with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_telstra_smart_modem_page(isp))
             continue
 
         canonical = f"https://routeriphub.com/isp/{slug}/"
