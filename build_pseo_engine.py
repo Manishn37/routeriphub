@@ -6386,6 +6386,489 @@ def generate_custom_bt_smart_hub_page(isp):
 
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
+
+def generate_custom_centurylink_c4000_page(isp):
+    canonical = "https://routeriphub.com/isp/centurylink-c4000/"
+    title = "CenturyLink Gateway Login — 192.168.0.1 Admin Access"
+    desc = "Access your CenturyLink or Quantum Fiber gateway at 192.168.0.1. Find the admin username and password, change Wi-Fi settings, and fix login issues."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("ISP Gateways", "/isp/"),
+        ("CenturyLink / Quantum Fiber", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "CenturyLink / Quantum Fiber Gateway Login — 192.168.0.1 Admin Access",
+        "description": desc,
+        "image": "https://routeriphub.com/images/isp/centurylink-c4000-192-168-0-1-gateway-login-guide.webp",
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to Your CenturyLink Gateway",
+        "description": "Step-by-step instructions to connect to your CenturyLink or Quantum Fiber gateway, open 192.168.0.1, and sign in with the admin credentials from the modem sticker.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to the gateway’s network",
+                "text": "Connect your phone, tablet, or computer to the CenturyLink or Quantum Fiber gateway’s Wi-Fi network. For a more reliable connection, use an Ethernet cable between your computer and one of the gateway’s LAN ports. Do not use mobile data."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open the management address",
+                "text": "Enter http://192.168.0.1 directly into your browser’s address bar. Do not enter the address into a search engine."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Enter the admin credentials",
+                "text": "Use the Admin Username and Admin Password printed on the modem sticker. Do not use generic admin/password combinations or the Wi-Fi password."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Open the settings you need",
+                "text": "Once signed in, select the section related to your task. Common options include Wireless Setup, Advanced Setup, Utilities, and Administrator Password."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the CenturyLink gateway login address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The standard gateway management address is http://192.168.0.1."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default CenturyLink admin username and password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Use the Admin Username and Admin Password printed on the modem sticker. They are not universal admin / password credentials."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the CenturyLink admin password the same as the Wi-Fi password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The admin credentials open the gateway’s management interface; the Wi-Fi password connects devices to the wireless network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I change my Wi-Fi password from the gateway page?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Sign in, open Wireless Setup, select Use Custom Security Key/Passphrase, enter the new password, and save."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where is the admin password on the C5500XK SmartNID?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is printed on the sticker attached to the front of the SmartNID."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I access the gateway settings from outside my home?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The gateway settings page is a local management interface and must be accessed from a device connected to the home network."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        CenturyLink / Quantum Fiber Gateway Login — 192.168.0.1 Admin Access
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+        If you searched <code>192.168.0.1</code> expecting your CenturyLink or Quantum Fiber gateway’s settings page, you have the right address. The important detail is the login credential: CenturyLink gateways use an <strong>Admin Username</strong> and <strong>Admin Password</strong> printed on the modem sticker—not a universal <code>admin</code> and <code>password</code> combination.
+      </p>
+      <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.75rem; line-height: 1.6;">
+        Open <code>http://192.168.0.1</code> from a device connected to your home network. Sign in with the admin credentials shown on the side, back, or bottom of your modem.
+      </p>
+
+      <!-- Figure 1: Hero Diagram -->
+      <figure class="guide-figure">
+        <img src="/images/isp/centurylink-c4000-192-168-0-1-gateway-login-guide.webp" alt="CenturyLink and Quantum Fiber gateway login guide showing 192.168.0.1 admin access credentials" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Step-by-step connection and 192.168.0.1 admin portal login process for CenturyLink and Quantum Fiber gateways.</figcaption>
+      </figure>
+
+      <!-- Quick Answer -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem;">Quick Answer</h2>
+      <div class="table-responsive" style="margin-bottom: 1.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>What to use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Gateway management address</strong></td>
+              <td><code>http://192.168.0.1</code></td>
+            </tr>
+            <tr>
+              <td><strong>Login credential</strong></td>
+              <td>Admin Username and Admin Password</td>
+            </tr>
+            <tr>
+              <td><strong>Default credentials location</strong></td>
+              <td>Sticker on the side, back, or bottom of the modem</td>
+            </tr>
+            <tr>
+              <td><strong>SmartNID credentials location</strong></td>
+              <td>Sticker on the front of the C5500XK SmartNID</td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi password</strong></td>
+              <td>Separate from the admin password</td>
+            </tr>
+            <tr>
+              <td><strong>Previously changed password</strong></td>
+              <td>Use your custom admin username and password</td>
+            </tr>
+            <tr>
+              <td><strong>Generic <code>admin</code> / <code>password</code> login</strong></td>
+              <td>Do not assume this applies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="line-height: 1.6; margin-bottom: 2rem;">
+        The admin credentials are different from the wireless network name and Wi-Fi password. The modem label shows both sets of credentials.
+      </p>
+
+      <!-- CenturyLink Gateway Login Details -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">CenturyLink Gateway Login Details</h2>
+      <div class="table-responsive" style="margin-bottom: 1.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>What to use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Gateway management address</strong></td>
+              <td><code>http://192.168.0.1</code></td>
+            </tr>
+            <tr>
+              <td><strong>Login credential</strong></td>
+              <td>Admin Username and Admin Password</td>
+            </tr>
+            <tr>
+              <td><strong>Default credentials location</strong></td>
+              <td>Modem sticker</td>
+            </tr>
+            <tr>
+              <td><strong>SmartNID credentials location</strong></td>
+              <td>Sticker on the front of the C5500XK SmartNID</td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi password</strong></td>
+              <td>Separate from the admin password</td>
+            </tr>
+            <tr>
+              <td><strong>Custom admin credentials</strong></td>
+              <td>Use the username and password you created</td>
+            </tr>
+            <tr>
+              <td><strong>Generic <code>admin</code> / <code>password</code> login</strong></td>
+              <td>Do not assume this applies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="line-height: 1.6; margin-bottom: 2rem;">
+        The admin username and password are printed on the modem sticker. These default credentials cannot be retrieved if lost, so keep the sticker intact.
+      </p>
+
+      <!-- How to Log In to Your CenturyLink Gateway -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Log In to Your CenturyLink Gateway</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Connect to the gateway’s network</h3>
+      <p>
+        Connect your phone, tablet, or computer to the CenturyLink or Quantum Fiber gateway’s Wi-Fi network. For a more reliable connection, use an Ethernet cable between your computer and one of the gateway’s LAN ports.
+      </p>
+      <p>
+        Do not use mobile data. The gateway settings page is a local interface and must be accessed from the home network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Open the management address</h3>
+      <p>Enter this directly into your browser’s address bar:</p>
+      <div style="margin: 0.75rem 0 1rem;">
+        <code style="padding: 0.35rem 0.65rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;">http://192.168.0.1</code>
+      </div>
+      <p>
+        Do not enter the address into a search engine. You need the local modem interface, not a web search result.
+      </p>
+
+      <!-- Figure 2: Modem Sticker Diagram -->
+      <figure class="guide-figure">
+        <img src="/images/isp/centurylink-c4000-modem-sticker-admin-credentials.webp" alt="CenturyLink C4000 modem sticker showing Admin Username and Password separated from Wi-Fi credentials" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>Modem label credentials layout highlighting the distinct Admin Username and Password vs. Wi-Fi Security Key.</figcaption>
+      </figure>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Enter the admin credentials</h3>
+      <p>Use the <strong>Admin Username</strong> and <strong>Admin Password</strong> printed on the modem sticker.</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>If you have not changed them, use the credentials on the sticker.</li>
+        <li>If you changed them previously, use your custom admin username and password.</li>
+        <li>Do not use the Wi-Fi password unless it is the same password you deliberately set for the admin login.</li>
+      </ul>
+      <p>The admin credentials are separate from the wireless network name and Wi-Fi password.</p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Open the settings you need</h3>
+      <p>
+        Once signed in, select the section related to your task. Common options include Wireless Setup, Advanced Setup, Utilities, and Administrator Password.
+      </p>
+
+      <!-- Change Your CenturyLink Wi-Fi Name and Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Change Your CenturyLink Wi-Fi Name and Password</h2>
+      <p>To change the wireless network details:</p>
+      <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1.25rem;">
+        <li>Sign in to the gateway at <code>http://192.168.0.1</code>.</li>
+        <li>Select <strong>Wireless Setup</strong>.</li>
+        <li>Open the Wi-Fi network you want to change.</li>
+        <li>Select <strong>Use Custom Security Key/Passphrase</strong>.</li>
+        <li>Enter your new Wi-Fi password.</li>
+        <li>Save the changes.</li>
+      </ol>
+      <p style="line-height: 1.6; margin-bottom: 1.5rem;">
+        Changing the Wi-Fi password disconnects devices using the old password. Reconnect them using the updated details.
+      </p>
+
+      <!-- Figure 3: Wireless Setup GUI -->
+      <figure class="guide-figure">
+        <img src="/images/isp/centurylink-wireless-setup-security-key-change.webp" alt="CenturyLink gateway web portal Wireless Setup page showing Wi-Fi name and password configuration" width="1376" height="768" loading="lazy" decoding="async">
+        <figcaption>CenturyLink web configuration GUI under Wireless Setup for updating SSID network name and custom security key.</figcaption>
+      </figure>
+
+      <!-- Admin Password vs. Wi-Fi Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Admin Password vs. Wi-Fi Password</h2>
+      <p>
+        The <strong>Admin Username and Admin Password</strong> open the gateway’s management interface. The <strong>Wi-Fi password</strong> connects phones, computers, TVs, and other devices to the wireless network.
+      </p>
+      <p>
+        Both may appear on the same modem sticker, so read the field names carefully. The admin credentials are used to access secure settings such as firmware updates, Wi-Fi security, schedules, and more.
+      </p>
+      <p>
+        If your phone is connected to Wi-Fi but the gateway rejects your login, that does not necessarily mean the Wi-Fi password is wrong. Check that you are entering the admin username and password in the login form.
+      </p>
+
+      <!-- If 192.168.0.1 Will Not Open -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If 192.168.0.1 Will Not Open</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Confirm the connection</h3>
+      <p>
+        Make sure your device is connected to the correct CenturyLink or Quantum Fiber gateway. If you have a mesh system, extender, powerline adapter, or separate router, you may be connected to a different device.
+      </p>
+      <p>
+        Use a direct Ethernet connection to the gateway when possible. This removes Wi-Fi signal issues from the troubleshooting process.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">2. Check the address carefully</h3>
+      <p>Use:</p>
+      <div style="margin: 0.5rem 0 0.75rem;">
+        <code>http://192.168.0.1</code>
+      </div>
+      <p>Avoid incorrect entries such as:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li><code>192.168.o.1</code></li>
+        <li><code>192.168.0.l</code></li>
+        <li><code>192.168.0.1.com</code></li>
+        <li><code>192.168.0.1 router login</code></li>
+        <li><code>192.168.0.01</code></li>
+      </ul>
+      <p>
+        Enter the address directly into the browser’s address bar rather than a search engine.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">3. Try another browser or device</h3>
+      <p>
+        Try Chrome, Firefox, Edge, or Safari. If one browser fails, test the page from another phone, tablet, or computer connected to the same CenturyLink network.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">4. Disable VPN or proxy temporarily</h3>
+      <p>
+        A VPN, proxy, or privacy-focused browser setting can interfere with access to a local gateway address. Disconnect the VPN and disable proxy settings, then try again.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">5. Restart the gateway</h3>
+      <p>
+        Turn the gateway off, wait about 30 seconds, then turn it back on. Wait for the lights to stabilize, reconnect your device, and try <code>192.168.0.1</code> again.
+      </p>
+      <p>
+        A restart preserves your settings. Do not confuse it with a factory reset.
+      </p>
+
+      <!-- If the Admin Password Is Rejected -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If the Admin Password Is Rejected</h2>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the correct password field</h3>
+      <p>
+        Look for the <strong>Admin Username</strong> and <strong>Admin Password</strong>, not the Wi-Fi password. CenturyLink separates these two credentials.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the modem sticker</h3>
+      <p>
+        The default admin credentials are printed on the sticker attached to the side, back, or bottom of the modem. For the C5500XK SmartNID, they are on the sticker attached to the front.
+      </p>
+
+      <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Consider whether the password was changed</h3>
+      <p>
+        If you previously changed the admin username or password, use that custom credential. The original sticker password will no longer work.
+      </p>
+      <p>
+        If you cannot remember the changed admin credentials, check the recovery guidance for your exact modem model. Do not reset the gateway until you understand what settings may be lost.
+      </p>
+
+      <!-- SmartNID Fiber Gateway Login -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">SmartNID Fiber Gateway Login</h2>
+      <p>
+        For the C5500XK SmartNID fiber modem, the management address is still <code>192.168.0.1</code>. The admin username and password are printed on the sticker attached to the front of the SmartNID.
+      </p>
+      <p>
+        Use the same login process as other CenturyLink gateways, but check the sticker location carefully because it is on the front rather than the back.
+      </p>
+
+      <!-- When to Factory Reset the Gateway -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">When to Factory Reset the Gateway</h2>
+      <p>Do not factory reset the gateway as the first fix.</p>
+      <p>Before resetting:</p>
+      <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
+        <li>Confirm you are connected to the CenturyLink or Quantum Fiber gateway.</li>
+        <li>Try <code>http://192.168.0.1</code>.</li>
+        <li>Disable VPN and proxy settings.</li>
+        <li>Try another browser or device.</li>
+        <li>Restart the gateway.</li>
+        <li>Check the correct admin username and password.</li>
+      </ul>
+      <p>
+        A factory reset can remove custom gateway settings, including Wi-Fi names, passwords, and admin credentials. Record anything you need before resetting, and follow the reset instructions for your exact modem model.
+      </p>
+
+      <!-- Common Mistakes -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Mistakes</h2>
+      <ul style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
+        <li>Using mobile data instead of connecting to the CenturyLink home network.</li>
+        <li>Assuming the Wi-Fi password is the admin password.</li>
+        <li>Using a generic <code>admin</code> / <code>password</code> combination instead of the modem sticker credentials.</li>
+        <li>Trying <code>192.168.1.1</code> when the CenturyLink gateway uses <code>192.168.0.1</code>.</li>
+        <li>Leaving a VPN or proxy enabled.</li>
+        <li>Factory resetting before trying the simpler access fixes.</li>
+      </ul>
+
+      <!-- FAQs -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">FAQs</h2>
+      <div class="faq-list" style="margin-bottom: 2.5rem;">
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the CenturyLink gateway login address?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            The standard gateway management address is <code>http://192.168.0.1</code>.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the default CenturyLink admin username and password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Use the Admin Username and Admin Password printed on the modem sticker. They are not universal <code>admin</code> / <code>password</code> credentials.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Is the CenturyLink admin password the same as the Wi-Fi password?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            No. The admin credentials open the gateway’s management interface; the Wi-Fi password connects devices to the wireless network.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I change my Wi-Fi password from the gateway page?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes. Sign in, open <strong>Wireless Setup</strong>, select <strong>Use Custom Security Key/Passphrase</strong>, enter the new password, and save.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Where is the admin password on the C5500XK SmartNID?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            It is printed on the sticker attached to the front of the SmartNID.
+          </div>
+        </details>
+        <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+          <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">Can I access the gateway settings from outside my home?</summary>
+          <div style="margin-top: 0.75rem; color: var(--text-secondary); line-height: 1.6;">
+            No. The gateway settings page is a local management interface and must be accessed from a device connected to the home network.
+          </div>
+        </details>
+      </div>
+
+      <!-- The Bottom Line -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">The Bottom Line</h2>
+      <div class="bottom-line-callout" style="background: var(--bg-card); border-left: 4px solid var(--primary); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+          Open <code>http://192.168.0.1</code> from your CenturyLink or Quantum Fiber home network and sign in with the Admin Username and Admin Password printed on the modem sticker. Do not confuse these with the Wi-Fi password. If the page will not open, check the connection and disable VPN or proxy settings before restarting the gateway.
+        </p>
+      </div>
+
+      <!-- Diagnostic Probe Tool -->
+      <div class="card" style="margin: 2rem 0; padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
+        <div style="font-weight: 700; margin-bottom: 0.5rem;">Diagnostic Connection Probe</div>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+          Quickly test whether your device can reach the CenturyLink Gateway IP on your local home network.
+        </p>
+        <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+          <button id="probe-btn" class="btn btn-primary" style="padding: 0.55rem 1rem; font-size: 0.875rem;">
+            Test Connection to 192.168.0.1
+          </button>
+          <div id="probe-status" style="font-size: 0.875rem; font-weight: 600;"></div>
+        </div>
+      </div>
+
+      <!-- Author/Reviewer Byline Card at End of Article -->
+      {get_byline_html()}
+
+      <!-- Cross Silo Links -->
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Guide &rarr;</a>
+          <a href="/isp/telstra-smart-modem/" class="btn btn-secondary" style="font-size: 0.85rem;">Telstra Smart Modem &rarr;</a>
+          <a href="/isp/sky-broadband/" class="btn btn-secondary" style="font-size: 0.85rem;">Sky Broadband Hub &rarr;</a>
+          <a href="/isp/virgin-media-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">Virgin Media Hub &rarr;</a>
+          <a href="/isp/bt-smart-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">BT Smart Hub &rarr;</a>
+          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/isp/centurylink-c4000-192-168-0-1-gateway-login-guide.webp", og_image_alt="CenturyLink and Quantum Fiber gateway login guide showing 192.168.0.1 admin access credentials", og_type="article") + content + get_footer()
+
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
     for isp in ISP_GATEWAYS:
@@ -6426,6 +6909,11 @@ def generate_isp_pages():
         if slug == "bt-smart-hub":
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_bt_smart_hub_page(isp))
+            continue
+
+        if slug == "centurylink-c4000":
+            with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_centurylink_c4000_page(isp))
             continue
 
         canonical = f"https://routeriphub.com/isp/{slug}/"
