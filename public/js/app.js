@@ -1066,6 +1066,9 @@ function initGuideIndexFilter() {
 function initExtenderSetupWizard() {
   const wizard = document.getElementById('mywifiext-setup-wizard');
   if (!wizard) return;
+  if (wizard.parentElement !== document.body) {
+    document.body.appendChild(wizard);
+  }
 
   const steps = [
     {
