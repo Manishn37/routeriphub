@@ -18479,6 +18479,59 @@ Website: https://routeriphub.com
         with open(target, "w", encoding="utf-8") as f:
             f.write(llms_full_txt)
 
+def sync_homepage():
+    hp_path = os.path.join(PUBLIC_DIR, "index.html")
+    if not os.path.exists(hp_path):
+        return
+    with open(hp_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # 1. Update Organization schema with sameAs
+    org_old = """"@id": "https://routeriphub.com/#organization",
+        "name": "RouterIPHub",
+        "url": "https://routeriphub.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://routeriphub.com/android-chrome-512x512.png",
+          "width": 512,
+          "height": 512
+        }"""
+    org_new = """"@id": "https://routeriphub.com/#organization",
+        "name": "RouterIPHub",
+        "url": "https://routeriphub.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://routeriphub.com/android-chrome-512x512.png",
+          "width": 512,
+          "height": 512
+        },
+        "sameAs": [
+          "https://www.trustpilot.com/review/routeriphub.com"
+        ]"""
+    if org_old in content:
+        content = content.replace(org_old, org_new)
+
+    # 2. Update footer
+    footer_pattern = re.compile(r"<!-- Site Footer -->\s*<footer class=\"site-footer\">.*?</footer>", re.DOTALL)
+    m_footer = footer_pattern.search(get_footer())
+    if m_footer and footer_pattern.search(content):
+        content = footer_pattern.sub(m_footer.group(0), content)
+
+    # 3. Update style.css version hash
+    def _get_hash(rel_path):
+        full = os.path.join(PUBLIC_DIR, rel_path)
+        try:
+            with open(full, "rb") as af:
+                return hashlib.md5(af.read()).hexdigest()[:8]
+        except OSError:
+            return "1"
+    css_ver = _get_hash(os.path.join("css", "style.css"))
+    content = re.sub(r'href="/css/style\.css(?:\?v=[^"]*)?"', f'href="/css/style.css?v={css_ver}"', content)
+
+    with open(hp_path, "w", encoding="utf-8") as f:
+        f.write(content)
+    print("  -> Synced public/index.html with sitewide footer and assets")
+
 # ==============================================================================
 # MAIN EXECUTION PIPELINE
 # ==============================================================================
@@ -18497,6 +18550,7 @@ def main():
     generate_tool_pages()
     generate_trust_and_legal_pages(PUBLIC_DIR, get_header, get_footer)
     generate_static_guide_pages(ROOT_DIR, PUBLIC_DIR, get_header, get_footer)
+    sync_homepage()
     generate_sitemaps()
     export_datasets()
     update_search_index()
