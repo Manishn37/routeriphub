@@ -2024,6 +2024,270 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
         ],
         "bottom_line": "IPv6 default gateways appear as Link-Local <code>fe80::</code> addresses (visible via <code>Get-NetRoute</code> or <code>ip -6 route</code>), while day-to-day router administration continues cleanly over your IPv4 gateway IP.",
     },
+
+    {
+        "slug": "how-to-flush-dns-cache",
+        "url": "/howto/how-to-flush-dns-cache/",
+        "anchor_id": "flush-dns-cache",
+        "featured": False,
+        "badge": "DNS & Network Troubleshooting",
+        "category": "Security & DNS",
+        "category_key": "security",
+        "meta_title": "How to Flush DNS Cache on Windows, Mac & Chrome",
+        "meta_desc": "Flush DNS cache on Windows 11/10, macOS, and Chrome using ipconfig /flushdns, terminal commands, and host cache reset to fix DNS_PROBE_FINISHED_NXDOMAIN.",
+        "headline": "How to Flush DNS Cache on Windows, Mac, and Chrome",
+        "short_title": "Flush DNS Cache",
+        "excerpt": "Purge outdated or corrupted DNS records across Windows 11/10, macOS, and Google Chrome using ipconfig /flushdns, terminal commands, and internal host cache reset.",
+        "date_published": "2026-11-13",
+        "date_modified": "2026-11-13",
+        "read_time": "5 min read",
+        "tags": ["Flush DNS", "Windows 11", "macOS", "Chrome", "DNS Troubleshooting"],
+        "image": "/images/howto/how-to-flush-dns-cache-windows-mac-chrome.webp",
+        "faqs": [
+            (
+                "What does flushing the DNS cache actually do?",
+                "Flushing the DNS cache erases your operating system and web browser's local database of recently resolved domain-to-IP address translations. This forces your device to perform a fresh DNS lookup from configured resolvers (e.g. Cloudflare 1.1.1.1, Google 8.8.8.8, or your ISP gateway)."
+            ),
+            (
+                "When should I flush my DNS cache?",
+                "You should flush your DNS cache whenever a website fails to load with errors like DNS_PROBE_FINISHED_NXDOMAIN or ERR_NAME_NOT_RESOLVED, after changing your router or computer DNS servers, or when a recently migrated domain still displays its old server content."
+            ),
+            (
+                "Does flushing DNS delete my browsing history or saved passwords?",
+                "No. Flushing the DNS cache only deletes IP resolution records in the operating system resolver and browser host cache. It does not affect cookies, browsing history, form autofill data, or saved login credentials."
+            ),
+            (
+                "What does 'Successfully flushed the DNS Resolver Cache' mean?",
+                "This confirmation message means that Windows has wiped all cached A, AAAA, and CNAME records from memory. Your next web request will immediately query your active DNS server for current routing information."
+            ),
+            (
+                "Why do I need to clear Chrome's DNS cache separately from Windows or Mac?",
+                "Google Chrome maintains an internal, independent socket pool and host resolver cache designed to speed up browsing. Even if you clear your OS cache, Chrome may continue serving stale IP mappings until you clear chrome://net-internals/#dns and restart the browser."
+            ),
+            (
+                "What if flushing DNS does not fix my connection error?",
+                "If flushing DNS fails to restore access, power cycle your router to clear its internal DNS forwarding proxy, switch your router DNS to Cloudflare (1.1.1.1) or Google (8.8.8.8), disable any active VPN or proxy software, and test the website on another device connected to the same network."
+            )
+        ],
+        "bottom_line": "Use <code>ipconfig /flushdns</code> on Windows, the Terminal command on Mac, and <strong>Clear host cache</strong> in Chrome. These steps remove stored DNS records and force your device or browser to request fresh information.<br><br><strong>Fastest fix:</strong> Flush DNS on your operating system first, then clear Chrome&rsquo;s host cache if the website still fails to load.",
+        "body_html": """
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.75rem;">
+        Flushing the DNS cache removes outdated or incorrect website-address records stored on your device or browser. Use it when a website will not load, shows the wrong server, or you recently changed DNS settings.
+      </p>
+
+      <div class="answer-box">
+        <div class="answer-box-label">Quick Answer: How to Flush DNS Cache Across Operating Systems</div>
+        <div class="answer-box-main">
+          Windows: <code>ipconfig /flushdns</code> &bull; Mac: <code>sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</code> &bull; Chrome: <code>chrome://net-internals/#dns</code> &rarr; Clear host cache
+        </div>
+        <div class="answer-box-sub">
+          Flushing the DNS cache purges cached domain-to-IP address translations stored locally by your operating system and web browser. This forces your system to retrieve fresh records from your DNS servers, instantly fixing <code>DNS_PROBE_FINISHED_NXDOMAIN</code> and server mismatch errors.
+        </div>
+      </div>
+
+      <div style="overflow-x: auto; margin: 2rem 0;">
+        <table class="table" style="font-size: 0.95rem;">
+          <thead>
+            <tr>
+              <th>Operating System / Browser</th>
+              <th>Tool to Open</th>
+              <th>Command or Navigation Path</th>
+              <th>Expected Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Windows 11 &amp; 10</strong></td>
+              <td>Command Prompt (Admin)</td>
+              <td><code>ipconfig /flushdns</code></td>
+              <td><em>Successfully flushed the DNS Resolver Cache.</em></td>
+            </tr>
+            <tr>
+              <td><strong>Windows 8 &amp; 7</strong></td>
+              <td>Command Prompt (Admin)</td>
+              <td><code>ipconfig /flushdns</code></td>
+              <td><em>Successfully flushed the DNS Resolver Cache.</em></td>
+            </tr>
+            <tr>
+              <td><strong>macOS (Modern)</strong></td>
+              <td>Terminal</td>
+              <td><code>sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</code></td>
+              <td>Password prompt &rarr; Silent clean exit</td>
+            </tr>
+            <tr>
+              <td><strong>macOS (Legacy)</strong></td>
+              <td>Terminal</td>
+              <td><code>sudo killall -HUP mDNSResponder</code></td>
+              <td>Silent daemon reload</td>
+            </tr>
+            <tr>
+              <td><strong>Google Chrome DNS</strong></td>
+              <td>Chrome Omnibox</td>
+              <td><code>chrome://net-internals/#dns</code></td>
+              <td>Click <strong>Clear host cache</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Google Chrome Sockets</strong></td>
+              <td>Chrome Omnibox</td>
+              <td><code>chrome://net-internals/#sockets</code></td>
+              <td>Click <strong>Flush socket pools</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/how-to-flush-dns-cache-windows-mac-chrome.webp" width="1200" height="675" fetchpriority="high" alt="Technical diagram showing how to flush DNS cache on Windows via Command Prompt, macOS via Terminal, and Google Chrome via net-internals">
+        <figcaption>Overview: How to purge the local DNS resolver cache on Windows, macOS, and Google Chrome to resolve host unreachable and DNS timeout errors.</figcaption>
+      </figure>
+
+      <h2 id="windows-dns-flush">Windows</h2>
+
+      <h3>Windows 11 and Windows 10</h3>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        <li>Press <strong>Windows + R</strong> on your keyboard to open the Run dialog.</li>
+        <li>Type <code>cmd</code> and press <strong>Ctrl + Shift + Enter</strong> to open Command Prompt with administrator privileges.</li>
+        <li>Type the command below and press <strong>Enter</strong>:
+          <pre style="margin: 0.75rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>ipconfig /flushdns</code></pre>
+        </li>
+        <li>Wait for the confirmation message:
+          <pre style="margin: 0.75rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem; color: #10b981;"><code>Successfully flushed the DNS Resolver Cache.</code></pre>
+        </li>
+        <li>Close Command Prompt and reopen the website in your browser.</li>
+      </ol>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/windows-flush-dns-command-prompt.webp" width="1200" height="675" loading="lazy" alt="Windows 11 Command Prompt running ipconfig /flushdns with successful resolver cache flush confirmation">
+        <figcaption>Figure 1: Executing ipconfig /flushdns with elevated administrator privileges in Windows 11.</figcaption>
+      </figure>
+
+      <h3>Windows 8 and Windows 7</h3>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+        <li>Click <strong>Start</strong>.</li>
+        <li>Type <code>cmd</code> in the search box.</li>
+        <li>Right-click <strong>Command Prompt</strong> and choose <strong>Run as administrator</strong>.</li>
+        <li>Enter:
+          <pre style="margin: 0.75rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>ipconfig /flushdns</code></pre>
+        </li>
+        <li>Press <strong>Enter</strong>.</li>
+      </ol>
+
+      <h2 id="mac-dns-flush">Mac</h2>
+
+      <h3>macOS Ventura, Monterey, Big Sur, Catalina</h3>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        <li>Open <strong>Terminal</strong> from <strong>Applications &gt; Utilities</strong> or via Spotlight (Cmd + Space).</li>
+        <li>Enter this command:
+          <pre style="margin: 0.75rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</code></pre>
+        </li>
+        <li>Press <strong>Enter</strong>.</li>
+        <li>Enter your Mac login password when prompted (characters will not show on screen for security).</li>
+        <li>Press <strong>Enter</strong> again.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+        The command does not always display a confirmation message. Once it completes and returns to the prompt, the DNS cache has been cleared.
+      </p>
+
+      <h3>Older macOS Versions</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem;">
+        For older macOS versions (macOS Sierra, El Capitan, Yosemite), use:
+      </p>
+      <pre style="margin: 0.75rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>sudo killall -HUP mDNSResponder</code></pre>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-top: 1rem; margin-bottom: 0.75rem;">
+        If that does not work (OS X Yosemite 10.10.0&ndash;10.10.3), try:
+      </p>
+      <pre style="margin: 0.75rem 0 2rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>sudo discoveryutil mdnsflushcache</code></pre>
+
+      <h2 id="google-chrome-dns-flush">Google Chrome</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        Chrome keeps its own internal DNS cache, separate from Windows or macOS.
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        <li>Open Chrome.</li>
+        <li>Type this into the address bar:
+          <pre style="margin: 0.5rem 0; background: var(--bg-secondary); padding: 0.65rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>chrome://net-internals/#dns</code></pre>
+        </li>
+        <li>Press <strong>Enter</strong>.</li>
+        <li>Click <strong>Clear host cache</strong>.</li>
+        <li>Open a new tab and test the website again.</li>
+      </ol>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/chrome-net-internals-clear-host-cache.webp" width="1200" height="675" loading="lazy" alt="Google Chrome net-internals DNS settings page showing Clear host cache and Flush socket pools buttons">
+        <figcaption>Figure 2: Clearing Chrome's internal host resolver cache and flushing socket pools in chrome://net-internals.</figcaption>
+      </figure>
+
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-top: 1.5rem; margin-bottom: 0.75rem;">
+        Chrome may also store open socket connections to previous IP addresses. To clear those as well:
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2.25rem;">
+        <li>Type this in the address bar:
+          <pre style="margin: 0.5rem 0; background: var(--bg-secondary); padding: 0.65rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>chrome://net-internals/#sockets</code></pre>
+        </li>
+        <li>Click <strong>Flush socket pools</strong>.</li>
+        <li>Restart Chrome.</li>
+      </ol>
+
+      <h2 id="when-to-flush-dns">When to Flush DNS</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        Flush your DNS cache if:
+      </p>
+      <ul style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.75rem;">
+        <li>A website will not load even though it works on another device.</li>
+        <li>You changed DNS servers, such as moving to Google DNS or Cloudflare DNS.</li>
+        <li>A website recently changed servers but still opens the old version.</li>
+        <li>You see DNS-related errors such as <code>DNS_PROBE_FINISHED_NXDOMAIN</code>.</li>
+        <li>You changed hosting, domain settings, or website DNS records.</li>
+      </ul>
+
+      <div style="overflow-x: auto; margin: 1.75rem 0 2.5rem 0;">
+        <table class="table" style="font-size: 0.95rem;">
+          <thead>
+            <tr>
+              <th>Browser Error Code</th>
+              <th>Root Cause</th>
+              <th>Recommended Fix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>DNS_PROBE_FINISHED_NXDOMAIN</code></td>
+              <td>Negative DNS cache or unpropagated A-record</td>
+              <td>Run <code>ipconfig /flushdns</code> &amp; test in Chrome Incognito</td>
+            </tr>
+            <tr>
+              <td><code>ERR_NAME_NOT_RESOLVED</code></td>
+              <td>Operating system resolver cannot resolve host</td>
+              <td>Flush DNS &amp; reboot your home router</td>
+            </tr>
+            <tr>
+              <td><code>DNS_PROBE_STARTED</code></td>
+              <td>DNS lookup request is timing out</td>
+              <td>Disconnect VPN/proxy &amp; switch to Cloudflare (1.1.1.1)</td>
+            </tr>
+            <tr>
+              <td><code>DNS_PROBE_FINISHED_BAD_CONFIG</code></td>
+              <td>Invalid DNS IP entered in network adapter</td>
+              <td>Set DNS to Automatic (DHCP) or Google (8.8.8.8)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="if-the-problem-continues">If the Problem Continues</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        If flushing DNS does not fix the issue:
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+        <li><strong>Restart your router:</strong> Power cycle your router by disconnecting its power adapter for 30 seconds. Routers maintain an internal DNS proxy cache that can serve stale translations to all connected home devices (see our <a href="/howto/30-second-hard-factory-reset/">30-Second Hard Reset Guide</a>).</li>
+        <li><strong>Restart your computer or phone:</strong> Reboots system-level networking services and cleans temporary socket bindings.</li>
+        <li><strong>Change your DNS servers to Cloudflare DNS or Google DNS:</strong> Switch from your ISP's default resolver to Cloudflare (<code>1.1.1.1</code> and <code>1.0.0.1</code>) or Google (<code>8.8.8.8</code> and <code>8.8.4.4</code>) using our complete <a href="/howto/change-router-dns/">How to Change Router DNS Guide</a>.</li>
+        <li><strong>Disable VPN, proxy, or browser extensions temporarily:</strong> VPN clients (such as NordVPN or ExpressVPN) and proxy extensions reroute DNS traffic through encrypted virtual network interfaces, bypassing your local DNS resolver cache.</li>
+        <li><strong>Test the website in another browser:</strong> Open the target URL in Firefox, Microsoft Edge, or Safari to determine if the issue is restricted to Chrome's local profile.</li>
+        <li><strong>Check whether the website works on another device:</strong> Connect your smartphone to cellular data or verify with our <a href="/tools/dns-propagation/">DNS Propagation Checker</a> to confirm whether the issue is local or server-side.</li>
+      </ol>
+"""
+    },
 ]
 
 EXTERNAL_HUB_GUIDE_CARD = {

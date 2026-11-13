@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Flush DNS Cache on Windows, Mac &amp; Chrome</title>
+  <meta name="description" content="Flush DNS cache on Windows 11/10, macOS, and Chrome using ipconfig /flushdns, terminal commands, and host cache reset to fix DNS_PROBE_FINISHED_NXDOMAIN.">
+  <link rel="canonical" href="https://routeriphub.com/howto/how-to-flush-dns-cache/">
+
+  <!-- Favicon Suite -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0284c7">
+
+  <!-- LLM / AI Manifest Discovery -->
+  <link rel="describedby" type="text/markdown" href="/llms.txt">
+  <link rel="alternate" type="text/markdown" href="/llms-full.txt" title="Full LLM Context">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://routeriphub.com/howto/how-to-flush-dns-cache/">
+  <meta property="og:title" content="How to Flush DNS Cache on Windows, Mac &amp; Chrome">
+  <meta property="og:description" content="Flush DNS cache on Windows 11/10, macOS, and Chrome using ipconfig /flushdns, terminal commands, and host cache reset to fix DNS_PROBE_FINISHED_NXDOMAIN.">
+  <meta property="og:site_name" content="RouterIPHub">
+  <meta property="og:image" content="https://routeriphub.com/images/howto/how-to-flush-dns-cache-windows-mac-chrome.webp">
+  <meta property="og:image:secure_url" content="https://routeriphub.com/images/howto/how-to-flush-dns-cache-windows-mac-chrome.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:alt" content="How to Flush DNS Cache on Windows, Mac, and Chrome">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@RouterIPHub">
+  <meta name="twitter:creator" content="@RouterIPHub">
+  <meta name="twitter:title" content="How to Flush DNS Cache on Windows, Mac &amp; Chrome">
+  <meta name="twitter:description" content="Flush DNS cache on Windows 11/10, macOS, and Chrome using ipconfig /flushdns, terminal commands, and host cache reset to fix DNS_PROBE_FINISHED_NXDOMAIN.">
+  <meta name="twitter:image" content="https://routeriphub.com/images/howto/how-to-flush-dns-cache-windows-mac-chrome.webp">
+  <meta name="twitter:image:alt" content="How to Flush DNS Cache on Windows, Mac, and Chrome">
+
+  <!-- Instant Theme Initializer (Light Mode Default, 0ms FOUT) -->
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/css/style.css?v=42e0fc35">
+  <script src="/js/app.js?v=3a848f00" defer></script>
+
+  <script type="speculationrules">
+  {
+    "prefetch": [
+      {
+        "where": {
+          "and": [
+            {"href_matches": "/*"},
+            {"not": {"href_matches": "/data/*"}}
+          ]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://routeriphub.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How-To Guides",
+          "item": "https://routeriphub.com/howto/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Flush DNS Cache",
+          "item": "https://routeriphub.com/howto/how-to-flush-dns-cache/"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "How to Flush DNS Cache on Windows, Mac, and Chrome",
+      "description": "Flush DNS cache on Windows 11/10, macOS, and Chrome using ipconfig /flushdns, terminal commands, and host cache reset to fix DNS_PROBE_FINISHED_NXDOMAIN.",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://routeriphub.com/howto/how-to-flush-dns-cache/",
+      "datePublished": "2026-11-13T08:00:00+00:00",
+      "dateModified": "2026-11-13T08:00:00+00:00",
+      "author": {
+        "@type": "Person",
+        "name": "Vikas Behl",
+        "url": "https://routeriphub.com/authors/vikas-behl/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RouterIPHub",
+        "url": "https://routeriphub.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://routeriphub.com/android-chrome-512x512.png",
+          "width": 512,
+          "height": 512
+        }
+      },
+      "image": "https://routeriphub.com/images/howto/how-to-flush-dns-cache-windows-mac-chrome.webp"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does flushing the DNS cache actually do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Flushing the DNS cache erases your operating system and web browser's local database of recently resolved domain-to-IP address translations. This forces your device to perform a fresh DNS lookup from configured resolvers (e.g. Cloudflare 1.1.1.1, Google 8.8.8.8, or your ISP gateway)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I flush my DNS cache?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You should flush your DNS cache whenever a website fails to load with errors like DNS_PROBE_FINISHED_NXDOMAIN or ERR_NAME_NOT_RESOLVED, after changing your router or computer DNS servers, or when a recently migrated domain still displays its old server content."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does flushing DNS delete my browsing history or saved passwords?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Flushing the DNS cache only deletes IP resolution records in the operating system resolver and browser host cache. It does not affect cookies, browsing history, form autofill data, or saved login credentials."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does 'Successfully flushed the DNS Resolver Cache' mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "This confirmation message means that Windows has wiped all cached A, AAAA, and CNAME records from memory. Your next web request will immediately query your active DNS server for current routing information."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do I need to clear Chrome's DNS cache separately from Windows or Mac?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google Chrome maintains an internal, independent socket pool and host resolver cache designed to speed up browsing. Even if you clear your OS cache, Chrome may continue serving stale IP mappings until you clear chrome://net-internals/#dns and restart the browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if flushing DNS does not fix my connection error?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If flushing DNS fails to restore access, power cycle your router to clear its internal DNS forwarding proxy, switch your router DNS to Cloudflare (1.1.1.1) or Google (8.8.8.8), disable any active VPN or proxy software, and test the website on another device connected to the same network."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <!-- Google Tag Manager / gtag.js -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-547N7K2L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "zbfhxripke");
+  </script>
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="/" class="brand-logo" aria-label="RouterIPHub Home">
+        <svg class="brand-mark" width="44" height="30" viewBox="0 0 118 82" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Antenna -->
+  <path class="logo-navy" d="M13 46L7.5 13C7.1 10.8 8.7 8.8 10.9 8.8C12.8 8.8 14.4 10.1 14.8 12L21 46H13Z"/>
+  <!-- Wi-Fi Waves -->
+  <path class="logo-wave" d="M23 19C32.5 10.5 46.5 10.5 56 19" stroke-width="5.5" stroke-linecap="round"/>
+  <path class="logo-wave" d="M29 28.5C35 23 44 23 50 28.5" stroke-width="5.2" stroke-linecap="round"/>
+  <circle class="logo-navy" cx="39.5" cy="37" r="4"/>
+  <!-- Router Chassis & Foot -->
+  <rect class="logo-navy" x="10" y="68" width="14" height="5" rx="2"/>
+  <path class="logo-blue" d="M6 52C6 48.134 9.134 45 13 45H57L49 69H13C9.134 69 6 65.866 6 62V52Z"/>
+  <circle fill="#ffffff" cx="15.5" cy="57" r="4.2"/>
+  <circle fill="#ffffff" cx="26.5" cy="57" r="2.2"/>
+  <circle fill="#ffffff" cx="34.5" cy="57" r="2.2"/>
+  <!-- Orange Network Branch -->
+  <path class="logo-orange" d="M72 15L60 32L72 28" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-orange" cx="72" cy="14" r="5"/>
+  <circle class="logo-orange" cx="59" cy="32" r="5"/>
+  <!-- Teal Network Graph -->
+  <path class="logo-teal" d="M74 42L90 27V57L74 72V53" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-teal" cx="90" cy="27" r="5"/>
+  <circle class="logo-teal" cx="90" cy="57" r="5"/>
+  <circle class="logo-teal" cx="74" cy="72" r="5"/>
+  <!-- Diagnostic Wrench Overlay -->
+  <path class="logo-cutout" stroke-width="3.5" stroke-linejoin="round" d="M77.5 34.5C73.5 32.5 68.5 33.5 65.5 37C63.2 39.7 62.7 43.4 64 46.5L51.5 59C49.5 61 49.5 64.2 51.5 66.2C53.5 68.2 56.7 68.2 58.7 66.2L71.2 53.7C74.3 55 78 54.5 80.7 52.2C84.2 49.2 85.2 44.2 83.2 40.2L77.5 45.9L71.8 40.2L77.5 34.5Z"/>
+  <circle fill="#ffffff" cx="55.1" cy="62.6" r="2.2"/>
+</svg>
+<span class="brand-wordmark">
+  <span class="brand-name">Router<span class="brand-ip">IP</span>Hub</span>
+  <span class="brand-tld">.com</span>
+</span>
+        <span class="brand-badge">2026</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav aria-label="Main Navigation" class="desktop-nav">
+        <ul class="nav-links">
+                    <li class="nav-dropdown-wrapper">
+            <a href="/routers/" class="nav-dropdown-trigger ">
+              <span>Routers</span>
+              <svg class="dropdown-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </a>
+            <div class="nav-dropdown-menu" aria-label="Router Brands">
+              <div class="dropdown-top-bar">
+                <span class="dropdown-title">Hardware Brand Categories</span>
+                <a href="/routers/" class="dropdown-all-link">All 252 Models &rarr;</a>
+              </div>
+              <div class="dropdown-brands-grid">
+                <a href="/brands/eero/" class="dropdown-brand-item">Amazon Eero</a>
+                <a href="/brands/arris/" class="dropdown-brand-item">Arris</a>
+                <a href="/brands/asus/" class="dropdown-brand-item">ASUS</a>
+                <a href="/brands/avm-fritzbox/" class="dropdown-brand-item">AVM FRITZ!Box</a>
+                <a href="/brands/cisco/" class="dropdown-brand-item">Cisco</a>
+                <a href="/brands/d-link/" class="dropdown-brand-item">D-Link</a>
+                <a href="/brands/draytek/" class="dropdown-brand-item">DrayTek</a>
+                <a href="/brands/gl-inet/" class="dropdown-brand-item">GL.iNet</a>
+                <a href="/brands/google-nest/" class="dropdown-brand-item">Google Nest</a>
+                <a href="/brands/huawei/" class="dropdown-brand-item">Huawei</a>
+                <a href="/brands/linksys/" class="dropdown-brand-item">Linksys</a>
+                <a href="/brands/mikrotik/" class="dropdown-brand-item">MikroTik</a>
+                <a href="/brands/motorola/" class="dropdown-brand-item">Motorola</a>
+                <a href="/brands/netgear/" class="dropdown-brand-item">Netgear</a>
+                <a href="/routers/pldt/" class="dropdown-brand-item">PLDT</a>
+                <a href="/brands/synology/" class="dropdown-brand-item">Synology</a>
+                <a href="/brands/tp-link/" class="dropdown-brand-item">TP-Link</a>
+                <a href="/brands/ubiquiti/" class="dropdown-brand-item">Ubiquiti</a>
+                <a href="/brands/xfinity/" class="dropdown-brand-item">Xfinity</a>
+                <a href="/brands/zyxel/" class="dropdown-brand-item">Zyxel</a>
+              </div>
+              <div class="dropdown-bottom-bar">
+                <a href="/brands/"><span>Explore all 20 Brand Directories</span> &rarr;</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="/isp/" class="">ISP Gateways</a></li>
+          <li><a href="/extenders/" class="">Extenders</a></li>
+          <li><a href="/tools/" class="">Tools</a></li>
+          <li><a href="/brands/" class="">Brands</a></li>
+          <li><a href="/ip/" class="">IP Directory</a></li>
+          <li><a href="/howto/" class="active">Guides</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Global Search Bar Button -->
+        <button class="search-trigger-btn" aria-label="Search entire website" title="Search site (Press / or Ctrl+K)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="search-trigger-text">Search site...</span>
+          <kbd class="search-trigger-kbd">Ctrl K</kbd>
+        </button>
+
+        <!-- Theme Switcher Button -->
+        <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          <svg class="icon-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+      <div class="container">
+        <div style="margin-bottom: 0.75rem;">
+          <button class="search-trigger-btn" style="width: 100%; border-radius: var(--radius-md); justify-content: flex-start; padding: 0.75rem 1rem; min-height: 48px; background: var(--bg-card); gap: 0.75rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span style="font-size: 0.95rem; color: var(--text-muted);">Search 252+ models, IPs, tools...</span>
+          </button>
+        </div>
+
+        <ul class="mobile-nav-list">
+                    <li class="mobile-dropdown-wrapper">
+            <div class="mobile-dropdown-row">
+              <a href="/routers/"><span>Router Models Directory</span></a>
+              <button type="button" class="mobile-dropdown-btn" id="mobile-routers-toggle" aria-expanded="false" aria-label="Toggle brand categories list">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+            </div>
+            <div class="mobile-dropdown-sub" id="mobile-routers-sub">
+              <div class="mobile-brands-chips">
+                <a href="/brands/asus/">ASUS</a>
+                <a href="/brands/cisco/">Cisco</a>
+                <a href="/brands/d-link/">D-Link</a>
+                <a href="/brands/eero/">Eero</a>
+                <a href="/brands/google-nest/">Google Nest</a>
+                <a href="/brands/linksys/">Linksys</a>
+                <a href="/brands/mikrotik/">MikroTik</a>
+                <a href="/brands/netgear/">Netgear</a>
+                <a href="/routers/pldt/">PLDT</a>
+                <a href="/brands/synology/">Synology</a>
+                <a href="/brands/tp-link/">TP-Link</a>
+                <a href="/brands/ubiquiti/">Ubiquiti</a>
+                <a href="/brands/">+ All Brands &rarr;</a>
+              </div>
+            </div>
+          </li>
+          <li><a href="/isp/"><span>ISP Gateway Portals</span><span>&rarr;</span></a></li>
+          <li><a href="/extenders/"><span>Wi-Fi Extenders &amp; Repeaters</span><span>&rarr;</span></a></li>
+          <li><a href="/tools/"><span>Interactive Networking Tools</span><span>&rarr;</span></a></li>
+          <li><a href="/brands/"><span>Brand Directories</span><span>&rarr;</span></a></li>
+          <li><a href="/ip/"><span>Gateway IP Directory</span><span>&rarr;</span></a></li>
+          <li><a href="/howto/"><span>Setup &amp; Troubleshooting Guides</span><span>&rarr;</span></a></li>
+          <li style="margin-top: 0.5rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+            <button class="theme-toggle-btn" style="width: 100%; border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.15rem; background: var(--bg-card); height: auto; min-height: 48px;">
+              <span>Switch Theme</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Toggle</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Breadcrumbs Bar -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="breadcrumbs">
+        <a href="/">Home</a> <span class="sep">&rsaquo;</span> <a href="/howto/">How-To Guides</a> <span class="sep">&rsaquo;</span> <span aria-current="page">Flush DNS Cache</span>
+      </nav>
+    </div>
+  </div>
+
+  <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
+    <article class="prose content-container">
+      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+        <span class="guide-category-badge">Security &amp; DNS</span>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">5 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+      </div>
+
+      <h1>How to Flush DNS Cache on Windows, Mac, and Chrome</h1>
+
+      
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.75rem;">
+        Flushing the DNS cache removes outdated or incorrect website-address records stored on your device or browser. Use it when a website will not load, shows the wrong server, or you recently changed DNS settings.
+      </p>
+
+      <div class="answer-box">
+        <div class="answer-box-label">Quick Answer: How to Flush DNS Cache Across Operating Systems</div>
+        <div class="answer-box-main">
+          Windows: <code>ipconfig /flushdns</code> &bull; Mac: <code>sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</code> &bull; Chrome: <code>chrome://net-internals/#dns</code> &rarr; Clear host cache
+        </div>
+        <div class="answer-box-sub">
+          Flushing the DNS cache purges cached domain-to-IP address translations stored locally by your operating system and web browser. This forces your system to retrieve fresh records from your DNS servers, instantly fixing <code>DNS_PROBE_FINISHED_NXDOMAIN</code> and server mismatch errors.
+        </div>
+      </div>
+
+      <div style="overflow-x: auto; margin: 2rem 0;">
+        <table class="table" style="font-size: 0.95rem;">
+          <thead>
+            <tr>
+              <th>Operating System / Browser</th>
+              <th>Tool to Open</th>
+              <th>Command or Navigation Path</th>
+              <th>Expected Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Windows 11 &amp; 10</strong></td>
+              <td>Command Prompt (Admin)</td>
+              <td><code>ipconfig /flushdns</code></td>
+              <td><em>Successfully flushed the DNS Resolver Cache.</em></td>
+            </tr>
+            <tr>
+              <td><strong>Windows 8 &amp; 7</strong></td>
+              <td>Command Prompt (Admin)</td>
+              <td><code>ipconfig /flushdns</code></td>
+              <td><em>Successfully flushed the DNS Resolver Cache.</em></td>
+            </tr>
+            <tr>
+              <td><strong>macOS (Modern)</strong></td>
+              <td>Terminal</td>
+              <td><code>sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</code></td>
+              <td>Password prompt &rarr; Silent clean exit</td>
+            </tr>
+            <tr>
+              <td><strong>macOS (Legacy)</strong></td>
+              <td>Terminal</td>
+              <td><code>sudo killall -HUP mDNSResponder</code></td>
+              <td>Silent daemon reload</td>
+            </tr>
+            <tr>
+              <td><strong>Google Chrome DNS</strong></td>
+              <td>Chrome Omnibox</td>
+              <td><code>chrome://net-internals/#dns</code></td>
+              <td>Click <strong>Clear host cache</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Google Chrome Sockets</strong></td>
+              <td>Chrome Omnibox</td>
+              <td><code>chrome://net-internals/#sockets</code></td>
+              <td>Click <strong>Flush socket pools</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/how-to-flush-dns-cache-windows-mac-chrome.webp" width="1200" height="675" fetchpriority="high" alt="Technical diagram showing how to flush DNS cache on Windows via Command Prompt, macOS via Terminal, and Google Chrome via net-internals">
+        <figcaption>Overview: How to purge the local DNS resolver cache on Windows, macOS, and Google Chrome to resolve host unreachable and DNS timeout errors.</figcaption>
+      </figure>
+
+      <h2 id="windows-dns-flush">Windows</h2>
+
+      <h3>Windows 11 and Windows 10</h3>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        <li>Press <strong>Windows + R</strong> on your keyboard to open the Run dialog.</li>
+        <li>Type <code>cmd</code> and press <strong>Ctrl + Shift + Enter</strong> to open Command Prompt with administrator privileges.</li>
+        <li>Type the command below and press <strong>Enter</strong>:
+          <pre style="margin: 0.75rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>ipconfig /flushdns</code></pre>
+        </li>
+        <li>Wait for the confirmation message:
+          <pre style="margin: 0.75rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem; color: #10b981;"><code>Successfully flushed the DNS Resolver Cache.</code></pre>
+        </li>
+        <li>Close Command Prompt and reopen the website in your browser.</li>
+      </ol>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/windows-flush-dns-command-prompt.webp" width="1200" height="675" loading="lazy" alt="Windows 11 Command Prompt running ipconfig /flushdns with successful resolver cache flush confirmation">
+        <figcaption>Figure 1: Executing ipconfig /flushdns with elevated administrator privileges in Windows 11.</figcaption>
+      </figure>
+
+      <h3>Windows 8 and Windows 7</h3>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+        <li>Click <strong>Start</strong>.</li>
+        <li>Type <code>cmd</code> in the search box.</li>
+        <li>Right-click <strong>Command Prompt</strong> and choose <strong>Run as administrator</strong>.</li>
+        <li>Enter:
+          <pre style="margin: 0.75rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>ipconfig /flushdns</code></pre>
+        </li>
+        <li>Press <strong>Enter</strong>.</li>
+      </ol>
+
+      <h2 id="mac-dns-flush">Mac</h2>
+
+      <h3>macOS Ventura, Monterey, Big Sur, Catalina</h3>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        <li>Open <strong>Terminal</strong> from <strong>Applications &gt; Utilities</strong> or via Spotlight (Cmd + Space).</li>
+        <li>Enter this command:
+          <pre style="margin: 0.75rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder</code></pre>
+        </li>
+        <li>Press <strong>Enter</strong>.</li>
+        <li>Enter your Mac login password when prompted (characters will not show on screen for security).</li>
+        <li>Press <strong>Enter</strong> again.</li>
+      </ol>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+        The command does not always display a confirmation message. Once it completes and returns to the prompt, the DNS cache has been cleared.
+      </p>
+
+      <h3>Older macOS Versions</h3>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.75rem;">
+        For older macOS versions (macOS Sierra, El Capitan, Yosemite), use:
+      </p>
+      <pre style="margin: 0.75rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>sudo killall -HUP mDNSResponder</code></pre>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-top: 1rem; margin-bottom: 0.75rem;">
+        If that does not work (OS X Yosemite 10.10.0&ndash;10.10.3), try:
+      </p>
+      <pre style="margin: 0.75rem 0 2rem 0; background: var(--bg-secondary); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>sudo discoveryutil mdnsflushcache</code></pre>
+
+      <h2 id="google-chrome-dns-flush">Google Chrome</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        Chrome keeps its own internal DNS cache, separate from Windows or macOS.
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.5rem;">
+        <li>Open Chrome.</li>
+        <li>Type this into the address bar:
+          <pre style="margin: 0.5rem 0; background: var(--bg-secondary); padding: 0.65rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>chrome://net-internals/#dns</code></pre>
+        </li>
+        <li>Press <strong>Enter</strong>.</li>
+        <li>Click <strong>Clear host cache</strong>.</li>
+        <li>Open a new tab and test the website again.</li>
+      </ol>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/chrome-net-internals-clear-host-cache.webp" width="1200" height="675" loading="lazy" alt="Google Chrome net-internals DNS settings page showing Clear host cache and Flush socket pools buttons">
+        <figcaption>Figure 2: Clearing Chrome's internal host resolver cache and flushing socket pools in chrome://net-internals.</figcaption>
+      </figure>
+
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-top: 1.5rem; margin-bottom: 0.75rem;">
+        Chrome may also store open socket connections to previous IP addresses. To clear those as well:
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2.25rem;">
+        <li>Type this in the address bar:
+          <pre style="margin: 0.5rem 0; background: var(--bg-secondary); padding: 0.65rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-family: var(--font-mono); font-size: 0.95rem;"><code>chrome://net-internals/#sockets</code></pre>
+        </li>
+        <li>Click <strong>Flush socket pools</strong>.</li>
+        <li>Restart Chrome.</li>
+      </ol>
+
+      <h2 id="when-to-flush-dns">When to Flush DNS</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        Flush your DNS cache if:
+      </p>
+      <ul style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.75rem;">
+        <li>A website will not load even though it works on another device.</li>
+        <li>You changed DNS servers, such as moving to Google DNS or Cloudflare DNS.</li>
+        <li>A website recently changed servers but still opens the old version.</li>
+        <li>You see DNS-related errors such as <code>DNS_PROBE_FINISHED_NXDOMAIN</code>.</li>
+        <li>You changed hosting, domain settings, or website DNS records.</li>
+      </ul>
+
+      <div style="overflow-x: auto; margin: 1.75rem 0 2.5rem 0;">
+        <table class="table" style="font-size: 0.95rem;">
+          <thead>
+            <tr>
+              <th>Browser Error Code</th>
+              <th>Root Cause</th>
+              <th>Recommended Fix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>DNS_PROBE_FINISHED_NXDOMAIN</code></td>
+              <td>Negative DNS cache or unpropagated A-record</td>
+              <td>Run <code>ipconfig /flushdns</code> &amp; test in Chrome Incognito</td>
+            </tr>
+            <tr>
+              <td><code>ERR_NAME_NOT_RESOLVED</code></td>
+              <td>Operating system resolver cannot resolve host</td>
+              <td>Flush DNS &amp; reboot your home router</td>
+            </tr>
+            <tr>
+              <td><code>DNS_PROBE_STARTED</code></td>
+              <td>DNS lookup request is timing out</td>
+              <td>Disconnect VPN/proxy &amp; switch to Cloudflare (1.1.1.1)</td>
+            </tr>
+            <tr>
+              <td><code>DNS_PROBE_FINISHED_BAD_CONFIG</code></td>
+              <td>Invalid DNS IP entered in network adapter</td>
+              <td>Set DNS to Automatic (DHCP) or Google (8.8.8.8)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="if-the-problem-continues">If the Problem Continues</h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+        If flushing DNS does not fix the issue:
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+        <li><strong>Restart your router:</strong> Power cycle your router by disconnecting its power adapter for 30 seconds. Routers maintain an internal DNS proxy cache that can serve stale translations to all connected home devices (see our <a href="/howto/30-second-hard-factory-reset/">30-Second Hard Reset Guide</a>).</li>
+        <li><strong>Restart your computer or phone:</strong> Reboots system-level networking services and cleans temporary socket bindings.</li>
+        <li><strong>Change your DNS servers to Cloudflare DNS or Google DNS:</strong> Switch from your ISP's default resolver to Cloudflare (<code>1.1.1.1</code> and <code>1.0.0.1</code>) or Google (<code>8.8.8.8</code> and <code>8.8.4.4</code>) using our complete <a href="/howto/change-router-dns/">How to Change Router DNS Guide</a>.</li>
+        <li><strong>Disable VPN, proxy, or browser extensions temporarily:</strong> VPN clients (such as NordVPN or ExpressVPN) and proxy extensions reroute DNS traffic through encrypted virtual network interfaces, bypassing your local DNS resolver cache.</li>
+        <li><strong>Test the website in another browser:</strong> Open the target URL in Firefox, Microsoft Edge, or Safari to determine if the issue is restricted to Chrome's local profile.</li>
+        <li><strong>Check whether the website works on another device:</strong> Connect your smartphone to cellular data or verify with our <a href="/tools/dns-propagation/">DNS Propagation Checker</a> to confirm whether the issue is local or server-side.</li>
+      </ol>
+
+
+      <h2>FAQs</h2>
+      <div style="margin-top: 1rem;">
+        
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">What does flushing the DNS cache actually do?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Flushing the DNS cache erases your operating system and web browser&#x27;s local database of recently resolved domain-to-IP address translations. This forces your device to perform a fresh DNS lookup from configured resolvers (e.g. Cloudflare 1.1.1.1, Google 8.8.8.8, or your ISP gateway).</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">When should I flush my DNS cache?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">You should flush your DNS cache whenever a website fails to load with errors like DNS_PROBE_FINISHED_NXDOMAIN or ERR_NAME_NOT_RESOLVED, after changing your router or computer DNS servers, or when a recently migrated domain still displays its old server content.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Does flushing DNS delete my browsing history or saved passwords?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">No. Flushing the DNS cache only deletes IP resolution records in the operating system resolver and browser host cache. It does not affect cookies, browsing history, form autofill data, or saved login credentials.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">What does &#x27;Successfully flushed the DNS Resolver Cache&#x27; mean?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">This confirmation message means that Windows has wiped all cached A, AAAA, and CNAME records from memory. Your next web request will immediately query your active DNS server for current routing information.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Why do I need to clear Chrome&#x27;s DNS cache separately from Windows or Mac?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Google Chrome maintains an internal, independent socket pool and host resolver cache designed to speed up browsing. Even if you clear your OS cache, Chrome may continue serving stale IP mappings until you clear chrome://net-internals/#dns and restart the browser.</p>
+        </div>
+        <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
+          <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">What if flushing DNS does not fix my connection error?</h3>
+          <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">If flushing DNS fails to restore access, power cycle your router to clear its internal DNS forwarding proxy, switch your router DNS to Cloudflare (1.1.1.1) or Google (8.8.8.8), disable any active VPN or proxy software, and test the website on another device connected to the same network.</p>
+        </div>
+      </div>
+
+      <h2>The Bottom Line</h2>
+      <div class="bottom-line-callout">
+        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+          Use <code>ipconfig /flushdns</code> on Windows, the Terminal command on Mac, and <strong>Clear host cache</strong> in Chrome. These steps remove stored DNS records and force your device or browser to request fresh information.<br><br><strong>Fastest fix:</strong> Flush DNS on your operating system first, then clear Chrome&rsquo;s host cache if the website still fails to load.
+        </p>
+      </div>
+
+      <div class="byline-meta-card">
+        <div class="byline-author-group">
+          <div class="byline-avatar">VB</div>
+          <div class="byline-text">
+            <div class="byline-line-1">
+              <span class="byline-role">Written &amp; Tested by</span>
+              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+              <span class="byline-badge">12+ Yrs Exp</span>
+            </div>
+            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-review-group">
+          <span class="byline-role">Reviewed by</span>
+          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+          <span class="byline-status">&#10003; Hardware Verified</span>
+        </div>
+        <div class="byline-divider"></div>
+        <div class="byline-date-group">
+          <span class="byline-role">Updated</span>
+          <time datetime="2026-11-13" class="byline-date">Nov 13, 2026</time>
+        </div>
+      </div>
+
+      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+        
+        <a href="/howto/ipv6-default-gateway-discovery/" class="guide-nav-card">
+          <span class="guide-nav-label">&larr; Previous Guide</span>
+          <span class="guide-nav-title">IPv6 Default Gateway Discovery &amp; Link-Local (fe80::1) Guide</span>
+        </a>
+        
+      </nav>
+
+      
+      <!-- Related Gateway Subnets, Brand Portals & Tools -->
+      <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Default Gateway Directories &amp; Subnets
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Access login sheets and diagnostic consoles for major RFC 1918 private gateway subnets:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Gateway Hub &rarr;</a><a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Hub &rarr;</a><a href="/ip/10-0-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">10.0.0.1 Gateway Hub &rarr;</a><a href="/ip/192-168-1-254/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.254 Gateway Hub &rarr;</a><a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs Directory &rarr;</a>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Router Manufacturer Portals
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Browse factory default credentials, setup guides, and model databases by brand:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            <a href="/brands/netgear/" class="btn btn-secondary" style="font-size: 0.85rem;">Netgear Routers &rarr;</a><a href="/brands/tp-link/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link Routers &rarr;</a><a href="/brands/asus/" class="btn btn-secondary" style="font-size: 0.85rem;">ASUS Routers &rarr;</a><a href="/brands/linksys/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys Routers &rarr;</a><a href="/brands/cisco/" class="btn btn-secondary" style="font-size: 0.85rem;">Cisco Routers &rarr;</a><a href="/brands/d-link/" class="btn btn-secondary" style="font-size: 0.85rem;">D-Link Routers &rarr;</a><a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">All Brand Hubs &rarr;</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Free Networking Diagnostics &amp; Tools
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Gateway &rarr;</a><a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a><a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi QR Code Generator &rarr;</a><a href="/find-router-ip/" class="btn btn-secondary" style="font-size: 0.85rem;">Find Router IP &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <a href="/" class="brand-logo" style="margin-bottom: 0.75rem;" aria-label="RouterIPHub Home">
+          <svg class="brand-mark" width="44" height="30" viewBox="0 0 118 82" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Antenna -->
+  <path class="logo-navy" d="M13 46L7.5 13C7.1 10.8 8.7 8.8 10.9 8.8C12.8 8.8 14.4 10.1 14.8 12L21 46H13Z"/>
+  <!-- Wi-Fi Waves -->
+  <path class="logo-wave" d="M23 19C32.5 10.5 46.5 10.5 56 19" stroke-width="5.5" stroke-linecap="round"/>
+  <path class="logo-wave" d="M29 28.5C35 23 44 23 50 28.5" stroke-width="5.2" stroke-linecap="round"/>
+  <circle class="logo-navy" cx="39.5" cy="37" r="4"/>
+  <!-- Router Chassis & Foot -->
+  <rect class="logo-navy" x="10" y="68" width="14" height="5" rx="2"/>
+  <path class="logo-blue" d="M6 52C6 48.134 9.134 45 13 45H57L49 69H13C9.134 69 6 65.866 6 62V52Z"/>
+  <circle fill="#ffffff" cx="15.5" cy="57" r="4.2"/>
+  <circle fill="#ffffff" cx="26.5" cy="57" r="2.2"/>
+  <circle fill="#ffffff" cx="34.5" cy="57" r="2.2"/>
+  <!-- Orange Network Branch -->
+  <path class="logo-orange" d="M72 15L60 32L72 28" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-orange" cx="72" cy="14" r="5"/>
+  <circle class="logo-orange" cx="59" cy="32" r="5"/>
+  <!-- Teal Network Graph -->
+  <path class="logo-teal" d="M74 42L90 27V57L74 72V53" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="logo-teal" cx="90" cy="27" r="5"/>
+  <circle class="logo-teal" cx="90" cy="57" r="5"/>
+  <circle class="logo-teal" cx="74" cy="72" r="5"/>
+  <!-- Diagnostic Wrench Overlay -->
+  <path class="logo-cutout" stroke-width="3.5" stroke-linejoin="round" d="M77.5 34.5C73.5 32.5 68.5 33.5 65.5 37C63.2 39.7 62.7 43.4 64 46.5L51.5 59C49.5 61 49.5 64.2 51.5 66.2C53.5 68.2 56.7 68.2 58.7 66.2L71.2 53.7C74.3 55 78 54.5 80.7 52.2C84.2 49.2 85.2 44.2 83.2 40.2L77.5 45.9L71.8 40.2L77.5 34.5Z"/>
+  <circle fill="#ffffff" cx="55.1" cy="62.6" r="2.2"/>
+</svg>
+<span class="brand-wordmark">
+  <span class="brand-name">Router<span class="brand-ip">IP</span>Hub</span>
+  <span class="brand-tld">.com</span>
+</span>
+        </a>
+        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
+          Open reference platform for router default gateway IPs, factory credentials, LED diagnostics, and networking utilities.
+        </p>
+        <ul class="footer-links">
+          <li><a href="/routers/">Router Directory (252 Models)</a></li>
+          <li><a href="/extenders/">Wi-Fi Extenders &amp; Repeaters</a></li>
+          <li><a href="/brands/">Hardware Brands (20)</a></li>
+          <li><a href="/isp/">ISP Gateway Portals</a></li>
+          <li><a href="/tools/">Interactive Tools</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Popular Gateway IPs</p>
+        <ul class="footer-links">
+          <li><a href="/ip/192-168-1-1/">192.168.1.1 (Netgear/ASUS)</a></li>
+          <li><a href="/ip/192-168-0-1/">192.168.0.1 (TP-Link/D-Link)</a></li>
+          <li><a href="/ip/10-0-0-1/">10.0.0.1 (Xfinity/Comcast)</a></li>
+          <li><a href="/ip/192-168-1-254/">192.168.1.254 (AT&amp;T/BT)</a></li>
+          <li><a href="/ip/192-168-2-1/">192.168.2.1 (Belkin/SMC)</a></li>
+          <li><a href="/ip/192-168-1-250/">192.168.1.250 (Netgear Extenders)</a></li>
+          <li><a href="/ip/">All Gateway IPs &rarr;</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Diagnostics &amp; Guides</p>
+        <ul class="footer-links">
+          <li><a href="/find-router-ip/">Find Router IP on Windows</a></li>
+          <li><a href="/find-router-ip/#mac">Find Router IP on macOS</a></li>
+          <li><a href="/find-router-ip/#ios">Find Router IP on Mobile</a></li>
+          <li><a href="/howto/">How-To Setup Guides</a></li>
+          <li><a href="/tools/subnet-calculator/">Subnet Calculator</a></li>
+          <li><a href="/tools/router-password-generator/">Password Generator</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <p class="footer-col-title">Open Data &amp; Developers</p>
+        <ul class="footer-links">
+          <li><a href="https://github.com/routeriphub/default-router-ip-database" target="_blank" rel="noopener">Open-Source Router Dataset (GitHub)</a></li>
+          <li><a href="/developers/">Developer API &amp; Datasets</a></li>
+          <li><a href="/data/routers.json" download>routers.json (REST API)</a></li>
+          <li><a href="/llms.txt">llms.txt (AI Directory)</a></li>
+          <li><a href="/llms-full.txt">llms-full.txt (Direct Dataset)</a></li>
+          <li><a href="/sitemap.xml">XML Sitemap Index</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-trust-bar">
+      <a href="/about/">About &amp; Test Lab</a>
+      <a href="/authors/">Editorial Team</a>
+      <a href="/authors/vikas-behl/">Vikas Behl</a>
+      <a href="/editorial-policy/">Editorial Policy</a>
+      <a href="/contact/">Contact &amp; Corrections</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Use</a>
+    </div>
+
+    <div class="container footer-bottom">
+      <div>&copy; 2026 RouterIPHub. All rights reserved. Open data licensed under CC BY 4.0.</div>
+      <div style="font-size: 0.8rem; color: var(--text-muted);">Independent technical reference. All trademarks belong to their respective owners.</div>
+    </div>
+  </footer>
+
+  <!-- Interaction-Deferred Support Chat Widget (Zero Initial CORS/TBT Impact) -->
+  <script type="text/javascript">
+  (function(){
+    var loaded = false;
+    function loadTawk() {
+      if (loaded) return;
+      loaded = true;
+      window.Tawk_API = window.Tawk_API || {};
+      window.Tawk_LoadStart = new Date();
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/6af46cbb33168a3c42864ac2/1k75chg69';
+      s1.charset = 'UTF-8';
+      s0.parentNode.insertBefore(s1, s0);
+    }
+    ['pointerdown', 'keydown', 'scroll'].forEach(function(evt) {
+      window.addEventListener(evt, loadTawk, { once: true, passive: true });
+    });
+  })();
+  </script>
+</body>
+</html>

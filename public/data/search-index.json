@@ -2664,6 +2664,14 @@
     "keywords": "ipv6 default gateway discovery & link-local (fe80::1) guide ipv6 default gateway discovery ipv6 fe80::1 link-local terminal"
   },
   {
+    "title": "How to Flush DNS Cache on Windows, Mac & Chrome",
+    "category": "Setup Guide",
+    "badge": "DNS & Network Troubleshooting",
+    "url": "/howto/how-to-flush-dns-cache/",
+    "snippet": "Purge outdated or corrupted DNS records across Windows 11/10, macOS, and Google Chrome using ipconfig /flushdns, terminal commands, and internal host cache reset.",
+    "keywords": "how to flush dns cache on windows, mac, and chrome how to flush dns cache flush dns windows 11 macos chrome dns troubleshooting"
+  },
+  {
     "title": "Universal Router IP Discovery Guide (Windows, Mac, iOS, Android)",
     "category": "Setup Guide",
     "badge": "Guide",
