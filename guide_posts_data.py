@@ -2288,6 +2288,331 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
       </ol>
 """
     },
+
+    {
+        "slug": "which-port-plug-router-att-gateway",
+        "url": "/howto/which-port-plug-router-att-gateway/",
+        "anchor_id": "att-gateway-router-port",
+        "featured": False,
+        "badge": "AT&T Fiber Setup & Bridging",
+        "category": "Resets & ISP Bridge",
+        "category_key": "recovery",
+        "meta_title": "Which Port to Plug Router Into on AT&T Gateway",
+        "meta_desc": "Connect your router to an AT&T gateway LAN port, use the BGW320 blue 5Gb port for multi-gig fiber, and configure IP Passthrough to eliminate Double NAT.",
+        "headline": "Which Port Do I Plug My Router Into on an AT&T Gateway?",
+        "short_title": "AT&T Gateway Router Ports",
+        "excerpt": "Step-by-step wiring guide for connecting a third-party router to an AT&T BGW320 or BGW210 gateway, choosing 5Gb vs 1Gb ports, and enabling IP Passthrough.",
+        "date_published": "2026-11-13",
+        "date_modified": "2026-11-13",
+        "read_time": "5 min read",
+        "tags": ["AT&T Gateway", "BGW320", "Router Setup", "IP Passthrough", "Double NAT"],
+        "image": "/images/howto/att-gateway-router-port-connection.webp",
+        "faqs": [
+            (
+                "Which port do I plug into on an AT&T BGW320 gateway?",
+                "Plug your Ethernet cable into one of the BGW320's LAN ports. For 2 Gig or 5 Gig fiber plans, plug into the Blue 5Gb Ethernet Port (Port 1). For plans up to 1 Gig, you can plug into any of the Yellow 1Gb LAN ports (Ports 2, 3, or 4). Connect the other end directly to your router's WAN or Internet port."
+            ),
+            (
+                "Can I plug my router into the green or fiber port on an AT&T gateway?",
+                "No. The green jack is an RJ11 telephone port for landline VoIP service, and the bottom SFP bay is the optical fiber transceiver that connects to AT&T's network. Connecting an Ethernet cable to either will not provide internet and can damage the physical connectors."
+            ),
+            (
+                "What is the blue Ethernet port on the AT&T BGW320?",
+                "The blue port on the BGW320 is a 5Gbps multi-gigabit Ethernet LAN port (Port 1). It allows connections exceeding 1,000 Mbps without bottlenecking, making it essential for AT&T 2 Gig and 5 Gig fiber subscribers connecting multi-gig third-party routers."
+            ),
+            (
+                "Why is my internet limited to 1 Gbps on an AT&T 2 Gig or 5 Gig plan?",
+                "If your speed is capped at approximately 940 Mbps on a 2 Gig or 5 Gig plan, your router is likely plugged into one of the yellow 1Gb LAN ports on the AT&T gateway, your router's WAN port only supports 1Gbps, or you are using an older Cat 5/5e Ethernet cable."
+            ),
+            (
+                "Why do I need to enable IP Passthrough on my AT&T gateway?",
+                "Connecting a third-party router without IP Passthrough creates Double NAT, where two firewalls and two DHCP routers manage the network simultaneously. This breaks port forwarding, causes Strict NAT in online gaming, disrupts VPNs, and disconnects smart home hubs."
+            ),
+            (
+                "Will IP Passthrough turn off Wi-Fi on my AT&T gateway?",
+                "No. IP Passthrough only delegates the public IP address to your router; it does not automatically disable the gateway's Wi-Fi radios. You should manually navigate to Home Network > Wi-Fi > Advanced Options on the gateway and turn both 2.4GHz and 5GHz Wi-Fi to Off to prevent radio interference."
+            )
+        ],
+        "bottom_line": "Use <strong>AT&amp;T gateway LAN port &rarr; your router WAN/Internet port</strong>. For a BGW320 with a 2 Gig or 5 Gig plan, use the <strong>blue 5Gb port</strong>; otherwise, use a yellow 1Gb LAN port.<br><br><strong>Fastest fix:</strong> Connect the cable from an AT&amp;T LAN port to your router&rsquo;s WAN port, restart both devices, and enable IP Passthrough if you need advanced network control.",
+        "body_html": """
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.75rem;">
+        Plug your router&rsquo;s <strong>WAN/Internet port</strong> into one of the AT&amp;T gateway&rsquo;s <strong>Ethernet LAN ports</strong>. Do not use the fiber/ONT port, phone port, or power port.
+      </p>
+
+      <div class="answer-box">
+        <div class="answer-box-label">Quick Answer: AT&amp;T Gateway to Third-Party Router Port Mapping</div>
+        <div class="answer-box-main">
+          AT&amp;T Gateway Ethernet LAN Port &rarr; Ethernet Cable &rarr; Third-Party Router WAN/Internet Port
+        </div>
+        <div class="answer-box-sub">
+          On an <strong>AT&amp;T BGW320</strong>, connect to the <strong>Blue 5Gb LAN Port</strong> for 2 Gig or 5 Gig fiber plans, or any <strong>Yellow 1Gb LAN Port</strong> for plans up to 1 Gig. Connect the opposite end to the port labeled <strong>WAN</strong> or <strong>Internet</strong> (globe icon) on your personal router. Never connect to a router LAN port.
+        </div>
+      </div>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/att-gateway-router-port-connection.webp" width="1200" height="675" fetchpriority="high" alt="Connection diagram showing Ethernet cable running from AT&amp;T BGW320 gateway LAN port to third-party router WAN port">
+        <figcaption>Overview: Connecting an AT&amp;T BGW320 Fiber Gateway Ethernet LAN port to a third-party Wi-Fi router WAN/Internet port.</figcaption>
+      </figure>
+
+      <h2 id="correct-connection">Correct Connection</h2>
+      <p>
+        Establishing the physical link between an AT&amp;T gateway (such as the BGW320, BGW210, or NVG599) and your standalone Wi-Fi 6/7 router or mesh system requires connecting two specific network interfaces:
+      </p>
+
+      <div class="callout" style="background: var(--bg-secondary); border-left: 4px solid var(--border-accent); padding: 1.25rem; border-radius: var(--radius-sm); margin: 1.5rem 0;">
+        <pre style="margin: 0; background: transparent; border: none; padding: 0; font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-primary); line-height: 1.6;"><code>AT&amp;T gateway Ethernet LAN port ── Ethernet cable ──&gt; Your router WAN/Internet port</code></pre>
+      </div>
+
+      <ul>
+        <li>On the <strong>AT&amp;T gateway</strong>, use a regular Ethernet/LAN port.</li>
+        <li>On the <strong>AT&amp;T BGW320</strong>, use the <strong>blue 5Gb Ethernet port</strong> if you subscribe to a 2 Gig or 5 Gig plan.</li>
+        <li>Use one of the <strong>yellow 1Gb LAN ports</strong> for fiber or broadband plans up to 1 Gig.</li>
+        <li>On <strong>your router</strong>, use the port labeled <strong>WAN</strong>, <strong>Internet</strong>, or marked with a globe icon.</li>
+        <li>Do <strong>not</strong> plug the cable into one of your router&rsquo;s LAN ports. That will prevent your router from obtaining a public IP address and will not deliver an internet connection.</li>
+      </ul>
+
+      <h2 id="which-att-port-to-use">Which AT&amp;T Port to Use</h2>
+      <p>
+        The port you choose on your AT&amp;T gateway determines your network throughput ceiling. The table below outlines the recommended port configuration based on your internet service tier:
+      </p>
+
+      <div style="overflow-x: auto; margin: 2rem 0;">
+        <table class="table" style="font-size: 0.95rem;">
+          <thead>
+            <tr>
+              <th>AT&amp;T Plan Tier</th>
+              <th>Recommended Gateway Port</th>
+              <th>Your Router Port</th>
+              <th>Maximum Supported Bandwidth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Up to 1 Gig (300M, 500M, 1000M)</strong></td>
+              <td>Any yellow 1Gb Ethernet LAN port (Ports 2, 3, or 4)</td>
+              <td>WAN / Internet port</td>
+              <td>1,000 Mbps (1 Gbps) Full Duplex</td>
+            </tr>
+            <tr>
+              <td><strong>2 Gig or 5 Gig Hyper-Gigabit</strong></td>
+              <td>Blue 5Gb Ethernet LAN port (Port 1)</td>
+              <td>Multi-Gig (2.5G / 5G / 10G) WAN port</td>
+              <td>Up to 5,000 Mbps (5 Gbps) Full Duplex</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/att-bgw320-ports-ethernet-lan-wan.webp" width="1200" height="675" loading="lazy" alt="AT&amp;T BGW320 gateway rear panel port diagram highlighting blue 5Gb Ethernet port and yellow 1Gb LAN ports">
+        <figcaption>Figure 1: AT&amp;T BGW320 rear panel port layout highlighting the multi-gig blue 5Gb port, 1Gb yellow ports, and optical SFP ONT bay.</figcaption>
+      </figure>
+
+      <p>
+        On the <strong>AT&amp;T BGW320</strong>, the <strong>blue port</strong> is the dedicated 5Gbps multi-gigabit Ethernet port. Use it if you have a high-speed AT&amp;T Fiber plan and your third-party router supports 2.5Gbps, 5Gbps, or 10Gbps on its WAN interface.
+      </p>
+      <p>
+        The <strong>yellow ports</strong> support standard Gigabit Ethernet (up to 1,000 Mbps). If you plug a 2 Gig or 5 Gig fiber connection into a yellow port, your entire home network will be throttled to approximately 940 Mbps due to Gigabit hardware overhead.
+      </p>
+
+      <div class="verdict-box" style="margin: 2rem 0;">
+        <div class="verdict-tag" style="background: #dc2626; color: #fff;">Hardware Warning: Ports to Avoid</div>
+        <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+          Do Not Plug Your Router Into These Sockets
+        </h3>
+        <ul style="margin: 0; padding-left: 1.25rem; color: var(--text-secondary); line-height: 1.75;">
+          <li><strong>Optical SFP / Fiber ONT Port (Bottom):</strong> This is the incoming fiber-optic transceiver port that connects to AT&amp;T&rsquo;s central office optical network. Connecting an Ethernet cable here will damage the connector and disconnect your fiber service.</li>
+          <li><strong>Green Phone / VoIP Jack:</strong> This RJ11 jack carries analogue voice telephone service for AT&amp;T Voice, not internet data.</li>
+          <li><strong>Red ONT Port (BGW210 / older models):</strong> On gateways using an external Nokia/Alcatel ONT, the red Ethernet jack is the incoming WAN uplink from the fiber box. Your personal router cannot be plugged in here.</li>
+          <li><strong>USB Ports:</strong> Reserved for diagnostic utilities and low-power charging; does not support local area networking.</li>
+        </ul>
+      </div>
+
+      <h2 id="how-to-connect-your-router">How to Connect Your Router (Step-by-Step)</h2>
+      <p>
+        To ensure clean DHCP lease negotiation and prevent IP assignment conflicts, connect and boot your networking hardware in this precise sequence:
+      </p>
+
+      <div class="steps-grid" style="grid-template-columns: 1fr; gap: 1.25rem;">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Power Down Both Devices</h3>
+          <p>Unplug the power adapters from both the AT&amp;T gateway and your personal third-party router. Wait 30 seconds to allow the volatile memory buffers and active DHCP sessions to discharge completely.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Connect Ethernet Cable to AT&amp;T Gateway LAN</h3>
+          <p>Plug one end of a high-grade Cat 6 or Cat 6a Ethernet cable into an available LAN port on the AT&amp;T gateway. For 2 Gig/5 Gig plans on a BGW320, use the <strong>Blue 5Gb Port</strong>; for 300M to 1 Gig plans, use any <strong>Yellow 1Gb Port</strong>.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Connect Opposite End to Router WAN/Internet Port</h3>
+          <p>Insert the other end of the Ethernet cable into the port clearly labeled <strong>WAN</strong>, <strong>Internet</strong>, or marked with a globe icon on your third-party router. Do not plug it into any of the numbered LAN ports (1&ndash;4).</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Power On the AT&amp;T Gateway First</h3>
+          <p>Reconnect power to the AT&amp;T gateway. Allow 3 to 5 minutes for it to establish fiber synchronization, authenticate with AT&amp;T 802.1x network certificates, and display a solid green (or solid white on BGW320) status light.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <h3>Power On Your Third-Party Router</h3>
+          <p>Plug your personal router into power. Once booted, its WAN interface will broadcast a DHCP request to the AT&amp;T gateway and receive an IP assignment.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">6</div>
+          <h3>Connect Your Device and Test Access</h3>
+          <p>Connect your computer or phone to your own router&rsquo;s Wi-Fi network or plug directly into one of its LAN ports. Open a browser and verify that websites load promptly.</p>
+        </div>
+      </div>
+
+      <h2 id="avoid-double-nat">Avoid Double NAT: Why IP Passthrough Is Critical</h2>
+      <p>
+        When you connect a third-party router behind an AT&amp;T gateway out of the box, both devices operate as active routers performing <strong>Network Address Translation (NAT)</strong>. This condition is called <a href="/howto/two-routers-access-point-mode/">Double NAT</a>.
+      </p>
+      <p>
+        In a Double NAT topology, the AT&amp;T gateway assigns a private local IP (typically <code>192.168.1.64</code>&ndash;<code>192.168.1.253</code>) to your router&rsquo;s WAN port, while your router translates that into a secondary private subnet (such as <code>192.168.0.1</code> or <code>10.0.0.1</code>). Data traversing two firewalls and two NAT layers suffers severe connectivity degradation:
+      </p>
+
+      <ul>
+        <li><strong>Port Forwarding Breaks:</strong> Inbound traffic cannot reach local servers or services because the outer AT&amp;T firewall blocks unsolicited packets before they ever reach your inner router.</li>
+        <li><strong>Online Gaming NAT Type:</strong> Consoles (PlayStation 5, Xbox Series X/S, Nintendo Switch) will report <em>Strict NAT</em> or <em>Type 3</em>, preventing multiplayer peer-to-peer matchmaking and voice chat.</li>
+        <li><strong>VPN Tunnels:</strong> Enterprise IPsec, WireGuard, and OpenVPN client-to-site tunnels fail during phase 1 handshake negotiation due to nested IP header encapsulation.</li>
+        <li><strong>Smart Home Devices &amp; Security Cameras:</strong> Apple HomeKit hubs, Matter bridges, and security cameras lose cloud synchronization or display offline statuses.</li>
+        <li><strong>Remote Access to NAS:</strong> Direct domain access to Synology, QNAP, or Plex media servers is blocked without hairpin NAT translation.</li>
+      </ul>
+
+      <p>
+        To permanently eliminate Double NAT, configure the AT&amp;T gateway in <strong>IP Passthrough mode</strong>. IP Passthrough disables NAT on the gateway and transparently bridges AT&amp;T&rsquo;s public WAN IP address directly to your own router&rsquo;s WAN interface.
+      </p>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/att-gateway-ip-passthrough-settings.webp" width="1200" height="675" loading="lazy" alt="AT&amp;T gateway 192.168.1.254 web interface configuring IP Passthrough to prevent Double NAT on third-party router">
+        <figcaption>Figure 2: Configuring IP Passthrough in the AT&amp;T BGW320 web management portal at 192.168.1.254.</figcaption>
+      </figure>
+
+      <h2 id="enable-ip-passthrough">How to Enable IP Passthrough on an AT&amp;T Gateway</h2>
+      <p>
+        Follow these step-by-step instructions to configure IP Passthrough on an <a href="/isp/att-bgw320/">AT&amp;T BGW320</a>, BGW210, or NVG599 gateway using its internal web manager at <a href="/ip/192-168-1-254/">192.168.1.254</a>:
+      </p>
+
+      <div class="steps-grid" style="grid-template-columns: 1fr; gap: 1.25rem;">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Connect to the AT&amp;T Gateway</h3>
+          <p>Connect a computer directly to one of the AT&amp;T gateway&rsquo;s LAN ports using an Ethernet cable, or connect to the AT&amp;T factory Wi-Fi SSID shown on the gateway label.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Open the Gateway Management Page</h3>
+          <p>Launch your web browser and navigate to <code>http://192.168.1.254</code>. The AT&amp;T Gateway status overview dashboard will open.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Navigate to Firewall Settings</h3>
+          <p>Click the <strong>Firewall</strong> tab in the top navigation bar, then select <strong>IP Passthrough</strong> from the sub-menu.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Authenticate with Device Access Code</h3>
+          <p>When prompted, enter the <strong>Device Access Code</strong> printed on the gateway sticker (located on the back or underside of the unit) and click <strong>Submit</strong>.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <h3>Configure Passthrough Parameters</h3>
+          <p>Update the configuration fields as follows:</p>
+          <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem; line-height: 1.6;">
+            <li><strong>Allocation Mode:</strong> Select <code>Passthrough</code> from the dropdown.</li>
+            <li><strong>Passthrough Mode:</strong> Select <code>DHCPS-fixed</code>.</li>
+            <li><strong>Passthrough Fixed MAC Address:</strong> Click the dropdown list of detected devices and select your third-party router&rsquo;s WAN MAC address. If not listed, type the router&rsquo;s MAC address manually.</li>
+          </ul>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">6</div>
+          <h3>Disable AT&amp;T Gateway Wi-Fi Radios</h3>
+          <p>Go to <strong>Home Network &rarr; Wi-Fi &rarr; Advanced Options</strong>. Turn both <strong>2.4 GHz Wi-Fi Operation</strong> and <strong>5 GHz Wi-Fi Operation</strong> to <code>Off</code>. This eliminates 2.4 GHz and 5 GHz wireless interference with your new router.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">7</div>
+          <h3>Save Settings and Reboot Both Units</h3>
+          <p>Click <strong>Save</strong> at the bottom of the page. Restart the AT&amp;T gateway, wait for the connection lights to turn solid, and then restart your third-party router.</p>
+        </div>
+      </div>
+
+      <p>
+        Once rebooted, log into your personal router&rsquo;s administrative dashboard. Check its WAN/Internet status: it should now display a public IPv4 address (e.g. <code>104.x.x.x</code> or <code>108.x.x.x</code>) rather than a private <code>192.168.1.x</code> address, verifying that IP Passthrough is working flawlessly.
+      </p>
+
+      <h2 id="common-mistakes">Common Mistakes to Avoid</h2>
+      <p>
+        When adding a separate router to an AT&amp;T gateway, avoid these frequent installation errors:
+      </p>
+      <ul>
+        <li><strong>Plugging into Router LAN Instead of WAN:</strong> If you connect the gateway cable to a router LAN port (1&ndash;4), your router acts as an unmanaged switch with competing DHCP servers, creating IP conflicts and blocking internet access.</li>
+        <li><strong>Subnet IP Collisions:</strong> The AT&amp;T gateway defaults to <code>192.168.1.254</code> on the <code>192.168.1.0/24</code> subnet. If your third-party router also defaults to <code>192.168.1.1</code>, their subnets will collide. Change your router&rsquo;s LAN subnet to <code>192.168.2.1</code> or <code>10.0.0.1</code>.</li>
+        <li><strong>Leaving AT&amp;T Wi-Fi Enabled:</strong> Leaving the gateway&rsquo;s internal Wi-Fi broadcast active causes severe 2.4 GHz and 5 GHz RF channel congestion, increasing latency and jitter for your router.</li>
+        <li><strong>Using a Damaged or Sub-Spec Cable:</strong> Using a Cat 5 cable (limited to 100 Mbps) or a damaged Cat 5e cable will cap your multi-gig fiber connection at 100 Mbps. Always deploy certified Cat 6 or Cat 6a cables.</li>
+        <li><strong>Connecting Devices to Both Gateways:</strong> Once IP Passthrough is active, connect all client devices (PCs, phones, TVs, consoles) exclusively to your personal router, not the AT&amp;T gateway LAN ports.</li>
+      </ul>
+
+      <h2 id="troubleshooting">Troubleshooting Connection Issues</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>No Internet After Connecting the Router</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Cause:</strong> The Ethernet cable is plugged into a router LAN port rather than the WAN port, or the router has not renewed its DHCP lease.</p>
+          <p><strong>Fix:</strong> Confirm that the cable runs from an AT&amp;T gateway LAN port to your router&rsquo;s dedicated WAN/Internet port. Power off both devices, wait 30 seconds, boot the AT&amp;T gateway fully until its broadband light is solid green/white, and then power on your router.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Internet Speed Is Limited to 1 Gbps on a Multi-Gig Plan</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Cause:</strong> The Ethernet cable is plugged into one of the yellow 1Gb ports on the AT&amp;T BGW320 instead of the blue 5Gb port, or your router&rsquo;s WAN port only supports 1 Gbps.</p>
+          <p><strong>Fix:</strong> Move the Ethernet cable to the <strong>Blue 5Gb Ethernet Port (Port 1)</strong> on the AT&amp;T BGW320. Ensure your third-party router features a 2.5G or 10G multi-gig WAN port and that you are using a certified Cat 6 or Cat 6a Ethernet patch cord.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Port Forwarding Does Not Work</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Cause:</strong> Double NAT is active because IP Passthrough has not been configured on the AT&amp;T gateway.</p>
+          <p><strong>Fix:</strong> Open <code>192.168.1.254</code>, navigate to <strong>Firewall &rarr; IP Passthrough</strong>, select <code>Passthrough</code> and <code>DHCPS-fixed</code>, and choose your router&rsquo;s WAN MAC address. Once saved and rebooted, configure your <a href="/howto/port-forwarding-gaming-servers/">port forwarding rules</a> strictly inside your own router&rsquo;s management GUI.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Router Gets No IP Address from AT&amp;T Gateway</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Cause:</strong> The MAC address entered in IP Passthrough does not match your router&rsquo;s physical WAN MAC address, or an 802.1Q VLAN tag is enabled.</p>
+          <p><strong>Fix:</strong> Verify your router&rsquo;s WAN MAC address on its underside sticker or in its status page (note that WAN MAC is often 1 digit different from LAN MAC). In your router&rsquo;s Internet setup, ensure WAN connection type is set to <strong>Automatic IP / Dynamic DHCP</strong> with VLAN tagging disabled.</p>
+        </div>
+      </div>
+"""
+    },
 ]
 
 EXTERNAL_HUB_GUIDE_CARD = {

@@ -2672,6 +2672,14 @@
     "keywords": "how to flush dns cache on windows, mac, and chrome how to flush dns cache flush dns windows 11 macos chrome dns troubleshooting"
   },
   {
+    "title": "Which Port to Plug Router Into on AT&T Gateway",
+    "category": "Setup Guide",
+    "badge": "AT&T Fiber Setup & Bridging",
+    "url": "/howto/which-port-plug-router-att-gateway/",
+    "snippet": "Step-by-step wiring guide for connecting a third-party router to an AT&T BGW320 or BGW210 gateway, choosing 5Gb vs 1Gb ports, and enabling IP Passthrough.",
+    "keywords": "which port do i plug my router into on an at&t gateway? which port plug router att gateway at&t gateway bgw320 router setup ip passthrough double nat"
+  },
+  {
     "title": "Universal Router IP Discovery Guide (Windows, Mac, iOS, Android)",
     "category": "Setup Guide",
     "badge": "Guide",
