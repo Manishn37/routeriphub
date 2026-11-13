@@ -2613,6 +2613,377 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
       </div>
 """
     },
+
+    {
+        "slug": "how-to-enable-upnp-router-gaming-consoles",
+        "url": "/howto/how-to-enable-upnp-router-gaming-consoles/",
+        "anchor_id": "enable-upnp-gaming",
+        "featured": False,
+        "badge": "Gaming & NAT",
+        "category": "Security & DNS",
+        "category_key": "security",
+        "meta_title": "How to Enable UPnP on Router for Gaming Consoles",
+        "meta_desc": "Enable UPnP on your router to fix Strict NAT, voice chat, and multiplayer matchmaking on PlayStation 5, Xbox Series X|S, and Nintendo Switch consoles.",
+        "headline": "How Do I Enable UPnP on My Router for Gaming Consoles?",
+        "short_title": "Enable UPnP for Gaming",
+        "excerpt": "Step-by-step instructions to turn on UPnP in TP-Link, Netgear, ASUS, Linksys, and Spectrum routers to achieve Open NAT on PS5, Xbox Series X, and Switch.",
+        "date_published": "2026-11-14",
+        "date_modified": "2026-11-14",
+        "read_time": "5 min read",
+        "tags": ["UPnP", "Gaming NAT", "PS5", "Xbox Series X", "Nintendo Switch"],
+        "image": "/images/howto/how-to-enable-upnp-router-gaming-consoles.webp",
+        "faqs": [
+            (
+                "What is UPnP on a router and why is it important for gaming?",
+                "UPnP (Universal Plug and Play) is a networking protocol that allows gaming consoles and applications to automatically open the incoming network ports they need on your router. It eliminates the need for manual port forwarding, enabling seamless multiplayer matchmaking, party voice chat, and lobby hosting."
+            ),
+            (
+                "Does enabling UPnP give my console an Open NAT type?",
+                "Yes. In most home network environments, enabling UPnP resolves Strict or Moderate NAT restrictions, resulting in NAT Type 2 (Moderate/Open) on PlayStation 5, Open NAT on Xbox Series X|S, and NAT Type A or B on Nintendo Switch."
+            ),
+            (
+                "Is UPnP safe to enable on a home router?",
+                "For typical residential home networks, UPnP is generally safe for gaming consoles. However, because UPnP automatically allows local devices to open external ports, it should only be enabled on trusted private networks. Keep your router firmware updated and isolate untrusted IoT devices on a guest Wi-Fi network."
+            ),
+            (
+                "Should I use UPnP or manual port forwarding for console gaming?",
+                "UPnP is the recommended choice for console gaming, especially if you have multiple gaming consoles on the same home network. Unlike manual port forwarding (which can only assign a specific port to one IP address), UPnP dynamically assigns and negotiates ports across multiple devices."
+            ),
+            (
+                "What should I do if my router does not have a UPnP setting?",
+                "Some ISP-provided gateways (such as certain Spectrum or Xfinity units) disable or hide UPnP. In these cases, check the provider's smartphone app. If still unavailable, assign a static IP address to your gaming console and manually configure port forwarding rules in the router dashboard."
+            ),
+            (
+                "Why is my NAT type still Strict even with UPnP enabled?",
+                "If UPnP is enabled but your NAT type remains Strict, your network is likely suffering from Double NAT (having both an ISP modem/gateway and a third-party router routing traffic) or your ISP uses Carrier-Grade NAT (CGNAT). Putting the ISP gateway into Bridge Mode or requesting a public IP from your ISP will resolve this."
+            )
+        ],
+        "bottom_line": "Enable <strong>UPnP</strong> in your router settings to let your gaming console automatically open the ports it needs for online play. It is the simplest way to improve NAT type, voice chat, multiplayer matchmaking, and game hosting.<br><br><strong>Fastest fix:</strong> Log in to your router, find <strong>UPnP</strong>, turn it on, save the settings, and restart both the router and console.",
+        "body_html": """
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.75rem;">
+        Enable <strong>UPnP</strong> in your router&rsquo;s admin settings if your gaming console has trouble joining multiplayer games, hosting lobbies, using voice chat, or connecting to certain online services. UPnP lets the console automatically open the network ports it needs without manual port forwarding.
+      </p>
+
+      <div class="answer-box">
+        <div class="answer-box-label">Quick Answer: How to Enable UPnP for Gaming Consoles</div>
+        <div class="answer-box-main">
+          Router Admin Page &rarr; Advanced / NAT / Gaming Settings &rarr; UPnP &rarr; Toggle ON / Enable &rarr; Save &amp; Reboot
+        </div>
+        <div class="answer-box-sub">
+          Log into your router gateway at <code>192.168.1.1</code> or <code>192.168.0.1</code>, locate <strong>UPnP</strong> under <strong>Advanced &rarr; NAT Forwarding</strong> (or <strong>WAN / Gaming</strong>), toggle it to <strong>Enabled</strong>, and restart both your router and your PlayStation 5, Xbox Series X|S, or Nintendo Switch console.
+        </div>
+      </div>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/how-to-enable-upnp-router-gaming-consoles.webp" width="1200" height="675" fetchpriority="high" alt="Infographic showing how UPnP enables dynamic port forwarding between gaming consoles and a home Wi-Fi router for Open NAT">
+        <figcaption>Overview: How UPnP dynamically opens inbound gaming ports between consoles and multiplayer game servers to eliminate Strict NAT.</figcaption>
+      </figure>
+
+      <h2 id="what-upnp-does">What UPnP Does</h2>
+      <p>
+        UPnP stands for <strong>Universal Plug and Play</strong>. It is a standardized set of network communication protocols that allows networked hardware—such as gaming consoles, smart TVs, and media servers—to automatically discover one another and dynamically negotiate firewall port leases with your home router.
+      </p>
+      <p>
+        Think of UPnP as an automated door opener for your console. Under traditional router security, your firewall blocks all unsolicited inbound network connections to protect devices on your local area network (LAN). However, multiplayer video games require incoming connections from host servers and peer players to synchronize game states and stream real-time voice chat. Instead of requiring you to manually look up and configure port numbers, UPnP allows your console to request temporary port openings on demand.
+      </p>
+
+      <p>UPnP is essential for:</p>
+      <ul>
+        <li><strong>Joining Multiplayer Matches:</strong> Connecting cleanly to peer-to-peer (P2P) hosts and dedicated regional game servers without dropped connections.</li>
+        <li><strong>Hosting Game Lobbies:</strong> Allowing friends and matchmaking pools to connect directly to your session in games like <em>Call of Duty</em>, <em>FIFA</em>, or <em>Destiny 2</em>.</li>
+        <li><strong>Voice and Party Chat:</strong> Preventing one-way audio, muted microphones, and connection drops in PlayStation Network (PSN) and Xbox Live party chats.</li>
+        <li><strong>Game Downloads &amp; Cloud Sync:</strong> Facilitating high-speed background patch downloads and uninterrupted cloud save synchronizations.</li>
+        <li><strong>Eliminating NAT Type Errors:</strong> Upgrading your console&rsquo;s network status from <em>Strict / Type 3</em> to <em>Open / Type 2</em>.</li>
+      </ul>
+
+      <h2 id="when-to-enable-upnp">When to Enable UPnP</h2>
+      <p>
+        You should verify and enable UPnP on your router whenever your console exhibits one or more of these common connectivity symptoms:
+      </p>
+
+      <ul>
+        <li>Your console diagnostics report a <strong>Strict NAT</strong> (PlayStation Type 3, Xbox Strict, or Switch NAT Type D/F).</li>
+        <li>You receive a <strong>Moderate NAT</strong> status and experience long matchmaking queues or frequent lobby disconnects.</li>
+        <li>You cannot hear friends in party voice chat or you receive &ldquo;cannot connect to host&rdquo; error codes.</li>
+        <li>You cannot host custom multiplayer lobbies or invite friends to your game.</li>
+        <li>Your NAT type randomly fluctuates or degrades after router firmware reboots.</li>
+        <li>Online gaming features work properly when tethered to a mobile phone hotspot but fail when connected to your home Wi-Fi or Ethernet.</li>
+      </ul>
+
+      <p>
+        UPnP is the recommended first-line solution for console gamers because it automates dynamic port leases without requiring you to assign static IP addresses or maintain complex <a href="/howto/port-forwarding-gaming-servers/">manual port forwarding rules</a>.
+      </p>
+
+      <h2 id="how-to-enable-upnp">How to Enable UPnP on a Standard Router</h2>
+      <p>
+        To enable UPnP across standard third-party wireless routers, follow this universal configuration sequence:
+      </p>
+
+      <div class="steps-grid" style="grid-template-columns: 1fr; gap: 1.25rem;">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Connect to Your Local Network</h3>
+          <p>Ensure your computer, tablet, or phone is connected to your router&rsquo;s Wi-Fi network or linked directly using an Ethernet cable.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Open Your Router Management Portal</h3>
+          <p>Launch a web browser and enter your router&rsquo;s default gateway IP address into the address bar. Common router IPs include:</p>
+          <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem; line-height: 1.6;">
+            <li><code>http://192.168.1.1</code> (Netgear, ASUS, Linksys)</li>
+            <li><code>http://192.168.0.1</code> (TP-Link, D-Link)</li>
+            <li><code>http://192.168.1.254</code> (AT&amp;T, BT Smart Hub)</li>
+            <li><code>http://10.0.0.1</code> (Xfinity, Comcast gateways)</li>
+          </ul>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">Not sure of your address? Use our interactive <a href="/find-router-ip/">Find Router IP guide</a> to check your default gateway instantly.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Sign In with Admin Credentials</h3>
+          <p>Enter your administrator username and password. If you haven&rsquo;t customized them, look at the factory sticker on the base or rear of your router.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Navigate to the UPnP Menu</h3>
+          <p>Depending on your router brand, look for the <strong>UPnP</strong> setting located in one of the following menus:</p>
+          <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem; line-height: 1.6;">
+            <li><strong>Advanced &rarr; NAT Forwarding &rarr; UPnP</strong> (TP-Link)</li>
+            <li><strong>Advanced &rarr; Advanced Setup &rarr; UPnP</strong> (Netgear)</li>
+            <li><strong>WAN &rarr; Virtual Server / Port Forwarding &rarr; UPnP</strong> (ASUS)</li>
+            <li><strong>Administration &rarr; Management &rarr; UPnP</strong> (Linksys)</li>
+            <li><strong>Firewall &rarr; Applications &amp; Gaming</strong> (Generic)</li>
+          </ul>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <h3>Turn UPnP On and Save</h3>
+          <p>Select <strong>Enable</strong> or toggle the switch to <strong>On</strong>. Click <strong>Apply</strong>, <strong>Save</strong>, or <strong>OK</strong> to commit the configuration change to router NVRAM.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">6</div>
+          <h3>Reboot the Router and Gaming Console</h3>
+          <p>Reboot your router first. Once the internet connection status lights turn solid, power on your console to force it to broadcast a fresh UPnP port lease negotiation.</p>
+        </div>
+      </div>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/router-admin-enable-upnp-settings.webp" width="1200" height="675" loading="lazy" alt="Router web admin interface showing UPnP enabled with active dynamic gaming port leases for PlayStation and Xbox">
+        <figcaption>Figure 1: Router administrative dashboard at 192.168.1.1 showing UPnP enabled with active dynamic port leases for gaming consoles.</figcaption>
+      </figure>
+
+      <h2 id="popular-routers">Enable UPnP on Popular Router Brands</h2>
+
+      <h3>TP-Link Routers (Archer &amp; Deco)</h3>
+      <ol style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>Log into <code>http://tplinkwifi.net</code> or <code>http://192.168.0.1</code>.</li>
+        <li>Click the <strong>Advanced</strong> tab at the top of the interface.</li>
+        <li>In the left sidebar, expand <strong>NAT Forwarding</strong> and click <strong>UPnP</strong>.</li>
+        <li>Toggle the <strong>UPnP</strong> switch to <strong>ON</strong>.</li>
+        <li>Click <strong>Save</strong> at the top right.</li>
+      </ol>
+
+      <h3>Netgear Routers (Nighthawk &amp; Orbi)</h3>
+      <ol style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>Log into <code>http://routerlogin.net</code> or <code>http://192.168.1.1</code>.</li>
+        <li>Select the <strong>ADVANCED</strong> tab.</li>
+        <li>In the left navigation menu, expand <strong>Advanced Setup</strong>.</li>
+        <li>Click <strong>UPnP</strong>.</li>
+        <li>Check the box for <strong>Turn UPnP On</strong>.</li>
+        <li>Set the <em>Advertisement Period</em> to <code>30</code> minutes and <em>Time to Live</em> to <code>4</code> hops (defaults).</li>
+        <li>Click <strong>Apply</strong>.</li>
+      </ol>
+
+      <h3>ASUS Routers (RT-Series &amp; ROG Rapture)</h3>
+      <ol style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>Log into <code>http://router.asus.com</code> or <code>http://192.168.50.1</code>.</li>
+        <li>Under the <strong>Advanced Settings</strong> menu, select <strong>WAN</strong>.</li>
+        <li>Open the <strong>Virtual Server / Port Forwarding</strong> or <strong>Internet Connection</strong> tab.</li>
+        <li>Locate <strong>Enable UPnP</strong> and select <strong>Yes</strong>.</li>
+        <li>Scroll down and click <strong>Apply</strong>.</li>
+      </ol>
+
+      <h3>Linksys Routers (Velop &amp; Hydra)</h3>
+      <ol style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>Log into <code>http://myrouter.local</code> or <code>http://192.168.1.1</code>.</li>
+        <li>Click on <strong>Administration</strong> in the left menu.</li>
+        <li>Select the <strong>Management</strong> tab.</li>
+        <li>Under the UPnP section, toggle <strong>UPnP</strong> to <strong>Enabled</strong>.</li>
+        <li>Ensure <em>Allow Users to Configure</em> is set to <strong>Enabled</strong> so the console can request leases.</li>
+        <li>Click <strong>Save Settings</strong>.</li>
+      </ol>
+
+      <h3>Spectrum Wi-Fi 6 Routers (SAC2V1K &amp; SAX1V1K)</h3>
+      <ol style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>Open the <strong>My Spectrum app</strong> on your mobile smartphone.</li>
+        <li>Sign in with your Spectrum primary username and password.</li>
+        <li>Tap the <strong>Services</strong> icon, then select <strong>Internet</strong>.</li>
+        <li>Tap your active Spectrum router under equipment.</li>
+        <li>Select <strong>Advanced Settings</strong>.</li>
+        <li>Locate <strong>UPnP</strong> and toggle it to <strong>Enabled</strong>.</li>
+      </ol>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem;">
+        <em>Note:</em> Some ISP-managed Spectrum gateways lock down advanced gaming protocols. If UPnP is not visible in your My Spectrum app, see our dedicated <a href="/isp/spectrum-sac2v1k/">Spectrum Wi-Fi 6 Router Guide</a> for port forwarding workarounds.
+      </p>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/gaming-console-nat-types-upnp-comparison.webp" width="1200" height="675" loading="lazy" alt="Comparison of gaming console NAT types on PlayStation 5, Xbox Series X, and Nintendo Switch before and after enabling UPnP">
+        <figcaption>Figure 2: Console network diagnostics comparing Strict NAT (blocked matchmaking) with Open / Moderate NAT achieved via UPnP.</figcaption>
+      </figure>
+
+      <h2 id="console-setup">How to Verify NAT Type on Gaming Consoles</h2>
+
+      <h3>PlayStation 5 (PS5)</h3>
+      <ol style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>From the home screen, select <strong>Settings</strong> (gear icon).</li>
+        <li>Navigate to <strong>Network &rarr; Connection Status</strong>.</li>
+        <li>Select <strong>Test Internet Connection</strong>.</li>
+        <li>Review your <strong>NAT Type</strong> result:
+          <ul style="margin: 0.35rem 0 0 1.25rem;">
+            <li><strong>NAT Type 1 (Open):</strong> Connected directly to the internet (no router firewall).</li>
+            <li><strong>NAT Type 2 (Moderate):</strong> Connected through a router with UPnP or port forwarding active. This is the <strong>ideal target for PS5 gaming</strong>.</li>
+            <li><strong>NAT Type 3 (Strict):</strong> Firewall restrictions are active; voice chat and multiplayer lobbies will fail.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>Xbox Series X|S &amp; Xbox One</h3>
+      <ol style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>Press the <strong>Xbox button</strong> on your wireless controller.</li>
+        <li>Select <strong>Profile &amp; system &rarr; Settings &rarr; General &rarr; Network settings</strong>.</li>
+        <li>Under <em>Current Network Status</em>, review your <strong>NAT Type</strong>.</li>
+        <li>Select <strong>Test NAT type</strong> to force the console to negotiate with UPnP.</li>
+        <li>Verify that the console reports: <strong>&ldquo;NAT Type: Open&rdquo;</strong> and <strong>&ldquo;All services are available&rdquo;</strong>.</li>
+      </ol>
+
+      <h3>Nintendo Switch</h3>
+      <ol style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+        <li>From the home menu, open <strong>System Settings</strong>.</li>
+        <li>Scroll down to <strong>Internet</strong> and select <strong>Test Connection</strong>.</li>
+        <li>Review your letter-grade <strong>NAT Type</strong>:
+          <ul style="margin: 0.35rem 0 0 1.25rem;">
+            <li><strong>NAT Type A:</strong> Completely open (best for hosting).</li>
+            <li><strong>NAT Type B:</strong> Moderate / UPnP active (standard for 95% of home routers).</li>
+            <li><strong>NAT Type C, D, or F:</strong> Strict restrictions; peer-to-peer matchmaking will drop.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h2 id="upnp-vs-port-forwarding">UPnP vs. Manual Port Forwarding: Which Should You Use?</h2>
+      <p>
+        Both UPnP and port forwarding solve NAT type restrictions, but they operate through different networking mechanisms:
+      </p>
+
+      <div style="overflow-x: auto; margin: 2rem 0;">
+        <table class="table" style="font-size: 0.95rem;">
+          <thead>
+            <tr>
+              <th>Feature / Metric</th>
+              <th>UPnP (Universal Plug and Play)</th>
+              <th>Manual Port Forwarding</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Setup Complexity</strong></td>
+              <td>Zero configuration; 1-click enable on router</td>
+              <td>Requires static IP, MAC reservation &amp; port ranges</td>
+            </tr>
+            <tr>
+              <td><strong>Port Opening Mechanism</strong></td>
+              <td>Dynamic (opens on demand, closes on quit)</td>
+              <td>Static (ports remain permanently open)</td>
+            </tr>
+            <tr>
+              <td><strong>Multi-Console Support</strong></td>
+              <td>Handles multiple consoles on the same network</td>
+              <td>Cannot forward the same port to two separate IPs</td>
+            </tr>
+            <tr>
+              <td><strong>Security Posture</strong></td>
+              <td>Automated; potential risk if malware is on LAN</td>
+              <td>Granular administrator control</td>
+            </tr>
+            <tr>
+              <td><strong>Best Used For</strong></td>
+              <td>Consoles (PS5, Xbox, Switch), voice chat &amp; general gaming</td>
+              <td>Dedicated PC gaming servers (Minecraft, ARK, Rust)</td>
+            </tr>
+            <tr>
+              <td><strong>NAT Improvement</strong></td>
+              <td>Immediately fixes Strict NAT to Type 2 / Open</td>
+              <td>Provides pinpoint control for specific game ports</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="verdict-box" style="margin: 2rem 0;">
+        <div class="verdict-tag">Network Engineer Recommendation</div>
+        <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+          Start with UPnP First
+        </h3>
+        <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">
+          For console gaming, always enable UPnP first. If you have two consoles (e.g. two Xboxes or a PS5 and Xbox) playing games simultaneously, UPnP can dynamically lease alternate ports (such as UDP 3075 or 3076). Manual port forwarding cannot bind a single port (like UDP 3074) to more than one console at a time. Only switch to manual port forwarding if your ISP gateway locks UPnP out.
+        </p>
+      </div>
+
+      <h2 id="troubleshooting">Troubleshooting UPnP &amp; NAT Issues</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>UPnP Is Enabled but NAT Type Remains Strict</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Cause:</strong> You are likely operating under <strong>Double NAT</strong> because your third-party router is plugged into an active ISP modem/gateway, or your ISP uses Carrier-Grade NAT (CGNAT).</p>
+          <p><strong>Fix:</strong> Log into your primary ISP gateway and place it into <a href="/howto/two-routers-access-point-mode/">Bridge Mode</a> or configure <a href="/howto/which-port-plug-router-att-gateway/">IP Passthrough</a> (e.g. on AT&amp;T BGW320 gateways). If your WAN IP address in the router starts with <code>100.64.x.x</code>&ndash;<code>100.127.x.x</code>, your provider uses CGNAT; you must contact your ISP and request a public static IPv4 address.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>UPnP Option Is Completely Missing from Router Settings</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Cause:</strong> Certain telecom-supplied gateway modems (such as some Xfinity, Spectrum, or corporate enterprise routers) disable UPnP in firmware to prevent client-side port leases.</p>
+          <p><strong>Fix:</strong> Check the provider&rsquo;s official smartphone companion app (e.g. Xfinity xFi or My Spectrum app). If UPnP is omitted entirely, you must configure a static DHCP IP reservation for your console and set up <a href="/howto/port-forwarding-gaming-servers/">manual port forwarding rules</a>.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>UPnP Does Not Work After Turning It On</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Cause:</strong> The gaming console cached an outdated DHCP lease or stale firewall session table.</p>
+          <p><strong>Fix:</strong> Turn off UPnP in the router, click Save, turn UPnP back ON, and click Save. Next, fully shut down your console (do not use rest mode/sleep mode), unplug the power cable for 60 seconds, reconnect power, and rerun the network test.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Security Best Practices When Using UPnP</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p>UPnP automatically trusts software on your internal network to open external ports. To keep your network secure:</p>
+          <ul style="margin: 0.5rem 0 0 1.25rem; font-size: 0.9rem; line-height: 1.6;">
+            <li>Never enable UPnP on public or shared enterprise Wi-Fi networks.</li>
+            <li>Keep your router&rsquo;s firmware updated to patch any known IGD (Internet Gateway Device) protocol vulnerabilities.</li>
+            <li>Place untrusted IoT smart devices on a separate, isolated Guest Wi-Fi network that cannot communicate with your UPnP-enabled LAN.</li>
+            <li>Maintain strong, unique administrator passwords on your router gateway.</li>
+          </ul>
+        </div>
+      </div>
+"""
+    },
 ]
 
 EXTERNAL_HUB_GUIDE_CARD = {

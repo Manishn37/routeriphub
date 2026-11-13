@@ -2680,6 +2680,14 @@
     "keywords": "which port do i plug my router into on an at&t gateway? which port plug router att gateway at&t gateway bgw320 router setup ip passthrough double nat"
   },
   {
+    "title": "How to Enable UPnP on Router for Gaming Consoles",
+    "category": "Setup Guide",
+    "badge": "Gaming & NAT",
+    "url": "/howto/how-to-enable-upnp-router-gaming-consoles/",
+    "snippet": "Step-by-step instructions to turn on UPnP in TP-Link, Netgear, ASUS, Linksys, and Spectrum routers to achieve Open NAT on PS5, Xbox Series X, and Switch.",
+    "keywords": "how do i enable upnp on my router for gaming consoles? how to enable upnp router gaming consoles upnp gaming nat ps5 xbox series x nintendo switch"
+  },
+  {
     "title": "Universal Router IP Discovery Guide (Windows, Mac, iOS, Android)",
     "category": "Setup Guide",
     "badge": "Guide",
