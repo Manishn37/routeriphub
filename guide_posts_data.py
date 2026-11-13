@@ -2983,7 +2983,474 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
         </div>
       </div>
 """
+    },    {
+        "slug": "wifi-connected-no-internet-android-iphone",
+        "url": "/howto/wifi-connected-no-internet-android-iphone/",
+        "anchor_id": "wifi-connected-no-internet-android-iphone",
+        "featured": False,
+        "badge": "Mobile & Wi-Fi Troubleshooting",
+        "category": "Wi-Fi & Mesh",
+        "category_key": "wifi",
+        "meta_title": "Fix Wi-Fi Connected but No Internet on Android & iPhone",
+        "meta_desc": "Fix Wi-Fi connected but no internet on Android and iPhone with quick DNS fixes, network resets, router troubleshooting, and forget-network steps.",
+        "headline": "How to Fix Wi-Fi Connected but No Internet Access on Android / iPhone",
+        "short_title": "Fix Wi-Fi Connected but No Internet",
+        "excerpt": "Troubleshoot and fix Wi-Fi connected but no internet on Android and iPhone devices with quick DNS fixes, network resets, router troubleshooting, and forget-network steps.",
+        "date_published": "2026-03-28",
+        "date_modified": "2026-03-28",
+        "read_time": "8 min read",
+        "tags": ["Wi-Fi", "Android", "iPhone", "DNS", "Troubleshooting"],
+        "image": "/images/howto/wifi-connected-no-internet-troubleshooting.webp",
+        "faqs": [
+            (
+                "Why does my phone say Connected without internet or No internet connection?",
+                "This status message appears when your Android or iPhone successfully associates with your local Wi-Fi router via DHCP, but fails the operating system's automatic HTTP/HTTPS connectivity check. The phone cannot ping captive portal servers or resolve domain names via DNS, usually due to upstream ISP modem outages, stale DHCP leases, DNS server timeouts, or corrupt saved network profiles."
+            ),
+            (
+                "Will resetting network settings delete my photos, messages, or apps?",
+                "No. Resetting network settings on Android or iPhone only clears saved Wi-Fi networks and passwords, paired Bluetooth peripherals, VPN profiles, and cellular network preferences. It does not erase your personal files, photos, contacts, downloaded apps, or device accounts."
+            ),
+            (
+                "Why does Wi-Fi work on my laptop or TV but not on my phone?",
+                "When other devices connect normally, your home router and ISP gateway are functioning properly. The phone failure is typically isolated to a corrupted local Wi-Fi profile, an invalid static IP assignment, a malfunctioning VPN or Private DNS configuration, or an aggressive randomized MAC address conflict in the router's DHCP table."
+            ),
+            (
+                "How do I know if the Wi-Fi problem is my phone or my router?",
+                "Check the Wi-Fi icon and internet access on a second device (laptop, tablet, or another phone). If multiple devices lack internet access or the router's WAN/Internet LED is red or flashing amber, the issue lies in your router, modem, or ISP line. If all other devices load web pages seamlessly, the issue is isolated to your phone."
+            ),
+            (
+                "Why do apps like WhatsApp work on Wi-Fi but web browsers will not open pages?",
+                "Messaging apps like WhatsApp often communicate directly using cached IP addresses or proprietary sockets that bypass standard domain lookups. If web browsers fail to load websites while chat notifications come through, your local DNS server is malfunctioning or timing out. Switching to Cloudflare (1.1.1.1) or Google DNS (8.8.8.8) resolves this immediately."
+            ),
+            (
+                "What is the difference between Android Private DNS and iPhone Manual DNS?",
+                "Android uses Private DNS (DNS-over-TLS / DoT) at the system level using an encrypted hostname like one.one.one.one or dns.google across all Wi-Fi and mobile networks. iOS configures DNS per individual Wi-Fi SSID under network settings using standard IPv4 addresses (such as 1.1.1.1 and 8.8.8.8) or via installed Encrypted DNS configuration profiles."
+            )
+        ],
+        "bottom_line": "If Wi-Fi is connected but there is no internet access, start with a phone and router restart. Then forget the Wi-Fi network, reconnect, and change DNS if websites still will not load.<br><br><strong>Fastest fix:</strong> Restart your phone and router, forget the Wi-Fi network, reconnect with the correct password, and test the connection again.",
+        "body_html": """
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.75rem;">
+        If your Android or iPhone says it is connected to Wi-Fi but websites and apps will not load, the issue is usually a temporary network glitch, router problem, DNS error, or saved Wi-Fi configuration. Start by restarting your phone and router, then forget and reconnect to the Wi-Fi network.
+      </p>
+
+      <div class="answer-box">
+        <div class="answer-box-label">Quick Answer: How to Fix Wi-Fi Connected but No Internet</div>
+        <div class="answer-box-main">
+          <ol style="margin: 0.5rem 0 0.75rem 1.25rem; line-height: 1.75; font-size: 0.95rem;">
+            <li><strong>Turn Wi-Fi off and back on:</strong> Toggle Wi-Fi in your phone&rsquo;s quick settings to trigger an instant handshake reset.</li>
+            <li><strong>Restart your Android or iPhone:</strong> Power cycling purges transient network stack caches and renews local IP addressing.</li>
+            <li><strong>Restart your router:</strong> Unplug the router power adapter for 30 seconds to clear congested NAT tables and restore ISP WAN links.</li>
+            <li><strong>Forget the Wi-Fi network and reconnect:</strong> Wipe corrupted Wi-Fi credentials and renegotiate a fresh WPA3/WPA2 security profile.</li>
+            <li><strong>Reset network settings if the problem continues:</strong> Revert mobile network configurations, routing tables, and DNS bindings to clean factory defaults.</li>
+            <li><strong>Check whether other devices can use the same Wi-Fi:</strong> Isolate whether the outage is localized to your smartphone or affects the entire home network.</li>
+          </ol>
+          <p style="margin: 0.75rem 0 0; font-size: 0.92rem; color: var(--text-secondary);">
+            <strong>Fastest fix:</strong> Restart your phone and router first. If that does not work, forget the Wi-Fi network and reconnect using the correct password.
+          </p>
+        </div>
+      </div>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/wifi-connected-no-internet-troubleshooting.webp" width="1200" height="675" fetchpriority="high" alt="Diagnostic infographic outlining step-by-step troubleshooting when Android or iPhone connects to Wi-Fi with no internet">
+        <figcaption>Troubleshooting Overview: Essential step-by-step resolution path for smartphones showing Wi-Fi connected without internet access.</figcaption>
+      </figure>
+
+      <h2>Quick Diagnostic Table</h2>
+      <p>
+        Use this triage matrix to identify your specific connectivity failure mode and execute the exact remedy without wasting time:
+      </p>
+
+      <div class="table-wrap">
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th scope="col">Symptom</th>
+              <th scope="col">Likely Cause</th>
+              <th scope="col">Quick Fix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Wi-Fi connects but no internet on one phone</strong></td>
+              <td>Temporary phone network glitch or stale DHCP lease</td>
+              <td>Turn Wi-Fi off and on, then restart the phone</td>
+            </tr>
+            <tr>
+              <td><strong>No internet on all devices</strong></td>
+              <td>Router, modem, or internet provider outage</td>
+              <td>Restart the router and check with your internet provider</td>
+            </tr>
+            <tr>
+              <td><strong>Websites fail but apps work</strong></td>
+              <td>DNS resolution failure or timed-out ISP nameservers</td>
+              <td>Change DNS to Cloudflare (<code>1.1.1.1</code>) or Google (<code>8.8.8.8</code>)</td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi connects after entering password but no internet</strong></td>
+              <td>Saved network configuration or security handshake corrupted</td>
+              <td>Forget the network and reconnect with the password</td>
+            </tr>
+            <tr>
+              <td><strong>Internet works on another Wi-Fi network</strong></td>
+              <td>Issue with your home router gateway or ISP upstream connection</td>
+              <td>Restart the router or inspect your ISP status page</td>
+            </tr>
+            <tr>
+              <td><strong>Internet works on Ethernet but not Wi-Fi</strong></td>
+              <td>Router Wi-Fi wireless radio lockup or severe RF interference</td>
+              <td>Restart the router and check 2.4 GHz / 5 GHz wireless band settings</td>
+            </tr>
+            <tr>
+              <td><strong>No internet after changing router settings</strong></td>
+              <td>Incorrect DNS, static IP subnet mask, or DHCP pool allocation</td>
+              <td>Reset phone network settings or restore router defaults via <a href="/192.168.1.1/">192.168.1.1</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>First Steps</h2>
+
+      <h3>Turn Wi-Fi Off and On</h3>
+      <p>
+        Toggling the wireless radio forces the smartphone operating system to terminate its current 802.11 association and establish a clean physical link.
+      </p>
+
+      <div class="grid-2col" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.25rem 0;">
+        <div class="tip-card" style="margin: 0;">
+          <div class="tip-card-title">On Android</div>
+          <ol style="margin: 0.5rem 0 0 1.2rem; line-height: 1.6; font-size: 0.9rem;">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Tap <strong>Network &amp; internet</strong> or <strong>Connections</strong>.</li>
+            <li>Tap <strong>Internet</strong> or <strong>Wi-Fi</strong>.</li>
+            <li>Turn Wi-Fi off.</li>
+            <li>Wait 10 seconds.</li>
+            <li>Turn Wi-Fi back on.</li>
+            <li>Reconnect to your network.</li>
+          </ol>
+        </div>
+
+        <div class="tip-card" style="margin: 0;">
+          <div class="tip-card-title">On iPhone (iOS)</div>
+          <ol style="margin: 0.5rem 0 0 1.2rem; line-height: 1.6; font-size: 0.9rem;">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Tap <strong>Wi-Fi</strong> (do not merely disconnect in Control Center).</li>
+            <li>Toggle the main Wi-Fi switch off.</li>
+            <li>Wait 10 seconds.</li>
+            <li>Turn Wi-Fi back on.</li>
+            <li>Tap your network and reconnect.</li>
+          </ol>
+        </div>
+      </div>
+
+      <h3>Restart Your Phone</h3>
+      <p>
+        Restarting clears temporary network errors, flushes corrupted socket memory, and refreshes the low-level connection handshake between your phone and router.
+      </p>
+      <ul>
+        <li><strong>Android:</strong> Press and hold the <strong>Power</strong> button (or Power + Volume Down on modern Samsung / Pixel devices), then tap <strong>Restart</strong>.</li>
+        <li><strong>iPhone:</strong> Press and hold the <strong>Side button</strong> and either <strong>Volume button</strong> until the slider appears, then slide to power off. Wait 30 seconds, then hold the Side button until the Apple logo appears.</li>
+      </ul>
+
+      <h2>Restart the Router</h2>
+      <p>
+        If no device on your premises can access the internet, or if multiple phones encounter the same &ldquo;Connected without internet&rdquo; warning, the issue is almost always within the router, modem, or upstream ISP fiber/cable circuit.
+      </p>
+      <ol style="line-height: 1.75; margin-left: 1.25rem;">
+        <li>Unplug the power cable from the back of your router and modem.</li>
+        <li>Wait a full <strong>30 seconds</strong> to allow the onboard capacitors to discharge completely and clear the volatile routing cache.</li>
+        <li>Plug the power cable back in.</li>
+        <li>Wait <strong>2 to 5 minutes</strong> for the router to complete its self-test and establish WAN synchronization.</li>
+        <li>Verify that the Internet / WAN LED indicator turns solid green or white (never blinking red or amber).</li>
+        <li>Reconnect your phone to Wi-Fi and open a fresh web browser tab to test the connection.</li>
+      </ol>
+      <div class="callout callout-info">
+        <strong>Separate Modem and Router Setup:</strong> If your internet provider supplies a standalone modem or ONT (Optical Network Terminal) paired with a separate Wi-Fi router (such as an <a href="/att/">AT&amp;T gateway</a> or <a href="/spectrum/">Spectrum router</a>), always power on the modem/ONT first. Wait for its WAN connection light to turn solid, and only then power on your Wi-Fi router.
+      </div>
+
+      <h2>Forget and Reconnect to Wi-Fi</h2>
+      <p>
+        Over time, saved Wi-Fi profiles can retain outdated IP leasing parameters, expired gateway security certificates, or conflicting BSSID references. Forgetting the network purges this profile and prompts a clean DHCP negotiation.
+      </p>
+
+      <div class="grid-2col" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.25rem 0;">
+        <div class="step-card">
+          <div class="step-num">Android</div>
+          <div class="step-body">
+            <h4 style="margin: 0 0 0.5rem 0;">Forget Network on Android</h4>
+            <ol style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.6;">
+              <li>Open <strong>Settings</strong> &rarr; <strong>Network &amp; internet</strong> or <strong>Connections</strong>.</li>
+              <li>Tap <strong>Internet</strong> or <strong>Wi-Fi</strong>.</li>
+              <li>Locate your active network name.</li>
+              <li>Tap the <strong>gear icon</strong> or long-press the network name.</li>
+              <li>Tap <strong>Forget</strong> or <strong>Forget network</strong>.</li>
+              <li>Select the network name from the available list, enter your Wi-Fi password carefully, and tap <strong>Connect</strong>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="step-card">
+          <div class="step-num">iPhone</div>
+          <div class="step-body">
+            <h4 style="margin: 0 0 0.5rem 0;">Forget Network on iPhone</h4>
+            <ol style="margin: 0; padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.6;">
+              <li>Open <strong>Settings</strong> &rarr; <strong>Wi-Fi</strong>.</li>
+              <li>Tap the blue <strong>info icon (i)</strong> next to your connected Wi-Fi network.</li>
+              <li>Tap <strong>Forget This Network</strong> at the top of the screen.</li>
+              <li>Confirm by tapping <strong>Forget</strong> in the prompt.</li>
+              <li>Return to the Wi-Fi list, tap your network, enter the Wi-Fi password, and tap <strong>Join</strong>.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <h2>Check Other Devices</h2>
+      <p>
+        Testing network behavior across multiple hardware clients immediately isolates whether the root issue is local to your smartphone hardware or an environmental network failure:
+      </p>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/wifi-connected-no-internet-diagnostic-flowchart.webp" width="1200" height="675" loading="lazy" alt="Technical diagnostic decision tree troubleshooting flowchart for isolating smartphone Wi-Fi network issues versus router ISP outages">
+        <figcaption>Diagnostic Flowchart: Follow this decision logic to isolate device-specific network errors from router gateway faults or ISP circuit dropouts.</figcaption>
+      </figure>
+
+      <div class="table-wrap">
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th scope="col">Diagnostic Result</th>
+              <th scope="col">What It Means</th>
+              <th scope="col">Immediate Next Step</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Other devices have normal internet</strong></td>
+              <td>The issue is strictly isolated to your smartphone network stack</td>
+              <td>Proceed to DNS configuration and network settings reset below</td>
+            </tr>
+            <tr>
+              <td><strong>No device has internet access</strong></td>
+              <td>Upstream ISP service failure, line cutoff, or router hardware lockup</td>
+              <td>Power cycle modem/router or inspect provider service outage status</td>
+            </tr>
+            <tr>
+              <td><strong>Ethernet works, but Wi-Fi fails on all devices</strong></td>
+              <td>Router wireless radio crash, band steering bug, or severe channel interference</td>
+              <td>Access router admin at <a href="/192.168.1.1/">192.168.1.1</a> or <a href="/192.168.0.1/">192.168.0.1</a> and update Wi-Fi channel</td>
+            </tr>
+            <tr>
+              <td><strong>Phone works on cellular data, fails only on Wi-Fi</strong></td>
+              <td>The issue is restricted to the Wi-Fi handshake or gateway DNS routing</td>
+              <td>Check Private DNS, disable third-party VPNs, and renew local IP lease</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Fix DNS Settings</h2>
+      <p>
+        The Domain Name System (DNS) translates human-readable web addresses (such as <code>routeriphub.com</code>) into numerical IP addresses. When your internet provider&rsquo;s default DNS servers experience downtime or return NXDOMAIN errors, your phone remains securely connected to Wi-Fi but cannot load websites or external server endpoints. You can also review our guide on <a href="/howto/how-to-flush-dns-cache/">how to flush DNS cache</a> for complete platform steps.
+      </p>
+
+      <figure class="guide-figure">
+        <img src="/images/howto/configure-dns-android-iphone-settings.webp" width="1200" height="675" loading="lazy" alt="Side-by-side comparison of Android Private DNS setup using Cloudflare and iOS Manual DNS server configuration">
+        <figcaption>DNS Setup: Android Private DNS hostname configuration using one.one.one.one (left) compared with iOS manual DNS server IP entry (right).</figcaption>
+      </figure>
+
+      <h3>Change DNS on Android</h3>
+      <p>
+        Android utilizes system-wide <strong>Private DNS</strong> (DNS-over-TLS), which encrypts DNS lookups and bypasses buggy ISP recursive resolvers:
+      </p>
+      <ol style="line-height: 1.7; margin-left: 1.25rem;">
+        <li>Open <strong>Settings</strong> &rarr; <strong>Network &amp; internet</strong> (or <strong>More connection settings</strong> on Samsung One UI).</li>
+        <li>Tap <strong>Private DNS</strong>.</li>
+        <li>Select <strong>Private DNS provider hostname</strong>.</li>
+        <li>Enter either:
+          <ul>
+            <li><code>one.one.one.one</code> (Cloudflare Privacy-first DNS)</li>
+            <li><code>dns.google</code> (Google Public DNS)</li>
+          </ul>
+        </li>
+        <li>Tap <strong>Save</strong> and toggle Wi-Fi off and back on.</li>
+      </ol>
+
+      <h3>Change DNS on iPhone</h3>
+      <p>
+        iOS allows granular DNS configuration per individual Wi-Fi connection:
+      </p>
+      <ol style="line-height: 1.7; margin-left: 1.25rem;">
+        <li>Open <strong>Settings</strong> &rarr; <strong>Wi-Fi</strong>.</li>
+        <li>Tap the blue <strong>info icon (i)</strong> beside your connected network.</li>
+        <li>Scroll down and tap <strong>Configure DNS</strong>.</li>
+        <li>Switch from <strong>Automatic</strong> to <strong>Manual</strong>.</li>
+        <li>Under <strong>DNS Servers</strong>, tap the red minus icon to remove existing ISP servers.</li>
+        <li>Tap <strong>Add Server</strong> and input:
+          <ul>
+            <li>Cloudflare: <code>1.1.1.1</code> (Primary) and <code>1.0.0.1</code> (Secondary)</li>
+            <li>Google DNS: <code>8.8.8.8</code> (Primary) and <code>8.8.4.4</code> (Secondary)</li>
+          </ul>
+        </li>
+        <li>Tap <strong>Save</strong> in the upper right corner to activate changes immediately.</li>
+      </ol>
+      <p>
+        <em>Tip:</em> To protect your entire home network at the source, learn <a href="/howto/change-router-dns/">how to change router DNS</a> inside your main gateway dashboard.
+      </p>
+
+      <h2>Reset Network Settings</h2>
+      <p>
+        If reconnecting and swapping DNS does not restore web connectivity, underlying cellular-to-Wi-Fi routing tables or IP sockets may be corrupted. Resetting network settings rebuilds the phone&rsquo;s entire networking stack from scratch.
+      </p>
+
+      <div class="grid-2col" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1.25rem 0;">
+        <div class="tip-card" style="margin: 0;">
+          <div class="tip-card-title">Reset Network Settings on Android</div>
+          <ol style="margin: 0.5rem 0 0 1.2rem; line-height: 1.6; font-size: 0.9rem;">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Scroll down and select <strong>System</strong> (or <strong>General management</strong> on Samsung).</li>
+            <li>Tap <strong>Reset</strong> or <strong>Reset options</strong>.</li>
+            <li>Tap <strong>Reset Wi-Fi, mobile &amp; Bluetooth</strong> (or <strong>Reset network settings</strong>).</li>
+            <li>Tap <strong>Reset settings</strong> and confirm with your device PIN or pattern.</li>
+            <li>Once rebooted, select your Wi-Fi network and input the password.</li>
+          </ol>
+        </div>
+
+        <div class="tip-card" style="margin: 0;">
+          <div class="tip-card-title">Reset Network Settings on iPhone</div>
+          <ol style="margin: 0.5rem 0 0 1.2rem; line-height: 1.6; font-size: 0.9rem;">
+            <li>Open <strong>Settings</strong> &rarr; <strong>General</strong>.</li>
+            <li>Scroll to the bottom and tap <strong>Transfer or Reset iPhone</strong>.</li>
+            <li>Tap <strong>Reset</strong> at the bottom of the screen.</li>
+            <li>Select <strong>Reset Network Settings</strong>.</li>
+            <li>Enter your iPhone lock screen passcode when prompted.</li>
+            <li>Confirm by tapping <strong>Reset Network Settings</strong>.</li>
+            <li>Allow the iPhone to reboot automatically, then reconnect to Wi-Fi.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <strong>What Network Reset Erases:</strong> Resetting network settings deletes saved Wi-Fi networks and passwords, paired Bluetooth accessories, VPN profile configurations, and cellular roaming preferences. <strong>It does not touch your personal data</strong>, photos, apps, contacts, or stored files.
+      </div>
+
+      <h2>Check Router Settings</h2>
+      <p>
+        When multiple client devices report &ldquo;No Internet Access&rdquo; despite showing full Wi-Fi signal bars, the router&rsquo;s internal services or security rules may be blocking outgoing traffic. Use our <a href="/find-router-ip/">default router IP discovery guide</a> to log in to your administrative dashboard:
+      </p>
+      <ul style="line-height: 1.8; margin-left: 1.25rem;">
+        <li><strong>Verify Power and WAN LEDs:</strong> Check that the router power light and Internet/Globe LED show continuous green or white illumination.</li>
+        <li><strong>Inspect Physical Cabling:</strong> Ensure the Ethernet patch cord connecting your modem to the router&rsquo;s WAN/Internet port is firmly seated (listen for an audible click).</li>
+        <li><strong>Verify Active Service Plan:</strong> Log in to your ISP customer portal to rule out account suspensions or regional billing holds.</li>
+        <li><strong>Check for Regional ISP Outages:</strong> Check Downdetector or your provider&rsquo;s status app (<a href="/spectrum/">Spectrum</a>, <a href="/att/">AT&amp;T Smart Home Manager</a>, or <a href="/verizon/">Verizon My Fios</a>).</li>
+        <li><strong>Disable Parental Controls &amp; MAC Filtering:</strong> Inspect whether access scheduling, bedtime pauses, or MAC address access control lists are mistakenly blocking your smartphone.</li>
+        <li><strong>Update Router Firmware:</strong> Outdated router software can crash under high concurrent Wi-Fi 6 / 6E traffic. Update firmware via the manufacturer portal (<a href="/tp-link/">TP-Link</a>, <a href="/netgear/">Netgear</a>, or <a href="/asus/">ASUS</a>).</li>
+        <li><strong>Verify DHCP Scope Exhaustion:</strong> Ensure your router&rsquo;s DHCP server has spare available IP addresses in its allocation pool (e.g., <code>192.168.1.100</code> to <code>192.168.1.250</code>).</li>
+      </ul>
+
+      <h2>Disable VPN or Private DNS</h2>
+      <p>
+        Virtual Private Networks (VPNs) and third-party encrypted DNS configurations route traffic through remote servers. If the remote VPN tunnel fails or the proxy endpoint drops offline, the operating system&rsquo;s &ldquo;kill-switch&rdquo; will silently sever all outbound internet traffic while maintaining an active Wi-Fi radio connection.
+      </p>
+
+      <h3>On Android</h3>
+      <ol style="line-height: 1.7; margin-left: 1.25rem;">
+        <li>Open <strong>Settings</strong> &rarr; <strong>Network &amp; internet</strong> &rarr; <strong>VPN</strong>.</li>
+        <li>If an active VPN connection is listed, tap the gear icon next to it and toggle <strong>Disconnect</strong> or disable <strong>Block connections without VPN</strong>.</li>
+        <li>Return to <strong>Network &amp; internet</strong>, tap <strong>Private DNS</strong>, and set it temporarily to <strong>Off</strong> to see if your custom DNS resolver was timing out.</li>
+      </ol>
+
+      <h3>On iPhone</h3>
+      <ol style="line-height: 1.7; margin-left: 1.25rem;">
+        <li>Open <strong>Settings</strong> &rarr; <strong>General</strong> &rarr; <strong>VPN &amp; Device Management</strong>.</li>
+        <li>Under <strong>VPN</strong>, verify that the status toggle is set to <strong>Not Connected</strong>.</li>
+        <li>If third-party security apps (like Cloudflare WARP, NordVPN, or ExpressVPN) remain installed, tap the info icon and delete the profile temporarily.</li>
+        <li>Reconnect to your local Wi-Fi and test website loading in Safari.</li>
+      </ol>
+
+      <h2>Update Your Phone</h2>
+      <p>
+        Operating system updates frequently patch Wi-Fi driver regressions, WPA3 enterprise handshake incompatibilities, and power-saving sleep bugs that disconnect devices from the internet.
+      </p>
+      <ul>
+        <li><strong>Android:</strong> Open <strong>Settings</strong> &rarr; <strong>System</strong> &rarr; <strong>System update</strong> (or <strong>Software update</strong> on Samsung), tap <strong>Check for updates</strong>, and install any pending release.</li>
+        <li><strong>iPhone:</strong> Open <strong>Settings</strong> &rarr; <strong>General</strong> &rarr; <strong>Software Update</strong>, download and install available iOS updates, then restart your device.</li>
+      </ul>
+
+      <h2>When to Contact Your Internet Provider</h2>
+      <p>
+        If you have completed phone restarts, network forgetting, router power cycles, and DNS adjustments without success, the breakdown is external to your premises. Contact your ISP customer support when:
+      </p>
+      <ul style="line-height: 1.75; margin-left: 1.25rem;">
+        <li>All connected smartphones, laptops, and smart TVs report no internet access simultaneously.</li>
+        <li>The router or optical fiber gateway&rsquo;s Internet/PON indicator LED remains solid red or flashes amber continuously.</li>
+        <li>The outage persists across power cycles of both the modem and router.</li>
+        <li>Your ISP subscriber account portal confirms a scheduled area maintenance outage or optical fiber node failure.</li>
+        <li>You recently replaced hardware, altered external coaxial/fiber wiring, or modified account subscription speed tiers.</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Why does my phone say Connected without internet or No internet connection?</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p>This status message appears when your Android or iPhone successfully associates with your local Wi-Fi router via DHCP, but fails the operating system's automatic HTTP/HTTPS connectivity check. The phone cannot ping captive portal servers or resolve domain names via DNS, usually due to upstream ISP modem outages, stale DHCP leases, DNS server timeouts, or corrupt saved network profiles.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Will resetting network settings delete my photos, messages, or apps?</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p>No. Resetting network settings on Android or iPhone only clears saved Wi-Fi networks and passwords, paired Bluetooth peripherals, VPN profiles, and cellular network preferences. It does not erase your personal files, photos, contacts, downloaded apps, or device accounts.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Why does Wi-Fi work on my laptop or TV but not on my phone?</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p>When other devices connect normally, your home router and ISP gateway are functioning properly. The phone failure is typically isolated to a corrupted local Wi-Fi profile, an invalid static IP assignment, a malfunctioning VPN or Private DNS configuration, or an aggressive randomized MAC address conflict in the router's DHCP table.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>How do I know if the Wi-Fi problem is my phone or my router?</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Check the Wi-Fi icon and internet access on a second device (laptop, tablet, or another phone). If multiple devices lack internet access or the router's WAN/Internet LED is red or flashing amber, the issue lies in your router, modem, or ISP line. If all other devices load web pages seamlessly, the issue is isolated to your phone.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>Why do apps like WhatsApp work on Wi-Fi but web browsers will not open pages?</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Messaging apps like WhatsApp often communicate directly using cached IP addresses or proprietary sockets that bypass standard domain lookups. If web browsers fail to load websites while chat notifications come through, your local DNS server is malfunctioning or timing out. Switching to Cloudflare (1.1.1.1) or Google DNS (8.8.8.8) resolves this immediately.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button" aria-expanded="false">
+          <span>What is the difference between Android Private DNS and iPhone Manual DNS?</span>
+          <svg class="dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Android uses Private DNS (DNS-over-TLS / DoT) at the system level using an encrypted hostname like one.one.one.one or dns.google across all Wi-Fi and mobile networks. iOS configures DNS per individual Wi-Fi SSID under network settings using standard IPv4 addresses (such as 1.1.1.1 and 8.8.8.8) or via installed Encrypted DNS configuration profiles.</p>
+        </div>
+      </div>
+"""
     },
+
 ]
 
 EXTERNAL_HUB_GUIDE_CARD = {
