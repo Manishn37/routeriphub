@@ -841,6 +841,72 @@ def generate_trust_and_legal_pages(public_dir, get_header_fn, get_footer_fn):
     )
 
 
+
+def build_guide_internal_links_html(current_slug=""):
+    ip_links = [
+        '<a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Gateway Hub &rarr;</a>',
+        '<a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Hub &rarr;</a>',
+        '<a href="/ip/10-0-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">10.0.0.1 Gateway Hub &rarr;</a>',
+        '<a href="/ip/192-168-1-254/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.254 Gateway Hub &rarr;</a>',
+        '<a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs Directory &rarr;</a>',
+    ]
+
+    brand_links = [
+        '<a href="/brands/netgear/" class="btn btn-secondary" style="font-size: 0.85rem;">Netgear Routers &rarr;</a>',
+        '<a href="/brands/tp-link/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link Routers &rarr;</a>',
+        '<a href="/brands/asus/" class="btn btn-secondary" style="font-size: 0.85rem;">ASUS Routers &rarr;</a>',
+        '<a href="/brands/linksys/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys Routers &rarr;</a>',
+        '<a href="/brands/cisco/" class="btn btn-secondary" style="font-size: 0.85rem;">Cisco Routers &rarr;</a>',
+        '<a href="/brands/d-link/" class="btn btn-secondary" style="font-size: 0.85rem;">D-Link Routers &rarr;</a>',
+        '<a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">All Brand Hubs &rarr;</a>',
+    ]
+
+    tool_links = [
+        '<a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Gateway &rarr;</a>',
+        '<a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>',
+        '<a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi QR Code Generator &rarr;</a>',
+        '<a href="/find-router-ip/" class="btn btn-secondary" style="font-size: 0.85rem;">Find Router IP &rarr;</a>',
+    ]
+
+    return f'''
+      <!-- Related Gateway Subnets, Brand Portals & Tools -->
+      <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Default Gateway Directories &amp; Subnets
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Access login sheets and diagnostic consoles for major RFC 1918 private gateway subnets:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(ip_links)}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Router Manufacturer Portals
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Browse factory default credentials, setup guides, and model databases by brand:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(brand_links)}
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Free Networking Diagnostics &amp; Tools
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(tool_links)}
+          </div>
+        </div>
+      </div>
+'''
+
+
 def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_fn):
     """Regenerate /tools/, /howto/, /find-router-ip/, /developers/ with unified header/footer, clean schemas & accessibility."""
     tpl_dir = os.path.join(root_dir, "templates")
@@ -986,6 +1052,8 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
       <div id="guide-posts-feed" class="guide-feed">
         {"".join(cards_html)}
       </div>
+
+      {build_guide_internal_links_html('index')}
     </div>
   </main>
 """
@@ -1109,6 +1177,8 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
         {prev_card}
         {next_card}
       </nav>
+
+      {build_guide_internal_links_html(p['slug'])}
     </article>
   </main>
 """

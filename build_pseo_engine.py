@@ -102,6 +102,517 @@ def escape(s):
 def make_dirs(path):
     os.makedirs(path, exist_ok=True)
 
+# ==============================================================================
+# INTERNAL LINKING & TOPICAL CLUSTER BUILDERS
+# ==============================================================================
+
+def build_router_internal_links_html(m):
+    ip_slug = m['default_ip'].replace('.', '-')
+    clean_brand = escape(m['brand'])
+    brand_slug = escape(m['brand_slug'])
+    
+    # 1. Step-by-Step Guides (Topical Cluster)
+    guide_links = [
+        '<a href="/howto/access-my-router-settings-page/" class="btn btn-secondary" style="font-size: 0.85rem;">Access Router Settings Page &rarr;</a>',
+        '<a href="/howto/change-wifi-password/" class="btn btn-secondary" style="font-size: 0.85rem;">Change Wi-Fi Name &amp; Password &rarr;</a>',
+        '<a href="/howto/30-second-hard-factory-reset/" class="btn btn-secondary" style="font-size: 0.85rem;">30-Second Hard Factory Reset &rarr;</a>',
+    ]
+    if m['default_ip'] in ('192.168.1.1', '192.168.0.1'):
+        guide_links.append('<a href="/howto/why-is-192-168-1-1-not-working/" class="btn btn-secondary" style="font-size: 0.85rem;">Why 192.168.1.1 Fails &rarr;</a>')
+    if 'bt' in brand_slug or m['default_ip'] == '192.168.1.254':
+        guide_links.append('<a href="/howto/why-cant-i-access-my-bt-hub-manager/" class="btn btn-secondary" style="font-size: 0.85rem;">BT Hub Manager Login Fix &rarr;</a>')
+    if '7' in str(m.get('wifi_standard', '')) or '6e' in str(m.get('wifi_standard', '')).lower():
+        guide_links.append('<a href="/howto/wifi-7-6ghz-setup-guide/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi 7 &amp; 6 GHz Setup Guide &rarr;</a>')
+    if 'mesh' in str(m.get('hardware_type', '')).lower() or 'mesh' in str(m.get('model_name', '')).lower():
+        guide_links.append('<a href="/howto/mesh-wifi-backhaul-optimization/" class="btn btn-secondary" style="font-size: 0.85rem;">Mesh Backhaul Optimization &rarr;</a>')
+    guide_links.append('<a href="/howto/change-router-dns/" class="btn btn-secondary" style="font-size: 0.85rem;">Optimize DNS (1.1.1.1 / 8.8.8.8) &rarr;</a>')
+    guide_links.append('<a href="/howto/guest-wifi-network-setup/" class="btn btn-secondary" style="font-size: 0.85rem;">Set Up Isolated Guest Wi-Fi &rarr;</a>')
+
+    # 2. Related Gateway Subnets
+    VALID_IP_SLUGS = {
+        '10-0-0-1': '10.0.0.1', '10-0-0-138': '10.0.0.138', '10-0-1-1': '10.0.1.1', '10-10-10-1': '10.10.10.1',
+        '192-168-0-1': '192.168.0.1', '192-168-1-1': '192.168.1.1', '192-168-1-2': '192.168.1.2',
+        '192-168-1-250': '192.168.1.250', '192-168-1-254': '192.168.1.254', '192-168-10-1': '192.168.10.1',
+        '192-168-100-1': '192.168.100.1', '192-168-11-1': '192.168.11.1', '192-168-12-1': '192.168.12.1',
+        '192-168-178-1': '192.168.178.1', '192-168-2-1': '192.168.2.1', '192-168-3-1': '192.168.3.1',
+        '192-168-4-1': '192.168.4.1', '192-168-8-1': '192.168.8.1', '192-168-88-1': '192.168.88.1'
+    }
+    ip_links = []
+    if ip_slug in VALID_IP_SLUGS:
+        ip_links.append(f'<a href="/ip/{ip_slug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{escape(m["default_ip"])} Gateway Hub &rarr;</a>')
+    fb = m.get('fallback_ip')
+    if fb:
+        fb_slug = fb.replace('.', '-')
+        if fb_slug in VALID_IP_SLUGS and fb_slug != ip_slug:
+            ip_links.append(f'<a href="/ip/{fb_slug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{escape(fb)} Fallback IP &rarr;</a>')
+    adjacent_candidates = [
+        ('192-168-1-1', '192.168.1.1 (Standard)'),
+        ('192-168-0-1', '192.168.0.1 (Alt Gateway)'),
+        ('10-0-0-1', '10.0.0.1 (Class A Subnet)'),
+        ('192-168-1-254', '192.168.1.254 (Gateway)'),
+        ('192-168-2-1', '192.168.2.1 (Subnet)'),
+    ]
+    for cslug, clabel in adjacent_candidates:
+        if cslug != ip_slug and (not fb or cslug != fb.replace('.', '-')):
+            ip_links.append(f'<a href="/ip/{cslug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{clabel} &rarr;</a>')
+            if len(ip_links) >= 4:
+                break
+    ip_links.append('<a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>')
+
+    # 3. Brand Directory & Peer Models
+    brand_links = []
+    if brand_slug != "pldt":
+        brand_links.append(f'<a href="/brands/{brand_slug}/" class="btn btn-secondary" style="font-size: 0.85rem;">All {clean_brand} Routers &rarr;</a>')
+    else:
+        brand_links.append('<a href="/routers/pldt/" class="btn btn-secondary" style="font-size: 0.85rem;">PLDT Home Hub &rarr;</a>')
+    
+    siblings = [other for other in ROUTER_MODELS if other['brand_slug'] == m['brand_slug'] and other['slug'] != m['slug']][:3]
+    for sib in siblings:
+        sib_clean = smart_model_name(sib['brand'], sib['model_name'])
+        brand_links.append(f'<a href="/routers/{escape(sib["slug"])}/" class="btn btn-secondary" style="font-size: 0.85rem;">{escape(sib_clean)} &rarr;</a>')
+    
+    # 4. Diagnostic Utilities
+    tool_links = [
+        '<a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Gateway &rarr;</a>',
+        '<a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>',
+        '<a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi QR Code Generator &rarr;</a>',
+    ]
+
+    return f"""
+      <!-- Related Guides, Gateway IPs & Brand Directory -->
+      <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Step-by-Step Setup &amp; Troubleshooting Guides
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Practical tutorials for configuring credentials, resolving connection failures, and optimizing Wi-Fi:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(guide_links)}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Related Gateway IP Subnets
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Compare your device's active default gateway against alternative private IP addresses:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(ip_links)}
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            {clean_brand} Models &amp; Diagnostic Tools
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(brand_links)}
+            {"".join(tool_links)}
+          </div>
+        </div>
+      </div>
+"""
+
+def build_ip_internal_links_html(ip):
+    ip_slug = ip.replace('.', '-')
+    
+    # 1. Guides matching IP intent
+    guide_links = [
+        '<a href="/howto/access-my-router-settings-page/" class="btn btn-secondary" style="font-size: 0.85rem;">Access Router Settings Page &rarr;</a>',
+        '<a href="/howto/change-wifi-password/" class="btn btn-secondary" style="font-size: 0.85rem;">Change Wi-Fi Name &amp; Password &rarr;</a>',
+        '<a href="/howto/30-second-hard-factory-reset/" class="btn btn-secondary" style="font-size: 0.85rem;">Hard Factory Reset (30-30-30) &rarr;</a>',
+    ]
+    if ip in ('192.168.1.1', '192.168.0.1', '192.168.1.2'):
+        guide_links.append('<a href="/howto/why-is-192-168-1-1-not-working/" class="btn btn-secondary" style="font-size: 0.85rem;">Fix 192.168.1.1 Not Working &rarr;</a>')
+    if ip == '192.168.1.254':
+        guide_links.append('<a href="/howto/why-cant-i-access-my-bt-hub-manager/" class="btn btn-secondary" style="font-size: 0.85rem;">Why Can’t I Access BT Hub Manager? &rarr;</a>')
+    if ip in ('192.168.1.250', '192.168.0.254'):
+        guide_links.append('<a href="/howto/two-routers-access-point-mode/" class="btn btn-secondary" style="font-size: 0.85rem;">Connect Two Routers (AP Mode) &rarr;</a>')
+        guide_links.append('<a href="/howto/mesh-wifi-backhaul-optimization/" class="btn btn-secondary" style="font-size: 0.85rem;">Mesh Wi-Fi Backhaul Setup &rarr;</a>')
+    guide_links.append('<a href="/howto/change-router-dns/" class="btn btn-secondary" style="font-size: 0.85rem;">Change Router DNS (1.1.1.1) &rarr;</a>')
+    guide_links.append('<a href="/howto/guest-wifi-network-setup/" class="btn btn-secondary" style="font-size: 0.85rem;">Guest Wi-Fi Network Setup &rarr;</a>')
+    
+    # 2. Related Gateway Subnets
+    adjacent_candidates = [
+        ('192-168-1-1', '192.168.1.1 Hub'),
+        ('192-168-0-1', '192.168.0.1 Hub'),
+        ('10-0-0-1', '10.0.0.1 Hub'),
+        ('192-168-1-254', '192.168.1.254 Hub'),
+        ('192-168-2-1', '192.168.2.1 Hub'),
+        ('192-168-1-250', '192.168.1.250 Extender'),
+        ('10-10-10-1', '10.10.10.1 Hub'),
+    ]
+    ip_links = []
+    for cslug, clabel in adjacent_candidates:
+        if cslug != ip_slug:
+            ip_links.append(f'<a href="/ip/{cslug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{clabel} &rarr;</a>')
+            if len(ip_links) >= 5:
+                break
+    ip_links.append('<a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>')
+    
+    # 3. Popular Brands for this IP
+    IP_BRAND_MAP = {
+        '192.168.1.1': [('netgear', 'Netgear'), ('asus', 'ASUS'), ('linksys', 'Linksys'), ('tp-link', 'TP-Link'), ('cisco', 'Cisco')],
+        '192.168.0.1': [('tp-link', 'TP-Link'), ('d-link', 'D-Link'), ('netgear', 'Netgear'), ('zyxel', 'Zyxel')],
+        '10.0.0.1': [('xfinity', 'Xfinity'), ('cisco', 'Cisco'), ('arris', 'Arris')],
+        '192.168.1.254': [('draytek', 'DrayTek'), ('motorola', 'Motorola'), ('arris', 'Arris')],
+        '192.168.2.1': [('asus', 'ASUS'), ('tp-link', 'TP-Link')],
+        '192.168.8.1': [('huawei', 'Huawei'), ('gl-inet', 'GL.iNet')],
+        '192.168.88.1': [('mikrotik', 'MikroTik')],
+        '192.168.178.1': [('avm-fritzbox', 'AVM FRITZ!Box')],
+        '10.10.10.1': [('cisco', 'Cisco'), ('ubiquiti', 'Ubiquiti')],
+    }
+    brands_for_ip = IP_BRAND_MAP.get(ip, [('netgear', 'Netgear'), ('tp-link', 'TP-Link'), ('asus', 'ASUS'), ('linksys', 'Linksys')])
+    brand_links = [f'<a href="/brands/{bslug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{bname} Hub &rarr;</a>' for bslug, bname in brands_for_ip]
+    brand_links.append('<a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">All Brands Directory &rarr;</a>')
+
+    # 4. Diagnostic Utilities
+    tool_links = [
+        '<a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Gateway &rarr;</a>',
+        '<a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>',
+        '<a href="/find-router-ip/" class="btn btn-secondary" style="font-size: 0.85rem;">Find Router IP &rarr;</a>',
+    ]
+
+    return f"""
+      <!-- Related Guides, Alternative Subnets & Brand Directories -->
+      <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Step-by-Step Gateway Troubleshooting Guides
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Resolve login timeouts, address bar redirection, Wi-Fi configuration, and factory reset procedures:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(guide_links)}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Alternative Private Gateway Subnets
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            If {escape(ip)} is not responding, test whether your network operates on an adjacent private subnet:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(ip_links)}
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Popular Brand Hubs Using {escape(ip)} &amp; Tools
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(brand_links)}
+            {"".join(tool_links)}
+          </div>
+        </div>
+      </div>
+"""
+
+def build_brand_internal_links_html(b):
+    bname = escape(b['name'])
+    bslug = escape(b['slug'])
+    
+    # 1. Guides for this brand
+    guide_links = [
+        f'<a href="/howto/access-my-router-settings-page/" class="btn btn-secondary" style="font-size: 0.85rem;">Access {bname} Settings &rarr;</a>',
+        f'<a href="/howto/change-wifi-password/" class="btn btn-secondary" style="font-size: 0.85rem;">Change Wi-Fi Password &rarr;</a>',
+        '<a href="/howto/30-second-hard-factory-reset/" class="btn btn-secondary" style="font-size: 0.85rem;">Hard Reset Procedure &rarr;</a>',
+    ]
+    if any(ip in ('192.168.1.1', '192.168.0.1') for ip in b.get('default_ips', [])):
+        guide_links.append('<a href="/howto/why-is-192-168-1-1-not-working/" class="btn btn-secondary" style="font-size: 0.85rem;">Why 192.168.1.1 Fails &rarr;</a>')
+    if bslug == 'bt' or '192.168.1.254' in b.get('default_ips', []):
+        guide_links.append('<a href="/howto/why-cant-i-access-my-bt-hub-manager/" class="btn btn-secondary" style="font-size: 0.85rem;">BT Hub Manager Fix &rarr;</a>')
+    guide_links.append('<a href="/howto/change-router-dns/" class="btn btn-secondary" style="font-size: 0.85rem;">Change Router DNS &rarr;</a>')
+    guide_links.append('<a href="/howto/guest-wifi-network-setup/" class="btn btn-secondary" style="font-size: 0.85rem;">Guest Wi-Fi Setup &rarr;</a>')
+    guide_links.append('<a href="/howto/two-routers-access-point-mode/" class="btn btn-secondary" style="font-size: 0.85rem;">Two Routers / AP Mode &rarr;</a>')
+
+    # 2. Gateway IPs used by this brand
+    VALID_IP_SLUGS = {
+        '10-0-0-1', '10-0-0-138', '10-0-1-1', '10-10-10-1', '192-168-0-1', '192-168-1-1', '192-168-1-2',
+        '192-168-1-250', '192-168-1-254', '192-168-10-1', '192-168-100-1', '192-168-11-1', '192-168-12-1',
+        '192-168-178-1', '192-168-2-1', '192-168-3-1', '192-168-4-1', '192-168-8-1', '192-168-88-1'
+    }
+    ip_links = []
+    for ip in b.get('default_ips', []):
+        ip_slug = ip.replace('.', '-')
+        if ip_slug in VALID_IP_SLUGS:
+            ip_links.append(f'<a href="/ip/{ip_slug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{escape(ip)} Gateway Hub &rarr;</a>')
+    for cip, cslug in [('192.168.1.1', '192-168-1-1'), ('192.168.0.1', '192-168-0-1'), ('10.0.0.1', '10-0-0-1')]:
+        if cip not in b.get('default_ips', []):
+            ip_links.append(f'<a href="/ip/{cslug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{cip} Standard Hub &rarr;</a>')
+            if len(ip_links) >= 4:
+                break
+    ip_links.append('<a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>')
+
+    # 3. Peer Brands
+    PEER_BRANDS = [
+        ('netgear', 'Netgear'), ('tp-link', 'TP-Link'), ('asus', 'ASUS'),
+        ('linksys', 'Linksys'), ('cisco', 'Cisco'), ('d-link', 'D-Link'),
+        ('ubiquiti', 'Ubiquiti'), ('mikrotik', 'MikroTik')
+    ]
+    peer_links = []
+    for pslug, pname in PEER_BRANDS:
+        if pslug != bslug:
+            peer_links.append(f'<a href="/brands/{pslug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{pname} Routers &rarr;</a>')
+            if len(peer_links) >= 5:
+                break
+    peer_links.append('<a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">All Brands Directory &rarr;</a>')
+    peer_links.append('<a href="/routers/" class="btn btn-secondary" style="font-size: 0.85rem;">All Router Models &rarr;</a>')
+
+    return f"""
+      <!-- Related Guides, Gateway IPs & Peer Brands -->
+      <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            {bname} Setup &amp; Configuration Guides
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Complete how-to articles for accessing administration consoles, changing SSIDs, and recovering credentials:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(guide_links)}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Default Gateway Subnets for {bname}
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Explore dedicated gateway technical sheets and diagnostic consoles for {bname} routers:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(ip_links)}
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Other Leading Router Manufacturers
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(peer_links)}
+          </div>
+        </div>
+      </div>
+"""
+
+def build_isp_internal_links_html(isp_slug, default_ip, alt_ip=None):
+    guide_links = [
+        '<a href="/howto/access-my-router-settings-page/" class="btn btn-secondary" style="font-size: 0.85rem;">Access Router Settings &rarr;</a>',
+        '<a href="/howto/change-wifi-password/" class="btn btn-secondary" style="font-size: 0.85rem;">Change Wi-Fi Password &rarr;</a>',
+        '<a href="/howto/fiber-ont-bridge-mode-setup/" class="btn btn-secondary" style="font-size: 0.85rem;">Modem Bridge &amp; Passthrough &rarr;</a>',
+        '<a href="/howto/two-routers-access-point-mode/" class="btn btn-secondary" style="font-size: 0.85rem;">Connect 2nd Router (AP Mode) &rarr;</a>',
+        '<a href="/howto/30-second-hard-factory-reset/" class="btn btn-secondary" style="font-size: 0.85rem;">Factory Reset Procedure &rarr;</a>',
+        '<a href="/howto/change-router-dns/" class="btn btn-secondary" style="font-size: 0.85rem;">Change DNS Settings &rarr;</a>',
+    ]
+    if default_ip in ('192.168.1.1', '192.168.0.1'):
+        guide_links.append('<a href="/howto/why-is-192-168-1-1-not-working/" class="btn btn-secondary" style="font-size: 0.85rem;">Why 192.168.1.1 Fails &rarr;</a>')
+    if isp_slug == 'bt-smart-hub' or default_ip == '192.168.1.254':
+        guide_links.append('<a href="/howto/why-cant-i-access-my-bt-hub-manager/" class="btn btn-secondary" style="font-size: 0.85rem;">BT Hub Manager Fix &rarr;</a>')
+
+    ip_links = []
+    ip_slug = default_ip.replace('.', '-')
+    ip_links.append(f'<a href="/ip/{ip_slug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{default_ip} Gateway Hub &rarr;</a>')
+    if alt_ip and alt_ip != default_ip:
+        alt_slug = alt_ip.replace('.', '-')
+        ip_links.append(f'<a href="/ip/{alt_slug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{alt_ip} Alt Gateway &rarr;</a>')
+    for cip, cslug in [('192.168.1.1', '192-168-1-1'), ('192.168.0.1', '192-168-0-1'), ('10.0.0.1', '10-0-0-1')]:
+        if cip != default_ip and cip != alt_ip:
+            ip_links.append(f'<a href="/ip/{cslug}/" class="btn btn-secondary" style="font-size: 0.85rem;">{cip} Gateway &rarr;</a>')
+            if len(ip_links) >= 4:
+                break
+    ip_links.append('<a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>')
+
+    isp_links = [
+        '<a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>',
+        '<a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Gateway &rarr;</a>',
+        '<a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>',
+    ]
+
+    return f"""
+      <!-- Related Guides, Gateway IPs & ISP Portals -->
+      <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Step-by-Step Gateway Setup &amp; Troubleshooting Guides
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Guides for logging into administration panels, configuring Wi-Fi, enabling bridge mode, and hard resets:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(guide_links)}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Related Gateway IP Subnets
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(ip_links)}
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            ISP Portals &amp; Networking Utilities
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(isp_links)}
+          </div>
+        </div>
+      </div>
+"""
+
+def build_extender_internal_links_html(slug):
+    guide_links = [
+        '<a href="/howto/mesh-wifi-backhaul-optimization/" class="btn btn-secondary" style="font-size: 0.85rem;">Mesh Backhaul &amp; Node Placement &rarr;</a>',
+        '<a href="/howto/two-routers-access-point-mode/" class="btn btn-secondary" style="font-size: 0.85rem;">Connect Two Routers (AP Mode) &rarr;</a>',
+        '<a href="/howto/access-my-router-settings-page/" class="btn btn-secondary" style="font-size: 0.85rem;">How to Access Router Settings &rarr;</a>',
+        '<a href="/howto/30-second-hard-factory-reset/" class="btn btn-secondary" style="font-size: 0.85rem;">Hard Reset Procedure &rarr;</a>',
+        '<a href="/howto/change-wifi-password/" class="btn btn-secondary" style="font-size: 0.85rem;">Change Wi-Fi Password &rarr;</a>',
+    ]
+    ip_links = [
+        '<a href="/ip/192-168-1-250/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.250 Extender IP &rarr;</a>',
+        '<a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Main Router &rarr;</a>',
+        '<a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Alt Gateway &rarr;</a>',
+        '<a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>',
+    ]
+    other_ext = [
+        '<a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">NETGEAR mywifiext.net &rarr;</a>',
+        '<a href="/extenders/tplinkrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link Repeater Guide &rarr;</a>',
+        '<a href="/extenders/extender-linksys-com/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys Extender Setup &rarr;</a>',
+        '<a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">All Wi-Fi Extenders Hub &rarr;</a>',
+        '<a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Gateway &rarr;</a>',
+    ]
+
+    return f"""
+      <!-- Related Guides, Fallback IPs & Extender Hubs -->
+      <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Extender Setup &amp; Mesh Optimization Guides
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Detailed walk-throughs for Wi-Fi range extenders, access point configuration, and backhaul:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(guide_links)}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Related Extender &amp; Router Gateway IPs
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(ip_links)}
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Peer Extender Setup Portals &amp; Tools
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(other_ext)}
+          </div>
+        </div>
+      </div>
+"""
+
+def build_tool_internal_links_html(slug=""):
+    guide_links = [
+        '<a href="/howto/access-my-router-settings-page/" class="btn btn-secondary" style="font-size: 0.85rem;">Access Router Settings Page &rarr;</a>',
+        '<a href="/howto/change-wifi-password/" class="btn btn-secondary" style="font-size: 0.85rem;">Change Wi-Fi Password &rarr;</a>',
+        '<a href="/howto/30-second-hard-factory-reset/" class="btn btn-secondary" style="font-size: 0.85rem;">30-Second Hard Reset &rarr;</a>',
+        '<a href="/howto/change-router-dns/" class="btn btn-secondary" style="font-size: 0.85rem;">Change Router DNS &rarr;</a>',
+    ]
+    ip_links = [
+        '<a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Gateway Hub &rarr;</a>',
+        '<a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Hub &rarr;</a>',
+        '<a href="/ip/10-0-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">10.0.0.1 Gateway Hub &rarr;</a>',
+        '<a href="/ip/192-168-1-254/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.254 Gateway Hub &rarr;</a>',
+        '<a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>',
+    ]
+    brand_links = [
+        '<a href="/brands/netgear/" class="btn btn-secondary" style="font-size: 0.85rem;">Netgear Routers &rarr;</a>',
+        '<a href="/brands/tp-link/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link Routers &rarr;</a>',
+        '<a href="/brands/asus/" class="btn btn-secondary" style="font-size: 0.85rem;">ASUS Routers &rarr;</a>',
+        '<a href="/brands/linksys/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys Routers &rarr;</a>',
+        '<a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">All Brands Directory &rarr;</a>',
+    ]
+
+    all_tools = [
+        ("All Tools Suite", "/tools/"),
+        ("IP Address Checker", "/tools/ip-address-checker/"),
+        ("DNS Propagation", "/tools/dns-propagation/"),
+        ("Subnet Calculator", "/tools/subnet-calculator/"),
+        ("Wi-Fi QR Code", "/tools/wifi-qr-code/"),
+        ("Gateway Auto-Detector", "/tools/detect-gateway/"),
+        ("Password Generator", "/tools/router-password-generator/"),
+        ("Port Lookup", "/tools/port-checker/"),
+        ("CIDR Cheat-Sheet", "/tools/cidr-cheat-sheet/"),
+    ]
+    other_tools = [f'<a href="{url}" class="btn btn-secondary" style="font-size: 0.85rem;">{name} &rarr;</a>' for name, url in all_tools if not slug or slug not in url]
+
+    return f"""
+      <!-- Related Guides, Gateway Subnets & Tools -->
+      <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Step-by-Step Setup &amp; Troubleshooting Guides
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Helpful technical tutorials for router login, password recovery, and network setup:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(guide_links)}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Default Gateway Directories &amp; Subnets
+          </h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+            Access login sheets and diagnostic consoles for major private IP addresses:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(ip_links)}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Router Manufacturer Portals
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(brand_links)}
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+            Other Free Networking Tools
+          </h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            {"".join(other_tools)}
+          </div>
+        </div>
+      </div>
+"""
+
+
 def _sanitize_schema_node(node):
     if isinstance(node, dict):
         if "publisher" in node and isinstance(node["publisher"], dict):
@@ -1097,29 +1608,7 @@ def generate_custom_synology_rt2600ac_page(m):
       </div>
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/brands/synology/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            All Synology Routers &rarr;
-          </a>
-          <a href="/routers/synology-rt6600ax/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            Synology RT6600ax Guide &rarr;
-          </a>
-          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            192.168.1.1 Gateway Hub &rarr;
-          </a>
-          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            CIDR Subnet Calculator &rarr;
-          </a>
-          <a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            Wi-Fi QR Code Generator &rarr;
-          </a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            Password Generator &rarr;
-          </a>
-        </div>
-      </div>
+      {build_router_internal_links_html(m)}
     </div>
   </main>
 """
@@ -1703,26 +2192,7 @@ def generate_custom_synology_rt6600ax_page(m):
       </div>
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/brands/synology/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            All Synology Routers &rarr;
-          </a>
-          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            192.168.1.1 Gateway Hub &rarr;
-          </a>
-          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            CIDR Subnet Calculator &rarr;
-          </a>
-          <a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            Wi-Fi QR Code Generator &rarr;
-          </a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            Password Generator &rarr;
-          </a>
-        </div>
-      </div>
+      {build_router_internal_links_html(m)}
     </div>
   </main>
 """
@@ -2257,26 +2727,7 @@ def generate_custom_pldt_page(m):
       </div>
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/routers/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            All Router Models &rarr;
-          </a>
-          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            192.168.1.1 Gateway Hub &rarr;
-          </a>
-          <a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            Wi-Fi QR Code Generator &rarr;
-          </a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            Password Generator &rarr;
-          </a>
-          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            Subnet Calculator &rarr;
-          </a>
-        </div>
-      </div>
+      {build_router_internal_links_html(m)}
     </div>
   </main>
 """
@@ -2523,24 +2974,7 @@ def generate_router_model_pages():
 
       {get_byline_html()}
 
-      <!-- Related Guides & Tools -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/brands/{escape(m['brand_slug'])}/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            All {escape(m['brand'])} Routers &rarr;
-          </a>
-          <a href="/ip/{m['default_ip'].replace('.', '-')}/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            {escape(m['default_ip'])} Gateway Hub &rarr;
-          </a>
-          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            CIDR Subnet Calculator &rarr;
-          </a>
-          <a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">
-            Wi-Fi QR Code Generator &rarr;
-          </a>
-        </div>
-      </div>
+{build_router_internal_links_html(m)}
     </div>
   </main>
 """
@@ -3178,16 +3612,7 @@ def generate_custom_xfinity_xfi_page(isp):
       </div>
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/10-0-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">10.0.0.1 Gateway Guide &rarr;</a>
-          <a href="/brands/xfinity/" class="btn btn-secondary" style="font-size: 0.85rem;">Xfinity Hardware Brand Hub &rarr;</a>
-          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
-        </div>
-      </div>
+      {build_isp_internal_links_html('xfinity-xfi', '10.0.0.1', '192.168.1.1')}
     </div>
   </main>
 """
@@ -3694,16 +4119,7 @@ def generate_custom_att_bgw320_page(isp):
       </div>
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/192-168-1-254/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.254 Gateway Guide &rarr;</a>
-          <a href="/routers/arris-bgw210-700/" class="btn btn-secondary" style="font-size: 0.85rem;">Arris BGW210-700 Guide &rarr;</a>
-          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
-        </div>
-      </div>
+      {build_isp_internal_links_html('att-bgw320', '192.168.1.254', '192.168.1.1')}
     </div>
   </main>
 """
@@ -4326,17 +4742,7 @@ def generate_custom_verizon_cr1000a_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Gateway Guide &rarr;</a>
-          <a href="/isp/att-bgw320/" class="btn btn-secondary" style="font-size: 0.85rem;">AT&amp;T BGW320 Gateway &rarr;</a>
-          <a href="/isp/xfinity-xfi/" class="btn btn-secondary" style="font-size: 0.85rem;">Xfinity xFi Gateway &rarr;</a>
-          <a href="/isp/spectrum-sac2v1k/" class="btn btn-secondary" style="font-size: 0.85rem;">Spectrum Wi-Fi 6 Router &rarr;</a>
-          <a href="/isp/t-mobile-kvd21/" class="btn btn-secondary" style="font-size: 0.85rem;">T-Mobile 5G Gateway &rarr;</a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
-        </div>
-      </div>
+      {build_isp_internal_links_html('verizon-cr1000a', '192.168.1.1', '192.168.0.1')}
     </div>
   </main>
 """
@@ -4875,16 +5281,7 @@ def generate_custom_telstra_smart_modem_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Guide &rarr;</a>
-          <a href="/ip/10-0-0-138/" class="btn btn-secondary" style="font-size: 0.85rem;">10.0.0.138 (Legacy Telstra) &rarr;</a>
-          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
-        </div>
-      </div>
+      {build_isp_internal_links_html('telstra-smart-modem', '192.168.0.1', '10.0.0.138')}
     </div>
   </main>
 """
@@ -5403,16 +5800,7 @@ def generate_custom_sky_broadband_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Guide &rarr;</a>
-          <a href="/isp/bt-smart-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">BT Smart Hub Guide &rarr;</a>
-          <a href="/isp/virgin-media-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">Virgin Media Hub &rarr;</a>
-          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
-        </div>
-      </div>
+      {build_isp_internal_links_html('sky-broadband', '192.168.0.1', '192.168.1.1')}
     </div>
   </main>
 """
@@ -5903,16 +6291,7 @@ def generate_custom_virgin_media_hub_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Guide &rarr;</a>
-          <a href="/ip/192-168-100-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.100.1 (Modem Mode) &rarr;</a>
-          <a href="/isp/sky-broadband/" class="btn btn-secondary" style="font-size: 0.85rem;">Sky Broadband Hub &rarr;</a>
-          <a href="/isp/bt-smart-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">BT Smart Hub Guide &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
-        </div>
-      </div>
+      {build_isp_internal_links_html('virgin-media-hub', '192.168.0.1', '192.168.100.1')}
     </div>
   </main>
 """
@@ -6494,16 +6873,7 @@ def generate_custom_bt_smart_hub_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/192-168-1-254/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.254 Gateway Guide &rarr;</a>
-          <a href="/isp/sky-broadband/" class="btn btn-secondary" style="font-size: 0.85rem;">Sky Broadband Hub &rarr;</a>
-          <a href="/isp/virgin-media-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">Virgin Media Hub &rarr;</a>
-          <a href="/isp/" class="btn btn-secondary" style="font-size: 0.85rem;">All ISP Gateway Portals &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Detect My Gateway IP &rarr;</a>
-        </div>
-      </div>
+      {build_isp_internal_links_html('bt-smart-hub', '192.168.1.254', '192.168.1.1')}
     </div>
   </main>
 """
@@ -6976,17 +7346,7 @@ def generate_custom_centurylink_c4000_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway Guide &rarr;</a>
-          <a href="/isp/telstra-smart-modem/" class="btn btn-secondary" style="font-size: 0.85rem;">Telstra Smart Modem &rarr;</a>
-          <a href="/isp/sky-broadband/" class="btn btn-secondary" style="font-size: 0.85rem;">Sky Broadband Hub &rarr;</a>
-          <a href="/isp/virgin-media-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">Virgin Media Hub &rarr;</a>
-          <a href="/isp/bt-smart-hub/" class="btn btn-secondary" style="font-size: 0.85rem;">BT Smart Hub &rarr;</a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
-        </div>
-      </div>
+      {build_isp_internal_links_html('centurylink-c4000', '192.168.0.1', '192.168.1.1')}
     </div>
   </main>
 """
@@ -7491,17 +7851,7 @@ def generate_custom_tmobile_kvd21_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/192-168-12-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.12.1 Gateway Guide &rarr;</a>
-          <a href="/isp/verizon-cr1000a/" class="btn btn-secondary" style="font-size: 0.85rem;">Verizon Fios Gateway &rarr;</a>
-          <a href="/isp/att-bgw320/" class="btn btn-secondary" style="font-size: 0.85rem;">AT&amp;T BGW320 Gateway &rarr;</a>
-          <a href="/isp/xfinity-xfi/" class="btn btn-secondary" style="font-size: 0.85rem;">Xfinity xFi Gateway &rarr;</a>
-          <a href="/isp/centurylink-c4000/" class="btn btn-secondary" style="font-size: 0.85rem;">CenturyLink C4000 &rarr;</a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
-        </div>
-      </div>
+      {build_isp_internal_links_html('t-mobile-kvd21', '192.168.12.1', '192.168.1.1')}
     </div>
   </main>
 """
@@ -8125,17 +8475,7 @@ def generate_custom_spectrum_sac2v1k_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Guides &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Gateway Guide &rarr;</a>
-          <a href="/isp/xfinity-xfi/" class="btn btn-secondary" style="font-size: 0.85rem;">Xfinity xFi Gateway &rarr;</a>
-          <a href="/isp/att-bgw320/" class="btn btn-secondary" style="font-size: 0.85rem;">AT&amp;T BGW320 Gateway &rarr;</a>
-          <a href="/isp/verizon-cr1000a/" class="btn btn-secondary" style="font-size: 0.85rem;">Verizon Fios Gateway &rarr;</a>
-          <a href="/isp/t-mobile-kvd21/" class="btn btn-secondary" style="font-size: 0.85rem;">T-Mobile 5G Gateway &rarr;</a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
-        </div>
-      </div>
+      {build_isp_internal_links_html('spectrum-sac2v1k', '192.168.1.1', '192.168.0.1')}
     </div>
   </main>
 """
@@ -8555,15 +8895,7 @@ def generate_brand_pages():
         </div>
       </div>
 
-      <!-- Related Directories & Tools -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Directories &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/brands/" class="btn btn-secondary" style="font-size: 0.85rem;">All Brands Directory &rarr;</a>
-          <a href="/routers/" class="btn btn-secondary" style="font-size: 0.85rem;">All Router Models &rarr;</a>
-          <a href="/ip/{b['default_ips'][0].replace('.', '-')}/" class="btn btn-secondary" style="font-size: 0.85rem;">{escape(b['default_ips'][0])} Gateway Hub &rarr;</a>
-        </div>
-      </div>
+{build_brand_internal_links_html(b)}
     </div>
   </main>
 """
@@ -9951,15 +10283,7 @@ def generate_custom_10_10_10_1_page():
       {byline_html}
 
       <!-- Cross Silo Links -->
-      <section style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h2>Explore Other Gateway IPs &amp; Tools</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
-          <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
-          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
-          <a href="/find-router-ip/" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
-        </div>
-      </section>
+      {build_ip_internal_links_html('10.10.10.1')}
 
     </div>
   </main>
@@ -10542,15 +10866,7 @@ def generate_custom_10_0_0_1_page():
       {byline_html}
 
       <!-- Cross Silo Links -->
-      <section style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h2>Explore Other Gateway IPs &amp; Tools</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
-          <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
-          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
-          <a href="/find-router-ip/" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
-        </div>
-      </section>
+      {build_ip_internal_links_html('10.0.0.1')}
 
     </div>
   </main>
@@ -11121,16 +11437,7 @@ def generate_ip_pages():
 
       {get_byline_html()}
 
-      <!-- Cross Silo Links -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Explore Other Gateway IPs &amp; Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/" class="btn btn-secondary" style="font-size: 0.85rem;">All Gateway IPs &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
-          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
-          <a href="/find-router-ip/" class="btn btn-secondary" style="font-size: 0.85rem;">Find My IP (OS Commands) &rarr;</a>
-        </div>
-      </div>
+{build_ip_internal_links_html(ip)}
     </div>
   </main>
 """
@@ -12310,15 +12617,7 @@ def generate_extender_pages():
 
       {get_byline_html()}
 
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/ip/192-168-1-250/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.250 IP Hub &rarr;</a>
-          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">All Wi-Fi Extenders &rarr;</a>
-          <a href="/brands/netgear/" class="btn btn-secondary" style="font-size: 0.85rem;">Netgear Brand Hub &rarr;</a>
-          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Gateway &rarr;</a>
-        </div>
-      </div>
+      {build_extender_internal_links_html(slug)}
     </div>
   </main>
 """
@@ -12776,15 +13075,7 @@ def generate_extender_pages():
 
       {get_byline_html()}
 
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">NETGEAR mywifiext.net Guide &rarr;</a>
-          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">All Wi-Fi Extenders &rarr;</a>
-          <a href="/brands/tp-link/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link Brand Hub &rarr;</a>
-          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway &rarr;</a>
-        </div>
-      </div>
+      {build_extender_internal_links_html(slug)}
     </div>
   </main>
 """
@@ -13277,16 +13568,7 @@ def generate_extender_pages():
 
       {get_byline_html()}
 
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">NETGEAR mywifiext.net Guide &rarr;</a>
-          <a href="/extenders/tplinkrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link tplinkrepeater.net Guide &rarr;</a>
-          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">All Wi-Fi Extenders &rarr;</a>
-          <a href="/brands/linksys/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys Brand Hub &rarr;</a>
-          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Gateway &rarr;</a>
-        </div>
-      </div>
+      {build_extender_internal_links_html(slug)}
     </div>
   </main>
 """
@@ -13824,17 +14106,7 @@ def generate_extender_pages():
 
       {get_byline_html()}
 
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">NETGEAR mywifiext.net Guide &rarr;</a>
-          <a href="/extenders/tplinkrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link tplinkrepeater.net Guide &rarr;</a>
-          <a href="/extenders/extender-linksys-com/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys extender.linksys.com Guide &rarr;</a>
-          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">All Wi-Fi Extenders &rarr;</a>
-          <a href="/brands/d-link/" class="btn btn-secondary" style="font-size: 0.85rem;">D-Link Brand Hub &rarr;</a>
-          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Gateway &rarr;</a>
-        </div>
-      </div>
+      {build_extender_internal_links_html(slug)}
     </div>
   </main>
 """
@@ -14361,17 +14633,7 @@ def generate_extender_pages():
 
       {get_byline_html()}
 
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">NETGEAR mywifiext.net Guide &rarr;</a>
-          <a href="/extenders/tplinkrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link tplinkrepeater.net Guide &rarr;</a>
-          <a href="/extenders/extender-linksys-com/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys extender.linksys.com Guide &rarr;</a>
-          <a href="/extenders/dlinkap-local/" class="btn btn-secondary" style="font-size: 0.85rem;">D-Link dlinkap.local Guide &rarr;</a>
-          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">All Wi-Fi Extenders &rarr;</a>
-          <a href="/ip/192-168-1-254/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.254 Gateway &rarr;</a>
-        </div>
-      </div>
+      {build_extender_internal_links_html(slug)}
     </div>
   </main>
 """
@@ -14915,18 +15177,7 @@ def generate_extender_pages():
 
       {get_byline_html()}
 
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">NETGEAR mywifiext.net Guide &rarr;</a>
-          <a href="/extenders/tplinkrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link tplinkrepeater.net Guide &rarr;</a>
-          <a href="/extenders/extender-linksys-com/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys extender.linksys.com Guide &rarr;</a>
-          <a href="/extenders/dlinkap-local/" class="btn btn-secondary" style="font-size: 0.85rem;">D-Link dlinkap.local Guide &rarr;</a>
-          <a href="/extenders/myrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">Wireless-N myrepeater.net Guide &rarr;</a>
-          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">All Wi-Fi Extenders &rarr;</a>
-          <a href="/ip/192-168-10-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.10.1 Gateway &rarr;</a>
-        </div>
-      </div>
+      {build_extender_internal_links_html(slug)}
     </div>
   </main>
 """
@@ -15440,18 +15691,7 @@ def generate_extender_pages():
 
       {get_byline_html()}
 
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">NETGEAR mywifiext.net Guide &rarr;</a>
-          <a href="/extenders/tplinkrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link tplinkrepeater.net Guide &rarr;</a>
-          <a href="/extenders/extender-linksys-com/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys extender.linksys.com Guide &rarr;</a>
-          <a href="/extenders/dlinkap-local/" class="btn btn-secondary" style="font-size: 0.85rem;">D-Link dlinkap.local Guide &rarr;</a>
-          <a href="/extenders/myrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">Wireless-N myrepeater.net Guide &rarr;</a>
-          <a href="/extenders/ap-setup/" class="btn btn-secondary" style="font-size: 0.85rem;">Wavlink ap.setup Guide &rarr;</a>
-          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">All Wi-Fi Extenders &rarr;</a>
-        </div>
-      </div>
+      {build_extender_internal_links_html(slug)}
     </div>
   </main>
 """
@@ -15947,19 +16187,7 @@ def generate_extender_pages():
 
       {get_byline_html()}
 
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">NETGEAR mywifiext.net Guide &rarr;</a>
-          <a href="/extenders/tplinkrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link tplinkrepeater.net Guide &rarr;</a>
-          <a href="/extenders/extender-linksys-com/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys extender.linksys.com Guide &rarr;</a>
-          <a href="/extenders/dlinkap-local/" class="btn btn-secondary" style="font-size: 0.85rem;">D-Link dlinkap.local Guide &rarr;</a>
-          <a href="/extenders/myrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">Wireless-N myrepeater.net Guide &rarr;</a>
-          <a href="/extenders/ap-setup/" class="btn btn-secondary" style="font-size: 0.85rem;">Wavlink ap.setup Guide &rarr;</a>
-          <a href="/extenders/topvision-extender/" class="btn btn-secondary" style="font-size: 0.85rem;">Topvision Guide &rarr;</a>
-          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">All Wi-Fi Extenders &rarr;</a>
-        </div>
-      </div>
+      {build_extender_internal_links_html(slug)}
     </div>
   </main>
 """
@@ -16455,20 +16683,7 @@ def generate_extender_pages():
 
       {get_byline_html()}
 
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway IPs &amp; Extender Hubs</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">NETGEAR mywifiext.net Guide &rarr;</a>
-          <a href="/extenders/tplinkrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">TP-Link tplinkrepeater.net Guide &rarr;</a>
-          <a href="/extenders/extender-linksys-com/" class="btn btn-secondary" style="font-size: 0.85rem;">Linksys extender.linksys.com Guide &rarr;</a>
-          <a href="/extenders/dlinkap-local/" class="btn btn-secondary" style="font-size: 0.85rem;">D-Link dlinkap.local Guide &rarr;</a>
-          <a href="/extenders/myrepeater-net/" class="btn btn-secondary" style="font-size: 0.85rem;">Wireless-N myrepeater.net Guide &rarr;</a>
-          <a href="/extenders/ap-setup/" class="btn btn-secondary" style="font-size: 0.85rem;">Wavlink ap.setup Guide &rarr;</a>
-          <a href="/extenders/topvision-extender/" class="btn btn-secondary" style="font-size: 0.85rem;">Topvision Guide &rarr;</a>
-          <a href="/extenders/sewot-sw-01/" class="btn btn-secondary" style="font-size: 0.85rem;">SEWOT SW-01 Guide &rarr;</a>
-          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">All Wi-Fi Extenders &rarr;</a>
-        </div>
-      </div>
+      {build_extender_internal_links_html(slug)}
     </div>
   </main>
 """
@@ -17593,21 +17808,7 @@ def generate_tool_pages():
       <!-- Detailed SEO Guides and Reference Documentation -->
       {tool_editorial}
 
-      <!-- Related Network Utilities -->
-      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
-        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Explore Other Tools</h3>
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-          <a href="/tools/" class="btn btn-secondary" style="font-size: 0.85rem;">All Tools Suite &rarr;</a>
-          <a href="/tools/ip-address-checker/" class="btn btn-secondary" style="font-size: 0.85rem;">IP Address Checker &rarr;</a>
-          <a href="/tools/dns-propagation/" class="btn btn-secondary" style="font-size: 0.85rem;">DNS Propagation &rarr;</a>
-          <a href="/tools/subnet-calculator/" class="btn btn-secondary" style="font-size: 0.85rem;">Subnet Calculator &rarr;</a>
-          <a href="/tools/wifi-qr-code/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi QR Code &rarr;</a>
-          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Gateway Auto-Detector &rarr;</a>
-          <a href="/tools/router-password-generator/" class="btn btn-secondary" style="font-size: 0.85rem;">Password Generator &rarr;</a>
-          <a href="/tools/port-checker/" class="btn btn-secondary" style="font-size: 0.85rem;">Port Lookup &rarr;</a>
-          <a href="/tools/cidr-cheat-sheet/" class="btn btn-secondary" style="font-size: 0.85rem;">CIDR Cheat-Sheet &rarr;</a>
-        </div>
-      </div>
+{build_tool_internal_links_html(slug)}
     </div>
   </main>
 """
