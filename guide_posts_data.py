@@ -3573,8 +3573,8 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
       </div>
 
       <figure class="guide-figure">
-        <img src="/images/howto/spectrum-router-led-lights-diagnostic-chart.webp" width="1200" height="675" loading="lazy" alt="Diagnostic status guide chart comparing Spectrum router LED lights including solid blue, blinking blue, blinking red, and solid red">
-        <figcaption>Status Overview: Spectrum router and modem LED states compared &mdash; solid blue, blinking blue, blinking red, and solid red indicator cards.</figcaption>
+        <img src="/images/howto/spectrum-router-led-lights-diagnostic-chart.gif" width="1200" height="675" loading="lazy" alt="Animated status guide showing blinking red, blinking blue, solid blue, solid red, and alternating LED lights on Spectrum routers and modems">
+        <figcaption>Animated Status Guide: Real-time visual comparison of Spectrum router and modem LED behaviors &mdash; solid blue, blinking blue, blinking red, solid red, and alternating firmware updates.</figcaption>
       </figure>
 
       <h2>What the Red Light Means</h2>
