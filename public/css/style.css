@@ -485,6 +485,39 @@ table.data-table code,table.table code{font-size:0.875rem;padding:0.18rem 0.45re
 .footer-trust-bar a:hover {
   color: var(--text-accent);
 }
+.footer-trust-bar a.footer-trustpilot-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 500;
+}
+.footer-trust-bar a.footer-trustpilot-link:hover {
+  color: #00b67a;
+}
+.footer-trustpilot-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.75rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.825rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  margin-top: 1rem;
+}
+.footer-trustpilot-badge:hover {
+  border-color: #00b67a;
+  background-color: var(--bg-card-hover);
+  color: var(--text-primary);
+  box-shadow: 0 1px 4px rgba(0, 182, 122, 0.15);
+}
+.footer-trustpilot-badge strong {
+  font-weight: 700;
+  color: #00b67a;
+}
 
 /* Interactive Tool & Developer Dataset Cards */
 .tool-card {

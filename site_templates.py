@@ -19,7 +19,10 @@ ORG_PUBLISHER = {
     "@type": "Organization",
     "name": "RouterIPHub",
     "url": "https://routeriphub.com/",
-    "logo": LOGO_SCHEMA
+    "logo": LOGO_SCHEMA,
+    "sameAs": [
+        "https://www.trustpilot.com/review/routeriphub.com"
+    ]
 }
 
 # Lightweight inline SVG reproduction (<1.4 KB) matching custom RouterIPHub brand identity
