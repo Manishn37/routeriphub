@@ -1120,3 +1120,601 @@ table.data-table code,table.table code{font-size:0.875rem;padding:0.18rem 0.45re
 }
 
 
+
+
+/* ==========================================================================
+   NETGEAR Setup Simulator - Authentic Brand Styling & Responsive Cards
+   ========================================================================== */
+.ext-wizard-modal-container.netgear-theme {
+  background: #0f1322;
+  border: 1px solid #1e2640;
+  border-top: 4px solid #6366f1;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.7), 0 0 40px rgba(99, 102, 241, 0.15);
+}
+.netgear-theme .ext-wizard-header {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #1e2640;
+}
+.netgear-theme .ext-wizard-badge {
+  background: rgba(99, 102, 241, 0.15);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.netgear-theme .ext-wizard-close-btn {
+  background: #1e2640;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+}
+.netgear-theme .ext-wizard-close-btn:hover {
+  background: #6366f1;
+  color: #ffffff;
+}
+.netgear-theme .ext-wizard-progress-track {
+  background: #1e2640;
+}
+.netgear-theme .ext-wizard-progress-fill {
+  background: linear-gradient(90deg, #6366f1, #818cf8, #10b981);
+}
+.netgear-theme .ext-wizard-pill {
+  background: #151b2e;
+  border: 1px solid #1e2640;
+  color: #94a3b8;
+}
+.netgear-theme .ext-wizard-pill:hover {
+  background: #1c243c;
+  color: #f1f5f9;
+}
+.netgear-theme .ext-wizard-pill.is-active {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  border-color: #818cf8;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+}
+.netgear-theme .ext-wizard-pill.is-done {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+/* Stage & Scenes */
+.netgear-theme .ext-wizard-stage {
+  background: #13182a;
+  border: 1px solid #1e2640;
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  min-height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ext-scene-card {
+  width: 100%;
+}
+.ext-scene-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+@media (max-width: 680px) {
+  .ext-scene-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+.ext-scene-media-wrap {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid #2d3748;
+}
+.ext-scene-img {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.ext-img-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.ext-badge-green {
+  background: rgba(6, 78, 59, 0.9);
+  color: #6ee7b7;
+  border: 1px solid #059669;
+}
+.ext-badge-indigo {
+  background: rgba(30, 27, 75, 0.9);
+  color: #c7d2fe;
+  border: 1px solid #6366f1;
+}
+.ext-led-dot-green {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  display: inline-block;
+  animation: ledPulse 1.5s infinite;
+}
+.ext-led-dot-amber {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  display: inline-block;
+}
+.ext-led-dot-red {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 0 8px #ef4444;
+  display: inline-block;
+}
+@keyframes ledPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Checklists & Details */
+.ext-scene-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.ext-chk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: #1a2035;
+  border: 1px solid #2a3454;
+  border-radius: 6px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8rem;
+  color: #e2e8f0;
+}
+.ext-chk-icon {
+  color: #10b981;
+  font-weight: 800;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+.ext-chk-warn {
+  border-color: #d97706;
+  background: rgba(217, 119, 6, 0.1);
+}
+.ext-chk-warn .ext-chk-icon {
+  color: #f59e0b;
+}
+
+/* Wi-Fi List Mockup */
+.ext-wifi-list-card {
+  background: #1a2035;
+  border: 1px solid #2a3454;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+.ext-wifi-header {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.ext-wifi-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.65rem;
+  border-radius: 6px;
+  margin-bottom: 0.35rem;
+  font-size: 0.82rem;
+}
+.ext-wifi-item.is-selected {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  color: #ffffff;
+}
+.ext-wifi-item.is-muted {
+  background: #121727;
+  color: #64748b;
+  border: 1px solid #1e2640;
+}
+.ext-wifi-badge {
+  display: block;
+  font-size: 0.68rem;
+  color: #6ee7b7;
+  font-weight: 500;
+}
+.ext-wifi-check {
+  color: #10b981;
+  font-weight: 800;
+}
+.ext-alert-card {
+  background: rgba(217, 119, 6, 0.12);
+  border: 1px solid rgba(217, 119, 6, 0.4);
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 0.8rem;
+  color: #fde68a;
+}
+.ext-alert-title {
+  color: #fbbf24;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+.ext-alert-card p {
+  margin: 0;
+  line-height: 1.4;
+}
+.ext-scene-subnote {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+  background: #1a2035;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #2a3454;
+}
+
+/* Browser Window Mockup */
+.ext-browser-window {
+  background: #1a2035;
+  border: 1px solid #2a3454;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.ext-browser-titlebar {
+  background: #121727;
+  padding: 0.4rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid #2a3454;
+}
+.ext-browser-dots {
+  display: flex;
+  gap: 0.35rem;
+}
+.ext-browser-dots .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
+.ext-browser-title {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+.ext-browser-urlbar-wrap {
+  display: flex;
+  align-items: center;
+  background: #0f1322;
+  border: 1px solid #6366f1;
+  border-radius: 6px;
+  margin: 0.65rem 0.75rem;
+  padding: 0.4rem 0.65rem;
+  gap: 0.5rem;
+}
+.ext-url-lock {
+  color: #6366f1;
+}
+.ext-url-text {
+  font-family: Consolas, monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  flex: 1;
+}
+.ext-url-enter-btn {
+  background: #6366f1;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+.ext-browser-content {
+  padding: 0 0.75rem 0.75rem;
+}
+.ext-url-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+.ext-url-pill {
+  background: #121727;
+  border: 1px solid #2a3454;
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+}
+.ext-url-pill code {
+  color: #a5b4fc;
+  font-weight: 700;
+}
+.ext-url-caution {
+  font-size: 0.75rem;
+  color: #f59e0b;
+  margin: 0;
+}
+
+/* Assistant UI Card */
+.ext-login-card {
+  background: #1a2035;
+  border: 1px solid #2a3454;
+  border-radius: 8px;
+  padding: 0.75rem;
+  color: #e2e8f0;
+}
+.ext-login-hdr {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  margin-bottom: 0.35rem;
+}
+.ext-btn-setup-highlight {
+  display: inline-block;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  margin-bottom: 0.35rem;
+  letter-spacing: 0.03em;
+}
+.ext-login-option small {
+  display: block;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  line-height: 1.35;
+}
+.ext-creds-preview {
+  font-size: 0.82rem;
+  font-family: Consolas, monospace;
+  background: #0f1322;
+  padding: 0.35rem 0.55rem;
+  border-radius: 4px;
+  border: 1px solid #2a3454;
+}
+.ext-creds-preview code {
+  color: #38bdf8;
+}
+
+/* Pair Box */
+.ext-pair-box {
+  background: #1a2035;
+  border: 1px solid #2a3454;
+  border-radius: 8px;
+  padding: 0.85rem;
+}
+.ext-pair-header {
+  font-size: 0.85rem;
+  color: #ffffff;
+  margin-bottom: 0.65rem;
+}
+.ext-pair-band-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.ext-band-card {
+  background: #121727;
+  border: 1px solid #2a3454;
+  border-radius: 6px;
+  padding: 0.55rem;
+}
+.ext-band-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+.ext-band-badge {
+  font-size: 0.65rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+}
+.ext-badge-blue {
+  background: rgba(56, 189, 248, 0.2);
+  color: #7dd3fc;
+}
+.ext-band-ssid {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #10b981;
+}
+.ext-band-pwd {
+  font-size: 0.72rem;
+  color: #64748b;
+  margin-top: 0.2rem;
+}
+.ext-pair-status-bar {
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  border-radius: 6px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.78rem;
+  color: #c7d2fe;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ext-pair-ext-names {
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+.ext-pair-ext-names code {
+  color: #818cf8;
+}
+
+/* Placement Diagram */
+.ext-placement-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: #1a2035;
+  border: 1px solid #2a3454;
+  border-radius: 8px;
+  padding: 0.85rem;
+  margin-bottom: 0.65rem;
+}
+.ext-zone-item {
+  flex: 1;
+  text-align: center;
+}
+.ext-zone-box {
+  background: #121727;
+  border: 1px solid #2a3454;
+  border-radius: 6px;
+  padding: 0.55rem 0.4rem;
+  position: relative;
+}
+.ext-zone-box.is-sweetspot {
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px dashed #10b981;
+}
+.ext-zone-badge {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.ext-zone-icon {
+  margin-bottom: 0.25rem;
+  color: #94a3b8;
+}
+.ext-zone-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+.ext-zone-signal {
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-top: 0.15rem;
+}
+.ext-text-green {
+  color: #10b981 !important;
+  font-weight: 700;
+}
+.ext-zone-arrow {
+  color: #6366f1;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+.ext-zone-label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-top: 0.35rem;
+}
+.ext-led-status-matrix {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.ext-status-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.ext-pill-green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid #10b981;
+}
+.ext-pill-amber {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fcd34d;
+  border: 1px solid #f59e0b;
+}
+.ext-pill-red {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid #ef4444;
+}
+
+/* Side Panel Netgear Overrides */
+.netgear-theme .ext-wizard-side-panel {
+  background: #13182a;
+  border: 1px solid #1e2640;
+}
+.netgear-theme .ext-wizard-step-label {
+  color: #818cf8;
+}
+.netgear-theme .ext-wizard-step-title {
+  color: #ffffff;
+}
+.netgear-theme .ext-wizard-step-desc {
+  color: #cbd5e1;
+}
+.netgear-theme .ext-wizard-step-tip {
+  background: rgba(99, 102, 241, 0.12);
+  border-left-color: #6366f1;
+  color: #e2e8f0;
+}
+.netgear-theme .ext-wizard-controls {
+  border-top-color: #1e2640;
+}
+.netgear-theme .btn-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  border-color: #818cf8;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+.netgear-theme .btn-secondary {
+  background: #1a2035;
+  border-color: #2a3454;
+  color: #cbd5e1;
+}
+.netgear-theme .btn-secondary:hover:not(:disabled) {
+  background: #232c48;
+  color: #ffffff;
+}
