@@ -10889,6 +10889,547 @@ def generate_custom_10_0_0_1_page():
     full_html = get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
     return full_html
 
+
+def get_mywifiext_setup_wizard_modal_html():
+    return """<div id="mywifiext-setup-wizard" class="ext-wizard-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="ext-wizard-modal-title" aria-hidden="true" style="display: none;">
+        <div class="ext-wizard-modal-container">
+          <div class="ext-wizard-header">
+            <div>
+              <span class="ext-wizard-badge">Interactive Setup Simulator</span>
+              <h3 id="ext-wizard-modal-title" style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0.4rem 0 0 0;">
+                Netgear Extender SETUP Simulator- Mywifiext.net
+              </h3>
+            </div>
+            <div class="ext-wizard-header-actions">
+              <span class="ext-wizard-subflow">Plug in &rarr; Connect &rarr; Pair &rarr; Finish</span>
+              <button type="button" id="wizard-close-btn" class="ext-wizard-close-btn" aria-label="Close setup simulator popup" title="Close (Esc)">&times;</button>
+            </div>
+          </div>
+
+        <div class="ext-wizard-progress-track" aria-hidden="true">
+          <div id="ext-wizard-progress-fill" class="ext-wizard-progress-fill"></div>
+        </div>
+
+        <div class="ext-wizard-pills" role="tablist" aria-label="Setup Steps">
+          <button type="button" class="ext-wizard-pill is-active" data-step-btn="1"><span class="ext-wizard-pill-num">Step 1</span><span>Plug In</span></button>
+          <button type="button" class="ext-wizard-pill" data-step-btn="2"><span class="ext-wizard-pill-num">Step 2</span><span>Connect Wi-Fi</span></button>
+          <button type="button" class="ext-wizard-pill" data-step-btn="3"><span class="ext-wizard-pill-num">Step 3</span><span>Open URL</span></button>
+          <button type="button" class="ext-wizard-pill" data-step-btn="4"><span class="ext-wizard-pill-num">Step 4</span><span>Sign In</span></button>
+          <button type="button" class="ext-wizard-pill" data-step-btn="5"><span class="ext-wizard-pill-num">Step 5</span><span>Link Router</span></button>
+          <button type="button" class="ext-wizard-pill" data-step-btn="6"><span class="ext-wizard-pill-num">Step 6</span><span>Move &amp; Done</span></button>
+        </div>
+
+        <div class="ext-wizard-content-grid">
+          <div id="ext-wizard-stage" class="ext-wizard-stage" data-step="1">
+            <svg class="ext-wizard-svg" viewBox="0 0 760 280" role="img" aria-label="Animated visual diagram of the current NETGEAR extender setup step">
+            <!-- Scene 1: Plug extender into wall outlet -->
+            <g class="ext-wizard-scene ext-scene-1">
+              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 1: Plug Extender Into Outlet in Same Room as Main Router</text>
+              <!-- Wall outlet plate -->
+              <rect x="115" y="96" width="84" height="114" rx="10" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+              <circle cx="157" cy="134" r="14" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+              <rect x="150" y="128" width="4" height="12" rx="1" fill="#475569"/>
+              <rect x="160" y="128" width="4" height="12" rx="1" fill="#475569"/>
+              <rect x="142" y="170" width="30" height="22" rx="4" fill="#cbd5e1"/>
+              <!-- Animated sliding NETGEAR extender + plug -->
+              <g class="anim-plug-slide">
+                <rect x="180" y="124" width="22" height="8" rx="2" fill="#475569"/>
+                <rect x="180" y="138" width="22" height="8" rx="2" fill="#475569"/>
+                <rect x="202" y="88" width="110" height="124" rx="14" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+                <line x1="224" y1="88" x2="224" y2="62" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+                <line x1="290" y1="88" x2="290" y2="62" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+                <text x="257" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#0284c7">NETGEAR</text>
+                <circle cx="257" cy="160" r="16" fill="#dcfce7" class="anim-pulse-halo"/>
+                <circle cx="257" cy="160" r="8" class="anim-led-green"/>
+                <text x="257" y="192" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">Power LED</text>
+              </g>
+              <!-- Dashed proximity guide to Main Router -->
+              <line x1="340" y1="150" x2="500" y2="150" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 6"/>
+              <rect x="378" y="132" width="84" height="22" rx="11" fill="#e0f2fe"/>
+              <text x="420" y="147" text-anchor="middle" font-size="11" font-weight="700" fill="#0369a1">Same Room</text>
+              <!-- Main Router -->
+              <rect x="520" y="126" width="136" height="62" rx="10" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+              <line x1="548" y1="126" x2="542" y2="82" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+              <line x1="628" y1="126" x2="634" y2="82" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="550" cy="157" r="4" fill="#38bdf8"/>
+              <circle cx="570" cy="157" r="4" fill="#22c55e"/>
+              <circle cx="590" cy="157" r="4" fill="#38bdf8"/>
+              <text x="588" y="212" text-anchor="middle" font-size="13" font-weight="700" fill="#334155">Main Wi-Fi Router</text>
+            </g>
+
+            <!-- Scene 2: Connect directly to NETGEAR_EXT & turn off mobile data -->
+            <g class="ext-wizard-scene ext-scene-2" style="display: none;">
+              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 2: Connect Device to NETGEAR_EXT (Mobile Data OFF)</text>
+              <!-- Phone / Laptop card -->
+              <rect x="90" y="84" width="210" height="145" rx="12" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+              <rect x="108" y="102" width="174" height="34" rx="8" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+              <text x="195" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">Wi-Fi: NETGEAR_EXT</text>
+              <rect x="108" y="148" width="174" height="32" rx="8" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5"/>
+              <text x="195" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">Mobile Data: OFF</text>
+              <text x="195" y="212" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">Phone, Laptop, or LAN Cable</text>
+              <!-- Animated Wi-Fi link & waves -->
+              <line x1="312" y1="154" x2="495" y2="154" stroke="#0284c7" stroke-width="4" class="anim-packet-flow"/>
+              <path d="M405,126 A40,40 0 0,1 405,182" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" class="anim-wave-1"/>
+              <path d="M424,114 A56,56 0 0,1 424,194" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" class="anim-wave-2"/>
+              <path d="M443,102 A72,72 0 0,1 443,206" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" class="anim-wave-3"/>
+              <!-- NETGEAR Extender -->
+              <rect x="525" y="88" width="120" height="134" rx="14" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+              <line x1="550" y1="88" x2="550" y2="62" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+              <line x1="620" y1="88" x2="620" y2="62" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="585" cy="148" r="10" fill="#22c55e"/>
+              <text x="585" y="184" text-anchor="middle" font-size="12" font-weight="700" fill="#0284c7">NETGEAR_EXT</text>
+              <text x="585" y="205" text-anchor="middle" font-size="11" fill="#475569">Local Wi-Fi Active</text>
+            </g>
+
+            <!-- Scene 3: Browser URL bar loading mywifiext.net / 192.168.1.250 -->
+            <g class="ext-wizard-scene ext-scene-3" style="display: none;">
+              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 3: Enter Address Directly Into Browser Address Bar</text>
+              <rect x="130" y="74" width="500" height="162" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+              <rect x="130" y="74" width="500" height="34" rx="12" fill="#e2e8f0"/>
+              <circle cx="154" cy="91" r="5" fill="#ef4444"/>
+              <circle cx="172" cy="91" r="5" fill="#f59e0b"/>
+              <circle cx="190" cy="91" r="5" fill="#22c55e"/>
+              <rect x="155" y="122" width="450" height="40" rx="20" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
+              <text x="180" y="148" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#0f172a">http://www.mywifiext.net</text>
+              <rect x="488" y="128" width="106" height="28" rx="14" fill="#0284c7" class="anim-click-pulse"/>
+              <text x="541" y="147" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Press Enter</text>
+              <rect x="190" y="176" width="340" height="8" rx="4" fill="#e2e8f0"/>
+              <rect x="190" y="176" width="220" height="8" rx="4" fill="#0284c7" class="anim-load-bar"/>
+              <text x="380" y="212" text-anchor="middle" font-size="12" font-weight="600" fill="#0369a1">Mac/iOS: http://mywifiext.local   |   Fallback IP: http://192.168.1.250</text>
+            </g>
+
+            <!-- Scene 4: Sign in with admin / password -->
+            <g class="ext-wizard-scene ext-scene-4" style="display: none;">
+              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 4: Sign In (admin / password) or Create Admin Account</text>
+              <rect x="210" y="72" width="340" height="168" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+              <text x="236" y="100" font-size="13" font-weight="700" fill="#0284c7">NETGEAR Genie Extender Login</text>
+              <rect x="236" y="112" width="288" height="30" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="248" y="132" font-family="Consolas, monospace" font-size="13" fill="#0f172a">Username: admin</text>
+              <rect x="236" y="150" width="288" height="30" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="248" y="170" font-family="Consolas, monospace" font-size="13" fill="#0f172a">Password: password</text>
+              <rect x="236" y="192" width="136" height="32" rx="8" fill="#0284c7" class="anim-click-pulse"/>
+              <text x="304" y="213" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Log In &rarr;</text>
+              <rect x="388" y="192" width="136" height="32" rx="8" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+              <text x="456" y="212" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Or New Setup</text>
+            </g>
+
+            <!-- Scene 5: Pair extender with main router Wi-Fi -->
+            <g class="ext-wizard-scene ext-scene-5" style="display: none;">
+              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 5: Choose Home Wi-Fi, Enter Router Password &amp; Pair</text>
+              <!-- Extender -->
+              <rect x="110" y="90" width="120" height="128" rx="14" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+              <line x1="138" y1="90" x2="138" y2="66" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+              <line x1="202" y1="90" x2="202" y2="66" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="170" cy="148" r="14" fill="#dcfce7" class="anim-pulse-halo"/>
+              <circle cx="170" cy="148" r="8" fill="#22c55e"/>
+              <text x="170" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#0284c7">NETGEAR Ext</text>
+              <text x="170" y="202" text-anchor="middle" font-size="10" fill="#166534">Link LED Solid</text>
+              <!-- Sync packets -->
+              <line x1="244" y1="145" x2="496" y2="145" stroke="#0284c7" stroke-width="4" class="anim-packet-flow"/>
+              <rect x="296" y="106" width="152" height="28" rx="14" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1.5"/>
+              <text x="372" y="124" text-anchor="middle" font-size="11" font-weight="700" fill="#0369a1">2.4 GHz + 5 GHz Sync</text>
+              <rect x="292" y="164" width="160" height="26" rx="6" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+              <text x="372" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Home Wi-Fi Paired!</text>
+              <!-- Main Router -->
+              <rect x="515" y="122" width="140" height="64" rx="10" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+              <line x1="544" y1="122" x2="538" y2="80" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+              <line x1="626" y1="122" x2="632" y2="80" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+              <circle cx="552" cy="154" r="4" fill="#22c55e"/>
+              <circle cx="574" cy="154" r="4" fill="#38bdf8"/>
+              <circle cx="596" cy="154" r="4" fill="#22c55e"/>
+              <text x="585" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Main Home Router</text>
+            </g>
+
+            <!-- Scene 6: Relocate halfway to dead zone -->
+            <g class="ext-wizard-scene ext-scene-6" style="display: none;">
+              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 6: Unplug &amp; Move Halfway Between Router and Dead Zone</text>
+              <!-- Zone backgrounds -->
+              <rect x="54" y="78" width="190" height="156" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+              <text x="149" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Router Room</text>
+              <rect x="278" y="78" width="204" height="156" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" stroke-dasharray="6 4"/>
+              <text x="380" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">Halfway Spot (Optimal)</text>
+              <rect x="516" y="78" width="190" height="156" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.5"/>
+              <text x="611" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#0369a1">Covered Room (_EXT)</text>
+              <!-- Main Router -->
+              <rect x="96" y="130" width="106" height="48" rx="8" fill="#1e293b"/>
+              <line x1="118" y1="130" x2="114" y2="98" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+              <line x1="180" y1="130" x2="184" y2="98" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="149" cy="154" r="4" fill="#22c55e"/>
+              <!-- Moving Extender into halfway optimal spot -->
+              <g class="anim-move-halfway">
+                <rect x="336" y="106" width="88" height="88" rx="12" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
+                <line x1="356" y1="106" x2="356" y2="88" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+                <line x1="404" y1="106" x2="404" y2="88" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="380" cy="144" r="10" fill="#22c55e"/>
+                <text x="380" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">Strong Signal</text>
+              </g>
+              <!-- Strong signal waves reaching dead-zone device -->
+              <path d="M448,125 A34,34 0 0,1 448,175" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" class="anim-wave-1"/>
+              <path d="M466,115 A48,48 0 0,1 466,185" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" class="anim-wave-2"/>
+              <rect x="556" y="114" width="110" height="72" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+              <text x="611" y="146" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Connected!</text>
+              <text x="611" y="166" text-anchor="middle" font-size="10" font-weight="700" fill="#0284c7">YourWiFi_EXT</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="ext-wizard-side-panel">
+          <div class="ext-wizard-copy" aria-live="polite">
+            <div id="ext-wizard-step-label" class="ext-wizard-step-label">Step 1 of 6 &mdash; Power &amp; Placement</div>
+            <h4 id="ext-wizard-step-title" class="ext-wizard-step-title">Plug the NETGEAR Extender Into Power (Same Room as Router)</h4>
+            <p id="ext-wizard-step-desc" class="ext-wizard-step-desc">
+              Plug your NETGEAR range extender into a wall outlet in the same room as your main Wi-Fi router. Wait 1 to 2 minutes until the Power LED turns solid green (or white).
+            </p>
+            <p id="ext-wizard-step-tip" class="ext-wizard-step-tip">
+              Tip: Setting up close to your main router first prevents weak pairing signals. You will move it halfway to your dead zone in Step 6.
+            </p>
+          </div>
+
+          <div class="ext-wizard-controls">
+            <div class="ext-wizard-controls-left">
+              <button type="button" id="wizard-prev-btn" class="btn btn-secondary" disabled>&larr; Previous</button>
+              <button type="button" id="wizard-next-btn" class="btn btn-primary">Next Step &rarr;</button>
+            </div>
+            <div class="ext-wizard-controls-right">
+              <button type="button" id="wizard-play-btn" class="btn btn-secondary" aria-pressed="false">Auto-Play Steps</button>
+              <button type="button" id="wizard-restart-btn" class="btn btn-secondary">Restart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>"""
+
+
+def generate_custom_192_168_1_250_page():
+    canonical = "https://routeriphub.com/ip/192-168-1-250/"
+    title = "192.168.1.250: Netgear Extender Login & Setup (2026)"
+    desc = "192.168.1.250 is Netgear's default Wi-Fi extender fallback IP. Access admin portal, default login admin/password, mywifiext.net, and DHCP fixes."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("IP Directory", "/ip/"),
+        ("192.168.1.250", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": title,
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to a NETGEAR Extender via 192.168.1.250",
+        "description": "Step-by-step technical instructions to connect to your NETGEAR range extender using fallback IP 192.168.1.250 and mywifiext.net.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect Directly to the Extender",
+                "text": "Join the NETGEAR_EXT default Wi-Fi SSID from your phone or laptop, or plug an Ethernet patch cord into the extender LAN port. Disconnect VPNs and turn off cellular mobile data."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open 192.168.1.250 in Your Browser",
+                "text": "Type http://192.168.1.250 or http://www.mywifiext.net directly into the browser URL address bar over unencrypted HTTP, not a Google or Bing search box."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Authenticate with Default Credentials",
+                "text": "Enter username 'admin' and password 'password' (or the personalized administrative password created during initial setup)."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Complete Wi-Fi Setup Wizard",
+                "text": "Select your existing home 2.4 GHz and 5 GHz Wi-Fi networks, input the security passphrases, and allow the extender to link to your primary router."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is 192.168.1.250 a router IP or an extender IP?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is almost always a range extender fallback IP, specifically used by NETGEAR for its EX, EAX, and EXS series. Most home routers use 192.168.1.1, 192.168.0.1, or 10.0.0.1."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I access 192.168.1.250 from anywhere on my network?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Usually only before the extender is paired with your router, or when your computer is connected directly to the extender's Wi-Fi network (NETGEAR_EXT) or Ethernet port. Once paired, the extender takes a new dynamic IP from your main router."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default login for 192.168.1.250?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The default username is admin and the default password is password. On newer models, setup requires you to create a personalized password during first-time configuration."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does mywifiext.net say I am not connected to your extender's network?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "mywifiext.net is a local redirect address handled by the extender's internal DNS. If your computer or phone is connected to your main router, cellular data, or a guest network instead of the extender, the request goes to the public internet where the domain cannot reach your local device."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does 192.168.1.250 stop working after initial setup?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "After pairing with your router, the extender disables its fallback DHCP server and obtains a dynamic local IP from your main router. Look up the extender in your router's Attached Devices list at 192.168.1.1 or 192.168.0.1 to find its new IP."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-ip">Technical Guide</div>
+
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        192.168.1.250 &mdash; Netgear Extender Login: What This IP Is and How to Access It
+      </h1>
+
+      <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        If you searched <code>192.168.1.250</code> expecting your main router&rsquo;s login page, you are trying to reach a <strong>NETGEAR Wi-Fi range extender</strong>. This address is NETGEAR&rsquo;s factory-default management fallback IP for its EX, EAX, and EXS extender families&mdash;not the usual address for your router or modem. It acts as the direct numerical gateway alternative to the <a href="/extenders/mywifiext-net/" style="color: var(--text-accent); text-decoration: underline; font-weight: 700;">mywifiext.net setup portal</a>.
+      </p>
+
+      <div style="margin: 0.5rem 0 1.75rem 0;">
+        <button type="button" id="launch-extender-wizard-btn" class="btn btn-primary" aria-haspopup="dialog" aria-controls="mywifiext-setup-wizard" style="font-size: 1.05rem; padding: 0.75rem 1.4rem; display: inline-flex; align-items: center; gap: 0.55rem; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <span>Netgear Extender SETUP Simulator- Mywifiext.net &rarr;</span>
+        </button>
+      </div>
+
+      <div class="verdict-box" style="margin-bottom: 2rem;">
+        <div class="verdict-tag">Quick Answer &amp; Fallback IP Role</div>
+        <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem; line-height: 1.6;">
+          192.168.1.250 is the default fallback IP address for most NETGEAR Wi-Fi range extenders before they are paired with your home router.
+        </p>
+        <p style="color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
+          If you want to set up the extender instead, NETGEAR also provides <strong><a href="/extenders/mywifiext-net/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">http://www.mywifiext.net</a></strong> for Windows and Android, while macOS and iOS devices can use <code>http://mywifiext.local</code>.
+        </p>
+        <div class="action-btn-group">
+          <button type="button" class="btn btn-primary launch-extender-wizard-btn" aria-haspopup="dialog" aria-controls="mywifiext-setup-wizard">
+            Netgear Extender SETUP Simulator- Mywifiext.net &rarr;
+          </button>
+          <a href="/extenders/mywifiext-net/" class="btn btn-secondary">
+            mywifiext.net Setup Guide &rarr;
+          </a>
+          <a href="http://192.168.1.250" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            Open http://192.168.1.250 &rarr;
+          </a>
+          <button class="btn btn-secondary copy-btn" data-copy="192.168.1.250">Copy Fallback IP (192.168.1.250)</button>
+        </div>
+      </div>
+
+      {get_mywifiext_setup_wizard_modal_html()}
+
+      <div class="callout callout-info" style="margin: 2rem 0;">
+        <strong>Comprehensive Setup Portal:</strong> For model-by-model pairing instructions, WPS push-button setup, and browser troubleshooting, explore our full <a href="/extenders/mywifiext-net/">NETGEAR Extender Setup Guide (mywifiext.net)</a> or discover all brands in our <a href="/extenders/">Wi-Fi Extenders Hub</a>. If you were actually searching for your primary home router gateway, visit <a href="/ip/192-168-1-1/">192.168.1.1</a> or <a href="/ip/192-168-0-1/">192.168.0.1</a>.
+      </div>
+
+      <figure class="guide-figure">
+        <img src="/images/extenders/mywifiext-net-before-after-pairing-ip.webp" width="1200" height="675" loading="lazy" alt="Network diagram comparing NETGEAR extender fallback IP 192.168.1.250 before pairing versus router-assigned DHCP IP after pairing">
+        <figcaption>IP Routing Transition: Why 192.168.1.250 works during factory unconfigured state, but hands off DHCP addressing to your main router after Wi-Fi pairing.</figcaption>
+      </figure>
+
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        Which NETGEAR Extenders Use 192.168.1.250?
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        NETGEAR uses <code>192.168.1.250</code> across most of its current consumer extender lineup, including Wi-Fi 5, Wi-Fi 6, and Wi-Fi 7 models:
+      </p>
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="min-width: 220px;">NETGEAR Extender Family</th>
+              <th style="min-width: 280px;">Example Models</th>
+              <th style="min-width: 140px;">Default IP</th>
+              <th style="min-width: 200px;">Setup URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Wi-Fi 5 / Essentials EX series</strong></td>
+              <td>EX2800, EX3110, EX3700, EX3800, EX6100, EX6120, EX6150, EX6200, EX6400, EX7000</td>
+              <td><code>192.168.1.250</code></td>
+              <td><a href="/extenders/mywifiext-net/">http://www.mywifiext.net</a></td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi 6 / Nighthawk EAX series</strong></td>
+              <td>EAX12, EAX15, EAX20, EAX80</td>
+              <td><code>192.168.1.250</code></td>
+              <td><a href="/extenders/mywifiext-net/">http://www.mywifiext.net</a></td>
+            </tr>
+            <tr>
+              <td><strong>Wi-Fi 7 / EXS series</strong></td>
+              <td>EXS18, EXS25, EXS27</td>
+              <td><code>192.168.1.250</code></td>
+              <td><a href="/extenders/mywifiext-net/">http://www.mywifiext.net</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        Why 192.168.1.250 Stops Working After Setup
+      </h2>
+      <div style="background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color); padding: 1.25rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.7;">
+        <p style="margin-bottom: 1rem;">
+          The most common reason <code>192.168.1.250</code> stops working is that the extender is no longer using its factory default address. After it joins your router, NETGEAR&rsquo;s extender receives a new IP address from the router&rsquo;s DHCP server.
+        </p>
+        <p style="margin: 0;">
+          That means the extender may now appear in your router&rsquo;s client list under a different local IP, such as <code>192.168.1.x</code> or <code>192.168.0.x</code>, depending on your router&rsquo;s subnet. To access it again, log into your main router at <a href="/ip/192-168-1-1/" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">192.168.1.1</a> and look for the NETGEAR extender in the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> section.
+        </p>
+      </div>
+
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        Step-by-Step: Log In to a NETGEAR Extender
+      </h2>
+      <ol style="margin-left: 1.5rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.75;">
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Connect directly to the extender:</strong> Connect your computer or phone to the extender&rsquo;s Wi-Fi network (e.g. <code>NETGEAR_EXT</code>), or plug an Ethernet cable into the extender&rsquo;s LAN port. Do not stay connected to cellular data or your main router&rsquo;s Wi-Fi.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Open the correct address:</strong> Type one of these into the browser <strong>address bar</strong> over plain HTTP:
+          <ul style="margin-top: 0.25rem;">
+            <li><code>http://192.168.1.250</code></li>
+            <li><code>http://www.mywifiext.net</code> &mdash; see our <a href="/extenders/mywifiext-net/">mywifiext.net setup walkthrough</a></li>
+            <li><code>http://mywifiext.local</code> &mdash; mainly for macOS and iOS</li>
+          </ul>
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Enter the default login:</strong> Use these credentials only if you have not previously changed them:
+          <ul style="margin-top: 0.25rem;">
+            <li><strong>Username:</strong> <code>admin</code></li>
+            <li><strong>Password:</strong> <code>password</code></li>
+          </ul>
+          If the extender was configured before, use the admin password you created during setup. If you cannot remember it, a factory reset is required.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Complete setup:</strong> From the extender dashboard, select your home Wi-Fi network name, enter the password, and let the extender finish linking. For an interactive visual preview, use our simulator above.
+        </li>
+      </ol>
+
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        What If You Forgot the Extender&rsquo;s Admin Password?
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
+        If the default credentials do not work and you forgot the custom password:
+      </p>
+      <ol style="margin-left: 1.5rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.75;">
+        <li>Locate the <strong>Reset</strong> pinhole on the back or side of the extender.</li>
+        <li>Use a paperclip to press and hold the button for about <strong>7 to 10 seconds</strong> (or until the Power LED blinks amber).</li>
+        <li>Release the button and wait for the extender to reboot.</li>
+        <li>Once the Power LED turns solid, reconnect to the default Wi-Fi network and start setup again using <code>192.168.1.250</code> or <code>mywifiext.net</code>.</li>
+      </ol>
+
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        Common Mistakes and Typos
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+        When trying to reach this IP, avoid these common search mistakes:
+      </p>
+      <div class="typo-tag-list" style="margin-bottom: 2rem;">
+        <div class="typo-chip"><span class="typo-wrong">192.168.l.250</span> &rarr; <span class="typo-correct">http://192.168.1.250</span></div>
+        <div class="typo-chip"><span class="typo-wrong">192.168.1.25</span> &rarr; <span class="typo-correct">http://192.168.1.250</span></div>
+        <div class="typo-chip"><span class="typo-wrong">192.168.1.254</span> &rarr; <span class="typo-correct">http://192.168.1.250</span></div>
+        <div class="typo-chip"><span class="typo-wrong">http//192.168.1.250</span> &rarr; <span class="typo-correct">http://192.168.1.250</span></div>
+        <div class="typo-chip"><span class="typo-wrong">https://192.168.1.250</span> &rarr; <span class="typo-correct">http://192.168.1.250 (Use HTTP)</span></div>
+      </div>
+
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+        Frequently Asked Questions
+      </h2>
+      <div class="faq-list" style="margin-top: 1rem;">
+        <div class="faq-item">
+          <div class="faq-question">Is 192.168.1.250 a router IP or an extender IP?</div>
+          <p class="faq-answer">
+            It is almost always a <strong>range extender fallback IP</strong>, specifically used by NETGEAR. Most home routers use <code>192.168.1.1</code>, <code>192.168.0.1</code>, or <code>10.0.0.1</code>.
+          </p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Can I access 192.168.1.250 from anywhere on my network?</div>
+          <p class="faq-answer">
+            Usually only before the extender is paired with your router, or when your computer is connected directly to the extender&rsquo;s Wi-Fi network or Ethernet port. Once paired, the extender takes a new IP from your main router.
+          </p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">What is the default login for 192.168.1.250?</div>
+          <p class="faq-answer">
+            The default username is <code>admin</code> and the default password is <code>password</code>. On newer models, setup requires you to create a personalized password during first-time configuration.
+          </p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Why does mywifiext.net say I am not connected to your extender&rsquo;s network?</div>
+          <p class="faq-answer">
+            <code>mywifiext.net</code> is a local redirect address handled by the extender&rsquo;s internal DNS. If your computer or phone is connected to your main router, cellular data, or a guest network instead of the extender, the request goes to the public internet where the domain cannot reach your local device.
+          </p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Why does 192.168.1.250 stop working after initial setup?</div>
+          <p class="faq-answer">
+            After pairing with your router, the extender disables its fallback DHCP server and obtains a dynamic local IP from your main router. Look up the extender in your router&rsquo;s Attached Devices list at <a href="/ip/192-168-1-1/">192.168.1.1</a> or <a href="/ip/192-168-0-1/">192.168.0.1</a> to find its new IP.
+          </p>
+        </div>
+      </div>
+
+      <div class="bottom-line-callout" style="margin-top: 2.5rem;">
+        <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+          The Bottom Line: Fastest Extender Setup
+        </h3>
+        <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.65; margin: 0;">
+          To access <code>192.168.1.250</code>, ensure your phone or laptop is connected directly to the extender&rsquo;s default Wi-Fi network (<code>NETGEAR_EXT</code>) with mobile cellular data turned off. Alternatively, launch our <a href="#launch-extender-wizard-btn" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">interactive Netgear extender setup simulator</a> or read the dedicated <a href="/extenders/mywifiext-net/" style="color: var(--text-accent); font-weight: 700; text-decoration: underline;">mywifiext.net setup guide</a>.
+        </p>
+      </div>
+
+      {get_byline_html()}
+
+      <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Explore Related Hardware Hubs &amp; Gateways</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <a href="/extenders/mywifiext-net/" class="btn btn-secondary" style="font-size: 0.85rem;">mywifiext.net Guide &rarr;</a>
+          <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi Extenders Hub &rarr;</a>
+          <a href="/ip/192-168-1-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.1.1 Router Gateway &rarr;</a>
+          <a href="/ip/192-168-0-1/" class="btn btn-secondary" style="font-size: 0.85rem;">192.168.0.1 Router Gateway &rarr;</a>
+          <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Gateway &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+"""
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
+
 def generate_ip_pages():
     print(f"Generating {len(IP_GATEWAYS)} private gateway IP pages (Intent-First Technical SEO Pattern)...")
     for ip_item in IP_GATEWAYS:
@@ -10904,6 +11445,10 @@ def generate_ip_pages():
         elif ip == "10.10.10.1":
             with open(os.path.join(ip_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_10_10_10_1_page())
+            continue
+        elif ip == "192.168.1.250":
+            with open(os.path.join(ip_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_192_168_1_250_page())
             continue
 
         canonical = f"https://routeriphub.com/ip/{slug}/"
@@ -12168,220 +12713,7 @@ def generate_extender_pages():
         </div>
       </div>
 
-      <div id="mywifiext-setup-wizard" class="ext-wizard-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="ext-wizard-modal-title" aria-hidden="true" style="display: none;">
-        <div class="ext-wizard-modal-container">
-          <div class="ext-wizard-header">
-            <div>
-              <span class="ext-wizard-badge">Interactive Setup Simulator</span>
-              <h3 id="ext-wizard-modal-title" style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0.4rem 0 0 0;">
-                NETGEAR Extender Setup Animation (Step by Step)
-              </h3>
-            </div>
-            <div class="ext-wizard-header-actions">
-              <span class="ext-wizard-subflow">Plug in &rarr; Connect &rarr; Pair &rarr; Finish</span>
-              <button type="button" id="wizard-close-btn" class="ext-wizard-close-btn" aria-label="Close setup simulator popup" title="Close (Esc)">&times;</button>
-            </div>
-          </div>
-
-        <div class="ext-wizard-progress-track" aria-hidden="true">
-          <div id="ext-wizard-progress-fill" class="ext-wizard-progress-fill"></div>
-        </div>
-
-        <div class="ext-wizard-pills" role="tablist" aria-label="Setup Steps">
-          <button type="button" class="ext-wizard-pill is-active" data-step-btn="1"><span class="ext-wizard-pill-num">Step 1</span><span>Plug In</span></button>
-          <button type="button" class="ext-wizard-pill" data-step-btn="2"><span class="ext-wizard-pill-num">Step 2</span><span>Connect Wi-Fi</span></button>
-          <button type="button" class="ext-wizard-pill" data-step-btn="3"><span class="ext-wizard-pill-num">Step 3</span><span>Open URL</span></button>
-          <button type="button" class="ext-wizard-pill" data-step-btn="4"><span class="ext-wizard-pill-num">Step 4</span><span>Sign In</span></button>
-          <button type="button" class="ext-wizard-pill" data-step-btn="5"><span class="ext-wizard-pill-num">Step 5</span><span>Link Router</span></button>
-          <button type="button" class="ext-wizard-pill" data-step-btn="6"><span class="ext-wizard-pill-num">Step 6</span><span>Move &amp; Done</span></button>
-        </div>
-
-        <div class="ext-wizard-content-grid">
-          <div id="ext-wizard-stage" class="ext-wizard-stage" data-step="1">
-            <svg class="ext-wizard-svg" viewBox="0 0 760 280" role="img" aria-label="Animated visual diagram of the current NETGEAR extender setup step">
-            <!-- Scene 1: Plug extender into wall outlet -->
-            <g class="ext-wizard-scene ext-scene-1">
-              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 1: Plug Extender Into Outlet in Same Room as Main Router</text>
-              <!-- Wall outlet plate -->
-              <rect x="115" y="96" width="84" height="114" rx="10" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
-              <circle cx="157" cy="134" r="14" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
-              <rect x="150" y="128" width="4" height="12" rx="1" fill="#475569"/>
-              <rect x="160" y="128" width="4" height="12" rx="1" fill="#475569"/>
-              <rect x="142" y="170" width="30" height="22" rx="4" fill="#cbd5e1"/>
-              <!-- Animated sliding NETGEAR extender + plug -->
-              <g class="anim-plug-slide">
-                <rect x="180" y="124" width="22" height="8" rx="2" fill="#475569"/>
-                <rect x="180" y="138" width="22" height="8" rx="2" fill="#475569"/>
-                <rect x="202" y="88" width="110" height="124" rx="14" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
-                <line x1="224" y1="88" x2="224" y2="62" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-                <line x1="290" y1="88" x2="290" y2="62" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-                <text x="257" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#0284c7">NETGEAR</text>
-                <circle cx="257" cy="160" r="16" fill="#dcfce7" class="anim-pulse-halo"/>
-                <circle cx="257" cy="160" r="8" class="anim-led-green"/>
-                <text x="257" y="192" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">Power LED</text>
-              </g>
-              <!-- Dashed proximity guide to Main Router -->
-              <line x1="340" y1="150" x2="500" y2="150" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 6"/>
-              <rect x="378" y="132" width="84" height="22" rx="11" fill="#e0f2fe"/>
-              <text x="420" y="147" text-anchor="middle" font-size="11" font-weight="700" fill="#0369a1">Same Room</text>
-              <!-- Main Router -->
-              <rect x="520" y="126" width="136" height="62" rx="10" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
-              <line x1="548" y1="126" x2="542" y2="82" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-              <line x1="628" y1="126" x2="634" y2="82" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-              <circle cx="550" cy="157" r="4" fill="#38bdf8"/>
-              <circle cx="570" cy="157" r="4" fill="#22c55e"/>
-              <circle cx="590" cy="157" r="4" fill="#38bdf8"/>
-              <text x="588" y="212" text-anchor="middle" font-size="13" font-weight="700" fill="#334155">Main Wi-Fi Router</text>
-            </g>
-
-            <!-- Scene 2: Connect directly to NETGEAR_EXT & turn off mobile data -->
-            <g class="ext-wizard-scene ext-scene-2" style="display: none;">
-              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 2: Connect Device to NETGEAR_EXT (Mobile Data OFF)</text>
-              <!-- Phone / Laptop card -->
-              <rect x="90" y="84" width="210" height="145" rx="12" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
-              <rect x="108" y="102" width="174" height="34" rx="8" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
-              <text x="195" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">Wi-Fi: NETGEAR_EXT</text>
-              <rect x="108" y="148" width="174" height="32" rx="8" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5"/>
-              <text x="195" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">Mobile Data: OFF</text>
-              <text x="195" y="212" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">Phone, Laptop, or LAN Cable</text>
-              <!-- Animated Wi-Fi link & waves -->
-              <line x1="312" y1="154" x2="495" y2="154" stroke="#0284c7" stroke-width="4" class="anim-packet-flow"/>
-              <path d="M405,126 A40,40 0 0,1 405,182" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" class="anim-wave-1"/>
-              <path d="M424,114 A56,56 0 0,1 424,194" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" class="anim-wave-2"/>
-              <path d="M443,102 A72,72 0 0,1 443,206" fill="none" stroke="#0284c7" stroke-width="3.5" stroke-linecap="round" class="anim-wave-3"/>
-              <!-- NETGEAR Extender -->
-              <rect x="525" y="88" width="120" height="134" rx="14" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
-              <line x1="550" y1="88" x2="550" y2="62" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-              <line x1="620" y1="88" x2="620" y2="62" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-              <circle cx="585" cy="148" r="10" fill="#22c55e"/>
-              <text x="585" y="184" text-anchor="middle" font-size="12" font-weight="700" fill="#0284c7">NETGEAR_EXT</text>
-              <text x="585" y="205" text-anchor="middle" font-size="11" fill="#475569">Local Wi-Fi Active</text>
-            </g>
-
-            <!-- Scene 3: Browser URL bar loading mywifiext.net / 192.168.1.250 -->
-            <g class="ext-wizard-scene ext-scene-3" style="display: none;">
-              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 3: Enter Address Directly Into Browser Address Bar</text>
-              <rect x="130" y="74" width="500" height="162" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
-              <rect x="130" y="74" width="500" height="34" rx="12" fill="#e2e8f0"/>
-              <circle cx="154" cy="91" r="5" fill="#ef4444"/>
-              <circle cx="172" cy="91" r="5" fill="#f59e0b"/>
-              <circle cx="190" cy="91" r="5" fill="#22c55e"/>
-              <rect x="155" y="122" width="450" height="40" rx="20" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
-              <text x="180" y="148" font-family="Consolas, monospace" font-size="16" font-weight="700" fill="#0f172a">http://www.mywifiext.net</text>
-              <rect x="488" y="128" width="106" height="28" rx="14" fill="#0284c7" class="anim-click-pulse"/>
-              <text x="541" y="147" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Press Enter</text>
-              <rect x="190" y="176" width="340" height="8" rx="4" fill="#e2e8f0"/>
-              <rect x="190" y="176" width="220" height="8" rx="4" fill="#0284c7" class="anim-load-bar"/>
-              <text x="380" y="212" text-anchor="middle" font-size="12" font-weight="600" fill="#0369a1">Mac/iOS: http://mywifiext.local   |   Fallback IP: http://192.168.1.250</text>
-            </g>
-
-            <!-- Scene 4: Sign in with admin / password -->
-            <g class="ext-wizard-scene ext-scene-4" style="display: none;">
-              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 4: Sign In (admin / password) or Create Admin Account</text>
-              <rect x="210" y="72" width="340" height="168" rx="12" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
-              <text x="236" y="100" font-size="13" font-weight="700" fill="#0284c7">NETGEAR Genie Extender Login</text>
-              <rect x="236" y="112" width="288" height="30" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-              <text x="248" y="132" font-family="Consolas, monospace" font-size="13" fill="#0f172a">Username: admin</text>
-              <rect x="236" y="150" width="288" height="30" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-              <text x="248" y="170" font-family="Consolas, monospace" font-size="13" fill="#0f172a">Password: password</text>
-              <rect x="236" y="192" width="136" height="32" rx="8" fill="#0284c7" class="anim-click-pulse"/>
-              <text x="304" y="213" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Log In &rarr;</text>
-              <rect x="388" y="192" width="136" height="32" rx="8" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
-              <text x="456" y="212" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Or New Setup</text>
-            </g>
-
-            <!-- Scene 5: Pair extender with main router Wi-Fi -->
-            <g class="ext-wizard-scene ext-scene-5" style="display: none;">
-              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 5: Choose Home Wi-Fi, Enter Router Password &amp; Pair</text>
-              <!-- Extender -->
-              <rect x="110" y="90" width="120" height="128" rx="14" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
-              <line x1="138" y1="90" x2="138" y2="66" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-              <line x1="202" y1="90" x2="202" y2="66" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-              <circle cx="170" cy="148" r="14" fill="#dcfce7" class="anim-pulse-halo"/>
-              <circle cx="170" cy="148" r="8" fill="#22c55e"/>
-              <text x="170" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#0284c7">NETGEAR Ext</text>
-              <text x="170" y="202" text-anchor="middle" font-size="10" fill="#166534">Link LED Solid</text>
-              <!-- Sync packets -->
-              <line x1="244" y1="145" x2="496" y2="145" stroke="#0284c7" stroke-width="4" class="anim-packet-flow"/>
-              <rect x="296" y="106" width="152" height="28" rx="14" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1.5"/>
-              <text x="372" y="124" text-anchor="middle" font-size="11" font-weight="700" fill="#0369a1">2.4 GHz + 5 GHz Sync</text>
-              <rect x="292" y="164" width="160" height="26" rx="6" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
-              <text x="372" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Home Wi-Fi Paired!</text>
-              <!-- Main Router -->
-              <rect x="515" y="122" width="140" height="64" rx="10" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
-              <line x1="544" y1="122" x2="538" y2="80" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-              <line x1="626" y1="122" x2="632" y2="80" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
-              <circle cx="552" cy="154" r="4" fill="#22c55e"/>
-              <circle cx="574" cy="154" r="4" fill="#38bdf8"/>
-              <circle cx="596" cy="154" r="4" fill="#22c55e"/>
-              <text x="585" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Main Home Router</text>
-            </g>
-
-            <!-- Scene 6: Relocate halfway to dead zone -->
-            <g class="ext-wizard-scene ext-scene-6" style="display: none;">
-              <rect x="20" y="20" width="720" height="240" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
-              <text x="380" y="50" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">Step 6: Unplug &amp; Move Halfway Between Router and Dead Zone</text>
-              <!-- Zone backgrounds -->
-              <rect x="54" y="78" width="190" height="156" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-              <text x="149" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#334155">Router Room</text>
-              <rect x="278" y="78" width="204" height="156" rx="10" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" stroke-dasharray="6 4"/>
-              <text x="380" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">Halfway Spot (Optimal)</text>
-              <rect x="516" y="78" width="190" height="156" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.5"/>
-              <text x="611" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#0369a1">Covered Room (_EXT)</text>
-              <!-- Main Router -->
-              <rect x="96" y="130" width="106" height="48" rx="8" fill="#1e293b"/>
-              <line x1="118" y1="130" x2="114" y2="98" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
-              <line x1="180" y1="130" x2="184" y2="98" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
-              <circle cx="149" cy="154" r="4" fill="#22c55e"/>
-              <!-- Moving Extender into halfway optimal spot -->
-              <g class="anim-move-halfway">
-                <rect x="336" y="106" width="88" height="88" rx="12" fill="#ffffff" stroke="#16a34a" stroke-width="2.5"/>
-                <line x1="356" y1="106" x2="356" y2="88" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
-                <line x1="404" y1="106" x2="404" y2="88" stroke="#0f172a" stroke-width="4" stroke-linecap="round"/>
-                <circle cx="380" cy="144" r="10" fill="#22c55e"/>
-                <text x="380" y="176" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">Strong Signal</text>
-              </g>
-              <!-- Strong signal waves reaching dead-zone device -->
-              <path d="M448,125 A34,34 0 0,1 448,175" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" class="anim-wave-1"/>
-              <path d="M466,115 A48,48 0 0,1 466,185" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" class="anim-wave-2"/>
-              <rect x="556" y="114" width="110" height="72" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
-              <text x="611" y="146" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Connected!</text>
-              <text x="611" y="166" text-anchor="middle" font-size="10" font-weight="700" fill="#0284c7">YourWiFi_EXT</text>
-            </g>
-          </svg>
-        </div>
-
-        <div class="ext-wizard-side-panel">
-          <div class="ext-wizard-copy" aria-live="polite">
-            <div id="ext-wizard-step-label" class="ext-wizard-step-label">Step 1 of 6 &mdash; Power &amp; Placement</div>
-            <h4 id="ext-wizard-step-title" class="ext-wizard-step-title">Plug the NETGEAR Extender Into Power (Same Room as Router)</h4>
-            <p id="ext-wizard-step-desc" class="ext-wizard-step-desc">
-              Plug your NETGEAR range extender into a wall outlet in the same room as your main Wi-Fi router. Wait 1 to 2 minutes until the Power LED turns solid green (or white).
-            </p>
-            <p id="ext-wizard-step-tip" class="ext-wizard-step-tip">
-              Tip: Setting up close to your main router first prevents weak pairing signals. You will move it halfway to your dead zone in Step 6.
-            </p>
-          </div>
-
-          <div class="ext-wizard-controls">
-            <div class="ext-wizard-controls-left">
-              <button type="button" id="wizard-prev-btn" class="btn btn-secondary" disabled>&larr; Previous</button>
-              <button type="button" id="wizard-next-btn" class="btn btn-primary">Next Step &rarr;</button>
-            </div>
-            <div class="ext-wizard-controls-right">
-              <button type="button" id="wizard-play-btn" class="btn btn-secondary" aria-pressed="false">Auto-Play Steps</button>
-              <button type="button" id="wizard-restart-btn" class="btn btn-secondary">Restart</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+            {get_mywifiext_setup_wizard_modal_html()}
 
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
         Which NETGEAR Extenders Use 192.168.1.250?
