@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISP Gateway Login Directory: Xfinity, AT&amp;T, Verizon</title>
-  <meta name="description" content="Complete directory of ISP default gateway IPs, admin passwords, bridge mode instructions, and factory reset guides for major service providers.">
+  <title>ISP Router &amp; Gateway Login Directory: Xfinity, AT&amp;T, Verizon</title>
+  <meta name="description" content="Carrier default gateway IP addresses, printed sticker administrator credentials, IP Passthrough / Bridge Mode setup guides, and companion apps for top broadband providers.">
   <link rel="canonical" href="https://routeriphub.com/isp/">
 
   <!-- Favicon Suite -->
@@ -23,8 +23,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://routeriphub.com/isp/">
-  <meta property="og:title" content="ISP Gateway Login Directory: Xfinity, AT&amp;T, Verizon">
-  <meta property="og:description" content="Complete directory of ISP default gateway IPs, admin passwords, bridge mode instructions, and factory reset guides for major service providers.">
+  <meta property="og:title" content="ISP Router &amp; Gateway Login Directory: Xfinity, AT&amp;T, Verizon">
+  <meta property="og:description" content="Carrier default gateway IP addresses, printed sticker administrator credentials, IP Passthrough / Bridge Mode setup guides, and companion apps for top broadband providers.">
   <meta property="og:site_name" content="RouterIPHub">
   <meta property="og:image" content="https://routeriphub.com/og-image.png">
   <meta property="og:image:secure_url" content="https://routeriphub.com/og-image.png">
@@ -37,8 +37,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@RouterIPHub">
   <meta name="twitter:creator" content="@RouterIPHub">
-  <meta name="twitter:title" content="ISP Gateway Login Directory: Xfinity, AT&amp;T, Verizon">
-  <meta name="twitter:description" content="Complete directory of ISP default gateway IPs, admin passwords, bridge mode instructions, and factory reset guides for major service providers.">
+  <meta name="twitter:title" content="ISP Router &amp; Gateway Login Directory: Xfinity, AT&amp;T, Verizon">
+  <meta name="twitter:description" content="Carrier default gateway IP addresses, printed sticker administrator credentials, IP Passthrough / Bridge Mode setup guides, and companion apps for top broadband providers.">
   <meta name="twitter:image" content="https://routeriphub.com/og-image.png">
   <meta name="twitter:image:alt" content="RouterIPHub - The Definitive Default Router IP &amp; Gateway Reference">
 
@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=27cd1db6">
+  <link rel="stylesheet" href="/css/style.css?v=7b87f6ed">
   <script src="/js/app.js?v=3a848f00" defer></script>
 
   <script type="speculationrules">
@@ -99,8 +99,8 @@
     },
     {
       "@type": "CollectionPage",
-      "name": "ISP Gateway Login Directory: Xfinity, AT&T, Verizon",
-      "description": "Complete directory of ISP default gateway IPs, admin passwords, bridge mode instructions, and factory reset guides for major service providers.",
+      "name": "ISP Router & Gateway Login Directory: Xfinity, AT&T, Verizon",
+      "description": "Carrier default gateway IP addresses, printed sticker administrator credentials, IP Passthrough / Bridge Mode setup guides, and companion apps for top broadband providers.",
       "url": "https://routeriphub.com/isp/",
       "publisher": {
         "@type": "Organization",
@@ -116,6 +116,43 @@
           "https://www.trustpilot.com/review/routeriphub.com"
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an ISP Gateway and how does it differ from a retail router?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An ISP gateway is an all-in-one combo unit provided by your internet service provider that integrates a broadband modem (fiber ONT optical interface, DOCSIS cable modem, or 5G receiver) and a wireless Wi-Fi router into a single physical chassis. A retail router, by contrast, only handles local routing and Wi-Fi and requires an external modem or gateway to connect to the internet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does 192.168.1.254 or 10.0.0.1 not open in my browser?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ensure your device is connected directly to your ISP gateway network rather than mobile data or a guest Wi-Fi. Enter http://10.0.0.1 or http://192.168.1.254 directly into the top address bar rather than a Google search. If using a VPN, disconnect it temporarily."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use my own Wi-Fi router with an AT&T Fiber or Xfinity gateway?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For AT&T Fiber gateways (BGW320), navigate to Firewall > IP Passthrough, choose DHCPS-fixed, and select your personal router's MAC address. For Xfinity xFi gateways, log into 10.0.0.1 and toggle Bridge Mode to 'Enable'."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I factory reset my ISP gateway if I forgot the custom admin password?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Locate the recessed Reset button on the rear or base of the gateway. While the unit is powered on, press and hold the button using a paperclip for 20 to 30 seconds until the status lights flash amber or green."
+          }
+        }
+      ]
     }
   ]
 }
@@ -314,210 +351,1028 @@
   </div>
 
   <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
-    <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem auto;">
-      <div class="silo-badge silo-badge-isp">ISP Gateway Directory</div>
-      <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem;">
-        ISP Router Gateway Login Directory
+    <!-- Hero Header -->
+    <header class="isp-directory-hero">
+      <div class="silo-badge silo-badge-isp">Broadband Gateway Directory</div>
+      <h1 class="isp-hero-title">
+        ISP Router &amp; Gateway Login Directory
       </h1>
-      <p style="font-size: 1.1rem; color: var(--text-secondary);">
-        Direct administration login guides, sticker access codes, and IP passthrough instructions for broadband service providers.
+      <p class="isp-hero-subtitle">
+        Carrier-verified default gateway IP addresses, printed sticker administrator credentials, IP Passthrough / Bridge Mode setup guides, and companion apps for top fiber, cable, and 5G broadband service providers.
       </p>
-    </div>
 
-    <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;">
-      
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Xfinity (Comcast)</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">10.0.0.1</span>
+      <!-- Fast Gateway IP Pillbar -->
+      <div class="isp-quick-ip-bar" aria-label="Common ISP Gateway Subnets">
+        <span class="isp-ip-bar-label">Common ISP Subnets:</span>
+        <a href="/ip/10-0-0-1/" class="isp-quick-pill"><span class="isp-pill-dot"></span>10.0.0.1 <small>(Xfinity)</small></a>
+        <a href="/ip/192-168-1-254/" class="isp-quick-pill"><span class="isp-pill-dot"></span>192.168.1.254 <small>(AT&amp;T, BT)</small></a>
+        <a href="/ip/192-168-1-1/" class="isp-quick-pill"><span class="isp-pill-dot"></span>192.168.1.1 <small>(Verizon, Spectrum)</small></a>
+        <a href="/ip/192-168-0-1/" class="isp-quick-pill"><span class="isp-pill-dot"></span>192.168.0.1 <small>(Virgin, Sky, CenturyLink)</small></a>
+        <a href="/ip/192-168-12-1/" class="isp-quick-pill"><span class="isp-pill-dot"></span>192.168.12.1 <small>(T-Mobile 5G)</small></a>
+      </div>
+
+      <!-- Region Filter Tabs -->
+      <div class="isp-filter-nav" role="tablist" aria-label="Filter ISP Gateways by Region">
+        <button type="button" class="isp-filter-tab is-active" data-filter="all">All Gateways (10)</button>
+        <button type="button" class="isp-filter-tab" data-filter="us">United States (6)</button>
+        <button type="button" class="isp-filter-tab" data-filter="uk">United Kingdom (3)</button>
+        <button type="button" class="isp-filter-tab" data-filter="au">Australia (1)</button>
+      </div>
+    </header>
+
+    <!-- Tiles Section: Strictly 2 ISP per row -->
+    <section class="isp-tiles-section" aria-label="ISP Gateway Login Tiles">
+      <div class="isp-tiles-grid" id="isp-tiles-container">
+        
+        <article class="isp-tile" data-region="us" style="--carrier-accent: #6366f1; --carrier-rgb: 99, 102, 241;">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                Xfinity (Comcast)
+              </span>
+              <span class="isp-region-badge">US Cable & Fiber</span>
             </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
+            <a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>10.0.0.1</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
               <a href="/isp/xfinity-xfi/">xFi Advanced Gateway (XB6, XB7, XB8)</a>
             </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>password</code>
-            </p>
-          </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">Xfinity App</span>
-            <a href="/isp/xfinity-xfi/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
-          </div>
-        </div>
-        
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">AT&amp;T Fiber</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">192.168.1.254</span>
+            <div class="isp-tile-tagline">Gigabit Cable & Fiber Gateway</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/10-0-0-1/" class="isp-spec-link"><strong>10.0.0.1</strong></a>
+                  <small class="isp-spec-sub">http://10.0.0.1</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">password</code>
+                  <small class="isp-spec-sub">Default 'password' or via Xfinity App</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">Bridge Mode Supported</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>Xfinity App</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
             </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
+          </div>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/xfinity-xfi/" class="btn btn-primary isp-tile-cta">
+              <span>View Xfinity Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/10-0-0-1/" class="isp-sub-link">10.0.0.1 Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://10.0.0.1" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="isp-tile" data-region="us" style="--carrier-accent: #0284c7; --carrier-rgb: 2, 132, 199;">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                AT&amp;T Fiber
+              </span>
+              <span class="isp-region-badge">US Fiber & VDSL</span>
+            </div>
+            <a href="http://192.168.1.254" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>192.168.1.254</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
               <a href="/isp/att-bgw320/">AT&amp;T Fiber BGW320 / BGW210 Gateway</a>
             </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>Printed Device Access Code (DAC)</code>
-            </p>
-          </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">myAT&amp;T / Smart Home Manager</span>
-            <a href="/isp/att-bgw320/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
-          </div>
-        </div>
-        
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Verizon Fios</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">192.168.1.1</span>
+            <div class="isp-tile-tagline">Integrated Optical Fiber SFP</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/192-168-1-254/" class="isp-spec-link"><strong>192.168.1.254</strong></a>
+                  <small class="isp-spec-sub">http://192.168.1.254</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">Printed Device Access Code (DAC)</code>
+                  <small class="isp-spec-sub">10-Digit Device Access Code (DAC)</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">IP Passthrough (DHCPS-fixed)</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>myAT&amp;T / Smart Home Manager</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
             </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
+          </div>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/att-bgw320/" class="btn btn-primary isp-tile-cta">
+              <span>View AT&T Fiber Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/192-168-1-254/" class="isp-sub-link">192.168.1.254 Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://192.168.1.254" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="isp-tile" data-region="us" style="--carrier-accent: #dc2626; --carrier-rgb: 220, 38, 38;">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                Verizon Fios
+              </span>
+              <span class="isp-region-badge">US Fiber (10G Ready)</span>
+            </div>
+            <a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>192.168.1.1</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
               <a href="/isp/verizon-cr1000a/">Fios Router CR1000A / Fios Home Router G3100</a>
             </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>Printed on router base label</code>
-            </p>
-          </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">My Fios / My Verizon</span>
-            <a href="/isp/verizon-cr1000a/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
-          </div>
-        </div>
-        
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Spectrum (Charter)</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">192.168.1.1</span>
+            <div class="isp-tile-tagline">Tri-Band Wi-Fi 6E Gateway</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/192-168-1-1/" class="isp-spec-link"><strong>192.168.1.1</strong></a>
+                  <small class="isp-spec-sub">http://192.168.1.1</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">Printed on router base label</code>
+                  <small class="isp-spec-sub">Unique password on base label</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">Disable DHCP / AP Mode</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>My Fios / My Verizon</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
             </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
+          </div>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/verizon-cr1000a/" class="btn btn-primary isp-tile-cta">
+              <span>View Verizon Fios Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/192-168-1-1/" class="isp-sub-link">192.168.1.1 Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="isp-tile" data-region="us" style="--carrier-accent: #2563eb; --carrier-rgb: 37, 99, 235;">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                Spectrum (Charter)
+              </span>
+              <span class="isp-region-badge">US Cable & Fiber</span>
+            </div>
+            <a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>192.168.1.1</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
               <a href="/isp/spectrum-sac2v1k/">Spectrum Wi-Fi 6 Router (SAC2V1K, SAX1V1K)</a>
             </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>admin (or managed via My Spectrum App)</code>
-            </p>
-          </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">My Spectrum App</span>
-            <a href="/isp/spectrum-sac2v1k/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
-          </div>
-        </div>
-        
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">T-Mobile Home Internet</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">192.168.12.1</span>
+            <div class="isp-tile-tagline">DOCSIS 3.1 Advanced Router</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/192-168-1-1/" class="isp-spec-link"><strong>192.168.1.1</strong></a>
+                  <small class="isp-spec-sub">http://192.168.1.1</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">admin (or managed via My Spectrum App)</code>
+                  <small class="isp-spec-sub">admin (or My Spectrum App)</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">Modem Bridge Mode</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>My Spectrum App</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
             </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
+          </div>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/spectrum-sac2v1k/" class="btn btn-primary isp-tile-cta">
+              <span>View Spectrum Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/192-168-1-1/" class="isp-sub-link">192.168.1.1 Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://192.168.1.1" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="isp-tile" data-region="us" style="--carrier-accent: #e11d48; --carrier-rgb: 225, 29, 72;">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                T-Mobile Home Internet
+              </span>
+              <span class="isp-region-badge">US 5G Home Internet</span>
+            </div>
+            <a href="http://192.168.12.1" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>192.168.12.1</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
               <a href="/isp/t-mobile-kvd21/">T-Mobile 5G Gateway (KVD21, Arcadyan, G4SE)</a>
             </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>Admin password printed on bottom sticker</code>
-            </p>
-          </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">T-Life (formerly T-Mobile Internet)</span>
-            <a href="/isp/t-mobile-kvd21/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
-          </div>
-        </div>
-        
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">CenturyLink / Quantum Fiber</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">192.168.0.1</span>
+            <div class="isp-tile-tagline">Cellular Ultra Capacity 5G</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/192-168-12-1/" class="isp-spec-link"><strong>192.168.12.1</strong></a>
+                  <small class="isp-spec-sub">http://192.168.12.1</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">Admin password printed on bottom sticker</code>
+                  <small class="isp-spec-sub">Unique key on bottom sticker</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">Double-NAT / AP Mode</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>T-Life (formerly T-Mobile Internet)</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
             </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
+          </div>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/t-mobile-kvd21/" class="btn btn-primary isp-tile-cta">
+              <span>View T-Mobile Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/192-168-12-1/" class="isp-sub-link">192.168.12.1 Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://192.168.12.1" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="isp-tile" data-region="us" style="--carrier-accent: #059669; --carrier-rgb: 5, 150, 105;">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                CenturyLink / Quantum Fiber
+              </span>
+              <span class="isp-region-badge">US Fiber & DSL</span>
+            </div>
+            <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>192.168.0.1</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
               <a href="/isp/centurylink-c4000/">CenturyLink C4000LG / C4000XG Wi-Fi 6 Router</a>
             </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>Admin / Configuration password on sticker</code>
-            </p>
-          </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">CenturyLink App / Quantum Fiber App</span>
-            <a href="/isp/centurylink-c4000/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
-          </div>
-        </div>
-        
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">BT (British Telecom)</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">192.168.1.254</span>
+            <div class="isp-tile-tagline">Quantum Fiber Wi-Fi 6</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/192-168-0-1/" class="isp-spec-link"><strong>192.168.0.1</strong></a>
+                  <small class="isp-spec-sub">http://192.168.0.1</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">Admin / Configuration password on sticker</code>
+                  <small class="isp-spec-sub">Admin password on sticker</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">Transparent Bridge (VLAN 201)</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>CenturyLink App / Quantum Fiber App</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
             </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
+          </div>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/centurylink-c4000/" class="btn btn-primary isp-tile-cta">
+              <span>View CenturyLink Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/192-168-0-1/" class="isp-sub-link">192.168.0.1 Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="isp-tile" data-region="uk" style="--carrier-accent: #4f46e5; --carrier-rgb: 79, 70, 229;">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                BT (British Telecom)
+              </span>
+              <span class="isp-region-badge">UK Fibre & FTTC</span>
+            </div>
+            <a href="http://192.168.1.254" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>192.168.1.254</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
               <a href="/isp/bt-smart-hub/">BT Smart Hub 2 (Home Hub 6)</a>
             </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>Admin password on removable plastic card</code>
-            </p>
-          </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">My BT App</span>
-            <a href="/isp/bt-smart-hub/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
-          </div>
-        </div>
-        
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Virgin Media (UK)</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">192.168.0.1</span>
+            <div class="isp-tile-tagline">Complete Wi-Fi Smart Hub 2</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/192-168-1-254/" class="isp-spec-link"><strong>192.168.1.254</strong></a>
+                  <small class="isp-spec-sub">http://192.168.1.254</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">Admin password on removable plastic card</code>
+                  <small class="isp-spec-sub">Password on pull-out card</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">DMZ / Double-NAT Only</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>My BT App</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
             </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
+          </div>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/bt-smart-hub/" class="btn btn-primary isp-tile-cta">
+              <span>View BT Broadband Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/192-168-1-254/" class="isp-sub-link">192.168.1.254 Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://192.168.1.254" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="isp-tile" data-region="uk" style="--carrier-accent: #e11d48; --carrier-rgb: 225, 29, 72;">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                Virgin Media (UK)
+              </span>
+              <span class="isp-region-badge">UK Cable (DOCSIS 3.1)</span>
+            </div>
+            <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>192.168.0.1</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
               <a href="/isp/virgin-media-hub/">Virgin Media Hub 3, Hub 4, Hub 5</a>
             </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>Settings password on bottom sticker</code>
-            </p>
-          </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">Virgin Media Connect App</span>
-            <a href="/isp/virgin-media-hub/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
-          </div>
-        </div>
-        
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Sky Broadband (UK)</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">192.168.0.1</span>
+            <div class="isp-tile-tagline">Gigabit Cable & Fibre Hub</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/192-168-0-1/" class="isp-spec-link"><strong>192.168.0.1</strong></a>
+                  <small class="isp-spec-sub">http://192.168.0.1</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">Settings password on bottom sticker</code>
+                  <small class="isp-spec-sub">Settings key on bottom sticker</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">Modem Mode (192.168.100.1)</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>Virgin Media Connect App</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
             </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
+          </div>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/virgin-media-hub/" class="btn btn-primary isp-tile-cta">
+              <span>View Virgin Media Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/192-168-0-1/" class="isp-sub-link">192.168.0.1 Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="isp-tile" data-region="uk" style="--carrier-accent: #0ea5e9; --carrier-rgb: 14, 165, 233;">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                Sky Broadband (UK)
+              </span>
+              <span class="isp-region-badge">UK Fibre & Broadband</span>
+            </div>
+            <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>192.168.0.1</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
               <a href="/isp/sky-broadband/">Sky Broadband Hub (SR203)</a>
             </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>sky (or Wi-Fi password in lowercase)</code>
-            </p>
-          </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">My Sky App</span>
-            <a href="/isp/sky-broadband/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
-          </div>
-        </div>
-        
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">Telstra (Australia)</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">192.168.0.1</span>
+            <div class="isp-tile-tagline">Dual-Band Sky Hub SR203</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/192-168-0-1/" class="isp-spec-link"><strong>192.168.0.1</strong></a>
+                  <small class="isp-spec-sub">http://192.168.0.1</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">sky (or Wi-Fi password in lowercase)</code>
+                  <small class="isp-spec-sub">sky (or Wi-Fi password)</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">DHCP Option 61 (MER)</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>My Sky App</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
             </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
+          </div>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/sky-broadband/" class="btn btn-primary isp-tile-cta">
+              <span>View Sky Broadband Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/192-168-0-1/" class="isp-sub-link">192.168.0.1 Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="isp-tile" data-region="au" style="--carrier-accent: #f59e0b; --carrier-rgb: 245, 158, 11;">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                Telstra (Australia)
+              </span>
+              <span class="isp-region-badge">Australia NBN</span>
+            </div>
+            <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>192.168.0.1</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
               <a href="/isp/telstra-smart-modem/">Telstra Smart Modem Gen 2 / Gen 3 (Technicolor/Arcadyan)</a>
             </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>admin (or Telstra printed password)</code>
-            </p>
+            <div class="isp-tile-tagline">NBN with 4G LTE Backup</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/192-168-0-1/" class="isp-spec-link"><strong>192.168.0.1</strong></a>
+                  <small class="isp-spec-sub">http://192.168.0.1</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">admin (or Telstra printed password)</code>
+                  <small class="isp-spec-sub">admin (or printed on base)</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">Bridge Mode Available</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>My Telstra App</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
+            </div>
           </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">My Telstra App</span>
-            <a href="/isp/telstra-smart-modem/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/telstra-smart-modem/" class="btn btn-primary isp-tile-cta">
+              <span>View Telstra Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/192-168-0-1/" class="isp-sub-link">192.168.0.1 Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://192.168.0.1" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        
+      </div>
+    </section>
+
+    <!-- Quick Tool Banner -->
+    <div class="isp-tool-banner">
+      <div class="isp-tool-banner-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <div class="isp-tool-banner-content">
+        <h3 style="margin: 0 0 0.35rem 0; font-size: 1.1rem; font-weight: 800; color: var(--text-primary);">Unsure which ISP Gateway model or IP is on your local network?</h3>
+        <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary); line-height: 1.45;">Our browser-based diagnostic tool detects your active default gateway address, subnet mask, and network adapter IP in real time with zero software installation.</p>
+      </div>
+      <a href="/tools/detect-gateway/" class="btn btn-primary" style="white-space: nowrap;">Auto-Detect My Gateway &rarr;</a>
+    </div>
+
+    <!-- Comparative Table Section -->
+    <section class="isp-table-section" style="margin-top: 3.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Carrier Gateway Quick Reference Comparison</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem;">
+        Summary comparison of default management addresses, factory sticker credentials, bridge mode availability, and companion administration apps.
+      </p>
+      <div class="table-responsive">
+        <table class="table-striped" style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+              <th style="padding: 0.75rem 1rem;">Service Provider</th>
+              <th style="padding: 0.75rem 1rem;">Primary Gateway</th>
+              <th style="padding: 0.75rem 1rem;">Default IP</th>
+              <th style="padding: 0.75rem 1rem;">Password Type</th>
+              <th style="padding: 0.75rem 1rem;">Bridge Support</th>
+              <th style="padding: 0.75rem 1rem;">Mobile App</th>
+              <th style="padding: 0.75rem 1rem;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+        <tr>
+          <td>
+            <strong><a href="/isp/xfinity-xfi/">Xfinity (Comcast)</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">United States</div>
+          </td>
+          <td>xFi Advanced Gateway (XB6, XB7, XB8)</td>
+          <td><a href="/ip/10-0-0-1/"><code>10.0.0.1</code></a></td>
+          <td><code>password</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">Bridge Mode Supported</span></td>
+          <td>Xfinity App</td>
+          <td><a href="/isp/xfinity-xfi/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong><a href="/isp/att-bgw320/">AT&amp;T Fiber</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">United States</div>
+          </td>
+          <td>AT&amp;T Fiber BGW320 / BGW210 Gateway</td>
+          <td><a href="/ip/192-168-1-254/"><code>192.168.1.254</code></a></td>
+          <td><code>Printed Device Access Code (DAC)</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">IP Passthrough (DHCPS-fixed)</span></td>
+          <td>myAT&amp;T / Smart Home Manager</td>
+          <td><a href="/isp/att-bgw320/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong><a href="/isp/verizon-cr1000a/">Verizon Fios</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">United States</div>
+          </td>
+          <td>Fios Router CR1000A / Fios Home Router G3100</td>
+          <td><a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a></td>
+          <td><code>Printed on router base label</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">Disable DHCP / AP Mode</span></td>
+          <td>My Fios / My Verizon</td>
+          <td><a href="/isp/verizon-cr1000a/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong><a href="/isp/spectrum-sac2v1k/">Spectrum (Charter)</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">United States</div>
+          </td>
+          <td>Spectrum Wi-Fi 6 Router (SAC2V1K, SAX1V1K)</td>
+          <td><a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a></td>
+          <td><code>admin (or managed via My Spectrum App)</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">Modem Bridge Mode</span></td>
+          <td>My Spectrum App</td>
+          <td><a href="/isp/spectrum-sac2v1k/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong><a href="/isp/t-mobile-kvd21/">T-Mobile Home Internet</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">United States</div>
+          </td>
+          <td>T-Mobile 5G Gateway (KVD21, Arcadyan, G4SE)</td>
+          <td><a href="/ip/192-168-12-1/"><code>192.168.12.1</code></a></td>
+          <td><code>Admin password printed on bottom sticker</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">Double-NAT / AP Mode</span></td>
+          <td>T-Life (formerly T-Mobile Internet)</td>
+          <td><a href="/isp/t-mobile-kvd21/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong><a href="/isp/centurylink-c4000/">CenturyLink / Quantum Fiber</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">United States</div>
+          </td>
+          <td>CenturyLink C4000LG / C4000XG Wi-Fi 6 Router</td>
+          <td><a href="/ip/192-168-0-1/"><code>192.168.0.1</code></a></td>
+          <td><code>Admin / Configuration password on sticker</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">Transparent Bridge (VLAN 201)</span></td>
+          <td>CenturyLink App / Quantum Fiber App</td>
+          <td><a href="/isp/centurylink-c4000/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong><a href="/isp/bt-smart-hub/">BT (British Telecom)</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">United Kingdom</div>
+          </td>
+          <td>BT Smart Hub 2 (Home Hub 6)</td>
+          <td><a href="/ip/192-168-1-254/"><code>192.168.1.254</code></a></td>
+          <td><code>Admin password on removable plastic card</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">DMZ / Double-NAT Only</span></td>
+          <td>My BT App</td>
+          <td><a href="/isp/bt-smart-hub/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong><a href="/isp/virgin-media-hub/">Virgin Media (UK)</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">United Kingdom</div>
+          </td>
+          <td>Virgin Media Hub 3, Hub 4, Hub 5</td>
+          <td><a href="/ip/192-168-0-1/"><code>192.168.0.1</code></a></td>
+          <td><code>Settings password on bottom sticker</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">Modem Mode (192.168.100.1)</span></td>
+          <td>Virgin Media Connect App</td>
+          <td><a href="/isp/virgin-media-hub/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong><a href="/isp/sky-broadband/">Sky Broadband (UK)</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">United Kingdom</div>
+          </td>
+          <td>Sky Broadband Hub (SR203)</td>
+          <td><a href="/ip/192-168-0-1/"><code>192.168.0.1</code></a></td>
+          <td><code>sky (or Wi-Fi password in lowercase)</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">DHCP Option 61 (MER)</span></td>
+          <td>My Sky App</td>
+          <td><a href="/isp/sky-broadband/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        
+        <tr>
+          <td>
+            <strong><a href="/isp/telstra-smart-modem/">Telstra (Australia)</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">Australia</div>
+          </td>
+          <td>Telstra Smart Modem Gen 2 / Gen 3 (Technicolor/Arcadyan)</td>
+          <td><a href="/ip/192-168-0-1/"><code>192.168.0.1</code></a></td>
+          <td><code>admin (or Telstra printed password)</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">Bridge Mode Available</span></td>
+          <td>My Telstra App</td>
+          <td><a href="/isp/telstra-smart-modem/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Technical Guide Cards Section -->
+    <section class="isp-guide-cards-section" style="margin-top: 3.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">ISP Gateway Administration &amp; Setup Best Practices</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+        Essential configuration rules for connecting third-party mesh routers, avoiding Double-NAT, and locating factory security credentials.
+      </p>
+
+      <div class="isp-best-practices-grid">
+        <div class="isp-bp-card">
+          <div class="isp-bp-num">01</div>
+          <h3>Connecting to Local ISP Admin Portals</h3>
+          <p>Always connect your laptop, smartphone, or tablet directly to the gateway Wi-Fi or via an Ethernet cable into an available LAN port. If configuring on a smartphone, <strong>turn off cellular mobile data</strong> so browser requests do not route over 4G/5G.</p>
+        </div>
+
+        <div class="isp-bp-card">
+          <div class="isp-bp-num">02</div>
+          <h3>Locating Unique Sticker Passwords &amp; DAC</h3>
+          <p>Modern carrier gateways no longer share generic passwords. AT&amp;T requires a 10-digit <strong>Device Access Code (DAC)</strong> printed in bold on the unit's base. Verizon, CenturyLink, and Virgin Media print unique passwords on the serial barcode label.</p>
+        </div>
+
+        <div class="isp-bp-card">
+          <div class="isp-bp-num">03</div>
+          <h3>Bridge Mode vs. IP Passthrough (Avoid Double NAT)</h3>
+          <p>When connecting your own router (e.g. Netgear, Asus, Eero, Nest Wi-Fi), enable <strong>Bridge Mode</strong> (Xfinity, Virgin Media) or <strong>IP Passthrough</strong> (AT&amp;T BGW320). This assigns your personal router the public WAN IP and prevents port-forwarding conflicts.</p>
+        </div>
+
+        <div class="isp-bp-card">
+          <div class="isp-bp-num">04</div>
+          <h3>Carrier App vs. Browser Administration</h3>
+          <p>ISPs increasingly push app-based control (Xfinity App, My Spectrum, AT&amp;T Smart Home Manager). While everyday Wi-Fi names and passwords can be edited in the app, advanced features like <strong>DNS overrides, static subnets, DMZ, and Bridge Mode</strong> require the local web GUI.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section class="isp-faq-section" style="margin-top: 3.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.25rem;">Frequently Asked Questions About ISP Gateways</h2>
+      
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <h3 class="faq-question">What is an ISP Gateway and how does it differ from a retail router?</h3>
+          <div class="faq-answer">
+            <p>An ISP gateway is an all-in-one combo unit provided by your internet service provider that integrates a broadband modem (fiber ONT optical interface, DOCSIS cable modem, or 5G receiver) and a wireless Wi-Fi router into a single physical chassis. A retail router, by contrast, only handles local routing and Wi-Fi and requires an external modem or gateway to connect to the internet.</p>
           </div>
         </div>
-        
+
+        <div class="faq-item">
+          <h3 class="faq-question">Why does 192.168.1.254 or 10.0.0.1 not open in my browser?</h3>
+          <div class="faq-answer">
+            <p>Ensure your device is connected directly to your ISP gateway network rather than mobile data or a guest Wi-Fi. Enter <code>http://10.0.0.1</code> or <code>http://192.168.1.254</code> directly into the top address bar rather than a Google search. If using a VPN, disconnect it temporarily, as VPN tunnels route web traffic away from your local subnet.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Can I use my own Wi-Fi router with an AT&amp;T Fiber or Xfinity gateway?</h3>
+          <div class="faq-answer">
+            <p>Yes. For AT&amp;T Fiber gateways (BGW320), navigate to Firewall &gt; IP Passthrough, choose DHCPS-fixed, and select your personal router's MAC address. For Xfinity xFi gateways, log into 10.0.0.1 and toggle Bridge Mode to 'Enable'. Then connect your router's WAN port to Ethernet port 1 on the gateway.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">How do I factory reset my ISP gateway if I forgot the custom admin password?</h3>
+          <div class="faq-answer">
+            <p>Locate the recessed Reset button on the rear or base of the gateway. While the unit is powered on, press and hold the button using a paperclip for 20 to 30 seconds until the status lights flash amber or green. Release the button and allow 3 to 5 minutes for the device to reboot to factory default credentials.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-Silo Related Links -->
+    <div style="margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+      <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway Setup Guides &amp; Diagnostic Tools</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+        <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
+        <a href="/howto/which-port-plug-router-att-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Which Port to Plug Into AT&amp;T Gateway &rarr;</a>
+        <a href="/howto/spectrum-router-blinking-red-light/" class="btn btn-secondary" style="font-size: 0.85rem;">Spectrum Blinking Red Light Guide &rarr;</a>
+        <a href="/howto/two-routers-access-point-mode/" class="btn btn-secondary" style="font-size: 0.85rem;">Two Routers AP Mode Setup &rarr;</a>
+        <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi Range Extender Directory &rarr;</a>
+        <a href="/routers/" class="btn btn-secondary" style="font-size: 0.85rem;">Retail Router Database (252 Models) &rarr;</a>
+      </div>
     </div>
   </main>
+
+  <script>
+    // Region Filter Tabs
+    document.addEventListener('DOMContentLoaded', function() {
+      var tabs = document.querySelectorAll('.isp-filter-tab');
+      var tiles = document.querySelectorAll('.isp-tile');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          tabs.forEach(function(t) { t.classList.remove('is-active'); });
+          this.classList.add('is-active');
+          var filter = this.getAttribute('data-filter');
+          tiles.forEach(function(tile) {
+            if (filter === 'all' || tile.getAttribute('data-region') === filter) {
+              tile.style.display = 'flex';
+            } else {
+              tile.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
 
   <!-- Site Footer -->
   <footer class="site-footer">

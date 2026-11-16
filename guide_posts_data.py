@@ -3572,10 +3572,201 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
         </table>
       </div>
 
-      <figure class="guide-figure">
-        <img src="/images/howto/spectrum-router-led-lights-diagnostic-chart.gif" width="1200" height="675" loading="lazy" alt="Animated status guide showing blinking red, blinking blue, solid blue, solid red, and alternating LED lights on Spectrum routers and modems">
-        <figcaption>Animated Status Guide: Real-time visual comparison of Spectrum router and modem LED behaviors &mdash; solid blue, blinking blue, blinking red, solid red, and alternating firmware updates.</figcaption>
-      </figure>
+            <!-- Interactive Spectrum LED Status Simulator -->
+      <div class="spectrum-led-simulator" id="spectrum-simulator">
+        <div class="spectrum-led-header">
+          <div class="spectrum-led-eyebrow">
+            <span class="spectrum-led-live-dot"></span>
+            Hardware Telemetry &bull; Interactive Simulator
+          </div>
+          <h3 class="spectrum-led-title">Spectrum Router &amp; Modem LED Status Guide</h3>
+          <p class="spectrum-led-subtitle">Click any status tile below to simulate equipment telemetry, diagnose channel sync failures, and display step-by-step resolution actions.</p>
+        </div>
+
+        <div class="spectrum-led-grid" role="tablist" aria-label="Spectrum LED status options">
+          <!-- Card 1: Solid Blue -->
+          <div class="spectrum-led-card" role="tab" tabindex="0" data-state="solid-blue" style="--card-accent: #00d4ff;" aria-selected="false" aria-label="Solid Blue: Online and Connected">
+            <div class="spectrum-led-lens-container">
+              <div class="spectrum-led-lens led-solid-blue"></div>
+            </div>
+            <span class="spectrum-led-badge badge-blue">SOLID BLUE</span>
+            <div class="spectrum-led-label">Online / Connected</div>
+            <p class="spectrum-led-desc">Normal operation, active broadband connection.</p>
+          </div>
+
+          <!-- Card 2: Blinking Blue -->
+          <div class="spectrum-led-card" role="tab" tabindex="0" data-state="blinking-blue" style="--card-accent: #00b4d8;" aria-selected="false" aria-label="Blinking Blue: Booting or Syncing">
+            <div class="spectrum-led-lens-container">
+              <div class="spectrum-led-lens led-blinking-blue"></div>
+              <div class="spectrum-ripple-ring ripple-blue"></div>
+            </div>
+            <span class="spectrum-led-badge badge-cyan">BLINKING BLUE</span>
+            <div class="spectrum-led-label">Booting / Syncing</div>
+            <p class="spectrum-led-desc">Powering up or acquiring DOCSIS channel lock.</p>
+          </div>
+
+          <!-- Card 3: Blinking Red (Default Selected) -->
+          <div class="spectrum-led-card active-state" role="tab" tabindex="0" data-state="blinking-red" style="--card-accent: #ff3b30;" aria-selected="true" aria-label="Blinking Red: No Upstream Signal">
+            <div class="spectrum-led-lens-container">
+              <div class="spectrum-led-lens led-blinking-red"></div>
+              <div class="spectrum-ripple-ring ripple-red"></div>
+            </div>
+            <span class="spectrum-led-badge badge-red">BLINKING RED</span>
+            <div class="spectrum-led-label">No Upstream Signal</div>
+            <p class="spectrum-led-desc">Attempting connection; cable or headend fault.</p>
+          </div>
+
+          <!-- Card 4: Solid Red -->
+          <div class="spectrum-led-card" role="tab" tabindex="0" data-state="solid-red" style="--card-accent: #ff1e27;" aria-selected="false" aria-label="Solid Red: Critical Fault or Offline">
+            <div class="spectrum-led-lens-container">
+              <div class="spectrum-led-lens led-solid-red"></div>
+            </div>
+            <span class="spectrum-led-badge badge-red">SOLID RED</span>
+            <div class="spectrum-led-label">Critical Fault / Offline</div>
+            <p class="spectrum-led-desc">Hardware fault, severed cable, or line outage.</p>
+          </div>
+
+          <!-- Card 5: Alternating Red & Blue -->
+          <div class="spectrum-led-card" role="tab" tabindex="0" data-state="alternating" style="--card-accent: #c084fc;" aria-selected="false" aria-label="Alternating Red and Blue: Firmware Updating">
+            <div class="spectrum-led-lens-container">
+              <div class="spectrum-led-lens led-alternating"></div>
+              <div class="spectrum-ripple-ring ripple-blue"></div>
+            </div>
+            <span class="spectrum-led-badge badge-alt">ALT RED &amp; BLUE</span>
+            <div class="spectrum-led-label">Firmware Updating</div>
+            <p class="spectrum-led-desc">OTA software update; do not power off or unplug.</p>
+          </div>
+        </div>
+
+        <!-- Dynamic Diagnostic Inspector Drawer -->
+        <div class="spectrum-led-inspector" id="spectrum-inspector" aria-live="polite">
+          <div class="spectrum-inspector-top">
+            <span class="spectrum-inspector-badge" id="insp-badge" style="background: #ff3b30;">ACTIVE FAULT: BLINKING RED</span>
+            <span style="font-size: 0.78rem; color: #94a3b8;">Spectrum Wi-Fi 6 Router &amp; DOCSIS 3.1 Modem Telemetry</span>
+          </div>
+          <h4 class="spectrum-inspector-title" id="insp-title">Blinking Red &mdash; No Upstream Signal Connection</h4>
+          <p class="spectrum-inspector-body" id="insp-desc">The Spectrum router or modem is attempting to synchronize with the Spectrum cable headend (CMTS), but upstream frequencies cannot be acquired. This occurs when the coaxial cable is disconnected, loose at the wall plate, damaged by a splitter, or when an area outage disrupts the street node.</p>
+          
+          <div class="spectrum-inspector-chips" id="insp-chips">
+            <div class="spectrum-inspector-chip">
+              <strong>Primary Root Cause</strong>
+              <span id="insp-cause">Loose coaxial F-connector or failed cable splitter</span>
+            </div>
+            <div class="spectrum-inspector-chip">
+              <strong>Immediate 10-Second Fix</strong>
+              <span id="insp-fix">Finger-tighten coaxial connections at both wall and device</span>
+            </div>
+            <div class="spectrum-inspector-chip">
+              <strong>Next Escalation Step</strong>
+              <span id="insp-action">Power cycle 60s; check My Spectrum app for local outage</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- High-Resolution Graphic Toggle -->
+        <div class="spectrum-chart-toggle">
+          <button type="button" class="spectrum-toggle-btn" id="toggle-chart-btn" onclick="var fig = document.getElementById('spectrum-animated-graphic'); if(fig.style.display==='none'){ fig.style.display='block'; this.innerText='Hide Reference Diagram'; } else { fig.style.display='none'; this.innerText='View High-Resolution Animated Chart'; }">
+            View High-Resolution Animated Chart
+          </button>
+        </div>
+
+        <figure class="guide-figure" id="spectrum-animated-graphic" style="display: none; margin-top: 1.5rem;">
+          <picture>
+            <source srcset="/images/howto/spectrum-router-led-lights-diagnostic-chart.webp" type="image/webp">
+            <img src="/images/howto/spectrum-router-led-lights-diagnostic-chart.gif" width="1200" height="675" loading="lazy" alt="High-resolution animated LED diagnostic status guide for Spectrum routers and modems showing real-time blinking and solid light states">
+          </picture>
+          <figcaption>High-Definition Diagnostic Reference: Real-time visual comparison of Spectrum router and modem LED telemetry &mdash; solid blue, blinking blue, blinking red, solid red, and alternating firmware flash.</figcaption>
+        </figure>
+      </div>
+
+      <script>
+      (function(){
+        var stateData = {
+          'solid-blue': {
+            badge: 'ONLINE: SOLID BLUE',
+            badgeBg: '#0284c7',
+            title: 'Solid Blue &mdash; Online and Fully Connected',
+            desc: 'The Spectrum router or modem has established full downstream and upstream DOCSIS channel locking, acquired a WAN public IP via DHCP, and established an active handshake with Spectrum servers. Wi-Fi and Ethernet routing are fully operational.',
+            cause: 'Normal operational condition; internet connectivity active',
+            fix: 'No action required &mdash; equipment is functioning optimally',
+            action: 'Connect your devices to the 2.4 GHz or 5 GHz / 6 GHz SSID'
+          },
+          'blinking-blue': {
+            badge: 'INITIALIZING: BLINKING BLUE',
+            badgeBg: '#0284c7',
+            title: 'Blinking Blue &mdash; Booting and Downstream Syncing',
+            desc: 'The router or modem is powering up, executing POST self-diagnostics, or scanning downstream carrier frequencies. This is normal during initial boot or after a power cycle, and typically takes 2 to 5 minutes to complete.',
+            cause: 'Device power-up sequence or downstream channel scanning',
+            fix: 'Allow 3 to 5 minutes without touching power or reset buttons',
+            action: 'If blinking blue persists beyond 10 minutes, verify coaxial tightness'
+          },
+          'blinking-red': {
+            badge: 'ACTIVE FAULT: BLINKING RED',
+            badgeBg: '#ff3b30',
+            title: 'Blinking Red &mdash; No Upstream Signal Connection',
+            desc: 'The Spectrum router or modem is attempting to synchronize with the Spectrum cable headend (CMTS), but upstream frequencies cannot be acquired. This occurs when the coaxial cable is disconnected, loose at the wall plate, damaged by a splitter, or when an area outage disrupts the street node.',
+            cause: 'Loose coaxial F-connector or failed cable splitter',
+            fix: 'Finger-tighten coaxial connections at both wall and device',
+            action: 'Power cycle 60s; check My Spectrum app for local outage'
+          },
+          'solid-red': {
+            badge: 'CRITICAL FAILURE: SOLID RED',
+            badgeBg: '#dc2626',
+            title: 'Solid Red &mdash; Critical Hardware or Authentication Fault',
+            desc: 'A solid red LED indicates a complete disconnection from the internet network, an internal hardware failure, device overheating, or an account-level provisioning suspension. Unlike blinking red, the device is not attempting active network negotiation.',
+            cause: 'Severe line disconnection, power surge fault, or provisioning block',
+            fix: 'Unplug power for 60 full seconds, verify ambient ventilation, replug',
+            action: 'If red remains solid after restart, contact Spectrum support for replacement'
+          },
+          'alternating': {
+            badge: 'SYSTEM UPDATE: ALT RED & BLUE',
+            badgeBg: '#7c3aed',
+            title: 'Alternating Red & Blue &mdash; Firmware Upgrade in Progress',
+            desc: 'Spectrum is flashing official over-the-air (OTA) firmware to the device modem or router system memory. Interruption of power during this critical flash process will corrupt the NAND bootloader and permanently brick the router.',
+            cause: 'Scheduled overnight or maintenance firmware deployment by Spectrum',
+            fix: 'DO NOT UNPLUG. Keep power cord securely plugged into wall outlet',
+            action: 'Wait 10 to 15 minutes; the light will automatically transition to solid blue'
+          }
+        };
+
+        var cards = document.querySelectorAll('.spectrum-led-card');
+        var badge = document.getElementById('insp-badge');
+        var title = document.getElementById('insp-title');
+        var desc = document.getElementById('insp-desc');
+        var cause = document.getElementById('insp-cause');
+        var fix = document.getElementById('insp-fix');
+        var action = document.getElementById('insp-action');
+
+        cards.forEach(function(card){
+          function selectCard() {
+            cards.forEach(function(c){
+              c.classList.remove('active-state');
+              c.setAttribute('aria-selected', 'false');
+            });
+            card.classList.add('active-state');
+            card.setAttribute('aria-selected', 'true');
+            var st = card.getAttribute('data-state');
+            var data = stateData[st];
+            if(data && badge && title && desc){
+              badge.innerText = data.badge;
+              badge.style.background = data.badgeBg;
+              title.innerHTML = data.title;
+              desc.innerHTML = data.desc;
+              cause.innerText = data.cause;
+              fix.innerText = data.fix;
+              action.innerText = data.action;
+            }
+          }
+          card.addEventListener('click', selectCard);
+          card.addEventListener('keydown', function(e){
+            if(e.key === 'Enter' || e.key === ' '){
+              e.preventDefault();
+              selectCard();
+            }
+          });
+        });
+      })();
+      </script>
 
       <h2>What the Red Light Means</h2>
       <p>

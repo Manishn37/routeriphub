@@ -8496,6 +8496,454 @@ def generate_custom_spectrum_sac2v1k_page(isp):
 
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/isp/spectrum-wifi-6-router-sac2v1k-login-setup-guide.webp", og_image_alt="Spectrum Wi-Fi 6 router SAC2V1K and SAX1V1K login and setup guide showing 192.168.1.1 admin access", og_type="article") + content + get_footer()
 
+def get_isp_master_index_content():
+    carrier_metadata = {
+        "xfinity-xfi": {
+            "short_name": "Xfinity",
+            "region": "United States",
+            "region_code": "us",
+            "badge": "US Cable & Fiber",
+            "accent": "#6366f1",
+            "accent_rgb": "99, 102, 241",
+            "bridge": "Bridge Mode Supported",
+            "pwd_hint": "Default 'password' or via Xfinity App",
+            "tagline": "Gigabit Cable & Fiber Gateway"
+        },
+        "att-bgw320": {
+            "short_name": "AT&T Fiber",
+            "region": "United States",
+            "region_code": "us",
+            "badge": "US Fiber & VDSL",
+            "accent": "#0284c7",
+            "accent_rgb": "2, 132, 199",
+            "bridge": "IP Passthrough (DHCPS-fixed)",
+            "pwd_hint": "10-Digit Device Access Code (DAC)",
+            "tagline": "Integrated Optical Fiber SFP"
+        },
+        "verizon-cr1000a": {
+            "short_name": "Verizon Fios",
+            "region": "United States",
+            "region_code": "us",
+            "badge": "US Fiber (10G Ready)",
+            "accent": "#dc2626",
+            "accent_rgb": "220, 38, 38",
+            "bridge": "Disable DHCP / AP Mode",
+            "pwd_hint": "Unique password on base label",
+            "tagline": "Tri-Band Wi-Fi 6E Gateway"
+        },
+        "spectrum-sac2v1k": {
+            "short_name": "Spectrum",
+            "region": "United States",
+            "region_code": "us",
+            "badge": "US Cable & Fiber",
+            "accent": "#2563eb",
+            "accent_rgb": "37, 99, 235",
+            "bridge": "Modem Bridge Mode",
+            "pwd_hint": "admin (or My Spectrum App)",
+            "tagline": "DOCSIS 3.1 Advanced Router"
+        },
+        "t-mobile-kvd21": {
+            "short_name": "T-Mobile",
+            "region": "United States",
+            "region_code": "us",
+            "badge": "US 5G Home Internet",
+            "accent": "#e11d48",
+            "accent_rgb": "225, 29, 72",
+            "bridge": "Double-NAT / AP Mode",
+            "pwd_hint": "Unique key on bottom sticker",
+            "tagline": "Cellular Ultra Capacity 5G"
+        },
+        "centurylink-c4000": {
+            "short_name": "CenturyLink",
+            "region": "United States",
+            "region_code": "us",
+            "badge": "US Fiber & DSL",
+            "accent": "#059669",
+            "accent_rgb": "5, 150, 105",
+            "bridge": "Transparent Bridge (VLAN 201)",
+            "pwd_hint": "Admin password on sticker",
+            "tagline": "Quantum Fiber Wi-Fi 6"
+        },
+        "bt-smart-hub": {
+            "short_name": "BT Broadband",
+            "region": "United Kingdom",
+            "region_code": "uk",
+            "badge": "UK Fibre & FTTC",
+            "accent": "#4f46e5",
+            "accent_rgb": "79, 70, 229",
+            "bridge": "DMZ / Double-NAT Only",
+            "pwd_hint": "Password on pull-out card",
+            "tagline": "Complete Wi-Fi Smart Hub 2"
+        },
+        "virgin-media-hub": {
+            "short_name": "Virgin Media",
+            "region": "United Kingdom",
+            "region_code": "uk",
+            "badge": "UK Cable (DOCSIS 3.1)",
+            "accent": "#e11d48",
+            "accent_rgb": "225, 29, 72",
+            "bridge": "Modem Mode (192.168.100.1)",
+            "pwd_hint": "Settings key on bottom sticker",
+            "tagline": "Gigabit Cable & Fibre Hub"
+        },
+        "sky-broadband": {
+            "short_name": "Sky Broadband",
+            "region": "United Kingdom",
+            "region_code": "uk",
+            "badge": "UK Fibre & Broadband",
+            "accent": "#0ea5e9",
+            "accent_rgb": "14, 165, 233",
+            "bridge": "DHCP Option 61 (MER)",
+            "pwd_hint": "sky (or Wi-Fi password)",
+            "tagline": "Dual-Band Sky Hub SR203"
+        },
+        "telstra-smart-modem": {
+            "short_name": "Telstra",
+            "region": "Australia",
+            "region_code": "au",
+            "badge": "Australia NBN",
+            "accent": "#f59e0b",
+            "accent_rgb": "245, 158, 11",
+            "bridge": "Bridge Mode Available",
+            "pwd_hint": "admin (or printed on base)",
+            "tagline": "NBN with 4G LTE Backup"
+        }
+    }
+
+    tiles_html = ""
+    table_rows_html = ""
+
+    for isp in ISP_GATEWAYS:
+        slug = isp["slug"]
+        meta = carrier_metadata.get(slug, {
+            "short_name": isp["isp_name"],
+            "region": "Global",
+            "region_code": "global",
+            "badge": "Broadband Gateway",
+            "accent": "#0284c7",
+            "accent_rgb": "2, 132, 199",
+            "bridge": "Standard Bridge",
+            "pwd_hint": "See gateway sticker",
+            "tagline": "Broadband Wi-Fi Gateway"
+        })
+
+        ip_slug = isp["default_ip"].replace(".", "-")
+
+        tiles_html += f"""
+        <article class="isp-tile" data-region="{meta['region_code']}" style="--carrier-accent: {meta['accent']}; --carrier-rgb: {meta['accent_rgb']};">
+          <div class="isp-tile-top-bar"></div>
+          <div class="isp-tile-header">
+            <div class="isp-tile-meta">
+              <span class="isp-carrier-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                  <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                  <circle cx="12" cy="20" r="1" fill="currentColor"/>
+                </svg>
+                {escape(isp['isp_name'])}
+              </span>
+              <span class="isp-region-badge">{meta['badge']}</span>
+            </div>
+            <a href="http://{escape(isp['default_ip'])}" target="_blank" rel="noopener noreferrer" class="isp-ip-badge" title="Open local gateway in browser">
+              <span class="isp-ip-dot"></span>
+              <code>{escape(isp['default_ip'])}</code>
+            </a>
+          </div>
+
+          <div class="isp-tile-body">
+            <h2 class="isp-tile-title">
+              <a href="/isp/{escape(slug)}/">{escape(isp['gateway_name'])}</a>
+            </h2>
+            <div class="isp-tile-tagline">{meta['tagline']}</div>
+
+            <div class="isp-tile-specs-grid">
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Gateway IP</span>
+                <span class="isp-spec-v">
+                  <a href="/ip/{ip_slug}/" class="isp-spec-link"><strong>{escape(isp['default_ip'])}</strong></a>
+                  <small class="isp-spec-sub">{escape(isp['web_address'])}</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Default Password</span>
+                <span class="isp-spec-v">
+                  <code class="isp-pwd-code">{escape(isp['default_password'])}</code>
+                  <small class="isp-spec-sub">{meta['pwd_hint']}</small>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Bridge / Passthrough</span>
+                <span class="isp-spec-v">
+                  <strong class="isp-bridge-status">{meta['bridge']}</strong>
+                </span>
+              </div>
+              <div class="isp-spec-box">
+                <span class="isp-spec-k">Mobile Management</span>
+                <span class="isp-spec-v">
+                  <strong>{escape(isp['app_name'])}</strong>
+                  <small class="isp-spec-sub">iOS &amp; Android App</small>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="isp-tile-footer">
+            <a href="/isp/{escape(slug)}/" class="btn btn-primary isp-tile-cta">
+              <span>View {meta['short_name']} Login Guide</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <div class="isp-tile-links">
+              <a href="/ip/{ip_slug}/" class="isp-sub-link">{escape(isp['default_ip'])} Subnet Hub</a>
+              <span class="isp-sep">&bull;</span>
+              <a href="http://{escape(isp['default_ip'])}" target="_blank" rel="noopener noreferrer" class="isp-sub-link">Direct Login &nearr;</a>
+            </div>
+          </div>
+        </article>
+        """
+
+        table_rows_html += f"""
+        <tr>
+          <td>
+            <strong><a href="/isp/{escape(slug)}/">{escape(isp['isp_name'])}</a></strong>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">{meta['region']}</div>
+          </td>
+          <td>{escape(isp['gateway_name'])}</td>
+          <td><a href="/ip/{ip_slug}/"><code>{escape(isp['default_ip'])}</code></a></td>
+          <td><code>{escape(isp['default_password'])}</code></td>
+          <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">{meta['bridge']}</span></td>
+          <td>{escape(isp['app_name'])}</td>
+          <td><a href="/isp/{escape(slug)}/" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.25rem 0.6rem;">Guide &rarr;</a></td>
+        </tr>
+        """
+
+    content_master = f"""
+  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Hero Header -->
+    <header class="isp-directory-hero">
+      <div class="silo-badge silo-badge-isp">Broadband Gateway Directory</div>
+      <h1 class="isp-hero-title">
+        ISP Router &amp; Gateway Login Directory
+      </h1>
+      <p class="isp-hero-subtitle">
+        Carrier-verified default gateway IP addresses, printed sticker administrator credentials, IP Passthrough / Bridge Mode setup guides, and companion apps for top fiber, cable, and 5G broadband service providers.
+      </p>
+
+      <!-- Fast Gateway IP Pillbar -->
+      <div class="isp-quick-ip-bar" aria-label="Common ISP Gateway Subnets">
+        <span class="isp-ip-bar-label">Common ISP Subnets:</span>
+        <a href="/ip/10-0-0-1/" class="isp-quick-pill"><span class="isp-pill-dot"></span>10.0.0.1 <small>(Xfinity)</small></a>
+        <a href="/ip/192-168-1-254/" class="isp-quick-pill"><span class="isp-pill-dot"></span>192.168.1.254 <small>(AT&amp;T, BT)</small></a>
+        <a href="/ip/192-168-1-1/" class="isp-quick-pill"><span class="isp-pill-dot"></span>192.168.1.1 <small>(Verizon, Spectrum)</small></a>
+        <a href="/ip/192-168-0-1/" class="isp-quick-pill"><span class="isp-pill-dot"></span>192.168.0.1 <small>(Virgin, Sky, CenturyLink)</small></a>
+        <a href="/ip/192-168-12-1/" class="isp-quick-pill"><span class="isp-pill-dot"></span>192.168.12.1 <small>(T-Mobile 5G)</small></a>
+      </div>
+
+      <!-- Region Filter Tabs -->
+      <div class="isp-filter-nav" role="tablist" aria-label="Filter ISP Gateways by Region">
+        <button type="button" class="isp-filter-tab is-active" data-filter="all">All Gateways (10)</button>
+        <button type="button" class="isp-filter-tab" data-filter="us">United States (6)</button>
+        <button type="button" class="isp-filter-tab" data-filter="uk">United Kingdom (3)</button>
+        <button type="button" class="isp-filter-tab" data-filter="au">Australia (1)</button>
+      </div>
+    </header>
+
+    <!-- Tiles Section: Strictly 2 ISP per row -->
+    <section class="isp-tiles-section" aria-label="ISP Gateway Login Tiles">
+      <div class="isp-tiles-grid" id="isp-tiles-container">
+        {tiles_html}
+      </div>
+    </section>
+
+    <!-- Quick Tool Banner -->
+    <div class="isp-tool-banner">
+      <div class="isp-tool-banner-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <div class="isp-tool-banner-content">
+        <h3 style="margin: 0 0 0.35rem 0; font-size: 1.1rem; font-weight: 800; color: var(--text-primary);">Unsure which ISP Gateway model or IP is on your local network?</h3>
+        <p style="margin: 0; font-size: 0.875rem; color: var(--text-secondary); line-height: 1.45;">Our browser-based diagnostic tool detects your active default gateway address, subnet mask, and network adapter IP in real time with zero software installation.</p>
+      </div>
+      <a href="/tools/detect-gateway/" class="btn btn-primary" style="white-space: nowrap;">Auto-Detect My Gateway &rarr;</a>
+    </div>
+
+    <!-- Comparative Table Section -->
+    <section class="isp-table-section" style="margin-top: 3.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">Carrier Gateway Quick Reference Comparison</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem;">
+        Summary comparison of default management addresses, factory sticker credentials, bridge mode availability, and companion administration apps.
+      </p>
+      <div class="table-responsive">
+        <table class="table-striped" style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+              <th style="padding: 0.75rem 1rem;">Service Provider</th>
+              <th style="padding: 0.75rem 1rem;">Primary Gateway</th>
+              <th style="padding: 0.75rem 1rem;">Default IP</th>
+              <th style="padding: 0.75rem 1rem;">Password Type</th>
+              <th style="padding: 0.75rem 1rem;">Bridge Support</th>
+              <th style="padding: 0.75rem 1rem;">Mobile App</th>
+              <th style="padding: 0.75rem 1rem;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {table_rows_html}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Technical Guide Cards Section -->
+    <section class="isp-guide-cards-section" style="margin-top: 3.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem;">ISP Gateway Administration &amp; Setup Best Practices</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
+        Essential configuration rules for connecting third-party mesh routers, avoiding Double-NAT, and locating factory security credentials.
+      </p>
+
+      <div class="isp-best-practices-grid">
+        <div class="isp-bp-card">
+          <div class="isp-bp-num">01</div>
+          <h3>Connecting to Local ISP Admin Portals</h3>
+          <p>Always connect your laptop, smartphone, or tablet directly to the gateway Wi-Fi or via an Ethernet cable into an available LAN port. If configuring on a smartphone, <strong>turn off cellular mobile data</strong> so browser requests do not route over 4G/5G.</p>
+        </div>
+
+        <div class="isp-bp-card">
+          <div class="isp-bp-num">02</div>
+          <h3>Locating Unique Sticker Passwords &amp; DAC</h3>
+          <p>Modern carrier gateways no longer share generic passwords. AT&amp;T requires a 10-digit <strong>Device Access Code (DAC)</strong> printed in bold on the unit's base. Verizon, CenturyLink, and Virgin Media print unique passwords on the serial barcode label.</p>
+        </div>
+
+        <div class="isp-bp-card">
+          <div class="isp-bp-num">03</div>
+          <h3>Bridge Mode vs. IP Passthrough (Avoid Double NAT)</h3>
+          <p>When connecting your own router (e.g. Netgear, Asus, Eero, Nest Wi-Fi), enable <strong>Bridge Mode</strong> (Xfinity, Virgin Media) or <strong>IP Passthrough</strong> (AT&amp;T BGW320). This assigns your personal router the public WAN IP and prevents port-forwarding conflicts.</p>
+        </div>
+
+        <div class="isp-bp-card">
+          <div class="isp-bp-num">04</div>
+          <h3>Carrier App vs. Browser Administration</h3>
+          <p>ISPs increasingly push app-based control (Xfinity App, My Spectrum, AT&amp;T Smart Home Manager). While everyday Wi-Fi names and passwords can be edited in the app, advanced features like <strong>DNS overrides, static subnets, DMZ, and Bridge Mode</strong> require the local web GUI.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section class="isp-faq-section" style="margin-top: 3.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.25rem;">Frequently Asked Questions About ISP Gateways</h2>
+      
+      <div class="faq-accordion">
+        <div class="faq-item">
+          <h3 class="faq-question">What is an ISP Gateway and how does it differ from a retail router?</h3>
+          <div class="faq-answer">
+            <p>An ISP gateway is an all-in-one combo unit provided by your internet service provider that integrates a broadband modem (fiber ONT optical interface, DOCSIS cable modem, or 5G receiver) and a wireless Wi-Fi router into a single physical chassis. A retail router, by contrast, only handles local routing and Wi-Fi and requires an external modem or gateway to connect to the internet.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Why does 192.168.1.254 or 10.0.0.1 not open in my browser?</h3>
+          <div class="faq-answer">
+            <p>Ensure your device is connected directly to your ISP gateway network rather than mobile data or a guest Wi-Fi. Enter <code>http://10.0.0.1</code> or <code>http://192.168.1.254</code> directly into the top address bar rather than a Google search. If using a VPN, disconnect it temporarily, as VPN tunnels route web traffic away from your local subnet.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">Can I use my own Wi-Fi router with an AT&amp;T Fiber or Xfinity gateway?</h3>
+          <div class="faq-answer">
+            <p>Yes. For AT&amp;T Fiber gateways (BGW320), navigate to Firewall &gt; IP Passthrough, choose DHCPS-fixed, and select your personal router's MAC address. For Xfinity xFi gateways, log into 10.0.0.1 and toggle Bridge Mode to 'Enable'. Then connect your router's WAN port to Ethernet port 1 on the gateway.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3 class="faq-question">How do I factory reset my ISP gateway if I forgot the custom admin password?</h3>
+          <div class="faq-answer">
+            <p>Locate the recessed Reset button on the rear or base of the gateway. While the unit is powered on, press and hold the button using a paperclip for 20 to 30 seconds until the status lights flash amber or green. Release the button and allow 3 to 5 minutes for the device to reboot to factory default credentials.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cross-Silo Related Links -->
+    <div style="margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+      <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Related Gateway Setup Guides &amp; Diagnostic Tools</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+        <a href="/tools/detect-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Auto-Detect Local Gateway &rarr;</a>
+        <a href="/howto/which-port-plug-router-att-gateway/" class="btn btn-secondary" style="font-size: 0.85rem;">Which Port to Plug Into AT&amp;T Gateway &rarr;</a>
+        <a href="/howto/spectrum-router-blinking-red-light/" class="btn btn-secondary" style="font-size: 0.85rem;">Spectrum Blinking Red Light Guide &rarr;</a>
+        <a href="/howto/two-routers-access-point-mode/" class="btn btn-secondary" style="font-size: 0.85rem;">Two Routers AP Mode Setup &rarr;</a>
+        <a href="/extenders/" class="btn btn-secondary" style="font-size: 0.85rem;">Wi-Fi Range Extender Directory &rarr;</a>
+        <a href="/routers/" class="btn btn-secondary" style="font-size: 0.85rem;">Retail Router Database (252 Models) &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Region Filter Tabs
+    document.addEventListener('DOMContentLoaded', function() {{
+      var tabs = document.querySelectorAll('.isp-filter-tab');
+      var tiles = document.querySelectorAll('.isp-tile');
+      tabs.forEach(function(tab) {{
+        tab.addEventListener('click', function() {{
+          tabs.forEach(function(t) {{ t.classList.remove('is-active'); }});
+          this.classList.add('is-active');
+          var filter = this.getAttribute('data-filter');
+          tiles.forEach(function(tile) {{
+            if (filter === 'all' || tile.getAttribute('data-region') === filter) {{
+              tile.style.display = 'flex';
+            }} else {{
+              tile.style.display = 'none';
+            }}
+          }});
+        }});
+      }});
+    }});
+  </script>
+"""
+
+    isp_faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is an ISP Gateway and how does it differ from a retail router?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "An ISP gateway is an all-in-one combo unit provided by your internet service provider that integrates a broadband modem (fiber ONT optical interface, DOCSIS cable modem, or 5G receiver) and a wireless Wi-Fi router into a single physical chassis. A retail router, by contrast, only handles local routing and Wi-Fi and requires an external modem or gateway to connect to the internet."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does 192.168.1.254 or 10.0.0.1 not open in my browser?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ensure your device is connected directly to your ISP gateway network rather than mobile data or a guest Wi-Fi. Enter http://10.0.0.1 or http://192.168.1.254 directly into the top address bar rather than a Google search. If using a VPN, disconnect it temporarily."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use my own Wi-Fi router with an AT&T Fiber or Xfinity gateway?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. For AT&T Fiber gateways (BGW320), navigate to Firewall > IP Passthrough, choose DHCPS-fixed, and select your personal router's MAC address. For Xfinity xFi gateways, log into 10.0.0.1 and toggle Bridge Mode to 'Enable'."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I factory reset my ISP gateway if I forgot the custom admin password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Locate the recessed Reset button on the rear or base of the gateway. While the unit is powered on, press and hold the button using a paperclip for 20 to 30 seconds until the status lights flash amber or green."
+                }
+            }
+        ]
+    }
+
+    return content_master, isp_faq_schema
+
+
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
     for isp in ISP_GATEWAYS:
@@ -8721,49 +9169,11 @@ def generate_isp_pages():
     # Master ISP Index
     isp_master_dir = os.path.join(PUBLIC_DIR, "isp")
     canonical_master = "https://routeriphub.com/isp/"
-    title_master = "ISP Gateway Login Directory: Xfinity, AT&T, Verizon"
-    desc_master = "Complete directory of ISP default gateway IPs, admin passwords, bridge mode instructions, and factory reset guides for major service providers."
+    title_master = "ISP Router & Gateway Login Directory: Xfinity, AT&T, Verizon"
+    desc_master = "Carrier default gateway IP addresses, printed sticker administrator credentials, IP Passthrough / Bridge Mode setup guides, and companion apps for top broadband providers."
 
-    isp_cards = ""
-    for isp in ISP_GATEWAYS:
-        isp_cards += f"""
-        <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
-              <span class="badge" style="background: var(--info-bg); color: var(--text-accent);">{escape(isp['isp_name'])}</span>
-              <span style="font-size: 0.85rem; font-family: var(--font-mono); font-weight: 700;">{escape(isp['default_ip'])}</span>
-            </div>
-            <h2 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">
-              <a href="/isp/{escape(isp['slug'])}/">{escape(isp['gateway_name'])}</a>
-            </h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
-              Default Password: <code>{escape(isp['default_password'])}</code>
-            </p>
-          </div>
-          <div style="border-top: 1px solid var(--border-color); padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
-            <span style="font-size: 0.775rem; color: var(--text-muted);">{escape(isp['app_name'])}</span>
-            <a href="/isp/{escape(isp['slug'])}/" style="font-size: 0.85rem; font-weight: 600;">View Gateway &rarr;</a>
-          </div>
-        </div>
-        """
+    content_master, isp_faq_schema = get_isp_master_index_content()
 
-    content_master = f"""
-  <main class="container" style="padding-top: 2rem; padding-bottom: 4rem;">
-    <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem auto;">
-      <div class="silo-badge silo-badge-isp">ISP Gateway Directory</div>
-      <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem;">
-        ISP Router Gateway Login Directory
-      </h1>
-      <p style="font-size: 1.1rem; color: var(--text-secondary);">
-        Direct administration login guides, sticker access codes, and IP passthrough instructions for broadband service providers.
-      </p>
-    </div>
-
-    <div class="grid-3" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem;">
-      {isp_cards}
-    </div>
-  </main>
-"""
     breadcrumbs = [("Home", "/"), ("ISP Gateways", "/isp/")]
     isp_collection_schema = {
         "@type": "CollectionPage",
@@ -8772,9 +9182,10 @@ def generate_isp_pages():
         "url": canonical_master,
         "publisher": ORG_PUBLISHER
     }
-    full_html = get_header(title_master, desc_master, canonical_master, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[isp_collection_schema]) + content_master + get_footer()
+    full_html = get_header(title_master, desc_master, canonical_master, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[isp_collection_schema, isp_faq_schema]) + content_master + get_footer()
     with open(os.path.join(isp_master_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(full_html)
+
 
 # ==============================================================================
 # 4. GENERATE BRAND DIRECTORIES (/brands/[brand]/ & /brands/)
