@@ -35,6 +35,206 @@
       "permanent": true
     },
     {
+      "source": "/isp/att-bgw320",
+      "destination": "/isp/att-fiber-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/att-bgw320/",
+      "destination": "/isp/att-fiber-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/att-fiber",
+      "destination": "/isp/att-fiber-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/att-fiber/",
+      "destination": "/isp/att-fiber-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/att-gateway-login",
+      "destination": "/isp/att-fiber-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/att-gateway-login/",
+      "destination": "/isp/att-fiber-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/verizon-cr1000a",
+      "destination": "/isp/verizon-fios-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/verizon-cr1000a/",
+      "destination": "/isp/verizon-fios-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/verizon-fios",
+      "destination": "/isp/verizon-fios-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/verizon-fios/",
+      "destination": "/isp/verizon-fios-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/verizon-gateway-login",
+      "destination": "/isp/verizon-fios-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/verizon-gateway-login/",
+      "destination": "/isp/verizon-fios-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/spectrum-sac2v1k",
+      "destination": "/isp/spectrum-router-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/spectrum-sac2v1k/",
+      "destination": "/isp/spectrum-router-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/spectrum-router-login",
+      "destination": "/isp/spectrum-router-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/spectrum-router-login/",
+      "destination": "/isp/spectrum-router-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/t-mobile-kvd21",
+      "destination": "/isp/t-mobile-5g-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/t-mobile-kvd21/",
+      "destination": "/isp/t-mobile-5g-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/t-mobile-5g",
+      "destination": "/isp/t-mobile-5g-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/t-mobile-5g/",
+      "destination": "/isp/t-mobile-5g-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/centurylink-c4000",
+      "destination": "/isp/centurylink-modem-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/centurylink-c4000/",
+      "destination": "/isp/centurylink-modem-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/centurylink-modem-login",
+      "destination": "/isp/centurylink-modem-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/centurylink-modem-login/",
+      "destination": "/isp/centurylink-modem-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/bt-smart-hub",
+      "destination": "/isp/bt-smart-hub-manager-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/bt-smart-hub/",
+      "destination": "/isp/bt-smart-hub-manager-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/bt-hub-login",
+      "destination": "/isp/bt-smart-hub-manager-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/bt-hub-login/",
+      "destination": "/isp/bt-smart-hub-manager-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/virgin-media-hub",
+      "destination": "/isp/virgin-media-hub-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/virgin-media-hub/",
+      "destination": "/isp/virgin-media-hub-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/virgin-media-login",
+      "destination": "/isp/virgin-media-hub-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/virgin-media-login/",
+      "destination": "/isp/virgin-media-hub-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/sky-broadband",
+      "destination": "/isp/sky-broadband-hub-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/sky-broadband/",
+      "destination": "/isp/sky-broadband-hub-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/sky-hub-login",
+      "destination": "/isp/sky-broadband-hub-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/sky-hub-login/",
+      "destination": "/isp/sky-broadband-hub-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/telstra-smart-modem",
+      "destination": "/isp/telstra-smart-modem-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/telstra-smart-modem/",
+      "destination": "/isp/telstra-smart-modem-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/telstra-modem-login",
+      "destination": "/isp/telstra-smart-modem-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/telstra-modem-login/",
+      "destination": "/isp/telstra-smart-modem-login-admin-access/",
+      "permanent": true
+    },
+    {
       "source": "/isp/pldt",
       "destination": "/routers/pldt/",
       "permanent": true
@@ -617,16 +817,6 @@
     {
       "source": "/brand/:brand/",
       "destination": "/brands/:brand/",
-      "permanent": true
-    },
-    {
-      "source": "/isp/t-mobile-5g",
-      "destination": "/isp/t-mobile-kvd21/",
-      "permanent": true
-    },
-    {
-      "source": "/isp/t-mobile-5g/",
-      "destination": "/isp/t-mobile-kvd21/",
       "permanent": true
     },
     {

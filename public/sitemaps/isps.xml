@@ -13,56 +13,56 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://routeriphub.com/isp/att-bgw320/</loc>
+    <loc>https://routeriphub.com/isp/att-fiber-gateway-login-admin-access/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://routeriphub.com/isp/verizon-cr1000a/</loc>
+    <loc>https://routeriphub.com/isp/verizon-fios-gateway-login-admin-access/</loc>
     <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://routeriphub.com/isp/spectrum-sac2v1k/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <loc>https://routeriphub.com/isp/spectrum-router-login-admin-access/</loc>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://routeriphub.com/isp/t-mobile-kvd21/</loc>
-    <lastmod>2026-10-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://routeriphub.com/isp/centurylink-c4000/</loc>
+    <loc>https://routeriphub.com/isp/t-mobile-5g-gateway-login-admin-access/</loc>
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://routeriphub.com/isp/bt-smart-hub/</loc>
-    <lastmod>2026-10-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://routeriphub.com/isp/virgin-media-hub/</loc>
-    <lastmod>2026-10-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://routeriphub.com/isp/sky-broadband/</loc>
+    <loc>https://routeriphub.com/isp/centurylink-modem-login-admin-access/</loc>
     <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://routeriphub.com/isp/telstra-smart-modem/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <loc>https://routeriphub.com/isp/bt-smart-hub-manager-login-admin-access/</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routeriphub.com/isp/virgin-media-hub-login-admin-access/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routeriphub.com/isp/sky-broadband-hub-login-admin-access/</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routeriphub.com/isp/telstra-smart-modem-login-admin-access/</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

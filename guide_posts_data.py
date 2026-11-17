@@ -83,7 +83,7 @@ ACCESS_SETTINGS_BODY = """
               <td><a href="/ip/10-0-0-1/"><code>10.0.0.1</code></a></td>
             </tr>
             <tr>
-              <td class="cell-brand"><a href="/isp/att-bgw320/">AT&amp;T gateway</a></td>
+              <td class="cell-brand"><a href="/isp/att-fiber-gateway-login-admin-access/">AT&amp;T gateway</a></td>
               <td><a href="/ip/192-168-1-254/"><code>192.168.1.254</code></a></td>
             </tr>
             <tr>
@@ -473,7 +473,7 @@ WHY_192_168_1_1_NOT_WORKING_BODY = """
             </tr>
             <tr>
               <td><a href="/ip/192-168-1-254/"><code>http://192.168.1.254</code></a></td>
-              <td>Common on <a href="/isp/att-bgw320/">AT&amp;T gateways</a></td>
+              <td>Common on <a href="/isp/att-fiber-gateway-login-admin-access/">AT&amp;T gateways</a></td>
             </tr>
             <tr>
               <td><code>http://192.168.1.253</code></td>
@@ -680,7 +680,7 @@ WHY_192_168_1_1_NOT_WORKING_BODY = """
 
 WHY_BT_HUB_BODY = """
       <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
-        The most common reason is that your device is not connected to the BT Hub&rsquo;s network, or the browser is blocking the Hub&rsquo;s secure HTTPS connection. <a href="/isp/bt-smart-hub/">BT Hub Manager</a> is normally opened at <a href="/ip/192-168-1-254/"><code>192.168.1.254</code></a> or <code>http://bthomehub.home</code>, and changing settings requires the Hub&rsquo;s admin password.
+        The most common reason is that your device is not connected to the BT Hub&rsquo;s network, or the browser is blocking the Hub&rsquo;s secure HTTPS connection. <a href="/isp/bt-smart-hub-manager-login-admin-access/">BT Hub Manager</a> is normally opened at <a href="/ip/192-168-1-254/"><code>192.168.1.254</code></a> or <code>http://bthomehub.home</code>, and changing settings requires the Hub&rsquo;s admin password.
       </p>
       <p style="color: var(--text-secondary); line-height: 1.75;">
         Start with the connection and address before changing any Hub settings. Do not factory reset the Hub until you have ruled out the simpler causes.
@@ -907,7 +907,7 @@ WHY_BT_HUB_BODY = """
 
       <h3>Check the Hub model</h3>
       <p style="color: var(--text-secondary); line-height: 1.7;">
-        The location of the default password depends on the Hub version (see our <a href="/isp/bt-smart-hub/">BT Smart Hub Gateway Portal guide</a> for more model notes):
+        The location of the default password depends on the Hub version (see our <a href="/isp/bt-smart-hub-manager-login-admin-access/">BT Smart Hub Gateway Portal guide</a> for more model notes):
       </p>
       <div class="table-responsive">
         <table class="data-table">
@@ -1921,19 +1921,19 @@ GUIDE_POSTS = [
           </thead>
           <tbody>
             <tr>
-              <td class="cell-brand"><a href="/isp/att-bgw320/">AT&amp;T Fiber</a></td>
+              <td class="cell-brand"><a href="/isp/att-fiber-gateway-login-admin-access/">AT&amp;T Fiber</a></td>
               <td>BGW320-500 / BGW210</td>
               <td><a href="/ip/192-168-1-254/"><code>192.168.1.254</code></a></td>
               <td><strong>IP Passthrough (DHCPS-fixed):</strong> Passes public IPv4 cleanly to your router&rsquo;s WAN MAC address.</td>
             </tr>
             <tr>
-              <td class="cell-brand"><a href="/isp/verizon-cr1000a/">Verizon Fios</a></td>
+              <td class="cell-brand"><a href="/isp/verizon-fios-gateway-login-admin-access/">Verizon Fios</a></td>
               <td>CR1000A / G3100</td>
               <td><a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a></td>
               <td><strong>Direct ONT Ethernet:</strong> Internet-only plans can plug Ethernet straight from the Nokia/Calix ONT into your own router.</td>
             </tr>
             <tr>
-              <td class="cell-brand"><a href="/isp/centurylink-c4000/">CenturyLink / Quantum</a></td>
+              <td class="cell-brand"><a href="/isp/centurylink-modem-login-admin-access/">CenturyLink / Quantum</a></td>
               <td>C4000XG / C5500XK</td>
               <td><a href="/ip/192-168-0-1/"><code>192.168.0.1</code></a></td>
               <td><strong>Transparent Bridging + VLAN 201:</strong> Requires setting 802.1Q VLAN ID <code>201</code> on your personal router&rsquo;s WAN interface.</td>
@@ -2498,7 +2498,7 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
 
       <h2 id="enable-ip-passthrough">How to Enable IP Passthrough on an AT&amp;T Gateway</h2>
       <p>
-        Follow these step-by-step instructions to configure IP Passthrough on an <a href="/isp/att-bgw320/">AT&amp;T BGW320</a>, BGW210, or NVG599 gateway using its internal web manager at <a href="/ip/192-168-1-254/">192.168.1.254</a>:
+        Follow these step-by-step instructions to configure IP Passthrough on an <a href="/isp/att-fiber-gateway-login-admin-access/">AT&amp;T BGW320</a>, BGW210, or NVG599 gateway using its internal web manager at <a href="/ip/192-168-1-254/">192.168.1.254</a>:
       </p>
 
       <div class="steps-grid" style="grid-template-columns: 1fr; gap: 1.25rem;">
@@ -2827,7 +2827,7 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
         <li>Locate <strong>UPnP</strong> and toggle it to <strong>Enabled</strong>.</li>
       </ol>
       <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem;">
-        <em>Note:</em> Some ISP-managed Spectrum gateways lock down advanced gaming protocols. If UPnP is not visible in your My Spectrum app, see our dedicated <a href="/isp/spectrum-sac2v1k/">Spectrum Wi-Fi 6 Router Guide</a> for port forwarding workarounds.
+        <em>Note:</em> Some ISP-managed Spectrum gateways lock down advanced gaming protocols. If UPnP is not visible in your My Spectrum app, see our dedicated <a href="/isp/spectrum-router-login-admin-access/">Spectrum Wi-Fi 6 Router Guide</a> for port forwarding workarounds.
       </p>
 
       <figure class="guide-figure">

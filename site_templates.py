@@ -437,7 +437,7 @@ def get_sitemap_lastmod(category, slug=""):
     if slug in ("access-my-router-settings-page", "why-is-192-168-1-1-not-working", "why-cant-i-access-my-bt-hub-manager", "change-tenda-wifi-password-without-previous-password", "howto", "privacy", "terms"):
         return "2026-11-12"
     recent_updates = {
-        "pldt", "verizon-cr1000a", "xfinity-gateway-login-admin-access", "att-bgw320",
+        "pldt", "verizon-fios-gateway-login-admin-access", "xfinity-gateway-login-admin-access", "att-fiber-gateway-login-admin-access",
         "synology-rt2600ac", "synology-rt6600ax", "mywifiext-net",
         "tplinkrepeater-net", "about", "authors", "vikas-behl",
         "contact", "editorial-policy", "xfinity",

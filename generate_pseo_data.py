@@ -24,7 +24,7 @@ ISP_GATEWAYS = [
         "notes": "Xfinity's primary default subnet is 10.0.0.1/24. Modern XB7 and XB8 gateways support Wi-Fi 6 and Wi-Fi 6E."
     },
     {
-        "slug": "att-bgw320",
+        "slug": "att-fiber-gateway-login-admin-access",
         "isp_name": "AT&T Fiber",
         "gateway_name": "AT&T Fiber BGW320 / BGW210 Gateway",
         "default_ip": "192.168.1.254",
@@ -39,7 +39,7 @@ ISP_GATEWAYS = [
         "notes": "Direct integrated optical SFP port for AT&T Fiber. Gateway IP is strictly 192.168.1.254."
     },
     {
-        "slug": "verizon-cr1000a",
+        "slug": "verizon-fios-gateway-login-admin-access",
         "isp_name": "Verizon Fios",
         "gateway_name": "Fios Router CR1000A / Fios Home Router G3100",
         "default_ip": "192.168.1.1",
@@ -54,7 +54,7 @@ ISP_GATEWAYS = [
         "notes": "Supports Wi-Fi 6E with 2.5G WAN and 10G LAN ports. Self-Organizing Network (SON) enabled by default."
     },
     {
-        "slug": "spectrum-sac2v1k",
+        "slug": "spectrum-router-login-admin-access",
         "isp_name": "Spectrum (Charter)",
         "gateway_name": "Spectrum Wi-Fi 6 Router (SAC2V1K, SAX1V1K)",
         "default_ip": "192.168.1.1",
@@ -69,7 +69,7 @@ ISP_GATEWAYS = [
         "notes": "Delivered with standalone DOCSIS 3.1 cable modems across Charter, Time Warner, and Bright House service territories."
     },
     {
-        "slug": "t-mobile-kvd21",
+        "slug": "t-mobile-5g-gateway-login-admin-access",
         "isp_name": "T-Mobile Home Internet",
         "gateway_name": "T-Mobile 5G Gateway (KVD21, Arcadyan, G4SE)",
         "default_ip": "192.168.12.1",
@@ -84,7 +84,7 @@ ISP_GATEWAYS = [
         "notes": "Uses unique 192.168.12.1 subnet. Connects via 5G Ultra Capacity (n41/n71) cellular networks."
     },
     {
-        "slug": "centurylink-c4000",
+        "slug": "centurylink-modem-login-admin-access",
         "isp_name": "CenturyLink / Quantum Fiber",
         "gateway_name": "CenturyLink C4000LG / C4000XG Wi-Fi 6 Router",
         "default_ip": "192.168.0.1",
@@ -99,7 +99,7 @@ ISP_GATEWAYS = [
         "notes": "Commonly deployed across CenturyLink DSL and Quantum Fiber gigabit installations."
     },
     {
-        "slug": "bt-smart-hub",
+        "slug": "bt-smart-hub-manager-login-admin-access",
         "isp_name": "BT (British Telecom)",
         "gateway_name": "BT Smart Hub 2 (Home Hub 6)",
         "default_ip": "192.168.1.254",
@@ -114,7 +114,7 @@ ISP_GATEWAYS = [
         "notes": "Dominant UK home broadband router. Operates exclusively on 192.168.1.254."
     },
     {
-        "slug": "virgin-media-hub",
+        "slug": "virgin-media-hub-login-admin-access",
         "isp_name": "Virgin Media (UK)",
         "gateway_name": "Virgin Media Hub 3, Hub 4, Hub 5",
         "default_ip": "192.168.0.1",
@@ -129,7 +129,7 @@ ISP_GATEWAYS = [
         "notes": "Fastest UK cable broadband. In Modem Mode, IP shifts from 192.168.0.1 to 192.168.100.1."
     },
     {
-        "slug": "sky-broadband",
+        "slug": "sky-broadband-hub-login-admin-access",
         "isp_name": "Sky Broadband (UK)",
         "gateway_name": "Sky Broadband Hub (SR203)",
         "default_ip": "192.168.0.1",
@@ -144,7 +144,7 @@ ISP_GATEWAYS = [
         "notes": "Standard UK DSL/Fiber gateway configured on 192.168.0.1."
     },
     {
-        "slug": "telstra-smart-modem",
+        "slug": "telstra-smart-modem-login-admin-access",
         "isp_name": "Telstra (Australia)",
         "gateway_name": "Telstra Smart Modem Gen 2 / Gen 3 (Technicolor/Arcadyan)",
         "default_ip": "192.168.0.1",

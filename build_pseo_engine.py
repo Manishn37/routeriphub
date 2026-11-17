@@ -417,7 +417,7 @@ def build_isp_internal_links_html(isp_slug, default_ip, alt_ip=None):
     ]
     if default_ip in ('192.168.1.1', '192.168.0.1'):
         guide_links.append('<a href="/howto/why-is-192-168-1-1-not-working/" class="btn btn-secondary" style="font-size: 0.85rem;">Why 192.168.1.1 Fails &rarr;</a>')
-    if isp_slug == 'bt-smart-hub' or default_ip == '192.168.1.254':
+    if isp_slug in ('bt-smart-hub', 'bt-smart-hub-manager-login-admin-access') or default_ip == '192.168.1.254':
         guide_links.append('<a href="/howto/why-cant-i-access-my-bt-hub-manager/" class="btn btn-secondary" style="font-size: 0.85rem;">BT Hub Manager Fix &rarr;</a>')
 
     ip_links = []
@@ -3771,7 +3771,7 @@ def generate_custom_xfinity_xfi_page(isp):
 
 
 def generate_custom_att_bgw320_page(isp):
-    canonical = "https://routeriphub.com/isp/att-bgw320/"
+    canonical = "https://routeriphub.com/isp/att-fiber-gateway-login-admin-access/"
     title = "AT&T Fiber Gateway Login — 192.168.1.254 Admin Access"
     desc = "To access your AT&T Fiber gateway, enter 192.168.1.254 in your browser. Complete setup guide for BGW320, BGW210, access code location, Wi-Fi, and IP Passthrough."
 
@@ -3892,7 +3892,7 @@ def generate_custom_att_bgw320_page(isp):
     }
 
     byline_html = get_byline_html("November 2026")
-    internal_links_html = build_isp_internal_links_html("att-bgw320", "192.168.1.254")
+    internal_links_html = build_isp_internal_links_html("att-fiber-gateway-login-admin-access", "192.168.1.254")
 
     content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
@@ -4372,7 +4372,7 @@ def generate_custom_att_bgw320_page(isp):
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/howto/att-fiber-gateway-bgw320-hardware.webp", og_image_alt="AT&T Fiber gateway login guide showing 192.168.1.254 admin access, Device Access Code, and IP Passthrough", og_type="article") + content + get_footer()
 
 def generate_custom_verizon_cr1000a_page(isp):
-    canonical = "https://routeriphub.com/isp/verizon-cr1000a/"
+    canonical = "https://routeriphub.com/isp/verizon-fios-gateway-login-admin-access/"
     title = "Verizon Fios Gateway Login — 192.168.1.1 Admin Access"
     desc = "Access your Verizon Fios gateway at 192.168.1.1. Find the admin password for CR1000A, G3100, and Quantum gateways, change Wi-Fi settings, and fix login issues."
 
@@ -4984,7 +4984,7 @@ def generate_custom_verizon_cr1000a_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      {build_isp_internal_links_html('verizon-cr1000a', '192.168.1.1', '192.168.0.1')}
+      {build_isp_internal_links_html('verizon-fios-gateway-login-admin-access', '192.168.1.1', '192.168.0.1')}
     </div>
   </main>
 """
@@ -4993,7 +4993,7 @@ def generate_custom_verizon_cr1000a_page(isp):
 
 
 def generate_custom_telstra_smart_modem_page(isp):
-    canonical = "https://routeriphub.com/isp/telstra-smart-modem/"
+    canonical = "https://routeriphub.com/isp/telstra-smart-modem-login-admin-access/"
     title = "Telstra Gateway Login — 192.168.0.1 Admin Access & Fixes"
     desc = "Access your Telstra gateway at 192.168.0.1 or mymodem. Find the correct admin password, change Wi-Fi settings, and fix common login issues."
 
@@ -5523,7 +5523,7 @@ def generate_custom_telstra_smart_modem_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      {build_isp_internal_links_html('telstra-smart-modem', '192.168.0.1', '10.0.0.138')}
+      {build_isp_internal_links_html('telstra-smart-modem-login-admin-access', '192.168.0.1', '10.0.0.138')}
     </div>
   </main>
 """
@@ -5532,7 +5532,7 @@ def generate_custom_telstra_smart_modem_page(isp):
 
 
 def generate_custom_sky_broadband_page(isp):
-    canonical = "https://routeriphub.com/isp/sky-broadband/"
+    canonical = "https://routeriphub.com/isp/sky-broadband-hub-login-admin-access/"
     title = "Sky Broadband Hub Login — 192.168.0.1 Admin Access & Fixes"
     desc = "Access your Sky Broadband hub at 192.168.0.1. Find the correct admin password, change Wi-Fi settings, and fix common Sky Hub login issues."
 
@@ -6042,7 +6042,7 @@ def generate_custom_sky_broadband_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      {build_isp_internal_links_html('sky-broadband', '192.168.0.1', '192.168.1.1')}
+      {build_isp_internal_links_html('sky-broadband-hub-login-admin-access', '192.168.0.1', '192.168.1.1')}
     </div>
   </main>
 """
@@ -6051,7 +6051,7 @@ def generate_custom_sky_broadband_page(isp):
 
 
 def generate_custom_virgin_media_hub_page(isp):
-    canonical = "https://routeriphub.com/isp/virgin-media-hub/"
+    canonical = "https://routeriphub.com/isp/virgin-media-hub-login-admin-access/"
     title = "Virgin Media Hub Login — 192.168.0.1 Admin Access & Fixes"
     desc = "Access your Virgin Media Hub at 192.168.0.1. Find the Hub settings password, change Wi-Fi settings, and fix common Virgin Media login issues."
 
@@ -6533,7 +6533,7 @@ def generate_custom_virgin_media_hub_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      {build_isp_internal_links_html('virgin-media-hub', '192.168.0.1', '192.168.100.1')}
+      {build_isp_internal_links_html('virgin-media-hub-login-admin-access', '192.168.0.1', '192.168.100.1')}
     </div>
   </main>
 """
@@ -6542,7 +6542,7 @@ def generate_custom_virgin_media_hub_page(isp):
 
 
 def generate_custom_bt_smart_hub_page(isp):
-    canonical = "https://routeriphub.com/isp/bt-smart-hub/"
+    canonical = "https://routeriphub.com/isp/bt-smart-hub-manager-login-admin-access/"
     title = "BT Gateway Login — 192.168.1.254 Admin Access & Fixes"
     desc = "Access your BT Hub at 192.168.1.254. Find the admin password, change Wi-Fi settings, manage connected devices, and fix common BT Hub login issues."
 
@@ -7115,7 +7115,7 @@ def generate_custom_bt_smart_hub_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      {build_isp_internal_links_html('bt-smart-hub', '192.168.1.254', '192.168.1.1')}
+      {build_isp_internal_links_html('bt-smart-hub-manager-login-admin-access', '192.168.1.254', '192.168.1.1')}
     </div>
   </main>
 """
@@ -7124,7 +7124,7 @@ def generate_custom_bt_smart_hub_page(isp):
 
 
 def generate_custom_centurylink_c4000_page(isp):
-    canonical = "https://routeriphub.com/isp/centurylink-c4000/"
+    canonical = "https://routeriphub.com/isp/centurylink-modem-login-admin-access/"
     title = "CenturyLink Gateway Login — 192.168.0.1 Admin Access"
     desc = "Access your CenturyLink or Quantum Fiber gateway at 192.168.0.1. Find the admin username and password, change Wi-Fi settings, and fix login issues."
 
@@ -7588,7 +7588,7 @@ def generate_custom_centurylink_c4000_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      {build_isp_internal_links_html('centurylink-c4000', '192.168.0.1', '192.168.1.1')}
+      {build_isp_internal_links_html('centurylink-modem-login-admin-access', '192.168.0.1', '192.168.1.1')}
     </div>
   </main>
 """
@@ -7597,7 +7597,7 @@ def generate_custom_centurylink_c4000_page(isp):
 
 
 def generate_custom_tmobile_kvd21_page(isp):
-    canonical = "https://routeriphub.com/isp/t-mobile-kvd21/"
+    canonical = "https://routeriphub.com/isp/t-mobile-5g-gateway-login-admin-access/"
     title = "T-Mobile Gateway Login — 192.168.12.1 KVD21 & G4SE"
     desc = "Access your T-Mobile Home Internet gateway at 192.168.12.1. Find the admin password for KVD21, Arcadyan, and G4SE, change Wi-Fi settings, and fix login issues."
 
@@ -8093,7 +8093,7 @@ def generate_custom_tmobile_kvd21_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      {build_isp_internal_links_html('t-mobile-kvd21', '192.168.12.1', '192.168.1.1')}
+      {build_isp_internal_links_html('t-mobile-5g-gateway-login-admin-access', '192.168.12.1', '192.168.1.1')}
     </div>
   </main>
 """
@@ -8102,7 +8102,7 @@ def generate_custom_tmobile_kvd21_page(isp):
 
 
 def generate_custom_spectrum_sac2v1k_page(isp):
-    canonical = "https://routeriphub.com/isp/spectrum-sac2v1k/"
+    canonical = "https://routeriphub.com/isp/spectrum-router-login-admin-access/"
     title = "Spectrum Wi-Fi 6 Router (SAC2V1K/SAX1V1K) Login & Setup"
     desc = "Login and setup guide for Spectrum Wi-Fi 6 routers SAC2V1K and SAX1V1K. Learn how to access 192.168.1.1, use the My Spectrum app, and change Wi-Fi settings."
 
@@ -8717,7 +8717,7 @@ def generate_custom_spectrum_sac2v1k_page(isp):
       {get_byline_html()}
 
       <!-- Cross Silo Links -->
-      {build_isp_internal_links_html('spectrum-sac2v1k', '192.168.1.1', '192.168.0.1')}
+      {build_isp_internal_links_html('spectrum-router-login-admin-access', '192.168.1.1', '192.168.0.1')}
     </div>
   </main>
 """
@@ -8737,7 +8737,7 @@ def get_isp_master_index_content():
             "pwd_hint": "Default 'password' or via Xfinity App",
             "tagline": "Gigabit Cable & Fiber Gateway"
         },
-        "att-bgw320": {
+        "att-fiber-gateway-login-admin-access": {
             "short_name": "AT&T Fiber",
             "region": "United States",
             "region_code": "us",
@@ -8748,7 +8748,7 @@ def get_isp_master_index_content():
             "pwd_hint": "10-Digit Device Access Code (DAC)",
             "tagline": "Integrated Optical Fiber SFP"
         },
-        "verizon-cr1000a": {
+        "verizon-fios-gateway-login-admin-access": {
             "short_name": "Verizon Fios",
             "region": "United States",
             "region_code": "us",
@@ -8759,7 +8759,7 @@ def get_isp_master_index_content():
             "pwd_hint": "Unique password on base label",
             "tagline": "Tri-Band Wi-Fi 6E Gateway"
         },
-        "spectrum-sac2v1k": {
+        "spectrum-router-login-admin-access": {
             "short_name": "Spectrum",
             "region": "United States",
             "region_code": "us",
@@ -8770,7 +8770,7 @@ def get_isp_master_index_content():
             "pwd_hint": "admin (or My Spectrum App)",
             "tagline": "DOCSIS 3.1 Advanced Router"
         },
-        "t-mobile-kvd21": {
+        "t-mobile-5g-gateway-login-admin-access": {
             "short_name": "T-Mobile",
             "region": "United States",
             "region_code": "us",
@@ -8781,7 +8781,7 @@ def get_isp_master_index_content():
             "pwd_hint": "Unique key on bottom sticker",
             "tagline": "Cellular Ultra Capacity 5G"
         },
-        "centurylink-c4000": {
+        "centurylink-modem-login-admin-access": {
             "short_name": "CenturyLink",
             "region": "United States",
             "region_code": "us",
@@ -8792,7 +8792,7 @@ def get_isp_master_index_content():
             "pwd_hint": "Admin password on sticker",
             "tagline": "Quantum Fiber Wi-Fi 6"
         },
-        "bt-smart-hub": {
+        "bt-smart-hub-manager-login-admin-access": {
             "short_name": "BT Broadband",
             "region": "United Kingdom",
             "region_code": "uk",
@@ -8803,7 +8803,7 @@ def get_isp_master_index_content():
             "pwd_hint": "Password on pull-out card",
             "tagline": "Complete Wi-Fi Smart Hub 2"
         },
-        "virgin-media-hub": {
+        "virgin-media-hub-login-admin-access": {
             "short_name": "Virgin Media",
             "region": "United Kingdom",
             "region_code": "uk",
@@ -8814,7 +8814,7 @@ def get_isp_master_index_content():
             "pwd_hint": "Settings key on bottom sticker",
             "tagline": "Gigabit Cable & Fibre Hub"
         },
-        "sky-broadband": {
+        "sky-broadband-hub-login-admin-access": {
             "short_name": "Sky Broadband",
             "region": "United Kingdom",
             "region_code": "uk",
@@ -8825,7 +8825,7 @@ def get_isp_master_index_content():
             "pwd_hint": "sky (or Wi-Fi password)",
             "tagline": "Dual-Band Sky Hub SR203"
         },
-        "telstra-smart-modem": {
+        "telstra-smart-modem-login-admin-access": {
             "short_name": "Telstra",
             "region": "Australia",
             "region_code": "au",
@@ -9174,76 +9174,90 @@ def get_isp_master_index_content():
 
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
+    legacy_map = {
+        "att-fiber-gateway-login-admin-access": ("att-bgw320", "AT&T Fiber Gateway Login"),
+        "verizon-fios-gateway-login-admin-access": ("verizon-cr1000a", "Verizon Fios Gateway Login"),
+        "spectrum-router-login-admin-access": ("spectrum-sac2v1k", "Spectrum Router Login"),
+        "t-mobile-5g-gateway-login-admin-access": ("t-mobile-kvd21", "T-Mobile 5G Gateway Login"),
+        "centurylink-modem-login-admin-access": ("centurylink-c4000", "CenturyLink Modem Login"),
+        "bt-smart-hub-manager-login-admin-access": ("bt-smart-hub", "BT Smart Hub Manager Login"),
+        "virgin-media-hub-login-admin-access": ("virgin-media-hub", "Virgin Media Hub Login"),
+        "sky-broadband-hub-login-admin-access": ("sky-broadband", "Sky Broadband Hub Login"),
+        "telstra-smart-modem-login-admin-access": ("telstra-smart-modem", "Telstra Smart Modem Login"),
+        "xfinity-gateway-login-admin-access": ("xfinity-xfi", "Xfinity Gateway Login"),
+    }
     for isp in ISP_GATEWAYS:
         slug = isp["slug"]
         isp_dir = os.path.join(PUBLIC_DIR, "isp", slug)
         make_dirs(isp_dir)
+        # Generate static 301 fallback redirect if this is a newly slugged ISP
+        if slug in legacy_map:
+            leg_slug, leg_title = legacy_map[slug]
+            leg_dir = os.path.join(PUBLIC_DIR, "isp", leg_slug)
+            make_dirs(leg_dir)
+            leg_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to {leg_title}...</title>
+  <meta name="description" content="This page has permanently moved to https://routeriphub.com/isp/{slug}/.">
+  <link rel="canonical" href="https://routeriphub.com/isp/{slug}/">
+  <meta http-equiv="refresh" content="0; url=https://routeriphub.com/isp/{slug}/">
+  <script>window.location.replace("https://routeriphub.com/isp/{slug}/");</script>
+</head>
+<body>
+  <p>This page has moved. If you are not redirected automatically, please visit <a href="/isp/{slug}/">{leg_title}</a>.</p>
+</body>
+</html>"""
+            with open(os.path.join(leg_dir, "index.html"), "w", encoding="utf-8") as lf:
+                lf.write(leg_html)
 
         if slug in ("xfinity-gateway-login-admin-access", "xfinity-xfi"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_xfinity_xfi_page(isp))
-            # Also write static 301 meta-refresh fallback for legacy /isp/xfinity-xfi/
-            legacy_dir = os.path.join(PUBLIC_DIR, "isp", "xfinity-xfi")
-            make_dirs(legacy_dir)
-            legacy_html = """<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Redirecting to Xfinity Gateway Login...</title>
-  <meta name="description" content="This page has permanently moved to https://routeriphub.com/isp/xfinity-gateway-login-admin-access/.">
-  <link rel="canonical" href="https://routeriphub.com/isp/xfinity-gateway-login-admin-access/">
-  <meta http-equiv="refresh" content="0; url=https://routeriphub.com/isp/xfinity-gateway-login-admin-access/">
-  <script>window.location.replace("https://routeriphub.com/isp/xfinity-gateway-login-admin-access/");</script>
-</head>
-<body>
-  <p>This page has moved. If you are not redirected automatically, please visit <a href="/isp/xfinity-gateway-login-admin-access/">Xfinity Gateway Login</a>.</p>
-</body>
-</html>"""
-            with open(os.path.join(legacy_dir, "index.html"), "w", encoding="utf-8") as lf:
-                lf.write(legacy_html)
             continue
 
-        if slug == "att-bgw320":
+        if slug in ("att-fiber-gateway-login-admin-access", "att-bgw320"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_att_bgw320_page(isp))
             continue
 
-        if slug == "verizon-cr1000a":
+        if slug in ("verizon-fios-gateway-login-admin-access", "verizon-cr1000a"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_verizon_cr1000a_page(isp))
             continue
 
-        if slug == "telstra-smart-modem":
+        if slug in ("telstra-smart-modem-login-admin-access", "telstra-smart-modem"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_telstra_smart_modem_page(isp))
             continue
 
-        if slug == "sky-broadband":
+        if slug in ("sky-broadband-hub-login-admin-access", "sky-broadband"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_sky_broadband_page(isp))
             continue
 
-        if slug == "virgin-media-hub":
+        if slug in ("virgin-media-hub-login-admin-access", "virgin-media-hub"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_virgin_media_hub_page(isp))
             continue
 
-        if slug == "bt-smart-hub":
+        if slug in ("bt-smart-hub-manager-login-admin-access", "bt-smart-hub"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_bt_smart_hub_page(isp))
             continue
 
-        if slug == "centurylink-c4000":
+        if slug in ("centurylink-modem-login-admin-access", "centurylink-c4000"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_centurylink_c4000_page(isp))
             continue
 
-        if slug == "t-mobile-kvd21":
+        if slug in ("t-mobile-5g-gateway-login-admin-access", "t-mobile-kvd21"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_tmobile_kvd21_page(isp))
             continue
 
-        if slug == "spectrum-sac2v1k":
+        if slug in ("spectrum-router-login-admin-access", "spectrum-sac2v1k"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_spectrum_sac2v1k_page(isp))
             continue
@@ -10338,12 +10352,12 @@ IP_HARDWARE_CATALOG = {
         {"model": "Buffalo WSR-2533DHP2 High-Spec Wi-Fi Router", "user": "admin", "pass": "password", "wifi": "Wi-Fi 5 (802.11ac)", "link": "/ip/192-168-11-1/", "link_text": "Setup Guide &rarr;"}
     ],
     "192.168.12.1": [
-        {"model": "T-Mobile 5G Gateway (Arcadyan KVD21)", "user": "admin", "pass": "Printed Sticker PIN", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-kvd21/", "link_text": "T-Mobile Hub &rarr;"},
-        {"model": "T-Mobile 5G Gateway (Sagemcom Fast 5688W)", "user": "admin", "pass": "Printed Sticker PIN", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-kvd21/", "link_text": "T-Mobile Hub &rarr;"},
-        {"model": "T-Mobile 5G Gateway (Sercomm G4SE)", "user": "admin", "pass": "Printed Sticker PIN", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-kvd21/", "link_text": "T-Mobile Hub &rarr;"},
-        {"model": "T-Mobile 5G Gateway (Nokia 5G21 'Silver Trashcan')", "user": "admin", "pass": "Printed Sticker PIN", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-kvd21/", "link_text": "T-Mobile Hub &rarr;"},
-        {"model": "T-Mobile Home Internet G4AR External Antenna Gateway", "user": "admin", "pass": "Printed Sticker PIN", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-kvd21/", "link_text": "T-Mobile Hub &rarr;"},
-        {"model": "Inseego Wavemaker 5G Indoor Router (FX2000)", "user": "admin", "pass": "Printed Password", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-kvd21/", "link_text": "T-Mobile Hub &rarr;"}
+        {"model": "T-Mobile 5G Gateway (Arcadyan KVD21)", "user": "admin", "pass": "Printed Sticker PIN", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-5g-gateway-login-admin-access/", "link_text": "T-Mobile Hub &rarr;"},
+        {"model": "T-Mobile 5G Gateway (Sagemcom Fast 5688W)", "user": "admin", "pass": "Printed Sticker PIN", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-5g-gateway-login-admin-access/", "link_text": "T-Mobile Hub &rarr;"},
+        {"model": "T-Mobile 5G Gateway (Sercomm G4SE)", "user": "admin", "pass": "Printed Sticker PIN", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-5g-gateway-login-admin-access/", "link_text": "T-Mobile Hub &rarr;"},
+        {"model": "T-Mobile 5G Gateway (Nokia 5G21 'Silver Trashcan')", "user": "admin", "pass": "Printed Sticker PIN", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-5g-gateway-login-admin-access/", "link_text": "T-Mobile Hub &rarr;"},
+        {"model": "T-Mobile Home Internet G4AR External Antenna Gateway", "user": "admin", "pass": "Printed Sticker PIN", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-5g-gateway-login-admin-access/", "link_text": "T-Mobile Hub &rarr;"},
+        {"model": "Inseego Wavemaker 5G Indoor Router (FX2000)", "user": "admin", "pass": "Printed Password", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/isp/t-mobile-5g-gateway-login-admin-access/", "link_text": "T-Mobile Hub &rarr;"}
     ],
     "192.168.31.1": [
         {"model": "Xiaomi Mi Router AX9000 Tri-Band Gaming Router", "user": "admin", "pass": "Set on First Boot", "wifi": "Wi-Fi 6 (802.11ax)", "link": "/brands/xiaomi/", "link_text": "Xiaomi Hub &rarr;"},
@@ -19135,33 +19149,33 @@ def update_search_index():
                 "keywords": "xfinity comcast xfi 10.0.0.1 gateway admin tool bridge mode wifi xb6 xb7 xb8 login password admin access"
             })
             continue
-        if isp["slug"] == "att-bgw320":
+        if isp["slug"] in ("att-fiber-gateway-login-admin-access", "att-bgw320"):
             search_index.append({
                 "title": "AT&T Fiber Gateway Login — 192.168.1.254 Admin Access",
                 "category": "ISP Gateway",
                 "badge": "AT&T Fiber",
-                "url": "/isp/att-bgw320/",
+                "url": "/isp/att-fiber-gateway-login-admin-access/",
                 "snippet": "Access your AT&T Fiber gateway at 192.168.1.254. Find your Device Access Code, manage gateway settings, configure IP Passthrough, and fix login issues.",
                 "keywords": "att at&t fiber bgw320 bgw210 192.168.1.254 device access code ip passthrough gateway admin login"
             })
             continue
-        if isp["slug"] == "verizon-cr1000a":
+        if isp["slug"] in ("verizon-fios-gateway-login-admin-access", "verizon-cr1000a"):
             search_index.append({
                 "title": "Verizon Fios Gateway Login — 192.168.1.1 Admin Access",
                 "category": "ISP Gateway",
                 "badge": "Verizon Fios",
-                "url": "/isp/verizon-cr1000a/",
+                "url": "/isp/verizon-fios-gateway-login-admin-access/",
                 "snippet": "Log in to your Verizon Fios gateway at 192.168.1.1. Find the admin password, change Wi-Fi settings, and troubleshoot myfiosgateway.com login issues.",
                 "keywords": "verizon fios cr1000a g3100 g1100 192.168.1.1 myfiosgateway router admin login password"
             })
             continue
         search_index.append({
-            "title": f"{isp['isp_name']} Gateway Portal ({isp['default_ip']})",
+            "title": f"{isp['isp_name']} Gateway Login — {isp['default_ip']} Admin Access",
             "category": "ISP Gateway",
             "badge": isp['isp_name'],
             "url": f"/isp/{isp['slug']}/",
-            "snippet": f"{isp['gateway_name']} login, printed access code, and bridge mode guide.",
-            "keywords": f"{isp['isp_name'].lower()} {isp['slug']} {isp['default_ip']} bridge mode passthrough xfi bgw320 fiber"
+            "snippet": f"Access your {isp['isp_name']} gateway at {isp['default_ip']}. Complete setup guide for {isp['gateway_name']}, default credentials, bridge mode, and troubleshooting.",
+            "keywords": f"{isp['isp_name'].lower()} {isp['slug']} {isp['default_ip']} gateway admin login password bridge mode"
         })
 
     # 2b. Wi-Fi Extenders
@@ -19304,16 +19318,68 @@ def update_vercel_config():
             seen_sources.add(src)
             redirects.append({"source": src, "destination": dst, "permanent": True})
 
-    # Legacy Xfinity gateway paths -> canonical /isp/xfinity-gateway-login-admin-access/
-    for xf_src in [
-        "/isp/xfinity-xfi",
-        "/isp/xfinity-xfi/",
-        "/isp/xfinity-gateway-login-admin",
-        "/isp/xfinity-gateway-login-admin/",
-        "/isp/xfinity-gateway-login",
-        "/isp/xfinity-gateway-login/",
-    ]:
-        add_redirect(xf_src, "/isp/xfinity-gateway-login-admin-access/")
+    # Comprehensive ISP Gateway 301 Permanent Redirects
+    isp_redirect_rules = [
+        # Xfinity
+        ("/isp/xfinity-xfi", "/isp/xfinity-gateway-login-admin-access/"),
+        ("/isp/xfinity-xfi/", "/isp/xfinity-gateway-login-admin-access/"),
+        ("/isp/xfinity-gateway-login-admin", "/isp/xfinity-gateway-login-admin-access/"),
+        ("/isp/xfinity-gateway-login-admin/", "/isp/xfinity-gateway-login-admin-access/"),
+        ("/isp/xfinity-gateway-login", "/isp/xfinity-gateway-login-admin-access/"),
+        ("/isp/xfinity-gateway-login/", "/isp/xfinity-gateway-login-admin-access/"),
+        # AT&T Fiber
+        ("/isp/att-bgw320", "/isp/att-fiber-gateway-login-admin-access/"),
+        ("/isp/att-bgw320/", "/isp/att-fiber-gateway-login-admin-access/"),
+        ("/isp/att-fiber", "/isp/att-fiber-gateway-login-admin-access/"),
+        ("/isp/att-fiber/", "/isp/att-fiber-gateway-login-admin-access/"),
+        ("/isp/att-gateway-login", "/isp/att-fiber-gateway-login-admin-access/"),
+        ("/isp/att-gateway-login/", "/isp/att-fiber-gateway-login-admin-access/"),
+        # Verizon Fios
+        ("/isp/verizon-cr1000a", "/isp/verizon-fios-gateway-login-admin-access/"),
+        ("/isp/verizon-cr1000a/", "/isp/verizon-fios-gateway-login-admin-access/"),
+        ("/isp/verizon-fios", "/isp/verizon-fios-gateway-login-admin-access/"),
+        ("/isp/verizon-fios/", "/isp/verizon-fios-gateway-login-admin-access/"),
+        ("/isp/verizon-gateway-login", "/isp/verizon-fios-gateway-login-admin-access/"),
+        ("/isp/verizon-gateway-login/", "/isp/verizon-fios-gateway-login-admin-access/"),
+        # Spectrum
+        ("/isp/spectrum-sac2v1k", "/isp/spectrum-router-login-admin-access/"),
+        ("/isp/spectrum-sac2v1k/", "/isp/spectrum-router-login-admin-access/"),
+        ("/isp/spectrum-router-login", "/isp/spectrum-router-login-admin-access/"),
+        ("/isp/spectrum-router-login/", "/isp/spectrum-router-login-admin-access/"),
+        # T-Mobile
+        ("/isp/t-mobile-kvd21", "/isp/t-mobile-5g-gateway-login-admin-access/"),
+        ("/isp/t-mobile-kvd21/", "/isp/t-mobile-5g-gateway-login-admin-access/"),
+        ("/isp/t-mobile-5g", "/isp/t-mobile-5g-gateway-login-admin-access/"),
+        ("/isp/t-mobile-5g/", "/isp/t-mobile-5g-gateway-login-admin-access/"),
+        # CenturyLink / Quantum
+        ("/isp/centurylink-c4000", "/isp/centurylink-modem-login-admin-access/"),
+        ("/isp/centurylink-c4000/", "/isp/centurylink-modem-login-admin-access/"),
+        ("/isp/centurylink-modem-login", "/isp/centurylink-modem-login-admin-access/"),
+        ("/isp/centurylink-modem-login/", "/isp/centurylink-modem-login-admin-access/"),
+        # BT Broadband
+        ("/isp/bt-smart-hub", "/isp/bt-smart-hub-manager-login-admin-access/"),
+        ("/isp/bt-smart-hub/", "/isp/bt-smart-hub-manager-login-admin-access/"),
+        ("/isp/bt-hub-login", "/isp/bt-smart-hub-manager-login-admin-access/"),
+        ("/isp/bt-hub-login/", "/isp/bt-smart-hub-manager-login-admin-access/"),
+        # Virgin Media
+        ("/isp/virgin-media-hub", "/isp/virgin-media-hub-login-admin-access/"),
+        ("/isp/virgin-media-hub/", "/isp/virgin-media-hub-login-admin-access/"),
+        ("/isp/virgin-media-login", "/isp/virgin-media-hub-login-admin-access/"),
+        ("/isp/virgin-media-login/", "/isp/virgin-media-hub-login-admin-access/"),
+        # Sky Broadband
+        ("/isp/sky-broadband", "/isp/sky-broadband-hub-login-admin-access/"),
+        ("/isp/sky-broadband/", "/isp/sky-broadband-hub-login-admin-access/"),
+        ("/isp/sky-hub-login", "/isp/sky-broadband-hub-login-admin-access/"),
+        ("/isp/sky-hub-login/", "/isp/sky-broadband-hub-login-admin-access/"),
+        # Telstra
+        ("/isp/telstra-smart-modem", "/isp/telstra-smart-modem-login-admin-access/"),
+        ("/isp/telstra-smart-modem/", "/isp/telstra-smart-modem-login-admin-access/"),
+        ("/isp/telstra-modem-login", "/isp/telstra-smart-modem-login-admin-access/"),
+        ("/isp/telstra-modem-login/", "/isp/telstra-smart-modem-login-admin-access/"),
+    ]
+    for src, dst in isp_redirect_rules:
+        add_redirect(src, dst)
+
 
     # Legacy PLDT hubs -> unified /routers/pldt/
     for pldt_src in ["/isp/pldt", "/isp/pldt/", "/brands/pldt", "/brands/pldt/", "/brand/pldt.html", "/brand/pldt", "/brand/pldt/"]:
@@ -19374,8 +19440,8 @@ def update_vercel_config():
         ("/brand/:brand.html", "/brands/:brand/"),
         ("/brand/:brand", "/brands/:brand/"),
         ("/brand/:brand/", "/brands/:brand/"),
-        ("/isp/t-mobile-5g", "/isp/t-mobile-kvd21/"),
-        ("/isp/t-mobile-5g/", "/isp/t-mobile-kvd21/"),
+        ("/isp/t-mobile-5g", "/isp/t-mobile-5g-gateway-login-admin-access/"),
+        ("/isp/t-mobile-5g/", "/isp/t-mobile-5g-gateway-login-admin-access/"),
         ("/privacy-policy", "/privacy/"),
         ("/privacy-policy/", "/privacy/"),
         ("/terms-of-service", "/terms/"),
