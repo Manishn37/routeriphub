@@ -19570,6 +19570,656 @@ def generate_blue_lock_rivals_page():
     print("  -> Generated /gaming/blue-lock-rivals-codes/index.html")
 
 
+# ==============================================================================
+# SAILOR PIECE CODES GUIDE (/gaming/sailor-piece-codes/)
+# ==============================================================================
+def generate_sailor_piece_page():
+    print("Generating Sailor Piece Codes Guide (/gaming/sailor-piece-codes/)...")
+    sailor_dir = os.path.join(PUBLIC_DIR, "gaming", "sailor-piece-codes")
+    make_dirs(sailor_dir)
+
+    canonical = "https://routeriphub.com/gaming/sailor-piece-codes/"
+    title = "Sailor Piece Codes (November 2026) – All Active Freebies"
+    desc = "Get all active Sailor Piece codes for November 2026. Claim free Power Shards, Passive Shards, Secret Chests, and Clan Rerolls. 1-click copy, level requirements & FAQ."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Gaming", "/gaming/"),
+        ("Sailor Piece Codes", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Sailor Piece Codes (November 2026) – All Active Freebies",
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-11-18T00:00:00+00:00",
+        "dateModified": f"{TODAY}T05:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "publisher": ORG_PUBLISHER
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What Are Sailor Piece Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sailor Piece codes are redeemable text strings that provide free in-game items. Rewards can include Power Shards, Passive Shards, Clan Rerolls, Secret Chests, Aura Crates, and Cosmetic Crates."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What Level Do I Need to Redeem Sailor Piece Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The five codes in the main table are reported to require Level 12,500. Requirements can vary, so check the message displayed when you attempt to redeem a code."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where Do I Enter Sailor Piece Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Open Settings from the on-screen menu, scroll to the 'A Secret Code' field, paste your code, and select Redeem."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I Need to Join a Roblox Group to Redeem Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The redemption guides checked report that group membership is not required for code redemption. Community group rewards on the tutorial island are separate from codes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is BROLYUPDATE an Active Code?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Its status is uncertain because published guides disagree. You can try it in-game at Level 12,500, but it should not be treated as a confirmed working code."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why Does a Working Code Say It Has Expired?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Code lists can lag behind changes in the game. If the game reports that a code has expired, it is no longer redeemable at that time."
+                }
+            }
+        ]
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Redeem Sailor Piece Codes",
+        "description": "Step-by-step instructions to redeem active codes in Roblox Sailor Piece using the in-game Settings menu.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Check character level",
+                "text": "Confirm your character is Level 12,500 or higher before redeeming bundle codes."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Launch Sailor Piece",
+                "text": "Open Sailor Piece in Roblox on PC, mobile, or console."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Open Settings",
+                "text": "Select Settings from the on-screen menu."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Scroll to A Secret Code field",
+                "text": "Scroll down to the code-entry field labelled 'A Secret Code.'"
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Paste code and press Redeem",
+                "text": "Paste a working code from the active list into the field and select Redeem."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 6,
+                "name": "Check rewards",
+                "text": "Read the confirmation message and check your inventory for Shards, Chests, and Rerolls."
+            }
+        ]
+    }
+
+    body_html = f"""
+  <article class="container" style="max-width: 920px; padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Article Header -->
+    <header style="margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <div class="gaming-verified-badge" style="margin-bottom: 0;">
+          <span class="gaming-verified-pulse"></span>
+          <span>✅ Source Checked &mdash; November 18, 2026</span>
+        </div>
+        <span style="font-size: 0.8rem; color: var(--text-muted); background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 0.3rem 0.65rem; border-radius: 9999px;">
+          Reported Active &bull; Level 12,500 Gating
+        </span>
+      </div>
+
+      <h1 style="font-size: clamp(2rem, 3.5vw + 1rem, 2.9rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.03em; color: var(--text-primary); margin-bottom: 1rem;">
+        Sailor Piece Codes (November 2026) &ndash; All Active Freebies
+      </h1>
+
+      <!-- 1-Line Quick Jump Navigation -->
+      <nav class="gaming-quick-jump" aria-label="Quick Jump Menu">
+        <span style="font-weight: 700; color: var(--text-primary);">Jump to:</span>
+        <a href="#active-codes" class="gaming-jump-link">Active Codes</a>
+        <span>&bull;</span>
+        <a href="#how-to-redeem" class="gaming-jump-link">How to Redeem</a>
+        <span>&bull;</span>
+        <a href="#get-more-codes" class="gaming-jump-link">Get More Codes</a>
+        <span>&bull;</span>
+        <a href="#more-rewards" class="gaming-jump-link">Free Rewards</a>
+        <span>&bull;</span>
+        <a href="#troubleshooting" class="gaming-jump-link">Troubleshooting</a>
+        <span>&bull;</span>
+        <a href="#faq" class="gaming-jump-link">FAQ</a>
+      </nav>
+
+      {get_byline_html("November 18, 2026")}
+
+      <p style="font-size: 1.08rem; color: var(--text-secondary); line-height: 1.65; margin: 1.5rem 0 1.25rem;">
+        <strong>Sailor Piece codes</strong> give you free <strong>Power Shards, Passive Shards, Secret Chests, Clan Rerolls</strong>, and cosmetic rewards. Below, you&rsquo;ll find the latest reported working codes, their rewards, and instructions for claiming them. Check the level requirements first, as some codes only work for high-level characters.
+      </p>
+
+      <!-- Hero Poster Artwork Frame -->
+      <div class="gaming-hero-banner-frame" style="max-height: 400px; margin: 1.5rem 0 2.25rem;">
+        <img src="/images/gaming/sailor-piece-poster.webp" alt="Sailor Piece Roblox anime pirate warrior with Gear 5 golden aura and ocean background" class="gaming-hero-banner-img" width="960" height="540" fetchpriority="high">
+        <div class="gaming-hero-banner-overlay">
+          <span class="gaming-banner-caption">Roblox Sailor Piece &bull; Level 12,500 Reward Bundle Vault</span>
+          <span class="gaming-banner-tag">November 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: All New Sailor Piece Codes (H2 with Featured Snippet Table) -->
+    <section id="active-codes" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        All New Sailor Piece Codes
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+        The following codes are reported active. Each offers the major <strong>Level 12,500 Reward Bundle</strong>. Click <strong>Copy</strong> to paste directly into the in-game Settings prompt.
+      </p>
+
+      <div class="gaming-code-table-wrap">
+        <table class="gaming-code-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Code</th>
+              <th style="width: 42%;">Rewards Bundle</th>
+              <th style="width: 15%; text-align: center;">Required Level</th>
+              <th style="width: 15%; text-align: center;">1-Click Copy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="gaming-code-badge" style="color: #eab308; border-color: rgba(234, 179, 8, 0.45); background: rgba(234, 179, 8, 0.1);">LEGENDARYSUPERSAIYAN</span></td>
+              <td>
+                <span class="gaming-spin-chip">50 Power Shards</span>
+                <span class="gaming-spin-chip flow">75 Passive Shards</span>
+                <span style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 0.35rem;">
+                  + 12 Secret Chests, 100 Clan Rerolls, 10 Aura Crates, 8 Cosmetic Crates
+                </span>
+              </td>
+              <td style="text-align: center;"><span class="platform-chip" style="color: #eab308; border-color: rgba(234, 179, 8, 0.4);">Lvl 12,500</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="LEGENDARYSUPERSAIYAN" title="Copy LEGENDARYSUPERSAIYAN code" style="background: #eab308; color: #000 !important;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge" style="color: #eab308; border-color: rgba(234, 179, 8, 0.45); background: rgba(234, 179, 8, 0.1);">PROMISECODEFROMDEVS</span></td>
+              <td>
+                <span class="gaming-spin-chip">50 Power Shards</span>
+                <span class="gaming-spin-chip flow">75 Passive Shards</span>
+                <span style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 0.35rem;">
+                  + 12 Secret Chests, 100 Clan Rerolls, 10 Aura Crates, 8 Cosmetic Crates
+                </span>
+              </td>
+              <td style="text-align: center;"><span class="platform-chip" style="color: #eab308; border-color: rgba(234, 179, 8, 0.4);">Lvl 12,500</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="PROMISECODEFROMDEVS" title="Copy PROMISECODEFROMDEVS code" style="background: #eab308; color: #000 !important;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge" style="color: #eab308; border-color: rgba(234, 179, 8, 0.45); background: rgba(234, 179, 8, 0.1);">GEAR5UPDATE</span></td>
+              <td>
+                <span class="gaming-spin-chip">50 Power Shards</span>
+                <span class="gaming-spin-chip flow">75 Passive Shards</span>
+                <span style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 0.35rem;">
+                  + 12 Secret Chests, 100 Clan Rerolls, 10 Aura Crates, 8 Cosmetic Crates
+                </span>
+              </td>
+              <td style="text-align: center;"><span class="platform-chip" style="color: #eab308; border-color: rgba(234, 179, 8, 0.4);">Lvl 12,500</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="GEAR5UPDATE" title="Copy GEAR5UPDATE code" style="background: #eab308; color: #000 !important;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge" style="color: #eab308; border-color: rgba(234, 179, 8, 0.45); background: rgba(234, 179, 8, 0.1);">LUFFYUPDATE</span></td>
+              <td>
+                <span class="gaming-spin-chip">50 Power Shards</span>
+                <span class="gaming-spin-chip flow">75 Passive Shards</span>
+                <span style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 0.35rem;">
+                  + 12 Secret Chests, 100 Clan Rerolls, 10 Aura Crates, 8 Cosmetic Crates
+                </span>
+              </td>
+              <td style="text-align: center;"><span class="platform-chip" style="color: #eab308; border-color: rgba(234, 179, 8, 0.4);">Lvl 12,500</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="LUFFYUPDATE" title="Copy LUFFYUPDATE code" style="background: #eab308; color: #000 !important;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge" style="color: #eab308; border-color: rgba(234, 179, 8, 0.45); background: rgba(234, 179, 8, 0.1);">THANKYOUFORWAITING</span></td>
+              <td>
+                <span class="gaming-spin-chip">50 Power Shards</span>
+                <span class="gaming-spin-chip flow">75 Passive Shards</span>
+                <span style="font-size: 0.82rem; color: var(--text-muted); display: block; margin-top: 0.35rem;">
+                  + 12 Secret Chests, 100 Clan Rerolls, 10 Aura Crates, 8 Cosmetic Crates
+                </span>
+              </td>
+              <td style="text-align: center;"><span class="platform-chip" style="color: #eab308; border-color: rgba(234, 179, 8, 0.4);">Lvl 12,500</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="THANKYOUFORWAITING" title="Copy THANKYOUFORWAITING code" style="background: #eab308; color: #000 !important;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Conflicting Status Card: BROLYUPDATE -->
+      <div style="background: var(--bg-card); border: 1px solid rgba(234, 179, 8, 0.3); border-radius: var(--radius-md); padding: 1.15rem 1.25rem; margin: 1.25rem 0;">
+        <h3 style="font-size: 1.05rem; font-weight: 700; color: #eab308; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.45rem;">
+          <span>&#9888;</span> Is BROLYUPDATE Still Working?
+        </h3>
+        <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.55;">
+          <code>BROLYUPDATE</code> is also reported to award the same reward bundle at Level 12,500. However, published guides disagree about whether it remains active. Try it after the confirmed codes above, but treat its status as unconfirmed.
+          <button type="button" class="btn-gaming-copy copy-btn" data-copy="BROLYUPDATE" title="Copy BROLYUPDATE code" style="background: rgba(234, 179, 8, 0.2); color: #eab308 !important; border: 1px solid rgba(234, 179, 8, 0.4); margin-left: 0.5rem; padding: 0.2rem 0.6rem; font-size: 0.75rem;">
+            Copy BROLYUPDATE
+          </button>
+        </p>
+      </div>
+
+      <!-- Pro Tip Box -->
+      <div class="gaming-tip-box">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <div>
+          <strong>Tip:</strong> Copy each code exactly as shown. Code availability, rewards, and requirements may change without notice. Check your character level first to avoid progression restriction errors.
+        </div>
+      </div>
+
+      <!-- Expired Codes Subordinated as H3 under H2 (Beebom Best Practice) -->
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">
+        Expired Sailor Piece Codes
+      </h3>
+      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">
+        These codes have been listed as expired and are separated from the reported working codes to make the latest rewards easier to find:
+      </p>
+
+      <details class="gaming-expired-accordion">
+        <summary><strong>View selected expired Sailor Piece codes (14)</strong></summary>
+        <div style="margin-top: 1rem; padding: 0.75rem 1rem; background: var(--bg-primary); border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.8; color: var(--text-muted);">
+          <span class="gaming-expired-code">2XLUCKMASTERYEVENT</span> &bull; 
+          <span class="gaming-expired-code">HUGEBUGFIX</span> &bull; 
+          <span class="gaming-expired-code">MAINTENANCE</span> &bull; 
+          <span class="gaming-expired-code">TojiDanteUpdate</span> &bull; 
+          <span class="gaming-expired-code">Weloveyou</span> &bull; 
+          <span class="gaming-expired-code">RecodeUpdate</span> &bull; 
+          <span class="gaming-expired-code">Sorryforthedelay</span> &bull; 
+          <span class="gaming-expired-code">Fixbugs</span> &bull; 
+          <span class="gaming-expired-code">SORRYFORBROLYBUGANDWAIT</span> &bull; 
+          <span class="gaming-expired-code">SORRYFORBUGS</span> &bull; 
+          <span class="gaming-expired-code">SORRYFORANTICHEAT</span> &bull; 
+          <span class="gaming-expired-code">SORRYFORTHEBANS</span> &bull; 
+          <span class="gaming-expired-code">KINGUPDATEHASARRIVED</span> &bull; 
+          <span class="gaming-expired-code">RAIDUPDATENOW</span>
+        </div>
+      </details>
+    </section>
+
+    <!-- Section 2: How to Redeem (H2 with Level Requirement & Annotated HUD) -->
+    <section id="how-to-redeem" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        How to Redeem Sailor Piece Codes
+      </h2>
+
+      <div class="gaming-req-box">
+        <strong style="color: #eab308;">Level Check Before You Start:</strong> The active bundle codes in the main table require your character to reach <strong>Level 12,500</strong>. If you are below this requirement, you will receive a level-restriction warning instead of rewards. <em>Roblox group membership is not required for code redemption.</em>
+      </div>
+
+      <ol class="gaming-steps-list">
+        <li class="gaming-step-item">
+          <strong>Launch Sailor Piece</strong> in Roblox on PC, mobile, or console.
+        </li>
+        <li class="gaming-step-item">
+          Select <strong>Settings</strong> (gear icon) from the on-screen menu.
+        </li>
+        <li class="gaming-step-item">
+          Scroll down to the code-entry field labelled <strong>&ldquo;A Secret Code.&rdquo;</strong>
+        </li>
+        <li class="gaming-step-item">
+          <strong>Paste an active code</strong> from the table above into the field.
+        </li>
+        <li class="gaming-step-item">
+          Select <strong>Redeem</strong>.
+        </li>
+        <li class="gaming-step-item">
+          Read the confirmation message and check your inventory for your Power Shards, Passive Shards, Secret Chests, and Rerolls.
+        </li>
+      </ol>
+
+      <!-- Annotated In-Game Screenshot Graphic -->
+      <div style="margin: 1.75rem 0 2rem; text-align: center;">
+        <img src="/images/gaming/sailor-piece-redeem-ui.webp" alt="Sailor Piece Settings menu showing the A Secret Code field and Redeem button" width="800" height="420" loading="lazy" style="max-width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid rgba(250, 204, 21, 0.35); box-shadow: var(--shadow-md);">
+        <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 0.65rem;">
+          Annotated In-Game HUD: Opening Settings (Step 1), entering the active code into &ldquo;A Secret Code&rdquo; at Level 12,500 (Step 2), and claiming your reward bundle (Step 3).
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: How to Get More Codes (H2 Dwell Time & Retention Booster) -->
+    <section id="get-more-codes" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        How to Get More Sailor Piece Codes
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+        There is no confirmed fixed schedule for new Sailor Piece codes. Watch for announcements around game updates rather than assuming new rewards will arrive every day or week. Stay updated through these primary sources:
+      </p>
+
+      <div class="gaming-troubleshoot-grid" style="margin-bottom: 1rem;">
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <span>Bookmark RouterIPHub</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Press <strong>Ctrl + D</strong> (Cmd + D on Mac) to bookmark this page. We regularly audit community listings and update reported active codes when major patches drop.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+            <span>Official Discord Community</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Check the game&rsquo;s official Discord community channels for developer announcements, sneak peeks, and release day code drops.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span>Shadowrise Devs Roblox Group</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Join the official Shadowrise Devs Roblox group for game update news, patch notes, and special community milestone bonuses.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: More Free Rewards (H2 Captures Secondary Intent) -->
+    <section id="more-rewards" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        More Free Rewards in Sailor Piece
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+        In addition to secret promo codes, you can earn extra in-game bonuses through these community rewards:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1rem;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #10b981;">&#10003;</span> Tutorial Island Group Rewards
+          </h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.55;">
+            Joining the Shadowrise Devs community group may unlock additional rewards on the tutorial island. Check the current in-game prompts to see what bonus items are currently available and how to claim them.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #10b981;">&#10003;</span> Developer Discord Giveaways
+          </h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.55;">
+            The game&rsquo;s Discord community regularly hosts developer giveaways for rare items and currency. Read each giveaway&rsquo;s rules, entry requirements, and closing date before participating.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Troubleshooting (H2 6-Point Diagnostics) -->
+    <section id="troubleshooting" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        Why Are My Sailor Piece Codes Not Working?
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        A failed redemption does not always mean the code has expired. Verify these common issues:
+      </p>
+
+      <div class="gaming-troubleshoot-grid">
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Check your level</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            The codes in the main table require Level 12,500. A level-restriction message means you need more progression rather than the code being invalid.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            <span>Match the capitalization</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Codes are case-sensitive. Enter them exactly as listed in uppercase or use the 1-click Copy buttons.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>Remove extra spaces</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Check for accidental whitespace before or after the code when pasting from a mobile device or browser.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span>Read the error message</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Pay close attention to in-game text. It tells you whether failure is due to level requirements or code expiry.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Check for expiry</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Roblox promo codes have limited redemption windows and can be retired silently when developers release balance patches.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#eab308" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span>Conflicting listings</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            The status of <code>BROLYUPDATE</code> differs between guides. If it fails, rely on the five confirmed codes in the primary table.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: FAQ (H2 with FAQPage Schema) -->
+    <section id="faq" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        Frequently Asked Questions
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        Common questions regarding Sailor Piece level requirements, code entry, and reward bundles:
+      </p>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">What Are Sailor Piece Codes?</summary>
+          <div class="faq-answer">
+            <p>Sailor Piece codes are redeemable text strings that provide free in-game items. Rewards can include Power Shards, Passive Shards, Clan Rerolls, Secret Chests, Aura Crates, and Cosmetic Crates.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">What Level Do I Need to Redeem Sailor Piece Codes?</summary>
+          <div class="faq-answer">
+            <p>The five codes in the main table are reported to require Level 12,500. Requirements can vary, so check the message displayed when you attempt to redeem a code.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Where Do I Enter Sailor Piece Codes?</summary>
+          <div class="faq-answer">
+            <p>Open Settings from the on-screen menu, scroll to the &ldquo;A Secret Code&rdquo; field, paste your code, and select Redeem.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Do I Need to Join a Roblox Group to Redeem Codes?</summary>
+          <div class="faq-answer">
+            <p>No. The redemption guides checked report that group membership is not required for code redemption. Community group rewards on the tutorial island are separate from codes.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Is BROLYUPDATE an Active Code?</summary>
+          <div class="faq-answer">
+            <p>Its status is uncertain because published guides disagree. You can try it in-game at Level 12,500, but it should not be treated as a confirmed working code.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Why Does a Working Code Say It Has Expired?</summary>
+          <div class="faq-answer">
+            <p>Code lists can lag behind changes in the game. If the game reports that a code has expired, it is no longer redeemable at that time.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Section 7: Related Guides (H2 Cross-Linking Hub) -->
+    <section style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.55rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        Related Roblox Code Guides
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        Explore other top anime and RPG code vaults on RouterIPHub:
+      </p>
+
+      <div class="gaming-related-grid">
+        <a href="/gaming/blue-lock-rivals-codes/" class="gaming-related-card">
+          <strong>Blue Lock Rivals Codes</strong>
+          <span>Claim free Lucky Style Spins and Flow Spins</span>
+        </a>
+        <a href="/gaming/" class="gaming-related-card">
+          <strong>Master Game Cheats &amp; Commands Vault</strong>
+          <span>Explore all 12 featured AAA and Roblox franchises</span>
+        </a>
+        <div class="gaming-related-card">
+          <strong>Blox Fruits Codes</strong>
+          <span>2x EXP Boosts, Stat Resets &amp; Beli freebies</span>
+        </div>
+        <div class="gaming-related-card">
+          <strong>King Legacy Codes</strong>
+          <span>Free Gems, Beli &amp; Stat Reset drops</span>
+        </div>
+        <div class="gaming-related-card">
+          <strong>Anime Last Stand Codes</strong>
+          <span>Emeralds, Rerolls &amp; Tower Defense spins</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Network Lag & Roblox Optimizer (RouterIPHub Synergy) -->
+    <section class="gamer-net-card" style="margin-top: 2rem;">
+      <div style="position: relative; z-index: 2;">
+        <span style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #facc15; display: inline-block; margin-bottom: 0.5rem;">
+          Low-Ping Roblox Optimization
+        </span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; color: #ffffff;">
+          Experiencing High Ping or Server Lag in Sailor Piece?
+        </h2>
+        <p style="font-size: 0.95rem; color: #cbd5e1; max-width: 760px; line-height: 1.6; margin-bottom: 1.25rem;">
+          Sailor Piece's high-level raid bosses and particle-heavy Gear 5 abilities require stable UDP throughput. If you experience Roblox Error Code 279, lag spikes, or delayed abilities, configure your router with Quality of Service (QoS) and connect over 5 GHz Wi-Fi or Ethernet.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.85rem;">
+          <a href="/tools/detect-gateway/" class="btn btn-primary" style="background: #eab308; color: #0f172a; border-color: #eab308; font-weight: 700;">
+            Detect Router Gateway IP &rarr;
+          </a>
+          <a href="/tools/ping-test/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            Test Game Ping &amp; Latency &rarr;
+          </a>
+          <a href="/gaming/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            All Game Cheats &amp; Codes &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+"""
+
+    full_html = get_header(
+        title, desc, canonical,
+        active_nav="gaming",
+        breadcrumbs=breadcrumbs,
+        schemas_json_ld=[tech_schema, faq_schema, howto_schema],
+        og_image="https://routeriphub.com/images/gaming/sailor-piece-poster.webp",
+        og_image_alt="Sailor Piece Roblox Active Codes and Level 12500 Rewards",
+        og_type="article"
+    ) + body_html + get_footer()
+
+    with open(os.path.join(sailor_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(full_html)
+    print("  -> Generated /gaming/sailor-piece-codes/index.html")
+
+
 def generate_gaming_page():
     print("Generating Gaming Hub (/gaming/)...")
     gaming_dir = os.path.join(PUBLIC_DIR, "gaming")
@@ -19682,8 +20332,8 @@ def generate_gaming_page():
 
       <!-- Category Filter Pills -->
       <div class="gaming-filter-nav" role="tablist" aria-label="Game Category Filters">
-        <button type="button" class="gaming-filter-pill is-active" data-filter="all">All Franchises (11)</button>
-        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (1)</button>
+        <button type="button" class="gaming-filter-pill is-active" data-filter="all">All Franchises (12)</button>
+        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (2)</button>
         <button type="button" class="gaming-filter-pill" data-filter="rpg">Open World &amp; RPG (5)</button>
         <button type="button" class="gaming-filter-pill" data-filter="shooter">Action &amp; Shooter (2)</button>
         <button type="button" class="gaming-filter-pill" data-filter="sandbox">Sandbox &amp; Building (2)</button>
@@ -19825,7 +20475,44 @@ def generate_gaming_page():
       </div>
 
       <div class="gaming-cards-grid" id="gaming-cards-container">
-        <!-- Card 0: Blue Lock Rivals -->
+                <!-- Card 0B: Sailor Piece -->
+        <article class="game-card" data-category="roblox">
+          <div class="game-card-media">
+            <img src="/images/gaming/sailor-piece-poster.webp" alt="Sailor Piece anime pirate warrior with Gear 5 golden aura" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
+            <div class="game-card-media-overlay">
+              <span class="game-card-genre" style="color: #facc15;">Anime Pirate RPG &bull; Roblox</span>
+              <div class="game-card-platforms">
+                <span class="platform-chip">PC</span>
+                <span class="platform-chip">MOBILE</span>
+                <span class="platform-chip">CONSOLE</span>
+              </div>
+            </div>
+          </div>
+          <div class="game-card-body">
+            <h3 class="game-card-title">
+              <a href="/gaming/sailor-piece-codes/" style="color: inherit; text-decoration: none;">Sailor Piece (Roblox)</a>
+            </h3>
+            <div class="game-card-meta">Official Roblox Game &bull; Level 12,500 Reward Bundle &amp; Shards</div>
+            <div class="game-cheat-tags">
+              <span class="cheat-tag" style="background: rgba(234, 179, 8, 0.12); color: #eab308; border-color: rgba(234, 179, 8, 0.3);">✅ 5 Active Codes</span>
+              <span class="cheat-tag">LEGENDARYSUPERSAIYAN</span>
+              <span class="cheat-tag">GEAR5UPDATE</span>
+              <span class="cheat-tag">LUFFYUPDATE</span>
+              <span class="cheat-tag">Lvl 12,500 Gating</span>
+            </div>
+            <div class="game-card-cta-row">
+              <a href="/gaming/sailor-piece-codes/" class="game-card-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; background: #eab308; color: #000;">
+                <span>Redeem Freebies (5)</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <button type="button" class="game-card-btn copy-btn" data-copy="LEGENDARYSUPERSAIYAN" title="Copy Latest Code LEGENDARYSUPERSAIYAN">
+                <span>Copy Code</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+<!-- Card 0: Blue Lock Rivals -->
         <article class="game-card" data-category="roblox">
           <div class="game-card-media">
             <img src="/images/gaming/blue-lock-rivals-poster.webp" alt="Blue Lock Rivals anime soccer egoist striker poster art with glowing blue aura" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
@@ -20494,6 +21181,7 @@ def generate_sitemaps():
         ("https://routeriphub.com/", "1.0", "daily", get_sitemap_lastmod("index")),
         ("https://routeriphub.com/gaming/", "0.9", "weekly", TODAY),
         ("https://routeriphub.com/gaming/blue-lock-rivals-codes/", "0.9", "daily", TODAY),
+        ("https://routeriphub.com/gaming/sailor-piece-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/howto/", "0.9", "weekly", get_sitemap_lastmod("guide", "howto")),
         ("https://routeriphub.com/about/", "0.9", "monthly", get_sitemap_lastmod("legal", "about")),
         ("https://routeriphub.com/authors/", "0.9", "monthly", get_sitemap_lastmod("legal", "authors")),
@@ -20720,6 +21408,14 @@ def update_search_index():
         "url": "/gaming/blue-lock-rivals-codes/",
         "snippet": "Verified Blue Lock Rivals codes for November 2026. Claim free Lucky Style Spins and Lucky Flow Spins. 1-click copy, redeem requirements, and expired list.",
         "keywords": "blue lock rivals codes roblox spins lucky style flow otoyahere ninjacode freebies cheat codes"
+    })
+    search_index.append({
+        "title": "Sailor Piece Codes (November 2026) – All Active Freebies",
+        "category": "Gaming Cheats",
+        "badge": "Roblox",
+        "url": "/gaming/sailor-piece-codes/",
+        "snippet": "Verified Sailor Piece codes for November 2026. Claim free Power Shards, Passive Shards, Secret Chests, and Clan Rerolls. 1-click copy, level requirements & FAQ.",
+        "keywords": "sailor piece codes roblox shards chest clan reroll legendarysupersaiyan gear5update luffyupdate freebies"
     })
     search_index.append({
         "title": "Game Cheats, Console Commands & Gaming News Desk",
@@ -21189,6 +21885,7 @@ def main():
     generate_tool_pages()
     generate_gaming_page()
     generate_blue_lock_rivals_page()
+    generate_sailor_piece_page()
     generate_trust_and_legal_pages(PUBLIC_DIR, get_header, get_footer)
     generate_static_guide_pages(ROOT_DIR, PUBLIC_DIR, get_header, get_footer)
     sync_homepage()
