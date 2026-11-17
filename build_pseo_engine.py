@@ -239,6 +239,7 @@ def build_ip_internal_links_html(ip):
     # 2. Related Gateway Subnets
     adjacent_candidates = [
         ('192-168-1-1', '192.168.1.1 Hub'),
+        ('192-168-1-2', '192.168.1.2 Client/AP'),
         ('192-168-0-1', '192.168.0.1 Hub'),
         ('10-0-0-1', '10.0.0.1 Hub'),
         ('192-168-1-254', '192.168.1.254 Hub'),
@@ -9233,6 +9234,54 @@ def generate_brand_pages():
             </tr>
             """
 
+        brand_featured_callout = ""
+        if slug == "asus":
+            title = "ASUS Router IP Address, Default Login & Passwords (2026)"
+            desc = "Find your ASUS router IP address (192.168.1.1 or 192.168.50.1), default admin credentials (admin/admin), router.asus.com access guide, and reset steps."
+            brand_featured_callout = """
+      <!-- ASUS Quick Gateway Telemetry -->
+      <div style="background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(15, 23, 42, 0.6) 100%); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 12px; padding: 1.4rem; margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+          <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: #38bdf8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); padding: 0.2rem 0.6rem; border-radius: 9999px;">ASUS Default IP &amp; Login Quick Reference</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Matches all RT-AX, ROG Rapture, ZenWiFi, &amp; RT-AC series</span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+          Most ASUS Wi-Fi routers use <strong><a href="/ip/192-168-1-1/" style="color: #38bdf8; text-decoration: underline;">192.168.1.1</a></strong> or local hostname <strong><a href="http://router.asus.com" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;">router.asus.com</a></strong>. Newer Wi-Fi 6/7 and ROG Rapture models (such as the GT-AX11000 and GT-BE98) use <strong><a href="/ip/192-168-50-1/" style="color: #38bdf8; text-decoration: underline;">192.168.50.1</a></strong> as their primary gateway subnet.
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem;">
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.75rem;">
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">Standard Gateway</div>
+            <div style="font-weight: 700; color: #38bdf8; font-size: 1.05rem;">192.168.1.1</div>
+            <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.25rem;"><a href="/ip/192-168-1-1/" style="color: #38bdf8;">192.168.1.1 Setup Sheet &rarr;</a></div>
+          </div>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.75rem;">
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">ROG &amp; Wi-Fi 6/7 Subnet</div>
+            <div style="font-weight: 700; color: #38bdf8; font-size: 1.05rem;">192.168.50.1</div>
+            <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.25rem;"><a href="/ip/192-168-50-1/" style="color: #38bdf8;">192.168.50.1 Setup Sheet &rarr;</a></div>
+          </div>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 0.75rem;">
+            <div style="font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem;">Default Login</div>
+            <div style="font-weight: 700; color: #38bdf8; font-size: 1.05rem;">admin / admin</div>
+            <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.25rem;">Or initial setup wizard prompt</div>
+          </div>
+        </div>
+      </div>
+"""
+        elif slug == "d-link":
+            brand_featured_callout = """
+      <!-- D-Link Extender Cross-Link Callout -->
+      <div style="background: rgba(2, 132, 199, 0.08); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 12px; padding: 1.25rem 1.4rem; margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <div style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: #38bdf8; margin-bottom: 0.25rem;">D-Link Range Extender Setup</div>
+            <div style="font-weight: 700; font-size: 1.05rem; color: #ffffff;">Looking to configure a D-Link Wi-Fi Range Extender?</div>
+            <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem;">Access the dedicated setup portal via <strong>dlinkap.local</strong> or fallback IP <strong>192.168.0.50</strong>.</div>
+          </div>
+          <a href="/extenders/dlinkap-local/" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">Open dlinkap.local Guide &rarr;</a>
+        </div>
+      </div>
+"""
+
         brand_rich_html = generate_brand_rich_sections(b, brand_models, escape)
         brand_collection_schema = {
             "@type": "CollectionPage",
@@ -9259,6 +9308,8 @@ def generate_brand_pages():
       <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
         {escape(b['description'])}
       </p>
+
+      {brand_featured_callout}
 
       <!-- Answer Box -->
       <div class="answer-box">
@@ -11897,6 +11948,10 @@ def generate_ip_pages():
             title = "192.168.1.250: Netgear Extender Login & Setup (2026)"
             h1 = "192.168.1.250 — Netgear Extender Login: What This IP Is and How to Access It"
             desc = "192.168.1.250 is Netgear's default Wi-Fi extender fallback IP. Access admin portal, default login admin/password, mywifiext.net, and DHCP fixes."
+        elif ip == "192.168.1.2":
+            title = "192.168.1.2 Router Login: Default Admin Password & Setup Guide"
+            h1 = "192.168.1.2 — Router Login, Default Admin Credentials & Gateway Setup"
+            desc = "Trying to access 192.168.1.2? Get default router login credentials (admin/admin), troubleshoot connection errors, or access your primary gateway at 192.168.1.1."
         elif is_correction:
             title = f"{ip} — What This IP Address Actually Is (2026)"
             h1 = f"{ip} — What This Address Actually Is (It's Usually Not Your Router)"
@@ -12862,6 +12917,7 @@ def generate_extender_pages():
     # B. DEDICATED EXTENDER GUIDES (/extenders/[slug]/index.html)
     # --------------------------------------------------------------------------
     ext_title_overrides = {
+        "dlinkap-local": "dlinkap.local Login: Default Password & Setup (192.168.0.50)",
         "tplinkrepeater-net": "tplinkrepeater.net: TP-Link Setup & 192.168.0.254 Login",
         "extender-linksys-com": "extender.linksys.com: Linksys Setup & 192.168.1.1 Login",
         "myrepeater-net": "myrepeater.net: Repeater Setup & 192.168.1.254 Login",
@@ -12994,9 +13050,12 @@ def generate_extender_pages():
         ext_dir = os.path.join(extenders_root_dir, slug)
         make_dirs(ext_dir)
 
+        ext_desc_overrides = {
+            "dlinkap-local": "Access dlinkap.local to configure your D-Link extender. Find default admin login credentials (admin/blank), 192.168.0.50 fallback IP, and setup steps.",
+        }
         canonical = f"https://routeriphub.com/extenders/{slug}/"
         title = ext_title_overrides.get(slug, ext["title"])
-        desc = ext["meta_desc"]
+        desc = ext_desc_overrides.get(slug, ext["meta_desc"])
         breadcrumbs = [
             ("Home", "/"),
             ("Wi-Fi Extenders", "/extenders/"),
