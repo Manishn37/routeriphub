@@ -20220,6 +20220,586 @@ def generate_sailor_piece_page():
     print("  -> Generated /gaming/sailor-piece-codes/index.html")
 
 
+# ==============================================================================
+# HUNTY ZOMBIE CODES GUIDE (/gaming/hunty-zombie-codes/)
+# ==============================================================================
+def generate_hunty_zombie_page():
+    print("Generating Hunty Zombie Codes Guide (/gaming/hunty-zombie-codes/)...")
+    hunty_dir = os.path.join(PUBLIC_DIR, "gaming", "hunty-zombie-codes")
+    make_dirs(hunty_dir)
+
+    canonical = "https://routeriphub.com/gaming/hunty-zombie-codes/"
+    title = "Hunty Zombie Codes (November 2026) – All Active Freebies"
+    desc = "Get all active Hunty Zombie codes for November 2026. Claim free Lucky Spins and Traits for your next undead battle. 1-click copy, redeem guide & FAQ."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Gaming", "/gaming/"),
+        ("Hunty Zombie Codes", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Hunty Zombie Codes (November 2026) – All Active Freebies",
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-11-18T00:00:00+00:00",
+        "dateModified": f"{TODAY}T05:15:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "publisher": ORG_PUBLISHER
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What Are the Latest Hunty Zombie Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The latest reported codes are Shadow!, Kurumi!, NewShop!, and LastMinuteClutch!. Each is listed as awarding 50 of each Lucky Spin type and 50 Traits."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where Do I Enter Hunty Zombie Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Select Codes on the right side of the game screen. Paste your code into the 'Enter code here...' field, then select Confirm."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do Hunty Zombie Codes Expire?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Codes can stop working and move to the expired list. Redeem available codes promptly rather than saving them for later."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why Is a New Hunty Zombie Code Not Working?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The game's servers may not have refreshed after an update. Check the code for typing errors and try again on an updated server."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I Need to Include the Exclamation Mark?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Enter the complete code exactly as listed, including its ending exclamation mark (e.g. Shadow!, not Shadow)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are BelowZero! and MKWoW! Still Active?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Both are listed in the expired-code section. Use the newer codes in the active table instead."
+                }
+            }
+        ]
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Redeem Hunty Zombie Codes",
+        "description": "Step-by-step instructions to redeem active codes in Roblox Hunty Zombie using the right-side screen Codes menu.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Launch Hunty Zombie",
+                "text": "Open Hunty Zombie in Roblox on PC, mobile, or console."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Select Codes Button",
+                "text": "Select the Codes button on the right side of the screen."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Enter working code",
+                "text": "Paste a working code into the field labelled 'Enter code here...' including its exclamation mark."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Press Confirm",
+                "text": "Select Confirm to claim your 50 Lucky Spins of each type and 50 Traits."
+            }
+        ]
+    }
+
+    body_html = f"""
+  <article class="container" style="max-width: 920px; padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Article Header -->
+    <header style="margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <div class="gaming-verified-badge" style="margin-bottom: 0;">
+          <span class="gaming-verified-pulse"></span>
+          <span>✅ Source Checked &mdash; November 18, 2026</span>
+        </div>
+        <span style="font-size: 0.8rem; color: var(--text-muted); background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 0.3rem 0.65rem; border-radius: 9999px;">
+          Reported Active &bull; November 14 Update
+        </span>
+      </div>
+
+      <h1 style="font-size: clamp(2rem, 3.5vw + 1rem, 2.9rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.03em; color: var(--text-primary); margin-bottom: 1rem;">
+        Hunty Zombie Codes (November 2026) &ndash; All Active Freebies
+      </h1>
+
+      <!-- 1-Line Quick Jump Navigation -->
+      <nav class="gaming-quick-jump" aria-label="Quick Jump Menu">
+        <span style="font-weight: 700; color: var(--text-primary);">Jump to:</span>
+        <a href="#active-codes" class="gaming-jump-link">Active Codes</a>
+        <span>&bull;</span>
+        <a href="#how-to-redeem" class="gaming-jump-link">How to Redeem</a>
+        <span>&bull;</span>
+        <a href="#get-more-codes" class="gaming-jump-link">Get More Codes</a>
+        <span>&bull;</span>
+        <a href="#more-rewards" class="gaming-jump-link">Free Rewards</a>
+        <span>&bull;</span>
+        <a href="#troubleshooting" class="gaming-jump-link">Troubleshooting</a>
+        <span>&bull;</span>
+        <a href="#faq" class="gaming-jump-link">FAQ</a>
+      </nav>
+
+      {get_byline_html("November 18, 2026")}
+
+      <p style="font-size: 1.08rem; color: var(--text-secondary); line-height: 1.65; margin: 1.5rem 0 1.25rem;">
+        <strong>Hunty Zombie codes</strong> give you free <strong>Lucky Spins</strong> and <strong>Traits</strong> to claim before your next fight against the undead. Below, you&rsquo;ll find the latest reported working codes, their rewards, and instructions for redeeming them. Copy each code exactly as shown so you don&rsquo;t miss any punctuation.
+      </p>
+
+      <!-- Hero Poster Artwork Frame -->
+      <div class="gaming-hero-banner-frame" style="max-height: 400px; margin: 1.5rem 0 2.25rem;">
+        <img src="/images/gaming/hunty-zombie-poster.webp" alt="Hunty Zombie Roblox anime hunter with dual glowing katanas and undead horde background" class="gaming-hero-banner-img" width="960" height="540" fetchpriority="high">
+        <div class="gaming-hero-banner-overlay">
+          <span class="gaming-banner-caption">Roblox Hunty Zombie &bull; Lucky Spins &amp; Traits Freebies Vault</span>
+          <span class="gaming-banner-tag">November 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: All New Hunty Zombie Codes (H2 with Featured Snippet Table) -->
+    <section id="active-codes" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        All New Hunty Zombie Codes
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+        The following codes were listed as active in the source guide&rsquo;s November 14 update. Each awards <strong>50 Lucky Spins</strong> and <strong>50 Traits</strong>.
+      </p>
+
+      <div class="gaming-code-table-wrap">
+        <table class="gaming-code-table">
+          <thead>
+            <tr>
+              <th style="width: 30%;">Code (Include &ldquo;!&rdquo;)</th>
+              <th style="width: 50%;">Rewards</th>
+              <th style="width: 20%; text-align: center;">1-Click Copy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="gaming-code-badge" style="color: #22c55e; border-color: rgba(34, 197, 94, 0.45); background: rgba(34, 197, 94, 0.1);">Shadow!</span></td>
+              <td>
+                <span class="gaming-spin-chip" style="background: rgba(34, 197, 94, 0.12); color: #22c55e; border-color: rgba(34, 197, 94, 0.3);">50 of each Lucky Spin type</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0.2rem;">+</span>
+                <span class="gaming-spin-chip flow">50 Traits</span>
+              </td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="Shadow!" title="Copy Shadow! code" style="background: #16a34a; color: #ffffff !important;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge" style="color: #22c55e; border-color: rgba(34, 197, 94, 0.45); background: rgba(34, 197, 94, 0.1);">Kurumi!</span></td>
+              <td>
+                <span class="gaming-spin-chip" style="background: rgba(34, 197, 94, 0.12); color: #22c55e; border-color: rgba(34, 197, 94, 0.3);">50 of each Lucky Spin type</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0.2rem;">+</span>
+                <span class="gaming-spin-chip flow">50 Traits</span>
+              </td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="Kurumi!" title="Copy Kurumi! code" style="background: #16a34a; color: #ffffff !important;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge" style="color: #22c55e; border-color: rgba(34, 197, 94, 0.45); background: rgba(34, 197, 94, 0.1);">NewShop!</span></td>
+              <td>
+                <span class="gaming-spin-chip" style="background: rgba(34, 197, 94, 0.12); color: #22c55e; border-color: rgba(34, 197, 94, 0.3);">50 of each Lucky Spin type</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0.2rem;">+</span>
+                <span class="gaming-spin-chip flow">50 Traits</span>
+              </td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="NewShop!" title="Copy NewShop! code" style="background: #16a34a; color: #ffffff !important;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge" style="color: #22c55e; border-color: rgba(34, 197, 94, 0.45); background: rgba(34, 197, 94, 0.1);">LastMinuteClutch!</span></td>
+              <td>
+                <span class="gaming-spin-chip" style="background: rgba(34, 197, 94, 0.12); color: #22c55e; border-color: rgba(34, 197, 94, 0.3);">50 of each Lucky Spin type</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0.2rem;">+</span>
+                <span class="gaming-spin-chip flow">50 Traits</span>
+              </td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="LastMinuteClutch!" title="Copy LastMinuteClutch! code" style="background: #16a34a; color: #ffffff !important;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pro Tip Box -->
+      <div class="gaming-tip-box">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <div>
+          <strong>Important Punctuation Rule:</strong> All four active Hunty Zombie codes end with an exclamation mark (<code>!</code>). For example, entering <code>Shadow</code> without the exclamation mark will result in an &ldquo;Invalid Code&rdquo; error. Use the 1-click Copy buttons to ensure 100% exact entry.
+        </div>
+      </div>
+
+      <!-- Expired Codes Subordinated as H3 under H2 (Beebom Best Practice) -->
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">
+        Expired Hunty Zombie Codes
+      </h3>
+      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.75rem;">
+        These codes are listed as expired and are kept separate from the reported working codes:
+      </p>
+
+      <details class="gaming-expired-accordion">
+        <summary><strong>View selected expired Hunty Zombie codes (5)</strong></summary>
+        <div style="margin-top: 1rem; padding: 0.75rem 1rem; background: var(--bg-primary); border-radius: var(--radius-md); font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.8; color: var(--text-muted);">
+          <span class="gaming-expired-code">BelowZero!</span> &bull; 
+          <span class="gaming-expired-code">MKWoW!</span> &bull; 
+          <span class="gaming-expired-code">HWSEvo!</span> &bull; 
+          <span class="gaming-expired-code">GhostBuffed!</span> &bull; 
+          <span class="gaming-expired-code">Oni!</span>
+        </div>
+      </details>
+    </section>
+
+    <!-- Section 2: How to Redeem (H2 with Right-Side HUD Visual) -->
+    <section id="how-to-redeem" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        How to Redeem Hunty Zombie Codes
+      </h2>
+
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        Follow these steps to claim your free Lucky Spins and Traits:
+      </p>
+
+      <ol class="gaming-steps-list">
+        <li class="gaming-step-item">
+          <strong>Launch Hunty Zombie</strong> in Roblox on your PC, mobile device, or console.
+        </li>
+        <li class="gaming-step-item">
+          Select the <strong>Codes</strong> button located on the <strong>right side of the screen</strong>.
+        </li>
+        <li class="gaming-step-item">
+          Paste a working code into the field labelled <strong>&ldquo;Enter code here&hellip;&rdquo;</strong> (ensure you include the trailing exclamation mark <code>!</code>).
+        </li>
+        <li class="gaming-step-item">
+          Select <strong>Confirm</strong> to claim your 50 Lucky Spins and 50 Traits.
+        </li>
+      </ol>
+
+      <!-- Annotated In-Game Screenshot Graphic -->
+      <div style="margin: 1.75rem 0 2rem; text-align: center;">
+        <img src="/images/gaming/hunty-zombie-redeem-ui.webp" alt="Hunty Zombie code redemption menu showing the code-entry field and Confirm button" width="800" height="420" loading="lazy" style="max-width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid rgba(34, 197, 94, 0.35); box-shadow: var(--shadow-md);">
+        <p style="font-size: 0.84rem; color: var(--text-muted); margin-top: 0.65rem;">
+          Annotated In-Game HUD: Locating the right-side Codes button (Step 1), typing the exact code with punctuation into &ldquo;Enter code here&hellip;&rdquo; (Step 2), and pressing Confirm (Step 3).
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: How to Get More Codes (H2 Dwell Time & Retention Booster) -->
+    <section id="get-more-codes" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        How to Get More Hunty Zombie Codes
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+        Check for fresh code announcements whenever a game update or balance patch arrives. Keep these best practices in mind:
+      </p>
+
+      <div class="gaming-troubleshoot-grid" style="margin-bottom: 1rem;">
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+            <span>Bookmark RouterIPHub</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Press <strong>Ctrl + D</strong> (Cmd + D on Mac) to bookmark this page. We regularly monitor update drops and purge expired codes so you never waste time on dead strings.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+            <span>Game Update Announcements</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Developers drop new codes in tandem with major game patches, new zombie wave tiers, and weapon shop overhauls. Watch developer bulletin boards on release days.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            <span>Preserve Exact Text</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            When saving a code, keep its complete spelling, capitalization, and punctuation. Pasting the original text with its exclamation mark prevents failed redemptions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: More Free Rewards (H2 Captures Secondary Intent) -->
+    <section id="more-rewards" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        More Free Rewards in Hunty Zombie
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem;">
+        Looking for more Lucky Spins and upgrade Traits between code drops? Use these built-in gameplay methods:
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1rem;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #22c55e;">&#10003;</span> Daily Login Spin Streaks
+          </h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.55;">
+            Log into Hunty Zombie daily to collect consecutive streak rewards. Dedicated streaks grant bonus Trait packs and free Lucky Spin tokens without spending Robux.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #22c55e;">&#10003;</span> Wave Milestone &amp; Dungeon Clears
+          </h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.55;">
+            Surviving high-tier zombie waves and clearing elite dungeon bosses awards end-of-round loot chests containing bonus traits and rare weapon cosmetics.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Troubleshooting (H2 6-Point Diagnostics) -->
+    <section id="troubleshooting" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        Why Are My Hunty Zombie Codes Not Working?
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        An &ldquo;Invalid Code&rdquo; message does not always identify the exact problem. Work through this diagnostic checklist:
+      </p>
+
+      <div class="gaming-troubleshoot-grid">
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            <span>Check the spelling</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Compare your entry with the active table and correct any typing mistakes. Codes are strictly case-sensitive.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Include the punctuation</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            All four active codes end with an exclamation mark (<code>!</code>). Entering <code>Kurumi</code> instead of <code>Kurumi!</code> will fail.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>Remove extra spaces</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Check for accidental leading or trailing spaces when copying from touch screens or note apps.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+            <span>Wait for updated servers</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Newly released codes may not register until game servers refresh after an update. Rejoin a newly opened lobby.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Check for expiry</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            A previously working code may have been disabled by the developers. Check our expired codes list above.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            <span>One redemption per account</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Codes can only be redeemed once per Roblox profile. Claimed codes cannot be reused on the same character.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: FAQ (H2 with FAQPage Schema) -->
+    <section id="faq" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        Frequently Asked Questions
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        Answers to common questions about Hunty Zombie code redemption, punctuation requirements, and expired freebies:
+      </p>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">What Are the Latest Hunty Zombie Codes?</summary>
+          <div class="faq-answer">
+            <p>The latest reported codes are <strong>Shadow!</strong>, <strong>Kurumi!</strong>, <strong>NewShop!</strong>, and <strong>LastMinuteClutch!</strong>. Each awards 50 Lucky Spins of each type and 50 Traits.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Where Do I Enter Hunty Zombie Codes?</summary>
+          <div class="faq-answer">
+            <p>Select the Codes button on the right side of the screen. Paste your code into the &ldquo;Enter code here&hellip;&rdquo; field, then select Confirm.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Do Hunty Zombie Codes Expire?</summary>
+          <div class="faq-answer">
+            <p>Yes. Codes can stop working and move to the expired list. Redeem available codes promptly rather than saving them for later.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Why Is a New Hunty Zombie Code Not Working?</summary>
+          <div class="faq-answer">
+            <p>The game&rsquo;s servers may not have refreshed after an update. Check the code for typing errors and try again on an updated server.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Do I Need to Include the Exclamation Mark?</summary>
+          <div class="faq-answer">
+            <p>Yes. Enter the complete code exactly as listed, including its exclamation mark (e.g. <code>Shadow!</code>, not <code>Shadow</code>).</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Are BelowZero! and MKWoW! Still Active?</summary>
+          <div class="faq-answer">
+            <p>Both are listed in the expired-code section. Use the newer active codes in the primary table instead.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Section 7: Related Guides (H2 Cross-Linking Hub) -->
+    <section style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.55rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        Related Roblox Code Guides
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        Explore other verified Roblox action and anime freebie vaults on RouterIPHub:
+      </p>
+
+      <div class="gaming-related-grid">
+        <a href="/gaming/sailor-piece-codes/" class="gaming-related-card">
+          <strong>Sailor Piece Codes</strong>
+          <span>Claim Level 12,500 Shards &amp; Clan Rerolls</span>
+        </a>
+        <a href="/gaming/blue-lock-rivals-codes/" class="gaming-related-card">
+          <strong>Blue Lock Rivals Codes</strong>
+          <span>Claim free Lucky Style &amp; Flow Spins</span>
+        </a>
+        <a href="/gaming/" class="gaming-related-card">
+          <strong>Master Game Cheats &amp; Commands Vault</strong>
+          <span>Explore all 13 featured AAA and Roblox franchises</span>
+        </a>
+        <div class="gaming-related-card">
+          <strong>Blox Fruits Codes</strong>
+          <span>2x EXP Boosts, Stat Resets &amp; Beli freebies</span>
+        </div>
+        <div class="gaming-related-card">
+          <strong>Anime Last Stand Codes</strong>
+          <span>Emeralds, Rerolls &amp; Tower Defense spins</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Network Lag & Roblox Optimizer (RouterIPHub Synergy) -->
+    <section class="gamer-net-card" style="margin-top: 2rem;">
+      <div style="position: relative; z-index: 2;">
+        <span style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #4ade80; display: inline-block; margin-bottom: 0.5rem;">
+          Low-Ping Roblox Optimization
+        </span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; color: #ffffff;">
+          Experiencing High Ping or Server Lag in Hunty Zombie?
+        </h2>
+        <p style="font-size: 0.95rem; color: #cbd5e1; max-width: 760px; line-height: 1.6; margin-bottom: 1.25rem;">
+          Surviving intense wave encounters in Hunty Zombie requires low-latency packet delivery. If you experience Roblox Error Code 279, hit registration delay, or disconnects, configure Quality of Service (QoS) on your router and prioritize UDP gaming traffic.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.85rem;">
+          <a href="/tools/detect-gateway/" class="btn btn-primary" style="background: #22c55e; color: #0f172a; border-color: #22c55e; font-weight: 700;">
+            Detect Router Gateway IP &rarr;
+          </a>
+          <a href="/tools/ping-test/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            Test Game Ping &amp; Latency &rarr;
+          </a>
+          <a href="/gaming/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            All Game Cheats &amp; Codes &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+"""
+
+    full_html = get_header(
+        title, desc, canonical,
+        active_nav="gaming",
+        breadcrumbs=breadcrumbs,
+        schemas_json_ld=[tech_schema, faq_schema, howto_schema],
+        og_image="https://routeriphub.com/images/gaming/hunty-zombie-poster.webp",
+        og_image_alt="Hunty Zombie Roblox Active Codes, Lucky Spins and Traits Freebies",
+        og_type="article"
+    ) + body_html + get_footer()
+
+    with open(os.path.join(hunty_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(full_html)
+    print("  -> Generated /gaming/hunty-zombie-codes/index.html")
+
+
 def generate_gaming_page():
     print("Generating Gaming Hub (/gaming/)...")
     gaming_dir = os.path.join(PUBLIC_DIR, "gaming")
@@ -20332,8 +20912,8 @@ def generate_gaming_page():
 
       <!-- Category Filter Pills -->
       <div class="gaming-filter-nav" role="tablist" aria-label="Game Category Filters">
-        <button type="button" class="gaming-filter-pill is-active" data-filter="all">All Franchises (12)</button>
-        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (2)</button>
+        <button type="button" class="gaming-filter-pill is-active" data-filter="all">All Franchises (13)</button>
+        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (3)</button>
         <button type="button" class="gaming-filter-pill" data-filter="rpg">Open World &amp; RPG (5)</button>
         <button type="button" class="gaming-filter-pill" data-filter="shooter">Action &amp; Shooter (2)</button>
         <button type="button" class="gaming-filter-pill" data-filter="sandbox">Sandbox &amp; Building (2)</button>
@@ -20475,7 +21055,44 @@ def generate_gaming_page():
       </div>
 
       <div class="gaming-cards-grid" id="gaming-cards-container">
-                <!-- Card 0B: Sailor Piece -->
+                        <!-- Card 0C: Hunty Zombie -->
+        <article class="game-card" data-category="roblox">
+          <div class="game-card-media">
+            <img src="/images/gaming/hunty-zombie-poster.webp" alt="Hunty Zombie anime hunter with dual glowing katanas and undead horde background" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
+            <div class="game-card-media-overlay">
+              <span class="game-card-genre" style="color: #4ade80;">Zombie Survival Action &bull; Roblox</span>
+              <div class="game-card-platforms">
+                <span class="platform-chip">PC</span>
+                <span class="platform-chip">MOBILE</span>
+                <span class="platform-chip">CONSOLE</span>
+              </div>
+            </div>
+          </div>
+          <div class="game-card-body">
+            <h3 class="game-card-title">
+              <a href="/gaming/hunty-zombie-codes/" style="color: inherit; text-decoration: none;">Hunty Zombie (Roblox)</a>
+            </h3>
+            <div class="game-card-meta">Official Roblox Game &bull; 50 Lucky Spins &amp; 50 Traits Freebies</div>
+            <div class="game-cheat-tags">
+              <span class="cheat-tag" style="background: rgba(34, 197, 94, 0.12); color: #22c55e; border-color: rgba(34, 197, 94, 0.3);">✅ 4 Active Codes</span>
+              <span class="cheat-tag">Shadow!</span>
+              <span class="cheat-tag">Kurumi!</span>
+              <span class="cheat-tag">NewShop!</span>
+              <span class="cheat-tag">Includes &ldquo;!&rdquo; mark</span>
+            </div>
+            <div class="game-card-cta-row">
+              <a href="/gaming/hunty-zombie-codes/" class="game-card-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; background: #16a34a; color: #fff;">
+                <span>Redeem Freebies (4)</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <button type="button" class="game-card-btn copy-btn" data-copy="Shadow!" title="Copy Latest Code Shadow!">
+                <span>Copy Code</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+<!-- Card 0B: Sailor Piece -->
         <article class="game-card" data-category="roblox">
           <div class="game-card-media">
             <img src="/images/gaming/sailor-piece-poster.webp" alt="Sailor Piece anime pirate warrior with Gear 5 golden aura" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
@@ -21182,6 +21799,7 @@ def generate_sitemaps():
         ("https://routeriphub.com/gaming/", "0.9", "weekly", TODAY),
         ("https://routeriphub.com/gaming/blue-lock-rivals-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/gaming/sailor-piece-codes/", "0.9", "daily", TODAY),
+        ("https://routeriphub.com/gaming/hunty-zombie-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/howto/", "0.9", "weekly", get_sitemap_lastmod("guide", "howto")),
         ("https://routeriphub.com/about/", "0.9", "monthly", get_sitemap_lastmod("legal", "about")),
         ("https://routeriphub.com/authors/", "0.9", "monthly", get_sitemap_lastmod("legal", "authors")),
@@ -21416,6 +22034,14 @@ def update_search_index():
         "url": "/gaming/sailor-piece-codes/",
         "snippet": "Verified Sailor Piece codes for November 2026. Claim free Power Shards, Passive Shards, Secret Chests, and Clan Rerolls. 1-click copy, level requirements & FAQ.",
         "keywords": "sailor piece codes roblox shards chest clan reroll legendarysupersaiyan gear5update luffyupdate freebies"
+    })
+    search_index.append({
+        "title": "Hunty Zombie Codes (November 2026) – All Active Freebies",
+        "category": "Gaming Cheats",
+        "badge": "Roblox",
+        "url": "/gaming/hunty-zombie-codes/",
+        "snippet": "Verified Hunty Zombie codes for November 2026. Claim free Lucky Spins and Traits for your next undead battle. 1-click copy, redeem guide & FAQ.",
+        "keywords": "hunty zombie codes roblox lucky spins traits shadow kurumi newshop lastminuteclutch freebies"
     })
     search_index.append({
         "title": "Game Cheats, Console Commands & Gaming News Desk",
@@ -21886,6 +22512,7 @@ def main():
     generate_gaming_page()
     generate_blue_lock_rivals_page()
     generate_sailor_piece_page()
+    generate_hunty_zombie_page()
     generate_trust_and_legal_pages(PUBLIC_DIR, get_header, get_footer)
     generate_static_guide_pages(ROOT_DIR, PUBLIC_DIR, get_header, get_footer)
     sync_homepage()
