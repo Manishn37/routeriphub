@@ -20800,6 +20800,489 @@ def generate_hunty_zombie_page():
     print("  -> Generated /gaming/hunty-zombie-codes/index.html")
 
 
+
+# =============================================================================
+# BASKETBALL ZERO CODES GUIDE (/gaming/basketball-zero-codes/)
+# =============================================================================
+def generate_basketball_zero_page():
+    print("Generating Basketball Zero Codes Guide (/gaming/basketball-zero-codes/)...")
+    bball_dir = os.path.join(PUBLIC_DIR, "gaming", "basketball-zero-codes")
+    make_dirs(bball_dir)
+
+    canonical = "https://routeriphub.com/gaming/basketball-zero-codes/"
+    title = "Basketball Zero Codes (November 2026) – All Active Freebies"
+    desc = "Get all active Basketball Zero codes for November 2026. Claim free Lucky Style Spins, Lucky Zone Spins, and Money. 1-click copy, redeem guide & FAQ."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Gaming", "/gaming/"),
+        ("Basketball Zero Codes", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Basketball Zero Codes (November 2026) – All Active Freebies",
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-11-18T00:00:00+00:00",
+        "dateModified": f"{TODAY}T05:30:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "publisher": ORG_PUBLISHER
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What Are the Latest Basketball Zero Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The latest confirmed working codes for the Fall update are FALL (5 Lucky Style Spins, 5 Lucky Zone Spins, and 10,000 Money) and 15FALL (10 Lucky Style Spins, 10 Lucky Zone Spins, and 50,000 Money, requiring 15 minutes of playtime)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why Do I Need to Join the Current Group to Redeem Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The developers gate code redemptions to reward group members. You must 'Like' the game on Roblox and join the official Current developer Roblox community group, or the code input box will reject your entry."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why Did 15FALL Fail to Redeem?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The code 15FALL has an active playtime gate. You must remain connected to an active game server for at least 15 continuous minutes before the system validates your reward claim."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where Do I Enter Basketball Zero Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Launch Basketball Zero on Roblox, click the 'Codes' icon on the right side of your HUD, paste your code into the field labelled 'Enter code here...', and select Confirm."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are GENIUS and DEALER Still Working?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. GENIUS, 30GENIUS, 1HRGENIUS, and DEALER have expired and moved to the inactive archive. Only use active codes from the verified working table."
+                }
+            }
+        ]
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Redeem Basketball Zero Codes",
+        "description": "Step-by-step instructions to redeem active codes in Roblox Basketball Zero using the right-side HUD Codes menu.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Join Community & Like Game",
+                "text": "Like Basketball Zero on Roblox and join the official Current developer community group."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Launch Basketball Zero",
+                "text": "Launch Basketball Zero in Roblox on PC, mobile, or console."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Click Codes Button",
+                "text": "Select the Codes button on the right side of the screen."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Enter Code & Confirm",
+                "text": "Paste a working code into the 'Enter code here...' box and select Confirm to claim your spins and money."
+            }
+        ]
+    }
+
+    body_html = f"""
+  <article class="container" style="max-width: 920px; padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Article Header -->
+    <header style="margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <div class="gaming-verified-badge" style="margin-bottom: 0;">
+          <span class="gaming-verified-pulse"></span>
+          <span>✅ Source Checked &mdash; November 18, 2026</span>
+        </div>
+        <span style="font-size: 0.8rem; color: var(--text-muted); background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 0.3rem 0.65rem; border-radius: 9999px;">
+          Reported Active &bull; Fall Update
+        </span>
+      </div>
+
+      <h1 style="font-size: clamp(2rem, 3.5vw + 1rem, 2.9rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.03em; color: var(--text-primary); margin-bottom: 1rem;">
+        Basketball Zero Codes (November 2026) &ndash; All Active Freebies
+      </h1>
+
+      <!-- 1-Line Quick Jump Navigation -->
+      <nav class="gaming-quick-jump" aria-label="Quick Jump Menu">
+        <span style="font-weight: 700; color: var(--text-primary);">Jump to:</span>
+        <a href="#active-codes" class="gaming-jump-link">Active Codes</a>
+        <span>&bull;</span>
+        <a href="#how-to-redeem" class="gaming-jump-link">How to Redeem</a>
+        <span>&bull;</span>
+        <a href="#get-more-codes" class="gaming-jump-link">Get More Codes</a>
+        <span>&bull;</span>
+        <a href="#more-rewards" class="gaming-jump-link">Free Rewards</a>
+        <span>&bull;</span>
+        <a href="#troubleshooting" class="gaming-jump-link">Troubleshooting</a>
+        <span>&bull;</span>
+        <a href="#faq" class="gaming-jump-link">FAQ</a>
+      </nav>
+
+      {get_byline_html("November 18, 2026")}
+
+      <p style="font-size: 1.08rem; line-height: 1.7; color: var(--text-secondary); margin-top: 1.25rem;">
+        Basketball Zero codes give you free <strong>Lucky Style Spins</strong>, <strong>Lucky Zone Spins</strong>, and <strong>Money</strong>. Below, you&rsquo;ll find the latest reported working codes, their rewards, and instructions for claiming them. Before redeeming, make sure to <strong>like the game</strong> and <strong>join the developer&rsquo;s Current Roblox community</strong> to unlock reward permissions.
+      </p>
+
+      <!-- Featured Visual Poster -->
+      <figure style="margin: 1.5rem 0 2.25rem;">
+        <img src="/images/gaming/basketball-zero-poster.webp" alt="Basketball Zero Roblox streetball anime arena with cyber hoop and zone aura" width="960" height="540" loading="eager" fetchpriority="high" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">
+          Basketball Zero Fall Update: Dominate the court with Kuroko/Zone style archetypes and free Lucky Spins.
+        </figcaption>
+      </figure>
+    </header>
+
+    <!-- SECTION: Working Codes -->
+    <section id="active-codes" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        All New Basketball Zero Codes
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+        The following codes appear in the latest Fall update listings. Note that <code>15FALL</code> requires 15 minutes of server playtime before claiming. Click <strong>Copy</strong> next to any code to instantly copy it to your clipboard.
+      </p>
+
+      <div class="gaming-table-wrapper">
+        <table class="gaming-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Code</th>
+              <th style="width: 48%;">Reward &amp; Requirements</th>
+              <th style="width: 24%; text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">FALL</span>
+              </td>
+              <td>
+                <strong>5 Lucky Style Spins + 5 Lucky Zone Spins + 10,000 Money</strong>
+                <div style="font-size: 0.8rem; color: #22c55e; margin-top: 0.25rem;">Requirement: Like game &amp; join Current Roblox group</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="FALL" aria-label="Copy code FALL">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">15FALL</span>
+              </td>
+              <td>
+                <strong>10 Lucky Style Spins + 10 Lucky Zone Spins + 50,000 Money</strong>
+                <div style="font-size: 0.8rem; color: #eab308; margin-top: 0.25rem;">Requirement: Current group + 15 mins active playtime</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="15FALL" aria-label="Copy code 15FALL">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="background: rgba(56, 189, 248, 0.08); border-left: 4px solid #38bdf8; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1.25rem;">
+        <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+          <strong style="color: var(--text-primary);">Reward Quantity Note:</strong> Reward quantities above follow GamesRadar&rsquo;s November 16 listing. Other community guides report varied spin totals depending on ongoing event multipliers, so inspect your in-game confirmation pop-up for the exact rewards credited to your character inventory.
+        </p>
+      </div>
+
+      <!-- Expired Codes Accordion -->
+      <div style="margin-top: 2rem;">
+        <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+          Expired Basketball Zero Codes
+        </h3>
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-secondary);">
+            Click to view expired Basketball Zero codes archive (4 codes)
+          </summary>
+          <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              The following codes have expired and can no longer be claimed. They are retained here so players can verify that older codes from community YouTube channels or wikis are no longer operational:
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">GENIUS</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">30GENIUS</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">1HRGENIUS</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">DEALER</span>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION: How to Redeem -->
+    <section id="how-to-redeem" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        How to Redeem Codes in Basketball Zero
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+        Redeeming codes in Basketball Zero takes under 60 seconds once you complete the developer community group check. Follow these verified steps:
+      </p>
+
+      <div style="background: rgba(34, 197, 94, 0.08); border-left: 4px solid #22c55e; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;">
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+          <strong style="color: var(--text-primary);">Mandatory Prerequisite:</strong> You must <strong>&ldquo;Like&rdquo;</strong> the game on Roblox and join the official <strong>Current Roblox Community Group</strong>. If you attempt to redeem codes without joining, the system displays an error prompt.
+        </p>
+      </div>
+
+      <ol style="margin-left: 1.25rem; color: var(--text-secondary); line-height: 1.8; font-size: 1.02rem;">
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Complete Group Check:</strong> Head to the Basketball Zero page on Roblox, click the Thumbs Up (Like) button, and navigate to the developer group <strong>Current</strong> to join.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Launch Basketball Zero:</strong> Open the game on Roblox using PC, Mobile, or Console.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Open Codes Menu:</strong> Look at the right side of your HUD and click the circular <strong>Codes</strong> button.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Paste Active Code:</strong> In the pop-up modal, paste a valid code into the input field labelled <code>&ldquo;Enter code here&hellip;&rdquo;</code>.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Confirm &amp; Claim:</strong> Click the green <strong>Confirm</strong> button. Your free Lucky Style Spins, Zone Spins, and cash balance will be added immediately.
+        </li>
+      </ol>
+
+      <!-- Annotated UI Redemption Mockup -->
+      <figure style="margin: 2rem 0; text-align: center;">
+        <img src="/images/gaming/basketball-zero-redeem-ui.webp" alt="Basketball Zero HUD showing right-side Codes button and redeem dialog modal" width="960" height="540" loading="lazy" style="width: 100%; max-width: 820px; height: auto; border-radius: 10px; border: 1px solid var(--border-color); box-shadow: 0 8px 20px -4px rgba(0,0,0,0.25);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+          Visual HUD Guide: Locate the Codes icon on the right side of the screen, paste the code, and click Confirm.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- SECTION: How to Get More Codes -->
+    <section id="get-more-codes" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        How to Get More Basketball Zero Codes
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        Roblox developers release new codes to celebrate major player milestones, holiday updates, or server compensation. Stay ahead of expiring codes with these verified channels:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+            1. Official Current Discord &amp; Group
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Join the developer&rsquo;s official Discord community and check the <code>#codes</code> or <code>#announcements</code> channels where game designers post surprise reward drops alongside major patches.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+            2. Bookmark RouterIPHub Gaming Desk
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Our editors verify and update active codes across anime and sports games every morning. Bookmark this page (<kbd>Ctrl+D</kbd> or <kbd>Cmd+D</kbd>) to instantly copy working drops without parsing Discord chat spam.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: More Free Rewards -->
+    <section id="more-rewards" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        More Free Rewards in Basketball Zero
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        If you have claimed all available promotional codes, you can earn additional spins, currency, and cosmetics using built-in free progression systems:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Daily Login Streak</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5;">Log in daily to claim escalating Money bonuses and free Style spins at days 3 and 7.</p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">AFK Practice Gym</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5;">Stay in the practice gym or court session to accumulate passive money drops every 5 minutes.</p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Match MVP Bonuses</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5;">Winning 3v3 and 5v5 ranked games with high green-release accuracy rewards bonus cash payouts.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Troubleshooting -->
+    <section id="troubleshooting" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        Why Are My Basketball Zero Codes Not Working?
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        If a code fails with an &ldquo;Invalid Code&rdquo; or &ldquo;Failed to Redeem&rdquo; error, check these common diagnostic factors:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #ef4444; margin-bottom: 0.35rem;">1. Not in Current Roblox Group</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            The game server checks your Roblox account status. You must join the Current group on Roblox. If you just joined, rejoin the game server so your group permissions sync.
+          </p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.35rem;">2. 15-Minute Playtime Gate</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            The code <code>15FALL</code> requires 15 continuous minutes on the court. If you disconnect or swap servers before the timer expires, the counter resets.
+          </p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">3. Case Sensitivity &amp; Extra Spaces</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            All Basketball Zero codes are strictly UPPERCASE (e.g., <code>FALL</code>, not <code>fall</code>). Trailing spaces copied from web text will also cause an invalid error.
+          </p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">4. Outdated Server Instance</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            When developers push a brand new patch code, older active servers do not recognize it until they refresh. Exit and join a freshly spun server.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FAQ -->
+    <section id="faq" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1.25rem; letter-spacing: -0.02em;">
+        Frequently Asked Questions
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            What Are the Latest Basketball Zero Codes?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            The latest active codes for the Fall update are <code>FALL</code> (5 Lucky Style Spins + 5 Lucky Zone Spins + 10,000 Money) and <code>15FALL</code> (10 Lucky Style Spins + 10 Lucky Zone Spins + 50,000 Money with a 15-minute playtime requirement).
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            Why Do I Need to Join the Current Group?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            The developers gate reward codes behind developer community membership. You must like the game and join the Current group on Roblox before your account can redeem promo codes.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            Where Do I Enter Basketball Zero Codes?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            Click the circular &ldquo;Codes&rdquo; button on the right side of your game HUD. Paste your code into the text box and click the green Confirm button.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            Do Basketball Zero Codes Expire?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes. Codes usually last between 7 and 21 days or until the next seasonal patch drops. Expired codes like <code>GENIUS</code> and <code>DEALER</code> can no longer be redeemed.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION: Related Roblox Code Guides -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1rem; letter-spacing: -0.02em;">
+        Related Roblox &amp; Anime Game Freebies
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+        <a href="/gaming/blue-lock-rivals-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #38bdf8; text-transform: uppercase;">Roblox Soccer</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Blue Lock Rivals Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Claim Lucky Style Spins and Flow Spins in Blue Lock Rivals.</p>
+        </a>
+
+        <a href="/gaming/sailor-piece-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #eab308; text-transform: uppercase;">Roblox Pirate RPG</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Sailor Piece Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Free Power Shards, Passive Shards, and Clan Rerolls bundle.</p>
+        </a>
+
+        <a href="/gaming/hunty-zombie-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #4ade80; text-transform: uppercase;">Roblox Undead Action</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Hunty Zombie Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Claim 50 Lucky Spins of each type and 50 Traits for your hunter.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION: Low-Ping Optimization Banner -->
+    <section style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.15) 0%, rgba(56, 189, 248, 0.15) 100%); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; padding: 2rem; margin-top: 2rem;">
+      <div style="max-width: 680px;">
+        <span style="font-size: 0.8rem; font-weight: 700; color: #c084fc; text-transform: uppercase; letter-spacing: 0.05em;">Competitive Gaming Diagnostics</span>
+        <h3 style="font-size: 1.4rem; font-weight: 800; color: #ffffff; margin: 0.5rem 0 0.75rem;">
+          Hit Every Green Release: Eliminate Shot Jitter &amp; High Ping
+        </h3>
+        <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.6; margin-bottom: 1.25rem;">
+          Basketball Zero relies on millisecond release timing for green shot meters and responsive defense. Packet loss and Wi-Fi congestion lead to delayed contest meters and missed greens. Access your router settings to enable 5GHz Wi-Fi QoS priority for your gaming device.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="/tools/detect-gateway/" class="btn btn-primary" style="background: #a855f7; color: #ffffff; border-color: #a855f7; font-weight: 700;">
+            Detect Router Gateway IP &rarr;
+          </a>
+          <a href="/tools/ping-test/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            Test Game Ping &amp; Latency &rarr;
+          </a>
+          <a href="/gaming/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            All Game Cheats &amp; Codes &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+"""
+
+    full_html = get_header(
+        title, desc, canonical,
+        active_nav="gaming",
+        breadcrumbs=breadcrumbs,
+        schemas_json_ld=[tech_schema, faq_schema, howto_schema],
+        og_image="https://routeriphub.com/images/gaming/basketball-zero-poster.webp",
+        og_image_alt="Basketball Zero Roblox Active Codes, Lucky Spins and Money Freebies",
+        og_type="article"
+    ) + body_html + get_footer()
+
+    with open(os.path.join(bball_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(full_html)
+    print("  -> Generated /gaming/basketball-zero-codes/index.html")
+
+
 def generate_gaming_page():
     print("Generating Gaming Hub (/gaming/)...")
     gaming_dir = os.path.join(PUBLIC_DIR, "gaming")
@@ -20913,7 +21396,7 @@ def generate_gaming_page():
       <!-- Category Filter Pills -->
       <div class="gaming-filter-nav" role="tablist" aria-label="Game Category Filters">
         <button type="button" class="gaming-filter-pill is-active" data-filter="all">All Franchises (13)</button>
-        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (3)</button>
+        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (4)</button>
         <button type="button" class="gaming-filter-pill" data-filter="rpg">Open World &amp; RPG (5)</button>
         <button type="button" class="gaming-filter-pill" data-filter="shooter">Action &amp; Shooter (2)</button>
         <button type="button" class="gaming-filter-pill" data-filter="sandbox">Sandbox &amp; Building (2)</button>
@@ -21055,7 +21538,43 @@ def generate_gaming_page():
       </div>
 
       <div class="gaming-cards-grid" id="gaming-cards-container">
-                        <!-- Card 0C: Hunty Zombie -->
+                                                <!-- Card 0D: Basketball Zero -->
+        <article class="game-card" data-category="roblox">
+          <div class="game-card-media">
+            <img src="/images/gaming/basketball-zero-poster.webp" alt="Basketball Zero anime streetball court with zone aura and neon hoop" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
+            <div class="game-card-media-overlay">
+              <span class="game-card-genre" style="color: #c084fc;">Anime Basketball &bull; Roblox</span>
+              <div class="game-card-platforms">
+                <span class="platform-chip">PC</span>
+                <span class="platform-chip">MOBILE</span>
+                <span class="platform-chip">CONSOLE</span>
+              </div>
+            </div>
+          </div>
+          <div class="game-card-body">
+            <h3 class="game-card-title">
+              <a href="/gaming/basketball-zero-codes/" style="color: inherit; text-decoration: none;">Basketball Zero (Roblox)</a>
+            </h3>
+            <div class="game-card-meta">Official Roblox Game &bull; Lucky Style &amp; Zone Spins + Cash</div>
+            <div class="game-cheat-tags">
+              <span class="cheat-tag" style="background: rgba(168, 85, 247, 0.12); color: #c084fc; border-color: rgba(168, 85, 247, 0.3);">✅ 2 Active Codes</span>
+              <span class="cheat-tag">FALL</span>
+              <span class="cheat-tag">15FALL</span>
+              <span class="cheat-tag">Requires Group</span>
+            </div>
+            <div class="game-card-cta-row">
+              <a href="/gaming/basketball-zero-codes/" class="game-card-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; background: #9333ea; color: #fff;">
+                <span>Redeem Freebies (2)</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <button type="button" class="game-card-btn copy-btn" data-copy="FALL" title="Copy Latest Code FALL">
+                <span>Copy Code</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+<!-- Card 0C: Hunty Zombie -->
         <article class="game-card" data-category="roblox">
           <div class="game-card-media">
             <img src="/images/gaming/hunty-zombie-poster.webp" alt="Hunty Zombie anime hunter with dual glowing katanas and undead horde background" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
@@ -21800,6 +22319,7 @@ def generate_sitemaps():
         ("https://routeriphub.com/gaming/blue-lock-rivals-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/gaming/sailor-piece-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/gaming/hunty-zombie-codes/", "0.9", "daily", TODAY),
+        ("https://routeriphub.com/gaming/basketball-zero-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/howto/", "0.9", "weekly", get_sitemap_lastmod("guide", "howto")),
         ("https://routeriphub.com/about/", "0.9", "monthly", get_sitemap_lastmod("legal", "about")),
         ("https://routeriphub.com/authors/", "0.9", "monthly", get_sitemap_lastmod("legal", "authors")),
@@ -22034,6 +22554,14 @@ def update_search_index():
         "url": "/gaming/sailor-piece-codes/",
         "snippet": "Verified Sailor Piece codes for November 2026. Claim free Power Shards, Passive Shards, Secret Chests, and Clan Rerolls. 1-click copy, level requirements & FAQ.",
         "keywords": "sailor piece codes roblox shards chest clan reroll legendarysupersaiyan gear5update luffyupdate freebies"
+    })
+    search_index.append({
+        "title": "Basketball Zero Codes (November 2026) – All Active Freebies",
+        "category": "Gaming Cheats",
+        "badge": "Roblox",
+        "url": "/gaming/basketball-zero-codes/",
+        "snippet": "Verified Basketball Zero codes for November 2026. Claim free Lucky Style Spins, Lucky Zone Spins, and 60,000 Money for Fall update.",
+        "keywords": "basketball zero codes roblox lucky style zone spins fall 15fall freebies kuroko streetball"
     })
     search_index.append({
         "title": "Hunty Zombie Codes (November 2026) – All Active Freebies",
@@ -22513,6 +23041,7 @@ def main():
     generate_blue_lock_rivals_page()
     generate_sailor_piece_page()
     generate_hunty_zombie_page()
+    generate_basketball_zero_page()
     generate_trust_and_legal_pages(PUBLIC_DIR, get_header, get_footer)
     generate_static_guide_pages(ROOT_DIR, PUBLIC_DIR, get_header, get_footer)
     sync_homepage()
