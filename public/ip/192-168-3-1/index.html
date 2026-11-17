@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=3d14857d">
+  <link rel="stylesheet" href="/css/style.css?v=cbd27686">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -142,6 +142,37 @@
           "height": 512
         }
       }
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Resolve 192.168.3.1 Router Access & Login",
+      "description": "Step-by-step technical diagnostic sequence to resolve 192.168.3.1 browser connection failures.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Disconnect VPNs & Cellular Data",
+          "text": "Disconnect active corporate or commercial VPNs (NordVPN, ExpressVPN) and turn off mobile cellular data to prevent local subnet isolation."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Verify Physical or Wi-Fi Connection",
+          "text": "Ensure your phone or computer is actively joined to the router's local Wi-Fi SSID or connected via Ethernet."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Navigate to Gateway Address",
+          "text": "Open your web browser and type http://192.168.3.1 explicitly in the URL address bar, not the search engine omnibox."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Authenticate with Factory Credentials",
+          "text": "Submit username 'admin' and password 'admin (or password created during initial HiLink wizard)' or check the physical router sticker."
+        }
+      ]
     },
     {
       "@type": "FAQPage",

@@ -3619,3 +3619,377 @@ table.data-table code,table.table code{font-size:0.875rem;padding:0.18rem 0.45re
   margin-bottom: 0.65rem;
   align-self: flex-start;
 }
+
+
+/* ==========================================================================
+   GAMING CHEAT CODE & FREEBIES VAULT STYLES (Light & Dark Theme Ready)
+   ========================================================================== */
+
+/* Verified Badge */
+.gaming-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #10b981;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+.gaming-verified-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+/* Quick Jump Navigation */
+.gaming-quick-jump {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1rem;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+.gaming-jump-link {
+  color: var(--text-accent);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+.gaming-jump-link:hover {
+  background: rgba(56, 189, 248, 0.12);
+  color: #0284c7;
+  text-decoration: underline;
+}
+
+/* Code Tables */
+.gaming-code-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.gaming-code-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+.gaming-code-table th {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+  border-bottom: 2px solid var(--border-color);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+}
+.gaming-code-table td {
+  padding: 0.95rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+.gaming-code-table tr:last-child td {
+  border-bottom: none;
+}
+.gaming-code-table tr:hover td {
+  background-color: rgba(56, 189, 248, 0.04);
+}
+
+/* Code Badge */
+.gaming-code-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.09);
+  border: 1px dashed rgba(2, 132, 199, 0.4);
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  letter-spacing: 0.06em;
+}
+[data-theme="dark"] .gaming-code-badge {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+/* Spin Highlight Chips */
+.gaming-spin-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+.gaming-spin-chip.flow {
+  background: rgba(6, 182, 212, 0.1);
+  color: #0891b2;
+  border-color: rgba(6, 182, 212, 0.25);
+}
+[data-theme="dark"] .gaming-spin-chip {
+  color: #c084fc;
+}
+[data-theme="dark"] .gaming-spin-chip.flow {
+  color: #22d3ee;
+}
+
+/* Copy Button in Table */
+.btn-gaming-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #0284c7;
+  color: #ffffff !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.45rem 0.95rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
+}
+.btn-gaming-copy:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.35);
+}
+.btn-gaming-copy:active {
+  transform: translateY(0);
+}
+
+/* Tip Box */
+.gaming-tip-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0 2rem;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+/* Expired Codes Accordion */
+.gaming-expired-accordion {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+.gaming-expired-accordion summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gaming-expired-accordion[open] summary {
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+.gaming-expired-code {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+.badge-expired {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Requirements Box */
+.gaming-req-box {
+  background: var(--bg-secondary);
+  border-left: 4px solid #0284c7;
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+/* Redeem Steps */
+.gaming-steps-list {
+  list-style: none;
+  counter-reset: redeem-step;
+  padding: 0;
+  margin: 1.5rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.gaming-step-item {
+  counter-increment: redeem-step;
+  position: relative;
+  padding-left: 2.75rem;
+  font-size: 0.96rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+.gaming-step-item::before {
+  content: counter(redeem-step);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 50%;
+  background: #0284c7;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+}
+
+/* Schematic HUD Callout */
+.gaming-hud-mockup {
+  background: #0b1120;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin: 1.5rem 0 2.5rem;
+  color: #f8fafc;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+.gaming-hud-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.82rem;
+  color: #94a3b8;
+  font-family: var(--font-mono);
+}
+.gaming-flow-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.gaming-flow-node {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.gaming-flow-node.highlight {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+}
+.gaming-flow-arrow {
+  color: #64748b;
+  font-weight: 800;
+}
+
+/* Troubleshooting Grid */
+.gaming-troubleshoot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.gaming-troubleshoot-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  transition: all 0.2s ease;
+}
+.gaming-troubleshoot-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: var(--shadow-sm);
+}
+.gaming-troubleshoot-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.gaming-troubleshoot-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Related Guides Grid */
+.gaming-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0 2.5rem;
+}
+.gaming-related-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+.gaming-related-card:hover {
+  border-color: #0284c7;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.gaming-related-card strong {
+  font-size: 0.92rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+.gaming-related-card span {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}

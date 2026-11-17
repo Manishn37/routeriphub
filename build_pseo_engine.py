@@ -659,6 +659,8 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
     if schemas_json_ld:
         for s in schemas_json_ld:
             if isinstance(s, dict) and s.get("@type") == "HowTo":
+                if "name" in s and "step" in s:
+                    all_schemas.append(_sanitize_schema_node(s))
                 continue
             all_schemas.append(_sanitize_schema_node(s))
         
@@ -18934,6 +18936,555 @@ def generate_tool_pages():
 # ==============================================================================
 # 6c. GENERATE GAMING HUB PAGE (/gaming/)
 # ==============================================================================
+
+# ==============================================================================
+# BLUE LOCK RIVALS CODES GUIDE (/gaming/blue-lock-rivals-codes/)
+# ==============================================================================
+def generate_blue_lock_rivals_page():
+    print("Generating Blue Lock Rivals Codes Guide (/gaming/blue-lock-rivals-codes/)...")
+    bluelock_dir = os.path.join(PUBLIC_DIR, "gaming", "blue-lock-rivals-codes")
+    make_dirs(bluelock_dir)
+
+    canonical = "https://routeriphub.com/gaming/blue-lock-rivals-codes/"
+    title = "Blue Lock Rivals Codes (November 2026) – All Active Freebies"
+    desc = "Get all active Blue Lock Rivals codes for November 2026. Claim free Lucky Style Spins and Lucky Flow Spins before they expire. Verified daily with 1-click copy."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Gaming", "/gaming/"),
+        ("Blue Lock Rivals Codes", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Blue Lock Rivals Codes (November 2026) – All Active Freebies",
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-11-18T00:00:00+00:00",
+        "dateModified": f"{TODAY}T04:30:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "publisher": ORG_PUBLISHER
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How often are new Blue Lock Rivals codes released?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "New Blue Lock Rivals codes are commonly released with game updates, milestones, events, and developer announcements. The developers often retire old codes when a new update goes live."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do Blue Lock Rivals codes expire?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Most Blue Lock Rivals codes have a limited redemption period, so redeem them as soon as they appear on this page."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What do Blue Lock Rivals codes give?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Active Blue Lock Rivals codes generally provide Lucky Style Spins and Lucky Flow Spins, which are used to obtain or improve in-game Styles and Flows."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does my Blue Lock Rivals code say invalid?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The code may have expired, contain a typo, require Level 10, or require membership in the official Blue Lock Rivals Roblox group."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where can I find official Blue Lock Rivals codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Check the game's official Discord server and Roblox group for the latest announcements and new code drops."
+                }
+            }
+        ]
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Redeem Codes in Blue Lock Rivals",
+        "description": "Step-by-step instructions to redeem active codes for free Lucky Style Spins and Lucky Flow Spins in Roblox Blue Lock Rivals.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Launch Blue Lock Rivals",
+                "text": "Open Blue Lock Rivals in Roblox on PC, mobile, or console."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Meet redemption requirements",
+                "text": "Reach Level 10 and join the official Blue Lock Rivals Roblox group."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Open the Codes menu",
+                "text": "Tap the Codes button in the game menu."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Enter and redeem the code",
+                "text": "Paste a working code from the table above into the input field and press Redeem."
+            }
+        ]
+    }
+
+    body_html = f"""
+  <article class="container" style="max-width: 920px; padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Article Header -->
+    <header style="margin-bottom: 2rem;">
+      <div class="gaming-verified-badge">
+        <span class="gaming-verified-pulse"></span>
+        <span>✅ Verified Today &mdash; November 18, 2026</span>
+      </div>
+
+      <h1 style="font-size: clamp(2rem, 3.5vw + 1rem, 2.9rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.03em; color: var(--text-primary); margin-bottom: 1rem;">
+        Blue Lock Rivals Codes (November 2026) &ndash; All Active Freebies
+      </h1>
+
+      <!-- Quick Jump Navigation -->
+      <nav class="gaming-quick-jump" aria-label="Jump to article sections">
+        <span style="font-weight: 700;">Jump to:</span>
+        <a href="#active-codes" class="gaming-jump-link">Active Codes</a>
+        <span>&bull;</span>
+        <a href="#how-to-redeem" class="gaming-jump-link">How to Redeem</a>
+        <span>&bull;</span>
+        <a href="#faq" class="gaming-jump-link">FAQ</a>
+      </nav>
+
+      {get_byline_html("November 18, 2026")}
+
+      <p style="font-size: 1.08rem; color: var(--text-secondary); line-height: 1.65; margin: 1.5rem 0 1.25rem;">
+        Use all active <strong>Blue Lock Rivals codes</strong> to claim free <strong>Lucky Style Spins</strong> and <strong>Lucky Flow Spins</strong>. Spins help you unlock and upgrade Styles and Flows, so redeem these codes before they expire.
+      </p>
+
+      <!-- Poster Artwork Frame -->
+      <div class="gaming-hero-banner-frame" style="max-height: 400px; margin: 1.5rem 0 2.25rem;">
+        <img src="/images/gaming/blue-lock-rivals-poster.webp" alt="Blue Lock Rivals anime soccer egoist striker poster art with glowing blue aura" class="gaming-hero-banner-img" width="960" height="540" fetchpriority="high">
+        <div class="gaming-hero-banner-overlay">
+          <span class="gaming-banner-caption">Roblox Blue Lock Rivals &bull; Egoist Striker Freebies Vault</span>
+          <span class="gaming-banner-tag">November 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Section 1: Working Codes -->
+    <section id="active-codes" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        Working Blue Lock Rivals Codes
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+        Tap or click the <strong>Copy</strong> button on any active code to paste it directly into the in-game redeem box.
+      </p>
+
+      <div class="gaming-code-table-wrap">
+        <table class="gaming-code-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Code</th>
+              <th style="width: 52%;">Reward</th>
+              <th style="width: 20%; text-align: center;">Copy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="gaming-code-badge">OTOYAHERE</span></td>
+              <td>
+                <span class="gaming-spin-chip">5 Lucky Style Spins</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0.2rem;">+</span>
+                <span class="gaming-spin-chip flow">5 Lucky Flow Spins</span>
+              </td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="OTOYAHERE" title="Copy OTOYAHERE code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge">NINJACODE</span></td>
+              <td><span class="gaming-spin-chip">5 Lucky Style Spins</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="NINJACODE" title="Copy NINJACODE code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge">BIGTHINGSOON</span></td>
+              <td><span class="gaming-spin-chip flow">5 Lucky Flow Spins</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="BIGTHINGSOON" title="Copy BIGTHINGSOON code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge">KARASUREWORK</span></td>
+              <td>
+                <span class="gaming-spin-chip">5 Lucky Style Spins</span>
+                <span style="color: var(--text-muted); font-size: 0.85rem; margin: 0 0.2rem;">+</span>
+                <span class="gaming-spin-chip flow">5 Lucky Flow Spins</span>
+              </td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="KARASUREWORK" title="Copy KARASUREWORK code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge">CROWTHEFTBACK</span></td>
+              <td><span class="gaming-spin-chip flow">5 Lucky Flow Spins</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="CROWTHEFTBACK" title="Copy CROWTHEFTBACK code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge">BIGQOLSOON</span></td>
+              <td><span class="gaming-spin-chip">5 Lucky Style Spins</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="BIGQOLSOON" title="Copy BIGQOLSOON code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pro Tip Box -->
+      <div class="gaming-tip-box">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <div>
+          <strong>Tip:</strong> Copy and paste codes exactly as shown. Extra spaces or incorrect capitalization can cause an &ldquo;invalid code&rdquo; error.
+        </div>
+      </div>
+
+      <!-- Expired Codes Accordion -->
+      <details class="gaming-expired-accordion">
+        <summary><strong>Click to view expired codes (7)</strong></summary>
+        <div class="gaming-code-table-wrap" style="margin-top: 1rem;">
+          <table class="gaming-code-table">
+            <thead>
+              <tr>
+                <th style="width: 35%;">Code</th>
+                <th style="width: 45%;">Previous Reward</th>
+                <th style="width: 20%;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="gaming-expired-code">HAPPYHALLOWEEN2</span></td>
+                <td>5 Lucky Style Spins + 5 Lucky Flow Spins</td>
+                <td><span class="badge-expired">Expired</span></td>
+              </tr>
+              <tr>
+                <td><span class="gaming-expired-code">HAPPYHALLOWEEN</span></td>
+                <td>5 Lucky Style Spins + 5 Lucky Flow Spins</td>
+                <td><span class="badge-expired">Expired</span></td>
+              </tr>
+              <tr>
+                <td><span class="gaming-expired-code">ZANTESUHERE</span></td>
+                <td>5 Lucky Style Spins</td>
+                <td><span class="badge-expired">Expired</span></td>
+              </tr>
+              <tr>
+                <td><span class="gaming-expired-code">LIMITEDSBACK</span></td>
+                <td>5 Lucky Style Spins + 5 Lucky Flow Spins</td>
+                <td><span class="badge-expired">Expired</span></td>
+              </tr>
+              <tr>
+                <td><span class="gaming-expired-code">SPOOKY</span></td>
+                <td>5 Lucky Style Spins + 5 Lucky Flow Spins</td>
+                <td><span class="badge-expired">Expired</span></td>
+              </tr>
+              <tr>
+                <td><span class="gaming-expired-code">SKELETON</span></td>
+                <td>5 Lucky Style Spins</td>
+                <td><span class="badge-expired">Expired</span></td>
+              </tr>
+              <tr>
+                <td><span class="gaming-expired-code">AIKUCHANGES</span></td>
+                <td>5 Lucky Flow Spins</td>
+                <td><span class="badge-expired">Expired</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <!-- Section 2: How to Redeem -->
+    <section id="how-to-redeem" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        How to Redeem Codes in Blue Lock Rivals
+      </h2>
+
+      <div class="gaming-req-box">
+        <strong style="color: #0284c7;">Before redeeming:</strong> You must be <strong>Level 10 or higher</strong> and a member of the official Blue Lock Rivals Roblox group. Codes will not work without meeting both requirements.
+      </div>
+
+      <ol class="gaming-steps-list">
+        <li class="gaming-step-item">
+          <strong>Launch Blue Lock Rivals in Roblox</strong> on your PC, mobile device, or console.
+        </li>
+        <li class="gaming-step-item">
+          <strong>Reach Level 10</strong> if you have not already unlocked it through gameplay matches.
+        </li>
+        <li class="gaming-step-item">
+          <strong>Join the official Blue Lock Rivals Roblox group</strong> on the Roblox platform.
+        </li>
+        <li class="gaming-step-item">
+          Tap the <strong>Codes</strong> button in the game menu.
+        </li>
+        <li class="gaming-step-item">
+          <strong>Paste a working code</strong> from the table above into the code box.
+        </li>
+        <li class="gaming-step-item">
+          Select <strong>Redeem</strong>.
+        </li>
+        <li class="gaming-step-item">
+          Check your rewards or inventory for the <strong>Lucky Style Spins</strong> and <strong>Lucky Flow Spins</strong>.
+        </li>
+      </ol>
+
+      <!-- Screenshot Callout HUD Mockup -->
+      <div class="gaming-hud-mockup">
+        <div class="gaming-hud-header">
+          <span>BLUE LOCK RIVALS // REDEEM MENU UI SCHEMATIC</span>
+          <span>STEP-BY-STEP FLOW</span>
+        </div>
+        <div class="gaming-flow-row">
+          <div class="gaming-flow-node">1. Open Game Menu</div>
+          <span class="gaming-flow-arrow">&rarr;</span>
+          <div class="gaming-flow-node highlight">2. Click Codes Button</div>
+          <span class="gaming-flow-arrow">&rarr;</span>
+          <div class="gaming-flow-node highlight">3. Paste Code Box</div>
+          <span class="gaming-flow-arrow">&rarr;</span>
+          <div class="gaming-flow-node highlight">4. Hit Redeem</div>
+          <span class="gaming-flow-arrow">&rarr;</span>
+          <div class="gaming-flow-node" style="color: #10b981; border-color: rgba(16, 185, 129, 0.4); font-weight: 700;">5. Spins Claimed!</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Troubleshooting -->
+    <section style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        Why Are My Codes Not Working?
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        If you receive an &ldquo;invalid&rdquo; or &ldquo;error&rdquo; response in Blue Lock Rivals, verify these six common causes:
+      </p>
+
+      <div class="gaming-troubleshoot-grid">
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            <span>Check for typos</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Copy and paste the code rather than typing it manually. Codes are case-sensitive and cannot include extra spaces.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Check your level</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            You must be Level 10 or above to redeem codes. Play a few ranked or casual matches to level up your character.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <span>Join the official group</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Official group membership is strictly required. Join the Roblox Blue Lock Rivals group, then re-enter the game.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Check the code status</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Codes may expire quickly after a new update or developer code drop. Check our expired codes table above.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+            <span>Restart the game</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Server sync issues can prevent a newly added code from registering. Exit to Roblox home and rejoin a fresh server.
+          </p>
+        </div>
+
+        <div class="gaming-troubleshoot-card">
+          <div class="gaming-troubleshoot-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>Use the correct account</span>
+          </div>
+          <p class="gaming-troubleshoot-desc">
+            Codes are usually limited to one single redemption per Roblox account. You cannot redeem the same code twice.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: FAQ -->
+    <section id="faq" style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.65rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        Frequently Asked Questions
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        Answers to common questions about Blue Lock Rivals code releases, spin types, and expiration dates.
+      </p>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">How often are new Blue Lock Rivals codes released?</summary>
+          <div class="faq-answer">
+            <p>New codes are commonly released with game updates, milestones, events, and developer announcements. The developers often retire old codes when a new update goes live.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Do Blue Lock Rivals codes expire?</summary>
+          <div class="faq-answer">
+            <p>Yes. Most codes have a limited redemption period, so redeem them as soon as they appear on this page.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">What do Blue Lock Rivals codes give?</summary>
+          <div class="faq-answer">
+            <p>Active codes generally provide Lucky Style Spins and Lucky Flow Spins, which are used to obtain or improve in-game Styles and Flows.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Why does my code say &ldquo;invalid&rdquo;?</summary>
+          <div class="faq-answer">
+            <p>The code may have expired, contain a typo, require Level 10, or require membership in the official Roblox group.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Where can I find official Blue Lock Rivals codes?</summary>
+          <div class="faq-answer">
+            <p>Check the game&rsquo;s official Discord server and Roblox group for the latest announcements and new code drops.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Section 5: Related Guides -->
+    <section style="margin-bottom: 2.75rem;">
+      <h2 style="font-size: 1.55rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+        Related Blue Lock Rivals Guides
+      </h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem;">
+        Improve your competitive egoist striker skills with our ranked gameplay breakdown guides:
+      </p>
+
+      <div class="gaming-related-grid">
+        <div class="gaming-related-card">
+          <strong>Blue Lock Rivals Tier List &ndash; Best Styles Ranked</strong>
+          <span>Meta tier list covering S-Tier egoist striker styles</span>
+        </div>
+        <div class="gaming-related-card">
+          <strong>Blue Lock Rivals Flow Tier List</strong>
+          <span>Complete breakdown of top in-game Flow abilities</span>
+        </div>
+        <div class="gaming-related-card">
+          <strong>Blue Lock Rivals Beginner Guide &ndash; Fast Leveling Tips</strong>
+          <span>How to reach Level 10 quickly and win more matches</span>
+        </div>
+        <div class="gaming-related-card">
+          <strong>Blue Lock Rivals Goal Effects Guide</strong>
+          <span>How to unlock and equip custom holographic goal celebrations</span>
+        </div>
+        <div class="gaming-related-card">
+          <strong>Blue Lock Rivals Trading Guide</strong>
+          <span>Safe trading strategies for rare cosmetic styles and cards</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Network Lag & Roblox Optimizer (RouterIPHub Synergy) -->
+    <section class="gamer-net-card" style="margin-top: 2rem;">
+      <div style="position: relative; z-index: 2;">
+        <span style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #38bdf8; display: inline-block; margin-bottom: 0.5rem;">
+          Low-Ping Roblox Optimization
+        </span>
+        <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; color: #ffffff;">
+          Experiencing High Ping or Disconnects in Blue Lock Rivals?
+        </h2>
+        <p style="font-size: 0.95rem; color: #cbd5e1; max-width: 760px; line-height: 1.6; margin-bottom: 1.25rem;">
+          Roblox uses UDP ports <strong>49152&ndash;65535</strong> for real-time game server communication. If you experience Roblox Error Code 279, lag spikes, or delayed ball tackles, configure your router with Quality of Service (QoS) and connect over 5 GHz Wi-Fi or Ethernet.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.85rem;">
+          <a href="/tools/detect-gateway/" class="btn btn-primary" style="background: #38bdf8; color: #0f172a; border-color: #38bdf8; font-weight: 700;">
+            Detect Router Gateway IP &rarr;
+          </a>
+          <a href="/tools/ping-test/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            Test Game Ping &amp; Latency &rarr;
+          </a>
+          <a href="/gaming/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            All Game Cheats &amp; Codes &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+"""
+
+    full_html = get_header(
+        title, desc, canonical,
+        active_nav="gaming",
+        breadcrumbs=breadcrumbs,
+        schemas_json_ld=[tech_schema, faq_schema, howto_schema],
+        og_image="https://routeriphub.com/images/gaming/blue-lock-rivals-poster.webp",
+        og_image_alt="Blue Lock Rivals Roblox Active Codes and Free Lucky Spins",
+        og_type="article"
+    ) + body_html + get_footer()
+
+    with open(os.path.join(bluelock_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(full_html)
+    print("  -> Generated /gaming/blue-lock-rivals-codes/index.html")
+
+
 def generate_gaming_page():
     print("Generating Gaming Hub (/gaming/)...")
     gaming_dir = os.path.join(PUBLIC_DIR, "gaming")
@@ -19046,7 +19597,8 @@ def generate_gaming_page():
 
       <!-- Category Filter Pills -->
       <div class="gaming-filter-nav" role="tablist" aria-label="Game Category Filters">
-        <button type="button" class="gaming-filter-pill is-active" data-filter="all">All Franchises (10)</button>
+        <button type="button" class="gaming-filter-pill is-active" data-filter="all">All Franchises (11)</button>
+        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (1)</button>
         <button type="button" class="gaming-filter-pill" data-filter="rpg">Open World &amp; RPG (5)</button>
         <button type="button" class="gaming-filter-pill" data-filter="shooter">Action &amp; Shooter (2)</button>
         <button type="button" class="gaming-filter-pill" data-filter="sandbox">Sandbox &amp; Building (2)</button>
@@ -19065,24 +19617,111 @@ def generate_gaming_page():
   </section>
 
   <main class="container">
-    <!-- User Content Drop Zone (Fulfills no dummy content requirement) -->
-    <section class="gaming-content-dropzone" id="content-desk">
-      <div class="gaming-dropzone-icon">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="17 8 12 3 7 8"></polyline>
-          <line x1="12" y1="3" x2="12" y2="15"></line>
-        </svg>
+    <!-- Featured Live Cheat Code Drop: Blue Lock Rivals -->
+    <section class="gaming-content-dropzone" id="content-desk" style="border-color: rgba(56, 189, 248, 0.4); text-align: left; padding: 2rem 2.25rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+        <div style="display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); padding: 0.35rem 0.85rem; border-radius: 9999px; font-size: 0.82rem; font-weight: 700; color: #10b981;">
+          <span class="gaming-verified-pulse"></span>
+          <span>✅ Verified Today &mdash; November 18, 2026</span>
+        </div>
+        <span style="font-size: 0.82rem; font-family: var(--font-mono); color: #38bdf8; background: rgba(56, 189, 248, 0.12); padding: 0.25rem 0.65rem; border-radius: 4px;">
+          FEATURED CODE DROP
+        </span>
       </div>
-      <h2 style="font-size: 1.45rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">
-        Gaming Content Desk &amp; Cheat Code Vault: Ready for Publishing
+
+      <h2 style="font-size: clamp(1.4rem, 2.5vw, 1.85rem); font-weight: 900; margin-bottom: 0.65rem; color: var(--text-primary);">
+        <a href="/gaming/blue-lock-rivals-codes/" style="color: inherit; text-decoration: none;">
+          Blue Lock Rivals Codes (November 2026) &ndash; All Active Freebies
+        </a>
       </h2>
-      <p style="font-size: 0.95rem; color: var(--text-secondary); max-width: 720px; margin: 0 auto 1.25rem; line-height: 1.55;">
-        This gaming section structure is officially deployed and production-ready. As you provide your game cheat code tables, console command lists, controller button combinations, and breaking gaming news stories, they will be formatted and published directly into these game showcases and dedicated guides.
+
+      <p style="font-size: 0.98rem; color: var(--text-secondary); max-width: 820px; line-height: 1.6; margin-bottom: 1.5rem;">
+        Use all active Blue Lock Rivals codes to claim free <strong>Lucky Style Spins</strong> and <strong>Lucky Flow Spins</strong>. Spins help you unlock and upgrade Styles and Flows, so redeem these codes before they expire.
       </p>
-      <div style="display: inline-flex; align-items: center; gap: 0.55rem; background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 0.45rem 1rem; border-radius: 9999px; font-size: 0.82rem; font-weight: 600; color: var(--text-muted);">
-        <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
-        Editorial Container Active &bull; Zero Dummy Text &bull; Ready for User Content Injection
+
+      <!-- Quick Codes Grid Table -->
+      <div class="gaming-code-table-wrap" style="margin: 1rem 0 1.5rem; background: var(--bg-primary);">
+        <table class="gaming-code-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Code</th>
+              <th style="width: 52%;">Reward</th>
+              <th style="width: 20%; text-align: center;">1-Click Copy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="gaming-code-badge">OTOYAHERE</span></td>
+              <td><span class="gaming-spin-chip">5 Lucky Style Spins</span> <span style="color: var(--text-muted); font-size: 0.85rem;">+</span> <span class="gaming-spin-chip flow">5 Lucky Flow Spins</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="OTOYAHERE" title="Copy OTOYAHERE code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge">NINJACODE</span></td>
+              <td><span class="gaming-spin-chip">5 Lucky Style Spins</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="NINJACODE" title="Copy NINJACODE code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge">BIGTHINGSOON</span></td>
+              <td><span class="gaming-spin-chip flow">5 Lucky Flow Spins</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="BIGTHINGSOON" title="Copy BIGTHINGSOON code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge">KARASUREWORK</span></td>
+              <td><span class="gaming-spin-chip">5 Lucky Style Spins</span> <span style="color: var(--text-muted); font-size: 0.85rem;">+</span> <span class="gaming-spin-chip flow">5 Lucky Flow Spins</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="KARASUREWORK" title="Copy KARASUREWORK code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge">CROWTHEFTBACK</span></td>
+              <td><span class="gaming-spin-chip flow">5 Lucky Flow Spins</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="CROWTHEFTBACK" title="Copy CROWTHEFTBACK code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="gaming-code-badge">BIGQOLSOON</span></td>
+              <td><span class="gaming-spin-chip">5 Lucky Style Spins</span></td>
+              <td style="text-align: center;">
+                <button type="button" class="btn-gaming-copy copy-btn" data-copy="BIGQOLSOON" title="Copy BIGQOLSOON code">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span>Copy</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <span style="font-size: 0.85rem; color: var(--text-muted);">
+          Tip: You must be <strong>Level 10+</strong> and in the official Roblox group to redeem.
+        </span>
+        <a href="/gaming/blue-lock-rivals-codes/" class="btn btn-primary" style="background: #0284c7; color: #ffffff; border-color: #0284c7; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+          <span>View Complete Blue Lock Rivals Guide, Expired List &amp; FAQ</span>
+          <span aria-hidden="true">&rarr;</span>
+        </a>
       </div>
     </section>
 
@@ -19101,6 +19740,43 @@ def generate_gaming_page():
       </div>
 
       <div class="gaming-cards-grid" id="gaming-cards-container">
+        <!-- Card 0: Blue Lock Rivals -->
+        <article class="game-card" data-category="roblox">
+          <div class="game-card-media">
+            <img src="/images/gaming/blue-lock-rivals-poster.webp" alt="Blue Lock Rivals anime soccer egoist striker poster art with glowing blue aura" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
+            <div class="game-card-media-overlay">
+              <span class="game-card-genre">Anime Soccer &bull; Roblox</span>
+              <div class="game-card-platforms">
+                <span class="platform-chip">PC</span>
+                <span class="platform-chip">MOBILE</span>
+                <span class="platform-chip">CONSOLE</span>
+              </div>
+            </div>
+          </div>
+          <div class="game-card-body">
+            <h3 class="game-card-title">
+              <a href="/gaming/blue-lock-rivals-codes/" style="color: inherit; text-decoration: none;">Blue Lock Rivals (Roblox)</a>
+            </h3>
+            <div class="game-card-meta">Official Roblox Game &bull; Lucky Style &amp; Flow Spins Freebies</div>
+            <div class="game-cheat-tags">
+              <span class="cheat-tag" style="background: rgba(16, 185, 129, 0.12); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">✅ 6 Active Codes</span>
+              <span class="cheat-tag">OTOYAHERE</span>
+              <span class="cheat-tag">NINJACODE</span>
+              <span class="cheat-tag">BIGTHINGSOON</span>
+              <span class="cheat-tag">Level 10+ Group Required</span>
+            </div>
+            <div class="game-card-cta-row">
+              <a href="/gaming/blue-lock-rivals-codes/" class="game-card-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <span>Redeem Freebies (6)</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <button type="button" class="game-card-btn copy-btn" data-copy="OTOYAHERE" title="Copy Latest Code OTOYAHERE">
+                <span>Copy Code</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
         <!-- Card 1: GTA V & GTA VI -->
         <article class="game-card" data-category="rpg">
           <div class="game-card-media">
@@ -19732,6 +20408,7 @@ def generate_sitemaps():
     guide_urls = [
         ("https://routeriphub.com/", "1.0", "daily", get_sitemap_lastmod("index")),
         ("https://routeriphub.com/gaming/", "0.9", "weekly", TODAY),
+        ("https://routeriphub.com/gaming/blue-lock-rivals-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/howto/", "0.9", "weekly", get_sitemap_lastmod("guide", "howto")),
         ("https://routeriphub.com/about/", "0.9", "monthly", get_sitemap_lastmod("legal", "about")),
         ("https://routeriphub.com/authors/", "0.9", "monthly", get_sitemap_lastmod("legal", "authors")),
@@ -19951,6 +20628,14 @@ def update_search_index():
     })
 
     # 2c. Gaming Hub
+    search_index.append({
+        "title": "Blue Lock Rivals Codes (November 2026) – All Active Freebies",
+        "category": "Gaming Cheats",
+        "badge": "Roblox",
+        "url": "/gaming/blue-lock-rivals-codes/",
+        "snippet": "Verified Blue Lock Rivals codes for November 2026. Claim free Lucky Style Spins and Lucky Flow Spins. 1-click copy, redeem requirements, and expired list.",
+        "keywords": "blue lock rivals codes roblox spins lucky style flow otoyahere ninjacode freebies cheat codes"
+    })
     search_index.append({
         "title": "Game Cheats, Console Commands & Gaming News Desk",
         "category": "Gaming Hub",
@@ -20418,6 +21103,7 @@ def main():
     generate_author_and_about_pages()
     generate_tool_pages()
     generate_gaming_page()
+    generate_blue_lock_rivals_page()
     generate_trust_and_legal_pages(PUBLIC_DIR, get_header, get_footer)
     generate_static_guide_pages(ROOT_DIR, PUBLIC_DIR, get_header, get_footer)
     sync_homepage()
