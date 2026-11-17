@@ -24,6 +24,7 @@ function initApp() {
   initGatewayProbe();
   initExtenderSetupWizard();
   initInstantPrefetch();
+  initGamingHub();
 }
 
 if (document.readyState === 'loading') {
@@ -1303,5 +1304,83 @@ function initInstantPrefetch() {
         document.head.appendChild(prefetch);
       }
     }, { passive: true });
+  });
+}
+
+/* ==========================================================================
+   11. Gaming Hub Interactive Search, Filter & Platform Tabs
+   ========================================================================== */
+function initGamingHub() {
+  const searchInput = document.getElementById('game-search');
+  const filterPills = document.querySelectorAll('.gaming-filter-pill');
+  const gameCards = document.querySelectorAll('.game-card');
+  const emptyState = document.getElementById('gaming-no-results');
+
+  if (!gameCards.length) return;
+
+  let activeFilter = 'all';
+  let searchQuery = '';
+
+  function applyFilters() {
+    let visibleCount = 0;
+    const q = searchQuery.toLowerCase().trim();
+
+    gameCards.forEach(card => {
+      const category = (card.getAttribute('data-category') || '').toLowerCase();
+      const title = (card.querySelector('.game-card-title')?.textContent || '').toLowerCase();
+      const genre = (card.querySelector('.game-card-genre')?.textContent || '').toLowerCase();
+      const meta = (card.querySelector('.game-card-meta')?.textContent || '').toLowerCase();
+      const tags = Array.from(card.querySelectorAll('.cheat-tag')).map(t => t.textContent.toLowerCase()).join(' ');
+
+      const matchesCategory = (activeFilter === 'all') || (category === activeFilter);
+      const matchesSearch = !q || title.includes(q) || genre.includes(q) || meta.includes(q) || tags.includes(q);
+
+      if (matchesCategory && matchesSearch) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      applyFilters();
+    });
+  }
+
+  filterPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      filterPills.forEach(p => p.classList.remove('is-active'));
+      pill.classList.add('is-active');
+      activeFilter = pill.getAttribute('data-filter') || 'all';
+      applyFilters();
+    });
+  });
+
+  // Platform Guide Tabs
+  const platformTabBtns = document.querySelectorAll('.platform-tab-btn');
+  const platformPanes = document.querySelectorAll('.platform-tab-pane');
+
+  platformTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-tab');
+      if (!targetId) return;
+
+      platformTabBtns.forEach(b => b.classList.remove('is-active'));
+      platformPanes.forEach(p => p.classList.remove('is-active'));
+
+      btn.classList.add('is-active');
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) {
+        targetPane.classList.add('is-active');
+      }
+    });
   });
 }
