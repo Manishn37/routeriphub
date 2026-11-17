@@ -3124,7 +3124,7 @@ def generate_router_index_page():
 # CUSTOM HIGH-INTENT ISP GATEWAY PAGE: Xfinity (Comcast) xFi (10.0.0.1)
 # ==============================================================================
 def generate_custom_xfinity_xfi_page(isp):
-    canonical = "https://routeriphub.com/isp/xfinity-xfi/"
+    canonical = "https://routeriphub.com/isp/xfinity-gateway-login-admin-access/"
     title = "Xfinity (Comcast) Gateway Login — 10.0.0.1 Admin Access"
     desc = "To access your Xfinity gateway, enter 10.0.0.1 in your browser. Complete setup guide for xFi XB6, XB7, XB8, default passwords, Bridge Mode, and troubleshooting."
 
@@ -3253,7 +3253,7 @@ def generate_custom_xfinity_xfi_page(isp):
     }
 
     byline_html = get_byline_html("November 2026")
-    internal_links_html = build_isp_internal_links_html("xfinity-xfi", "10.0.0.1")
+    internal_links_html = build_isp_internal_links_html("xfinity-gateway-login-admin-access", "10.0.0.1")
 
     content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
@@ -8726,7 +8726,7 @@ def generate_custom_spectrum_sac2v1k_page(isp):
 
 def get_isp_master_index_content():
     carrier_metadata = {
-        "xfinity-xfi": {
+        "xfinity-gateway-login-admin-access": {
             "short_name": "Xfinity",
             "region": "United States",
             "region_code": "us",
@@ -9179,9 +9179,28 @@ def generate_isp_pages():
         isp_dir = os.path.join(PUBLIC_DIR, "isp", slug)
         make_dirs(isp_dir)
 
-        if slug == "xfinity-xfi":
+        if slug in ("xfinity-gateway-login-admin-access", "xfinity-xfi"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_xfinity_xfi_page(isp))
+            # Also write static 301 meta-refresh fallback for legacy /isp/xfinity-xfi/
+            legacy_dir = os.path.join(PUBLIC_DIR, "isp", "xfinity-xfi")
+            make_dirs(legacy_dir)
+            legacy_html = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting to Xfinity Gateway Login...</title>
+  <meta name="description" content="This page has permanently moved to https://routeriphub.com/isp/xfinity-gateway-login-admin-access/.">
+  <link rel="canonical" href="https://routeriphub.com/isp/xfinity-gateway-login-admin-access/">
+  <meta http-equiv="refresh" content="0; url=https://routeriphub.com/isp/xfinity-gateway-login-admin-access/">
+  <script>window.location.replace("https://routeriphub.com/isp/xfinity-gateway-login-admin-access/");</script>
+</head>
+<body>
+  <p>This page has moved. If you are not redirected automatically, please visit <a href="/isp/xfinity-gateway-login-admin-access/">Xfinity Gateway Login</a>.</p>
+</body>
+</html>"""
+            with open(os.path.join(legacy_dir, "index.html"), "w", encoding="utf-8") as lf:
+                lf.write(legacy_html)
             continue
 
         if slug == "att-bgw320":
@@ -19106,14 +19125,14 @@ def update_search_index():
 
     # 2. ISP Gateways
     for isp in ISP_GATEWAYS:
-        if isp["slug"] == "xfinity-xfi":
+        if isp["slug"] in ("xfinity-gateway-login-admin-access", "xfinity-xfi"):
             search_index.append({
-                "title": "Xfinity Gateway Login — 10.0.0.1 Admin Access & Fixes",
+                "title": "Xfinity (Comcast) Gateway Login — 10.0.0.1 Admin Access",
                 "category": "ISP Gateway",
                 "badge": "Xfinity",
-                "url": "/isp/xfinity-xfi/",
-                "snippet": "Log in to your Xfinity gateway at 10.0.0.1. Enable Admin Tool access, find the right password, manage Wi-Fi settings, and troubleshoot login problems.",
-                "keywords": "xfinity comcast xfi 10.0.0.1 gateway admin tool bridge mode wifi xb6 xb7 xb8 login password"
+                "url": "/isp/xfinity-gateway-login-admin-access/",
+                "snippet": "To access your Xfinity gateway, enter 10.0.0.1 in your browser. Complete setup guide for xFi XB6, XB7, XB8, default passwords, Bridge Mode, and troubleshooting.",
+                "keywords": "xfinity comcast xfi 10.0.0.1 gateway admin tool bridge mode wifi xb6 xb7 xb8 login password admin access"
             })
             continue
         if isp["slug"] == "att-bgw320":
@@ -19284,6 +19303,17 @@ def update_vercel_config():
         if src not in seen_sources:
             seen_sources.add(src)
             redirects.append({"source": src, "destination": dst, "permanent": True})
+
+    # Legacy Xfinity gateway paths -> canonical /isp/xfinity-gateway-login-admin-access/
+    for xf_src in [
+        "/isp/xfinity-xfi",
+        "/isp/xfinity-xfi/",
+        "/isp/xfinity-gateway-login-admin",
+        "/isp/xfinity-gateway-login-admin/",
+        "/isp/xfinity-gateway-login",
+        "/isp/xfinity-gateway-login/",
+    ]:
+        add_redirect(xf_src, "/isp/xfinity-gateway-login-admin-access/")
 
     # Legacy PLDT hubs -> unified /routers/pldt/
     for pldt_src in ["/isp/pldt", "/isp/pldt/", "/brands/pldt", "/brands/pldt/", "/brand/pldt.html", "/brand/pldt", "/brand/pldt/"]:

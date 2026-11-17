@@ -558,7 +558,7 @@ function renderQuickSuggestions(container) {
       <a href="/ip/192-168-0-1/" class="search-chip">192.168.0.1 (TP-Link / D-Link)</a>
       <a href="/ip/10-0-0-1/" class="search-chip">10.0.0.1 (Xfinity Comcast)</a>
       <a href="/ip/192-168-1-254/" class="search-chip">192.168.1.254 (AT&amp;T Fiber)</a>
-      <a href="/isp/xfinity-xfi/" class="search-chip">Xfinity xFi Gateway</a>
+      <a href="/isp/xfinity-gateway-login-admin-access/" class="search-chip">Xfinity xFi Gateway</a>
       <a href="/isp/att-bgw320/" class="search-chip">AT&amp;T BGW320 Fiber</a>
     </div>
 

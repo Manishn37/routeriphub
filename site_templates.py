@@ -385,7 +385,7 @@ def generate_brand_rich_sections(b, brand_models, escape_fn):
       </div>
       <div class="answer-box" style="margin-bottom: 1.75rem;">
         <div class="answer-box-title">Complete Xfinity xFi Admin &amp; Bridge Mode Guide</div>
-        <p style="margin: 0;">For step-by-step screenshots, Bridge Mode instructions (to use your own Netgear/ASUS/UniFi router), and Admin Tool activation troubleshooting, see our full <a href="/isp/xfinity-xfi/"><strong>Xfinity Gateway Login (10.0.0.1) Portal Guide &rarr;</strong></a>.</p>
+        <p style="margin: 0;">For step-by-step screenshots, Bridge Mode instructions (to use your own Netgear/ASUS/UniFi router), and Admin Tool activation troubleshooting, see our full <a href="/isp/xfinity-gateway-login-admin-access/"><strong>Xfinity Gateway Login (10.0.0.1) Portal Guide &rarr;</strong></a>.</p>
       </div>
         """
 
@@ -437,7 +437,7 @@ def get_sitemap_lastmod(category, slug=""):
     if slug in ("access-my-router-settings-page", "why-is-192-168-1-1-not-working", "why-cant-i-access-my-bt-hub-manager", "change-tenda-wifi-password-without-previous-password", "howto", "privacy", "terms"):
         return "2026-11-12"
     recent_updates = {
-        "pldt", "verizon-cr1000a", "xfinity-xfi", "att-bgw320",
+        "pldt", "verizon-cr1000a", "xfinity-gateway-login-admin-access", "att-bgw320",
         "synology-rt2600ac", "synology-rt6600ax", "mywifiext-net",
         "tplinkrepeater-net", "about", "authors", "vikas-behl",
         "contact", "editorial-policy", "xfinity",

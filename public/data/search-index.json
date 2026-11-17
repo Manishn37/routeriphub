@@ -2016,12 +2016,12 @@
     "keywords": "pldt default router login (home wifi & fiber) 192.168.1.1 pldt password reset home wi-fi & fiber gateway"
   },
   {
-    "title": "Xfinity Gateway Login \u2014 10.0.0.1 Admin Access & Fixes",
+    "title": "Xfinity (Comcast) Gateway Login \u2014 10.0.0.1 Admin Access",
     "category": "ISP Gateway",
     "badge": "Xfinity",
-    "url": "/isp/xfinity-xfi/",
-    "snippet": "Log in to your Xfinity gateway at 10.0.0.1. Enable Admin Tool access, find the right password, manage Wi-Fi settings, and troubleshoot login problems.",
-    "keywords": "xfinity comcast xfi 10.0.0.1 gateway admin tool bridge mode wifi xb6 xb7 xb8 login password"
+    "url": "/isp/xfinity-gateway-login-admin-access/",
+    "snippet": "To access your Xfinity gateway, enter 10.0.0.1 in your browser. Complete setup guide for xFi XB6, XB7, XB8, default passwords, Bridge Mode, and troubleshooting.",
+    "keywords": "xfinity comcast xfi 10.0.0.1 gateway admin tool bridge mode wifi xb6 xb7 xb8 login password admin access"
   },
   {
     "title": "AT&T Fiber Gateway Login \u2014 192.168.1.254 Admin Access",

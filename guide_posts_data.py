@@ -79,7 +79,7 @@ ACCESS_SETTINGS_BODY = """
               <td><a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a></td>
             </tr>
             <tr>
-              <td class="cell-brand"><a href="/isp/xfinity-xfi/">Xfinity gateway</a></td>
+              <td class="cell-brand"><a href="/isp/xfinity-gateway-login-admin-access/">Xfinity gateway</a></td>
               <td><a href="/ip/10-0-0-1/"><code>10.0.0.1</code></a></td>
             </tr>
             <tr>
@@ -469,7 +469,7 @@ WHY_192_168_1_1_NOT_WORKING_BODY = """
             </tr>
             <tr>
               <td><a href="/ip/10-0-0-1/"><code>http://10.0.0.1</code></a></td>
-              <td>Common on <a href="/isp/xfinity-xfi/">Xfinity gateways</a> and some other networks</td>
+              <td>Common on <a href="/isp/xfinity-gateway-login-admin-access/">Xfinity gateways</a> and some other networks</td>
             </tr>
             <tr>
               <td><a href="/ip/192-168-1-254/"><code>http://192.168.1.254</code></a></td>
@@ -1939,7 +1939,7 @@ GUIDE_POSTS = [
               <td><strong>Transparent Bridging + VLAN 201:</strong> Requires setting 802.1Q VLAN ID <code>201</code> on your personal router&rsquo;s WAN interface.</td>
             </tr>
             <tr>
-              <td class="cell-brand"><a href="/isp/xfinity-xfi/">Xfinity xFi</a></td>
+              <td class="cell-brand"><a href="/isp/xfinity-gateway-login-admin-access/">Xfinity xFi</a></td>
               <td>XB6 / XB7 / XB8</td>
               <td><a href="/ip/10-0-0-1/"><code>10.0.0.1</code></a></td>
               <td><strong>Gateway Bridge Mode:</strong> Toggle under <em>Gateway &rsaquo; At a Glance &rsaquo; Bridge Mode</em> (after enabling Admin Tool in Xfinity App).</td>

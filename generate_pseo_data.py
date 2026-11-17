@@ -9,7 +9,7 @@ ROUTER_MODELS = create_models_catalog()
 
 ISP_GATEWAYS = [
     {
-        "slug": "xfinity-xfi",
+        "slug": "xfinity-gateway-login-admin-access",
         "isp_name": "Xfinity (Comcast)",
         "gateway_name": "xFi Advanced Gateway (XB6, XB7, XB8)",
         "default_ip": "10.0.0.1",

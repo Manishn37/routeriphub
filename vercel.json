@@ -5,6 +5,36 @@
   "outputDirectory": "public",
   "redirects": [
     {
+      "source": "/isp/xfinity-xfi",
+      "destination": "/isp/xfinity-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/xfinity-xfi/",
+      "destination": "/isp/xfinity-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/xfinity-gateway-login-admin",
+      "destination": "/isp/xfinity-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/xfinity-gateway-login-admin/",
+      "destination": "/isp/xfinity-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/xfinity-gateway-login",
+      "destination": "/isp/xfinity-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
+      "source": "/isp/xfinity-gateway-login/",
+      "destination": "/isp/xfinity-gateway-login-admin-access/",
+      "permanent": true
+    },
+    {
       "source": "/isp/pldt",
       "destination": "/routers/pldt/",
       "permanent": true
