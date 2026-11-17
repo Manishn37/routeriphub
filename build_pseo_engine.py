@@ -11957,11 +11957,11 @@ def generate_ip_pages():
             h1 = f"{ip} — What This Address Actually Is (It's Usually Not Your Router)"
             desc = f"Searched {ip} expecting router login? Learn why {ip} is a client device or extender, not your primary gateway, and how to access 192.168.1.1."
         else:
-            title = f"{ip} Router Login Fix & Default Password (2026)"
+            title = f"{ip} Router Login, Admin Password & Setup (2026)"
             if len(title) > 60:
-                title = f"{ip} Router Login Fix & Default Password"
-            h1 = f"{ip} Not Working? {meta['primary_brand']} Router Login Fix"
-            desc = f"Fix {ip} router login timeouts. Verified factory credentials, subnet diagnostics, and admin reset steps for {meta['primary_brand']} gateways."
+                title = f"{ip} Router Login & Default Password"
+            h1 = f"{ip} — Router Admin Login, Default Credentials & Setup Guide"
+            desc = f"Log in to your router at {ip}. Verified factory default username, admin password, gateway setup, and login fix diagnostics for {meta['primary_brand']}."
             if len(desc) > 158:
                 desc = f"Fix {ip} router login timeouts. Verified default admin credentials, subnet diagnostics, and hardware reset steps for home gateways."
 
@@ -19346,6 +19346,14 @@ def main():
     update_search_index()
     update_vercel_config()
     update_llm_manifests()
+
+    # Automatic IndexNow Push to Bing & Search Engines
+    try:
+        from submit_indexnow import collect_all_urls, submit_to_indexnow
+        urls = collect_all_urls()
+        submit_to_indexnow(urls)
+    except Exception as e:
+        print(f"IndexNow submission notification skipped: {e}")
 
     print("=" * 60)
     print("PSEO PIPELINE COMPLETE! 100% PRODUCTION READY.")
