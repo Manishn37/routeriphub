@@ -19301,38 +19301,13 @@ def sync_homepage():
     with open(hp_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # 1. Update Organization schema with sameAs
-    org_old = """"@id": "https://routeriphub.com/#organization",
-        "name": "RouterIPHub",
-        "url": "https://routeriphub.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://routeriphub.com/android-chrome-512x512.png",
-          "width": 512,
-          "height": 512
-        }"""
-    org_new = """"@id": "https://routeriphub.com/#organization",
-        "name": "RouterIPHub",
-        "url": "https://routeriphub.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://routeriphub.com/android-chrome-512x512.png",
-          "width": 512,
-          "height": 512
-        },
-        "sameAs": [
-          "https://www.trustpilot.com/review/routeriphub.com"
-        ]"""
-    if org_old in content:
-        content = content.replace(org_old, org_new)
-
-    # 2. Update footer
+    # 1. Update footer
     footer_pattern = re.compile(r"<!-- Site Footer -->\s*<footer class=\"site-footer\">.*?</footer>", re.DOTALL)
     m_footer = footer_pattern.search(get_footer())
     if m_footer and footer_pattern.search(content):
         content = footer_pattern.sub(m_footer.group(0), content)
 
-    # 3. Update style.css version hash
+    # 2. Update style.css version hash
     def _get_hash(rel_path):
         full = os.path.join(PUBLIC_DIR, rel_path)
         try:
