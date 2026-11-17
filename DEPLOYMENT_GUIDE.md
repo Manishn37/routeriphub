@@ -1,10 +1,10 @@
 # RouterIPHub.com - Production Edge Deployment & DNS Setup Guide
 
-This guide explains how to deploy **RouterIPHub** to **Vercel** or **Cloudflare Pages** in under 2 minutes so that your domain **`RouterIPHub.com`** is active, resolving with SSL, and ready to outrank `routeripguide.com`.
+This guide explains how to deploy **RouterIPHub** to **Vercel** or **Cloudflare Pages** in under 2 minutes so that your domain **`RouterIPHub.com`** is active, resolving with SSL, and serving global edge traffic.
 
 ---
 
-## Option 1: Deploy on Vercel (Recommended — Same Edge Infrastructure as Competitor)
+## Option 1: Deploy on Vercel (Recommended)
 
 Vercel provides global edge routing with sub-40ms TTFB and automated SSL certificates.
 
@@ -68,9 +68,9 @@ Once DNS resolves:
 
 ---
 
-## What Gives RouterIPHub the Decisive Winning Edge Over RouterIPGuide:
+## What Gives RouterIPHub the Decisive Architecture Advantage:
 
-| Feature / Metric | RouterIPGuide (`routeripguide.com`) | RouterIPHub (`routeriphub.com`) |
+| Feature / Metric | Legacy Directory Portals | RouterIPHub (`routeriphub.com`) |
 | :--- | :--- | :--- |
 | **Interactive Utilities** | 4 basic tools on `/tools` | **7 client-side utilities** (including WebRTC Local IP Auto-Detector, Subnet CIDR Calculator, CSV Cheat-Sheet Exporter, Wi-Fi QR maker, Reachability Probe) |
 | **In-Page Diagnostic Consoles** | None (only static text on IP pages) | **Live ping probes and subnet inspectors embedded directly on every gateway and brand page** |

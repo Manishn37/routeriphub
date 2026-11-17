@@ -1,12 +1,12 @@
 # RouterIPHub — Ultra-Fast, GEO/SEO-Optimized Router Gateway Directory
 
-> Engineered to outrank ad-heavy competitors like **routeripguide.com** and **router-network.com** through superior Core Web Vitals (100/100), AI Citation Friendliness (GEO / AIO), and declarative factual density.
+> Engineered to deliver industry-leading performance through superior Core Web Vitals (100/100), AI Citation Friendliness (GEO / AIO), and declarative factual density.
 
 ---
 
-## 🚀 Key Advantages Over Competitors
+## 🚀 Key Architectural Advantages
 
-| Feature / Metric | Competitors (`routeripguide.com`, `router-network.com`) | **RouterIPHub** |
+| Feature / Metric | Legacy Directory Portals | **RouterIPHub** |
 | :--- | :--- | :--- |
 | **Google PageSpeed / Mobile Score** | 35 – 55 / 100 (heavy display ad networks, huge CLS) | **99 – 100 / 100** (Zero layout shift, instant paint) |
 | **Time to First Byte (TTFB)** | ~800ms – 1.8s (dynamic PHP / bloated CMS) | **< 50ms** on Edge CDN (Cloudflare / Vercel / Netlify) |
