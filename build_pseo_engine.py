@@ -21283,6 +21283,549 @@ def generate_basketball_zero_page():
     print("  -> Generated /gaming/basketball-zero-codes/index.html")
 
 
+
+# =============================================================================
+# ANIME VANGUARDS CODES GUIDE (/gaming/anime-vanguards-codes/)
+# =============================================================================
+def generate_anime_vanguards_page():
+    print("Generating Anime Vanguards Codes Guide (/gaming/anime-vanguards-codes/)...")
+    vanguards_dir = os.path.join(PUBLIC_DIR, "gaming", "anime-vanguards-codes")
+    make_dirs(vanguards_dir)
+
+    canonical = "https://routeriphub.com/gaming/anime-vanguards-codes/"
+    title = "Anime Vanguards Codes (November 2026) – All Active Freebies"
+    desc = "Get all active Anime Vanguards codes for November 2026. Claim free Trait Rerolls, Memoria Shards, Gold, and Leaves '26. 1-click copy, redeem guide & FAQ."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Gaming", "/gaming/"),
+        ("Anime Vanguards Codes", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Anime Vanguards Codes (November 2026) – All Active Freebies",
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-11-18T00:00:00+00:00",
+        "dateModified": f"{TODAY}T05:45:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "publisher": ORG_PUBLISHER
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What Are the Latest Anime Vanguards Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The latest confirmed working codes are 2MilFavs, SteveBroRun, Fall26, and Nirvana. They award Trait Rerolls, Memoria Shards, Gold, and Leaves '26 for character progression."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What Does 2MilFavs Give in Anime Vanguards?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The code 2MilFavs grants 50,000 Leaves '26, 100 Trait Rerolls, and 100 Memoria Shards. Your character must be Level 10 or higher to redeem it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What Level Do I Need to Redeem Codes in Anime Vanguards?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All four codes in the active working table require Level 10. Promotional drops can feature varied level minimums, so ensure you meet the required threshold."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where Is the Codes Menu in Anime Vanguards?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Open Profile on the right side of the screen, select the Codes tab within the profile window, paste your code into the 'Enter code...' input field, and select Redeem Code."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I Redeem the Same Anime Vanguards Code Twice?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Each promotional code can only be claimed once per Roblox account. Attempting to enter it again will return an already redeemed message."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are Anime Vanguards Codes Case-Sensitive?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. You must enter codes with exact capitalization (for instance, 2MilFavs, SteveBroRun, Fall26, and Nirvana) to prevent invalid entry errors."
+                }
+            }
+        ]
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Redeem Anime Vanguards Codes",
+        "description": "Step-by-step instructions to redeem active codes in Roblox Anime Vanguards using the right-side Profile and Codes menu.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Reach Level 10",
+                "text": "Ensure your character has reached Level 10 in Anime Vanguards before attempting to redeem active codes."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Launch Game & Enter Lobby",
+                "text": "Launch Anime Vanguards in Roblox and enter the main tower defense lobby."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Open Profile Menu",
+                "text": "Select the Profile button on the right side of the screen."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Select Codes Tab",
+                "text": "Choose the Codes tab from the profile navigation window."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Enter Code & Redeem",
+                "text": "Paste a working code into the 'Enter code...' field and select Redeem Code to claim your rewards."
+            }
+        ]
+    }
+
+    body_html = f"""
+  <article class="container" style="max-width: 920px; padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Article Header -->
+    <header style="margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <div class="gaming-verified-badge" style="margin-bottom: 0;">
+          <span class="gaming-verified-pulse"></span>
+          <span>✅ Source Checked &mdash; November 18, 2026</span>
+        </div>
+        <span style="font-size: 0.8rem; color: var(--text-muted); background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 0.3rem 0.65rem; border-radius: 9999px;">
+          Reported Active &bull; November 18 Update
+        </span>
+      </div>
+
+      <h1 style="font-size: clamp(2rem, 3.5vw + 1rem, 2.9rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.03em; color: var(--text-primary); margin-bottom: 1rem;">
+        Anime Vanguards Codes (November 2026) &ndash; All Active Freebies
+      </h1>
+
+      <!-- 1-Line Quick Jump Navigation -->
+      <nav class="gaming-quick-jump" aria-label="Quick Jump Menu">
+        <span style="font-weight: 700; color: var(--text-primary);">Jump to:</span>
+        <a href="#active-codes" class="gaming-jump-link">Active Codes</a>
+        <span>&bull;</span>
+        <a href="#how-to-redeem" class="gaming-jump-link">How to Redeem</a>
+        <span>&bull;</span>
+        <a href="#get-more-codes" class="gaming-jump-link">Get More Codes</a>
+        <span>&bull;</span>
+        <a href="#more-rewards" class="gaming-jump-link">Free Rewards</a>
+        <span>&bull;</span>
+        <a href="#troubleshooting" class="gaming-jump-link">Troubleshooting</a>
+        <span>&bull;</span>
+        <a href="#faq" class="gaming-jump-link">FAQ</a>
+      </nav>
+
+      {get_byline_html("November 18, 2026")}
+
+      <p style="font-size: 1.08rem; line-height: 1.7; color: var(--text-secondary); margin-top: 1.25rem;">
+        Anime Vanguards codes give you free <strong>Trait Rerolls</strong>, <strong>Memoria Shards</strong>, <strong>Gold</strong>, and <strong>Leaves &rsquo;26</strong>. Below, you&rsquo;ll find the latest reported working codes, their rewards, and redemption instructions. Make sure your account has reached <strong>Level 10</strong> before attempting to claim the codes in the table.
+      </p>
+
+      <!-- Featured Visual Poster -->
+      <figure style="margin: 1.5rem 0 2.25rem;">
+        <img src="/images/gaming/anime-vanguards-poster.webp" alt="Anime Vanguards anime tower defense rift with defense towers and glowing hero unit" width="960" height="540" loading="eager" fetchpriority="high" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">
+          Anime Vanguards Tower Defense: Summon mythical vanguard defenders, reroll passive traits, and protect the anime multiverse.
+        </figcaption>
+      </figure>
+    </header>
+
+    <!-- SECTION: Working Codes -->
+    <section id="active-codes" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        All New Anime Vanguards Codes
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+        Copy each code exactly as shown, including its specific capitalization. All four active codes require <strong>Level 10</strong>. Click <strong>Copy Code</strong> to grab any drop instantly.
+      </p>
+
+      <div class="gaming-table-wrapper">
+        <table class="gaming-table">
+          <thead>
+            <tr>
+              <th style="width: 26%;">Code</th>
+              <th style="width: 50%;">Rewards &amp; Requirement</th>
+              <th style="width: 24%; text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">2MilFavs</span>
+              </td>
+              <td>
+                <strong>50,000 Leaves &rsquo;26, 100 Trait Rerolls + 100 Memoria Shards</strong>
+                <div style="font-size: 0.8rem; color: #22c55e; margin-top: 0.25rem;">Requirement: Level 10 or higher</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="2MilFavs" aria-label="Copy code 2MilFavs">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">SteveBroRun</span>
+              </td>
+              <td>
+                <strong>100 Trait Rerolls</strong>
+                <div style="font-size: 0.8rem; color: #22c55e; margin-top: 0.25rem;">Requirement: Level 10 or higher</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="SteveBroRun" aria-label="Copy code SteveBroRun">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">Fall26</span>
+              </td>
+              <td>
+                <strong>6,000 Leaves &rsquo;26 (Seasonal Currency)</strong>
+                <div style="font-size: 0.8rem; color: #22c55e; margin-top: 0.25rem;">Requirement: Level 10 or higher</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="Fall26" aria-label="Copy code Fall26">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">Nirvana</span>
+              </td>
+              <td>
+                <strong>50,000 Gold, 50 Memoria Shards + 50 Trait Rerolls</strong>
+                <div style="font-size: 0.8rem; color: #22c55e; margin-top: 0.25rem;">Requirement: Level 10 or higher</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="Nirvana" aria-label="Copy code Nirvana">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="background: rgba(234, 179, 8, 0.08); border-left: 4px solid #eab308; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1.25rem;">
+        <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">
+          <strong style="color: var(--text-primary);">Verification Note:</strong> These four codes appear in current November code listings. Availability can change rapidly during weekend update patches, so check the in-game message to confirm whether a code still works for your account.
+        </p>
+      </div>
+
+      <!-- Expired Codes Accordion -->
+      <div style="margin-top: 2rem;">
+        <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+          Expired Anime Vanguards Codes
+        </h3>
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-secondary);">
+            Click to view expired Anime Vanguards codes archive (1 code)
+          </summary>
+          <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              <code>THEONE</code>, which previously offered 1,500 Iced Tea and required Level 10, has expired. It is excluded from the active table above and preserved here to prevent redundant testing.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">THEONE</span>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION: How to Redeem -->
+    <section id="how-to-redeem" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        How to Redeem Anime Vanguards Codes
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+        Before starting, ensure you have reached <strong>Level 10</strong>. Other seasonal promotions may feature different level restrictions, so always read the prompt displayed on screen. Follow these verified redemption steps:
+      </p>
+
+      <ol style="margin-left: 1.25rem; color: var(--text-secondary); line-height: 1.8; font-size: 1.02rem;">
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Reach Level 10:</strong> Play Story or Infinite matches to advance your character to Level 10.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Enter Main Lobby:</strong> Launch Anime Vanguards in Roblox and enter the central player hub.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Select Profile:</strong> Click the circular <strong>Profile</strong> button located on the right side of your HUD.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Switch to Codes:</strong> In the Profile pop-up window, select the <strong>Codes</strong> tab from the navigation header.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Paste Active Code:</strong> Click into the input field labelled <code>&ldquo;Enter code&hellip;&rdquo;</code> and paste your code.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Claim Rewards:</strong> Click the green <strong>Redeem Code</strong> button to instantly receive your Trait Rerolls, Memoria Shards, or Leaves.
+        </li>
+      </ol>
+
+      <!-- Annotated UI Redemption Mockup -->
+      <figure style="margin: 2rem 0; text-align: center;">
+        <img src="/images/gaming/anime-vanguards-redeem-ui.webp" alt="Anime Vanguards Profile menu showing the Codes option and code redemption window" width="960" height="540" loading="lazy" style="width: 100%; max-width: 820px; height: auto; border-radius: 10px; border: 1px solid var(--border-color); box-shadow: 0 8px 20px -4px rgba(0,0,0,0.25);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+          Visual HUD Guide: Access Profile on the right HUD, switch to the Codes tab, and click Redeem Code.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- SECTION: How to Get More Codes -->
+    <section id="get-more-codes" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        How to Get More Anime Vanguards Codes
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        Developer announcements on Discord and Twitter have been used to share codes such as <code>2MilFavs</code> to mark player milestones and content expansions. Here are the top methods to stay updated:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+            1. Official Discord &amp; Developer Feeds
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Join the official Anime Vanguards Discord community. Developers publish new drop codes in the <code>#announcements</code> channel whenever a major update or raid tier is deployed.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+            2. Daily Bookmark on RouterIPHub
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Our team cross-references live reports every morning. Bookmark this guide (<kbd>Ctrl+D</kbd> or <kbd>Cmd+D</kbd>) to instantly grab active rerolls without sifting through expired wiki entries.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: More Free Rewards -->
+    <section id="more-rewards" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        More Free Rewards in Anime Vanguards
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        Beyond promotional codes, you can earn substantial free trait rerolls, gems, and summoning materials through native in-game features:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Infinite Mode Milestones</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5;">Push past Wave 50 in Infinite Mode to trigger guaranteed Memoria Shard bundles and Gold rewards.</p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Daily Quests &amp; Raids</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5;">Complete three daily challenges to collect Trait Rerolls and seasonal event currency.</p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Battle Pass Free Tier</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5;">Advance through the free seasonal Battle Pass track for extra gems, unit XP food, and exclusive cosmetics.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Troubleshooting -->
+    <section id="troubleshooting" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        Why Are My Anime Vanguards Codes Not Working?
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        Always inspect the exact in-game error prompt before trying again. Here are the most frequent causes of failed redemptions:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #ef4444; margin-bottom: 0.35rem;">1. Player Level Under 10</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            All active codes in the current rotation enforce a strict <strong>Level 10</strong> requirement. If you are Level 1&ndash;9, level up your account in story mode first.
+          </p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.35rem;">2. Capitalization Mismatch</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Anime Vanguards code validation is strictly case-sensitive. Enter <code>2MilFavs</code> or <code>SteveBroRun</code> with exact casing, or use our 1-click copy buttons.
+          </p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">3. Already Redeemed</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Each code can be claimed only once per account. If you redeemed it earlier in the season, re-entering it triggers an &ldquo;Already Redeemed&rdquo; notice.
+          </p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">4. Expired vs Invalid Code</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            &ldquo;This code has expired!&rdquo; means the reward window ended. &ldquo;Invalid code!&rdquo; indicates a typo or accidental leading/trailing spaces.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FAQ -->
+    <section id="faq" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1.25rem; letter-spacing: -0.02em;">
+        Frequently Asked Questions
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            What Are the Latest Anime Vanguards Codes?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            The latest reported codes include <code>2MilFavs</code>, <code>SteveBroRun</code>, <code>Fall26</code>, and <code>Nirvana</code>. They grant Trait Rerolls, Memoria Shards, Gold, and Leaves &rsquo;26.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            What Does 2MilFavs Give in Anime Vanguards?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            <code>2MilFavs</code> awards 50,000 Leaves &rsquo;26, 100 Trait Rerolls, and 100 Memoria Shards. You need Level 10 or higher to redeem it.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            What Level Do I Need to Redeem Codes?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            All four active codes require Level 10. Individual future promotions may have different requirements, so always check the on-screen prompt.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            Where Is the Codes Menu in Anime Vanguards?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            Select Profile on the right side of your HUD, then choose the Codes tab from the profile window. Enter your code and select Redeem Code.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            Can I Redeem the Same Code Twice?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            No. Each promotional code can only be claimed once per Roblox account.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            Are Anime Vanguards Codes Case-Sensitive?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes. Enter codes with exact capitalization as listed (e.g. <code>2MilFavs</code>) to prevent invalid errors.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION: Related Roblox Code Guides -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1rem; letter-spacing: -0.02em;">
+        Related Roblox &amp; Anime Game Freebies
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+        <a href="/gaming/basketball-zero-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #c084fc; text-transform: uppercase;">Roblox Basketball</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Basketball Zero Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Claim free Lucky Style Spins, Zone Spins, and cash rewards.</p>
+        </a>
+
+        <a href="/gaming/blue-lock-rivals-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #38bdf8; text-transform: uppercase;">Roblox Soccer</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Blue Lock Rivals Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Claim Lucky Style Spins and Flow Spins in Blue Lock Rivals.</p>
+        </a>
+
+        <a href="/gaming/hunty-zombie-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #4ade80; text-transform: uppercase;">Roblox Undead Action</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Hunty Zombie Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Claim 50 Lucky Spins of each type and 50 Traits for your hunter.</p>
+        </a>
+
+        <a href="/gaming/sailor-piece-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #eab308; text-transform: uppercase;">Roblox Pirate RPG</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Sailor Piece Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Free Power Shards, Passive Shards, and Clan Rerolls bundle.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION: Low-Ping Optimization Banner -->
+    <section style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(239, 68, 68, 0.15) 100%); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 2rem; margin-top: 2rem;">
+      <div style="max-width: 680px;">
+        <span style="font-size: 0.8rem; font-weight: 700; color: #fbbf24; text-transform: uppercase; letter-spacing: 0.05em;">Multiplayer Tower Defense Diagnostics</span>
+        <h3 style="font-size: 1.4rem; font-weight: 800; color: #ffffff; margin: 0.5rem 0 0.75rem;">
+          Prevent Unit Placement Lag &amp; Raid Wave Disconnects
+        </h3>
+        <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.6; margin-bottom: 1.25rem;">
+          In high-tier Anime Vanguards infinite raids, hundreds of enemy units overwhelm servers. Packet jitter and bufferbloat cause delayed unit upgrades and ability trigger misses. Detect your router gateway to configure QoS gaming priority and 5GHz Wi-Fi channels.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="/tools/detect-gateway/" class="btn btn-primary" style="background: #f59e0b; color: #0f172a; border-color: #f59e0b; font-weight: 700;">
+            Detect Router Gateway IP &rarr;
+          </a>
+          <a href="/tools/ping-test/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            Test Game Ping &amp; Latency &rarr;
+          </a>
+          <a href="/gaming/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            All Game Cheats &amp; Codes &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+"""
+
+    full_html = get_header(
+        title, desc, canonical,
+        active_nav="gaming",
+        breadcrumbs=breadcrumbs,
+        schemas_json_ld=[tech_schema, faq_schema, howto_schema],
+        og_image="https://routeriphub.com/images/gaming/anime-vanguards-poster.webp",
+        og_image_alt="Anime Vanguards Roblox Active Codes, Trait Rerolls and Memoria Shards Freebies",
+        og_type="article"
+    ) + body_html + get_footer()
+
+    with open(os.path.join(vanguards_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(full_html)
+    print("  -> Generated /gaming/anime-vanguards-codes/index.html")
+
+
 def generate_gaming_page():
     print("Generating Gaming Hub (/gaming/)...")
     gaming_dir = os.path.join(PUBLIC_DIR, "gaming")
@@ -21396,7 +21939,7 @@ def generate_gaming_page():
       <!-- Category Filter Pills -->
       <div class="gaming-filter-nav" role="tablist" aria-label="Game Category Filters">
         <button type="button" class="gaming-filter-pill is-active" data-filter="all">All Franchises (13)</button>
-        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (4)</button>
+        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (5)</button>
         <button type="button" class="gaming-filter-pill" data-filter="rpg">Open World &amp; RPG (5)</button>
         <button type="button" class="gaming-filter-pill" data-filter="shooter">Action &amp; Shooter (2)</button>
         <button type="button" class="gaming-filter-pill" data-filter="sandbox">Sandbox &amp; Building (2)</button>
@@ -21538,7 +22081,44 @@ def generate_gaming_page():
       </div>
 
       <div class="gaming-cards-grid" id="gaming-cards-container">
-                                                <!-- Card 0D: Basketball Zero -->
+                                                                        <!-- Card 0E: Anime Vanguards -->
+        <article class="game-card" data-category="roblox">
+          <div class="game-card-media">
+            <img src="/images/gaming/anime-vanguards-poster.webp" alt="Anime Vanguards tower defense rift with mythic defender units" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
+            <div class="game-card-media-overlay">
+              <span class="game-card-genre" style="color: #f59e0b;">Anime Tower Defense &bull; Roblox</span>
+              <div class="game-card-platforms">
+                <span class="platform-chip">PC</span>
+                <span class="platform-chip">MOBILE</span>
+                <span class="platform-chip">CONSOLE</span>
+              </div>
+            </div>
+          </div>
+          <div class="game-card-body">
+            <h3 class="game-card-title">
+              <a href="/gaming/anime-vanguards-codes/" style="color: inherit; text-decoration: none;">Anime Vanguards (Roblox)</a>
+            </h3>
+            <div class="game-card-meta">Official Roblox Game &bull; Trait Rerolls, Memoria Shards &amp; Gold</div>
+            <div class="game-cheat-tags">
+              <span class="cheat-tag" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);">✅ 4 Active Codes</span>
+              <span class="cheat-tag">2MilFavs</span>
+              <span class="cheat-tag">SteveBroRun</span>
+              <span class="cheat-tag">Fall26</span>
+              <span class="cheat-tag">Requires Level 10</span>
+            </div>
+            <div class="game-card-cta-row">
+              <a href="/gaming/anime-vanguards-codes/" class="game-card-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; background: #d97706; color: #fff;">
+                <span>Redeem Freebies (4)</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <button type="button" class="game-card-btn copy-btn" data-copy="2MilFavs" title="Copy Latest Code 2MilFavs">
+                <span>Copy Code</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+<!-- Card 0D: Basketball Zero -->
         <article class="game-card" data-category="roblox">
           <div class="game-card-media">
             <img src="/images/gaming/basketball-zero-poster.webp" alt="Basketball Zero anime streetball court with zone aura and neon hoop" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
@@ -22320,6 +22900,7 @@ def generate_sitemaps():
         ("https://routeriphub.com/gaming/sailor-piece-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/gaming/hunty-zombie-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/gaming/basketball-zero-codes/", "0.9", "daily", TODAY),
+        ("https://routeriphub.com/gaming/anime-vanguards-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/howto/", "0.9", "weekly", get_sitemap_lastmod("guide", "howto")),
         ("https://routeriphub.com/about/", "0.9", "monthly", get_sitemap_lastmod("legal", "about")),
         ("https://routeriphub.com/authors/", "0.9", "monthly", get_sitemap_lastmod("legal", "authors")),
@@ -22554,6 +23135,14 @@ def update_search_index():
         "url": "/gaming/sailor-piece-codes/",
         "snippet": "Verified Sailor Piece codes for November 2026. Claim free Power Shards, Passive Shards, Secret Chests, and Clan Rerolls. 1-click copy, level requirements & FAQ.",
         "keywords": "sailor piece codes roblox shards chest clan reroll legendarysupersaiyan gear5update luffyupdate freebies"
+    })
+    search_index.append({
+        "title": "Anime Vanguards Codes (November 2026) – All Active Freebies",
+        "category": "Gaming Cheats",
+        "badge": "Roblox",
+        "url": "/gaming/anime-vanguards-codes/",
+        "snippet": "Verified Anime Vanguards codes for November 2026. Claim free Trait Rerolls, Memoria Shards, Gold, and Leaves '26. 1-click copy, redeem guide & FAQ.",
+        "keywords": "anime vanguards codes roblox trait rerolls memoria shards 2milfavs stevebrorun fall26 nirvana freebies"
     })
     search_index.append({
         "title": "Basketball Zero Codes (November 2026) – All Active Freebies",
@@ -23042,6 +23631,7 @@ def main():
     generate_sailor_piece_page()
     generate_hunty_zombie_page()
     generate_basketball_zero_page()
+    generate_anime_vanguards_page()
     generate_trust_and_legal_pages(PUBLIC_DIR, get_header, get_footer)
     generate_static_guide_pages(ROOT_DIR, PUBLIC_DIR, get_header, get_footer)
     sync_homepage()
