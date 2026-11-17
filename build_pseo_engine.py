@@ -8103,7 +8103,7 @@ def generate_custom_tmobile_kvd21_page(isp):
 
 def generate_custom_spectrum_sac2v1k_page(isp):
     canonical = "https://routeriphub.com/isp/spectrum-router-login-admin-access/"
-    title = "Spectrum Wi-Fi 6 Router (SAC2V1K/SAX1V1K) Login & Setup"
+    title = "Spectrum Router Login — 192.168.1.1 Admin Access"
     desc = "Login and setup guide for Spectrum Wi-Fi 6 routers SAC2V1K and SAX1V1K. Learn how to access 192.168.1.1, use the My Spectrum app, and change Wi-Fi settings."
 
     breadcrumbs = [
@@ -8114,7 +8114,7 @@ def generate_custom_spectrum_sac2v1k_page(isp):
 
     tech_schema = {
         "@type": "TechArticle",
-        "headline": "Spectrum Wi-Fi 6 Router (SAC2V1K, SAX1V1K): Login, Setup, and Settings Guide",
+        "headline": "Spectrum Router Login — 192.168.1.1 Admin Access",
         "description": desc,
         "image": "https://routeriphub.com/images/isp/spectrum-wifi-6-router-sac2v1k-login-setup-guide.webp",
         "mainEntityOfPage": canonical,
@@ -8224,10 +8224,10 @@ def generate_custom_spectrum_sac2v1k_page(isp):
     <div class="content-container">
       <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
-        Spectrum Wi-Fi 6 Router (SAC2V1K, SAX1V1K): Login, Setup, and Settings Guide
+        Spectrum Router Login — 192.168.1.1 Admin Access
       </h1>
       <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.6;">
-        The Spectrum Wi-Fi 6 routers <strong>SAC2V1K</strong> and <strong>SAX1V1K</strong> are Spectrum-provided gateway/routers that manage your home internet, Wi-Fi network, connected devices, and basic security settings.
+        Official login, setup, and admin settings guide for <strong>Spectrum Wi-Fi 6 Routers</strong> (SAC2V1K, SAX1V1K) managing your home internet, Wi-Fi network, connected devices, and security settings.
       </p>
       <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
         For most settings, Spectrum expects you to use the <strong>My Spectrum app</strong> rather than a traditional router login page. You can usually reach the local admin page by entering <strong>192.168.1.1</strong> in a browser but options may be limited compared with a standard third-party router.
@@ -8728,6 +8728,7 @@ def get_isp_master_index_content():
     carrier_metadata = {
         "xfinity-gateway-login-admin-access": {
             "short_name": "Xfinity",
+            "guide_title": "Xfinity Gateway Login — 10.0.0.1 Admin Access",
             "region": "United States",
             "region_code": "us",
             "badge": "US Cable & Fiber",
@@ -8735,10 +8736,11 @@ def get_isp_master_index_content():
             "accent_rgb": "99, 102, 241",
             "bridge": "Bridge Mode Supported",
             "pwd_hint": "Default 'password' or via Xfinity App",
-            "tagline": "Gigabit Cable & Fiber Gateway"
+            "tagline": "xFi Advanced Gateway (XB6, XB7, XB8) • Gigabit Cable & Fiber"
         },
         "att-fiber-gateway-login-admin-access": {
             "short_name": "AT&T Fiber",
+            "guide_title": "AT&T Fiber Gateway Login — 192.168.1.254 Admin Access",
             "region": "United States",
             "region_code": "us",
             "badge": "US Fiber & VDSL",
@@ -8746,10 +8748,11 @@ def get_isp_master_index_content():
             "accent_rgb": "2, 132, 199",
             "bridge": "IP Passthrough (DHCPS-fixed)",
             "pwd_hint": "10-Digit Device Access Code (DAC)",
-            "tagline": "Integrated Optical Fiber SFP"
+            "tagline": "BGW320 & BGW210 Series • Optical Fiber SFP"
         },
         "verizon-fios-gateway-login-admin-access": {
             "short_name": "Verizon Fios",
+            "guide_title": "Verizon Fios Gateway Login — 192.168.1.1 Admin Access",
             "region": "United States",
             "region_code": "us",
             "badge": "US Fiber (10G Ready)",
@@ -8757,10 +8760,11 @@ def get_isp_master_index_content():
             "accent_rgb": "220, 38, 38",
             "bridge": "Disable DHCP / AP Mode",
             "pwd_hint": "Unique password on base label",
-            "tagline": "Tri-Band Wi-Fi 6E Gateway"
+            "tagline": "CR1000A & G3100 Gateway Series • Tri-Band Wi-Fi 6E"
         },
         "spectrum-router-login-admin-access": {
             "short_name": "Spectrum",
+            "guide_title": "Spectrum Router Login — 192.168.1.1 Admin Access",
             "region": "United States",
             "region_code": "us",
             "badge": "US Cable & Fiber",
@@ -8768,10 +8772,11 @@ def get_isp_master_index_content():
             "accent_rgb": "37, 99, 235",
             "bridge": "Modem Bridge Mode",
             "pwd_hint": "admin (or My Spectrum App)",
-            "tagline": "DOCSIS 3.1 Advanced Router"
+            "tagline": "Spectrum Wi-Fi 6 Router (SAC2V1K, SAX1V1K) • DOCSIS 3.1"
         },
         "t-mobile-5g-gateway-login-admin-access": {
             "short_name": "T-Mobile",
+            "guide_title": "T-Mobile 5G Gateway Login — 192.168.12.1 Admin Access",
             "region": "United States",
             "region_code": "us",
             "badge": "US 5G Home Internet",
@@ -8779,10 +8784,11 @@ def get_isp_master_index_content():
             "accent_rgb": "225, 29, 72",
             "bridge": "Double-NAT / AP Mode",
             "pwd_hint": "Unique key on bottom sticker",
-            "tagline": "Cellular Ultra Capacity 5G"
+            "tagline": "5G Home Internet (KVD21, Arcadyan, G4SE) • Ultra Capacity 5G"
         },
         "centurylink-modem-login-admin-access": {
             "short_name": "CenturyLink",
+            "guide_title": "CenturyLink Modem Login — 192.168.0.1 Admin Access",
             "region": "United States",
             "region_code": "us",
             "badge": "US Fiber & DSL",
@@ -8790,10 +8796,11 @@ def get_isp_master_index_content():
             "accent_rgb": "5, 150, 105",
             "bridge": "Transparent Bridge (VLAN 201)",
             "pwd_hint": "Admin password on sticker",
-            "tagline": "Quantum Fiber Wi-Fi 6"
+            "tagline": "CenturyLink C4000LG, C4000XG & C3000Z • Quantum Fiber Wi-Fi 6"
         },
         "bt-smart-hub-manager-login-admin-access": {
             "short_name": "BT Broadband",
+            "guide_title": "BT Smart Hub Manager Login — 192.168.1.254 Admin Access",
             "region": "United Kingdom",
             "region_code": "uk",
             "badge": "UK Fibre & FTTC",
@@ -8801,10 +8808,11 @@ def get_isp_master_index_content():
             "accent_rgb": "79, 70, 229",
             "bridge": "DMZ / Double-NAT Only",
             "pwd_hint": "Password on pull-out card",
-            "tagline": "Complete Wi-Fi Smart Hub 2"
+            "tagline": "BT Smart Hub 2 & Home Hub 6 • UK Fibre & FTTC"
         },
         "virgin-media-hub-login-admin-access": {
             "short_name": "Virgin Media",
+            "guide_title": "Virgin Media Hub Login — 192.168.0.1 Admin Access",
             "region": "United Kingdom",
             "region_code": "uk",
             "badge": "UK Cable (DOCSIS 3.1)",
@@ -8812,10 +8820,11 @@ def get_isp_master_index_content():
             "accent_rgb": "225, 29, 72",
             "bridge": "Modem Mode (192.168.100.1)",
             "pwd_hint": "Settings key on bottom sticker",
-            "tagline": "Gigabit Cable & Fibre Hub"
+            "tagline": "Hub 3, Hub 4 & Hub 5 Series • Gigabit Cable & Fibre"
         },
         "sky-broadband-hub-login-admin-access": {
             "short_name": "Sky Broadband",
+            "guide_title": "Sky Broadband Hub Login — 192.168.0.1 Admin Access",
             "region": "United Kingdom",
             "region_code": "uk",
             "badge": "UK Fibre & Broadband",
@@ -8823,10 +8832,11 @@ def get_isp_master_index_content():
             "accent_rgb": "14, 165, 233",
             "bridge": "DHCP Option 61 (MER)",
             "pwd_hint": "sky (or Wi-Fi password)",
-            "tagline": "Dual-Band Sky Hub SR203"
+            "tagline": "Sky Broadband Hub (SR203) & Sky Q Hub • UK Fibre"
         },
         "telstra-smart-modem-login-admin-access": {
             "short_name": "Telstra",
+            "guide_title": "Telstra Smart Modem Login — 192.168.0.1 Admin Access",
             "region": "Australia",
             "region_code": "au",
             "badge": "Australia NBN",
@@ -8834,7 +8844,7 @@ def get_isp_master_index_content():
             "accent_rgb": "245, 158, 11",
             "bridge": "Bridge Mode Available",
             "pwd_hint": "admin (or printed on base)",
-            "tagline": "NBN with 4G LTE Backup"
+            "tagline": "Telstra Smart Modem Gen 2 & Gen 3 • NBN with 4G Backup"
         }
     }
 
@@ -8845,6 +8855,7 @@ def get_isp_master_index_content():
         slug = isp["slug"]
         meta = carrier_metadata.get(slug, {
             "short_name": isp["isp_name"],
+            "guide_title": f"{isp['isp_name']} Gateway Login — {isp['default_ip']} Admin Access",
             "region": "Global",
             "region_code": "global",
             "badge": "Broadband Gateway",
@@ -8852,10 +8863,11 @@ def get_isp_master_index_content():
             "accent_rgb": "2, 132, 199",
             "bridge": "Standard Bridge",
             "pwd_hint": "See gateway sticker",
-            "tagline": "Broadband Wi-Fi Gateway"
+            "tagline": f"{isp['gateway_name']} • Broadband Wi-Fi Gateway"
         })
 
         ip_slug = isp["default_ip"].replace(".", "-")
+        card_title = meta.get("guide_title", f"{isp['isp_name']} Gateway Login — {isp['default_ip']} Admin Access")
 
         tiles_html += f"""
         <article class="isp-tile" data-region="{meta['region_code']}" style="--carrier-accent: {meta['accent']}; --carrier-rgb: {meta['accent_rgb']};">
@@ -8881,7 +8893,7 @@ def get_isp_master_index_content():
 
           <div class="isp-tile-body">
             <h2 class="isp-tile-title">
-              <a href="/isp/{escape(slug)}/">{escape(isp['gateway_name'])}</a>
+              <a href="/isp/{escape(slug)}/">{escape(card_title)}</a>
             </h2>
             <div class="isp-tile-tagline">{meta['tagline']}</div>
 
@@ -8936,7 +8948,10 @@ def get_isp_master_index_content():
             <strong><a href="/isp/{escape(slug)}/">{escape(isp['isp_name'])}</a></strong>
             <div style="font-size: 0.75rem; color: var(--text-muted);">{meta['region']}</div>
           </td>
-          <td>{escape(isp['gateway_name'])}</td>
+          <td>
+            <a href="/isp/{escape(slug)}/" style="color: var(--text-primary); font-weight: 600;">{escape(card_title)}</a>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">{escape(isp['gateway_name'])}</div>
+          </td>
           <td><a href="/ip/{ip_slug}/"><code>{escape(isp['default_ip'])}</code></a></td>
           <td><code>{escape(isp['default_password'])}</code></td>
           <td><span class="badge" style="background: var(--info-bg); color: var(--text-accent); font-size: 0.75rem;">{meta['bridge']}</span></td>
