@@ -2892,18 +2892,19 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
 
     content = f"""
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-router">Hardware Setup &amp; Installation Guide</div>
-      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
-        Nighthawk AX6 Setup: Complete Installation and Configuration Guide
-      </h1>
-      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
-        Setting up a <strong>Nighthawk AX6 router</strong> takes about 10–15 minutes. Connect the router to your modem, use the Nighthawk app or a web browser to complete setup, create your Wi‑Fi network, and update the router firmware.
-      </p>
+    <div class="post-layout">
+      <div class="post-main-content">
+        <div class="silo-badge silo-badge-router">Hardware Setup &amp; Installation Guide</div>
+        <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+          Nighthawk AX6 Setup: Complete Installation and Configuration Guide
+        </h1>
+        <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+          Setting up a <strong>Nighthawk AX6 router</strong> takes about 10–15 minutes. Connect the router to your modem, use the Nighthawk app or a web browser to complete setup, create your Wi‑Fi network, and update the router firmware.
+        </p>
 
-      <!-- Quick Answer Card -->
-      <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
-        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <!-- Quick Answer Card -->
+        <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+          <h2 id="quick-answer" style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
         <ol style="margin-bottom: 1.25rem; padding-left: 1.5rem; line-height: 1.75; font-size: 1.02rem;">
           <li>Connect the Nighthawk AX6 router to your modem using an Ethernet cable.</li>
           <li>Power on the modem first, then power on the router.</li>
@@ -2927,7 +2928,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </figure>
 
       <!-- What You Need -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">What You Need</h2>
+      <h2 id="what-you-need" style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">What You Need</h2>
       <p style="color: var(--text-secondary); margin-bottom: 1rem;">Before starting, make sure you have:</p>
       <ul style="margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.8;">
         <li>Nighthawk AX6 router</li>
@@ -2941,7 +2942,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </ul>
 
       <!-- Quick Reference Table -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Quick Reference</h2>
+      <h2 id="quick-reference" style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Quick Reference</h2>
       <div class="table-responsive" style="margin-bottom: 2.5rem;">
         <table class="data-table">
           <thead>
@@ -2988,7 +2989,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </div>
 
       <!-- Before You Start -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Before You Start</h2>
+      <h2 id="before-you-start" style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Before You Start</h2>
 
       <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Check Your Internet Connection</h3>
       <p style="color: var(--text-secondary); margin-bottom: 1rem;">
@@ -3021,7 +3022,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </figure>
 
       <!-- How to Set Up Nighthawk AX6 -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Set Up Nighthawk AX6</h2>
+      <h2 id="how-to-set-up" style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Set Up Nighthawk AX6</h2>
 
       <!-- 4-Step Workflow Image -->
       <figure style="margin: 1.5rem 0 2.5rem; text-align: center;">
@@ -3150,7 +3151,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </div>
 
       <!-- Connect Devices to Wi‑Fi -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Connect Devices to Wi‑Fi</h2>
+      <h2 id="connect-devices" style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Connect Devices to Wi‑Fi</h2>
       <p style="color: var(--text-secondary); margin-bottom: 1rem;">
         After setup, connect your devices to the new Wi‑Fi network.
       </p>
@@ -3165,7 +3166,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </p>
 
       <!-- Best Router Placement -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Best Router Placement</h2>
+      <h2 id="placement" style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Best Router Placement</h2>
       <p style="color: var(--text-secondary); margin-bottom: 1rem;">
         Place the Nighthawk AX6 router in a central, open location.
       </p>
@@ -3179,7 +3180,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </ul>
 
       <!-- Troubleshooting -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1.25rem;">Troubleshooting</h2>
+      <h2 id="troubleshooting" style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1.25rem;">Troubleshooting</h2>
 
       <div class="card" style="margin-bottom: 1.25rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card);">
         <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Cannot Access routerlogin.net</h3>
@@ -3218,7 +3219,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </div>
 
       <!-- Factory Reset -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Factory Reset</h2>
+      <h2 id="factory-reset" style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Factory Reset</h2>
       <p style="color: var(--text-secondary); margin-bottom: 1rem;">
         Only reset the router if other troubleshooting steps fail.
       </p>
@@ -3238,7 +3239,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </div>
 
       <!-- Security Tips -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Security Tips</h2>
+      <h2 id="security-tips" style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Security Tips</h2>
       <ul style="margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.8;">
         <li>Change the default admin password.</li>
         <li>Use a strong Wi‑Fi password.</li>
@@ -3252,7 +3253,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
 
       <!-- Bottom Line -->
       <div class="bottom-line-callout" style="margin: 2.5rem 0 2rem; background: var(--bg-card); border-left: 4px solid var(--accent); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); border-left-width: 4px;">
-        <h2 style="font-size: 1.3rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Bottom Line</h2>
+        <h2 id="bottom-line" style="font-size: 1.3rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Bottom Line</h2>
         <p style="font-size: 1.02rem; line-height: 1.65; margin-bottom: 1rem; color: var(--text-secondary);">
           Setting up a Nighthawk AX6 router is simple: connect the modem to the router’s Internet/WAN port, connect to the router’s default Wi‑Fi, and complete setup through the Nighthawk app or <code>routerlogin.net</code>.
         </p>
@@ -3262,7 +3263,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </div>
 
       <!-- Official LED Indicators Table -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Nighthawk AX6 LED Indicator Status Reference</h2>
+      <h2 id="led-indicators" style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Nighthawk AX6 LED Indicator Status Reference</h2>
       <p style="color: var(--text-secondary); margin-bottom: 1rem;">
         The front LED panel indicates the operational health of your router, internet uplink, wireless radios, and local Ethernet links:
       </p>
@@ -3283,7 +3284,7 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
       </div>
 
       <!-- Hardware Details Card -->
-      <div class="card" style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+      <div id="hardware-specs" class="card" style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
         <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem;">Hardware Specifications</h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.95rem;">
           <div><strong>Model:</strong> Nighthawk AX6 (RAX50)</div>
@@ -3297,6 +3298,88 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
         </div>
       </div>
 
+      </div>
+
+      <!-- Sticky Sidebar for Nighthawk RAX50 -->
+      <aside class="post-sidebar" aria-label="Nighthawk AX6 Navigation and Quick Credentials">
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.06) 100%); border-color: rgba(2, 132, 199, 0.4);">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Default Login Specs
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Web Address:</span>
+              <a href="http://routerlogin.net" target="_blank" rel="noopener" style="font-family: var(--font-mono); font-weight: 600; color: var(--accent);">routerlogin.net</a>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Default IP:</span>
+              <a href="/ip/192-168-1-1/" style="font-family: var(--font-mono); font-weight: 600; color: var(--accent);">192.168.1.1</a>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Username:</span>
+              <code style="background: var(--bg-secondary); padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 700;">admin</code>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Password:</span>
+              <code style="background: var(--bg-secondary); padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 700;">password</code>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--text-muted);">Reset Hold:</span>
+              <span style="font-weight: 600;">10 seconds</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#quick-answer">Quick Answer</a></li>
+            <li><a href="#what-you-need">What You Need</a></li>
+            <li><a href="#quick-reference">Quick Reference Table</a></li>
+            <li><a href="#before-you-start">Before You Start</a></li>
+            <li><a href="#how-to-set-up">Step-by-Step Installation</a></li>
+            <li><a href="#connect-devices">Connect Devices to Wi‑Fi</a></li>
+            <li><a href="#placement">Best Router Placement</a></li>
+            <li><a href="#troubleshooting">Common Setup Fixes</a></li>
+            <li><a href="#factory-reset">Factory Reset Steps</a></li>
+            <li><a href="#security-tips">Security Recommendations</a></li>
+            <li><a href="#bottom-line">The Bottom Line</a></li>
+            <li><a href="#led-indicators">LED Status Reference</a></li>
+            <li><a href="#hardware-specs">Hardware Specs</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Netgear Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/routers/netgear-ex6120/"><span>Netgear EX6120 Setup</span> &rarr;</a></li>
+            <li><a href="/routers/netgear-wnr2000/"><span>Netgear N300 (WNR2000)</span> &rarr;</a></li>
+            <li><a href="/brands/netgear/"><span>All Netgear Models</span> &rarr;</a></li>
+            <li><a href="/howto/access-my-router-settings-page/"><span>Access Router Settings</span> &rarr;</a></li>
+            <li><a href="/howto/change-wifi-password/"><span>Change Wi-Fi Password</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="sidebar-author-box">
+            <div class="sidebar-author-avatar">VB</div>
+            <div class="sidebar-author-info">
+              <a href="/authors/vikas-behl/" class="sidebar-author-name">Vikas Behl</a>
+              <span class="sidebar-author-role">Hardware Verified &bull; RAX50 Bench</span>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+            Tested and benchmarked in the <strong>RouterIPHub Technical Lab</strong> with Netgear firmware v1.0.12.120.
+          </div>
+        </div>
+      </aside>
     </div>
   </main>
 """

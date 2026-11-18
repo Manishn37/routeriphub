@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=cbd27686">
+  <link rel="stylesheet" href="/css/style.css?v=f8278654">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -349,27 +349,28 @@
   </div>
 
   <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
-    <article class="prose content-container">
-      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="guide-category-badge">Resets &amp; ISP Bridge</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">4 min read &bull; <a href="/howto/">All Setup Guides</a></span>
-      </div>
+    <div class="post-layout">
+      <article class="prose post-main-content">
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+          <span class="guide-category-badge">Resets &amp; ISP Bridge</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">4 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+        </div>
 
-      <h1>IPv6 Default Gateway Discovery &amp; Link-Local (fe80::1) Guide</h1>
+        <h1>IPv6 Default Gateway Discovery &amp; Link-Local (fe80::1) Guide</h1>
 
-      
+        
       <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
         While IPv4 home routers isolate LAN devices behind private subnets like <a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a>, IPv6 assigns globally routable 128-bit prefixes to client devices and discovers routers dynamically using <strong>Link-Local</strong> addresses and <strong>ICMPv6 Neighbor Discovery</strong>.
       </p>
       <div class="card" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.25rem; margin: 1.5rem 0;">
-        <h2 style="font-size: 1.15rem; margin-top: 0; color: var(--text-primary);">IPv6 Gateway Architecture Highlights</h2>
+        <h2 style="font-size: 1.15rem; margin-top: 0; color: var(--text-primary);" id="ipv6-gateway-architecture-highlights">IPv6 Gateway Architecture Highlights</h2>
         <ul style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0; padding-left: 1.25rem;">
           <li><strong>Link-Local Prefix (<code>fe80::/10</code>):</strong> Your default IPv6 router gateway is almost always a Link-Local address starting with <code>fe80::</code> (frequently <code>fe80::1</code> or auto-generated from the router&rsquo;s EUI-64 MAC address). Link-local packets never route off your local wire.</li>
           <li><strong>Router Advertisements (RA):</strong> Unlike IPv4 which relies strictly on DHCP, IPv6 routers broadcast periodic ICMPv6 Type 134 Router Advertisements announcing gateway reachability and MTU.</li>
           <li><strong>Accessing Web Admin Consoles:</strong> Even on dual-stack IPv6 networks, most consumer router web panels remain simplest to reach over their IPv4 gateway address or local hostname (<a href="/howto/access-my-router-settings-page/">how to access router settings</a>), or bracketed in a browser like <code>http://[fe80::1]</code> when interface zoning permits.</li>
         </ul>
       </div>
-      <h2>Find Your IPv6 Default Gateway in Terminal</h2>
+      <h2 id="find-your-ipv6-default-gateway-in-terminal">Find Your IPv6 Default Gateway in Terminal</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Use these built-in commands (or see our full <a href="/find-router-ip/">IP Discovery Guide</a>) to inspect your active IPv6 default route:
       </p>
@@ -384,9 +385,9 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
       </div>
 
 
-      <h2>FAQs</h2>
-      <div style="margin-top: 1rem;">
-        
+        <h2 id="faqs">FAQs</h2>
+        <div style="margin-top: 1rem;">
+          
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Why is my IPv6 default gateway fe80::1 instead of 192.168.1.1?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">IPv6 uses Link-Local addresses from the fe80::/10 range for next-hop routing on the local link rather than global unicast or RFC 1918 addresses.</p>
@@ -395,54 +396,54 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Can I open my router login page using an IPv6 link-local address?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Most consumer browsers restrict raw zone-indexed link-local URLs for security, so opening your router&#x27;s IPv4 management IP (like 192.168.1.1) or local domain remains more reliable.</p>
         </div>
-      </div>
+        </div>
 
-      <h2>The Bottom Line</h2>
-      <div class="bottom-line-callout">
-        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
-          IPv6 default gateways appear as Link-Local <code>fe80::</code> addresses (visible via <code>Get-NetRoute</code> or <code>ip -6 route</code>), while day-to-day router administration continues cleanly over your IPv4 gateway IP.
-        </p>
-      </div>
+        <h2 id="bottom-line">The Bottom Line</h2>
+        <div class="bottom-line-callout">
+          <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+            IPv6 default gateways appear as Link-Local <code>fe80::</code> addresses (visible via <code>Get-NetRoute</code> or <code>ip -6 route</code>), while day-to-day router administration continues cleanly over your IPv4 gateway IP.
+          </p>
+        </div>
 
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
+        <div class="byline-meta-card">
+          <div class="byline-author-group">
+            <div class="byline-avatar">VB</div>
+            <div class="byline-text">
+              <div class="byline-line-1">
+                <span class="byline-role">Written &amp; Tested by</span>
+                <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+                <span class="byline-badge">12+ Yrs Exp</span>
+              </div>
+              <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
             </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-review-group">
+            <span class="byline-role">Reviewed by</span>
+            <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+            <span class="byline-status">&#10003; Hardware Verified</span>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-date-group">
+            <span class="byline-role">Updated</span>
+            <time datetime="2026-11-11" class="byline-date">Nov 11, 2026</time>
           </div>
         </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Updated</span>
-          <time datetime="2026-11-11" class="byline-date">Nov 11, 2026</time>
-        </div>
-      </div>
 
-      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
-        
+        <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+          
         <a href="/howto/fiber-ont-bridge-mode-setup/" class="guide-nav-card">
           <span class="guide-nav-label">&larr; Previous Guide</span>
           <span class="guide-nav-title">Fiber ONT Setup &amp; ISP Gateway Bridge / IP Passthrough Guide</span>
         </a>
-        
+          
         <a href="/howto/how-to-flush-dns-cache/" class="guide-nav-card" style="text-align: right;">
           <span class="guide-nav-label">Next Guide &rarr;</span>
           <span class="guide-nav-title">How to Flush DNS Cache on Windows, Mac, and Chrome</span>
         </a>
-      </nav>
+        </nav>
 
-      
+        
       <!-- Related Gateway Subnets, Brand Portals & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
         <div style="margin-bottom: 1.5rem;">
@@ -479,7 +480,72 @@ ip -6 route show default               # Linux (Ubuntu/Debian)</code></pre>
         </div>
       </div>
 
-    </article>
+      </article>
+
+      <aside class="post-sidebar" aria-label="Article Sidebar and Quick Navigation">
+        
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#ipv6-gateway-architecture-highlights">IPv6 Gateway Architecture Highlights</a></li><li><a href="#find-your-ipv6-default-gateway-in-terminal">Find Your IPv6 Default Gateway in&amp;hellip;</a></li><li><a href="#faqs">Frequently Asked Questions</a></li><li><a href="#bottom-line">The Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            Top Gateway Logins
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-1-1/"><span>Netgear / Asus / Linksys</span> <span class="sidebar-gateway-pill">192.168.1.1</span></a></li>
+            <li><a href="/ip/192-168-0-1/"><span>TP-Link / D-Link</span> <span class="sidebar-gateway-pill">192.168.0.1</span></a></li>
+            <li><a href="/ip/10-0-0-1/"><span>Xfinity xFi / Comcast</span> <span class="sidebar-gateway-pill">10.0.0.1</span></a></li>
+            <li><a href="/ip/192-168-1-254/"><span>AT&amp;T Fiber (BGW)</span> <span class="sidebar-gateway-pill">192.168.1.254</span></a></li>
+            <li><a href="/ip/192-168-2-1/"><span>Sagemcom / Bell</span> <span class="sidebar-gateway-pill">192.168.2.1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/wifi-qr-code/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>CIDR Subnet Calculator</span> &rarr;</a></li>
+            <li><a href="/find-router-ip/"><span>Find My Router Gateway IP</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/howto/30-second-hard-factory-reset/"><span>Router Factory Reset</span> &rarr;</a></li><li><a href="/howto/fiber-ont-bridge-mode-setup/"><span>Fiber ONT Bridging</span> &rarr;</a></li><li><a href="/howto/which-port-plug-router-att-gateway/"><span>AT&amp;T Gateway Router Ports</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.05) 100%);">
+          <div class="sidebar-author-box">
+            <div class="sidebar-author-avatar">VB</div>
+            <div class="sidebar-author-info">
+              <a href="/authors/vikas-behl/" class="sidebar-author-name">Vikas Behl</a>
+              <span class="sidebar-author-role">Network Support Engineer &bull; 12+ Yrs</span>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+            Verified against physical gateway hardware in the <strong>RouterIPHub Engineering Lab</strong>.
+          </div>
+        </div>
+        
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

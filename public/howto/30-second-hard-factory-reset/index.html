@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=cbd27686">
+  <link rel="stylesheet" href="/css/style.css?v=f8278654">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -349,23 +349,24 @@
   </div>
 
   <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
-    <article class="prose content-container">
-      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="guide-category-badge">Resets &amp; Recovery</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">4 min read &bull; <a href="/howto/">All Setup Guides</a></span>
-      </div>
+    <div class="post-layout">
+      <article class="prose post-main-content">
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+          <span class="guide-category-badge">Resets &amp; Recovery</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">4 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+        </div>
 
-      <h1>How to Perform a Clean Router Hard Factory Reset</h1>
+        <h1>How to Perform a Clean Router Hard Factory Reset</h1>
 
-      
+        
       <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
         If you forgot a custom administrator password or misconfigured bridge/firewall rules caused a total lockout, a factory reset returns the hardware to its out-of-the-box configuration so sticker defaults work again.
       </p>
-      <h2>Checklist Before Pressing Reset</h2>
+      <h2 id="checklist-before-pressing-reset">Checklist Before Pressing Reset</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         A hard factory reset erases everything stored in NVRAM: custom Wi-Fi SSIDs, guest networks, static DHCP reservations, port forwarding rules, VPN keys, and ISP PPPoE or VLAN 201 authentication details. Before resetting, confirm you are simply locked out due to credentials&mdash;not a wrong gateway IP (<a href="/find-router-ip/">check your gateway IP first</a>).
       </p>
-      <h2>Step-by-Step Reset Procedure</h2>
+      <h2 id="step-by-step-reset-procedure">Step-by-Step Reset Procedure</h2>
       <ul>
         <li><strong>Locate the Reset Button:</strong> Look for a small recessed pinhole labeled <em>Reset</em> on the rear port panel or bottom chassis sticker.</li>
         <li><strong>Keep Power Connected:</strong> Ensure the router is plugged into wall power and fully booted (usually 90 seconds after power-on).</li>
@@ -373,15 +374,15 @@
         <li><strong>Hold for Model-Specific Timing:</strong> Hold the button down continuously for <strong>10 to 15 seconds</strong> (older DD-WRT hardware may require the classic 30-30-30 cycle) until all front status LEDs flash simultaneously or blink amber.</li>
         <li><strong>Release and Wait:</strong> Release the pin without unplugging power. Wait 2 to 3 full minutes for DHCP and Wi-Fi radios to initialize before connecting.</li>
       </ul>
-      <h2>What Happens After Reboot?</h2>
+      <h2 id="what-happens-after-reboot">What Happens After Reboot?</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         After rebooting, the original factory SSID and passphrase printed on the router&rsquo;s chassis sticker become active again, and you can sign in to its <a href="/howto/access-my-router-settings-page/">default management address</a> using the printed preset username and password. Look up exact button timing on your unit inside our <a href="/routers/">252-model hardware directory</a>.
       </p>
 
 
-      <h2>FAQs</h2>
-      <div style="margin-top: 1rem;">
-        
+        <h2 id="faqs">FAQs</h2>
+        <div style="margin-top: 1rem;">
+          
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">How long should I hold the router reset button?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Most modern Netgear, TP-Link, ASUS, and ISP gateways reset after holding the recessed button for 10 to 15 seconds while powered on until LEDs flash rapidly.</p>
@@ -390,54 +391,54 @@
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Will a factory reset disconnect my internet service?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">If your ISP uses automatic DHCP (most cable providers), internet usually resumes after reboot. If your provider requires PPPoE credentials or VLAN tagging (DSL and some fiber services), you must re-enter them after the reset.</p>
         </div>
-      </div>
+        </div>
 
-      <h2>The Bottom Line</h2>
-      <div class="bottom-line-callout">
-        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
-          Only factory reset after verifying the gateway IP and ruling out a Wi-Fi vs. admin password mix-up; keep power connected, hold Reset 10&ndash;15 seconds until LEDs blink, and wait 2&ndash;3 minutes before signing in with chassis sticker credentials.
-        </p>
-      </div>
+        <h2 id="bottom-line">The Bottom Line</h2>
+        <div class="bottom-line-callout">
+          <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+            Only factory reset after verifying the gateway IP and ruling out a Wi-Fi vs. admin password mix-up; keep power connected, hold Reset 10&ndash;15 seconds until LEDs blink, and wait 2&ndash;3 minutes before signing in with chassis sticker credentials.
+          </p>
+        </div>
 
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
+        <div class="byline-meta-card">
+          <div class="byline-author-group">
+            <div class="byline-avatar">VB</div>
+            <div class="byline-text">
+              <div class="byline-line-1">
+                <span class="byline-role">Written &amp; Tested by</span>
+                <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+                <span class="byline-badge">12+ Yrs Exp</span>
+              </div>
+              <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
             </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-review-group">
+            <span class="byline-role">Reviewed by</span>
+            <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+            <span class="byline-status">&#10003; Hardware Verified</span>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-date-group">
+            <span class="byline-role">Updated</span>
+            <time datetime="2026-11-11" class="byline-date">Nov 11, 2026</time>
           </div>
         </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Updated</span>
-          <time datetime="2026-11-11" class="byline-date">Nov 11, 2026</time>
-        </div>
-      </div>
 
-      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
-        
+        <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+          
         <a href="/howto/change-wifi-password/" class="guide-nav-card">
           <span class="guide-nav-label">&larr; Previous Guide</span>
           <span class="guide-nav-title">How to Change Your Wi-Fi Name (SSID) &amp; Password</span>
         </a>
-        
+          
         <a href="/howto/two-routers-access-point-mode/" class="guide-nav-card" style="text-align: right;">
           <span class="guide-nav-label">Next Guide &rarr;</span>
           <span class="guide-nav-title">How to Connect Two Routers Together (Access Point Mode)</span>
         </a>
-      </nav>
+        </nav>
 
-      
+        
       <!-- Related Gateway Subnets, Brand Portals & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
         <div style="margin-bottom: 1.5rem;">
@@ -474,7 +475,72 @@
         </div>
       </div>
 
-    </article>
+      </article>
+
+      <aside class="post-sidebar" aria-label="Article Sidebar and Quick Navigation">
+        
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#checklist-before-pressing-reset">Checklist Before Pressing Reset</a></li><li><a href="#step-by-step-reset-procedure">Step-by-Step Reset Procedure</a></li><li><a href="#what-happens-after-reboot">What Happens After Reboot?</a></li><li><a href="#faqs">Frequently Asked Questions</a></li><li><a href="#bottom-line">The Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            Top Gateway Logins
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-1-1/"><span>Netgear / Asus / Linksys</span> <span class="sidebar-gateway-pill">192.168.1.1</span></a></li>
+            <li><a href="/ip/192-168-0-1/"><span>TP-Link / D-Link</span> <span class="sidebar-gateway-pill">192.168.0.1</span></a></li>
+            <li><a href="/ip/10-0-0-1/"><span>Xfinity xFi / Comcast</span> <span class="sidebar-gateway-pill">10.0.0.1</span></a></li>
+            <li><a href="/ip/192-168-1-254/"><span>AT&amp;T Fiber (BGW)</span> <span class="sidebar-gateway-pill">192.168.1.254</span></a></li>
+            <li><a href="/ip/192-168-2-1/"><span>Sagemcom / Bell</span> <span class="sidebar-gateway-pill">192.168.2.1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/wifi-qr-code/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>CIDR Subnet Calculator</span> &rarr;</a></li>
+            <li><a href="/find-router-ip/"><span>Find My Router Gateway IP</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/howto/fiber-ont-bridge-mode-setup/"><span>Fiber ONT Bridging</span> &rarr;</a></li><li><a href="/howto/ipv6-default-gateway-discovery/"><span>IPv6 Gateway Discovery</span> &rarr;</a></li><li><a href="/howto/which-port-plug-router-att-gateway/"><span>AT&amp;T Gateway Router Ports</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.05) 100%);">
+          <div class="sidebar-author-box">
+            <div class="sidebar-author-avatar">VB</div>
+            <div class="sidebar-author-info">
+              <a href="/authors/vikas-behl/" class="sidebar-author-name">Vikas Behl</a>
+              <span class="sidebar-author-role">Network Support Engineer &bull; 12+ Yrs</span>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+            Verified against physical gateway hardware in the <strong>RouterIPHub Engineering Lab</strong>.
+          </div>
+        </div>
+        
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

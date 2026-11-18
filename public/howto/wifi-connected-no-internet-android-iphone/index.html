@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=cbd27686">
+  <link rel="stylesheet" href="/css/style.css?v=f8278654">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -382,15 +382,16 @@
   </div>
 
   <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
-    <article class="prose content-container">
-      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="guide-category-badge">Wi-Fi &amp; Mesh</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">8 min read &bull; <a href="/howto/">All Setup Guides</a></span>
-      </div>
+    <div class="post-layout">
+      <article class="prose post-main-content">
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+          <span class="guide-category-badge">Wi-Fi &amp; Mesh</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">8 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+        </div>
 
-      <h1>How to Fix Wi-Fi Connected but No Internet Access on Android / iPhone</h1>
+        <h1>How to Fix Wi-Fi Connected but No Internet Access on Android / iPhone</h1>
 
-      
+        
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.75rem;">
         If your Android or iPhone says it is connected to Wi-Fi but websites and apps will not load, the issue is usually a temporary network glitch, router problem, DNS error, or saved Wi-Fi configuration. Start by restarting your phone and router, then forget and reconnect to the Wi-Fi network.
       </p>
@@ -417,7 +418,7 @@
         <figcaption>Troubleshooting Overview: Essential step-by-step resolution path for smartphones showing Wi-Fi connected without internet access.</figcaption>
       </figure>
 
-      <h2>Quick Diagnostic Table</h2>
+      <h2 id="quick-diagnostic-table">Quick Diagnostic Table</h2>
       <p>
         Use this triage matrix to identify your specific connectivity failure mode and execute the exact remedy without wasting time:
       </p>
@@ -471,7 +472,7 @@
         </table>
       </div>
 
-      <h2>First Steps</h2>
+      <h2 id="first-steps">First Steps</h2>
 
       <h3>Turn Wi-Fi Off and On</h3>
       <p>
@@ -514,7 +515,7 @@
         <li><strong>iPhone:</strong> Press and hold the <strong>Side button</strong> and either <strong>Volume button</strong> until the slider appears, then slide to power off. Wait 30 seconds, then hold the Side button until the Apple logo appears.</li>
       </ul>
 
-      <h2>Restart the Router</h2>
+      <h2 id="restart-the-router">Restart the Router</h2>
       <p>
         If no device on your premises can access the internet, or if multiple phones encounter the same &ldquo;Connected without internet&rdquo; warning, the issue is almost always within the router, modem, or upstream ISP fiber/cable circuit.
       </p>
@@ -530,7 +531,7 @@
         <strong>Separate Modem and Router Setup:</strong> If your internet provider supplies a standalone modem or ONT (Optical Network Terminal) paired with a separate Wi-Fi router (such as an <a href="/att/">AT&amp;T gateway</a> or <a href="/spectrum/">Spectrum router</a>), always power on the modem/ONT first. Wait for its WAN connection light to turn solid, and only then power on your Wi-Fi router.
       </div>
 
-      <h2>Forget and Reconnect to Wi-Fi</h2>
+      <h2 id="forget-and-reconnect-to-wi-fi">Forget and Reconnect to Wi-Fi</h2>
       <p>
         Over time, saved Wi-Fi profiles can retain outdated IP leasing parameters, expired gateway security certificates, or conflicting BSSID references. Forgetting the network purges this profile and prompts a clean DHCP negotiation.
       </p>
@@ -566,7 +567,7 @@
         </div>
       </div>
 
-      <h2>Check Other Devices</h2>
+      <h2 id="check-other-devices">Check Other Devices</h2>
       <p>
         Testing network behavior across multiple hardware clients immediately isolates whether the root issue is local to your smartphone hardware or an environmental network failure:
       </p>
@@ -610,7 +611,7 @@
         </table>
       </div>
 
-      <h2>Fix DNS Settings</h2>
+      <h2 id="fix-dns-settings">Fix DNS Settings</h2>
       <p>
         The Domain Name System (DNS) translates human-readable web addresses (such as <code>routeriphub.com</code>) into numerical IP addresses. When your internet provider&rsquo;s default DNS servers experience downtime or return NXDOMAIN errors, your phone remains securely connected to Wi-Fi but cannot load websites or external server endpoints. You can also review our guide on <a href="/howto/how-to-flush-dns-cache/">how to flush DNS cache</a> for complete platform steps.
       </p>
@@ -659,7 +660,7 @@
         <em>Tip:</em> To protect your entire home network at the source, learn <a href="/howto/change-router-dns/">how to change router DNS</a> inside your main gateway dashboard.
       </p>
 
-      <h2>Reset Network Settings</h2>
+      <h2 id="reset-network-settings">Reset Network Settings</h2>
       <p>
         If reconnecting and swapping DNS does not restore web connectivity, underlying cellular-to-Wi-Fi routing tables or IP sockets may be corrupted. Resetting network settings rebuilds the phone&rsquo;s entire networking stack from scratch.
       </p>
@@ -695,7 +696,7 @@
         <strong>What Network Reset Erases:</strong> Resetting network settings deletes saved Wi-Fi networks and passwords, paired Bluetooth accessories, VPN profile configurations, and cellular roaming preferences. <strong>It does not touch your personal data</strong>, photos, apps, contacts, or stored files.
       </div>
 
-      <h2>Check Router Settings</h2>
+      <h2 id="check-router-settings">Check Router Settings</h2>
       <p>
         When multiple client devices report &ldquo;No Internet Access&rdquo; despite showing full Wi-Fi signal bars, the router&rsquo;s internal services or security rules may be blocking outgoing traffic. Use our <a href="/find-router-ip/">default router IP discovery guide</a> to log in to your administrative dashboard:
       </p>
@@ -709,7 +710,7 @@
         <li><strong>Verify DHCP Scope Exhaustion:</strong> Ensure your router&rsquo;s DHCP server has spare available IP addresses in its allocation pool (e.g., <code>192.168.1.100</code> to <code>192.168.1.250</code>).</li>
       </ul>
 
-      <h2>Disable VPN or Private DNS</h2>
+      <h2 id="disable-vpn-or-private-dns">Disable VPN or Private DNS</h2>
       <p>
         Virtual Private Networks (VPNs) and third-party encrypted DNS configurations route traffic through remote servers. If the remote VPN tunnel fails or the proxy endpoint drops offline, the operating system&rsquo;s &ldquo;kill-switch&rdquo; will silently sever all outbound internet traffic while maintaining an active Wi-Fi radio connection.
       </p>
@@ -729,7 +730,7 @@
         <li>Reconnect to your local Wi-Fi and test website loading in Safari.</li>
       </ol>
 
-      <h2>Update Your Phone</h2>
+      <h2 id="update-your-phone">Update Your Phone</h2>
       <p>
         Operating system updates frequently patch Wi-Fi driver regressions, WPA3 enterprise handshake incompatibilities, and power-saving sleep bugs that disconnect devices from the internet.
       </p>
@@ -738,7 +739,7 @@
         <li><strong>iPhone:</strong> Open <strong>Settings</strong> &rarr; <strong>General</strong> &rarr; <strong>Software Update</strong>, download and install available iOS updates, then restart your device.</li>
       </ul>
 
-      <h2>When to Contact Your Internet Provider</h2>
+      <h2 id="when-to-contact-your-internet-provider">When to Contact Your Internet Provider</h2>
       <p>
         If you have completed phone restarts, network forgetting, router power cycles, and DNS adjustments without success, the breakdown is external to your premises. Contact your ISP customer support when:
       </p>
@@ -750,7 +751,7 @@
         <li>You recently replaced hardware, altered external coaxial/fiber wiring, or modified account subscription speed tiers.</li>
       </ul>
 
-      <h2>Frequently Asked Questions</h2>
+      <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
       <div class="faq-item">
         <button class="faq-question" type="button" aria-expanded="false">
           <span>Why does my phone say Connected without internet or No internet connection?</span>
@@ -812,9 +813,9 @@
       </div>
 
 
-      <h2>FAQs</h2>
-      <div style="margin-top: 1rem;">
-        
+        <h2 id="faqs">FAQs</h2>
+        <div style="margin-top: 1rem;">
+          
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Why does my phone say Connected without internet or No internet connection?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">This status message appears when your Android or iPhone successfully associates with your local Wi-Fi router via DHCP, but fails the operating system&#x27;s automatic HTTP/HTTPS connectivity check. The phone cannot ping captive portal servers or resolve domain names via DNS, usually due to upstream ISP modem outages, stale DHCP leases, DNS server timeouts, or corrupt saved network profiles.</p>
@@ -839,54 +840,54 @@
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">What is the difference between Android Private DNS and iPhone Manual DNS?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Android uses Private DNS (DNS-over-TLS / DoT) at the system level using an encrypted hostname like one.one.one.one or dns.google across all Wi-Fi and mobile networks. iOS configures DNS per individual Wi-Fi SSID under network settings using standard IPv4 addresses (such as 1.1.1.1 and 8.8.8.8) or via installed Encrypted DNS configuration profiles.</p>
         </div>
-      </div>
+        </div>
 
-      <h2>The Bottom Line</h2>
-      <div class="bottom-line-callout">
-        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
-          If Wi-Fi is connected but there is no internet access, start with a phone and router restart. Then forget the Wi-Fi network, reconnect, and change DNS if websites still will not load.<br><br><strong>Fastest fix:</strong> Restart your phone and router, forget the Wi-Fi network, reconnect with the correct password, and test the connection again.
-        </p>
-      </div>
+        <h2 id="bottom-line">The Bottom Line</h2>
+        <div class="bottom-line-callout">
+          <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+            If Wi-Fi is connected but there is no internet access, start with a phone and router restart. Then forget the Wi-Fi network, reconnect, and change DNS if websites still will not load.<br><br><strong>Fastest fix:</strong> Restart your phone and router, forget the Wi-Fi network, reconnect with the correct password, and test the connection again.
+          </p>
+        </div>
 
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
+        <div class="byline-meta-card">
+          <div class="byline-author-group">
+            <div class="byline-avatar">VB</div>
+            <div class="byline-text">
+              <div class="byline-line-1">
+                <span class="byline-role">Written &amp; Tested by</span>
+                <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+                <span class="byline-badge">12+ Yrs Exp</span>
+              </div>
+              <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
             </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-review-group">
+            <span class="byline-role">Reviewed by</span>
+            <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+            <span class="byline-status">&#10003; Hardware Verified</span>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-date-group">
+            <span class="byline-role">Updated</span>
+            <time datetime="2026-03-28" class="byline-date">Mar 28, 2026</time>
           </div>
         </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Updated</span>
-          <time datetime="2026-03-28" class="byline-date">Mar 28, 2026</time>
-        </div>
-      </div>
 
-      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
-        
+        <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+          
         <a href="/howto/how-to-enable-upnp-router-gaming-consoles/" class="guide-nav-card">
           <span class="guide-nav-label">&larr; Previous Guide</span>
           <span class="guide-nav-title">How Do I Enable UPnP on My Router for Gaming Consoles?</span>
         </a>
-        
+          
         <a href="/howto/spectrum-router-blinking-red-light/" class="guide-nav-card" style="text-align: right;">
           <span class="guide-nav-label">Next Guide &rarr;</span>
           <span class="guide-nav-title">What Does a Blinking Red Light Mean on a Spectrum Router or Modem?</span>
         </a>
-      </nav>
+        </nav>
 
-      
+        
       <!-- Related Gateway Subnets, Brand Portals & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
         <div style="margin-bottom: 1.5rem;">
@@ -923,7 +924,72 @@
         </div>
       </div>
 
-    </article>
+      </article>
+
+      <aside class="post-sidebar" aria-label="Article Sidebar and Quick Navigation">
+        
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#quick-diagnostic-table">Quick Diagnostic Table</a></li><li><a href="#first-steps">First Steps</a></li><li><a href="#restart-the-router">Restart the Router</a></li><li><a href="#forget-and-reconnect-to-wi-fi">Forget and Reconnect to Wi-Fi</a></li><li><a href="#check-other-devices">Check Other Devices</a></li><li><a href="#fix-dns-settings">Fix DNS Settings</a></li><li><a href="#reset-network-settings">Reset Network Settings</a></li><li><a href="#check-router-settings">Check Router Settings</a></li><li><a href="#disable-vpn-or-private-dns">Disable VPN or Private DNS</a></li><li><a href="#update-your-phone">Update Your Phone</a></li><li><a href="#when-to-contact-your-internet-provider">When to Contact Your Internet Prov&amp;hellip;</a></li><li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li><li><a href="#faqs">Frequently Asked Questions</a></li><li><a href="#bottom-line">The Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            Top Gateway Logins
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-1-1/"><span>Netgear / Asus / Linksys</span> <span class="sidebar-gateway-pill">192.168.1.1</span></a></li>
+            <li><a href="/ip/192-168-0-1/"><span>TP-Link / D-Link</span> <span class="sidebar-gateway-pill">192.168.0.1</span></a></li>
+            <li><a href="/ip/10-0-0-1/"><span>Xfinity xFi / Comcast</span> <span class="sidebar-gateway-pill">10.0.0.1</span></a></li>
+            <li><a href="/ip/192-168-1-254/"><span>AT&amp;T Fiber (BGW)</span> <span class="sidebar-gateway-pill">192.168.1.254</span></a></li>
+            <li><a href="/ip/192-168-2-1/"><span>Sagemcom / Bell</span> <span class="sidebar-gateway-pill">192.168.2.1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/wifi-qr-code/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>CIDR Subnet Calculator</span> &rarr;</a></li>
+            <li><a href="/find-router-ip/"><span>Find My Router Gateway IP</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/howto/change-tenda-wifi-password-without-previous-password/"><span>Change Tenda WiFi Password</span> &rarr;</a></li><li><a href="/howto/change-wifi-password/"><span>Change Wi-Fi Password</span> &rarr;</a></li><li><a href="/howto/two-routers-access-point-mode/"><span>Two Routers AP Mode</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.05) 100%);">
+          <div class="sidebar-author-box">
+            <div class="sidebar-author-avatar">VB</div>
+            <div class="sidebar-author-info">
+              <a href="/authors/vikas-behl/" class="sidebar-author-name">Vikas Behl</a>
+              <span class="sidebar-author-role">Network Support Engineer &bull; 12+ Yrs</span>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+            Verified against physical gateway hardware in the <strong>RouterIPHub Engineering Lab</strong>.
+          </div>
+        </div>
+        
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

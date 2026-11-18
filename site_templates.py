@@ -910,6 +910,40 @@ def build_guide_internal_links_html(current_slug=""):
 '''
 
 
+def slugify_heading(text):
+    clean = re.sub(r'<[^>]+>', '', text)
+    clean = clean.replace('&rsquo;', '').replace('&lsquo;', '').replace('&amp;', 'and').replace('&quot;', '').replace('&#39;', '')
+    slug = re.sub(r'[^a-zA-Z0-9]+', '-', clean).strip('-').lower()
+    return slug or "section"
+
+
+def inject_heading_ids(body_html):
+    used_ids = set()
+    toc_items = []
+
+    def replacer(match):
+        attrs = match.group(1) or ""
+        inner = match.group(2)
+        id_match = re.search(r'id=["\']([^"\']+)["\']', attrs)
+        if id_match:
+            slug = id_match.group(1)
+        else:
+            base_slug = slugify_heading(inner)
+            slug = base_slug
+            counter = 2
+            while slug in used_ids:
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            attrs = f'{attrs} id="{slug}"'.strip()
+        used_ids.add(slug)
+        clean_title = re.sub(r'<[^>]+>', '', inner).replace('&rsquo;', "'").replace('&lsquo;', "'").replace('&amp;', '&').replace('&quot;', '"').replace('&#39;', "'").strip()
+        toc_items.append({"id": slug, "title": clean_title})
+        return f'<h2 {attrs}>{inner}</h2>'
+
+    new_html = re.sub(r'<h2([^>]*)>(.*?)</h2>', replacer, body_html)
+    return new_html, toc_items
+
+
 def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_fn):
     """Regenerate /tools/, /howto/, /find-router-ip/, /developers/ with unified header/footer, clean schemas & accessibility."""
     tpl_dir = os.path.join(root_dir, "templates")
@@ -1127,62 +1161,154 @@ def generate_static_guide_pages(root_dir, public_dir, get_header_fn, get_footer_
           <span class="guide-nav-title">{escape(next_p['headline'])}</span>
         </a>"""
 
-        post_body = f"""
-  <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
-    <article class="prose content-container">
-      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="guide-category-badge">{escape(p['category'])}</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">{escape(p['read_time'])} &bull; <a href="/howto/">All Setup Guides</a></span>
-      </div>
+        # Process body headings to ensure unique anchor IDs and build Table of Contents
+        body_with_ids, toc_items = inject_heading_ids(p["body_html"])
 
-      <h1>{escape(p['headline'])}</h1>
+        toc_links_html = []
+        for t in toc_items:
+            short_t = t["title"]
+            if len(short_t) > 36:
+                short_t = short_t[:34].rstrip() + "&hellip;"
+            toc_links_html.append(f'<li><a href="#{escape(t["id"])}">{escape(short_t)}</a></li>')
+        toc_links_html.append('<li><a href="#faqs">Frequently Asked Questions</a></li>')
+        toc_links_html.append('<li><a href="#bottom-line">The Bottom Line</a></li>')
 
-      {p['body_html']}
+        related_guides = [g for g in GUIDE_POSTS if g["slug"] != p["slug"] and g.get("category_key") == p.get("category_key")]
+        if len(related_guides) < 3:
+            for g in GUIDE_POSTS:
+                if g["slug"] != p["slug"] and g not in related_guides:
+                    related_guides.append(g)
+                if len(related_guides) >= 3:
+                    break
+        related_guides_html = []
+        for rel in related_guides[:3]:
+            rel_title = rel.get("short_title", rel["headline"])
+            related_guides_html.append(f'<li><a href="{escape(rel["url"])}"><span>{escape(rel_title)}</span> &rarr;</a></li>')
 
-      <h2>FAQs</h2>
-      <div style="margin-top: 1rem;">
-        {"".join(faq_cards)}
-      </div>
+        sidebar_html = f"""
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            {"".join(toc_links_html)}
+          </ul>
+        </div>
 
-      <h2>The Bottom Line</h2>
-      <div class="bottom-line-callout">
-        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
-          {p['bottom_line']}
-        </p>
-      </div>
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            Top Gateway Logins
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-1-1/"><span>Netgear / Asus / Linksys</span> <span class="sidebar-gateway-pill">192.168.1.1</span></a></li>
+            <li><a href="/ip/192-168-0-1/"><span>TP-Link / D-Link</span> <span class="sidebar-gateway-pill">192.168.0.1</span></a></li>
+            <li><a href="/ip/10-0-0-1/"><span>Xfinity xFi / Comcast</span> <span class="sidebar-gateway-pill">10.0.0.1</span></a></li>
+            <li><a href="/ip/192-168-1-254/"><span>AT&amp;T Fiber (BGW)</span> <span class="sidebar-gateway-pill">192.168.1.254</span></a></li>
+            <li><a href="/ip/192-168-2-1/"><span>Sagemcom / Bell</span> <span class="sidebar-gateway-pill">192.168.2.1</span></a></li>
+          </ul>
+        </div>
 
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/wifi-qr-code/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>CIDR Subnet Calculator</span> &rarr;</a></li>
+            <li><a href="/find-router-ip/"><span>Find My Router Gateway IP</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            {"".join(related_guides_html)}
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.05) 100%);">
+          <div class="sidebar-author-box">
+            <div class="sidebar-author-avatar">VB</div>
+            <div class="sidebar-author-info">
+              <a href="/authors/vikas-behl/" class="sidebar-author-name">Vikas Behl</a>
+              <span class="sidebar-author-role">Network Support Engineer &bull; 12+ Yrs</span>
             </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+            Verified against physical gateway hardware in the <strong>RouterIPHub Engineering Lab</strong>.
           </div>
         </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Updated</span>
-          <time datetime="{escape(p['date_modified'])}" class="byline-date">{escape(pub_disp)}</time>
-        </div>
-      </div>
+        """
 
-      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
-        {prev_card}
-        {next_card}
-      </nav>
+        post_body = f"""
+  <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
+    <div class="post-layout">
+      <article class="prose post-main-content">
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+          <span class="guide-category-badge">{escape(p['category'])}</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">{escape(p['read_time'])} &bull; <a href="/howto/">All Setup Guides</a></span>
+        </div>
 
-      {build_guide_internal_links_html(p['slug'])}
-    </article>
+        <h1>{escape(p['headline'])}</h1>
+
+        {body_with_ids}
+
+        <h2 id="faqs">FAQs</h2>
+        <div style="margin-top: 1rem;">
+          {"".join(faq_cards)}
+        </div>
+
+        <h2 id="bottom-line">The Bottom Line</h2>
+        <div class="bottom-line-callout">
+          <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+            {p['bottom_line']}
+          </p>
+        </div>
+
+        <div class="byline-meta-card">
+          <div class="byline-author-group">
+            <div class="byline-avatar">VB</div>
+            <div class="byline-text">
+              <div class="byline-line-1">
+                <span class="byline-role">Written &amp; Tested by</span>
+                <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+                <span class="byline-badge">12+ Yrs Exp</span>
+              </div>
+              <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+            </div>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-review-group">
+            <span class="byline-role">Reviewed by</span>
+            <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+            <span class="byline-status">&#10003; Hardware Verified</span>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-date-group">
+            <span class="byline-role">Updated</span>
+            <time datetime="{escape(p['date_modified'])}" class="byline-date">{escape(pub_disp)}</time>
+          </div>
+        </div>
+
+        <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+          {prev_card}
+          {next_card}
+        </nav>
+
+        {build_guide_internal_links_html(p['slug'])}
+      </article>
+
+      <aside class="post-sidebar" aria-label="Article Sidebar and Quick Navigation">
+        {sidebar_html}
+      </aside>
+    </div>
   </main>
 """
         article_schema = {

@@ -3993,3 +3993,171 @@ table.data-table code,table.table code{font-size:0.875rem;padding:0.18rem 0.45re
   font-size: 0.78rem;
   color: var(--text-secondary);
 }
+
+/* ==========================================================================
+   Post Layout with Sticky Sidebar (Two-Column Editorial System)
+   ========================================================================== */
+.post-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.post-main-content {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.post-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .post-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .post-sidebar {
+    position: static;
+    margin-top: 2.5rem;
+  }
+}
+
+.sidebar-widget {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease;
+}
+
+.sidebar-widget:hover {
+  border-color: rgba(2, 132, 199, 0.4);
+}
+
+.sidebar-widget-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.sidebar-links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sidebar-links-list li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.6rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.15s ease;
+}
+
+.sidebar-links-list li a:hover {
+  background: var(--bg-secondary);
+  color: var(--accent);
+  transform: translateX(3px);
+}
+
+.sidebar-gateway-pill {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.8rem;
+  background: var(--bg-secondary);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  color: var(--accent);
+  border: 1px solid var(--border-color);
+}
+
+.sidebar-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.sidebar-toc-list li a {
+  display: block;
+  padding: 0.35rem 0.5rem;
+  border-left: 2px solid transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: all 0.15s ease;
+}
+
+.sidebar-toc-list li a:hover {
+  border-left-color: var(--accent);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  padding-left: 0.75rem;
+}
+
+.sidebar-author-box {
+  display: flex;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.sidebar-author-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.sidebar-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.sidebar-author-name {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.sidebar-author-role {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}

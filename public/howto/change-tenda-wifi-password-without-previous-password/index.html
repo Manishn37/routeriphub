@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=cbd27686">
+  <link rel="stylesheet" href="/css/style.css?v=f8278654">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -382,15 +382,16 @@
   </div>
 
   <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
-    <article class="prose content-container">
-      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="guide-category-badge">Wi-Fi &amp; Mesh</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">7 min read &bull; <a href="/howto/">All Setup Guides</a></span>
-      </div>
+    <div class="post-layout">
+      <article class="prose post-main-content">
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+          <span class="guide-category-badge">Wi-Fi &amp; Mesh</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">7 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+        </div>
 
-      <h1>How to Change Password of Tenda WiFi Without Entering the Previous Password</h1>
+        <h1>How to Change Password of Tenda WiFi Without Entering the Previous Password</h1>
 
-      
+        
       <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
         You generally cannot change a Tenda Wi-Fi password without either signing in with the current administrator password or resetting the router to factory settings. If you do not know the previous password, use the Tenda WiFi app&rsquo;s password-recovery option first; if that is unavailable, a factory reset is the reliable fallback.
       </p>
@@ -405,7 +406,7 @@
         <figcaption>Three ways to recover access and change your Tenda Wi-Fi password: Tenda WiFi App recovery, the 192.168.0.1 web login Forgot password? link, or an 8&ndash;10 second factory reset.</figcaption>
       </figure>
 
-      <h2>Quick Answer</h2>
+      <h2 id="quick-answer">Quick Answer</h2>
       <div class="table-responsive">
         <table class="data-table">
           <thead>
@@ -442,7 +443,7 @@
         The normal Wi-Fi password-change process requires signing in to the router&rsquo;s <a href="/howto/access-my-router-settings-page/">management page</a>, opening the Wi-Fi settings, entering a new password, and saving it.
       </p>
 
-      <h2>Before You Start</h2>
+      <h2 id="before-you-start">Before You Start</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Confirm which password you are trying to change:
       </p>
@@ -474,7 +475,7 @@
         Do not assume these are the same. Changing the Wi-Fi password does not automatically change the administrator password, and changing the administrator password does not automatically change the Wi-Fi password.
       </p>
 
-      <h2>Option 1: Use the Tenda WiFi App</h2>
+      <h2 id="option-1-use-the-tenda-wifi-app">Option 1: Use the Tenda WiFi App</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         If your router is already added to the Tenda WiFi app, try this first.
       </p>
@@ -493,7 +494,7 @@
         If you are not signed in to the app, or the router is no longer bound to your account, this method may not work.
       </p>
 
-      <h2>Option 2: Use Forgot Password in the Web Login</h2>
+      <h2 id="option-2-use-forgot-password-in-the-web-login">Option 2: Use Forgot Password in the Web Login</h2>
       <ol>
         <li>Connect your phone or computer to the Tenda router.</li>
         <li>Open a browser.</li>
@@ -512,7 +513,7 @@
         <figcaption>Password recovery options before resetting: Tenda WiFi app (More Functions &rarr; Management Password) and the browser login screen&rsquo;s Forgot password? prompt.</figcaption>
       </figure>
 
-      <h2>Option 3: Change the Wi-Fi Password While Connected</h2>
+      <h2 id="option-3-change-the-wi-fi-password-while-connected">Option 3: Change the Wi-Fi Password While Connected</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         If your phone or computer is still connected to the Tenda Wi-Fi network, try signing in and changing the password directly.
       </p>
@@ -534,7 +535,7 @@
         If the router asks for the previous administrator password and you do not know it, this method will not work. Move to the recovery or reset option.
       </p>
 
-      <h2>Option 4: Factory Reset the Tenda Router</h2>
+      <h2 id="option-4-factory-reset-the-tenda-router">Option 4: Factory Reset the Tenda Router</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Use this only if you cannot recover the administrator password and no longer have access to the router settings.
       </p>
@@ -590,7 +591,7 @@
         This method is only useful if you already have administrator access.
       </p>
 
-      <h2>Set a New Wi-Fi Password After Reset</h2>
+      <h2 id="set-a-new-wi-fi-password-after-reset">Set a New Wi-Fi Password After Reset</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         After the reset and first-time setup:
       </p>
@@ -608,7 +609,7 @@
         Use a Wi-Fi password of at least eight characters. Prefer WPA2 or WPA3 security if your router offers it.
       </p>
 
-      <h2>Create a Strong New Password</h2>
+      <h2 id="create-a-strong-new-password">Create a Strong New Password</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Use a password that is (or generate one locally with our <a href="/tools/router-password-generator/">Router Password Generator</a>):
       </p>
@@ -625,7 +626,7 @@
         Do not reuse a password from another account.
       </p>
 
-      <h2>If You Cannot Access the Router at All</h2>
+      <h2 id="if-you-cannot-access-the-router-at-all">If You Cannot Access the Router at All</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         If the router page will not open after a reset, try:
       </p>
@@ -641,7 +642,7 @@
         The management IP address and login details are usually printed on the label on the back of the device. If the IP address or password was changed, use the new values.
       </p>
 
-      <h2>Common Mistakes</h2>
+      <h2 id="common-mistakes">Common Mistakes</h2>
       <ul>
         <li>Confusing the Wi-Fi password with the router administrator password.</li>
         <li>Trying to change the Wi-Fi password without administrator access.</li>
@@ -652,9 +653,9 @@
       </ul>
 
 
-      <h2>FAQs</h2>
-      <div style="margin-top: 1rem;">
-        
+        <h2 id="faqs">FAQs</h2>
+        <div style="margin-top: 1rem;">
+          
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Can I change my Tenda Wi-Fi password without the old password?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Not directly through the normal settings page. You need either the current administrator password, access through the Tenda WiFi app’s recovery option, or a factory reset.</p>
@@ -679,54 +680,54 @@
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Can I recover the administrator password through the Tenda WiFi app?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Sometimes. If the router is bound to your Tenda WiFi app account, open the router, go to More Functions, then Management Password, and follow the recovery prompts.</p>
         </div>
-      </div>
+        </div>
 
-      <h2>The Bottom Line</h2>
-      <div class="bottom-line-callout">
-        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
-          If you do not know the previous Tenda password, first try the Tenda WiFi app&rsquo;s <strong>Management Password</strong> recovery option or the web login&rsquo;s <strong>Forgot password?</strong> link. If neither works, factory reset the router, complete setup again, and create a new strong Wi-Fi password.
-        </p>
-      </div>
+        <h2 id="bottom-line">The Bottom Line</h2>
+        <div class="bottom-line-callout">
+          <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+            If you do not know the previous Tenda password, first try the Tenda WiFi app&rsquo;s <strong>Management Password</strong> recovery option or the web login&rsquo;s <strong>Forgot password?</strong> link. If neither works, factory reset the router, complete setup again, and create a new strong Wi-Fi password.
+          </p>
+        </div>
 
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
+        <div class="byline-meta-card">
+          <div class="byline-author-group">
+            <div class="byline-avatar">VB</div>
+            <div class="byline-text">
+              <div class="byline-line-1">
+                <span class="byline-role">Written &amp; Tested by</span>
+                <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+                <span class="byline-badge">12+ Yrs Exp</span>
+              </div>
+              <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
             </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-review-group">
+            <span class="byline-role">Reviewed by</span>
+            <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+            <span class="byline-status">&#10003; Hardware Verified</span>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-date-group">
+            <span class="byline-role">Updated</span>
+            <time datetime="2026-11-12" class="byline-date">Nov 12, 2026</time>
           </div>
         </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Updated</span>
-          <time datetime="2026-11-12" class="byline-date">Nov 12, 2026</time>
-        </div>
-      </div>
 
-      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
-        
+        <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+          
         <a href="/howto/why-cant-i-access-my-bt-hub-manager/" class="guide-nav-card">
           <span class="guide-nav-label">&larr; Previous Guide</span>
           <span class="guide-nav-title">Why Can’t I Access My BT Hub Manager?</span>
         </a>
-        
+          
         <a href="/howto/change-wifi-password/" class="guide-nav-card" style="text-align: right;">
           <span class="guide-nav-label">Next Guide &rarr;</span>
           <span class="guide-nav-title">How to Change Your Wi-Fi Name (SSID) &amp; Password</span>
         </a>
-      </nav>
+        </nav>
 
-      
+        
       <!-- Related Gateway Subnets, Brand Portals & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
         <div style="margin-bottom: 1.5rem;">
@@ -763,7 +764,72 @@
         </div>
       </div>
 
-    </article>
+      </article>
+
+      <aside class="post-sidebar" aria-label="Article Sidebar and Quick Navigation">
+        
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#quick-answer">Quick Answer</a></li><li><a href="#before-you-start">Before You Start</a></li><li><a href="#option-1-use-the-tenda-wifi-app">Option 1: Use the Tenda WiFi App</a></li><li><a href="#option-2-use-forgot-password-in-the-web-login">Option 2: Use Forgot Password in t&amp;hellip;</a></li><li><a href="#option-3-change-the-wi-fi-password-while-connected">Option 3: Change the Wi-Fi Passwor&amp;hellip;</a></li><li><a href="#option-4-factory-reset-the-tenda-router">Option 4: Factory Reset the Tenda&amp;hellip;</a></li><li><a href="#set-a-new-wi-fi-password-after-reset">Set a New Wi-Fi Password After Reset</a></li><li><a href="#create-a-strong-new-password">Create a Strong New Password</a></li><li><a href="#if-you-cannot-access-the-router-at-all">If You Cannot Access the Router at&amp;hellip;</a></li><li><a href="#common-mistakes">Common Mistakes</a></li><li><a href="#faqs">Frequently Asked Questions</a></li><li><a href="#bottom-line">The Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            Top Gateway Logins
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-1-1/"><span>Netgear / Asus / Linksys</span> <span class="sidebar-gateway-pill">192.168.1.1</span></a></li>
+            <li><a href="/ip/192-168-0-1/"><span>TP-Link / D-Link</span> <span class="sidebar-gateway-pill">192.168.0.1</span></a></li>
+            <li><a href="/ip/10-0-0-1/"><span>Xfinity xFi / Comcast</span> <span class="sidebar-gateway-pill">10.0.0.1</span></a></li>
+            <li><a href="/ip/192-168-1-254/"><span>AT&amp;T Fiber (BGW)</span> <span class="sidebar-gateway-pill">192.168.1.254</span></a></li>
+            <li><a href="/ip/192-168-2-1/"><span>Sagemcom / Bell</span> <span class="sidebar-gateway-pill">192.168.2.1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/wifi-qr-code/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>CIDR Subnet Calculator</span> &rarr;</a></li>
+            <li><a href="/find-router-ip/"><span>Find My Router Gateway IP</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/howto/change-wifi-password/"><span>Change Wi-Fi Password</span> &rarr;</a></li><li><a href="/howto/two-routers-access-point-mode/"><span>Two Routers AP Mode</span> &rarr;</a></li><li><a href="/howto/wifi-7-6ghz-setup-guide/"><span>Wi-Fi 7 &amp; 6 GHz Setup</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.05) 100%);">
+          <div class="sidebar-author-box">
+            <div class="sidebar-author-avatar">VB</div>
+            <div class="sidebar-author-info">
+              <a href="/authors/vikas-behl/" class="sidebar-author-name">Vikas Behl</a>
+              <span class="sidebar-author-role">Network Support Engineer &bull; 12+ Yrs</span>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+            Verified against physical gateway hardware in the <strong>RouterIPHub Engineering Lab</strong>.
+          </div>
+        </div>
+        
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

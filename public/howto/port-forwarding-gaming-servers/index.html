@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=cbd27686">
+  <link rel="stylesheet" href="/css/style.css?v=f8278654">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -349,19 +349,20 @@
   </div>
 
   <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
-    <article class="prose content-container">
-      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="guide-category-badge">Security &amp; DNS</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">5 min read &bull; <a href="/howto/">All Setup Guides</a></span>
-      </div>
+    <div class="post-layout">
+      <article class="prose post-main-content">
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+          <span class="guide-category-badge">Security &amp; DNS</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">5 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+        </div>
 
-      <h1>How to Configure Port Forwarding for Gaming &amp; Servers</h1>
+        <h1>How to Configure Port Forwarding for Gaming &amp; Servers</h1>
 
-      
+        
       <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
         Port forwarding instructs your router&rsquo;s NAT firewall to route unsolicited inbound connections on specific TCP or UDP ports directly to a local PC, game server, NAS, or camera on your LAN. Without forwarding (or UPnP), friends cannot join self-hosted game lobbies or external remote streams.
       </p>
-      <h2>Step-by-Step Port Forwarding Setup</h2>
+      <h2 id="step-by-step-port-forwarding-setup">Step-by-Step Port Forwarding Setup</h2>
       <ol>
         <li><strong>Bind a Static LAN IP via DHCP Reservation:</strong> First sign in to your router settings and open <strong>LAN &rsaquo; DHCP Server / Address Reservation</strong>. Pin your server or console&rsquo;s MAC address to a fixed internal IP (for example, <code>192.168.1.150</code>) so the target IP never drifts after a reboot.</li>
         <li><strong>Open the NAT / Virtual Server Menu:</strong> Navigate to <strong>Advanced &rsaquo; NAT Forwarding &rsaquo; Port Forwarding</strong> (labeled <em>Virtual Servers</em> or <em>Apps &amp; Gaming</em> on some brands).</li>
@@ -376,16 +377,16 @@
         </li>
         <li><strong>Save &amp; Allow Host Firewall Traffic:</strong> Save rules inside the router, then verify Windows Defender Firewall or Linux <code>ufw</code> permits inbound connections on that same port.</li>
       </ol>
-      <h2>Why Port Forwarding Fails Even With Correct Rules</h2>
+      <h2 id="why-port-forwarding-fails-even-with-correct-rules">Why Port Forwarding Fails Even With Correct Rules</h2>
       <ul>
         <li><strong>Double NAT Behind an ISP Modem:</strong> If your personal router sits behind an ISP combo gateway, forward ports on <em>both</em> boxes or put the ISP gateway into Bridge / IP Passthrough mode.</li>
         <li><strong>Carrier-Grade NAT (CGNAT):</strong> Cellular 5G ISPs (T-Mobile, Starlink, Starlink/rural fiber) share one public IPv4 across many homes using <code>100.64.0.0/10</code> WAN IPs. Standard IPv4 port forwarding cannot traverse CGNAT without a VPN tunnel (Tailscale/WireGuard) or a static public IP plan. Inspect your WAN IP via our <a href="/tools/ip-address-checker/">IP Checker</a>.</li>
       </ul>
 
 
-      <h2>FAQs</h2>
-      <div style="margin-top: 1rem;">
-        
+        <h2 id="faqs">FAQs</h2>
+        <div style="margin-top: 1rem;">
+          
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Should I assign a static IP before forwarding a port?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Yes. If your PC gets a different DHCP IP after restarting, the router will forward traffic to an empty address. Use DHCP Address Reservation inside the router so the local IP stays permanent.</p>
@@ -394,54 +395,54 @@
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Why won&#x27;t my forwarded port work on T-Mobile 5G or Starlink?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Mobile and satellite ISPs commonly use Carrier-Grade NAT (CGNAT), meaning your router does not receive an exclusive public IPv4 address for unsolicited inbound connections.</p>
         </div>
-      </div>
+        </div>
 
-      <h2>The Bottom Line</h2>
-      <div class="bottom-line-callout">
-        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
-          Reserve a permanent LAN IP via DHCP first, create the matching TCP/UDP Virtual Server rule, allow the port in your computer firewall, and confirm your ISP has not placed your line behind Double NAT or CGNAT.
-        </p>
-      </div>
+        <h2 id="bottom-line">The Bottom Line</h2>
+        <div class="bottom-line-callout">
+          <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+            Reserve a permanent LAN IP via DHCP first, create the matching TCP/UDP Virtual Server rule, allow the port in your computer firewall, and confirm your ISP has not placed your line behind Double NAT or CGNAT.
+          </p>
+        </div>
 
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
+        <div class="byline-meta-card">
+          <div class="byline-author-group">
+            <div class="byline-avatar">VB</div>
+            <div class="byline-text">
+              <div class="byline-line-1">
+                <span class="byline-role">Written &amp; Tested by</span>
+                <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+                <span class="byline-badge">12+ Yrs Exp</span>
+              </div>
+              <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
             </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-review-group">
+            <span class="byline-role">Reviewed by</span>
+            <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+            <span class="byline-status">&#10003; Hardware Verified</span>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-date-group">
+            <span class="byline-role">Updated</span>
+            <time datetime="2026-11-11" class="byline-date">Nov 11, 2026</time>
           </div>
         </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Updated</span>
-          <time datetime="2026-11-11" class="byline-date">Nov 11, 2026</time>
-        </div>
-      </div>
 
-      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
-        
+        <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+          
         <a href="/howto/two-routers-access-point-mode/" class="guide-nav-card">
           <span class="guide-nav-label">&larr; Previous Guide</span>
           <span class="guide-nav-title">How to Connect Two Routers Together (Access Point Mode)</span>
         </a>
-        
+          
         <a href="/howto/change-router-dns/" class="guide-nav-card" style="text-align: right;">
           <span class="guide-nav-label">Next Guide &rarr;</span>
           <span class="guide-nav-title">How to Change Router DNS for Faster Browsing &amp; Privacy</span>
         </a>
-      </nav>
+        </nav>
 
-      
+        
       <!-- Related Gateway Subnets, Brand Portals & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
         <div style="margin-bottom: 1.5rem;">
@@ -478,7 +479,72 @@
         </div>
       </div>
 
-    </article>
+      </article>
+
+      <aside class="post-sidebar" aria-label="Article Sidebar and Quick Navigation">
+        
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#step-by-step-port-forwarding-setup">Step-by-Step Port Forwarding Setup</a></li><li><a href="#why-port-forwarding-fails-even-with-correct-rules">Why Port Forwarding Fails Even Wit&amp;hellip;</a></li><li><a href="#faqs">Frequently Asked Questions</a></li><li><a href="#bottom-line">The Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            Top Gateway Logins
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-1-1/"><span>Netgear / Asus / Linksys</span> <span class="sidebar-gateway-pill">192.168.1.1</span></a></li>
+            <li><a href="/ip/192-168-0-1/"><span>TP-Link / D-Link</span> <span class="sidebar-gateway-pill">192.168.0.1</span></a></li>
+            <li><a href="/ip/10-0-0-1/"><span>Xfinity xFi / Comcast</span> <span class="sidebar-gateway-pill">10.0.0.1</span></a></li>
+            <li><a href="/ip/192-168-1-254/"><span>AT&amp;T Fiber (BGW)</span> <span class="sidebar-gateway-pill">192.168.1.254</span></a></li>
+            <li><a href="/ip/192-168-2-1/"><span>Sagemcom / Bell</span> <span class="sidebar-gateway-pill">192.168.2.1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/wifi-qr-code/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>CIDR Subnet Calculator</span> &rarr;</a></li>
+            <li><a href="/find-router-ip/"><span>Find My Router Gateway IP</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/howto/change-router-dns/"><span>Change Router DNS</span> &rarr;</a></li><li><a href="/howto/guest-wifi-network-setup/"><span>Guest Wi-Fi Setup</span> &rarr;</a></li><li><a href="/howto/how-to-flush-dns-cache/"><span>Flush DNS Cache</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.05) 100%);">
+          <div class="sidebar-author-box">
+            <div class="sidebar-author-avatar">VB</div>
+            <div class="sidebar-author-info">
+              <a href="/authors/vikas-behl/" class="sidebar-author-name">Vikas Behl</a>
+              <span class="sidebar-author-role">Network Support Engineer &bull; 12+ Yrs</span>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+            Verified against physical gateway hardware in the <strong>RouterIPHub Engineering Lab</strong>.
+          </div>
+        </div>
+        
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

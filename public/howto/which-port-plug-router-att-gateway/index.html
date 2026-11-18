@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=cbd27686">
+  <link rel="stylesheet" href="/css/style.css?v=f8278654">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -382,15 +382,16 @@
   </div>
 
   <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
-    <article class="prose content-container">
-      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="guide-category-badge">Resets &amp; ISP Bridge</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">5 min read &bull; <a href="/howto/">All Setup Guides</a></span>
-      </div>
+    <div class="post-layout">
+      <article class="prose post-main-content">
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+          <span class="guide-category-badge">Resets &amp; ISP Bridge</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">5 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+        </div>
 
-      <h1>Which Port Do I Plug My Router Into on an AT&amp;T Gateway?</h1>
+        <h1>Which Port Do I Plug My Router Into on an AT&amp;T Gateway?</h1>
 
-      
+        
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.75rem;">
         Plug your router&rsquo;s <strong>WAN/Internet port</strong> into one of the AT&amp;T gateway&rsquo;s <strong>Ethernet LAN ports</strong>. Do not use the fiber/ONT port, phone port, or power port.
       </p>
@@ -410,7 +411,7 @@
         <figcaption>Overview: Connecting an AT&amp;T BGW320 Fiber Gateway Ethernet LAN port to a third-party Wi-Fi router WAN/Internet port.</figcaption>
       </figure>
 
-      <h2 id="correct-connection">Correct Connection</h2>
+      <h2  id="correct-connection">Correct Connection</h2>
       <p>
         Establishing the physical link between an AT&amp;T gateway (such as the BGW320, BGW210, or NVG599) and your standalone Wi-Fi 6/7 router or mesh system requires connecting two specific network interfaces:
       </p>
@@ -427,7 +428,7 @@
         <li>Do <strong>not</strong> plug the cable into one of your router&rsquo;s LAN ports. That will prevent your router from obtaining a public IP address and will not deliver an internet connection.</li>
       </ul>
 
-      <h2 id="which-att-port-to-use">Which AT&amp;T Port to Use</h2>
+      <h2  id="which-att-port-to-use">Which AT&amp;T Port to Use</h2>
       <p>
         The port you choose on your AT&amp;T gateway determines your network throughput ceiling. The table below outlines the recommended port configuration based on your internet service tier:
       </p>
@@ -484,7 +485,7 @@
         </ul>
       </div>
 
-      <h2 id="how-to-connect-your-router">How to Connect Your Router (Step-by-Step)</h2>
+      <h2  id="how-to-connect-your-router">How to Connect Your Router (Step-by-Step)</h2>
       <p>
         To ensure clean DHCP lease negotiation and prevent IP assignment conflicts, connect and boot your networking hardware in this precise sequence:
       </p>
@@ -527,7 +528,7 @@
         </div>
       </div>
 
-      <h2 id="avoid-double-nat">Avoid Double NAT: Why IP Passthrough Is Critical</h2>
+      <h2  id="avoid-double-nat">Avoid Double NAT: Why IP Passthrough Is Critical</h2>
       <p>
         When you connect a third-party router behind an AT&amp;T gateway out of the box, both devices operate as active routers performing <strong>Network Address Translation (NAT)</strong>. This condition is called <a href="/howto/two-routers-access-point-mode/">Double NAT</a>.
       </p>
@@ -552,7 +553,7 @@
         <figcaption>Figure 2: Configuring IP Passthrough in the AT&amp;T BGW320 web management portal at 192.168.1.254.</figcaption>
       </figure>
 
-      <h2 id="enable-ip-passthrough">How to Enable IP Passthrough on an AT&amp;T Gateway</h2>
+      <h2  id="enable-ip-passthrough">How to Enable IP Passthrough on an AT&amp;T Gateway</h2>
       <p>
         Follow these step-by-step instructions to configure IP Passthrough on an <a href="/isp/att-fiber-gateway-login-admin-access/">AT&amp;T BGW320</a>, BGW210, or NVG599 gateway using its internal web manager at <a href="/ip/192-168-1-254/">192.168.1.254</a>:
       </p>
@@ -610,7 +611,7 @@
         Once rebooted, log into your personal router&rsquo;s administrative dashboard. Check its WAN/Internet status: it should now display a public IPv4 address (e.g. <code>104.x.x.x</code> or <code>108.x.x.x</code>) rather than a private <code>192.168.1.x</code> address, verifying that IP Passthrough is working flawlessly.
       </p>
 
-      <h2 id="common-mistakes">Common Mistakes to Avoid</h2>
+      <h2  id="common-mistakes">Common Mistakes to Avoid</h2>
       <p>
         When adding a separate router to an AT&amp;T gateway, avoid these frequent installation errors:
       </p>
@@ -622,7 +623,7 @@
         <li><strong>Connecting Devices to Both Gateways:</strong> Once IP Passthrough is active, connect all client devices (PCs, phones, TVs, consoles) exclusively to your personal router, not the AT&amp;T gateway LAN ports.</li>
       </ul>
 
-      <h2 id="troubleshooting">Troubleshooting Connection Issues</h2>
+      <h2  id="troubleshooting">Troubleshooting Connection Issues</h2>
 
       <div class="faq-item">
         <button class="faq-question" type="button" aria-expanded="false">
@@ -669,9 +670,9 @@
       </div>
 
 
-      <h2>FAQs</h2>
-      <div style="margin-top: 1rem;">
-        
+        <h2 id="faqs">FAQs</h2>
+        <div style="margin-top: 1rem;">
+          
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Which port do I plug into on an AT&amp;T BGW320 gateway?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Plug your Ethernet cable into one of the BGW320&#x27;s LAN ports. For 2 Gig or 5 Gig fiber plans, plug into the Blue 5Gb Ethernet Port (Port 1). For plans up to 1 Gig, you can plug into any of the Yellow 1Gb LAN ports (Ports 2, 3, or 4). Connect the other end directly to your router&#x27;s WAN or Internet port.</p>
@@ -696,54 +697,54 @@
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Will IP Passthrough turn off Wi-Fi on my AT&amp;T gateway?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">No. IP Passthrough only delegates the public IP address to your router; it does not automatically disable the gateway&#x27;s Wi-Fi radios. You should manually navigate to Home Network &gt; Wi-Fi &gt; Advanced Options on the gateway and turn both 2.4GHz and 5GHz Wi-Fi to Off to prevent radio interference.</p>
         </div>
-      </div>
+        </div>
 
-      <h2>The Bottom Line</h2>
-      <div class="bottom-line-callout">
-        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
-          Use <strong>AT&amp;T gateway LAN port &rarr; your router WAN/Internet port</strong>. For a BGW320 with a 2 Gig or 5 Gig plan, use the <strong>blue 5Gb port</strong>; otherwise, use a yellow 1Gb LAN port.<br><br><strong>Fastest fix:</strong> Connect the cable from an AT&amp;T LAN port to your router&rsquo;s WAN port, restart both devices, and enable IP Passthrough if you need advanced network control.
-        </p>
-      </div>
+        <h2 id="bottom-line">The Bottom Line</h2>
+        <div class="bottom-line-callout">
+          <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+            Use <strong>AT&amp;T gateway LAN port &rarr; your router WAN/Internet port</strong>. For a BGW320 with a 2 Gig or 5 Gig plan, use the <strong>blue 5Gb port</strong>; otherwise, use a yellow 1Gb LAN port.<br><br><strong>Fastest fix:</strong> Connect the cable from an AT&amp;T LAN port to your router&rsquo;s WAN port, restart both devices, and enable IP Passthrough if you need advanced network control.
+          </p>
+        </div>
 
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
+        <div class="byline-meta-card">
+          <div class="byline-author-group">
+            <div class="byline-avatar">VB</div>
+            <div class="byline-text">
+              <div class="byline-line-1">
+                <span class="byline-role">Written &amp; Tested by</span>
+                <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+                <span class="byline-badge">12+ Yrs Exp</span>
+              </div>
+              <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
             </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-review-group">
+            <span class="byline-role">Reviewed by</span>
+            <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+            <span class="byline-status">&#10003; Hardware Verified</span>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-date-group">
+            <span class="byline-role">Updated</span>
+            <time datetime="2026-11-13" class="byline-date">Nov 13, 2026</time>
           </div>
         </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Updated</span>
-          <time datetime="2026-11-13" class="byline-date">Nov 13, 2026</time>
-        </div>
-      </div>
 
-      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
-        
+        <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+          
         <a href="/howto/how-to-flush-dns-cache/" class="guide-nav-card">
           <span class="guide-nav-label">&larr; Previous Guide</span>
           <span class="guide-nav-title">How to Flush DNS Cache on Windows, Mac, and Chrome</span>
         </a>
-        
+          
         <a href="/howto/how-to-enable-upnp-router-gaming-consoles/" class="guide-nav-card" style="text-align: right;">
           <span class="guide-nav-label">Next Guide &rarr;</span>
           <span class="guide-nav-title">How Do I Enable UPnP on My Router for Gaming Consoles?</span>
         </a>
-      </nav>
+        </nav>
 
-      
+        
       <!-- Related Gateway Subnets, Brand Portals & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
         <div style="margin-bottom: 1.5rem;">
@@ -780,7 +781,72 @@
         </div>
       </div>
 
-    </article>
+      </article>
+
+      <aside class="post-sidebar" aria-label="Article Sidebar and Quick Navigation">
+        
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#correct-connection">Correct Connection</a></li><li><a href="#which-att-port-to-use">Which AT&amp;T Port to Use</a></li><li><a href="#how-to-connect-your-router">How to Connect Your Router (Step-b&amp;hellip;</a></li><li><a href="#avoid-double-nat">Avoid Double NAT: Why IP Passthrou&amp;hellip;</a></li><li><a href="#enable-ip-passthrough">How to Enable IP Passthrough on an&amp;hellip;</a></li><li><a href="#common-mistakes">Common Mistakes to Avoid</a></li><li><a href="#troubleshooting">Troubleshooting Connection Issues</a></li><li><a href="#faqs">Frequently Asked Questions</a></li><li><a href="#bottom-line">The Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            Top Gateway Logins
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-1-1/"><span>Netgear / Asus / Linksys</span> <span class="sidebar-gateway-pill">192.168.1.1</span></a></li>
+            <li><a href="/ip/192-168-0-1/"><span>TP-Link / D-Link</span> <span class="sidebar-gateway-pill">192.168.0.1</span></a></li>
+            <li><a href="/ip/10-0-0-1/"><span>Xfinity xFi / Comcast</span> <span class="sidebar-gateway-pill">10.0.0.1</span></a></li>
+            <li><a href="/ip/192-168-1-254/"><span>AT&amp;T Fiber (BGW)</span> <span class="sidebar-gateway-pill">192.168.1.254</span></a></li>
+            <li><a href="/ip/192-168-2-1/"><span>Sagemcom / Bell</span> <span class="sidebar-gateway-pill">192.168.2.1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/wifi-qr-code/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>CIDR Subnet Calculator</span> &rarr;</a></li>
+            <li><a href="/find-router-ip/"><span>Find My Router Gateway IP</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/howto/30-second-hard-factory-reset/"><span>Router Factory Reset</span> &rarr;</a></li><li><a href="/howto/fiber-ont-bridge-mode-setup/"><span>Fiber ONT Bridging</span> &rarr;</a></li><li><a href="/howto/ipv6-default-gateway-discovery/"><span>IPv6 Gateway Discovery</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.05) 100%);">
+          <div class="sidebar-author-box">
+            <div class="sidebar-author-avatar">VB</div>
+            <div class="sidebar-author-info">
+              <a href="/authors/vikas-behl/" class="sidebar-author-name">Vikas Behl</a>
+              <span class="sidebar-author-role">Network Support Engineer &bull; 12+ Yrs</span>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+            Verified against physical gateway hardware in the <strong>RouterIPHub Engineering Lab</strong>.
+          </div>
+        </div>
+        
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

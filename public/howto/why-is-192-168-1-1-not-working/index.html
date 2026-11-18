@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=cbd27686">
+  <link rel="stylesheet" href="/css/style.css?v=f8278654">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -382,15 +382,16 @@
   </div>
 
   <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
-    <article class="prose content-container">
-      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="guide-category-badge">Login &amp; Access</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">6 min read &bull; <a href="/howto/">All Setup Guides</a></span>
-      </div>
+    <div class="post-layout">
+      <article class="prose post-main-content">
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+          <span class="guide-category-badge">Login &amp; Access</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">6 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+        </div>
 
-      <h1>Why Is 192.168.1.1 Not Working in My Browser?</h1>
+        <h1>Why Is 192.168.1.1 Not Working in My Browser?</h1>
 
-      
+        
       <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
         <a href="/ip/192-168-1-1/"><code>192.168.1.1</code></a> may not work because your device is not connected to the router, your router uses a different management address, or a browser, VPN, proxy, or network setting is blocking the local page. It does not automatically mean your router is broken.
       </p>
@@ -403,7 +404,7 @@
         <figcaption>Top four checks when 192.168.1.1 fails to load: verify local Wi-Fi/LAN, test alternate gateway IPs, disable VPN/proxy/private DNS, and inspect your active default gateway.</figcaption>
       </figure>
 
-      <h2>Quick Answer</h2>
+      <h2 id="quick-answer">Quick Answer</h2>
       <div class="table-responsive">
         <table class="data-table">
           <thead>
@@ -444,7 +445,7 @@
         <code>192.168.1.1</code> is a private IP address used by many routers. It is not a public website address, so it must be opened from a device connected to the router&rsquo;s local network.
       </p>
 
-      <h2>First: Confirm You Are on the Right Network</h2>
+      <h2 id="first-confirm-you-are-on-the-right-network">First: Confirm You Are on the Right Network</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Connect your phone, tablet, or computer to the Wi-Fi network broadcast by the router you want to manage. For a more reliable test, connect a computer directly to one of the router&rsquo;s LAN ports using Ethernet.
       </p>
@@ -455,7 +456,7 @@
         If you have a mesh system, extender, modem, or separate router, you may be connected to a device that does not use <code>192.168.1.1</code>. In that case, use the gateway address of the device you want to manage.
       </p>
 
-      <h2>Check the Address First</h2>
+      <h2 id="check-the-address-first">Check the Address First</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Enter the address directly into your browser&rsquo;s address bar:
       </p>
@@ -491,7 +492,7 @@
         <figcaption>Type http://192.168.1.1 directly into your browser&rsquo;s address bar (not a search box or .com domain) and temporarily switch VPN and proxy settings off.</figcaption>
       </figure>
 
-      <h2>Try Another Common Router Address</h2>
+      <h2 id="try-another-common-router-address">Try Another Common Router Address</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Many routers use <code>192.168.1.1</code>, but not all do. If it does not load, try these addresses one at a time:
       </p>
@@ -531,7 +532,7 @@
         Do not assume that every device in your home uses the same address. A repeater, extender, mesh node, or separate router may have its own management address.
       </p>
 
-      <h2>Find Your Router&rsquo;s Real Gateway Address</h2>
+      <h2 id="find-your-routers-real-gateway-address">Find Your Router&rsquo;s Real Gateway Address</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         If common addresses do not open the settings page, find the gateway address on your connected device (or test locally with our <a href="/tools/detect-gateway/">Gateway Auto-Detector tool</a>).
       </p>
@@ -581,7 +582,7 @@
         The gateway address is the address your device uses to reach the router. Enter it exactly into the browser&rsquo;s address bar.
       </p>
 
-      <h2>Fix Browser and Network Settings</h2>
+      <h2 id="fix-browser-and-network-settings">Fix Browser and Network Settings</h2>
 
       <h3>1. Try another browser</h3>
       <p style="color: var(--text-secondary); line-height: 1.7;">
@@ -608,7 +609,7 @@
         Ad blockers, privacy extensions, and security extensions can block local addresses. Open the page in an incognito or private window, or temporarily disable extensions.
       </p>
 
-      <h2>Restart the Router</h2>
+      <h2 id="restart-the-router">Restart the Router</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         If the router page still will not open:
       </p>
@@ -624,7 +625,7 @@
         A restart preserves your router settings. Do not confuse it with a factory reset.
       </p>
 
-      <h2>Check the Router Status Lights</h2>
+      <h2 id="check-the-router-status-lights">Check the Router Status Lights</h2>
       <div class="table-responsive">
         <table class="data-table">
           <thead>
@@ -661,7 +662,7 @@
         A router can be online without its settings page opening. The issue may be the address, connection, or browser rather than the internet service itself.
       </p>
 
-      <h2>If the Page Opens but Login Fails</h2>
+      <h2 id="if-the-page-opens-but-login-fails">If the Page Opens but Login Fails</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         If <code>192.168.1.1</code> opens a login form, the address is working. The problem is now the administrator username or password.
       </p>
@@ -697,7 +698,7 @@
         The router administrator password is not necessarily the Wi-Fi password. Check the label field labeled Admin Password, Router Password, or Network Settings Password, or review our <a href="/howto/access-my-router-settings-page/">Router Settings Login Guide</a>.
       </p>
 
-      <h2>When to Factory Reset the Router</h2>
+      <h2 id="when-to-factory-reset-the-router">When to Factory Reset the Router</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Use a factory reset only after confirming the correct address, testing another browser, disabling VPN or proxy settings, and restarting the router. A factory reset can erase:
       </p>
@@ -712,7 +713,7 @@
         Before resetting, record the settings you need to restore. Follow the reset instructions for your exact router model, because reset-button timing and recovery behavior vary (<a href="/howto/30-second-hard-factory-reset/">see factory reset steps</a>).
       </p>
 
-      <h2>Common Mistakes</h2>
+      <h2 id="common-mistakes">Common Mistakes</h2>
       <ul>
         <li>Using mobile data instead of connecting to the router&rsquo;s network.</li>
         <li>Typing <code>192.168.1.1</code> into a search engine.</li>
@@ -723,9 +724,9 @@
       </ul>
 
 
-      <h2>FAQs</h2>
-      <div style="margin-top: 1rem;">
-        
+        <h2 id="faqs">FAQs</h2>
+        <div style="margin-top: 1rem;">
+          
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Why is 192.168.1.1 not opening?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Your device may not be connected to the router, the router may use a different address, or a VPN, proxy, or browser setting may be blocking access. Start by confirming the connection and gateway address.</p>
@@ -750,54 +751,54 @@
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">What should I do if the login page opens but my password fails?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Use the administrator password, not the Wi-Fi password. If you changed the password previously, use the current custom password.</p>
         </div>
-      </div>
+        </div>
 
-      <h2>The Bottom Line</h2>
-      <div class="bottom-line-callout">
-        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
-          If <code>192.168.1.1</code> is not working, first confirm that you are connected to the correct router network. Then enter the address exactly, try another common router address, disable VPN or proxy settings, and use your device&rsquo;s gateway address if needed. Restart the router before considering a factory reset.
-        </p>
-      </div>
+        <h2 id="bottom-line">The Bottom Line</h2>
+        <div class="bottom-line-callout">
+          <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+            If <code>192.168.1.1</code> is not working, first confirm that you are connected to the correct router network. Then enter the address exactly, try another common router address, disable VPN or proxy settings, and use your device&rsquo;s gateway address if needed. Restart the router before considering a factory reset.
+          </p>
+        </div>
 
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
+        <div class="byline-meta-card">
+          <div class="byline-author-group">
+            <div class="byline-avatar">VB</div>
+            <div class="byline-text">
+              <div class="byline-line-1">
+                <span class="byline-role">Written &amp; Tested by</span>
+                <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+                <span class="byline-badge">12+ Yrs Exp</span>
+              </div>
+              <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
             </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-review-group">
+            <span class="byline-role">Reviewed by</span>
+            <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+            <span class="byline-status">&#10003; Hardware Verified</span>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-date-group">
+            <span class="byline-role">Updated</span>
+            <time datetime="2026-11-12" class="byline-date">Nov 12, 2026</time>
           </div>
         </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Updated</span>
-          <time datetime="2026-11-12" class="byline-date">Nov 12, 2026</time>
-        </div>
-      </div>
 
-      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
-        
+        <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+          
         <a href="/howto/access-my-router-settings-page/" class="guide-nav-card">
           <span class="guide-nav-label">&larr; Previous Guide</span>
           <span class="guide-nav-title">How Do I Access My Router Settings Page?</span>
         </a>
-        
+          
         <a href="/howto/why-cant-i-access-my-bt-hub-manager/" class="guide-nav-card" style="text-align: right;">
           <span class="guide-nav-label">Next Guide &rarr;</span>
           <span class="guide-nav-title">Why Can’t I Access My BT Hub Manager?</span>
         </a>
-      </nav>
+        </nav>
 
-      
+        
       <!-- Related Gateway Subnets, Brand Portals & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
         <div style="margin-bottom: 1.5rem;">
@@ -834,7 +835,72 @@
         </div>
       </div>
 
-    </article>
+      </article>
+
+      <aside class="post-sidebar" aria-label="Article Sidebar and Quick Navigation">
+        
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#quick-answer">Quick Answer</a></li><li><a href="#first-confirm-you-are-on-the-right-network">First: Confirm You Are on the Righ&amp;hellip;</a></li><li><a href="#check-the-address-first">Check the Address First</a></li><li><a href="#try-another-common-router-address">Try Another Common Router Address</a></li><li><a href="#find-your-routers-real-gateway-address">Find Your Router&#x27;s Real Gateway Ad&amp;hellip;</a></li><li><a href="#fix-browser-and-network-settings">Fix Browser and Network Settings</a></li><li><a href="#restart-the-router">Restart the Router</a></li><li><a href="#check-the-router-status-lights">Check the Router Status Lights</a></li><li><a href="#if-the-page-opens-but-login-fails">If the Page Opens but Login Fails</a></li><li><a href="#when-to-factory-reset-the-router">When to Factory Reset the Router</a></li><li><a href="#common-mistakes">Common Mistakes</a></li><li><a href="#faqs">Frequently Asked Questions</a></li><li><a href="#bottom-line">The Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            Top Gateway Logins
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-1-1/"><span>Netgear / Asus / Linksys</span> <span class="sidebar-gateway-pill">192.168.1.1</span></a></li>
+            <li><a href="/ip/192-168-0-1/"><span>TP-Link / D-Link</span> <span class="sidebar-gateway-pill">192.168.0.1</span></a></li>
+            <li><a href="/ip/10-0-0-1/"><span>Xfinity xFi / Comcast</span> <span class="sidebar-gateway-pill">10.0.0.1</span></a></li>
+            <li><a href="/ip/192-168-1-254/"><span>AT&amp;T Fiber (BGW)</span> <span class="sidebar-gateway-pill">192.168.1.254</span></a></li>
+            <li><a href="/ip/192-168-2-1/"><span>Sagemcom / Bell</span> <span class="sidebar-gateway-pill">192.168.2.1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/wifi-qr-code/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>CIDR Subnet Calculator</span> &rarr;</a></li>
+            <li><a href="/find-router-ip/"><span>Find My Router Gateway IP</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/howto/access-my-router-settings-page/"><span>Access Router Settings Page</span> &rarr;</a></li><li><a href="/howto/why-cant-i-access-my-bt-hub-manager/"><span>BT Hub Manager Fixes</span> &rarr;</a></li><li><a href="/howto/change-tenda-wifi-password-without-previous-password/"><span>Change Tenda WiFi Password</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.05) 100%);">
+          <div class="sidebar-author-box">
+            <div class="sidebar-author-avatar">VB</div>
+            <div class="sidebar-author-info">
+              <a href="/authors/vikas-behl/" class="sidebar-author-name">Vikas Behl</a>
+              <span class="sidebar-author-role">Network Support Engineer &bull; 12+ Yrs</span>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+            Verified against physical gateway hardware in the <strong>RouterIPHub Engineering Lab</strong>.
+          </div>
+        </div>
+        
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

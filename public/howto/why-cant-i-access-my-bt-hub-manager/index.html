@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=cbd27686">
+  <link rel="stylesheet" href="/css/style.css?v=f8278654">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -382,15 +382,16 @@
   </div>
 
   <main class="container" style="padding-top: 2.25rem; padding-bottom: 4rem;">
-    <article class="prose content-container">
-      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
-        <span class="guide-category-badge">Login &amp; Access</span>
-        <span style="font-size: 0.85rem; color: var(--text-muted);">6 min read &bull; <a href="/howto/">All Setup Guides</a></span>
-      </div>
+    <div class="post-layout">
+      <article class="prose post-main-content">
+        <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+          <span class="guide-category-badge">Login &amp; Access</span>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">6 min read &bull; <a href="/howto/">All Setup Guides</a></span>
+        </div>
 
-      <h1>Why Can’t I Access My BT Hub Manager?</h1>
+        <h1>Why Can’t I Access My BT Hub Manager?</h1>
 
-      
+        
       <p style="font-size: 1.075rem; color: var(--text-secondary); line-height: 1.75;">
         The most common reason is that your device is not connected to the BT Hub&rsquo;s network, or the browser is blocking the Hub&rsquo;s secure HTTPS connection. <a href="/isp/bt-smart-hub-manager-login-admin-access/">BT Hub Manager</a> is normally opened at <a href="/ip/192-168-1-254/"><code>192.168.1.254</code></a> or <code>http://bthomehub.home</code>, and changing settings requires the Hub&rsquo;s admin password.
       </p>
@@ -403,7 +404,7 @@
         <figcaption>Connect locally to your BT Hub to reach 192.168.1.254 or bthomehub.home, and locate the Hub Admin Password on the pull-out rear Settings Card.</figcaption>
       </figure>
 
-      <h2>Quick Answer</h2>
+      <h2 id="quick-answer">Quick Answer</h2>
       <div class="table-responsive">
         <table class="data-table">
           <thead>
@@ -444,7 +445,7 @@
         BT Hub Manager is a local management page. It must be opened from a device connected to the Hub&rsquo;s network, not through mobile data.
       </p>
 
-      <h2>BT Hub Manager Login Details</h2>
+      <h2 id="bt-hub-manager-login-details">BT Hub Manager Login Details</h2>
       <div class="table-responsive">
         <table class="data-table">
           <thead>
@@ -485,7 +486,7 @@
         The Hub admin password is not the same as your wireless password. It is printed on the Hub settings card unless you changed it.
       </p>
 
-      <h2>Step-by-Step: Open BT Hub Manager</h2>
+      <h2 id="step-by-step-open-bt-hub-manager">Step-by-Step: Open BT Hub Manager</h2>
 
       <h3>1. Connect to the BT Hub</h3>
       <p style="color: var(--text-secondary); line-height: 1.7;">
@@ -554,7 +555,7 @@
         <li>Do not use the Wi-Fi password unless it is the same password you deliberately set for Hub Manager.</li>
       </ul>
 
-      <h2>If the Page Will Not Open</h2>
+      <h2 id="if-the-page-will-not-open">If the Page Will Not Open</h2>
 
       <h3>1. Confirm the connection</h3>
       <p style="color: var(--text-secondary); line-height: 1.7;">
@@ -610,7 +611,7 @@
         A restart preserves your Hub settings. Do not confuse it with a factory reset.
       </p>
 
-      <h2>If the Admin Password Is Rejected</h2>
+      <h2 id="if-the-admin-password-is-rejected">If the Admin Password Is Rejected</h2>
 
       <h3>Check the correct password field</h3>
       <p style="color: var(--text-secondary); line-height: 1.7;">
@@ -660,12 +661,12 @@
         If you cannot remember the changed admin password, check the password-reset guidance for your Hub model. Do not reset the Hub until you understand what settings may be lost.
       </p>
 
-      <h2>Why You May Reach a Different Router Page</h2>
+      <h2 id="why-you-may-reach-a-different-router-page">Why You May Reach a Different Router Page</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         If you have another router, mesh system, or extender, your device may be connected to a network that uses a different gateway address. In that case, <code>192.168.1.254</code> may not be the address of the device you are trying to manage. Check your device&rsquo;s <a href="/find-router-ip/">gateway address</a> and use that instead. A Hub Manager page should only be reached from within your local home network.
       </p>
 
-      <h2>When to Factory Reset the BT Hub</h2>
+      <h2 id="when-to-factory-reset-the-bt-hub">When to Factory Reset the BT Hub</h2>
       <p style="color: var(--text-secondary); line-height: 1.7;">
         Do not factory reset the Hub as the first fix. Before resetting:
       </p>
@@ -681,7 +682,7 @@
         A factory reset can remove custom Hub settings, including Wi-Fi names, passwords, and other configuration. Record anything you need before resetting, and follow the reset instructions for your exact Hub model (<a href="/howto/30-second-hard-factory-reset/">review safe reset practices</a>).
       </p>
 
-      <h2>Common Mistakes</h2>
+      <h2 id="common-mistakes">Common Mistakes</h2>
       <ul>
         <li>Using mobile data instead of connecting to the BT Hub.</li>
         <li>Assuming the Wi-Fi password is the Hub admin password.</li>
@@ -692,9 +693,9 @@
       </ul>
 
 
-      <h2>FAQs</h2>
-      <div style="margin-top: 1rem;">
-        
+        <h2 id="faqs">FAQs</h2>
+        <div style="margin-top: 1rem;">
+          
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card); margin-bottom: 1rem;">
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">What is the BT Hub Manager address?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">The standard address is 192.168.1.254. You can also use http://bthomehub.home.</p>
@@ -719,54 +720,54 @@
           <h3 style="font-size: 1.075rem; font-weight: 700; color: var(--text-primary); margin: 0 0 0.45rem 0;">Should I reset my BT Hub if 192.168.1.254 does not work?</h3>
           <p style="color: var(--text-secondary); line-height: 1.65; margin: 0;">Not immediately. First check the connection, try the alternative address, disable VPN or proxy settings, test another browser, and restart the Hub.</p>
         </div>
-      </div>
+        </div>
 
-      <h2>The Bottom Line</h2>
-      <div class="bottom-line-callout">
-        <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
-          Connect to your BT Hub, open <code>192.168.1.254</code> or <code>http://bthomehub.home</code>, and accept the expected HTTPS warning if it appears. Use the Hub admin password&mdash;not the Wi-Fi password&mdash;to make changes. If the page will not open, disconnect VPN or proxy settings and restart the Hub before considering a reset.
-        </p>
-      </div>
+        <h2 id="bottom-line">The Bottom Line</h2>
+        <div class="bottom-line-callout">
+          <p style="font-size: 1.025rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
+            Connect to your BT Hub, open <code>192.168.1.254</code> or <code>http://bthomehub.home</code>, and accept the expected HTTPS warning if it appears. Use the Hub admin password&mdash;not the Wi-Fi password&mdash;to make changes. If the page will not open, disconnect VPN or proxy settings and restart the Hub before considering a reset.
+          </p>
+        </div>
 
-      <div class="byline-meta-card">
-        <div class="byline-author-group">
-          <div class="byline-avatar">VB</div>
-          <div class="byline-text">
-            <div class="byline-line-1">
-              <span class="byline-role">Written &amp; Tested by</span>
-              <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
-              <span class="byline-badge">12+ Yrs Exp</span>
+        <div class="byline-meta-card">
+          <div class="byline-author-group">
+            <div class="byline-avatar">VB</div>
+            <div class="byline-text">
+              <div class="byline-line-1">
+                <span class="byline-role">Written &amp; Tested by</span>
+                <a href="/authors/vikas-behl/" class="byline-name">Vikas Behl</a>
+                <span class="byline-badge">12+ Yrs Exp</span>
+              </div>
+              <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
             </div>
-            <div class="byline-line-2">Senior Technical Support &amp; Network Engineer</div>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-review-group">
+            <span class="byline-role">Reviewed by</span>
+            <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
+            <span class="byline-status">&#10003; Hardware Verified</span>
+          </div>
+          <div class="byline-divider"></div>
+          <div class="byline-date-group">
+            <span class="byline-role">Updated</span>
+            <time datetime="2026-11-12" class="byline-date">Nov 12, 2026</time>
           </div>
         </div>
-        <div class="byline-divider"></div>
-        <div class="byline-review-group">
-          <span class="byline-role">Reviewed by</span>
-          <a href="/about/" class="byline-name">RouterIPHub Technical Lab</a>
-          <span class="byline-status">&#10003; Hardware Verified</span>
-        </div>
-        <div class="byline-divider"></div>
-        <div class="byline-date-group">
-          <span class="byline-role">Updated</span>
-          <time datetime="2026-11-12" class="byline-date">Nov 12, 2026</time>
-        </div>
-      </div>
 
-      <nav class="guide-post-nav" aria-label="Guide Post Navigation">
-        
+        <nav class="guide-post-nav" aria-label="Guide Post Navigation">
+          
         <a href="/howto/why-is-192-168-1-1-not-working/" class="guide-nav-card">
           <span class="guide-nav-label">&larr; Previous Guide</span>
           <span class="guide-nav-title">Why Is 192.168.1.1 Not Working in My Browser?</span>
         </a>
-        
+          
         <a href="/howto/change-tenda-wifi-password-without-previous-password/" class="guide-nav-card" style="text-align: right;">
           <span class="guide-nav-label">Next Guide &rarr;</span>
           <span class="guide-nav-title">How to Change Password of Tenda WiFi Without Entering the Previous Password</span>
         </a>
-      </nav>
+        </nav>
 
-      
+        
       <!-- Related Gateway Subnets, Brand Portals & Tools -->
       <div style="margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--border-color);">
         <div style="margin-bottom: 1.5rem;">
@@ -803,7 +804,72 @@
         </div>
       </div>
 
-    </article>
+      </article>
+
+      <aside class="post-sidebar" aria-label="Article Sidebar and Quick Navigation">
+        
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#quick-answer">Quick Answer</a></li><li><a href="#bt-hub-manager-login-details">BT Hub Manager Login Details</a></li><li><a href="#step-by-step-open-bt-hub-manager">Step-by-Step: Open BT Hub Manager</a></li><li><a href="#if-the-page-will-not-open">If the Page Will Not Open</a></li><li><a href="#if-the-admin-password-is-rejected">If the Admin Password Is Rejected</a></li><li><a href="#why-you-may-reach-a-different-router-page">Why You May Reach a Different Rout&amp;hellip;</a></li><li><a href="#when-to-factory-reset-the-bt-hub">When to Factory Reset the BT Hub</a></li><li><a href="#common-mistakes">Common Mistakes</a></li><li><a href="#faqs">Frequently Asked Questions</a></li><li><a href="#bottom-line">The Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            Top Gateway Logins
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-1-1/"><span>Netgear / Asus / Linksys</span> <span class="sidebar-gateway-pill">192.168.1.1</span></a></li>
+            <li><a href="/ip/192-168-0-1/"><span>TP-Link / D-Link</span> <span class="sidebar-gateway-pill">192.168.0.1</span></a></li>
+            <li><a href="/ip/10-0-0-1/"><span>Xfinity xFi / Comcast</span> <span class="sidebar-gateway-pill">10.0.0.1</span></a></li>
+            <li><a href="/ip/192-168-1-254/"><span>AT&amp;T Fiber (BGW)</span> <span class="sidebar-gateway-pill">192.168.1.254</span></a></li>
+            <li><a href="/ip/192-168-2-1/"><span>Sagemcom / Bell</span> <span class="sidebar-gateway-pill">192.168.2.1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/wifi-qr-code/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>CIDR Subnet Calculator</span> &rarr;</a></li>
+            <li><a href="/find-router-ip/"><span>Find My Router Gateway IP</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/howto/access-my-router-settings-page/"><span>Access Router Settings Page</span> &rarr;</a></li><li><a href="/howto/why-is-192-168-1-1-not-working/"><span>192.168.1.1 Not Working</span> &rarr;</a></li><li><a href="/howto/change-tenda-wifi-password-without-previous-password/"><span>Change Tenda WiFi Password</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.05) 100%);">
+          <div class="sidebar-author-box">
+            <div class="sidebar-author-avatar">VB</div>
+            <div class="sidebar-author-info">
+              <a href="/authors/vikas-behl/" class="sidebar-author-name">Vikas Behl</a>
+              <span class="sidebar-author-role">Network Support Engineer &bull; 12+ Yrs</span>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color);">
+            Verified against physical gateway hardware in the <strong>RouterIPHub Engineering Lab</strong>.
+          </div>
+        </div>
+        
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->
