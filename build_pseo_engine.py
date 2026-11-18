@@ -24248,7 +24248,14 @@ def sync_homepage():
     with open(hp_path, "r", encoding="utf-8") as f:
         content = f.read()
 
-    # 1. Update footer
+    # 1. Update header (sync with sitewide get_header)
+    header_pattern = re.compile(r'<header class="site-header">.*?</header>', re.DOTALL)
+    gen_header_html = get_header("Home", "", "https://routeriphub.com/", active_nav="")
+    m_header = header_pattern.search(gen_header_html)
+    if m_header and header_pattern.search(content):
+        content = header_pattern.sub(m_header.group(0), content)
+
+    # 2. Update footer
     footer_pattern = re.compile(r"<!-- Site Footer -->\s*<footer class=\"site-footer\">.*?</footer>", re.DOTALL)
     m_footer = footer_pattern.search(get_footer())
     if m_footer and footer_pattern.search(content):
@@ -24267,7 +24274,7 @@ def sync_homepage():
 
     with open(hp_path, "w", encoding="utf-8") as f:
         f.write(content)
-    print("  -> Synced public/index.html with sitewide footer and assets")
+    print("  -> Synced public/index.html with sitewide header, footer and assets")
 
 # ==============================================================================
 # MAIN EXECUTION PIPELINE
