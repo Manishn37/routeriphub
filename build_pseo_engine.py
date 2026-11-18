@@ -2755,6 +2755,558 @@ def generate_custom_pldt_page(m):
 
     return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
+
+# ==============================================================================
+# CUSTOM HIGH-INTENT MODEL PAGE: Netgear Nighthawk AX6 (RAX50)
+# ==============================================================================
+def generate_custom_netgear_nighthawk_rax50_page(m):
+    canonical = "https://routeriphub.com/routers/netgear-nighthawk-rax50/"
+    clean_name = "Netgear Nighthawk AX6 (RAX50)"
+    title = "Nighthawk AX6 Setup: Complete Installation and Configuration Guide (RAX50)"
+    desc = "Setting up a Nighthawk AX6 router takes about 10–15 minutes. Connect the router to your modem, use the Nighthawk app or browser at routerlogin.net, create Wi-Fi, and update firmware."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Routers", "/routers/"),
+        ("Netgear", "/brands/netgear/"),
+        ("Nighthawk AX6 (RAX50)", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Nighthawk AX6 Setup: Complete Installation and Configuration Guide",
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": ORG_PUBLISHER
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Set Up and Configure Netgear Nighthawk AX6 (RAX50) Wi-Fi 6 Router",
+        "description": "Step-by-step instructions to connect modem cables, power on the Netgear Nighthawk AX6, connect to default Wi-Fi, configure admin credentials, and update router firmware.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect the Modem",
+                "text": "Unplug the modem from power. Connect one end of the Ethernet cable to the modem's LAN port and the other end to the yellow Internet/WAN port on the Nighthawk AX6 router. Plug the modem back into power and wait 2–3 minutes for it to restart."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Power On the Router",
+                "text": "Connect the power adapter to the router, plug it into a working wall outlet, and turn on the router. Wait 2–3 minutes for the power light to turn solid and the internet light to become active."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Connect to the Router Wi-Fi",
+                "text": "Open Wi-Fi settings on your phone, tablet, or computer. Find the default Wi-Fi network name and password printed on the router label and connect."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Open the Nighthawk App",
+                "text": "Download the Nighthawk app from the App Store or Google Play. Open the app, tap Set Up a New Nighthawk Router, create a new admin password, and set up your Wi-Fi network name and password."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Set Up Through a Browser (Alternative)",
+                "text": "If you prefer not to use the app, connect to the router Wi-Fi, open a browser, type routerlogin.net (or 192.168.1.1), and follow the on-screen setup wizard."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 6,
+                "name": "Update Router Firmware",
+                "text": "Check for and install any available firmware updates through the Nighthawk app under Settings > Firmware Update or in the web interface under Administration > Firmware Update."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Why can I not access routerlogin.net?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Make sure you are connected to the Nighthawk router's Wi-Fi network. Try entering 192.168.1.1 in your browser address bar instead, clear your browser cache, or try a different browser."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why is there no internet connection after setting up the Nighthawk AX6?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Confirm that the Ethernet cable from your modem is firmly plugged into the router's yellow Internet/WAN port (not a LAN port). Power-cycle both the modem and router by unplugging them for 30 seconds."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What should I do if I cannot find the default Wi-Fi network?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The router may still be booting. Wait 2–3 minutes after power on. Check the router label for the exact network name starting with NETGEAR, or restart the router."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why is my Nighthawk AX6 Wi-Fi slow?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Place the router in an elevated, central location away from thick walls, metal objects, and appliances like microwaves. Connect high-bandwidth devices like PCs or gaming consoles using Ethernet cables."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I factory reset the Netgear Nighthawk AX6 router?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "With the router powered ON, locate the recessed Reset pinhole button on the rear panel. Press and hold it with a paperclip for about 10 seconds until the Power LED blinks amber. Release and wait 2–3 minutes for the router to reboot."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default login IP and password for Netgear Nighthawk AX6?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The default login URL is routerlogin.net, with default IP address 192.168.1.1. Default admin username is 'admin' and default password is 'password'."
+                }
+            }
+        ]
+    }
+
+    # Build LED Table Rows
+    led_rows = ""
+    for led in m.get("led_indicators", []):
+        led_rows += f"""
+            <tr>
+              <td><strong>{escape(led['name'])}</strong></td>
+              <td><span class="led-badge-normal">{escape(led['normal'])}</span></td>
+              <td><span class="led-badge-error">{escape(led['error'])}</span></td>
+              <td style="color: var(--text-secondary);">{escape(led['desc'])}</td>
+            </tr>
+            """
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-container">
+      <div class="silo-badge silo-badge-router">Hardware Setup &amp; Installation Guide</div>
+      <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
+        Nighthawk AX6 Setup: Complete Installation and Configuration Guide
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.6;">
+        Setting up a <strong>Nighthawk AX6 router</strong> takes about 10–15 minutes. Connect the router to your modem, use the Nighthawk app or a web browser to complete setup, create your Wi‑Fi network, and update the router firmware.
+      </p>
+
+      <!-- Quick Answer Card -->
+      <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <ol style="margin-bottom: 1.25rem; padding-left: 1.5rem; line-height: 1.75; font-size: 1.02rem;">
+          <li>Connect the Nighthawk AX6 router to your modem using an Ethernet cable.</li>
+          <li>Power on the modem first, then power on the router.</li>
+          <li>Connect your phone or computer to the router’s default Wi‑Fi network.</li>
+          <li>Open the <strong>Nighthawk app</strong> or go to <code>routerlogin.net</code>.</li>
+          <li>Follow the setup instructions.</li>
+          <li>Create a new admin password and Wi‑Fi name and password.</li>
+          <li>Update the router firmware.</li>
+        </ol>
+        <div class="callout callout-tip" style="margin-top: 1.25rem; background: rgba(2, 132, 199, 0.08); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: var(--radius-sm);">
+          <p style="margin: 0; font-size: 0.98rem; line-height: 1.6;">
+            <strong>Fastest action:</strong> Connect the router’s <strong>Internet/WAN port</strong> to your modem, connect to the router’s default Wi‑Fi, and complete setup through the Nighthawk app.
+          </p>
+        </div>
+      </div>
+
+      <!-- Hero Product Photo (Real Lab Hardware) -->
+      <figure style="margin: 2rem 0 2.5rem; text-align: center;">
+        <img src="/images/routers/netgear-nighthawk-rax50-setup.webp" alt="Netgear Nighthawk AX6 RAX50 Wi-Fi 6 router hardware setup and front LED indicators" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Authentic Netgear Nighthawk AX6 (RAX50) Wi-Fi 6 router on test bench showing 4 high-gain antennas and front status LEDs.</figcaption>
+      </figure>
+
+      <!-- What You Need -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">What You Need</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">Before starting, make sure you have:</p>
+      <ul style="margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Nighthawk AX6 router</li>
+        <li>Power adapter</li>
+        <li>Ethernet cable</li>
+        <li>Active internet connection</li>
+        <li>Modem or internet gateway</li>
+        <li>Smartphone, tablet, or computer</li>
+        <li>Nighthawk app installed on your phone</li>
+        <li>Router label with default Wi‑Fi information</li>
+      </ul>
+
+      <!-- Quick Reference Table -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Quick Reference</h2>
+      <div class="table-responsive" style="margin-bottom: 2.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 35%;">Item</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Router type</strong></td>
+              <td>Nighthawk AX6 Wi‑Fi 6 router (Model RAX50 / AX5400)</td>
+            </tr>
+            <tr>
+              <td><strong>Setup method</strong></td>
+              <td>Nighthawk app or web browser</td>
+            </tr>
+            <tr>
+              <td><strong>Default login URL</strong></td>
+              <td><a href="http://routerlogin.net" target="_blank" rel="noopener">routerlogin.net</a></td>
+            </tr>
+            <tr>
+              <td><strong>Alternative IP</strong></td>
+              <td><a href="/ip/192-168-1-1/">192.168.1.1</a> (Fallback: <a href="/ip/192-168-0-1/">192.168.0.1</a>)</td>
+            </tr>
+            <tr>
+              <td><strong>Default Wi‑Fi name</strong></td>
+              <td>Printed on router label (e.g. NETGEAR-XX / NETGEAR-XX-5G)</td>
+            </tr>
+            <tr>
+              <td><strong>Default Wi‑Fi password</strong></td>
+              <td>Printed on router label</td>
+            </tr>
+            <tr>
+              <td><strong>Internet port</strong></td>
+              <td>Yellow WAN/Internet port</td>
+            </tr>
+            <tr>
+              <td><strong>LAN ports</strong></td>
+              <td>4x Gigabit Ethernet ports for wired devices</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Before You Start -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Before You Start</h2>
+
+      <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Check Your Internet Connection</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        Make sure your modem or internet gateway is active before setting up the Nighthawk AX6.
+      </p>
+      <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Confirm that your internet service is active.</li>
+        <li>Check that the modem’s internet light is stable.</li>
+        <li>Restart the modem if it has been offline.</li>
+        <li>Have your ISP account details ready if needed.</li>
+      </ul>
+
+      <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Find the Router Label</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        Turn the Nighthawk AX6 router over or check its bottom panel. The label usually includes:
+      </p>
+      <ul style="margin-bottom: 1.5rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Default Wi‑Fi network name (SSID)</li>
+        <li>Default Wi‑Fi password (Network Key)</li>
+        <li>Router login URL (<code>routerlogin.net</code>)</li>
+        <li>Serial number</li>
+        <li>MAC address</li>
+        <li>Router model number (RAX50)</li>
+      </ul>
+
+      <!-- Label Diagram Image -->
+      <figure style="margin: 2rem 0 2.5rem; text-align: center;">
+        <img src="/images/routers/netgear-nighthawk-rax50-label-credentials.webp" alt="Netgear Nighthawk AX6 RAX50 default Wi-Fi network name, password, and router login label reference" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Netgear Nighthawk AX6 (RAX50) underside label overview displaying default SSID, network key, and web administration login address.</figcaption>
+      </figure>
+
+      <!-- How to Set Up Nighthawk AX6 -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Set Up Nighthawk AX6</h2>
+
+      <!-- 4-Step Workflow Image -->
+      <figure style="margin: 1.5rem 0 2.5rem; text-align: center;">
+        <img src="/images/routers/netgear-nighthawk-rax50-installation-steps.webp" alt="Netgear Nighthawk AX6 RAX50 4-step quick installation workflow and connection guide" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Step-by-step Netgear Nighthawk AX6 setup milestone workflow from modem cabling to Wi-Fi activation.</figcaption>
+      </figure>
+
+      <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Step 1: Connect the Modem</h3>
+      <ol style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Unplug the modem from power.</li>
+        <li>Connect one end of the Ethernet cable to the modem’s Ethernet/LAN port.</li>
+        <li>Connect the other end to the <strong>Internet</strong> or <strong>WAN</strong> port on the Nighthawk AX6 router.</li>
+        <li>Plug the modem back into power.</li>
+        <li>Wait 2–3 minutes for the modem to restart.</li>
+      </ol>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+        The Internet/WAN port is usually yellow or clearly labeled on the back of the router.
+      </p>
+
+      <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Step 2: Power On the Router</h3>
+      <ol style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Connect the power adapter to the Nighthawk AX6 router.</li>
+        <li>Plug the adapter into a working wall outlet.</li>
+        <li>Turn on the router using the rear power switch.</li>
+        <li>Wait 2–3 minutes for the router to fully start.</li>
+        <li>Check that the power light is solid and the internet light is active.</li>
+      </ol>
+
+      <!-- Rear Ports Diagram Image -->
+      <figure style="margin: 2rem 0 2.5rem; text-align: center;">
+        <img src="/images/routers/netgear-nighthawk-rax50-rear-ports.webp" alt="Netgear Nighthawk AX6 RAX50 rear panel connection ports showing yellow WAN and Gigabit LAN ports" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">Hardware port mapping for the Netgear Nighthawk AX6 (RAX50): Yellow WAN port, 4 Gigabit LAN ports, USB 3.0, and Reset pinhole.</figcaption>
+      </figure>
+
+      <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Step 3: Connect to the Router</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        Connect your phone, tablet, or computer to the Nighthawk AX6 router’s default Wi‑Fi network.
+      </p>
+      <ol style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Open <strong>Wi‑Fi</strong> settings on your device.</li>
+        <li>Find the default Wi‑Fi name printed on the router label.</li>
+        <li>Select the network.</li>
+        <li>Enter the default Wi‑Fi password from the label.</li>
+        <li>Connect to the network.</li>
+      </ol>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+        You can also connect a computer directly to one of the router’s Ethernet LAN ports using an Ethernet cable.
+      </p>
+
+      <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Step 4: Open the Nighthawk App</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        The Nighthawk app is the easiest way to set up the router.
+      </p>
+      <ol style="margin-bottom: 1.5rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Download the <strong>Nighthawk</strong> app from the App Store or Google Play.</li>
+        <li>Open the app.</li>
+        <li>Tap <strong>Set Up a New Nighthawk Router</strong>.</li>
+        <li>Follow the on-screen instructions.</li>
+        <li>Allow the app to detect the router.</li>
+        <li>Create a new admin password.</li>
+        <li>Choose a new Wi‑Fi network name and password.</li>
+        <li>Save the settings.</li>
+      </ol>
+
+      <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Step 5: Set Up Through a Browser</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        If you prefer not to use the app, use a web browser.
+      </p>
+      <ol style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Connect to the Nighthawk AX6 router’s Wi‑Fi network.</li>
+        <li>Open Chrome, Edge, Safari, or Firefox.</li>
+        <li>Type <strong>routerlogin.net</strong> in the address bar.</li>
+        <li>Press Enter.</li>
+        <li>Follow the setup wizard.</li>
+        <li>Create a new admin password.</li>
+        <li>Set up your Wi‑Fi network name and password.</li>
+        <li>Save the settings.</li>
+      </ol>
+      <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">If <code>routerlogin.net</code> does not work, try:</p>
+      <pre style="background: var(--bg-card); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-family: monospace; font-size: 1rem; margin-bottom: 2rem;"><code>192.168.1.1</code></pre>
+
+      <!-- Create a Strong Wi‑Fi Password -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Create a Strong Wi‑Fi Password</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">Use a strong password to protect your home network.</p>
+      <ul style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Use at least 12 characters.</li>
+        <li>Include uppercase and lowercase letters.</li>
+        <li>Add numbers and symbols.</li>
+        <li>Avoid using your name, address, phone number, or common words.</li>
+        <li>Do not reuse an old password.</li>
+        <li>Keep the admin password different from the Wi‑Fi password.</li>
+      </ul>
+      <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Example of a strong password:</p>
+      <pre style="background: var(--bg-card); padding: 0.75rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-family: monospace; font-size: 1rem; margin-bottom: 2rem;"><code>BlueTiger#92River!</code></pre>
+
+      <!-- Update Router Firmware -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Update Router Firmware</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+        Firmware updates improve performance, security, and stability.
+      </p>
+
+      <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Update Through the Nighthawk App</h3>
+      <ol style="margin-bottom: 1.5rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Open the Nighthawk app.</li>
+        <li>Tap <strong>Settings</strong>.</li>
+        <li>Select <strong>Firmware Update</strong>.</li>
+        <li>Tap <strong>Check for Updates</strong>.</li>
+        <li>Install any available update.</li>
+        <li>Wait for the router to restart.</li>
+      </ol>
+
+      <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Update Through the Web Interface</h3>
+      <ol style="margin-bottom: 1.25rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Log in at <code>routerlogin.net</code>.</li>
+        <li>Go to <strong>Administration</strong>.</li>
+        <li>Select <strong>Firmware Update</strong>.</li>
+        <li>Click <strong>Check</strong>.</li>
+        <li>Install the update if available.</li>
+        <li>Wait for the router to restart.</li>
+      </ol>
+
+      <div class="callout callout-warning" style="margin: 1.5rem 0 2rem; background: rgba(234, 179, 8, 0.08); border-left: 4px solid var(--warning); padding: 1rem 1.25rem; border-radius: var(--radius-sm);">
+        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-primary);">
+          <strong>Warning:</strong> Do not unplug or power off the router during a firmware update. Disrupting power during an active flash update can corrupt router memory.
+        </p>
+      </div>
+
+      <!-- Connect Devices to Wi‑Fi -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Connect Devices to Wi‑Fi</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        After setup, connect your devices to the new Wi‑Fi network.
+      </p>
+      <ol style="margin-bottom: 1rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Open Wi‑Fi settings on your phone, computer, or smart device.</li>
+        <li>Select your new Wi‑Fi network name.</li>
+        <li>Enter the new Wi‑Fi password.</li>
+        <li>Connect.</li>
+      </ol>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+        For best performance, connect gaming consoles, smart TVs, and desktop computers using Ethernet when possible.
+      </p>
+
+      <!-- Best Router Placement -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Best Router Placement</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        Place the Nighthawk AX6 router in a central, open location.
+      </p>
+      <ul style="margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Keep it off the floor.</li>
+        <li>Avoid placing it inside a cabinet or closet.</li>
+        <li>Keep it away from thick walls and metal objects.</li>
+        <li>Do not place it near microwaves, cordless phones, or Bluetooth devices.</li>
+        <li>Keep it away from large appliances and aquariums.</li>
+        <li>Position it centrally between the rooms where you use Wi‑Fi most.</li>
+      </ul>
+
+      <!-- Troubleshooting -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1.25rem;">Troubleshooting</h2>
+
+      <div class="card" style="margin-bottom: 1.25rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card);">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Cannot Access routerlogin.net</h3>
+        <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Cause:</strong> Browser cache, incorrect address, or connection issue.</p>
+        <p style="margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Fix:</strong> Make sure you are connected to the Nighthawk router. Try <code>192.168.1.1</code> instead, or use a different browser.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.25rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card);">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">No Internet After Setup</h3>
+        <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Cause:</strong> Loose cable, modem issue, or incorrect WAN connection.</p>
+        <p style="margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Fix:</strong> Confirm that the modem is connected to the router’s <strong>Internet/WAN</strong> port. Restart both the modem and router.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.25rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card);">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Cannot Find Default Wi‑Fi Network</h3>
+        <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Cause:</strong> The router may still be starting or the label information may be incorrect.</p>
+        <p style="margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Fix:</strong> Restart the router and check the label again. Look for a network name that includes “NETGEAR” or the router model.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.25rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card);">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Wi‑Fi Is Slow</h3>
+        <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Cause:</strong> Distance, interference, or router placement.</p>
+        <p style="margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Fix:</strong> Move the router to a central location, reduce interference, and connect high-bandwidth devices using Ethernet.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 1.25rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card);">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Cannot Log In After Setup</h3>
+        <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Cause:</strong> The admin password may have been changed.</p>
+        <p style="margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Fix:</strong> Use the password you created during setup. If forgotten, reset the router to factory settings.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 2rem; padding: 1.25rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); background: var(--bg-card);">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Router Keeps Restarting</h3>
+        <p style="margin-bottom: 0.5rem; font-size: 0.95rem;"><strong>Cause:</strong> Power issue, overheating, or hardware problem.</p>
+        <p style="margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Fix:</strong> Plug the router directly into a wall outlet, ensure ventilation, and check the power adapter.</p>
+      </div>
+
+      <!-- Factory Reset -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Factory Reset</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        Only reset the router if other troubleshooting steps fail.
+      </p>
+      <ol style="margin-bottom: 1.25rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Locate the <strong>Reset</strong> button on the router.</li>
+        <li>Keep the router powered on.</li>
+        <li>Press and hold the Reset button for about 10 seconds.</li>
+        <li>Release the button when the router restarts.</li>
+        <li>Wait several minutes for the router to reboot.</li>
+        <li>Reconnect using the default Wi‑Fi information on the label.</li>
+        <li>Set up the router again.</li>
+      </ol>
+      <div class="callout callout-warning" style="margin: 1.5rem 0 2rem; background: rgba(239, 68, 68, 0.08); border-left: 4px solid var(--danger); padding: 1rem 1.25rem; border-radius: var(--radius-sm);">
+        <p style="margin: 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-primary);">
+          <strong>Warning:</strong> A factory reset removes your custom Wi‑Fi name, password, admin password, and other settings.
+        </p>
+      </div>
+
+      <!-- Security Tips -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Security Tips</h2>
+      <ul style="margin-bottom: 2rem; padding-left: 1.5rem; line-height: 1.8;">
+        <li>Change the default admin password.</li>
+        <li>Use a strong Wi‑Fi password.</li>
+        <li>Enable WPA2 or WPA3 security.</li>
+        <li>Keep firmware updated.</li>
+        <li>Disable remote management if you do not need it.</li>
+        <li>Review connected devices regularly.</li>
+        <li>Use a guest network for visitors.</li>
+        <li>Avoid sharing your Wi‑Fi password publicly.</li>
+      </ul>
+
+      <!-- Bottom Line -->
+      <div class="bottom-line-callout" style="margin: 2.5rem 0 2rem; background: var(--bg-card); border-left: 4px solid var(--accent); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); border-left-width: 4px;">
+        <h2 style="font-size: 1.3rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Bottom Line</h2>
+        <p style="font-size: 1.02rem; line-height: 1.65; margin-bottom: 1rem; color: var(--text-secondary);">
+          Setting up a Nighthawk AX6 router is simple: connect the modem to the router’s Internet/WAN port, connect to the router’s default Wi‑Fi, and complete setup through the Nighthawk app or <code>routerlogin.net</code>.
+        </p>
+        <p style="font-size: 0.98rem; line-height: 1.6; margin-bottom: 0; color: var(--text-primary);">
+          <strong>Fastest fix:</strong> Use the Nighthawk app for the easiest setup. If the app does not work, connect to the router’s default Wi‑Fi and open <code>routerlogin.net</code> in a browser.
+        </p>
+      </div>
+
+      <!-- Official LED Indicators Table -->
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Nighthawk AX6 LED Indicator Status Reference</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+        The front LED panel indicates the operational health of your router, internet uplink, wireless radios, and local Ethernet links:
+      </p>
+      <div class="table-responsive" style="margin-bottom: 2.5rem;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>LED Name</th>
+              <th>Normal Status</th>
+              <th>Error State</th>
+              <th>Technical Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            {led_rows}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Hardware Details Card -->
+      <div class="card" style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-md); background: var(--bg-card);">
+        <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem;">Hardware Specifications</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.95rem;">
+          <div><strong>Model:</strong> Nighthawk AX6 (RAX50)</div>
+          <div><strong>Wi-Fi Standard:</strong> Wi-Fi 6 (802.11ax AX5400)</div>
+          <div><strong>Ethernet Ports:</strong> 1x GbE WAN, 4x GbE LAN</div>
+          <div><strong>USB Storage:</strong> 1x USB 3.0 ReadySHARE</div>
+          <div><strong>Default IP:</strong> 192.168.1.1</div>
+          <div><strong>Fallback Subnet:</strong> 192.168.0.1</div>
+          <div><strong>Companion App:</strong> Netgear Nighthawk App</div>
+          <div><strong>Official Manual:</strong> <a href="{m.get('official_manual_url', 'https://www.netgear.com/support/product/RAX50.aspx')}" target="_blank" rel="noopener">Netgear RAX50 Docs</a></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
 def generate_router_model_pages():
     print(f"Generating {len(ROUTER_MODELS)} router model pages...")
     for m in ROUTER_MODELS:
@@ -2773,6 +3325,10 @@ def generate_router_model_pages():
         elif slug == "pldt":
             with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_pldt_page(m))
+            continue
+        elif slug == "netgear-nighthawk-rax50":
+            with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_netgear_nighthawk_rax50_page(m))
             continue
 
         canonical = f"https://routeriphub.com/routers/{slug}/"
