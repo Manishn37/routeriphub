@@ -14927,6 +14927,619 @@ def generate_custom_192_168_1_254_page():
     return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
 
+def generate_custom_192_168_1_2_page():
+    canonical = "https://routeriphub.com/ip/192-168-1-2/"
+    title = "192.168.1.2: Router Login, Default Admin Credentials & Gateway Setup"
+    desc = "192.168.1.2 is usually not your main router, but a secondary router, access point, range extender, or LAN device. Find your real gateway, identify devices, log in, and fix IP conflicts."
+    
+    breadcrumbs = [
+        ("Home", "/"),
+        ("IP Directory", "/ip/"),
+        ("192.168.1.2", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": title,
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to 192.168.1.2 Secondary Router or Device",
+        "description": "Step-by-step instructions to find your gateway, access 192.168.1.2, identify connected hardware, configure secondary access points, and resolve IP conflicts.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to Local Network",
+                "text": "Connect to your network by Wi-Fi or Ethernet. Turn off mobile data and disconnect any active VPN."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Enter 192.168.1.2 in Browser Address Bar",
+                "text": "Type http://192.168.1.2 into the browser address bar, not the search bar. Press Enter."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Inspect the Loading Page",
+                "text": "Look at what loads. The login page will identify whether 192.168.1.2 belongs to a secondary router, extender, printer, or NAS."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Sign In with Device Credentials",
+                "text": "Sign in with the username and password printed on the specific hardware device's specification label."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Configure Settings or DHCP Reservation",
+                "text": "Configure access point settings or set a static DHCP reservation in your primary router so the IP never shifts."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is 192.168.1.2?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is a private IPv4 address, usually assigned to a device on a 192.168.1.x network. Occasionally it is a router's own address."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it my router's IP?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Usually not. Check your default gateway to be sure. Most main routers sit at 192.168.1.1."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I open it from outside my home?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. It is private. Avoid exposing admin pages to the internet."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it safe?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, from inside your own network. The risk comes from default passwords and outdated firmware."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if I forgot the password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Check the label and any setup sheet. If those fail, factory reset that device."
+                }
+            }
+        ]
+    }
+
+    byline_html = get_byline_html()
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="post-layout">
+      <!-- Main Content Column -->
+      <article class="post-main-content">
+        <header class="post-header">
+          <div class="post-meta-top" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem;">
+            <span class="badge" style="background: rgba(2, 132, 199, 0.12); color: var(--accent); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.65rem; border-radius: 4px;">Local Subnet Host &amp; AP IP</span>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">&bull; 10–15 Min Setup</span>
+          </div>
+          <h1 class="post-title" style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.75rem;">192.168.1.2: Router Login, Default Admin Credentials &amp; Gateway Setup</h1>
+          {byline_html}
+        </header>
+
+        <figure style="margin: 1.5rem 0 2rem 0;">
+          <img src="/images/ip/192-168-1-2-secondary-router-ap-setup.webp" alt="Secondary router and access point connected via Ethernet cable to primary gateway on wooden desk for 192.168.1.2 setup" width="1200" height="675" loading="eager" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+          <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Secondary wireless router connected via Ethernet to a primary gateway on a desk for dual-router or access point configuration at 192.168.1.2.</figcaption>
+        </figure>
+
+        <div class="lead-text" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 2rem;">
+          <strong>192.168.1.2 is usually not your main router.</strong> On most home networks the router sits at 192.168.1.1, and 192.168.1.2 is the first address it hands out to a device. That device might be a second router, a mesh node, an access point, a range extender, a printer, a camera, or a NAS. A few routers and modems do ship with 192.168.1.2 as their own admin address, but this is the exception.
+        </div>
+
+        <!-- Quick Answer -->
+        <section id="quick-answer" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Quick Answer</h2>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Connect to the network by Wi-Fi or Ethernet. Turn off mobile data and any VPN.</li>
+            <li>Type <code>192.168.1.2</code> into the <strong>address bar</strong>, not the search bar.</li>
+            <li>Look at what loads. A login page shows which device owns the address.</li>
+            <li>If nothing loads, find your real gateway IP before trying anything else.</li>
+          </ol>
+          <div style="background: rgba(2, 132, 199, 0.08); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Fastest action:</strong> Check your device's default gateway first. If your primary gateway is <code>192.168.1.1</code>, open that address to inspect your DHCP client list and identify exactly what hardware is assigned to <code>192.168.1.2</code>.
+          </div>
+        </section>
+
+        <!-- Quick Reference -->
+        <section id="quick-reference" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Quick Reference</h2>
+          <div style="overflow-x: auto; margin: 1.25rem 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--bg-secondary); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Item</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Login URL</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>http://192.168.1.2</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">What it usually is</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">A secondary router, extender, access point, or any LAN device</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">What it sometimes is</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">The main gateway on certain routers or modems</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Common username</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Common password</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code>, <code>password</code>, or blank (check the label)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Alternatives for the main router</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">
+                    <a href="/ip/192-168-1-1/">192.168.1.1</a>, 
+                    <a href="/ip/192-168-0-1/">192.168.0.1</a>, 
+                    <a href="/ip/192-168-1-254/">192.168.1.254</a>, 
+                    <a href="/ip/10-0-0-1/">10.0.0.1</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Diagnostic Table -->
+        <section id="diagnostic-table" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Diagnostic Table</h2>
+          <div style="overflow-x: auto; margin: 1.25rem 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--bg-secondary); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Symptom</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Likely cause</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Quick fix</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Page will not load</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">No device uses this address, or you are on another network</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Check your gateway IP and connected-device list</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">A camera, printer, or NAS page opens</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">A device holds this address by DHCP</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Use that device's login, and find the router elsewhere</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">A login page appears for a second router or extender</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">This is its LAN IP</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Use the credentials on that device's label</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Page opens, but the wrong device</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Address changed after a restart</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Reserve a fixed IP for that device</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Login fails</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Changed or wrong password</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Check the label, then reset as a last resort</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Times out only on Wi-Fi</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Wi-Fi client isolation or the wrong band</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Try Ethernet or the other Wi-Fi band</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- What Is 192.168.1.2? -->
+        <section id="what-is-192-168-1-2" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">What Is 192.168.1.2?</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            It is a private IPv4 address in the <code>192.168.1.x</code> range. Routers hand out addresses in this range automatically through DHCP (Dynamic Host Configuration Protocol), and the lowest numerical host addresses in the DHCP pool are often given out first.
+          </p>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            That is why the same address can belong to completely different devices on different home networks, or even to different devices on one network after a reboot. Think of it as a house number on your street: the number is fixed, but who lives there can change.
+          </p>
+        </section>
+
+        <!-- Find Your Real Gateway -->
+        <section id="find-real-gateway" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Find Your Real Gateway</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            Before trying to configure 192.168.1.2, verify the true default gateway address of your active network connection:
+          </p>
+          <ul style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><strong>Windows:</strong> Open Command Prompt, run <code>ipconfig</code>, and read <strong>Default Gateway</strong>.</li>
+            <li><strong>Mac:</strong> Go to <em>System Settings &gt; Wi-Fi &gt; Details &gt; TCP/IP</em> and read <strong>Router</strong>.</li>
+            <li><strong>iPhone / iPad:</strong> Go to <em>Settings &gt; Wi-Fi</em>, tap the <strong>(i)</strong> info icon next to your network, and read <strong>Router</strong>.</li>
+            <li><strong>Android:</strong> Go to <em>Settings &gt; Network &amp; internet &gt; Wi-Fi</em>, tap your network gear icon, expand <strong>Advanced</strong>, and read <strong>Gateway</strong>.</li>
+          </ul>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            If the gateway is <a href="/ip/192-168-1-1/">192.168.1.1</a>, that is your primary main router. In that case, 192.168.1.2 belongs to another connected device on your network, and it is worth finding out which one.
+          </p>
+        </section>
+
+        <!-- Find Out Who Owns 192.168.1.2 -->
+        <section id="who-owns-ip" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Find Out Who Owns 192.168.1.2</h2>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Log in to your main router, usually at <a href="/ip/192-168-1-1/">192.168.1.1</a>.</li>
+            <li>Open <strong>Connected Devices</strong>, <strong>DHCP Clients</strong>, or <strong>Device List</strong>.</li>
+            <li>Look for <code>192.168.1.2</code> and read its device name and MAC address.</li>
+            <li>Decide whether it is something you recognize.</li>
+          </ol>
+
+          <figure style="margin: 1.5rem 0 2rem 0;">
+            <img src="/images/ip/192-168-1-2-router-admin-dashboard-dhcp-clients.webp" alt="Router admin web GUI displaying DHCP client table and connected device list with 192.168.1.2 IP allocation" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Primary router DHCP client table showing connected devices, MAC addresses, and leased host IPs including 192.168.1.2.</figcaption>
+          </figure>
+
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            You can also run <code>arp -a</code> in Windows Command Prompt or macOS/Linux Terminal and look for the <code>192.168.1.2</code> entry to inspect its physical MAC address. If you do not recognize the device, change your Wi-Fi password and review unauthorized connections.
+          </p>
+        </section>
+
+        <!-- How to Log In -->
+        <section id="how-to-login" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">How to Log In</h2>
+
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">Windows or Mac</h3>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Connect by Wi-Fi or Ethernet.</li>
+            <li>Open any browser (Chrome, Edge, Safari, Firefox).</li>
+            <li>Enter <code>http://192.168.1.2</code> in the address bar.</li>
+            <li>Sign in with the device's credentials.</li>
+          </ol>
+
+          <figure style="margin: 1.5rem 0 2rem 0;">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" alt="Browser address bar versus search bar comparison when typing 192.168.1.2" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Always type 192.168.1.2 into the browser address bar at the top, not into the Google or Bing search box.</figcaption>
+          </figure>
+
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">iPhone &amp; iPad</h3>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Open <em>Settings &gt; Wi-Fi</em> and join the local network.</li>
+            <li>Open Safari and enter <code>192.168.1.2</code> into the address bar.</li>
+            <li>Sign in with the admin credentials.</li>
+          </ol>
+
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem;">Android</h3>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Open <em>Settings &gt; Wi-Fi</em> and join the local network.</li>
+            <li>Open Chrome and enter <code>192.168.1.2</code> into the address bar.</li>
+            <li>Sign in with the admin credentials.</li>
+          </ol>
+
+          <div style="background: rgba(2, 132, 199, 0.08); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Extender &amp; AP Note:</strong> If the login page belongs to a second router or extender, you must be connected to the network it serves. Some extenders also broadcast their own dedicated temporary setup network (e.g., <em>NETGEAR_EXT</em> or <em>TP-Link_Extender</em>), so join that network first if you cannot reach 192.168.1.2.
+          </div>
+        </section>
+
+        <!-- Default Credentials -->
+        <section id="default-credentials" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Default Credentials</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            Check the physical label on the device first. These are common manufacturer defaults, not guarantees:
+          </p>
+
+          <figure style="margin: 1.5rem 0 2rem 0;">
+            <img src="/images/ip/192-168-1-2-device-label-default-password.webp" alt="Hardware specification label sticker on secondary router showing default IP 192.168.1.2, default credentials, and serial number" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Device underside sticker showing default admin credentials, MAC address, and hardware model number.</figcaption>
+          </figure>
+
+          <div style="overflow-x: auto; margin: 1.25rem 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--bg-secondary); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Device type</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Username</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Password</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Routers and modems that use this IP</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code>, <code>password</code>, or blank</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Range extenders and access points</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code>, or none until you set one</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">IP cameras</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Often set during first-time setup</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Network printers</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Often none</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Varies, usually set by the owner</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">NAS devices</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Set during initial installation setup</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-top: 1rem;">
+            Newer devices often force you to create a secure password on first use. Always replace any factory default password with a unique, strong passphrase.
+          </p>
+        </section>
+
+        <!-- Gateway Setup Basics -->
+        <section id="gateway-setup" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Gateway Setup Basics</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            If 192.168.1.2 is a secondary router, repeater, or access point you control, follow these setup steps:
+          </p>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Plug it in and wait a few minutes for it to boot up completely.</li>
+            <li>Connect to its network via Ethernet or default Wi-Fi, then open <code>http://192.168.1.2</code>.</li>
+            <li>Complete the initial configuration setup wizard.</li>
+            <li>Set a new admin password and Wi-Fi network name (SSID) and passphrase.</li>
+            <li>Check for and apply the latest firmware updates.</li>
+          </ol>
+
+          <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem;">Using it as a second router</h3>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Connect it to the main router with a high-grade Cat6 Ethernet cable.</li>
+            <li>Use the main router's <strong>LAN port</strong>. Plugging into the second router's <strong>WAN port</strong> runs it as a separate subnet network, which can cause <strong>Double NAT</strong> issues for online gaming and port forwarding.</li>
+            <li>For a simple, seamless access point, plug into a <strong>LAN port</strong> on the second router and <strong>turn off its DHCP server</strong>.</li>
+            <li>Give it a fixed static IP address outside the main router's dynamic DHCP allocation range (for example, if the primary router hands out 192.168.1.100–192.168.1.250, assign 192.168.1.2 statically).</li>
+          </ol>
+        </section>
+
+        <!-- Change Wi-Fi Name and Password -->
+        <section id="change-wifi" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Change Wi-Fi Name and Password</h2>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Log in at <code>http://192.168.1.2</code> using your web browser.</li>
+            <li>Open <strong>Wireless</strong> or <strong>Wi-Fi Settings</strong> from the navigation menu.</li>
+            <li>Select the 2.4 GHz or 5 GHz band (or unified Smart Connect SSID).</li>
+            <li>Enter your preferred new Wi-Fi name (SSID) and strong password.</li>
+            <li>Choose <strong>WPA2-PSK (AES)</strong> or <strong>WPA3-Personal</strong> encryption, then click <strong>Save / Apply</strong>.</li>
+            <li>Reconnect all your phones, tablets, and smart home devices to the new network credentials.</li>
+          </ol>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Troubleshooting</h2>
+
+          <div style="margin-bottom: 1.5rem; background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; border-left: 4px solid var(--accent);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem 0;">1. 192.168.1.2 will not load</h3>
+            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); line-height: 1.6;"><strong>Cause:</strong> No device currently has this address, or you are on a different network subnet.</p>
+            <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;"><strong>Fix:</strong> Check your primary router's connected device list, confirm your gateway IP via <code>ipconfig</code>, and disconnect any active VPN or proxy.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem; background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem 0;">2. A different device appears</h3>
+            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); line-height: 1.6;"><strong>Cause:</strong> The main router's DHCP server assigned the 192.168.1.2 address to another device (printer, TV, or phone) following a reboot.</p>
+            <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;"><strong>Fix:</strong> Identify the device from your router's DHCP table by its MAC address, and configure a static DHCP IP reservation so its address never changes.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem; background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; border-left: 4px solid #ef4444;">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem 0;">3. IP conflict</h3>
+            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); line-height: 1.6;"><strong>Cause:</strong> Two devices are attempting to use 192.168.1.2 simultaneously, often when a second router has a hardcoded static IP while the primary router leases that same address to another host.</p>
+            <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;"><strong>Fix:</strong> Change one device's IP address, and always assign static IP configurations outside the active DHCP leasing range.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem; background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; border-left: 4px solid var(--accent);">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem 0;">4. Extender or second router unreachable</h3>
+            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); line-height: 1.6;"><strong>Cause:</strong> The secondary unit may be booted in unconfigured setup mode, on an isolated VLAN, or using a fallback address.</p>
+            <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;"><strong>Fix:</strong> Connect your computer directly to the unit using an Ethernet patch cable, or join its dedicated setup Wi-Fi network, then retry navigating to <code>http://192.168.1.2</code>.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem; background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem 0;">5. Password not accepted</h3>
+            <p style="margin: 0 0 0.5rem 0; color: var(--text-secondary); line-height: 1.6;"><strong>Cause:</strong> The default administrator password was customized previously or entered incorrectly.</p>
+            <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;"><strong>Fix:</strong> Double-check the device label sticker for a custom serial or access key. If credentials remain unrecoverable, perform a hardware factory reset.</p>
+          </div>
+        </section>
+
+        <!-- Factory Reset -->
+        <section id="factory-reset" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Factory Reset</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            Use this recovery procedure only when you cannot regain access to a secondary hardware unit you own:
+          </p>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Ensure the device is powered ON.</li>
+            <li>Locate the recessed <strong>Reset</strong> pinhole button on the rear or bottom casing.</li>
+            <li>Press and hold the button for <strong>10 to 15 seconds</strong> using a straightened paperclip or SIM ejector tool.</li>
+            <li>Release the button and wait 2 to 3 minutes for all status LEDs to cycle and stabilize.</li>
+            <li>Log in using the factory default credentials printed on the hardware label and reconfigure the unit.</li>
+          </ol>
+
+          <figure style="margin: 1.5rem 0 2rem 0;">
+            <img src="/images/ip/192-168-1-2-factory-reset-button-pinhole.webp" alt="Close-up macro photo of a hand using a paperclip to press the recessed factory reset button on a secondary router" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Pressing the recessed Reset button for 10-15 seconds using a straightened paperclip restores factory defaults.</figcaption>
+          </figure>
+
+          <div style="background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Warning:</strong> A reset completely erases all custom Wi-Fi network names, passwords, DHCP reservations, and port forwarding rules. On a primary router, it can also erase broadband ISP PPPoE credentials. <em>Do not reset your main router just to regain access to a secondary device.</em>
+          </div>
+        </section>
+
+        <!-- Common Misspellings -->
+        <section id="common-misspellings" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Common Misspellings</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            If you experience DNS search errors or browser search redirection, verify that you haven't entered one of these common syntax typos:
+          </p>
+          <ul style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><code>192.168.1.2.1</code> &mdash; An invalid five-octet address string.</li>
+            <li><code>192.168.l.2</code> &mdash; Replaces the number <code>1</code> with a lowercase letter <code>l</code>.</li>
+            <li><code>192.168.01.2</code> &mdash; Includes an extraneous leading zero rejected by browsers.</li>
+            <li><code>192.168.2.1</code> &mdash; A completely separate Class C subnet gateway (<a href="/ip/192-168-2-1/">192.168.2.1 guide</a>).</li>
+            <li><code>192.168.1.20</code> or <code>192.168.1.22</code> &mdash; Host addresses assigned to different client devices.</li>
+          </ul>
+        </section>
+
+        <!-- FAQs -->
+        <section id="faqs" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Frequently Asked Questions</h2>
+          <div class="faq-list" style="display: flex; flex-direction: column; gap: 1rem;">
+            <div class="faq-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--text-primary);">What is 192.168.1.2?</h3>
+              <p style="margin: 0; line-height: 1.6; color: var(--text-secondary);">It is a private IPv4 address, usually assigned to a device on a 192.168.1.x network. Occasionally it is a router's own address.</p>
+            </div>
+            <div class="faq-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--text-primary);">Is it my router's IP?</h3>
+              <p style="margin: 0; line-height: 1.6; color: var(--text-secondary);">Usually not. Check your default gateway to be sure. Most main routers sit at 192.168.1.1.</p>
+            </div>
+            <div class="faq-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--text-primary);">Can I open it from outside my home?</h3>
+              <p style="margin: 0; line-height: 1.6; color: var(--text-secondary);">No. It is private. Avoid exposing admin pages to the internet.</p>
+            </div>
+            <div class="faq-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--text-primary);">Is it safe?</h3>
+              <p style="margin: 0; line-height: 1.6; color: var(--text-secondary);">Yes, from inside your own network. The risk comes from default passwords and outdated firmware.</p>
+            </div>
+            <div class="faq-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--text-primary);">What if I forgot the password?</h3>
+              <p style="margin: 0; line-height: 1.6; color: var(--text-secondary);">Check the label and any setup sheet. If those fail, factory reset that device.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bottom Line -->
+        <section id="bottom-line" style="margin-bottom: 2.5rem; background: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
+          <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem;">Bottom Line</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            <strong>192.168.1.2 is a private address that most often belongs to a secondary device, not your main router.</strong> Check your default gateway first, then use your router's device list to see who holds 192.168.1.2. If it is a device you own, log in with the credentials on its label.
+          </p>
+          <div style="background: var(--bg-primary); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 6px 6px 0;">
+            <strong>Fastest diagnostic step:</strong> Run <code>ipconfig</code> on Windows, or check Wi-Fi details on your phone. If the <strong>Default Gateway</strong> is <code>192.168.1.1</code>, open that address and look up 192.168.1.2 in the connected-device list.
+          </div>
+        </section>
+      </article>
+
+      <!-- Sidebar Column -->
+      <aside class="post-sidebar">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Quick Navigation</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="#quick-answer" style="color: var(--text-secondary); text-decoration: none;">&rarr; Quick Answer</a></li>
+            <li><a href="#quick-reference" style="color: var(--text-secondary); text-decoration: none;">&rarr; Quick Reference</a></li>
+            <li><a href="#diagnostic-table" style="color: var(--text-secondary); text-decoration: none;">&rarr; Diagnostic Table</a></li>
+            <li><a href="#what-is-192-168-1-2" style="color: var(--text-secondary); text-decoration: none;">&rarr; What Is 192.168.1.2?</a></li>
+            <li><a href="#find-real-gateway" style="color: var(--text-secondary); text-decoration: none;">&rarr; Find Real Gateway</a></li>
+            <li><a href="#who-owns-ip" style="color: var(--text-secondary); text-decoration: none;">&rarr; Find Out Who Owns IP</a></li>
+            <li><a href="#how-to-login" style="color: var(--text-secondary); text-decoration: none;">&rarr; How to Log In</a></li>
+            <li><a href="#default-credentials" style="color: var(--text-secondary); text-decoration: none;">&rarr; Default Credentials</a></li>
+            <li><a href="#gateway-setup" style="color: var(--text-secondary); text-decoration: none;">&rarr; Gateway Setup Basics</a></li>
+            <li><a href="#change-wifi" style="color: var(--text-secondary); text-decoration: none;">&rarr; Change Wi-Fi Password</a></li>
+            <li><a href="#troubleshooting" style="color: var(--text-secondary); text-decoration: none;">&rarr; Troubleshooting</a></li>
+            <li><a href="#factory-reset" style="color: var(--text-secondary); text-decoration: none;">&rarr; Factory Reset Guide</a></li>
+            <li><a href="#faqs" style="color: var(--text-secondary); text-decoration: none;">&rarr; Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Subnet &amp; Gateway Details</h3>
+          <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Primary Gateway:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;"><a href="/ip/192-168-1-1/">192.168.1.1</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">First Leased Host:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.2</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Subnet Mask:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">255.255.255.0</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Subnet CIDR:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.0/24</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Username:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Password:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin / label</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related Gateway Hubs</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/ip/192-168-1-1/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.1.1 (Standard Gateway)</a></li>
+            <li><a href="/ip/192-168-0-1/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.0.1 (Alt Gateway)</a></li>
+            <li><a href="/ip/192-168-1-254/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.1.254 (Fiber / Gateway)</a></li>
+            <li><a href="/ip/10-0-0-1/" style="color: var(--accent); font-weight: 600;">&rarr; 10.0.0.1 (Xfinity Gateway)</a></li>
+            <li><a href="/ip/192-168-1-250/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.1.250 (Netgear Extender)</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related Network Guides</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.7;">
+            <li style="margin-bottom: 0.5rem;"><a href="/howto/access-my-router-settings-page/" style="color: var(--text-secondary); text-decoration: none;">&rarr; Access Router Settings Page</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="/howto/change-wifi-password/" style="color: var(--text-secondary); text-decoration: none;">&rarr; Change Wi-Fi Password</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="/howto/30-second-hard-factory-reset/" style="color: var(--text-secondary); text-decoration: none;">&rarr; 30-Second Hard Factory Reset</a></li>
+            <li style="margin-bottom: 0.5rem;"><a href="/howto/why-is-192-168-1-1-not-working/" style="color: var(--text-secondary); text-decoration: none;">&rarr; Why 192.168.1.1 Fails to Open</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem;">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested with secondary access points, dual-router cascaded setups, and Wi-Fi range extenders under controlled network lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+"""
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
+
 def generate_ip_pages():
     print(f"Generating {len(IP_GATEWAYS)} private gateway IP pages (Intent-First Technical SEO Pattern)...")
     for ip_item in IP_GATEWAYS:
@@ -14935,7 +15548,11 @@ def generate_ip_pages():
         ip_dir = os.path.join(PUBLIC_DIR, "ip", slug)
         make_dirs(ip_dir)
 
-        if ip == "192.168.1.254":
+        if ip == "192.168.1.2":
+            with open(os.path.join(ip_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_192_168_1_2_page())
+            continue
+        elif ip == "192.168.1.254":
             with open(os.path.join(ip_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_192_168_1_254_page())
             continue
