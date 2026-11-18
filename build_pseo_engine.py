@@ -632,7 +632,14 @@ def _sanitize_schema_node(node):
 
 # Common Header & Nav
 def get_header(title, description, canonical_url, active_nav="", breadcrumbs=None, schemas_json_ld=None, include_tools=False, og_image=None, og_image_alt=None, og_type="website"):
-    b_items = breadcrumbs or [("Home", "/")]
+    normalized_b_items = []
+    if breadcrumbs:
+        for item in breadcrumbs:
+            if isinstance(item, dict):
+                normalized_b_items.append((item.get("name", ""), item.get("url", "")))
+            elif isinstance(item, (list, tuple)) and len(item) >= 2:
+                normalized_b_items.append((item[0], item[1]))
+    b_items = normalized_b_items if normalized_b_items else [("Home", "/")]
     og_img_url = og_image or "https://routeriphub.com/og-image.png"
     og_img_alt = og_image_alt or "RouterIPHub - The Definitive Default Router IP & Gateway Reference"
     og_img_type = "image/webp" if og_img_url.lower().endswith(".webp") else "image/png"
@@ -11107,9 +11114,9 @@ def generate_custom_10_10_10_1_page():
     desc = "Can’t open 10.10.10.1? Learn how to log in to your router or gateway, fix 10.10.10.1 not loading, find default credentials, update Wi-Fi, and reset."
     
     breadcrumbs = [
-        {"name": "Home", "url": "https://routeriphub.com/"},
-        {"name": "IP Directory", "url": "https://routeriphub.com/ip/"},
-        {"name": "10.10.10.1", "url": canonical}
+        ("Home", "/"),
+        ("IP Directory", "/ip/"),
+        ("10.10.10.1", canonical)
     ]
 
     tech_schema = {
@@ -11690,9 +11697,9 @@ def generate_custom_10_0_0_1_page():
     desc = "10.0.0.1 is the default gateway for Xfinity, Cisco, and Arris gateways. Log in to your router admin page, configure Wi-Fi, enable bridge mode, and fix connection errors."
     
     breadcrumbs = [
-        {"name": "Home", "url": "https://routeriphub.com/"},
-        {"name": "IP Directory", "url": "https://routeriphub.com/ip/"},
-        {"name": "10.0.0.1", "url": canonical}
+        ("Home", "/"),
+        ("IP Directory", "/ip/"),
+        ("10.0.0.1", canonical)
     ]
 
     tech_schema = {
@@ -12920,9 +12927,9 @@ def generate_custom_192_168_1_1_page():
     desc = "192.168.1.1 is the default gateway for TP-Link, Netgear, Linksys, ASUS, and D-Link routers. Step-by-step login instructions, default passwords, Wi-Fi setup, and troubleshooting."
     
     breadcrumbs = [
-        {"name": "Home", "url": "https://routeriphub.com/"},
-        {"name": "IP Directory", "url": "https://routeriphub.com/ip/"},
-        {"name": "192.168.1.1", "url": canonical}
+        ("Home", "/"),
+        ("IP Directory", "/ip/"),
+        ("192.168.1.1", canonical)
     ]
 
     tech_schema = {
@@ -13620,9 +13627,9 @@ def generate_custom_192_168_0_1_page():
     desc = "192.168.0.1 is the default gateway for D-Link, TP-Link, Netgear, and Tenda routers. Access admin login, default passwords, Wi-Fi settings, and troubleshoot connection errors."
     
     breadcrumbs = [
-        {"name": "Home", "url": "https://routeriphub.com/"},
-        {"name": "IP Directory", "url": "https://routeriphub.com/ip/"},
-        {"name": "192.168.0.1", "url": canonical}
+        ("Home", "/"),
+        ("IP Directory", "/ip/"),
+        ("192.168.0.1", canonical)
     ]
 
     tech_schema = {
