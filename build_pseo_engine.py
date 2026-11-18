@@ -21826,6 +21826,619 @@ def generate_anime_vanguards_page():
     print("  -> Generated /gaming/anime-vanguards-codes/index.html")
 
 
+
+# =============================================================================
+# ROBLOX RIVALS CODES GUIDE (/gaming/roblox-rivals-codes/)
+# =============================================================================
+def generate_roblox_rivals_page():
+    print("Generating Roblox RIVALS Codes Guide (/gaming/roblox-rivals-codes/)...")
+    rivals_dir = os.path.join(PUBLIC_DIR, "gaming", "roblox-rivals-codes")
+    make_dirs(rivals_dir)
+
+    canonical = "https://routeriphub.com/gaming/roblox-rivals-codes/"
+    title = "Roblox RIVALS Codes (November 2026) – All Active Freebies"
+    desc = "Get all active Roblox RIVALS codes for November 2026. Claim free Keys, Community Wraps, and RIA26 Charm. 1-click copy, verification guide & FAQ."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Gaming", "/gaming/"),
+        ("Roblox RIVALS Codes", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": "Roblox RIVALS Codes (November 2026) – All Active Freebies",
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-11-18T00:00:00+00:00",
+        "dateModified": f"{TODAY}T05:55:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "publisher": ORG_PUBLISHER
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What Is the Latest Reported RIVALS Key Code?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "FREE206 is listed as active and rewards 3 Keys. Other confirmed working Key codes include BONUS, BOOST, and roblox_rtc (which awards 5 Keys)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which RIVALS Code Gives a Free Weapon Wrap?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "COMMUNITY27 is reported to award 1 exclusive Community Wrap for your weapon arsenal."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where Do I Enter RIVALS Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Open Shop at the bottom of the screen, select Rewards in the top-right corner, complete the one-time account verification if prompted, enter your code, and click Redeem."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What Does the Code BACK2BACK Give in RIVALS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "BACK2BACK grants the exclusive RIA26 Best Shooter Charm, which can be equipped to all primary and secondary weapons."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why Did ELBILLUG Give Me Nothing?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ELBILLUG is an in-game developer troll/joke code (spelling 'GULLIBLE' backwards). Its official reward is 'Nothing', so skip it if you want usable freebies."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I Get Free Rewards in RIVALS Without Codes?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Open the in-game update patch notes and scroll to the very end to find the 'Claim Rewards' button, which grants free wraps, keys, and currency."
+                }
+            }
+        ]
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Redeem Roblox RIVALS Codes",
+        "description": "Step-by-step instructions to redeem active promo codes in Roblox RIVALS using the in-game Shop and Rewards verification menu.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Launch RIVALS",
+                "text": "Launch Roblox RIVALS on PC, mobile, or console and spawn into the main matchmaking lobby."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open Shop Menu",
+                "text": "Select the Shop button at the bottom center of the game screen."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Navigate to Rewards",
+                "text": "Click the Rewards button located in the top-right corner of the Shop window."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Complete One-Time Verification",
+                "text": "Scroll down to the verification section, enter your Roblox username, and confirm the developer follow requirements (Nosniy Games)."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Enter Code & Redeem",
+                "text": "Paste a working code into the redemption text field and click Redeem to claim your Keys, Charms, or Wraps."
+            }
+        ]
+    }
+
+    body_html = f"""
+  <article class="container" style="max-width: 920px; padding-top: 2rem; padding-bottom: 4rem;">
+    <!-- Article Header -->
+    <header style="margin-bottom: 2rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <div class="gaming-verified-badge" style="margin-bottom: 0;">
+          <span class="gaming-verified-pulse"></span>
+          <span>✅ Source Checked &mdash; November 18, 2026</span>
+        </div>
+        <span style="font-size: 0.8rem; color: var(--text-muted); background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 0.3rem 0.65rem; border-radius: 9999px;">
+          Reported Active &bull; November 14 Update
+        </span>
+      </div>
+
+      <h1 style="font-size: clamp(2rem, 3.5vw + 1rem, 2.9rem); font-weight: 900; line-height: 1.2; letter-spacing: -0.03em; color: var(--text-primary); margin-bottom: 1rem;">
+        Roblox RIVALS Codes (November 2026) &ndash; All Active Freebies
+      </h1>
+
+      <!-- 1-Line Quick Jump Navigation -->
+      <nav class="gaming-quick-jump" aria-label="Quick Jump Menu">
+        <span style="font-weight: 700; color: var(--text-primary);">Jump to:</span>
+        <a href="#active-codes" class="gaming-jump-link">Active Codes</a>
+        <span>&bull;</span>
+        <a href="#how-to-redeem" class="gaming-jump-link">How to Redeem</a>
+        <span>&bull;</span>
+        <a href="#get-more-codes" class="gaming-jump-link">Get More Codes</a>
+        <span>&bull;</span>
+        <a href="#more-rewards" class="gaming-jump-link">Free Rewards</a>
+        <span>&bull;</span>
+        <a href="#troubleshooting" class="gaming-jump-link">Troubleshooting</a>
+        <span>&bull;</span>
+        <a href="#faq" class="gaming-jump-link">FAQ</a>
+      </nav>
+
+      {get_byline_html("November 18, 2026")}
+
+      <p style="font-size: 1.08rem; line-height: 1.7; color: var(--text-secondary); margin-top: 1.25rem;">
+        Roblox RIVALS codes grant free <strong>Keys</strong>, <strong>Community Wraps</strong>, and exclusive <strong>weapon charms and emotes</strong>. Below, you&rsquo;ll find the latest reported working codes, redemption instructions, and tips for passing the in-game account verification.
+      </p>
+
+      <!-- Featured Visual Poster -->
+      <figure style="margin: 1.5rem 0 2.25rem;">
+        <img src="/images/gaming/roblox-rivals-poster.webp" alt="Roblox RIVALS competitive tactical arena with crosshairs, sniper tracer lines, and weapon charms" width="960" height="540" loading="eager" fetchpriority="high" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 0.5rem;">
+          Roblox RIVALS FPS: Fast-paced competitive arena shooter featuring weapon wraps, charms, and key crates.
+        </figcaption>
+      </figure>
+    </header>
+
+    <!-- SECTION: Working Codes -->
+    <section id="active-codes" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        All New Roblox RIVALS Codes
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+        Copy each code exactly as shown, including underscores and specific capitalization. Click <strong>Copy Code</strong> next to any entry to grab it instantly.
+      </p>
+
+      <div class="gaming-table-wrapper">
+        <table class="gaming-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Code</th>
+              <th style="width: 48%;">Reward Details</th>
+              <th style="width: 24%; text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">FREE206</span>
+              </td>
+              <td>
+                <strong>3 Keys</strong>
+                <div style="font-size: 0.8rem; color: #22c55e; margin-top: 0.25rem;">Latest confirmed Key drop</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="FREE206" aria-label="Copy code FREE206">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">COMMUNITY27</span>
+              </td>
+              <td>
+                <strong>1 Community Wrap</strong>
+                <div style="font-size: 0.8rem; color: #38bdf8; margin-top: 0.25rem;">Weapon cosmetic skin</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="COMMUNITY27" aria-label="Copy code COMMUNITY27">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">BACK2BACK</span>
+              </td>
+              <td>
+                <strong>RIA26 Best Shooter Charm</strong>
+                <div style="font-size: 0.8rem; color: #eab308; margin-top: 0.25rem;">Equippable on all primary &amp; secondary weapons</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="BACK2BACK" aria-label="Copy code BACK2BACK">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">NOSNIYGAMESONTOP</span>
+              </td>
+              <td>
+                <strong>RIA26 Best Studio Emote</strong>
+                <div style="font-size: 0.8rem; color: #c084fc; margin-top: 0.25rem;">Exclusive celebration emote</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="NOSNIYGAMESONTOP" aria-label="Copy code NOSNIYGAMESONTOP">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">BONUS</span>
+              </td>
+              <td>
+                <strong>1 Key</strong>
+                <div style="font-size: 0.8rem; color: #22c55e; margin-top: 0.25rem;">Crate opening currency</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="BONUS" aria-label="Copy code BONUS">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">BOOST</span>
+              </td>
+              <td>
+                <strong>1 Key</strong>
+                <div style="font-size: 0.8rem; color: #22c55e; margin-top: 0.25rem;">Crate opening currency</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="BOOST" aria-label="Copy code BOOST">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gaming-code-cell">roblox_rtc</span>
+              </td>
+              <td>
+                <strong>5 Keys</strong>
+                <div style="font-size: 0.8rem; color: #f59e0b; margin-top: 0.25rem;">Note: Keep underscore intact (lowercase)</div>
+              </td>
+              <td style="text-align: right;">
+                <button type="button" class="btn btn-secondary gaming-copy-btn copy-btn" data-copy="roblox_rtc" aria-label="Copy code roblox_rtc">
+                  <span>Copy Code</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.25rem;">
+        <div style="background: rgba(244, 63, 94, 0.08); border-left: 4px solid #f43f5e; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: #f43f5e; margin: 0 0 0.35rem;">Is ELBILLUG a Working Code?</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+            <code>ELBILLUG</code> is a well-known community troll code that spells <em>&ldquo;GULLIBLE&rdquo;</em> backwards. The game recognizes it but awards <strong>&ldquo;Nothing&rdquo;</strong>. Skip it if you are looking for actual freebies!
+          </p>
+        </div>
+        <div style="background: rgba(56, 189, 248, 0.08); border-left: 4px solid #38bdf8; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0;">
+          <h4 style="font-size: 0.95rem; font-weight: 700; color: #38bdf8; margin: 0 0 0.35rem;">Community Wrap 28 Status</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+            Certain guides list a newer wrap code split as <code>COMMUNITY2 8</code>. Because of unconfirmed text formatting across private servers, it is excluded here until verified in-game.
+          </p>
+        </div>
+      </div>
+
+      <!-- Expired Codes Accordion -->
+      <div style="margin-top: 2rem;">
+        <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">
+          Expired Roblox RIVALS Codes
+        </h3>
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-secondary);">
+            Click to view expired RIVALS codes archive (20 codes)
+          </summary>
+          <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              The following promotional codes are verified as expired and can no longer be redeemed. They are cataloged here so players do not waste time re-testing older YouTube codes:
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">FREE202</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">COMMUNITY26</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">FREE200</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">COMMUNITY25</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">FREE199</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">FREE198</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">FREE197</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">IMMELTINGHELP</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">CANNONBALLLLL</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">COCONUTBONK</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">RIVALSSUMMER</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">FREE196</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">COMMUNITY24</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">FREE194</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">FREE191</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">COMMUNITY23</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">COMMUNITY22</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">COMMUNITY21</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">COMMUNITY20</span>
+              <span class="cheat-tag" style="text-decoration: line-through; opacity: 0.65;">RELEASE</span>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION: How to Redeem -->
+    <section id="how-to-redeem" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        How to Redeem Roblox RIVALS Codes
+      </h2>
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+        Before redeeming codes in RIVALS, complete the one-time developer social verification. The game requires following the developers&rsquo; X accounts (<code>@NosniyRBLX</code> and <code>@Sensei_RBX</code>) and joining the <strong>Nosniy Games</strong> Roblox community group. Once verified, redemption is permanent:
+      </p>
+
+      <ol style="margin-left: 1.25rem; color: var(--text-secondary); line-height: 1.8; font-size: 1.02rem;">
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Launch RIVALS:</strong> Open Roblox RIVALS and load into the main lobby.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Open Shop:</strong> Select the <strong>Shop</strong> button located along the bottom edge of the screen.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Select Rewards:</strong> Click the <strong>Rewards</strong> icon in the top-right corner of the Shop overlay.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Complete Verification:</strong> Scroll down to the verification box, input your Roblox username, and complete the one-time follow confirmation.
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Paste Active Code:</strong> Click into the code redemption field and paste a working code (such as <code>FREE206</code> or <code>roblox_rtc</code>).
+        </li>
+        <li style="margin-bottom: 0.75rem;">
+          <strong>Redeem &amp; Claim:</strong> Click the pink/red <strong>Redeem</strong> button to receive your Keys, Charms, or Wraps.
+        </li>
+      </ol>
+
+      <!-- Annotated UI Redemption Mockup -->
+      <figure style="margin: 2rem 0; text-align: center;">
+        <img src="/images/gaming/roblox-rivals-redeem-ui.webp" alt="Roblox RIVALS Rewards menu showing account verification and the code redemption field" width="960" height="540" loading="lazy" style="width: 100%; max-width: 820px; height: auto; border-radius: 10px; border: 1px solid var(--border-color); box-shadow: 0 8px 20px -4px rgba(0,0,0,0.25);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
+          Visual HUD Guide: Open Shop at bottom, click Rewards top-right, verify account, and redeem active codes.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- SECTION: How to Get More Codes -->
+    <section id="get-more-codes" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        How to Get More RIVALS Codes
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        Nosniy Games drops new codes to celebrate competitive seasons, like milestones, and major content patches. Here are the top sources to follow:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+            1. Official Nosniy Games Discord
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Join the developer&rsquo;s Discord server and monitor the <code>#announcements</code> and <code>#updates</code> channels. Developers post new community wrap codes and key drops directly to their community.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 1.25rem;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
+            2. Daily Bookmark on RouterIPHub
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Our team tests and filters out joke codes like <code>ELBILLUG</code> daily. Bookmark this guide (<kbd>Ctrl+D</kbd> or <kbd>Cmd+D</kbd>) to grab verified Key drops instantly.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: More Free Rewards -->
+    <section id="more-rewards" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        More Free Rewards in RIVALS
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        Promotional codes are not the only method to acquire free weapon cosmetics and keys in RIVALS:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Patch Notes Claim Button</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5;">Open the in-game update patch notes, scroll to the bottom, and click <strong>Claim Rewards</strong> for free wraps and keys.</p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Daily Login Crates</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5;">Log in consecutive days to receive escalating free Key bundles and uncommon weapon wraps.</p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <h4 style="font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">Competitive Rank Milestones</h4>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0; line-height: 1.5;">Climbing the competitive 1v1 and 2v2 ladder awards seasonal weapon charms and end-of-season crates.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Troubleshooting -->
+    <section id="troubleshooting" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem; letter-spacing: -0.02em;">
+        Why Are My RIVALS Codes Not Working?
+      </h2>
+      <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
+        If a redemption fails, review the in-game feedback prompt against these common diagnostic checks:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #ef4444; margin-bottom: 0.35rem;">1. Incomplete Verification</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            The redemption box remains locked until you complete developer account verification in the Rewards tab. Ensure your Roblox username is confirmed.
+          </p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: #f59e0b; margin-bottom: 0.35rem;">2. Missing Underscore in roblox_rtc</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            The code <code>roblox_rtc</code> includes an underscore and is strictly lowercase. Entering <code>robloxrtc</code> or <code>ROBLOX_RTC</code> causes an invalid error.
+          </p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">3. Server Version Desync</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Older server instances might not recognize brand-new codes like <code>FREE206</code> immediately after a patch. Rejoin a newly initialized or private server.
+          </p>
+        </div>
+        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">4. Expired Promotion Code</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+            Codes like <code>FREE202</code> and <code>COMMUNITY26</code> are expired. Check our expired archive before assuming an input error.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: FAQ -->
+    <section id="faq" style="margin-bottom: 3.5rem; scroll-margin-top: 2rem;">
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1.25rem; letter-spacing: -0.02em;">
+        Frequently Asked Questions
+      </h2>
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            What Is the Latest Reported RIVALS Key Code?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            <code>FREE206</code> is the latest active key code and grants 3 Keys. Other working key codes include <code>BONUS</code>, <code>BOOST</code>, and <code>roblox_rtc</code> (which grants 5 Keys).
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            Which RIVALS Code Gives a Free Wrap?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            <code>COMMUNITY27</code> grants 1 exclusive Community Weapon Wrap.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            Where Do I Enter RIVALS Codes?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            Open Shop at the bottom of the screen, select Rewards in the top-right corner, complete the one-time verification, paste your code, and click Redeem.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            What Does BACK2BACK Give?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            <code>BACK2BACK</code> awards the RIA26 Best Shooter Charm for all weapons.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            Why Did ELBILLUG Give Me Nothing?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            It is a developer joke code that spells &ldquo;GULLIBLE&rdquo; backwards. It gives zero rewards.
+          </p>
+        </details>
+
+        <details class="gaming-details" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+          <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary);">
+            Can I Get Free Rewards Without Codes?
+          </summary>
+          <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+            Yes. Scroll to the bottom of the in-game patch notes and click Claim Rewards to receive free wraps and keys with every major update.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION: Related Roblox Code Guides -->
+    <section style="margin-bottom: 3.5rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin-bottom: 1rem; letter-spacing: -0.02em;">
+        Related Roblox Game Freebies
+      </h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+        <a href="/gaming/anime-vanguards-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #f59e0b; text-transform: uppercase;">Roblox Tower Defense</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Anime Vanguards Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Claim Trait Rerolls, Memoria Shards, and Leaves &rsquo;26.</p>
+        </a>
+
+        <a href="/gaming/basketball-zero-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #c084fc; text-transform: uppercase;">Roblox Basketball</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Basketball Zero Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Claim free Lucky Style Spins, Zone Spins, and cash rewards.</p>
+        </a>
+
+        <a href="/gaming/blue-lock-rivals-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #38bdf8; text-transform: uppercase;">Roblox Soccer</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Blue Lock Rivals Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Claim Lucky Style Spins and Flow Spins in Blue Lock Rivals.</p>
+        </a>
+
+        <a href="/gaming/hunty-zombie-codes/" style="display: block; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; text-decoration: none; color: inherit; transition: border-color 0.2s ease;">
+          <span style="font-size: 0.75rem; font-weight: 700; color: #4ade80; text-transform: uppercase;">Roblox Undead Action</span>
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin: 0.35rem 0 0.5rem; color: var(--text-primary);">Hunty Zombie Codes &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Claim 50 Lucky Spins of each type and 50 Traits for your hunter.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION: Low-Ping Optimization Banner -->
+    <section style="background: linear-gradient(135deg, rgba(244, 63, 94, 0.15) 0%, rgba(56, 189, 248, 0.15) 100%); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 12px; padding: 2rem; margin-top: 2rem;">
+      <div style="max-width: 680px;">
+        <span style="font-size: 0.8rem; font-weight: 700; color: #fb7185; text-transform: uppercase; letter-spacing: 0.05em;">Competitive Shooter Diagnostics</span>
+        <h3 style="font-size: 1.4rem; font-weight: 800; color: #ffffff; margin: 0.5rem 0 0.75rem;">
+          Win Every 1v1 Duel: Eliminate Hit-Registration Delay &amp; Ping Jitter
+        </h3>
+        <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.6; margin-bottom: 1.25rem;">
+          In Roblox RIVALS, winning sniper duels and rapid slide-canceling requires sub-30ms ping and zero packet loss. Wi-Fi packet drops cause unregistered bullets and ghost hits. Access your router gateway to enable Ethernet or configure QoS gaming packet priority.
+        </p>
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="/tools/detect-gateway/" class="btn btn-primary" style="background: #f43f5e; color: #ffffff; border-color: #f43f5e; font-weight: 700;">
+            Detect Router Gateway IP &rarr;
+          </a>
+          <a href="/tools/ping-test/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            Test Game Ping &amp; Latency &rarr;
+          </a>
+          <a href="/gaming/" class="btn btn-secondary" style="color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+            All Game Cheats &amp; Codes &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+  </article>
+"""
+
+    full_html = get_header(
+        title, desc, canonical,
+        active_nav="gaming",
+        breadcrumbs=breadcrumbs,
+        schemas_json_ld=[tech_schema, faq_schema, howto_schema],
+        og_image="https://routeriphub.com/images/gaming/roblox-rivals-poster.webp",
+        og_image_alt="Roblox RIVALS Active Codes, Keys, Community Wraps and Charms Freebies",
+        og_type="article"
+    ) + body_html + get_footer()
+
+    with open(os.path.join(rivals_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(full_html)
+    print("  -> Generated /gaming/roblox-rivals-codes/index.html")
+
+
 def generate_gaming_page():
     print("Generating Gaming Hub (/gaming/)...")
     gaming_dir = os.path.join(PUBLIC_DIR, "gaming")
@@ -21939,7 +22552,7 @@ def generate_gaming_page():
       <!-- Category Filter Pills -->
       <div class="gaming-filter-nav" role="tablist" aria-label="Game Category Filters">
         <button type="button" class="gaming-filter-pill is-active" data-filter="all">All Franchises (13)</button>
-        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (5)</button>
+        <button type="button" class="gaming-filter-pill" data-filter="roblox">Roblox &amp; Anime (6)</button>
         <button type="button" class="gaming-filter-pill" data-filter="rpg">Open World &amp; RPG (5)</button>
         <button type="button" class="gaming-filter-pill" data-filter="shooter">Action &amp; Shooter (2)</button>
         <button type="button" class="gaming-filter-pill" data-filter="sandbox">Sandbox &amp; Building (2)</button>
@@ -22081,7 +22694,44 @@ def generate_gaming_page():
       </div>
 
       <div class="gaming-cards-grid" id="gaming-cards-container">
-                                                                        <!-- Card 0E: Anime Vanguards -->
+                                                                                                <!-- Card 0F: Roblox RIVALS -->
+        <article class="game-card" data-category="roblox">
+          <div class="game-card-media">
+            <img src="/images/gaming/roblox-rivals-poster.webp" alt="Roblox RIVALS competitive tactical shooter arena with sniper crosshairs" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
+            <div class="game-card-media-overlay">
+              <span class="game-card-genre" style="color: #f43f5e;">Tactical FPS Shooter &bull; Roblox</span>
+              <div class="game-card-platforms">
+                <span class="platform-chip">PC</span>
+                <span class="platform-chip">MOBILE</span>
+                <span class="platform-chip">CONSOLE</span>
+              </div>
+            </div>
+          </div>
+          <div class="game-card-body">
+            <h3 class="game-card-title">
+              <a href="/gaming/roblox-rivals-codes/" style="color: inherit; text-decoration: none;">Roblox RIVALS (FPS)</a>
+            </h3>
+            <div class="game-card-meta">Official Roblox FPS Game &bull; Keys, Community Wraps &amp; Charms</div>
+            <div class="game-cheat-tags">
+              <span class="cheat-tag" style="background: rgba(244, 63, 94, 0.12); color: #f43f5e; border-color: rgba(244, 63, 94, 0.3);">✅ 7 Active Codes</span>
+              <span class="cheat-tag">FREE206</span>
+              <span class="cheat-tag">COMMUNITY27</span>
+              <span class="cheat-tag">BACK2BACK</span>
+              <span class="cheat-tag">roblox_rtc</span>
+            </div>
+            <div class="game-card-cta-row">
+              <a href="/gaming/roblox-rivals-codes/" class="game-card-btn" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; background: #e11d48; color: #fff;">
+                <span>Redeem Freebies (7)</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <button type="button" class="game-card-btn copy-btn" data-copy="FREE206" title="Copy Latest Code FREE206">
+                <span>Copy Code</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+<!-- Card 0E: Anime Vanguards -->
         <article class="game-card" data-category="roblox">
           <div class="game-card-media">
             <img src="/images/gaming/anime-vanguards-poster.webp" alt="Anime Vanguards tower defense rift with mythic defender units" class="game-card-img" width="960" height="540" loading="eager" fetchpriority="high">
@@ -22901,6 +23551,7 @@ def generate_sitemaps():
         ("https://routeriphub.com/gaming/hunty-zombie-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/gaming/basketball-zero-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/gaming/anime-vanguards-codes/", "0.9", "daily", TODAY),
+        ("https://routeriphub.com/gaming/roblox-rivals-codes/", "0.9", "daily", TODAY),
         ("https://routeriphub.com/howto/", "0.9", "weekly", get_sitemap_lastmod("guide", "howto")),
         ("https://routeriphub.com/about/", "0.9", "monthly", get_sitemap_lastmod("legal", "about")),
         ("https://routeriphub.com/authors/", "0.9", "monthly", get_sitemap_lastmod("legal", "authors")),
@@ -23135,6 +23786,14 @@ def update_search_index():
         "url": "/gaming/sailor-piece-codes/",
         "snippet": "Verified Sailor Piece codes for November 2026. Claim free Power Shards, Passive Shards, Secret Chests, and Clan Rerolls. 1-click copy, level requirements & FAQ.",
         "keywords": "sailor piece codes roblox shards chest clan reroll legendarysupersaiyan gear5update luffyupdate freebies"
+    })
+    search_index.append({
+        "title": "Roblox RIVALS Codes (November 2026) – All Active Freebies",
+        "category": "Gaming Cheats",
+        "badge": "Roblox",
+        "url": "/gaming/roblox-rivals-codes/",
+        "snippet": "Verified Roblox RIVALS codes for November 2026. Claim free Keys, Community Wraps, and RIA26 Charm. 1-click copy, verification guide & FAQ.",
+        "keywords": "roblox rivals codes keys community wrap back2back nosniygamesontop roblox_rtc free206 freebies"
     })
     search_index.append({
         "title": "Anime Vanguards Codes (November 2026) – All Active Freebies",
@@ -23632,6 +24291,7 @@ def main():
     generate_hunty_zombie_page()
     generate_basketball_zero_page()
     generate_anime_vanguards_page()
+    generate_roblox_rivals_page()
     generate_trust_and_legal_pages(PUBLIC_DIR, get_header, get_footer)
     generate_static_guide_pages(ROOT_DIR, PUBLIC_DIR, get_header, get_footer)
     sync_homepage()
