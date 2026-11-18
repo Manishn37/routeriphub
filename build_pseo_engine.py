@@ -12821,6 +12821,706 @@ def generate_custom_192_168_1_250_page():
     return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
 
+def generate_custom_192_168_1_1_page():
+    canonical = "https://routeriphub.com/ip/192-168-1-1/"
+    title = "192.168.1.1 — Router Admin Login, Default Credentials & Setup Guide"
+    desc = "192.168.1.1 is the default gateway for TP-Link, Netgear, Linksys, ASUS, and D-Link routers. Step-by-step login instructions, default passwords, Wi-Fi setup, and troubleshooting."
+    
+    breadcrumbs = [
+        {"name": "Home", "url": "https://routeriphub.com/"},
+        {"name": "IP Directory", "url": "https://routeriphub.com/ip/"},
+        {"name": "192.168.1.1", "url": canonical}
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": title,
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to 192.168.1.1 Router Admin Page",
+        "description": "Step-by-step instructions to log into 192.168.1.1 router admin portal, change Wi-Fi settings, and troubleshoot connectivity.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to Home Network",
+                "text": "Connect your computer, smartphone, or tablet to your home Wi-Fi network or plug in an Ethernet cable directly to the router LAN port."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open Web Browser and Enter 192.168.1.1",
+                "text": "Open Chrome, Edge, Safari, or Firefox and type http://192.168.1.1 directly into the top address bar. Press Enter."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Sign In with Router Credentials",
+                "text": "Enter the default admin username and password printed on the router bottom label (e.g., admin/admin or admin/password)."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Manage Wireless & Security Settings",
+                "text": "Navigate to Wireless or Wi-Fi Settings to customize your network SSID name, WPA2/WPA3 password, and guest network."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Save and Update Firmware",
+                "text": "Apply your settings and check the administration dashboard to verify that your router firmware is up to date."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is 192.168.1.1?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is a private IP address used by many routers for their local admin login page."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why can’t I access 192.168.1.1?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Make sure you are connected to your home network. Also check that you entered the address correctly and that no VPN or proxy is interfering."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the default username and password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Common defaults include admin/admin, admin/password, or a blank password. Check your router label for the correct credentials."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I change my Wi-Fi password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Log in at 192.168.1.1, open the wireless settings, and update the password."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What should I do if I forgot my router password?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Check the router label first. If the password was changed and you cannot recover it, reset the router to factory settings."
+                }
+            }
+        ]
+    }
+
+    byline_html = get_byline_html()
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="post-layout">
+      <!-- Main Content Column -->
+      <article class="post-main-content">
+        <header class="post-header">
+          <div class="post-meta-top" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem;">
+            <span class="badge" style="background: rgba(2, 132, 199, 0.12); color: var(--accent); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.65rem; border-radius: 4px;">Primary Gateway IP</span>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">&bull; 10–15 Min Setup</span>
+          </div>
+          <h1 class="post-title" style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.75rem;">192.168.1.1 — Router Admin Login, Default Credentials &amp; Setup Guide</h1>
+          {byline_html}
+        </header>
+
+        <figure style="margin: 1.5rem 0 2rem 0;">
+          <img src="/images/ip/192-168-1-1-router-admin-login-setup.webp" alt="Dual-band Wi-Fi router connected via Ethernet to laptop for 192.168.1.1 admin login and setup" width="1200" height="675" loading="eager" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+          <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Dual-band home router connected via physical Ethernet to a laptop for initial 192.168.1.1 admin gateway setup.</figcaption>
+        </figure>
+
+        <div class="lead-text" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 2rem;">
+          <strong>192.168.1.1</strong> is one of the most common private IP addresses used to access a home router’s admin page. Enter it in your browser address bar while connected to your home Wi‑Fi or Ethernet network to manage Wi‑Fi, connected devices, security, and advanced router settings.
+        </div>
+
+        <!-- Quick Answer -->
+        <section id="quick-answer" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Quick Answer</h2>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Connect to your home Wi‑Fi or use an Ethernet cable.</li>
+            <li>Open Chrome, Edge, Safari, or Firefox.</li>
+            <li>Type <strong>192.168.1.1</strong> in the address bar.</li>
+            <li>Press Enter.</li>
+            <li>Enter the router username and password.</li>
+            <li>Access your router settings.</li>
+          </ol>
+          <div style="background: rgba(2, 132, 199, 0.08); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Fastest action:</strong> Connect to your home network, type <code>192.168.1.1</code> into the browser address bar, and sign in with the credentials printed on your router label.
+          </div>
+        </section>
+
+        <!-- Quick Reference -->
+        <section id="quick-reference" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Quick Reference</h2>
+          <div style="overflow-x: auto; margin: 1.25rem 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--bg-secondary); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Item</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Login URL</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-family: var(--font-mono);">192.168.1.1</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Full address</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><a href="http://192.168.1.1" target="_blank" rel="noopener" style="color: var(--accent); font-family: var(--font-mono);">http://192.168.1.1</a></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Common router brands</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">TP-Link, Linksys, Netgear, ASUS, D-Link, Huawei, Tenda</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Common default username</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Common default password</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code>, <code>password</code>, or blank</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Default Wi‑Fi credentials</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Printed on the router label</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Main settings</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Wi‑Fi, devices, security, port forwarding, firmware</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- What Is 192.168.1.1? -->
+        <section id="what-is-192-168-1-1" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">What Is 192.168.1.1?</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            <strong>192.168.1.1</strong> is a private IP address used by many routers as their local admin gateway. It is not a public website; it only works when your device is connected to the same home network as the router.
+          </p>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Think of it as the <strong>control panel for your home network</strong>. Your devices connect through the router, and 192.168.1.1 is where you can manage Wi‑Fi, security, connected devices, and advanced network settings.
+          </p>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            This address will not work if you are using mobile data or connected to another Wi‑Fi network.
+          </p>
+
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" alt="Browser address bar vs search bar illustration for typing 192.168.1.1 directly without triggering Google search" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Always enter 192.168.1.1 directly into your web browser's address bar, not the search engine query bar.</figcaption>
+          </figure>
+
+          <div style="background: rgba(2, 132, 199, 0.08); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Next action:</strong> Confirm that your phone or computer is connected to your home network before opening the login page.
+          </div>
+        </section>
+
+        <!-- How to Log In -->
+        <section id="how-to-login" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">How to Log In</h2>
+
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; color: var(--text-primary);">On Windows or Mac</h3>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Connect your computer to your home Wi‑Fi or use an Ethernet cable.</li>
+            <li>Open a browser.</li>
+            <li>Type <strong>192.168.1.1</strong> into the address bar.</li>
+            <li>Press Enter.</li>
+            <li>Enter the router username.</li>
+            <li>Enter the router password.</li>
+            <li>Select <strong>Sign In</strong> or <strong>Log In</strong>.</li>
+          </ol>
+
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; color: var(--text-primary);">On iPhone</h3>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Tap <strong>Wi‑Fi</strong>.</li>
+            <li>Connect to your home Wi‑Fi network.</li>
+            <li>Open Safari.</li>
+            <li>Type <strong>192.168.1.1</strong> in the address bar.</li>
+            <li>Enter the router login credentials.</li>
+            <li>Tap <strong>Go</strong> or <strong>Sign In</strong>.</li>
+          </ol>
+
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; color: var(--text-primary);">On Android</h3>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Open <strong>Settings</strong>.</li>
+            <li>Tap <strong>Network &amp; internet</strong> or <strong>Connections</strong>.</li>
+            <li>Tap <strong>Wi‑Fi</strong>.</li>
+            <li>Connect to your home Wi‑Fi network.</li>
+            <li>Open Chrome or another browser.</li>
+            <li>Type <strong>192.168.1.1</strong> in the address bar.</li>
+            <li>Enter the router login credentials.</li>
+            <li>Tap <strong>Sign In</strong>.</li>
+          </ol>
+        </section>
+
+        <!-- Default Router Credentials -->
+        <section id="default-credentials" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Default Router Credentials</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Default usernames and passwords vary by router brand and model. The most reliable place to find them is the label on the router itself.
+          </p>
+
+          <div style="overflow-x: auto; margin: 1.25rem 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--bg-secondary); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Router brand</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Common username</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Common password</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/brands/tp-link/">TP-Link</a></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/brands/linksys/">Linksys</a></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/brands/netgear/">Netgear</a></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>password</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/brands/asus/">ASUS</a></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/brands/d-link/">D-Link</a></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code> or blank</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/brands/huawei/">Huawei</a></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/brands/tenda/">Tenda</a></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/brands/belkin/">Belkin</a></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code> or blank</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/ip/192-168-1-1-router-label-default-password.webp" alt="Macro view of router bottom label showing 192.168.1.1 default IP, username, and Wi-Fi network key" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Authentic router underside specification sticker indicating default gateway IP 192.168.1.1, factory username, and Wi-Fi password.</figcaption>
+          </figure>
+
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            If the default credentials do not work, the password may have been changed. Check the router label, original documentation, or the manufacturer’s support page.
+          </p>
+
+          <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Important:</strong> Do not keep using the default password after logging in. Change it to a strong, unique password to protect your home network.
+          </div>
+        </section>
+
+        <!-- What You Can Manage -->
+        <section id="what-you-can-manage" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">What You Can Manage</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            The 192.168.1.1 admin page gives you access to important router settings.
+          </p>
+
+          <div style="overflow-x: auto; margin: 1.25rem 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--bg-secondary); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Setting</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">What it does</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Wi‑Fi settings</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Change Wi‑Fi name, password, and security mode</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Connected devices</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">View devices using your network</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Guest network</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Create a separate network for visitors</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Parental controls</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Manage internet access for children or devices</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Port forwarding</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Allow specific incoming connections</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Firewall</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Control security and access rules</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">DHCP settings</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Manage local IP address assignment</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">DNS settings</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Change the DNS servers used by your network</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Firmware update</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Keep the router secure and stable</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">VPN settings</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Configure VPN client or server features if supported</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/ip/192-168-1-1-router-admin-dashboard-wifi-settings.webp" alt="Router web administration console dashboard opened at 192.168.1.1 displaying Wi-Fi configuration and connected devices" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Router web administration dashboard at http://192.168.1.1 displaying network map, Wi-Fi configuration, and connected clients.</figcaption>
+          </figure>
+        </section>
+
+        <!-- How to Change Wi‑Fi Name and Password -->
+        <section id="change-wifi" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">How to Change Wi‑Fi Name and Password</h2>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Log in at <strong>192.168.1.1</strong>.</li>
+            <li>Go to <strong>Wireless</strong>, <strong>Wi‑Fi Settings</strong>, or <strong>Wireless Setup</strong>.</li>
+            <li>Select the 2.4 GHz or 5 GHz network.</li>
+            <li>Enter a new Wi‑Fi network name, also called an SSID.</li>
+            <li>Enter a strong new Wi‑Fi password.</li>
+            <li>Select WPA2 or WPA3 security if available.</li>
+            <li>Save the changes.</li>
+            <li>Reconnect your devices using the new password.</li>
+          </ol>
+          <p style="line-height: 1.7; color: var(--text-secondary);">
+            Use a Wi‑Fi password with at least 12 characters. Include uppercase letters, lowercase letters, numbers, and symbols.
+          </p>
+        </section>
+
+        <!-- Port Forwarding -->
+        <section id="port-forwarding" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Port Forwarding</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Port forwarding allows specific devices to receive incoming connections from the internet. It is commonly used for gaming consoles, security cameras, NAS devices, and self-hosted services.
+          </p>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Log in at <strong>192.168.1.1</strong>.</li>
+            <li>Go to <strong>Advanced</strong>, <strong>NAT/QoS</strong>, or <strong>Port Forwarding</strong>.</li>
+            <li>Select <strong>Add a new rule</strong>.</li>
+            <li>Choose the device or enter its local IP address.</li>
+            <li>Enter the required external port or port range.</li>
+            <li>Enter the internal port if it is different.</li>
+            <li>Select TCP, UDP, or both.</li>
+            <li>Save and apply the rule.</li>
+          </ol>
+          <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Warning:</strong> Only forward ports when necessary. Each open port can increase exposure to unwanted internet traffic.
+          </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Troubleshooting</h2>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem;">192.168.1.1 Does Not Load</h3>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Cause:</strong> You may be using mobile data, connected to another network, or entering the address incorrectly.</p>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Fix:</strong> Connect to your home Wi‑Fi or Ethernet network. Then enter <code>192.168.1.1</code> directly into the browser address bar.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem;">Login Page Will Not Open</h3>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Cause:</strong> Browser cache, VPN, proxy, or an incorrect gateway IP.</p>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Fix:</strong> Disable VPN, clear the browser cache, or try incognito/private browsing mode.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem;">Default Password Not Working</h3>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Cause:</strong> The password may have been changed or entered incorrectly.</p>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Fix:</strong> Check the router label carefully. If the password still fails, reset the router to factory settings.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem;">Wi‑Fi Works but Admin Page Does Not</h3>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Cause:</strong> Browser issue, network setting, or router restriction.</p>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Fix:</strong> Restart the router, try another browser, or connect using Ethernet.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem;">No Internet Connection</h3>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Cause:</strong> Service outage, loose cable, or router issue.</p>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Fix:</strong> Check the router lights, restart it, and confirm all cables are secure. Check with your internet provider if the issue continues.</p>
+          </div>
+        </section>
+
+        <!-- Factory Reset -->
+        <section id="factory-reset" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Factory Reset</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            A factory reset should be your last option.
+          </p>
+
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/ip/192-168-1-1-factory-reset-button-pinhole.webp" alt="Pressing recessed factory reset pinhole button on router rear panel with paperclip to restore 192.168.1.1 defaults" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Using a straightened paperclip to press and hold the recessed Reset pinhole on the router rear panel for 10–15 seconds.</figcaption>
+          </figure>
+
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Locate the <strong>Reset</strong> button on the router.</li>
+            <li>Keep the router powered on.</li>
+            <li>Press and hold the Reset button for about 10–15 seconds.</li>
+            <li>Release the button when the router begins restarting.</li>
+            <li>Wait several minutes for the router to reboot.</li>
+            <li>Reconnect using the default Wi‑Fi name and password printed on the label.</li>
+            <li>Set up the router again.</li>
+          </ol>
+          <div style="background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Warning:</strong> A factory reset removes custom Wi‑Fi settings, port-forwarding rules, DNS settings, and other configurations.
+          </div>
+        </section>
+
+        <!-- Common Misspellings -->
+        <section id="common-misspellings" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Common Misspellings</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Avoid these common mistakes when entering the router address:
+          </p>
+          <ul style="margin: 0.5rem 0 1rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><code>192.168.l.1</code> instead of <code>192.168.1.1</code> (using lowercase "L" instead of digit "1")</li>
+            <li><code>192.168.1.1.1</code> (extra trailing digit)</li>
+            <li><code>192.168.0.1</code> (alternative default gateway used by other router models)</li>
+            <li><code>192.168.1.254</code> (gateway IP used by BT Smart Hubs and AT&amp;T BGW series)</li>
+            <li><code>10.0.0.1</code> (default gateway used by Xfinity Comcast gateways)</li>
+            <li><code>routerlogin.net</code> (hostname used by Netgear routers)</li>
+            <li><code>192.168.1.1 admin login</code> (search query entered in Google search instead of address bar)</li>
+            <li><code>192.168.1.1 password</code> (search query error)</li>
+          </ul>
+          <p style="line-height: 1.7; color: var(--text-secondary);">
+            The correct address is <strong>192.168.1.1</strong>, entered directly into the browser address bar.
+          </p>
+        </section>
+
+        <!-- After You Log In -->
+        <section id="after-you-login" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">After You Log In</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Once you gain access to the administration dashboard:
+          </p>
+          <ul style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Change the default admin password.</li>
+            <li>Change the default Wi‑Fi password.</li>
+            <li>Review connected devices.</li>
+            <li>Enable WPA2 or WPA3 security if available.</li>
+            <li>Keep router firmware updated.</li>
+            <li>Disable remote management if you do not use it.</li>
+            <li>Set up a guest network for visitors.</li>
+            <li>Avoid unnecessary port forwarding.</li>
+          </ul>
+        </section>
+
+        <!-- FAQs -->
+        <section id="faqs" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.25rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Frequently Asked Questions (FAQs)</h2>
+
+          <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--bg-card);">
+            <h3 class="faq-question" style="font-size: 1.1rem; font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">What is 192.168.1.1?</h3>
+            <p class="faq-answer" style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.6;">
+              It is a private IP address used by many routers for their local admin login page.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--bg-card);">
+            <h3 class="faq-question" style="font-size: 1.1rem; font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Why can’t I access 192.168.1.1?</h3>
+            <p class="faq-answer" style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.6;">
+              Make sure you are connected to your home network. Also check that you entered the address correctly and that no VPN or proxy is interfering.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--bg-card);">
+            <h3 class="faq-question" style="font-size: 1.1rem; font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">What is the default username and password?</h3>
+            <p class="faq-answer" style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.6;">
+              Common defaults include <code>admin/admin</code>, <code>admin/password</code>, or a blank password. Check your router label for the correct credentials.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--bg-card);">
+            <h3 class="faq-question" style="font-size: 1.1rem; font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Can I change my Wi‑Fi password?</h3>
+            <p class="faq-answer" style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.6;">
+              Yes. Log in at 192.168.1.1, open the wireless settings, and update the password.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--bg-card);">
+            <h3 class="faq-question" style="font-size: 1.1rem; font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">What should I do if I forgot my router password?</h3>
+            <p class="faq-answer" style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.6;">
+              Check the router label first. If the password was changed and you cannot recover it, reset the router to factory settings.
+            </p>
+          </div>
+        </section>
+
+        <!-- Bottom Line -->
+        <section id="bottom-line" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Bottom Line</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Use <strong>192.168.1.1</strong> to access your router’s local admin page. Connect to your home network, enter the address in your browser, and sign in with the credentials printed on the router label.
+          </p>
+          <div style="background: rgba(2, 132, 199, 0.08); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Fastest fix:</strong> Connect to home Wi‑Fi or Ethernet, type <code>192.168.1.1</code> into the browser address bar, and use the router label for the correct username and password. If the page does not load, restart the router and check all cable connections.
+          </div>
+        </section>
+      </article>
+
+      <!-- Sticky Sidebar for 192.168.1.1 -->
+      <aside class="post-sidebar" aria-label="192.168.1.1 Navigation and Quick Credentials">
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.06) 100%); border-color: rgba(2, 132, 199, 0.4);">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Gateway Credentials
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Gateway IP:</span>
+              <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent);">192.168.1.1</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Web Address:</span>
+              <a href="http://192.168.1.1" target="_blank" rel="noopener" style="font-family: var(--font-mono); font-weight: 600; color: var(--accent);">http://192.168.1.1</a>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Default User:</span>
+              <code style="background: var(--bg-secondary); padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 700;">admin</code>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Default Pass:</span>
+              <code style="background: var(--bg-secondary); padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 700;">admin / password</code>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Subnet Mask:</span>
+              <span style="font-family: var(--font-mono); font-size: 0.82rem;">255.255.255.0</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--text-muted);">Reset Hold:</span>
+              <span style="font-weight: 600;">10–15 seconds</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#quick-answer">Quick Answer</a></li>
+            <li><a href="#quick-reference">Quick Reference Table</a></li>
+            <li><a href="#what-is-192-168-1-1">What Is 192.168.1.1?</a></li>
+            <li><a href="#how-to-login">How to Log In</a></li>
+            <li><a href="#default-credentials">Default Router Credentials</a></li>
+            <li><a href="#what-you-can-manage">What You Can Manage</a></li>
+            <li><a href="#change-wifi">Change Wi‑Fi Name &amp; Password</a></li>
+            <li><a href="#port-forwarding">Port Forwarding Setup</a></li>
+            <li><a href="#troubleshooting">Troubleshooting 5 Scenarios</a></li>
+            <li><a href="#factory-reset">Factory Reset Procedure</a></li>
+            <li><a href="#common-misspellings">Common Misspellings</a></li>
+            <li><a href="#after-you-login">After You Log In Checklist</a></li>
+            <li><a href="#faqs">Frequently Asked Questions</a></li>
+            <li><a href="#bottom-line">Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            Alternative Gateways
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-0-1/"><span>192.168.0.1 (TP-Link / D-Link)</span> &rarr;</a></li>
+            <li><a href="/ip/10-0-0-1/"><span>10.0.0.1 (Xfinity / Comcast)</span> &rarr;</a></li>
+            <li><a href="/ip/192-168-1-254/"><span>192.168.1.254 (AT&amp;T / BT Hub)</span> &rarr;</a></li>
+            <li><a href="/ip/192-168-2-1/"><span>192.168.2.1 (Belkin / SMC)</span> &rarr;</a></li>
+            <li><a href="/ip/192-168-1-250/"><span>192.168.1.250 (Netgear Extenders)</span> &rarr;</a></li>
+            <li><a href="/ip/"><span>All Gateway IP Hubs</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/ip-lookup/"><span>Local IP Lookup Tool</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>Subnet Mask Calculator</span> &rarr;</a></li>
+            <li><a href="/tools/wifi-qr-code-generator/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Router Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/routers/netgear-nighthawk-rax50/"><span>Nighthawk AX6 (RAX50) Setup</span> &rarr;</a></li>
+            <li><a href="/routers/pldt/"><span>PLDT Home Router 192.168.1.1</span> &rarr;</a></li>
+            <li><a href="/howto/access-my-router-settings-page/"><span>Access Router Settings Page</span> &rarr;</a></li>
+            <li><a href="/howto/change-wifi-password/"><span>How to Change Wi-Fi Password</span> &rarr;</a></li>
+            <li><a href="/howto/two-routers-access-point-mode/"><span>Connect Two Routers (AP Mode)</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem;">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on Netgear, TP-Link, ASUS, Linksys, and D-Link hardware under lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+"""
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
+
 def generate_ip_pages():
     print(f"Generating {len(IP_GATEWAYS)} private gateway IP pages (Intent-First Technical SEO Pattern)...")
     for ip_item in IP_GATEWAYS:
@@ -12829,7 +13529,11 @@ def generate_ip_pages():
         ip_dir = os.path.join(PUBLIC_DIR, "ip", slug)
         make_dirs(ip_dir)
 
-        if ip == "10.0.0.1":
+        if ip == "192.168.1.1":
+            with open(os.path.join(ip_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_192_168_1_1_page())
+            continue
+        elif ip == "10.0.0.1":
             with open(os.path.join(ip_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_10_0_0_1_page())
             continue
