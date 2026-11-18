@@ -14265,6 +14265,668 @@ def generate_custom_192_168_0_1_page():
     return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
 
+def generate_custom_192_168_1_254_page():
+    canonical = "https://routeriphub.com/ip/192-168-1-254/"
+    title = "192.168.1.254: Router Admin Login, Default Credentials & Setup Guide"
+    desc = "192.168.1.254 is the default gateway for AT&T, BT Home Hub, Pace, and Arris gateways. Log in to your gateway admin page, find your Device Access Code, configure Wi-Fi, and set up IP Passthrough."
+    
+    breadcrumbs = [
+        ("Home", "/"),
+        ("IP Directory", "/ip/"),
+        ("192.168.1.254", canonical)
+    ]
+
+    tech_schema = {
+        "@type": "TechArticle",
+        "headline": title,
+        "description": desc,
+        "mainEntityOfPage": canonical,
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": f"{TODAY}T02:00:00+00:00",
+        "author": AUTHOR_VIKAS,
+        "reviewedBy": REVIEWER_LAB,
+        "publisher": {"@type": "Organization", "name": "RouterIPHub", "url": "https://routeriphub.com/"}
+    }
+
+    howto_schema = {
+        "@type": "HowTo",
+        "name": "How to Log In to 192.168.1.254 Gateway Admin Page",
+        "description": "Step-by-step instructions to log into 192.168.1.254 gateway admin portal, enter the Device Access Code, configure Wi-Fi, and set up IP Passthrough.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect to Gateway Network",
+                "text": "Connect to the gateway by Wi-Fi or Ethernet. Turn off mobile data and any active VPN."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Enter 192.168.1.254 in Browser Address Bar",
+                "text": "Type http://192.168.1.254 into the browser address bar, not the search bar. Press Enter."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Enter Device Access Code",
+                "text": "Navigate to the desired setting and enter the Device Access Code or password printed on the gateway label when prompted."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Configure Wi-Fi & IP Passthrough",
+                "text": "Update your Wi-Fi network name (SSID), set a strong WPA2/WPA3 password, or configure IP Passthrough to eliminate Double NAT."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Save and Reconnect",
+                "text": "Save your settings, restart devices if configuring IP Passthrough, and reconnect using your updated credentials."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is 192.168.1.254?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is a private IPv4 address that many ISP gateways use as their local admin address."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do I need a username?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Usually not on AT&T gateways. You use the access code on the label. Other devices may use admin."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is it the same as 192.168.1.1?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. They are different addresses, and a device uses one or the other."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I open it from outside my home?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. It is private. Avoid exposing the admin page to the internet."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What if I lost the access code?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Check the label and any setup sheet. If the code was changed and lost, factory reset the gateway."
+                }
+            }
+        ]
+    }
+
+    byline_html = get_byline_html()
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="post-layout">
+      <!-- Main Content Column -->
+      <article class="post-main-content">
+        <header class="post-header">
+          <div class="post-meta-top" style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem;">
+            <span class="badge" style="background: rgba(2, 132, 199, 0.12); color: var(--accent); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.25rem 0.65rem; border-radius: 4px;">ISP &amp; Gateway IP</span>
+            <span style="font-size: 0.82rem; color: var(--text-muted);">&bull; 10–15 Min Setup</span>
+          </div>
+          <h1 class="post-title" style="font-size: 2.25rem; font-weight: 800; line-height: 1.25; margin-bottom: 0.75rem;">192.168.1.254: Router Admin Login, Default Credentials &amp; Setup Guide</h1>
+          {byline_html}
+        </header>
+
+        <figure style="margin: 1.5rem 0 2rem 0;">
+          <img src="/images/ip/192-168-1-254-router-admin-login-setup.webp" alt="AT&amp;T Fiber gateway on desk connected via Ethernet to laptop for 192.168.1.254 admin login and setup" width="1200" height="675" loading="eager" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+          <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">AT&amp;T broadband gateway connected to a laptop via Ethernet cable for direct 192.168.1.254 local gateway management.</figcaption>
+        </figure>
+
+        <div class="lead-text" style="font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 2rem;">
+          <strong>192.168.1.254 is not a website, and it is not a normal "admin/admin" router address.</strong> It is a private gateway address used mostly by ISP-supplied gateways, notably AT&amp;T, BT, and some Pace, Arris, and Netgear units. It works only while your device is connected to that gateway. Many of these devices use a printed access code instead of a username and password.
+        </div>
+
+        <!-- Quick Answer -->
+        <section id="quick-answer" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Quick Answer</h2>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Connect to the gateway by Wi-Fi or Ethernet. Turn off mobile data and any VPN.</li>
+            <li>Type <code>192.168.1.254</code> into the <strong>address bar</strong>, not the search bar.</li>
+            <li>Open the setting you want. Enter the <strong>access code or password</strong> from the device label if asked.</li>
+            <li>Change the Wi-Fi password and any default admin password.</li>
+          </ol>
+          <div style="background: rgba(2, 132, 199, 0.08); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Fastest action:</strong> Connect to your local gateway network, type <code>http://192.168.1.254</code> into the address bar, and locate the <strong>Device Access Code</strong> printed on the gateway sticker.
+          </div>
+        </section>
+
+        <!-- Quick Reference -->
+        <section id="quick-reference" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Quick Reference</h2>
+          <div style="overflow-x: auto; margin: 1.25rem 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--bg-secondary); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Item</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Login URL</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><a href="http://192.168.1.254" target="_blank" rel="noopener" style="color: var(--accent); font-family: var(--font-mono);">http://192.168.1.254</a></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Common devices</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">AT&amp;T BGW320, BGW210, NVG series, BT Home Hub, some Pace and Arris gateways</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Username</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Often none, or <code>admin</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Password</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Access code or device password printed on the label</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Main settings</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Wi-Fi, IP Passthrough, firewall, port forwarding, DHCP, diagnostics</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Alternatives</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><a href="/ip/192-168-1-1/">192.168.1.1</a>, <a href="/ip/192-168-0-1/">192.168.0.1</a>, <a href="/ip/10-0-0-1/">10.0.0.1</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Diagnostic Table -->
+        <section id="diagnostic-table" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Diagnostic Table</h2>
+          <div style="overflow-x: auto; margin: 1.25rem 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--bg-secondary); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Symptom</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Likely cause</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Quick fix</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Page will not load</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Not on the gateway's network, or mobile data is active</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Join the gateway's Wi-Fi or plug in Ethernet</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Search results appear instead of the login page</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">IP typed in the search bar</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Retype it in the address bar with <code>http://</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Page loads but asks for an access code</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Normal for AT&amp;T-style gateways</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Use the code on the label</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Wi-Fi password rejected as access code</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Wrong code</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Use the <strong>device access code</strong>, not the Wi-Fi key</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Times out behind a second router</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Your device is on the second router's subnet</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Connect to the gateway directly</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Loads in one browser only</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Cache, extension, or proxy</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Use a private window or another browser</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- What Is 192.168.1.254? -->
+        <section id="what-is-192-168-1-254" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">What Is 192.168.1.254?</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            It is a private IPv4 address in the 192.168.x.x range. Many ISP gateways use it as their default gateway, which is the address your devices use to reach the unit.
+          </p>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Think of it as the control panel of your gateway. It shows connection status and lets you manage Wi-Fi, firewall rules, and, on <a href="/isp/att-fiber-gateway-login-admin-access/" style="color: var(--accent); font-weight: 600;">AT&amp;T Fiber units</a>, IP Passthrough.
+          </p>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            It is often confused with <a href="/ip/192-168-1-1/" style="color: var(--accent); font-weight: 600;">192.168.1.1</a>. They are different addresses, and a device uses only one.
+          </p>
+
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" alt="Browser address bar vs search bar illustration for typing 192.168.1.254 directly without triggering Google search" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Enter 192.168.1.254 directly into your web browser's address bar, not into a Google or Bing search query box.</figcaption>
+          </figure>
+        </section>
+
+        <!-- Is 192.168.1.254 Really Your Gateway? -->
+        <section id="is-192-168-1-254-really-your-gateway" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Is 192.168.1.254 Really Your Gateway?</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Verify your local default gateway address before troubleshooting access settings:
+          </p>
+          <ul style="margin: 0.5rem 0 1.25rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><strong>Windows:</strong> Open Command Prompt, run <code>ipconfig</code>, and read <strong>Default Gateway</strong>.</li>
+            <li><strong>Mac:</strong> Go to System Settings &gt; Wi-Fi &gt; Details &gt; TCP/IP and read <strong>Router</strong>.</li>
+            <li><strong>iPhone:</strong> Go to Settings &gt; Wi-Fi &gt; tap the <strong>i</strong> icon and read <strong>Router</strong>.</li>
+            <li><strong>Android:</strong> Go to Wi-Fi &gt; tap your network &gt; Advanced and read <strong>Gateway</strong>.</li>
+          </ul>
+          <p style="line-height: 1.7; color: var(--text-secondary);">
+            If the number differs, use that address instead. Check our comprehensive guide on <a href="/find-router-ip/" style="color: var(--accent); font-weight: 600;">finding your router IP address</a>.
+          </p>
+        </section>
+
+        <!-- How to Log In -->
+        <section id="how-to-login" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">How to Log In</h2>
+
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; color: var(--text-primary);">Windows or Mac</h3>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Connect by Wi-Fi or Ethernet.</li>
+            <li>Open any browser.</li>
+            <li>Enter <code>http://192.168.1.254</code> in the address bar.</li>
+            <li>Choose the setting you want and enter the access code if prompted.</li>
+          </ol>
+
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; color: var(--text-primary);">iPhone</h3>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Open Settings &gt; Wi-Fi and join the gateway's network.</li>
+            <li>Open Safari and enter <code>192.168.1.254</code>.</li>
+            <li>Enter the access code if prompted.</li>
+          </ol>
+
+          <h3 style="font-size: 1.25rem; font-weight: 600; margin: 1.5rem 0 0.75rem 0; color: var(--text-primary);">Android</h3>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Open Settings &gt; Wi-Fi and join the gateway's network.</li>
+            <li>Open Chrome and enter <code>192.168.1.254</code>.</li>
+            <li>Enter the access code if prompted.</li>
+          </ol>
+
+          <div style="background: rgba(2, 132, 199, 0.08); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Pro-tip:</strong> The page can load even when your phone says "connected, no internet", because the gateway page is local and does not depend on an active broadband signal.
+          </div>
+        </section>
+
+        <!-- Default Credentials -->
+        <section id="default-credentials" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Default Credentials</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Check the label on the gateway first. These are common patterns, not guarantees.
+          </p>
+
+          <div style="overflow-x: auto; margin: 1.25rem 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--bg-secondary); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Device</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Username</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Password</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/isp/att-fiber-gateway-login-admin-access/">AT&amp;T BGW320 and BGW210</a></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">None needed</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Device access code on the label</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">AT&amp;T NVG series</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">None needed</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Device access code on the label</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/isp/bt-smart-hub-manager-login-admin-access/">BT Home Hub</a></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Printed on the device card or label</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;"><a href="/brands/pace/">Pace</a> and <a href="/brands/arris/">Arris</a> ISP units</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Label or ISP-set password</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600;">Other routers</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);"><code>admin</code></td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color);">Varies</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/ip/192-168-1-254-gateway-label-device-access-code.webp" alt="Macro photo of gateway label showing 192.168.1.254 default IP and Device Access Code" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Gateway underside specification label showing default IP 192.168.1.254 and unique Device Access Code.</figcaption>
+          </figure>
+
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            The access code is not the same as the Wi-Fi password. Using the Wi-Fi key at the access-code prompt is a common mistake.
+          </p>
+        </section>
+
+        <!-- First Settings to Change -->
+        <section id="first-settings-to-change" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">First Settings to Change</h2>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><strong>Wi-Fi name and password:</strong> Use at least 12 characters.</li>
+            <li><strong>Security mode:</strong> Choose WPA3 if available, otherwise WPA2-PSK (AES).</li>
+            <li><strong>Access code or admin password:</strong> Change it if the device allows.</li>
+            <li><strong>Firmware:</strong> ISP gateways usually update automatically. Do not interrupt an update.</li>
+            <li><strong>Remote management:</strong> Turn it off unless you need it.</li>
+            <li><strong>Guest network:</strong> Create one for visitors if available.</li>
+          </ol>
+        </section>
+
+        <!-- Change Wi-Fi Name and Password -->
+        <section id="change-wifi" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Change Wi-Fi Name and Password</h2>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Open <strong>192.168.1.254</strong>.</li>
+            <li>Go to <strong>Home Network &gt; Wi-Fi</strong> (AT&amp;T) or <strong>Wireless Settings</strong>.</li>
+            <li>Select the band and edit the SSID and password.</li>
+            <li>Save and reconnect your devices.</li>
+          </ol>
+          <p style="line-height: 1.7; color: var(--text-secondary);">
+            You will be disconnected when you change the password over Wi-Fi. That is expected.
+          </p>
+        </section>
+
+        <!-- IP Passthrough (AT&T) -->
+        <section id="ip-passthrough" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">IP Passthrough (AT&amp;T)</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Use IP Passthrough when you connect your own router and want to avoid Double NAT.
+          </p>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Connect your router's <strong>WAN</strong> port to a LAN port on the gateway.</li>
+            <li>Open <strong>192.168.1.254</strong> and go to <strong>Firewall &gt; IP Passthrough</strong>.</li>
+            <li>Set <strong>Allocation Mode</strong> to <strong>Passthrough</strong> and <strong>Passthrough Mode</strong> to <strong>DHCPS-fixed</strong>.</li>
+            <li>Select your router's WAN MAC address.</li>
+            <li>Save, then restart both devices.</li>
+          </ol>
+
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/ip/192-168-1-254-router-admin-dashboard-ip-passthrough.webp" alt="Router web administration console dashboard opened at 192.168.1.254 displaying IP Passthrough configuration and connected devices" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">AT&amp;T Gateway administration interface accessed at http://192.168.1.254 showing IP Passthrough configuration.</figcaption>
+          </figure>
+
+          <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Warning:</strong> Passthrough hands the public IP to your router, so your router's firewall is then your main protection. Keep its firmware updated.
+          </div>
+        </section>
+
+        <!-- Port Forwarding -->
+        <section id="port-forwarding" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Port Forwarding</h2>
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Give the target device a fixed IP or a DHCP reservation.</li>
+            <li>Go to <strong>Firewall &gt; NAT/Gaming</strong> (AT&amp;T) or <strong>Advanced &gt; Port Forwarding</strong>.</li>
+            <li>Add a rule with the device IP, the port, and the protocol.</li>
+            <li>Save and apply.</li>
+          </ol>
+          <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Warning:</strong> Open only the ports you need. Each forwarded port exposes that device to the internet.
+          </div>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Troubleshooting</h2>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem;">192.168.1.254 will not load</h3>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Cause:</strong> You are on the wrong network, the gateway IP is different, or a VPN is active.</p>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Fix:</strong> Disconnect the VPN and mobile data, confirm your gateway IP, and retry.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem;">Access code not accepted</h3>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Cause:</strong> A typo, or the Wi-Fi password was used instead.</p>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Fix:</strong> Re-read the label. Codes are case-sensitive and avoid easily confused characters, so check each one.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem;">Settings missing</h3>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Cause:</strong> The ISP hides or locks some options.</p>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Fix:</strong> Look in the ISP app or contact support, or use your own router behind the gateway.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem;">Double NAT</h3>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Cause:</strong> Your own router sits behind the gateway, and both are routing.</p>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Fix:</strong> Enable IP Passthrough or bridge mode on the gateway.</p>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.4rem;">No internet after changes</h3>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Cause:</strong> A settings error or an outage.</p>
+            <p style="margin: 0.25rem 0; color: var(--text-secondary);"><strong>Fix:</strong> Undo the last change, restart the gateway, and check for outage alerts.</p>
+          </div>
+        </section>
+
+        <!-- Factory Reset -->
+        <section id="factory-reset" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Factory Reset</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            Use this only when you cannot recover access.
+          </p>
+
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/ip/192-168-1-254-factory-reset-button-pinhole.webp" alt="Pressing recessed factory reset pinhole button on gateway rear panel with paperclip to restore 192.168.1.254 defaults" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Using a paperclip to press and hold the recessed Reset pinhole on the gateway rear panel for 10–15 seconds.</figcaption>
+          </figure>
+
+          <ol style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li>Leave the gateway powered on.</li>
+            <li>Hold the <strong>Reset</strong> button for 10 to 15 seconds with a paperclip.</li>
+            <li>Wait several minutes for it to restart.</li>
+            <li>Reconnect using the Wi-Fi details on the label.</li>
+            <li>Set it up again.</li>
+          </ol>
+          <div style="background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Warning:</strong> A reset erases Wi-Fi settings, IP Passthrough, and port forwards. On ISP gateways it may also require reactivation.
+          </div>
+        </section>
+
+        <!-- Common Misspellings -->
+        <section id="common-misspellings" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Common Misspellings</h2>
+          <ul style="margin: 0.5rem 0 1.25rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><code>192.168.1.254.1</code> (extra trailing digit)</li>
+            <li><code>192.168.l.254</code> (a lowercase "L" instead of digit "1")</li>
+            <li><code>192.168.01.254</code> (leading zero)</li>
+            <li><code>192.168.1.245</code> (transposed digits)</li>
+            <li><code>192.168.254.1</code> (different subnet IP)</li>
+            <li><code>192.168.1.1</code> or <code>10.0.0.1</code> (alternative router gateway subnets)</li>
+          </ul>
+        </section>
+
+        <!-- FAQs -->
+        <section id="faqs" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.25rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Frequently Asked Questions (FAQs)</h2>
+
+          <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--bg-card);">
+            <h3 class="faq-question" style="font-size: 1.1rem; font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">What is 192.168.1.254?</h3>
+            <p class="faq-answer" style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.6;">
+              It is a private IPv4 address that many ISP gateways use as their local admin address.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--bg-card);">
+            <h3 class="faq-question" style="font-size: 1.1rem; font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Do I need a username?</h3>
+            <p class="faq-answer" style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.6;">
+              Usually not on AT&amp;T gateways. You use the access code on the label. Other devices may use <code>admin</code>.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--bg-card);">
+            <h3 class="faq-question" style="font-size: 1.1rem; font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Is it the same as 192.168.1.1?</h3>
+            <p class="faq-answer" style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.6;">
+              No. They are different addresses, and a device uses one or the other.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--bg-card);">
+            <h3 class="faq-question" style="font-size: 1.1rem; font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">Can I open it from outside my home?</h3>
+            <p class="faq-answer" style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.6;">
+              No. It is private. Avoid exposing the admin page to the internet.
+            </p>
+          </div>
+
+          <div class="faq-item" style="border: 1px solid var(--border-color); border-radius: 8px; padding: 1.25rem; margin-bottom: 1rem; background: var(--bg-card);">
+            <h3 class="faq-question" style="font-size: 1.1rem; font-weight: 600; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">What if I lost the access code?</h3>
+            <p class="faq-answer" style="color: var(--text-secondary); margin-bottom: 0; line-height: 1.6;">
+              Check the label and any setup sheet. If the code was changed and lost, factory reset the gateway.
+            </p>
+          </div>
+        </section>
+
+        <!-- Bottom Line -->
+        <section id="bottom-line" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem;">Bottom Line</h2>
+          <p style="line-height: 1.7; color: var(--text-secondary); margin-bottom: 1rem;">
+            192.168.1.254 is the local admin address for many ISP gateways, especially AT&amp;T. Connect to the gateway, enter the address in your browser, and use the access code on the label when asked. If it fails, confirm your real gateway IP first.
+          </p>
+          <div style="background: rgba(2, 132, 199, 0.08); border-left: 4px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Fastest diagnostic step:</strong> Run <code>ipconfig</code> on Windows, or check Wi-Fi details on your phone, and read the <strong>Default Gateway</strong>. If it is not 192.168.1.254, use that address instead.
+          </div>
+        </section>
+      </article>
+
+      <!-- Sticky Sidebar for 192.168.1.254 -->
+      <aside class="post-sidebar" aria-label="192.168.1.254 Navigation and Quick Credentials">
+        <div class="sidebar-widget" style="background: linear-gradient(180deg, var(--bg-card) 0%, rgba(2, 132, 199, 0.06) 100%); border-color: rgba(2, 132, 199, 0.4);">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Gateway Credentials
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.88rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Gateway IP:</span>
+              <span style="font-family: var(--font-mono); font-weight: 700; color: var(--accent);">192.168.1.254</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Web Address:</span>
+              <a href="http://192.168.1.254" target="_blank" rel="noopener" style="font-family: var(--font-mono); font-weight: 600; color: var(--accent);">http://192.168.1.254</a>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Default User:</span>
+              <code style="background: var(--bg-secondary); padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 700;">None / admin</code>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Default Pass:</span>
+              <code style="background: var(--bg-secondary); padding: 0.15rem 0.45rem; border-radius: 4px; font-weight: 700;">Device Access Code</code>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed var(--border-color); padding-bottom: 0.4rem;">
+              <span style="color: var(--text-muted);">Subnet Mask:</span>
+              <span style="font-family: var(--font-mono); font-size: 0.82rem;">255.255.255.0</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: var(--text-muted);">Reset Hold:</span>
+              <span style="font-weight: 600;">10–15 seconds</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+            Table of Contents
+          </h3>
+          <ul class="sidebar-toc-list">
+            <li><a href="#quick-answer">Quick Answer</a></li>
+            <li><a href="#quick-reference">Quick Reference</a></li>
+            <li><a href="#diagnostic-table">Diagnostic Table</a></li>
+            <li><a href="#what-is-192-168-1-254">What Is 192.168.1.254?</a></li>
+            <li><a href="#is-192-168-1-254-really-your-gateway">Is It Really Your Gateway?</a></li>
+            <li><a href="#how-to-login">How to Log In</a></li>
+            <li><a href="#default-credentials">Default Credentials</a></li>
+            <li><a href="#first-settings-to-change">First Settings to Change</a></li>
+            <li><a href="#change-wifi">Change Wi-Fi Name &amp; Password</a></li>
+            <li><a href="#ip-passthrough">IP Passthrough (AT&amp;T)</a></li>
+            <li><a href="#port-forwarding">Port Forwarding</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><a href="#factory-reset">Factory Reset</a></li>
+            <li><a href="#common-misspellings">Common Misspellings</a></li>
+            <li><a href="#faqs">Frequently Asked Questions</a></li>
+            <li><a href="#bottom-line">Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            Alternative Gateways
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/ip/192-168-1-1/"><span>192.168.1.1 (Primary Gateway)</span> &rarr;</a></li>
+            <li><a href="/ip/192-168-0-1/"><span>192.168.0.1 (TP-Link / D-Link)</span> &rarr;</a></li>
+            <li><a href="/ip/10-0-0-1/"><span>10.0.0.1 (Xfinity / Comcast)</span> &rarr;</a></li>
+            <li><a href="/ip/192-168-2-1/"><span>192.168.2.1 (Belkin / SMC)</span> &rarr;</a></li>
+            <li><a href="/ip/192-168-1-250/"><span>192.168.1.250 (Netgear Extenders)</span> &rarr;</a></li>
+            <li><a href="/ip/"><span>All Gateway IP Hubs</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            Diagnostic Tools
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/tools/ip-lookup/"><span>Local IP Lookup Tool</span> &rarr;</a></li>
+            <li><a href="/tools/subnet-calculator/"><span>Subnet Mask Calculator</span> &rarr;</a></li>
+            <li><a href="/tools/wifi-qr-code-generator/"><span>Wi-Fi QR Code Generator</span> &rarr;</a></li>
+            <li><a href="/tools/dns-lookup/"><span>DNS Propagation Checker</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            Related Router Guides
+          </h3>
+          <ul class="sidebar-links-list">
+            <li><a href="/isp/att-fiber-gateway-login-admin-access/"><span>AT&amp;T Fiber Gateway Login</span> &rarr;</a></li>
+            <li><a href="/isp/bt-smart-hub-manager-login-admin-access/"><span>BT Smart Hub Login</span> &rarr;</a></li>
+            <li><a href="/routers/netgear-nighthawk-rax50/"><span>Nighthawk AX6 (RAX50) Setup</span> &rarr;</a></li>
+            <li><a href="/howto/access-my-router-settings-page/"><span>Access Router Settings Page</span> &rarr;</a></li>
+            <li><a href="/howto/two-routers-access-point-mode/"><span>Connect Two Routers (AP Mode)</span> &rarr;</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem;">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on AT&amp;T BGW320/BGW210, BT Smart Hub, and Pace gateways under lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+"""
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+
+
 def generate_ip_pages():
     print(f"Generating {len(IP_GATEWAYS)} private gateway IP pages (Intent-First Technical SEO Pattern)...")
     for ip_item in IP_GATEWAYS:
@@ -14273,7 +14935,11 @@ def generate_ip_pages():
         ip_dir = os.path.join(PUBLIC_DIR, "ip", slug)
         make_dirs(ip_dir)
 
-        if ip == "192.168.0.1":
+        if ip == "192.168.1.254":
+            with open(os.path.join(ip_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_192_168_1_254_page())
+            continue
+        elif ip == "192.168.0.1":
             with open(os.path.join(ip_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_192_168_0_1_page())
             continue
