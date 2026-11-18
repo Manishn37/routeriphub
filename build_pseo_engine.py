@@ -11759,7 +11759,7 @@ def generate_custom_10_10_10_1_page():
     </div>
   </main>
 """
-    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/ip/10-10-10-1-router-gateway-admin-setup.webp", og_image_alt="MikroTik RouterBOARD dual-band router gateway admin setup for 10.10.10.1", og_type="article") + content + get_footer()
 
 
 def generate_custom_10_0_0_1_page():
@@ -12436,7 +12436,7 @@ def generate_custom_10_0_0_1_page():
     </div>
   </main>
 """
-    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/ip/10-0-0-1-xfinity-gateway-admin-setup.webp", og_image_alt="Xfinity gateway connected via coax and Ethernet for 10.0.0.1 admin setup", og_type="article") + content + get_footer()
 
 
 def get_mywifiext_setup_wizard_modal_html():
@@ -12989,7 +12989,7 @@ def generate_custom_192_168_1_250_page():
     </div>
   </main>
 """
-    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/ip/192-168-1-250-netgear-extender-setup.webp", og_image_alt="Netgear WiFi range extender plugged into wall outlet for 192.168.1.250 setup", og_type="article") + content + get_footer()
 
 
 def generate_custom_192_168_1_1_page():
@@ -13689,7 +13689,7 @@ def generate_custom_192_168_1_1_page():
     </div>
   </main>
 """
-    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/ip/192-168-1-1-router-admin-setup.webp", og_image_alt="Dual-band wireless router connected to laptop for 192.168.1.1 admin login", og_type="article") + content + get_footer()
 
 
 def generate_custom_192_168_0_1_page():
@@ -14333,7 +14333,7 @@ def generate_custom_192_168_0_1_page():
     </div>
   </main>
 """
-    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/ip/192-168-0-1-router-admin-setup.webp", og_image_alt="TP-Link wireless router connected to laptop for 192.168.0.1 admin login", og_type="article") + content + get_footer()
 
 
 def generate_custom_192_168_1_254_page():
@@ -14995,7 +14995,7 @@ def generate_custom_192_168_1_254_page():
     </div>
   </main>
 """
-    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/ip/192-168-1-254-att-gateway-setup.webp", og_image_alt="AT&T Fiber gateway connected for 192.168.1.254 admin access and IP Passthrough", og_type="article") + content + get_footer()
 
 
 def generate_custom_192_168_1_2_page():
@@ -15608,7 +15608,7 @@ def generate_custom_192_168_1_2_page():
     </div>
   </main>
 """
-    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/ip/192-168-1-2-secondary-router-setup.webp", og_image_alt="Secondary router and access point setup on 192.168.1.2 LAN subnet", og_type="article") + content + get_footer()
 
 
 def generate_custom_192_168_100_1_page():
@@ -16282,7 +16282,7 @@ def generate_custom_192_168_100_1_page():
     </div>
   </main>
 """
-    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/ip/192-168-100-1-cable-modem-ont-setup.webp", og_image_alt="Cable modem and broadband gateway connected for 192.168.100.1 status diagnostics", og_type="article") + content + get_footer()
 
 
 def generate_custom_192_168_50_1_page():
@@ -16940,7 +16940,7 @@ def generate_custom_192_168_50_1_page():
     </div>
   </main>
 """
-    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
+    return get_header(title, desc, canonical, active_nav="ip", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/ip/192-168-50-1-asus-router-admin-setup.webp", og_image_alt="ASUS RT-AX58U Wi-Fi 6 router setup for 192.168.50.1 ASUSWRT admin login", og_type="article") + content + get_footer()
 
 
 def generate_ip_pages():
