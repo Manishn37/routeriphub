@@ -11392,7 +11392,7 @@ def generate_custom_10_10_10_1_page():
           </ol>
 
           <figure style="margin: 1.5rem 0 2rem 0;">
-            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" alt="Browser address bar versus search bar comparison when typing 10.10.10.1" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-10-10-10-1.webp" alt="Browser address bar versus search bar comparison when typing 10.10.10.1" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
             <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Always type 10.10.10.1 into the browser address bar at the top, not into the search engine query box.</figcaption>
           </figure>
 
@@ -12011,7 +12011,7 @@ def generate_custom_10_0_0_1_page():
           </p>
 
           <figure style="margin: 1.5rem 0;">
-            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" alt="Browser address bar vs search bar illustration for typing 10.0.0.1 directly without triggering Google search" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-10-0-0-1.webp" alt="Browser address bar vs search bar illustration for typing 10.0.0.1 directly without triggering Google search" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
             <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Enter 10.0.0.1 directly into your web browser's address/URL bar, not into a Google or Bing search query box.</figcaption>
           </figure>
         </section>
@@ -13937,7 +13937,7 @@ def generate_custom_192_168_0_1_page():
           </p>
 
           <figure style="margin: 1.5rem 0;">
-            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" alt="Browser address bar vs search bar illustration for typing 192.168.0.1 directly without triggering Google search" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-0-1.webp" alt="Browser address bar vs search bar illustration for typing 192.168.0.1 directly without triggering Google search" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
             <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Enter 192.168.0.1 directly into your web browser's address/URL bar, not into a Google or Bing search query box.</figcaption>
           </figure>
         </section>
@@ -14585,7 +14585,7 @@ def generate_custom_192_168_1_254_page():
           </p>
 
           <figure style="margin: 1.5rem 0;">
-            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" alt="Browser address bar vs search bar illustration for typing 192.168.1.254 directly without triggering Google search" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-254.webp" alt="Browser address bar vs search bar illustration for typing 192.168.1.254 directly without triggering Google search" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color);">
             <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Enter 192.168.1.254 directly into your web browser's address bar, not into a Google or Bing search query box.</figcaption>
           </figure>
         </section>
@@ -15299,7 +15299,7 @@ def generate_custom_192_168_1_2_page():
           </ol>
 
           <figure style="margin: 1.5rem 0 2rem 0;">
-            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" alt="Browser address bar versus search bar comparison when typing 192.168.1.2" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-2.webp" alt="Browser address bar versus search bar comparison when typing 192.168.1.2" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
             <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Always type 192.168.1.2 into the browser address bar at the top, not into the Google or Bing search box.</figcaption>
           </figure>
 
@@ -15923,7 +15923,7 @@ def generate_custom_192_168_100_1_page():
           </ol>
 
           <figure style="margin: 1.5rem 0 2rem 0;">
-            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" alt="Browser address bar versus search bar comparison when typing 192.168.100.1" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-100-1.webp" alt="Browser address bar versus search bar comparison when typing 192.168.100.1" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
             <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Always type 192.168.100.1 into the browser address bar at the top, not into the search engine box.</figcaption>
           </figure>
 
@@ -16570,7 +16570,7 @@ def generate_custom_192_168_50_1_page():
           </ol>
 
           <figure style="margin: 1.5rem 0 2rem 0;">
-            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-1-1.webp" alt="Browser address bar versus search bar comparison when typing 192.168.50.1" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-192-168-50-1.webp" alt="Browser address bar versus search bar comparison when typing 192.168.50.1" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
             <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Always type 192.168.50.1 into the browser address bar at the top, not into the Google or Bing search box.</figcaption>
           </figure>
 
