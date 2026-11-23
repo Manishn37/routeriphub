@@ -3708,6 +3708,473 @@ def generate_custom_netgear_nighthawk_rax120_page(m):
     return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/routers/netgear-nighthawk-rax120-setup.webp", og_image_alt="Netgear Nighthawk AX12 RAX120 12-stream Wi-Fi 6 router hardware setup on an office desk") + content + get_footer()
 
 
+def generate_custom_netgear_nighthawk_xr1000_page(m):
+    canonical = "https://routeriphub.com/routers/netgear-nighthawk-xr1000/"
+    clean_name = "Netgear Nighthawk Pro Gaming XR1000"
+    title = "Netgear Nighthawk Pro Gaming XR1000 Setup: Step-by-Step Guide"
+    desc = "Set up the Netgear Nighthawk Pro Gaming XR1000 with the Nighthawk app or routerlogin.net. Covers DumaOS 3.0, Wi-Fi settings, firmware and factory reset."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Routers", "/routers/"),
+        ("Netgear", "/brands/netgear/"),
+        ("Nighthawk Pro Gaming XR1000", canonical)
+    ]
+
+    tech_schema = {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Netgear Nighthawk Pro Gaming XR1000 Setup: Complete Step-by-Step Guide",
+        "description": desc,
+        "author": {
+            "@type": "Person",
+            "name": "Vikas Behl"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "RouterIPHub",
+            "url": "https://routeriphub.com"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonical
+        },
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": "2026-11-23T00:00:00+00:00"
+    }
+
+    howto_schema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Set Up and Configure Netgear Nighthawk Pro Gaming XR1000 Router",
+        "description": "Step-by-step installation instructions for connecting the Netgear Nighthawk Pro Gaming XR1000 to your modem, setting up DumaOS 3.0, configuring Wi-Fi, and updating firmware.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Power Off Modem",
+                "text": "Turn off your modem or fiber ONT. Disconnect power and wait 30 seconds."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Connect Internet Cable",
+                "text": "Connect the modem's LAN port to the XR1000's yellow Internet (WAN) port using an Ethernet cable."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Power On Router & Modem",
+                "text": "Plug in the router's power adapter and switch it on. Wait until the Power and Internet LEDs are steady."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Connect to Wi-Fi",
+                "text": "Connect your phone or computer to the default Wi-Fi network using the name and password printed on the router label."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Complete Setup via App or Browser",
+                "text": "Run the setup in the Nighthawk app or navigate to http://www.routerlogin.net (or 192.168.1.1) in a web browser to unlock DumaOS 3.0 gaming tools."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the default login for the XR1000?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "After a factory reset, the username is admin and the password is password."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the XR1000 have a Multi-Gig port?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. It has one Gigabit WAN port and four Gigabit LAN ports."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is DumaOS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It is the gaming router OS built into the XR1000. It handles bandwidth allocation, geo-filtering and latency tools."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use any firmware file?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. XR1000 and XR1000v2 use separate files."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it support Wi-Fi 6E?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. It is a dual-band Wi-Fi 6 router."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <!-- Breadcrumb Bar -->
+    <nav aria-label="breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.88rem; color: var(--text-muted);">
+      <a href="/" style="color: var(--primary); text-decoration: none;">Home</a> &rsaquo;
+      <a href="/routers/" style="color: var(--primary); text-decoration: none;">Routers</a> &rsaquo;
+      <a href="/brands/netgear/" style="color: var(--primary); text-decoration: none;">Netgear</a> &rsaquo;
+      <span style="color: var(--text-main);">Nighthawk Pro Gaming XR1000</span>
+    </nav>
+
+    <div class="content-layout">
+      <!-- Main Content Column -->
+      <article class="main-content" style="min-width: 0;">
+        <header style="margin-bottom: 2rem;">
+          <div style="display: inline-block; background: var(--bg-surface-2); border: 1px solid var(--border-color); color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 4px; margin-bottom: 0.75rem;">
+            Netgear Nighthawk Pro Gaming Setup Guide
+          </div>
+          <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem; color: var(--text-main);">
+            Netgear Nighthawk Pro Gaming XR1000 Setup
+          </h1>
+          <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1rem;">
+            Netgear Nighthawk Pro Gaming XR1000 setup takes about 15 minutes. Connect the modem to the WAN port, power on the router, install it with the Nighthawk app, then sign in at <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">routerlogin.net</code> to open DumaOS 3.0 and its gaming tools. The browser path works when the app fails.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 0.75rem 0;">
+            <span><strong>Author:</strong> Vikas Behl</span>
+            <span>&bull;</span>
+            <span><strong>Model:</strong> Netgear Nighthawk Pro Gaming XR1000 (v1 & v2)</span>
+            <span>&bull;</span>
+            <span><strong>OS:</strong> DumaOS 3.0 Gaming OS</span>
+            <span>&bull;</span>
+            <span><strong>Updated:</strong> November 2026</span>
+          </div>
+        </header>
+
+        <!-- Hero Image -->
+        <figure style="margin: 0 0 2.5rem 0;">
+          <img src="/images/routers/netgear-nighthawk-xr1000-setup.webp" alt="Netgear Nighthawk Pro Gaming XR1000 Wi-Fi 6 gaming router hardware setup on desk" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+          <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">The Netgear Nighthawk Pro Gaming XR1000 featuring 4 external antennas, red gaming heat-mesh accents, and DumaOS 3.0 latency controls.</figcaption>
+        </figure>
+
+        <!-- Quick Reference Table Card -->
+        <section style="background: var(--bg-surface-2); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">At a Glance: XR1000 Default Specifications</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.92rem;">
+            <div><span style="color: var(--text-muted);">Default Web URL:</span><br><strong style="color: var(--primary);">http://routerlogin.net</strong></div>
+            <div><span style="color: var(--text-muted);">Default IP Gateway:</span><br><strong>192.168.1.1</strong> (or 192.168.0.1)</div>
+            <div><span style="color: var(--text-muted);">Default Username:</span><br><strong>admin</strong> (lowercase)</div>
+            <div><span style="color: var(--text-muted);">Default Password:</span><br><strong>password</strong> (or set via wizard)</div>
+            <div><span style="color: var(--text-muted);">Default SSID:</span><br><strong>NETGEAR-XX / NETGEAR-XX-5G</strong></div>
+            <div><span style="color: var(--text-muted);">Gaming Engine:</span><br><strong style="color: #ef4444;">DumaOS 3.0 (Geo-Filter & QoS)</strong></div>
+          </div>
+        </section>
+
+        <!-- What is the XR1000 -->
+        <section id="what-is-xr1000" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">What is the XR1000?</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            The XR1000 is a 6-stream AX5400 dual-band Wi-Fi 6 gaming router, powered by DumaOS 3.0. It has a 1.5GHz triple-core processor. The 5GHz band reaches up to 4,800Mbps and the 2.4GHz band up to 600Mbps. Those figures are link rates, so real speeds will be lower.
+          </p>
+
+          <div style="overflow-x: auto; margin: 1.5rem 0;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+              <thead>
+                <tr style="background: var(--bg-surface-2); border-bottom: 2px solid var(--border-color);">
+                  <th style="padding: 10px 14px; font-weight: 700; color: var(--text-main);">Spec</th>
+                  <th style="padding: 10px 14px; font-weight: 700; color: var(--text-main);">XR1000</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 10px 14px; font-weight: 600;">Wi-Fi standard</td>
+                  <td style="padding: 10px 14px;">Wi-Fi 6 (802.11ax), dual-band</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 10px 14px; font-weight: 600;">Router OS</td>
+                  <td style="padding: 10px 14px; color: #ef4444; font-weight: 600;">DumaOS 3.0</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 10px 14px; font-weight: 600;">Wired ports</td>
+                  <td style="padding: 10px 14px;">1 Gigabit WAN, 4 Gigabit LAN</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 10px 14px; font-weight: 600;">USB</td>
+                  <td style="padding: 10px 14px;">1 x USB 3.0</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 10px 14px; font-weight: 600;">Processor</td>
+                  <td style="padding: 10px 14px;">1.5GHz triple-core</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Netgear claims DumaOS can cut ping rates by up to 93 percent. That figure is a marketing number from the vendor, so test your own results. The router has no Multi-Gig port. Every wired port tops out at 1Gbps.
+          </p>
+          <p style="line-height: 1.7; color: var(--text-main);">
+            Two hardware versions exist, XR1000 and XR1000v2. Their firmware files are not interchangeable. Check which one you own before you download anything.
+          </p>
+
+          <!-- Rear Ports Image -->
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/routers/netgear-nighthawk-xr1000-rear-ports.webp" alt="Netgear Nighthawk Pro Gaming XR1000 rear panel connection ports showing Gigabit WAN, 4 LAN ports, and USB 3.0" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Rear panel layout of the Netgear Nighthawk Pro Gaming XR1000 showing Yellow WAN, 4 Gigabit LAN ports, USB 3.0, and Reset pinhole.</figcaption>
+          </figure>
+        </section>
+
+        <!-- What You Need Before You Start -->
+        <section id="before-you-start" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">What you need before you start</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Gather these items first.
+          </p>
+          <ul style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.7; color: var(--text-main);">
+            <li><strong>A modem or fiber ONT</strong> with an active internet plan.</li>
+            <li><strong>A phone with the Nighthawk app</strong>, or a computer with a browser.</li>
+            <li><strong>ISP login details</strong> if your line uses PPPoE.</li>
+            <li><strong>An Ethernet cable for the modem link.</strong> Use another cable to wire your console or PC.</li>
+            <li><strong>A central, open spot for the router.</strong> Avoid cabinets and floors.</li>
+          </ul>
+          <p style="line-height: 1.7; color: var(--text-main);">
+            Plan for wired play. The router has four LAN ports, so plug consoles and gaming PCs into those instead of relying on Wi-Fi. A cable gives lower and steadier latency.
+          </p>
+        </section>
+
+        <!-- Install the Router -->
+        <section id="install-the-router" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Install the router</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Follow these steps in order.
+          </p>
+          <ol style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-main);">
+            <li><strong>Turn off the modem.</strong> Disconnect and reconnect it later if setup stalls.</li>
+            <li><strong>Connect the modem</strong> to the router's yellow Internet (WAN) port.</li>
+            <li><strong>Plug in the router's power adapter</strong> and switch it on.</li>
+            <li><strong>Wait until the Power LED is steady.</strong></li>
+            <li><strong>Connect your phone or computer</strong> to the default Wi-Fi network. The name and password are on the label.</li>
+          </ol>
+          <div style="background: var(--bg-surface-2); border-left: 4px solid var(--primary); padding: 1rem 1.25rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 1.25rem 0;">
+            <strong>Modem Power Cycle:</strong> Reboot the modem if the router cannot find the internet. Turn off both devices, restart the modem, then reconnect the router and try again.
+          </div>
+
+          <!-- Label Image -->
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/routers/netgear-nighthawk-xr1000-label-credentials.webp" alt="Netgear Nighthawk Pro Gaming XR1000 bottom specification label showing default Wi-Fi SSID, network key, and DumaOS admin URL" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Locate your default Wi-Fi SSID, pre-shared passphrase, and hardware version (XR1000 vs XR1000v2) on the bottom panel label.</figcaption>
+          </figure>
+        </section>
+
+        <!-- Run the App Setup -->
+        <section id="app-setup" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Run the app setup</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            The Nighthawk app is Netgear's recommended install path.
+          </p>
+          <ol style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-main);">
+            <li>Download the Nighthawk app on your phone.</li>
+            <li>Join the router's Wi-Fi from your phone's Settings.</li>
+            <li>Open the app and follow the setup instructions.</li>
+            <li>Create a Netgear account if prompted, and set your Wi-Fi name and password.</li>
+          </ol>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Netgear's quick start guide says to sign in at <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">routerlogin.net</code> afterward with the same credentials you used in the app. That sign-in opens the gaming features, including bandwidth allocation and latency reduction. Skip it and you only get basic router controls.
+          </p>
+          <p style="line-height: 1.7; color: var(--text-muted); font-size: 0.95rem;">
+            If the app install fails, restart the modem and router and try once more. Next, use the manual route below.
+          </p>
+        </section>
+
+        <!-- Set up with a Browser -->
+        <section id="browser-setup" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Set up with a browser</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            You can finish without the app.
+          </p>
+          <ol style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-main);">
+            <li>Connect a computer to one of the LAN ports or to the router's Wi-Fi.</li>
+            <li>Confirm that the Power LED is lit.</li>
+            <li>Open a browser and go to <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">http://www.routerlogin.net</code>.</li>
+            <li>Follow the on-screen setup assistant.</li>
+          </ol>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            If the page won't load, clear the browser cache, close and reopen the browser, or type <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">192.168.1.1</code> instead. The default LAN address and <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">routerlogin.net</code> point to the same place.
+          </p>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            After a factory reset, the username is <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; font-weight: 600;">admin</code> and the password is <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; font-weight: 600;">password</code>, both lowercase. If you set your own credentials during setup, use those. After first login, a welcome tour and setup wizard introduces DumaOS.
+          </p>
+
+          <!-- Address Bar Diagram -->
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-routerlogin-net.webp" alt="Browser address bar versus search engine comparison showing http://www.routerlogin.net entered in the address bar" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Always type http://www.routerlogin.net directly into the top browser address/URL bar, not into a search engine query box.</figcaption>
+          </figure>
+        </section>
+
+        <!-- Configure DumaOS and Wi-Fi -->
+        <section id="configure-dumaos" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Configure DumaOS and Wi-Fi</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            DumaOS is what sets this router apart from the standard Nighthawk models. Spend your time in a few areas.
+          </p>
+          <ul style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-main);">
+            <li><strong>Wi-Fi name and password.</strong> Choose a unique SSID and a password of 14 or more characters.</li>
+            <li><strong>Security.</strong> Pick WPA3 if your devices support it. Otherwise use WPA2.</li>
+            <li><strong>Bandwidth allocation.</strong> Give your console or gaming PC priority over streaming and downloads.</li>
+            <li><strong>Geo-filter.</strong> Limit matchmaking to servers near you to reduce lag spikes.</li>
+            <li><strong>Guest network.</strong> Keep visitors and smart-home devices off the main network.</li>
+          </ul>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Netgear also publishes optimal-settings guides for DumaOS. Follow one after the welcome tour, since the right values depend on your connection speed. Set the bandwidth limits close to your real measured speeds. Values set too high do nothing, and values set too low waste your line.
+          </p>
+          <p style="line-height: 1.7; color: var(--text-main);">
+            The router is dual-band, so it has no 6GHz channel. Put gaming devices on 5GHz when they sit near the router.
+          </p>
+        </section>
+
+        <!-- Update Firmware -->
+        <section id="update-firmware" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Update the firmware</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Update after setup, and match the file to your hardware version. Log in to DumaOS at <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">routerlogin.net</code>. The version label at the top right says either "xr1000" or "xr1000v2". Note which one you have.
+          </p>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            To update manually:
+          </p>
+          <ol style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-main);">
+            <li>Connect your computer to the router with an Ethernet cable.</li>
+            <li>Download the firmware for your exact version from Netgear Support.</li>
+            <li>Log in and open the router's firmware update page.</li>
+            <li>Upload the file and wait for the router to restart.</li>
+          </ol>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Version 1.0.0.72 for the XR1000 v1 is a recent example. Netgear's release notes say it does not work with v2 hardware. They also recommend a factory reset and fresh setup after applying it. They suggest a DHCP pool of <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; font-weight: 600;">192.168.#.100</code> to <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; font-weight: 600;">192.168.#.200</code> after the reset.
+          </p>
+          <div style="background: var(--bg-surface-2); border-left: 4px solid #ef4444; padding: 1rem 1.25rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 1.25rem 0;">
+            <strong>Warning:</strong> Do not unplug the router during the update. An interruption can corrupt the firmware.
+          </div>
+        </section>
+
+        <!-- Factory Reset -->
+        <section id="factory-reset" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Factory reset</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            A reset erases your Wi-Fi settings, DumaOS tweaks and port rules. Use it if you are locked out or after a firmware update that needs it.
+          </p>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Press and hold the Reset button on the back with a paper clip until the Power LED blinks. Then wait for the router to restart. You can also erase settings from the web interface under the Administration and Backup section.
+          </p>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            After the reset, the login returns to <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; font-weight: 600;">admin</code> and <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; font-weight: 600;">password</code>, and the LAN IP returns to <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">192.168.1.1</code>. Write down your ISP details first.
+          </p>
+
+          <!-- Reset Pinhole Image -->
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/routers/netgear-nighthawk-xr1000-factory-reset-pinhole.webp" alt="Paperclip pressing the recessed factory reset button on the rear panel of a Netgear Nighthawk gaming router" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Press and hold the recessed Reset pinhole on the back panel of the XR1000 with a paperclip until the Power LED blinks amber.</figcaption>
+          </figure>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text-main);">Frequently Asked Questions (FAQ)</h2>
+          
+          <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
+              What is the default login for the XR1000?
+            </div>
+            <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); line-height: 1.6;">
+              After a factory reset, the username is <code style="background: var(--bg-surface); padding: 2px 6px; border-radius: 4px; font-weight: 600;">admin</code> and the password is <code style="background: var(--bg-surface); padding: 2px 6px; border-radius: 4px; font-weight: 600;">password</code>.
+            </div>
+          </div>
+
+          <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
+              Does the XR1000 have a Multi-Gig port?
+            </div>
+            <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); line-height: 1.6;">
+              No. It has one Gigabit WAN port and four Gigabit LAN ports.
+            </div>
+          </div>
+
+          <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
+              What is DumaOS?
+            </div>
+            <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); line-height: 1.6;">
+              It is the gaming router OS built into the XR1000. It handles bandwidth allocation, geo-filtering and latency tools.
+            </div>
+          </div>
+
+          <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
+              Can I use any firmware file?
+            </div>
+            <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); line-height: 1.6;">
+              No. XR1000 and XR1000v2 use separate files.
+            </div>
+          </div>
+
+          <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
+              Does it support Wi-Fi 6E?
+            </div>
+            <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); line-height: 1.6;">
+              No. It is a dual-band Wi-Fi 6 router.
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <!-- Sidebar Column -->
+      <aside class="sidebar-column">
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">On This Page</h3>
+          <ul class="sidebar-toc">
+            <li><a href="#what-is-xr1000">What is the XR1000?</a></li>
+            <li><a href="#before-you-start">What you need before you start</a></li>
+            <li><a href="#install-the-router">Install the router</a></li>
+            <li><a href="#app-setup">Run the app setup</a></li>
+            <li><a href="#browser-setup">Set up with a browser</a></li>
+            <li><a href="#configure-dumaos">Configure DumaOS and Wi-Fi</a></li>
+            <li><a href="#update-firmware">Update the firmware</a></li>
+            <li><a href="#factory-reset">Factory reset</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">Hardware Quick Links</h3>
+          <ul class="sidebar-links">
+            <li><a href="/routers/netgear-nighthawk-rax120/"><span>Nighthawk AX12 (RAX120) Setup</span> &rarr;</a></li>
+            <li><a href="/routers/netgear-nighthawk-rax50/"><span>Nighthawk AX6 (RAX50) Setup</span> &rarr;</a></li>
+            <li><a href="/brands/netgear/"><span>Netgear Router Directory</span> &rarr;</a></li>
+            <li><a href="/ip/192-168-1-1/"><span>192.168.1.1 Gateway Guide</span> &rarr;</a></li>
+            <li><a href="/tools/ping-test/"><span>Network Ping & Latency Tool</span> &rarr;</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/routers/netgear-nighthawk-xr1000-setup.webp", og_image_alt="Netgear Nighthawk Pro Gaming XR1000 Wi-Fi 6 gaming router hardware setup on desk") + content + get_footer()
+
+
+
 
 
 def generate_router_model_pages():
@@ -3736,6 +4203,10 @@ def generate_router_model_pages():
         elif slug == "netgear-nighthawk-rax120":
             with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_netgear_nighthawk_rax120_page(m))
+            continue
+        elif slug == "netgear-nighthawk-xr1000":
+            with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_netgear_nighthawk_xr1000_page(m))
             continue
 
         canonical = f"https://routeriphub.com/routers/{slug}/"
