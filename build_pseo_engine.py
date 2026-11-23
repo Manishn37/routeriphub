@@ -3241,6 +3241,474 @@ def generate_custom_netgear_nighthawk_rax50_page(m):
     return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/routers/netgear-nighthawk-rax50-setup.webp", og_image_alt="Netgear Nighthawk AX6 RAX50 Wi-Fi 6 router hardware setup on desk connected to modem", og_type="article") + content + get_footer()
 
 
+def generate_custom_netgear_nighthawk_rax120_page(m):
+    canonical = "https://routeriphub.com/routers/netgear-nighthawk-rax120/"
+    clean_name = "Netgear Nighthawk AX12 (RAX120)"
+    title = "Netgear Nighthawk RAX120 Setup: Step-by-Step Guide (AX12)"
+    desc = "Set up the Netgear Nighthawk AX12 (RAX120) with the Nighthawk app or routerlogin.net. Covers Multi-Gig WAN, port aggregation, firmware updates and reset."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Routers", "/routers/"),
+        ("Netgear", "/brands/netgear/"),
+        ("Nighthawk AX12 (RAX120)", canonical)
+    ]
+
+    tech_schema = {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Netgear Nighthawk AX12 (RAX120) Setup: Complete Step-by-Step Guide",
+        "description": desc,
+        "author": {
+            "@type": "Person",
+            "name": "Vikas Behl"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "RouterIPHub",
+            "url": "https://routeriphub.com"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonical
+        },
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": "2026-11-23T00:00:00+00:00"
+    }
+
+    howto_schema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Set Up and Configure Netgear Nighthawk AX12 (RAX120) Wi-Fi 6 Router",
+        "description": "Step-by-step instructions for connecting the Netgear Nighthawk AX12 (RAX120) to your modem, configuring 5G Multi-Gig WAN, setting up Wi-Fi, and updating firmware.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Connect Internet Cable",
+                "text": "Connect the Internet port (or 5G Multi-Gig port for high-speed plans) on the router to your modem or incoming Ethernet line using a Cat6 cable."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Extend Antennas & Power On",
+                "text": "Attach and extend the wing antennas, connect the power adapter to the DC jack, and press the Power button to boot the router."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Locate Factory Credentials",
+                "text": "Find the default Wi-Fi network name (SSID) and network key/password printed on the router's bottom label, or scan the QR code."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Wait for LED Stabilization",
+                "text": "Wait for the router to finish starting up until the Power and Internet LEDs show stable operational status."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Join Default Wi-Fi Network",
+                "text": "Connect your phone or computer to the default NETGEAR SSID using the printed factory passphrase."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 6,
+                "name": "Complete Setup via App or Browser",
+                "text": "Open the Nighthawk app or navigate to http://www.routerlogin.net (or 192.168.1.1) in your browser to complete internet detection and configuration."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the default login for the RAX120?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The username is admin. The password is what you set during first-time setup."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How fast is the RAX120?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "It carries an AX6000 rating. Real speeds depend on distance, walls and your devices."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the RAX120 support Multi-Gig?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. It has one 5G/2.5G/1G port that you can set up as LAN or WAN."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I set it up without the app?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Use routerlogin.net in a browser."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it support Wi-Fi 6E?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. It is a dual-band Wi-Fi 6 router."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <!-- Breadcrumb Bar -->
+    <nav aria-label="breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.88rem; color: var(--text-muted);">
+      <a href="/" style="color: var(--primary); text-decoration: none;">Home</a> &rsaquo;
+      <a href="/routers/" style="color: var(--primary); text-decoration: none;">Routers</a> &rsaquo;
+      <a href="/brands/netgear/" style="color: var(--primary); text-decoration: none;">Netgear</a> &rsaquo;
+      <span style="color: var(--text-main);">Nighthawk AX12 (RAX120)</span>
+    </nav>
+
+    <div class="content-layout">
+      <!-- Main Content Column -->
+      <article class="main-content" style="min-width: 0;">
+        <header style="margin-bottom: 2rem;">
+          <div style="display: inline-block; background: var(--bg-surface-2); border: 1px solid var(--border-color); color: var(--primary); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 4px; margin-bottom: 0.75rem;">
+            Netgear Nighthawk AX12 Setup Guide
+          </div>
+          <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 800; line-height: 1.2; margin-bottom: 0.75rem; color: var(--text-main);">
+            Netgear Nighthawk AX12 (RAX120) Setup
+          </h1>
+          <p style="font-size: 1.15rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 1rem;">
+            Netgear Nighthawk RAX120 setup takes about 15 minutes. Connect the modem to the yellow Internet port, power on the router, then finish setup in the Nighthawk app or at <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">routerlogin.net</code>. If your internet plan is faster than 1Gbps, you must also switch the WAN to the Multi-Gig port or enable port aggregation.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 0.75rem 0;">
+            <span><strong>Author:</strong> Vikas Behl</span>
+            <span>&bull;</span>
+            <span><strong>Model:</strong> Netgear Nighthawk AX12 (RAX120 / RAX120v2)</span>
+            <span>&bull;</span>
+            <span><strong>Standard:</strong> Wi-Fi 6 (AX6000 12-Stream)</span>
+            <span>&bull;</span>
+            <span><strong>Updated:</strong> November 2026</span>
+          </div>
+        </header>
+
+        <!-- Hero Image -->
+        <figure style="margin: 0 0 2.5rem 0;">
+          <img src="/images/routers/netgear-nighthawk-rax120-setup.webp" alt="Netgear Nighthawk AX12 RAX120 12-stream Wi-Fi 6 router hardware setup on an office desk" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+          <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">The Netgear Nighthawk AX12 (RAX120) featuring 8-stream MU-MIMO, internal wing antennas, and 5G Multi-Gigabit networking.</figcaption>
+        </figure>
+
+        <!-- Quick Reference Table Card -->
+        <section style="background: var(--bg-surface-2); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">At a Glance: Netgear RAX120 Default Specifications</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.92rem;">
+            <div><span style="color: var(--text-muted);">Default Web URL:</span><br><strong style="color: var(--primary);">http://routerlogin.net</strong></div>
+            <div><span style="color: var(--text-muted);">Default IP Gateway:</span><br><strong>192.168.1.1</strong> (or 192.168.0.1)</div>
+            <div><span style="color: var(--text-muted);">Default Username:</span><br><strong>admin</strong> (case-sensitive)</div>
+            <div><span style="color: var(--text-muted);">Default Password:</span><br><strong>password</strong> (or set via wizard)</div>
+            <div><span style="color: var(--text-muted);">Default SSID:</span><br><strong>NETGEAR-XX / NETGEAR-XX-5G</strong></div>
+            <div><span style="color: var(--text-muted);">Multi-Gig Port:</span><br><strong style="color: var(--secondary);">1x 5G / 2.5G / 1G (LAN or WAN)</strong></div>
+          </div>
+        </section>
+
+        <!-- What is RAX120 -->
+        <section id="what-is-rax120" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">What is the Nighthawk AX12 (RAX120)?</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            The RAX120 is a 12-stream AX6000 Wi-Fi 6 router. Netgear sells it as the Nighthawk AX12. It has eight antennas and 8-stream MU-MIMO, which lets four 2x2 devices stream at the same time.
+          </p>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            The port layout is the main reason to buy it:
+          </p>
+          
+          <div style="overflow-x: auto; margin: 1.5rem 0;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+              <thead>
+                <tr style="background: var(--bg-surface-2); border-bottom: 2px solid var(--border-color);">
+                  <th style="padding: 10px 14px; font-weight: 700; color: var(--text-main);">Port</th>
+                  <th style="padding: 10px 14px; font-weight: 700; color: var(--text-main);">Quantity</th>
+                  <th style="padding: 10px 14px; font-weight: 700; color: var(--text-main);">Speed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 10px 14px; font-weight: 600;">Gigabit Ethernet (1 WAN, 4 LAN)</td>
+                  <td style="padding: 10px 14px;">5</td>
+                  <td style="padding: 10px 14px;">10/100/1000Mbps</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 10px 14px; font-weight: 600;">Multi-Gig Ethernet</td>
+                  <td style="padding: 10px 14px;">1</td>
+                  <td style="padding: 10px 14px; color: var(--primary); font-weight: 600;">5G/2.5G/1G, configurable as LAN or WAN</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                  <td style="padding: 10px 14px; font-weight: 600;">USB 3.0</td>
+                  <td style="padding: 10px 14px;">2</td>
+                  <td style="padding: 10px 14px;">For storage and printers</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="margin-top: 1rem; line-height: 1.7; color: var(--text-main);">
+            The Multi-Gig port reaches 5Gbps. Dual Gigabit port aggregation can give a wired internet connection of up to 2Gbps. A single Gigabit WAN port tops out at 1Gbps, so the extra ports matter only if your plan is faster.
+          </p>
+
+          <!-- Rear Ports Image -->
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/routers/netgear-nighthawk-rax120-rear-ports.webp" alt="Netgear Nighthawk AX12 RAX120 rear panel connection ports showing 5G Multi-Gig Ethernet port, Gigabit WAN, and 4 LAN ports" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Rear panel port diagram of the Netgear RAX120 highlighting the dedicated 5G Multi-Gig port, Yellow WAN port, and LAN 1 aggregation option.</figcaption>
+          </figure>
+        </section>
+
+        <!-- What You Need Before You Start -->
+        <section id="before-you-start" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">What you need before you start</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Prepare these items so setup runs without interruptions.
+          </p>
+          <ul style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.7; color: var(--text-main);">
+            <li><strong>A modem or fiber ONT</strong> with an active internet plan.</li>
+            <li><strong>A smartphone with the Nighthawk app</strong>, or a computer with a browser.</li>
+            <li><strong>ISP login details</strong> if your line uses PPPoE.</li>
+            <li><strong>The Ethernet cable from the box.</strong> For plans above 1Gbps, you need a cable rated for the speed, such as Cat6 or better.</li>
+            <li><strong>A central spot with open air</strong> around the router. Attach the antennas before powering on.</li>
+          </ul>
+          <p style="line-height: 1.7; color: var(--text-main);">
+            Check your modem's ports. If your plan exceeds 1Gbps, the modem needs a high-speed Ethernet port, such as 2.5G, to use the Multi-Gig connection.
+          </p>
+        </section>
+
+        <!-- Install the Router -->
+        <section id="install-the-router" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Install the router</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Follow these steps in order.
+          </p>
+          <ol style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-main);">
+            <li><strong>Connect the Internet port</strong> on the router to the modem or incoming Ethernet line.</li>
+            <li><strong>Attach the antennas</strong>, connect the power adapter, and plug it in. Press the power button if the router has one.</li>
+            <li><strong>Find the default Wi-Fi name (SSID) and password</strong> on the label. The QR code on the label works with the app.</li>
+            <li><strong>Wait for the router to finish starting.</strong> The Internet LED shows connection status.</li>
+            <li><strong>Join the default Wi-Fi</strong> from your phone or computer.</li>
+          </ol>
+          <div style="background: var(--bg-surface-2); border-left: 4px solid var(--primary); padding: 1rem 1.25rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 1.25rem 0;">
+            <strong>Modem Power Cycle Tip:</strong> Restart the modem if the router does not detect the internet. Turn off both devices, reboot the modem first, then reconnect the router and try again.
+          </div>
+
+          <!-- Label Image -->
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/routers/netgear-nighthawk-rax120-label-credentials.webp" alt="Netgear Nighthawk RAX120 bottom specification label showing default Wi-Fi SSID, network key, and admin login URL" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Locate your default Wi-Fi network name, unique pre-shared network key, and management URL on the RAX120 underside label.</figcaption>
+          </figure>
+        </section>
+
+        <!-- Complete Setup -->
+        <section id="complete-setup" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Complete setup</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            There are two ways to finish. The app is faster, and the browser works when the app fails.
+          </p>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            <strong>Nighthawk app.</strong> Install it, scan the QR code on the label, and follow the prompts. The app sets your Wi-Fi name, password and login for you.
+          </p>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            <strong>Browser.</strong> Connect to the router by Wi-Fi or a LAN cable and open <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">http://www.routerlogin.net</code>. If an app prompt appears, scroll down and choose the option for people without a compatible smartphone. Then follow the installation assistant through Internet detection and setup.
+          </p>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            On later logins, the username is <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; font-weight: 600;">admin</code>. The password is the one you created the first time you logged in. Both are case-sensitive. If <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">routerlogin.net</code> will not load, type <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">192.168.1.1</code>.
+          </p>
+
+          <!-- Address Bar Diagram -->
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/howto/browser-address-bar-vs-search-bar-routerlogin-net.webp" alt="Browser address bar versus search engine comparison showing http://www.routerlogin.net entered in the address bar" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Always enter http://www.routerlogin.net directly into the top browser address/URL bar, not into a search engine query box.</figcaption>
+          </figure>
+        </section>
+
+        <!-- Set up Multi-Gig Internet -->
+        <section id="multigig-internet" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Set up Multi-Gig internet</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Skip this section if your plan is 1Gbps or less. For faster plans, you have two options, and the router needs a manual change for either one.
+          </p>
+          
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin: 1.25rem 0 0.5rem 0; color: var(--text-main);">Multi-Gig WAN port</h3>
+          <ol style="margin: 0.5rem 0 1rem 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-main);">
+            <li>Connect the Multi-Gig port to the high-speed Ethernet port on the modem.</li>
+            <li>Log in at <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">routerlogin.net</code>.</li>
+            <li>Open the Advanced settings and set the Multi-Gig port to act as the Internet (WAN) port.</li>
+            <li>Save, then restart the modem and router.</li>
+          </ol>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            This path needs a modem that supports speeds over 1Gbps and an ISP plan to match.
+          </p>
+
+          <h3 style="font-size: 1.25rem; font-weight: 700; margin: 1.25rem 0 0.5rem 0; color: var(--text-main);">Port aggregation</h3>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            This combines the Internet port with LAN port 1 for up to 2Gbps. The modem must also support link aggregation. The setup lives in the router's Advanced menu. Port 1 stops working as a normal LAN port after you enable it.
+          </p>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Choose the Multi-Gig WAN if your modem has a 2.5G or 5G port. Pick aggregation only when the modem offers two Gigabit ports and your plan sits between 1 and 2Gbps. Most US cable and fiber plans at 2Gbps and above favor the Multi-Gig route.
+          </p>
+        </section>
+
+        <!-- Configure Wi-Fi -->
+        <section id="configure-wifi" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Configure Wi-Fi</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Spend five minutes on these settings after the connection works.
+          </p>
+          <ul style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-main);">
+            <li><strong>Name and password.</strong> Pick a unique SSID and a password of 14 or more characters.</li>
+            <li><strong>Security.</strong> Use WPA3 where devices support it, or WPA2/WPA3 mixed mode.</li>
+            <li><strong>Smart Connect.</strong> Leave it on to let the router assign bands. Turn it off if a smart-home device fails to join.</li>
+            <li><strong>Guest network.</strong> Enable it for visitors and IoT devices.</li>
+            <li><strong>Wired devices.</strong> Plug in consoles, desktops and TVs by cable. Use the Multi-Gig LAN port for a NAS or a high-end PC if you set the WAN elsewhere.</li>
+          </ul>
+          <p style="line-height: 1.7; color: var(--text-main);">
+            The router has no 6GHz band. It is a dual-band Wi-Fi 6 model, so it will not reach Wi-Fi 6E speeds.
+          </p>
+        </section>
+
+        <!-- Update Firmware -->
+        <section id="update-firmware" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Update the firmware</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Update the firmware right after setup. Netgear's manual process takes about two minutes.
+          </p>
+          <ol style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.8; color: var(--text-main);">
+            <li>Connect your computer to the router with an Ethernet cable.</li>
+            <li>Download the latest RAX120 firmware from Netgear Support and unzip it if needed.</li>
+            <li>Log in at <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">routerlogin.net</code>.</li>
+            <li>Go to Advanced, then Administration, then Firmware Update or Router Update.</li>
+            <li>Choose the file ending in .img or .chk and click Upload.</li>
+          </ol>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            Do not go online, switch off the router or touch its settings until it finishes restarting. Menu names change a little between firmware versions.
+          </p>
+          <p style="line-height: 1.7; color: var(--text-muted); font-size: 0.95rem;">
+            Some long-time RAX120 owners on community forums suggest a factory reset after each firmware update. They say it clears old low-level settings. That is anecdotal advice, so use it only when a new release causes odd behavior.
+          </p>
+        </section>
+
+        <!-- Factory Reset -->
+        <section id="factory-reset" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Factory reset the RAX120</h2>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            A reset erases every custom setting. Use it if you are locked out or the router misbehaves after an update.
+          </p>
+          <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
+            There are two methods. The first is software: log in at <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">192.168.1.1</code>, open Advanced, go to Administration, then Backup Settings, and click Erase. The second is the Reset button on the back panel. Hold it with a paper clip until the power LED blinks.
+          </p>
+          <div style="background: var(--bg-surface-2); border-left: 4px solid #ef4444; padding: 1rem 1.25rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 1.25rem 0;">
+            <strong>Important:</strong> Write down your ISP login details first. You will need to repeat setup afterward.
+          </div>
+
+          <!-- Reset Pinhole Image -->
+          <figure style="margin: 1.5rem 0;">
+            <img src="/images/routers/netgear-nighthawk-rax120-factory-reset-pinhole.webp" alt="Paperclip pressing the recessed factory reset button on the rear panel of a Netgear Nighthawk router" width="1200" height="675" loading="lazy" style="width: 100%; max-width: 900px; height: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Locate the recessed Reset pinhole on the rear panel of the RAX120 and hold with a paperclip for 7 to 10 seconds until the Power LED blinks amber.</figcaption>
+          </figure>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text-main);">Frequently Asked Questions (FAQ)</h2>
+          
+          <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
+              What is the default login for the RAX120?
+            </div>
+            <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); line-height: 1.6;">
+              The username is <code style="background: var(--bg-surface); padding: 2px 6px; border-radius: 4px; font-weight: 600;">admin</code>. The password is what you set during first-time setup.
+            </div>
+          </div>
+
+          <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
+              How fast is the RAX120?
+            </div>
+            <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); line-height: 1.6;">
+              It carries an AX6000 rating. Real speeds depend on distance, walls and your devices.
+            </div>
+          </div>
+
+          <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
+              Does the RAX120 support Multi-Gig?
+            </div>
+            <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); line-height: 1.6;">
+              Yes. It has one 5G/2.5G/1G port that you can set up as LAN or WAN.
+            </div>
+          </div>
+
+          <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
+              Can I set it up without the app?
+            </div>
+            <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); line-height: 1.6;">
+              Yes. Use <code style="background: var(--bg-surface); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">routerlogin.net</code> in a browser.
+            </div>
+          </div>
+
+          <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
+            <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
+              Does it support Wi-Fi 6E?
+            </div>
+            <div style="padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); color: var(--text-main); line-height: 1.6;">
+              No. It is a dual-band Wi-Fi 6 router.
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <!-- Sidebar Column -->
+      <aside class="sidebar-column">
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">On This Page</h3>
+          <ul class="sidebar-toc">
+            <li><a href="#what-is-rax120">What is the Nighthawk AX12?</a></li>
+            <li><a href="#before-you-start">What you need before you start</a></li>
+            <li><a href="#install-the-router">Install the router</a></li>
+            <li><a href="#complete-setup">Complete setup</a></li>
+            <li><a href="#multigig-internet">Set up Multi-Gig internet</a></li>
+            <li><a href="#configure-wifi">Configure Wi-Fi</a></li>
+            <li><a href="#update-firmware">Update the firmware</a></li>
+            <li><a href="#factory-reset">Factory reset the RAX120</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">Hardware Quick Links</h3>
+          <ul class="sidebar-links">
+            <li><a href="/routers/netgear-nighthawk-rax50/"><span>Nighthawk AX6 (RAX50) Setup</span> &rarr;</a></li>
+            <li><a href="/brands/netgear/"><span>Netgear Router Directory</span> &rarr;</a></li>
+            <li><a href="/ip/192-168-1-1/"><span>192.168.1.1 Gateway Guide</span> &rarr;</a></li>
+            <li><a href="/tools/password-generator/"><span>Wi-Fi Password Generator</span> &rarr;</a></li>
+            <li><a href="/find-router-ip/"><span>Find Your Gateway IP Tool</span> &rarr;</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/routers/netgear-nighthawk-rax120-setup.webp", og_image_alt="Netgear Nighthawk AX12 RAX120 12-stream Wi-Fi 6 router hardware setup on an office desk") + content + get_footer()
+
+
+
 
 def generate_router_model_pages():
     print(f"Generating {len(ROUTER_MODELS)} router model pages...")
@@ -3264,6 +3732,10 @@ def generate_router_model_pages():
         elif slug == "netgear-nighthawk-rax50":
             with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_netgear_nighthawk_rax50_page(m))
+            continue
+        elif slug == "netgear-nighthawk-rax120":
+            with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_netgear_nighthawk_rax120_page(m))
             continue
 
         canonical = f"https://routeriphub.com/routers/{slug}/"
