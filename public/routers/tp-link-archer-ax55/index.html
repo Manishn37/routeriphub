@@ -459,6 +459,122 @@
       </div>
 
       
+      
+      <!-- Dedicated Model Hardware Specifications -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        TP-Link Archer AX55 Dual-Band Gigabit Wi-Fi 6 Router (AX3000) — Deep Hardware Specifications
+      </h2>
+      <div style="overflow-x: auto; margin-bottom: 1.75rem;">
+        <table class="led-table" style="font-size: 0.925rem;">
+          <tbody>
+            <tr><th style="width: 28%;">Processor / SoC</th><td>Qualcomm Dual-Core High-Performance CPU</td></tr>
+            <tr><th>Memory (RAM & Flash)</th><td>512MB High-Speed RAM</td></tr>
+            <tr><th>Wireless Architecture</th><td>Wi-Fi 6 (802.11ax): 574 Mbps @ 2.4GHz + 2402 Mbps @ 5GHz (HE160 channel support)</td></tr>
+            <tr><th>Physical Interfaces</th><td>1x Gigabit WAN, 4x Gigabit LAN, 1x USB 3.0 (NTFS / FAT32 / exFAT)</td></tr>
+            <tr><th>Antenna Array</th><td>4x Fixed High-Gain Omnidirectional Antennas with Beamforming</td></tr>
+            <tr><th>Security & Protocols</th><td>WPA3-Personal, HomeShield Security (Avira IoT defense), SPI Firewall, Access Control</td></tr>
+            <tr><th>Firmware Image Format</th><td><code>.bin (TP-Link standard format)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Specific LED Diagnostic Cheat-Sheet -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        Model-Specific LED Diagnostic Matrix
+      </h2>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        Exact LED indicator states, colors, and alert behaviors for the <strong>TP-Link Archer AX55 (AX3000)</strong> chassis:
+      </p>
+      <div style="overflow-x: auto; margin-bottom: 2rem;">
+        <table class="led-table">
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>Normal / Operational</th>
+              <th>Alert / Error State</th>
+              <th>Diagnostic Meaning &amp; Recommended Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td><strong>Power</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Pulsing / Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Pulsing indicates system initialization. If LED remains completely off with power adapter plugged in, check wall socket or test power toggle switch on rear.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>2.4 GHz Wi-Fi</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">2.4 GHz band is disabled via Tether App, schedule, or physical Wi-Fi button on rear.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>5 GHz Wi-Fi</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">5 GHz band is inactive. Check if Night Mode LED schedule is enabled in Advanced &gt; System &gt; LED Control.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>Internet</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Solid Orange</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Orange signifies physical WAN cable connected, but no internet IP acquired (common with PPPoE credentials missing or cable modem MAC binding).</td>
+            </tr>
+            
+            <tr>
+              <td><strong>Ethernet (LAN)</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">At least one powered PC or switch is detected on ports 1-4. Blinking indicates active packet exchange.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>USB</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Off / Fast Blink</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Recognized storage device mounted. Fast blink indicates disk format check or file transfer.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Hardware Reset Nuance -->
+      <div class="card" style="padding: 1.25rem 1.4rem; border-left: 4px solid var(--accent); background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Model-Specific Reset &amp; Recovery Nuance</h3>
+        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
+          Press and hold the WPS/Wi-Fi button or recessed Reset button for 10 full seconds until all status LEDs illuminate solid and then extinguish. The Archer AX55 will reboot into out-of-box mode in 90 seconds.
+        </p>
+      </div>
+
+      <!-- Frequently Encountered Configuration Issues -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        Frequently Encountered Setup Quirks &amp; Fixes
+      </h2>
+      <div style="margin-bottom: 2rem;">
+        
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">Orange Internet LED with cable or fiber modem</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">Power down your ISP modem and Archer AX55. Turn on the modem first and wait 2 minutes for its sync lights. Then turn on the AX55. If using Spectrum or Xfinity, clone your PC&#x27;s MAC address in Network &gt; MAC Clone.</p>
+            </div>
+            
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">tplinkwifi.net redirects to generic help page</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">Your browser is resolving tplinkwifi.net via public DNS (like 8.8.8.8) instead of the router&#x27;s local DNS proxy. Browse directly to http://192.168.0.1 or http://192.168.1.1.</p>
+            </div>
+            
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">Tether app cannot find the router</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">Ensure your smartphone is connected directly to the router&#x27;s Wi-Fi network and not cellular 5G. Disable any active VPN on your phone before opening Tether.</p>
+            </div>
+            
+      </div>
+      
+
       <!-- Model Hardware Notes & Port Diagram -->
       <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
         Hardware Architecture &amp; Deployment Notes

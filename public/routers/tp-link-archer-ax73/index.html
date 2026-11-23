@@ -459,6 +459,117 @@
       </div>
 
       
+      
+      <!-- Dedicated Model Hardware Specifications -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        TP-Link Archer AX73 AX5400 6-Stream Gigabit Wi-Fi 6 Router — Deep Hardware Specifications
+      </h2>
+      <div style="overflow-x: auto; margin-bottom: 1.75rem;">
+        <table class="led-table" style="font-size: 0.925rem;">
+          <tbody>
+            <tr><th style="width: 28%;">Processor / SoC</th><td>1.5GHz Triple-Core High-Throughput CPU</td></tr>
+            <tr><th>Memory (RAM & Flash)</th><td>512MB RAM</td></tr>
+            <tr><th>Wireless Architecture</th><td>Wi-Fi 6 (802.11ax): 574 Mbps @ 2.4GHz + 4804 Mbps @ 5GHz (160MHz channels, 4x4 MU-MIMO)</td></tr>
+            <tr><th>Physical Interfaces</th><td>1x Gigabit WAN, 4x Gigabit LAN, 1x USB 3.0 (Media / FTP sharing)</td></tr>
+            <tr><th>Antenna Array</th><td>6x External High-Gain Antennas with venting heat sink architecture</td></tr>
+            <tr><th>Security & Protocols</th><td>WPA3, HomeShield Security, Guest Network, DoS Protection</td></tr>
+            <tr><th>Firmware Image Format</th><td><code>.bin</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Specific LED Diagnostic Cheat-Sheet -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        Model-Specific LED Diagnostic Matrix
+      </h2>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        Exact LED indicator states, colors, and alert behaviors for the <strong>TP-Link Archer AX73 (AX5400)</strong> chassis:
+      </p>
+      <div style="overflow-x: auto; margin-bottom: 2rem;">
+        <table class="led-table">
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>Normal / Operational</th>
+              <th>Alert / Error State</th>
+              <th>Diagnostic Meaning &amp; Recommended Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td><strong>Power</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Orange / Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">System boot status. Solid green confirms ready state.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>2.4 GHz</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">2.4 GHz radio enabled.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>5 GHz</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">5 GHz radio enabled. Supports up to 4804 Mbps.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>Internet</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Solid Orange</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Orange indicates WAN port is connected but internet protocol cannot connect (check PPPoE / DHCP settings).</td>
+            </tr>
+            
+            <tr>
+              <td><strong>Ethernet</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Physical LAN cable connected to ports 1, 2, 3, or 4.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>USB</strong></td>
+              <td><span class="led-badge-normal">Solid Green</span></td>
+              <td><span class="led-badge-error">Blinking</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">USB drive mounted and accessible via Samba / FTP.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Hardware Reset Nuance -->
+      <div class="card" style="padding: 1.25rem 1.4rem; border-left: 4px solid var(--accent); background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Model-Specific Reset &amp; Recovery Nuance</h3>
+        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
+          Press the dedicated Reset pin on the rear I/O plate for 10 seconds until all 6 front panel LEDs flash simultaneously.
+        </p>
+      </div>
+
+      <!-- Frequently Encountered Configuration Issues -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        Frequently Encountered Setup Quirks &amp; Fixes
+      </h2>
+      <div style="margin-bottom: 2rem;">
+        
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">Internet LED stays orange after setup</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">In Advanced &gt; Network &gt; Internet, select your ISP connection type. If using an optical terminal (ONT), select Dynamic IP. If your ISP requires a username, change from Dynamic IP to PPPoE.</p>
+            </div>
+            
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">Cannot access tplinkwifi.net</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">Open your browser in incognito mode and navigate to http://192.168.0.1. If that fails, type ipconfig in Command Prompt to find your Default Gateway.</p>
+            </div>
+            
+      </div>
+      
+
       <!-- Model Hardware Notes & Port Diagram -->
       <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
         Hardware Architecture &amp; Deployment Notes

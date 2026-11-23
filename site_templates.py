@@ -1,3 +1,7 @@
+try:
+    from router_enrichment_data import TOP_ROUTER_ENRICHMENT
+except ImportError:
+    TOP_ROUTER_ENRICHMENT = {}
 # -*- coding: utf-8 -*-
 """
 RouterIPHub Architectural Templates, SEO Normalization Helpers & Trust/Legal Builders
@@ -186,6 +190,92 @@ def generate_router_svg_diagram(m, clean_name):
 
 def generate_router_rich_sections(m, clean_name, escape_fn):
     """Generate distinct, model-aware technical hardware sections so every page has high depth and low template overlap."""
+    slug = m.get("slug", "")
+    enrich = TOP_ROUTER_ENRICHMENT.get(slug, None)
+
+    enrichment_html = ""
+    if enrich:
+        # Build LED Diagnostic Rows
+        led_rows = ""
+        for item in enrich.get("led_diagnostics", []):
+            led_rows += f"""
+            <tr>
+              <td><strong>{escape_fn(item['name'])}</strong></td>
+              <td><span class="led-badge-normal">{escape_fn(item['normal'])}</span></td>
+              <td><span class="led-badge-error">{escape_fn(item['alert'])}</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">{escape_fn(item['meaning'])}</td>
+            </tr>
+            """
+
+        # Build Troubleshooting FAQs / Common issues
+        issues_html = ""
+        for issue in enrich.get("common_issues", []):
+            issues_html += f"""
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">{escape_fn(issue['issue'])}</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">{escape_fn(issue['fix'])}</p>
+            </div>
+            """
+
+        enrichment_html = f"""
+      <!-- Dedicated Model Hardware Specifications -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        {escape_fn(enrich.get('model_full', clean_name))} — Deep Hardware Specifications
+      </h2>
+      <div style="overflow-x: auto; margin-bottom: 1.75rem;">
+        <table class="led-table" style="font-size: 0.925rem;">
+          <tbody>
+            <tr><th style="width: 28%;">Processor / SoC</th><td>{escape_fn(enrich.get('processor', 'Multi-core network processor'))}</td></tr>
+            <tr><th>Memory (RAM & Flash)</th><td>{escape_fn(enrich.get('memory', 'High-performance flash memory'))}</td></tr>
+            <tr><th>Wireless Architecture</th><td>{escape_fn(enrich.get('wireless_specs', m.get('wifi_standard', '')))}</td></tr>
+            <tr><th>Physical Interfaces</th><td>{escape_fn(enrich.get('physical_ports', 'Gigabit Ethernet Ports'))}</td></tr>
+            <tr><th>Antenna Array</th><td>{escape_fn(enrich.get('antennas', 'High-gain omnidirectional antennas'))}</td></tr>
+            <tr><th>Security & Protocols</th><td>{escape_fn(enrich.get('security', 'WPA3 / WPA2-Personal, SPI Firewall'))}</td></tr>
+            <tr><th>Firmware Image Format</th><td><code>{escape_fn(enrich.get('firmware_format', '.bin / .chk'))}</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Specific LED Diagnostic Cheat-Sheet -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        Model-Specific LED Diagnostic Matrix
+      </h2>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        Exact LED indicator states, colors, and alert behaviors for the <strong>{escape_fn(clean_name)}</strong> chassis:
+      </p>
+      <div style="overflow-x: auto; margin-bottom: 2rem;">
+        <table class="led-table">
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>Normal / Operational</th>
+              <th>Alert / Error State</th>
+              <th>Diagnostic Meaning &amp; Recommended Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {led_rows}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Hardware Reset Nuance -->
+      <div class="card" style="padding: 1.25rem 1.4rem; border-left: 4px solid var(--accent); background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Model-Specific Reset &amp; Recovery Nuance</h3>
+        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
+          {escape_fn(enrich.get('reset_quirk', m.get('reset_instructions', '')))}
+        </p>
+      </div>
+
+      <!-- Frequently Encountered Configuration Issues -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        Frequently Encountered Setup Quirks &amp; Fixes
+      </h2>
+      <div style="margin-bottom: 2rem;">
+        {issues_html}
+      </div>
+      """
+
     hw = m.get("hardware_type", "Router")
     hw_l = hw.lower()
     wifi = m.get("wifi_standard", "Wi-Fi")
@@ -232,7 +322,6 @@ def generate_router_rich_sections(m, clean_name, escape_fn):
             f"otherwise lock channels 36&ndash;48 or 149&ndash;161 to prevent periodic DFS dropouts."
         )
 
-    # Credential & IP conflict behavior
     if sticker:
         cred_guidance = (
             f"Unlike legacy units shipped with blank or generic credentials, the {escape_fn(clean_name)} assigns an individualized passphrase or requires sticker verification "
@@ -266,6 +355,8 @@ def generate_router_rich_sections(m, clean_name, escape_fn):
     diagram_html = generate_router_svg_diagram(m, escape_fn(clean_name))
 
     return f"""
+      {enrichment_html}
+
       <!-- Model Hardware Notes & Port Diagram -->
       <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
         Hardware Architecture &amp; Deployment Notes

@@ -459,6 +459,110 @@
       </div>
 
       
+      
+      <!-- Dedicated Model Hardware Specifications -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        ASUS RT-AX86U Dual-Band Wi-Fi 6 Gaming Router (AX5700) — Deep Hardware Specifications
+      </h2>
+      <div style="overflow-x: auto; margin-bottom: 1.75rem;">
+        <table class="led-table" style="font-size: 0.925rem;">
+          <tbody>
+            <tr><th style="width: 28%;">Processor / SoC</th><td>1.8GHz 64-bit Quad-Core Broadcom CPU</td></tr>
+            <tr><th>Memory (RAM & Flash)</th><td>1GB DDR3 RAM, 256MB Flash</td></tr>
+            <tr><th>Wireless Architecture</th><td>Wi-Fi 6 (802.11ax): 861 Mbps @ 2.4GHz + 4804 Mbps @ 5GHz (Mobile Game Mode)</td></tr>
+            <tr><th>Physical Interfaces</th><td>1x 2.5 Gigabit Multi-Gig WAN/LAN port, 1x 1G WAN, 4x 1G LAN (Port 1 is Dedicated Gaming Port), 2x USB 3.2 Gen 1</td></tr>
+            <tr><th>Antenna Array</th><td>3x External Detachable Antennas + 1x Internal PCB Antenna</td></tr>
+            <tr><th>Security & Protocols</th><td>AiProtection Pro, WPA3, Mobile Game Boost, OpenNAT gaming profiles</td></tr>
+            <tr><th>Firmware Image Format</th><td><code>.trx</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Specific LED Diagnostic Cheat-Sheet -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        Model-Specific LED Diagnostic Matrix
+      </h2>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        Exact LED indicator states, colors, and alert behaviors for the <strong>ASUS RT-AX86U (AX5700)</strong> chassis:
+      </p>
+      <div style="overflow-x: auto; margin-bottom: 2rem;">
+        <table class="led-table">
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>Normal / Operational</th>
+              <th>Alert / Error State</th>
+              <th>Diagnostic Meaning &amp; Recommended Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td><strong>Power</strong></td>
+              <td><span class="led-badge-normal">Solid White</span></td>
+              <td><span class="led-badge-error">Blinking White</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Blinking indicates Rescue Mode or firmware flashing.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>2.5G Multi-Gig</strong></td>
+              <td><span class="led-badge-normal">Solid White</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Active 2.5 Gbps connection on the multi-gig port (can be set to WAN or LAN).</td>
+            </tr>
+            
+            <tr>
+              <td><strong>WAN</strong></td>
+              <td><span class="led-badge-normal">Solid White</span></td>
+              <td><span class="led-badge-error">Solid Red</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Red indicates no WAN connection or failed authentication.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>LAN 1-4</strong></td>
+              <td><span class="led-badge-normal">Solid White</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Port 1 automatically prioritizes gaming traffic.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>WPS</strong></td>
+              <td><span class="led-badge-normal">Off</span></td>
+              <td><span class="led-badge-error">Blinking</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">WPS pairing active.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Hardware Reset Nuance -->
+      <div class="card" style="padding: 1.25rem 1.4rem; border-left: 4px solid var(--accent); background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Model-Specific Reset &amp; Recovery Nuance</h3>
+        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
+          Hold the WPS button on the right side while powering ON the router. Release WPS after the power LED turns OFF. Standard pinhole reset is located on the rear bottom.
+        </p>
+      </div>
+
+      <!-- Frequently Encountered Configuration Issues -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        Frequently Encountered Setup Quirks &amp; Fixes
+      </h2>
+      <div style="margin-bottom: 2rem;">
+        
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">How to enable the 2.5G port as Primary WAN</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">Log into http://192.168.50.1, navigate to WAN &gt; Dual WAN, enable Dual WAN, and select &#x27;2.5G WAN&#x27; as the Primary WAN port for multi-gig fiber connections.</p>
+            </div>
+            
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">NAT Type is Strict in gaming consoles</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">Navigate to OpenNAT in the ASUSWRT dashboard, select your game title from the library, and bind your console&#x27;s local IP address to achieve an Open NAT.</p>
+            </div>
+            
+      </div>
+      
+
       <!-- Model Hardware Notes & Port Diagram -->
       <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
         Hardware Architecture &amp; Deployment Notes

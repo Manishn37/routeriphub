@@ -459,6 +459,122 @@
       </div>
 
       
+      
+      <!-- Dedicated Model Hardware Specifications -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        ASUS RT-AX88U Dual-Band Wi-Fi 6 Gaming &amp; Power-User Router (AX6000) — Deep Hardware Specifications
+      </h2>
+      <div style="overflow-x: auto; margin-bottom: 1.75rem;">
+        <table class="led-table" style="font-size: 0.925rem;">
+          <tbody>
+            <tr><th style="width: 28%;">Processor / SoC</th><td>1.8GHz 64-bit Quad-Core Broadcom BCM49408 Processor</td></tr>
+            <tr><th>Memory (RAM & Flash)</th><td>1GB (1024MB) DDR3 RAM, 256MB Flash</td></tr>
+            <tr><th>Wireless Architecture</th><td>Wi-Fi 6 (802.11ax) 4x4 MU-MIMO: 1148 Mbps @ 2.4GHz + 4804 Mbps @ 5GHz (160MHz 4T4R)</td></tr>
+            <tr><th>Physical Interfaces</th><td>8x Gigabit LAN ports (Dual-port link aggregation supported), 1x Gigabit WAN, 2x USB 3.1 Gen 1</td></tr>
+            <tr><th>Antenna Array</th><td>4x External Detachable Gold-Accented Antennas</td></tr>
+            <tr><th>Security & Protocols</th><td>AiProtection Pro (Trend Micro engine with no subscription fee), WPA3, Instant Guard VPN</td></tr>
+            <tr><th>Firmware Image Format</th><td><code>.trx (ASUSWRT / Merlin standard)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Specific LED Diagnostic Cheat-Sheet -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        Model-Specific LED Diagnostic Matrix
+      </h2>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem;">
+        Exact LED indicator states, colors, and alert behaviors for the <strong>ASUS RT-AX88U (AX6000)</strong> chassis:
+      </p>
+      <div style="overflow-x: auto; margin-bottom: 2rem;">
+        <table class="led-table">
+          <thead>
+            <tr>
+              <th>Indicator</th>
+              <th>Normal / Operational</th>
+              <th>Alert / Error State</th>
+              <th>Diagnostic Meaning &amp; Recommended Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td><strong>Power</strong></td>
+              <td><span class="led-badge-normal">Solid White</span></td>
+              <td><span class="led-badge-error">Slow Flash / Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Slow rhythmic blinking indicates Rescue / Restoration Mode (used with ASUS Firmware Restoration utility when a flash fails).</td>
+            </tr>
+            
+            <tr>
+              <td><strong>WAN (Internet)</strong></td>
+              <td><span class="led-badge-normal">Solid White</span></td>
+              <td><span class="led-badge-error">Solid Red</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Red indicates no WAN connection. Check cable connection between WAN port and modem, or verify VLAN ID in LAN &gt; IPTV if using fiber like CenturyLink/Sparklight.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>LAN 1-8</strong></td>
+              <td><span class="led-badge-normal">Solid White</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Indicates active 1 Gbps link on that specific port number. Supports 802.3ad link aggregation across ports 1 and 2.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>2.4 GHz</strong></td>
+              <td><span class="led-badge-normal">Solid White</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Wireless 2.4GHz broadcast active. Blinking shows wireless client data throughput.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>5 GHz</strong></td>
+              <td><span class="led-badge-normal">Solid White</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">5GHz broadcast active. Note: If DFS channel (e.g. 52-140) is selected, radio sleeps for 60 seconds at startup for radar silence.</td>
+            </tr>
+            
+            <tr>
+              <td><strong>USB 3.1</strong></td>
+              <td><span class="led-badge-normal">Solid White</span></td>
+              <td><span class="led-badge-error">Off</span></td>
+              <td style="color: var(--text-secondary); font-size: 0.9rem;">Mounted external hard drive or 4G/5G USB backup dongle recognized in Dual WAN mode.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Hardware Reset Nuance -->
+      <div class="card" style="padding: 1.25rem 1.4rem; border-left: 4px solid var(--accent); background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 2rem;">
+        <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem;">Model-Specific Reset &amp; Recovery Nuance</h3>
+        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
+          Standard Reset: Press rear reset pinhole for 5 seconds until Power LED blinks. Hard NVRAM Factory Wipe: Power off router. Hold the WPS button firmly on the front left. Power on while holding WPS. Wait for Power LED to turn on, flash, and finally turn OFF (approx 15-20 seconds). Release WPS and restart.
+        </p>
+      </div>
+
+      <!-- Frequently Encountered Configuration Issues -->
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+        Frequently Encountered Setup Quirks &amp; Fixes
+      </h2>
+      <div style="margin-bottom: 2rem;">
+        
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">router.asus.com will not open</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">Enter http://192.168.50.1 directly into your browser. ASUS RT-series routers use 192.168.50.1 as their standard gateway to intentionally avoid subnet collisions with common 192.168.1.1 and 192.168.0.1 modems.</p>
+            </div>
+            
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">Slow speeds over Gigabit internet</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">Check if QoS or AiProtection Traffic Analyzer is consuming CPU cycles, or ensure &#x27;NAT Acceleration&#x27; (Runner / Flow Cache) is set to Auto under LAN &gt; Switch Control.</p>
+            </div>
+            
+            <div style="margin-bottom: 1rem; padding: 1rem 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+              <h4 style="font-size: 1.05rem; font-weight: 650; margin-bottom: 0.4rem; color: var(--text-primary);">USB 3.0 drive creates 2.4GHz interference</h4>
+              <p style="font-size: 0.92rem; color: var(--text-secondary); margin: 0; line-height: 1.6;">Go to Wireless &gt; Professional &gt; 2.4GHz and enable &#x27;Reducing USB 3.0 interference&#x27;. This dampens the USB 3.0 high-frequency shielding emissions to restore 2.4GHz wireless range.</p>
+            </div>
+            
+      </div>
+      
+
       <!-- Model Hardware Notes & Port Diagram -->
       <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
         Hardware Architecture &amp; Deployment Notes
