@@ -403,7 +403,7 @@
       </div>
       <h2 id="how-to-apply-custom-dns-on-your-router">How to Apply Custom DNS on Your Router</h2>
       <ol>
-        <li>Open your router settings page and navigate to <strong>Internet</strong>, <strong>WAN</strong>, or <strong>Advanced &rsaquo; Network &rsaquo; DNS</strong>. (Some ISP gateways restrict WAN DNS; check <strong>LAN &rsaquo; DHCP Server</strong> primary DNS instead.)</li>
+        <li>Open your <a href="/howto/access-my-router-settings-page/">router settings page</a> and navigate to <strong>Internet</strong>, <strong>WAN</strong>, or <strong>Advanced &rsaquo; Network &rsaquo; DNS</strong>. (Some ISP gateways restrict WAN DNS; check <strong>LAN &rsaquo; DHCP Server</strong> primary DNS instead.)</li>
         <li>Switch DNS selection from <em>Get Automatically from ISP</em> to <strong>Use These DNS Servers</strong> (or <em>Manual</em>).</li>
         <li>Type your chosen Primary DNS (such as <code>1.1.1.1</code>) and Secondary DNS (<code>1.0.0.1</code>). If your router supports <strong>DNS-over-HTTPS (DoH)</strong> or <strong>DNS-over-TLS (DoT)</strong>, enable it to encrypt queries from ISP snooping.</li>
         <li>Save settings and flush OS DNS caches (<code>ipconfig /flushdns</code> on Windows or <code>sudo dscacheutil -flushcache</code> on macOS), or test live record responses using our <a href="/tools/dns-propagation/">DNS Propagation Checker</a>.</li>

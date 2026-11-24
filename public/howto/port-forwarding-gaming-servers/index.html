@@ -379,7 +379,7 @@
       </ol>
       <h2 id="why-port-forwarding-fails-even-with-correct-rules">Why Port Forwarding Fails Even With Correct Rules</h2>
       <ul>
-        <li><strong>Double NAT Behind an ISP Modem:</strong> If your personal router sits behind an ISP combo gateway, forward ports on <em>both</em> boxes or put the ISP gateway into Bridge / IP Passthrough mode.</li>
+        <li><strong>Double NAT Behind an ISP Modem:</strong> If your personal router sits behind an ISP combo gateway, forward ports on <em>both</em> boxes or put the ISP gateway into Bridge / <a href="/howto/fiber-ont-bridge-mode-setup/">IP Passthrough</a> mode.</li>
         <li><strong>Carrier-Grade NAT (CGNAT):</strong> Cellular 5G ISPs (T-Mobile, Starlink, Starlink/rural fiber) share one public IPv4 across many homes using <code>100.64.0.0/10</code> WAN IPs. Standard IPv4 port forwarding cannot traverse CGNAT without a VPN tunnel (Tailscale/WireGuard) or a static public IP plan. Inspect your WAN IP via our <a href="/tools/ip-address-checker/">IP Checker</a>.</li>
       </ul>
 

@@ -44,6 +44,7 @@ from site_templates import (
     generate_static_guide_pages,
 )
 from guide_posts_data import GUIDE_POSTS
+from internal_linking_engine import apply_contextual_internal_links
 
 ROOT_DIR = r"C:\Users\acer\.gemini\antigravity\scratch\routeriphub"
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
@@ -26319,6 +26320,7 @@ def main():
     generate_trust_and_legal_pages(PUBLIC_DIR, get_header, get_footer)
     generate_static_guide_pages(ROOT_DIR, PUBLIC_DIR, get_header, get_footer)
     sync_homepage()
+    apply_contextual_internal_links(PUBLIC_DIR)
     generate_sitemaps()
     export_datasets()
     update_search_index()
