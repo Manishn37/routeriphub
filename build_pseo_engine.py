@@ -13698,7 +13698,7 @@ def generate_custom_192_168_1_250_page():
         What If You Forgot the Extender&rsquo;s Admin Password?
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
-        If the default credentials do not work and you forgot the custom password:
+        If the default credentials do not work and you forgot the custom password, follow our <a href="/howto/30-second-hard-factory-reset/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">hard factory reset procedure</a>:
       </p>
       <ol style="margin-left: 1.5rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.75;">
         <li>Locate the <strong>Reset</strong> pinhole on the back or side of the extender.</li>
@@ -20146,7 +20146,7 @@ def generate_extender_pages():
         </table>
       </div>
       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
-        This IP is a <strong>fallback address</strong>, not a permanent address. Once the extender successfully connects to your router in Repeater or Access Point mode, your router assigns it a new dynamic LAN IP through DHCP.
+        This IP is a <strong>fallback address</strong>, not a permanent address. Once the extender successfully connects to your router in Repeater or <a href="/howto/two-routers-access-point-mode/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Access Point (AP) mode</a>, your router assigns it a new dynamic LAN IP through DHCP.
       </p>
 
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
@@ -20657,7 +20657,7 @@ def generate_extender_pages():
       </h2>
       <div style="background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color); padding: 1.25rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.7;">
         <p style="margin-bottom: 1rem;">
-          The most common reason <code>tplinkrepeater.net</code> stops working is that the extender is no longer in its factory state. Once it connects to your main router in Repeater or Access Point mode, the router assigns it a new dynamic LAN IP address through DHCP.
+          The most common reason <code>tplinkrepeater.net</code> stops working is that the extender is no longer in its factory state. Once it connects to your main router in Repeater or <a href="/howto/two-routers-access-point-mode/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Access Point (AP) mode</a>, the router assigns it a new dynamic LAN IP address through DHCP.
         </p>
         <p style="margin: 0;">
           That means the extender may no longer respond at <code>192.168.0.254</code>. To find it again, log into your main router and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> section. Locate the TP-Link extender and enter its assigned IP address directly into your browser.
@@ -20935,7 +20935,7 @@ def generate_extender_pages():
       </h1>
 
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-        If you searched <code>extender.linksys.com</code> expecting to open your Linksys extender, you are in the right place—but the page may not load unless you are connected directly to the extender. <code>extender.linksys.com</code> is Linksys’s local setup address for its RE-series range extenders, while <code>192.168.1.1</code> is the fallback IP address used when the extender cannot detect a DHCP server.
+        If you searched <code>extender.linksys.com</code> expecting to open your Linksys extender, you are in the right place—but the page may not load unless you are connected directly to the extender. <code>extender.linksys.com</code> is <a href="/brands/linksys/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Linksys’s</a> local setup address for its RE-series range extenders cataloged in our <a href="/extenders/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Wi-Fi extenders directory</a>, while <code>192.168.1.1</code> is the fallback IP address used when the extender cannot detect a DHCP server.
       </p>
 
       <div class="verdict-box" style="margin-bottom: 2rem;">
@@ -21147,7 +21147,7 @@ def generate_extender_pages():
         <div class="step-card">
           <div class="step-badge">Step 6</div>
           <h3 class="step-title">Move the extender to its final location</h3>
-          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the Wi-Fi dead zone. Avoid placing it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
+          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the dead zone (refer to our <a href="/howto/mesh-wifi-backhaul-optimization/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">mesh and extender backhaul placement guide</a>). Avoid placing it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
         </div>
       </div>
 
@@ -21181,7 +21181,7 @@ def generate_extender_pages():
         </div>
         <div class="step-card">
           <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">7. Find the extender’s new IP</h3>
-          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your main router and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the Linksys extender, copy its assigned IP address, and enter that IP into your browser.</p>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your <a href="/howto/access-my-router-settings-page/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">main router settings page</a> (or see how to <a href="/find-router-ip/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">find your router's IP address</a>) and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the Linksys extender, copy its assigned IP address, and enter that IP into your browser.</p>
         </div>
       </div>
 
@@ -21189,7 +21189,7 @@ def generate_extender_pages():
         Factory Reset a Linksys Extender
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
-        Reset the extender only if you cannot log in, are moving it to a new router, or the setup page will not load after troubleshooting.
+        Reset the extender following our <a href="/howto/30-second-hard-factory-reset/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">hard factory reset procedure</a> only if you cannot log in, are moving it to a new router, or the setup page will not load after troubleshooting.
       </p>
       <div style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-sm); border-left: 4px solid var(--text-accent); margin-bottom: 2rem;">
         <ol style="margin-bottom: 0; padding-left: 1.25rem; color: var(--text-secondary); line-height: 1.8;">
@@ -21428,7 +21428,7 @@ def generate_extender_pages():
       </h1>
 
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-        If you searched <code>dlinkap.local</code> expecting to open your D-Link extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the D-Link extender. <code>dlinkap.local</code> is D-Link’s local setup address for its DAP-series and newer Wi-Fi extender models, while <code>192.168.0.50</code> is the default fallback IP address.
+        If you searched <code>dlinkap.local</code> expecting to open your D-Link extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the D-Link extender. <code>dlinkap.local</code> is <a href="/brands/d-link/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">D-Link’s</a> local setup address for its DAP-series and newer Wi-Fi extender models cataloged in our <a href="/extenders/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Wi-Fi extenders directory</a>, while <code>192.168.0.50</code> is the default fallback IP address.
       </p>
 
       <div class="verdict-box" style="margin-bottom: 2rem;">
@@ -21517,7 +21517,7 @@ def generate_extender_pages():
         </table>
       </div>
       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
-        The default address is mainly a <strong>fallback IP</strong>. After the extender connects to your router in Repeater or Access Point mode, your router assigns it a new dynamic LAN IP through DHCP.
+        The default address is mainly a <strong>fallback IP</strong>. After the extender connects to your router in Repeater or <a href="/howto/two-routers-access-point-mode/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Access Point (AP) mode</a>, your router assigns it a new dynamic LAN IP through DHCP.
       </p>
 
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
@@ -21661,7 +21661,7 @@ def generate_extender_pages():
         <div class="step-card">
           <div class="step-badge">Step 6</div>
           <h3 class="step-title">Move the extender to its final location</h3>
-          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the area with weak Wi-Fi. Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
+          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the dead zone (refer to our <a href="/howto/mesh-wifi-backhaul-optimization/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">mesh and extender backhaul placement guide</a>). Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
         </div>
       </div>
 
@@ -21697,7 +21697,7 @@ def generate_extender_pages():
         </div>
         <div class="step-card">
           <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">7. Find the extender’s new IP</h3>
-          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your main router and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the D-Link extender, copy its assigned IP address, and enter that IP into your browser.</p>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your <a href="/howto/access-my-router-settings-page/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">main router settings page</a> (or see how to <a href="/find-router-ip/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">find your router's IP address</a>) and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the D-Link extender, copy its assigned IP address, and enter that IP into your browser.</p>
         </div>
       </div>
 
@@ -21966,7 +21966,7 @@ def generate_extender_pages():
       </h1>
 
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-        If you searched <code>myrepeater.net</code> expecting to open your Wireless-N repeater, you are in the right place—but the page will only load when your phone or computer is connected directly to the repeater. <code>myrepeater.net</code> is a local setup address used by many generic Wireless-N repeaters, while <code>192.168.1.254</code> is the default management IP address for these devices.
+        If you searched <code>myrepeater.net</code> expecting to open your Wireless-N repeater, you are in the right place—but the page will only load when your phone or computer is connected directly to the repeater. <code>myrepeater.net</code> is a local setup address used by many generic Wireless-N repeaters cataloged in our <a href="/extenders/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Wi-Fi extenders directory</a>, while <code>192.168.1.254</code> is the default management IP address for these devices.
       </p>
 
       <div class="verdict-box" style="margin-bottom: 2rem;">
@@ -22065,7 +22065,7 @@ def generate_extender_pages():
         </table>
       </div>
       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
-        The default IP is mainly a <strong>fallback address</strong>. After the repeater connects to your router in Repeater or Access Point mode, your router may assign it a new dynamic LAN IP through DHCP.
+        The default IP is mainly a <strong>fallback address</strong>. After the repeater connects to your router in Repeater or <a href="/howto/two-routers-access-point-mode/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Access Point (AP) mode</a>, your router may assign it a new dynamic LAN IP through DHCP.
       </p>
 
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
@@ -22209,7 +22209,7 @@ def generate_extender_pages():
         <div class="step-card">
           <div class="step-badge">Step 6</div>
           <h3 class="step-title">Move the repeater to its final location</h3>
-          <p class="step-text">After setup, unplug the repeater and place it halfway between your router and the area with weak Wi-Fi. Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
+          <p class="step-text">After setup, unplug the repeater and place it halfway between your router and the dead zone (refer to our <a href="/howto/mesh-wifi-backhaul-optimization/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">mesh and extender backhaul placement guide</a>). Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
         </div>
       </div>
 
@@ -22493,7 +22493,7 @@ def generate_extender_pages():
       </h1>
 
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-        If you searched <code>ap.setup</code> expecting to open your Wavlink extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the Wavlink device. <code>ap.setup</code> is Wavlink’s local setup address for its Wi-Fi repeaters and outdoor access points, while <code>192.168.10.1</code> is the default management IP address.
+        If you searched <code>ap.setup</code> expecting to open your Wavlink extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the Wavlink device. <code>ap.setup</code> is Wavlink’s local setup address for its Wi-Fi repeaters and outdoor access points cataloged in our <a href="/extenders/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Wi-Fi extenders directory</a>, while <code>192.168.10.1</code> is the default management IP address.
       </p>
 
       <div class="verdict-box" style="margin-bottom: 2rem;">
@@ -22597,7 +22597,7 @@ def generate_extender_pages():
         </table>
       </div>
       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
-        The default IP is mainly a <strong>fallback address</strong>. After the Wavlink device connects to your router in Repeater or Access Point mode, your router may assign it a new dynamic LAN IP through DHCP.
+        The default IP is mainly a <strong>fallback address</strong>. After the Wavlink device connects to your router in Repeater or <a href="/howto/two-routers-access-point-mode/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Access Point (AP) mode</a>, your router may assign it a new dynamic LAN IP through DHCP.
       </p>
 
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
@@ -22743,7 +22743,7 @@ def generate_extender_pages():
         <div class="step-card">
           <div class="step-badge">Step 6</div>
           <h3 class="step-title">Move the extender to its final location</h3>
-          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the area with weak Wi-Fi. Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
+          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the dead zone (refer to our <a href="/howto/mesh-wifi-backhaul-optimization/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">mesh and extender backhaul placement guide</a>). Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
         </div>
       </div>
 
@@ -22788,7 +22788,7 @@ def generate_extender_pages():
         </div>
         <div class="step-card">
           <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">8. Find the extender’s new IP</h3>
-          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your main router and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the Wavlink extender, copy its assigned IP address, and enter that IP into your browser.</p>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your <a href="/howto/access-my-router-settings-page/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">main router settings page</a> (or see how to <a href="/find-router-ip/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">find your router's IP address</a>) and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the Wavlink extender, copy its assigned IP address, and enter that IP into your browser.</p>
         </div>
       </div>
 
@@ -23037,7 +23037,7 @@ def generate_extender_pages():
       </h1>
 
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-        If you searched <code>192.168.188.1</code> expecting to open your Topvision WiFi extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the extender. <code>192.168.188.1</code> is the default management IP address used by many Topvision WiFi repeaters and range extenders.
+        If you searched <code>192.168.188.1</code> expecting to open your Topvision WiFi extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the extender. <code>192.168.188.1</code> is the default management IP address used by many Topvision WiFi repeaters and range extenders cataloged in our <a href="/extenders/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Wi-Fi extenders directory</a>.
       </p>
 
       <div class="verdict-box" style="margin-bottom: 2rem;">
@@ -23128,7 +23128,7 @@ def generate_extender_pages():
         </table>
       </div>
       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
-        The default IP is mainly a <strong>fallback address</strong>. After the extender connects to your router in Repeater or Access Point mode, your router may assign it a new dynamic LAN IP through DHCP.
+        The default IP is mainly a <strong>fallback address</strong>. After the extender connects to your router in Repeater or <a href="/howto/two-routers-access-point-mode/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Access Point (AP) mode</a>, your router may assign it a new dynamic LAN IP through DHCP.
       </p>
 
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
@@ -23271,7 +23271,7 @@ def generate_extender_pages():
         <div class="step-card">
           <div class="step-badge">Step 6</div>
           <h3 class="step-title">Move the extender to its final location</h3>
-          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the area with weak Wi-Fi. Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
+          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the dead zone (refer to our <a href="/howto/mesh-wifi-backhaul-optimization/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">mesh and extender backhaul placement guide</a>). Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
         </div>
       </div>
 
@@ -23303,7 +23303,7 @@ def generate_extender_pages():
         </div>
         <div class="step-card">
           <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">6. Find the extender’s new IP</h3>
-          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your main router and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the Topvision extender, copy its assigned IP address, and enter that IP into your browser.</p>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your <a href="/howto/access-my-router-settings-page/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">main router settings page</a> (or see how to <a href="/find-router-ip/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">find your router's IP address</a>) and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the Topvision extender, copy its assigned IP address, and enter that IP into your browser.</p>
         </div>
       </div>
 
@@ -23551,7 +23551,7 @@ def generate_extender_pages():
       </h1>
 
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-        If you searched <code>192.168.188.1</code> expecting to open your SEWOT SW-01 WiFi extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the extender. <code>192.168.188.1</code> is the default management IP address used by the SEWOT SW-01 WiFi repeater and similar Wireless-N extender models.
+        If you searched <code>192.168.188.1</code> expecting to open your SEWOT SW-01 WiFi extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the extender. <code>192.168.188.1</code> is the default management IP address used by the SEWOT SW-01 WiFi repeater and similar Wireless-N extender models cataloged in our <a href="/extenders/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Wi-Fi extenders directory</a>.
       </p>
 
       <div class="verdict-box" style="margin-bottom: 2rem;">
@@ -23624,7 +23624,7 @@ def generate_extender_pages():
         </table>
       </div>
       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
-        The default IP is mainly a <strong>fallback address</strong>. After the SEWOT SW-01 connects to your router in Repeater or Access Point mode, your router may assign it a new dynamic LAN IP through DHCP.
+        The default IP is mainly a <strong>fallback address</strong>. After the SEWOT SW-01 connects to your router in Repeater or <a href="/howto/two-routers-access-point-mode/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Access Point (AP) mode</a>, your router may assign it a new dynamic LAN IP through DHCP.
       </p>
 
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
@@ -23767,7 +23767,7 @@ def generate_extender_pages():
         <div class="step-card">
           <div class="step-badge">Step 6</div>
           <h3 class="step-title">Move the extender to its final location</h3>
-          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the area with weak Wi-Fi. Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
+          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the dead zone (refer to our <a href="/howto/mesh-wifi-backhaul-optimization/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">mesh and extender backhaul placement guide</a>). Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
         </div>
       </div>
 
@@ -23799,7 +23799,7 @@ def generate_extender_pages():
         </div>
         <div class="step-card">
           <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">6. Find the extender’s new IP</h3>
-          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your main router and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the SEWOT SW-01, copy its assigned IP address, and enter that IP into your browser.</p>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your <a href="/howto/access-my-router-settings-page/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">main router settings page</a> (or see how to <a href="/find-router-ip/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">find your router's IP address</a>) and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the SEWOT SW-01, copy its assigned IP address, and enter that IP into your browser.</p>
         </div>
       </div>
 
@@ -24047,7 +24047,7 @@ def generate_extender_pages():
       </h1>
 
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-        If you searched <code>192.168.188.1</code> expecting to open your RANGEXTD WiFi range extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the extender. <code>192.168.188.1</code> is the default management IP address used by many RANGEXTD WiFi repeaters and Wireless-N range extender models.
+        If you searched <code>192.168.188.1</code> expecting to open your RANGEXTD WiFi range extender, you are in the right place—but the page will only load when your phone or computer is connected directly to the extender. <code>192.168.188.1</code> is the default management IP address used by many RANGEXTD WiFi repeaters and Wireless-N range extender models cataloged in our <a href="/extenders/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Wi-Fi extenders directory</a>.
       </p>
 
       <div class="verdict-box" style="margin-bottom: 2rem;">
@@ -24120,7 +24120,7 @@ def generate_extender_pages():
         </table>
       </div>
       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">
-        The default IP is mainly a <strong>fallback address</strong>. After the RANGEXTD extender connects to your router in Repeater or Access Point mode, your router may assign it a new dynamic LAN IP through DHCP.
+        The default IP is mainly a <strong>fallback address</strong>. After the RANGEXTD extender connects to your router in Repeater or <a href="/howto/two-routers-access-point-mode/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Access Point (AP) mode</a>, your router may assign it a new dynamic LAN IP through DHCP.
       </p>
 
       <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
@@ -24263,7 +24263,7 @@ def generate_extender_pages():
         <div class="step-card">
           <div class="step-badge">Step 6</div>
           <h3 class="step-title">Move the extender to its final location</h3>
-          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the area with weak Wi-Fi. Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
+          <p class="step-text">After setup, unplug the extender and place it halfway between your router and the dead zone (refer to our <a href="/howto/mesh-wifi-backhaul-optimization/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">mesh and extender backhaul placement guide</a>). Do not place it too far from the router, because a weak incoming signal will also create a weak extended signal.</p>
         </div>
       </div>
 
@@ -24295,7 +24295,7 @@ def generate_extender_pages():
         </div>
         <div class="step-card">
           <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem;">6. Find the extender’s new IP</h3>
-          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your main router and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the RANGEXTD extender, copy its assigned IP address, and enter that IP into your browser.</p>
+          <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">If the extender is already paired, log into your <a href="/howto/access-my-router-settings-page/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">main router settings page</a> (or see how to <a href="/find-router-ip/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">find your router's IP address</a>) and open the <strong>Attached Devices</strong>, <strong>Connected Devices</strong>, or <strong>DHCP Client List</strong> page. Find the RANGEXTD extender, copy its assigned IP address, and enter that IP into your browser.</p>
         </div>
       </div>
 
