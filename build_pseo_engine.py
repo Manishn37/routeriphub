@@ -777,13 +777,22 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
 {schema_block}
   </script>
 
-  <!-- Google Tag Manager / gtag.js -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-547N7K2L"></script>
+  <!-- Google tag (gtag.js) - Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XN1CYSRXXR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){{dataLayer.push(arguments);}}
     gtag('js', new Date());
+    gtag('config', 'G-XN1CYSRXXR');
   </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
+  new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  }})(window,document,'script','dataLayer','GTM-547N7K2L');</script>
+  <!-- End Google Tag Manager -->
 
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){{
@@ -794,6 +803,10 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
   </script>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-547N7K2L"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- Site Navigation Header -->
   <header class="site-header">
@@ -26580,11 +26593,11 @@ def update_vercel_config():
 
     csp_policy = (
         "default-src 'self'; "
-        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://www.clarity.ms https://*.clarity.ms https://embed.tawk.to https://*.tawk.to; "
+        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://www.clarity.ms https://*.clarity.ms https://embed.tawk.to https://*.tawk.to; "
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://embed.tawk.to https://*.tawk.to; "
         "img-src 'self' data: https: blob:; "
         "font-src 'self' data: https://fonts.gstatic.com https://embed.tawk.to https://*.tawk.to; "
-        "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.clarity.ms https://embed.tawk.to https://*.tawk.to wss://*.tawk.to https://api.ipify.org https://ipwho.is https://dns.google https://cloudflare-dns.com https://dns.quad9.net https://dns.adguard-dns.com https://dns.alidns.com http://192.168.1.1 http://192.168.0.1 http://10.0.0.1 http://192.168.1.254; "
+        "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.clarity.ms https://embed.tawk.to https://*.tawk.to wss://*.tawk.to https://api.ipify.org https://ipwho.is https://dns.google https://cloudflare-dns.com https://dns.quad9.net https://dns.adguard-dns.com https://dns.alidns.com http://192.168.1.1 http://192.168.0.1 http://10.0.0.1 http://192.168.1.254; "
         "frame-src 'self' https://tawk.to https://*.tawk.to; "
         "frame-ancestors 'self'; "
         "base-uri 'self'; "
@@ -26746,6 +26759,34 @@ def sync_homepage():
     m_header = header_pattern.search(gen_header_html)
     if m_header and header_pattern.search(content):
         content = header_pattern.sub(m_header.group(0), content)
+
+    # 1b. Update tracking scripts in <head>
+    tracking_pattern = re.compile(r"<!-- Google Tag Manager.*?<!-- End Google Tag Manager -->", re.DOTALL)
+    old_track_pattern = re.compile(r"<!-- Google Tag Manager / gtag\.js -->.*?<script>.*?gtag\('js', new Date\(\)\);\s*</script>", re.DOTALL)
+    new_track_block = """<!-- Google tag (gtag.js) - Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XN1CYSRXXR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XN1CYSRXXR');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-547N7K2L');</script>
+  <!-- End Google Tag Manager -->"""
+    if old_track_pattern.search(content):
+        content = old_track_pattern.sub(new_track_block, content)
+    elif tracking_pattern.search(content):
+        content = tracking_pattern.sub(new_track_block, content)
+
+    # 1c. Update body noscript
+    if '<!-- Google Tag Manager (noscript) -->' not in content and '<body>' in content:
+        content = content.replace('<body>', '<body>\n  <!-- Google Tag Manager (noscript) -->\n  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-547N7K2L"\n  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\n  <!-- End Google Tag Manager (noscript) -->', 1)
 
     # 2. Update footer
     footer_pattern = re.compile(r"<!-- Site Footer -->\s*<footer class=\"site-footer\">.*?</footer>", re.DOTALL)
