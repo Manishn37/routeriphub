@@ -10630,43 +10630,10 @@ def get_isp_master_index_content():
 
 def generate_isp_pages():
     print(f"Generating {len(ISP_GATEWAYS)} ISP gateway pages...")
-    legacy_map = {
-        "att-fiber-gateway-login-admin-access": ("att-bgw320", "AT&T Fiber Gateway Login"),
-        "verizon-fios-gateway-login-admin-access": ("verizon-cr1000a", "Verizon Fios Gateway Login"),
-        "spectrum-router-login-admin-access": ("spectrum-sac2v1k", "Spectrum Router Login"),
-        "t-mobile-5g-gateway-login-admin-access": ("t-mobile-kvd21", "T-Mobile 5G Gateway Login"),
-        "centurylink-modem-login-admin-access": ("centurylink-c4000", "CenturyLink Modem Login"),
-        "bt-smart-hub-manager-login-admin-access": ("bt-smart-hub", "BT Smart Hub Manager Login"),
-        "virgin-media-hub-login-admin-access": ("virgin-media-hub", "Virgin Media Hub Login"),
-        "sky-broadband-hub-login-admin-access": ("sky-broadband", "Sky Broadband Hub Login"),
-        "telstra-smart-modem-login-admin-access": ("telstra-smart-modem", "Telstra Smart Modem Login"),
-        "xfinity-gateway-login-admin-access": ("xfinity-xfi", "Xfinity Gateway Login"),
-    }
     for isp in ISP_GATEWAYS:
         slug = isp["slug"]
         isp_dir = os.path.join(PUBLIC_DIR, "isp", slug)
         make_dirs(isp_dir)
-        # Generate static 301 fallback redirect if this is a newly slugged ISP
-        if slug in legacy_map:
-            leg_slug, leg_title = legacy_map[slug]
-            leg_dir = os.path.join(PUBLIC_DIR, "isp", leg_slug)
-            make_dirs(leg_dir)
-            leg_html = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Redirecting to {leg_title}...</title>
-  <meta name="description" content="This page has permanently moved to https://routeriphub.com/isp/{slug}/.">
-  <link rel="canonical" href="https://routeriphub.com/isp/{slug}/">
-  <meta http-equiv="refresh" content="0; url=https://routeriphub.com/isp/{slug}/">
-  <script>window.location.replace("https://routeriphub.com/isp/{slug}/");</script>
-</head>
-<body>
-  <p>This page has moved. If you are not redirected automatically, please visit <a href="/isp/{slug}/">{leg_title}</a>.</p>
-</body>
-</html>"""
-            with open(os.path.join(leg_dir, "index.html"), "w", encoding="utf-8") as lf:
-                lf.write(leg_html)
 
         if slug in ("xfinity-gateway-login-admin-access", "xfinity-xfi"):
             with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
