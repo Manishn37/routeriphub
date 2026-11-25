@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
   <script src="/js/tools.js?v=e89fe316" defer></script>
 
@@ -341,8 +341,9 @@
   </div>
 
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-tool">Interactive Utility</div>
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-tool">Interactive Utility</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         CIDR Subnet Cheat-Sheet &amp; CSV Exporter
       </h1>
@@ -391,12 +392,12 @@
       <!-- Detailed SEO Guides and Reference Documentation -->
       
       <section style="margin-top: 3.5rem;">
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">IPv4 CIDR Prefix &amp; Subnetting Reference Guide</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);" id="ipv4-cidr-prefix-and-subnetting-reference-guide">IPv4 CIDR Prefix &amp; Subnetting Reference Guide</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           Subnetting allows network designers to split larger IP networks into smaller, more efficient logical segments. This reduces broadcast traffic domains, improves routing efficiency, and enforces security segmentation between different user groups and VLANs.
         </p>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">RFC 1918 Private IP Address Spaces</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="rfc-1918-private-ip-address-spaces">RFC 1918 Private IP Address Spaces</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           The Internet Engineering Task Force (IETF) reserved three dedicated IPv4 address blocks for private local networks that are never routed on the public internet:
         </p>
@@ -407,7 +408,7 @@
           <li><strong>Carrier-Grade NAT (CGNAT, RFC 6598):</strong> <code>100.64.0.0/10</code> (100.64.0.0 to 100.127.255.255) &mdash; Allocated to internet service providers to share public IPv4 addresses across multiple customers.</li>
         </ul>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">Calculating Subnet Capacities</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="calculating-subnet-capacities">Calculating Subnet Capacities</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           To calculate the number of usable hosts for any prefix length <em>P</em>:
         </p>
@@ -465,15 +466,64 @@
           </div>
         </div>
       </div>
+      </article>
 
-    
-      <div class="card" style="margin: 2.25rem 0 1.5rem; padding: 1.25rem 1.4rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Related Diagnostic Guides &amp; Resources</h3>
-        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
-          Looking for additional configuration support? Explore our verified <a href="/routers/">Router Models Directory (252 Models)</a>, <a href="/ip/192-168-1-1/">192.168.1.1 Gateway Setup</a>, <a href="/ip/192-168-0-1/">192.168.0.1 Gateway Setup</a>, <a href="/ip/10-0-0-1/">10.0.0.1 Admin Login</a>.
-        </p>
-      </div>
-</div>
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#ipv4-cidr-prefix-and-subnetting-reference-guide" style="color: var(--text-secondary); text-decoration: none;">&rarr; IPv4 CIDR Prefix & Subnetting Reference Guide</a></li>
+            <li><a href="#rfc-1918-private-ip-address-spaces" style="color: var(--text-secondary); text-decoration: none;">&rarr; RFC 1918 Private IP Address Spaces</a></li>
+            <li><a href="#calculating-subnet-capacities" style="color: var(--text-secondary); text-decoration: none;">&rarr; Calculating Subnet Capacities</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Tool Fast Facts</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Utility Name::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">CIDR Cheat-Sheet</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Execution::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Browser-Side (Offline)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Privacy::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Zero-Log / Client-Side</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Platform::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Desktop, Tablet, Mobile</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Pricing::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">100% Free / Open Utility</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related Networking Tools</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/tools/" style="color: var(--accent); font-weight: 600;">&rarr; All Networking Tools</a></li>
+            <li><a href="/tools/subnet-calculator/" style="color: var(--accent); font-weight: 600;">&rarr; Subnet Calculator</a></li>
+            <li><a href="/tools/wifi-qr-code/" style="color: var(--accent); font-weight: 600;">&rarr; Wi-Fi QR Generator</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Gateway Auto-Detector</a></li>
+            <li><a href="/tools/router-password-generator/" style="color: var(--accent); font-weight: 600;">&rarr; Password Generator</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on cross-browser CIDR Cheat-Sheet client environments under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

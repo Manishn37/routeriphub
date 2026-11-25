@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
   <script src="/js/tools.js?v=e89fe316" defer></script>
 
@@ -341,8 +341,9 @@
   </div>
 
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-tool">Interactive Utility</div>
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-tool">Interactive Utility</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Global DNS Propagation Checker
       </h1>
@@ -411,7 +412,7 @@
       <!-- Detailed SEO Guides and Reference Documentation -->
       
       <section style="margin-top: 3.5rem;">
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">How to Check Global DNS Propagation</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);" id="how-to-check-global-dns-propagation">How to Check Global DNS Propagation</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           When you update DNS records with your domain registrar or cloud hosting provider (such as adding a new <code>A</code> record, switching nameservers, or configuring email <code>MX</code> records), the changes do not take effect across the entire world instantly. This tool queries multiple authoritative recursive resolvers globally in parallel via <strong>DNS-over-HTTPS (DoH)</strong> to verify real-time propagation:
         </p>
@@ -422,7 +423,7 @@
           <li><strong>Compare Results &amp; Consistency:</strong> The status table displays whether each global node has resolved your updated record, including TTL and response latency.</li>
         </ol>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">Why Does DNS Propagation Take Time? (TTL &amp; Recursive Caching)</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="why-does-dns-propagation-take-time-ttl-and-recursive-caching">Why Does DNS Propagation Take Time? (TTL &amp; Recursive Caching)</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           DNS is a globally distributed, hierarchical caching system designed to minimize load on authoritative nameservers. Two key factors dictate how long DNS changes take to propagate:
         </p>
@@ -432,7 +433,7 @@
           <li><strong>NS (Nameserver) Delegation Delays:</strong> When changing domain nameservers at your registrar, the root TLD zone file (such as <code>.com</code> or <code>.org</code>) must update, which typically takes 24 to 48 hours to fully propagate worldwide.</li>
         </ul>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">Common DNS Record Types Explained</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="common-dns-record-types-explained">Common DNS Record Types Explained</h2>
         <div style="overflow-x: auto; margin-bottom: 2rem;">
           <table class="table" style="font-size: 0.9rem;">
             <thead>
@@ -455,7 +456,7 @@
           </table>
         </div>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">How DNS-over-HTTPS (DoH) Works</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="how-dns-over-https-doh-works">How DNS-over-HTTPS (DoH) Works</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           Traditional DNS queries are sent over plaintext UDP port 53, making them vulnerable to eavesdropping, ISP manipulation, and DNS spoofing. <strong>DNS-over-HTTPS (RFC 8484)</strong> encapsulates DNS queries inside an encrypted HTTPS connection over standard TCP port 443.
         </p>
@@ -463,7 +464,7 @@
           This tool communicates directly with global DoH JSON endpoints (Cloudflare, Google Public DNS, and Quad9). Because the browser requests data directly via secure HTTPS APIs, local ISP DNS interception is bypassed, giving you an authentic snapshot of global DNS records.
         </p>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">How to Flush Your Local DNS Cache</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="how-to-flush-your-local-dns-cache">How to Flush Your Local DNS Cache</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           If our tool shows that global DNS has propagated, but your computer still cannot reach the new server, your local operating system or browser cache is likely holding the old IP. Follow these terminal commands to flush your cache:
         </p>
@@ -521,15 +522,66 @@
           </div>
         </div>
       </div>
+      </article>
 
-    
-      <div class="card" style="margin: 2.25rem 0 1.5rem; padding: 1.25rem 1.4rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Related Diagnostic Guides &amp; Resources</h3>
-        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
-          Looking for additional configuration support? Explore our verified <a href="/routers/">Router Models Directory (252 Models)</a>, <a href="/ip/192-168-1-1/">192.168.1.1 Gateway Setup</a>, <a href="/ip/192-168-0-1/">192.168.0.1 Gateway Setup</a>, <a href="/ip/10-0-0-1/">10.0.0.1 Admin Login</a>.
-        </p>
-      </div>
-</div>
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#how-to-check-global-dns-propagation" style="color: var(--text-secondary); text-decoration: none;">&rarr; How to Check Global DNS Propagation</a></li>
+            <li><a href="#why-does-dns-propagation-take-time-ttl-and-recursive-caching" style="color: var(--text-secondary); text-decoration: none;">&rarr; Why Does DNS Propagation Take Time? (TTL & Recursive Caching)</a></li>
+            <li><a href="#common-dns-record-types-explained" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common DNS Record Types Explained</a></li>
+            <li><a href="#how-dns-over-https-doh-works" style="color: var(--text-secondary); text-decoration: none;">&rarr; How DNS-over-HTTPS (DoH) Works</a></li>
+            <li><a href="#how-to-flush-your-local-dns-cache" style="color: var(--text-secondary); text-decoration: none;">&rarr; How to Flush Your Local DNS Cache</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Tool Fast Facts</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Utility Name::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">DNS Propagation</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Execution::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Browser-Side (Offline)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Privacy::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Zero-Log / Client-Side</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Platform::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Desktop, Tablet, Mobile</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Pricing::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">100% Free / Open Utility</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related Networking Tools</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/tools/" style="color: var(--accent); font-weight: 600;">&rarr; All Networking Tools</a></li>
+            <li><a href="/tools/subnet-calculator/" style="color: var(--accent); font-weight: 600;">&rarr; Subnet Calculator</a></li>
+            <li><a href="/tools/wifi-qr-code/" style="color: var(--accent); font-weight: 600;">&rarr; Wi-Fi QR Generator</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Gateway Auto-Detector</a></li>
+            <li><a href="/tools/router-password-generator/" style="color: var(--accent); font-weight: 600;">&rarr; Password Generator</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on cross-browser DNS Propagation client environments under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

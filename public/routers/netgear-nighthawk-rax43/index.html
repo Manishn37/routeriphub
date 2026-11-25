@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -391,8 +391,9 @@
   </div>
 
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-router">Hardware Setup Sheet</div>
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-router">Hardware Setup Sheet</div>
       <h1 style="font-size: 2.15rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Netgear Nighthawk AX5 (RAX43)
       </h1>
@@ -425,7 +426,7 @@
       </div>
 
       <!-- Hardware Specs Grid -->
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.5rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.5rem;" id="hardware-configuration-and-specifications">
         Hardware Configuration &amp; Specifications
       </h2>
       <div class="specs-grid">
@@ -475,7 +476,7 @@
       
 
       <!-- Model Hardware Notes & Port Diagram -->
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;" id="hardware-architecture-and-deployment-notes">
         Hardware Architecture &amp; Deployment Notes
       </h2>
       <div class="card" style="padding: 1.25rem 1.4rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md); margin-bottom: 1.25rem;">
@@ -523,7 +524,7 @@
     
 
       <!-- Credentials & Upstream Conflict Resolution -->
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.75rem;" id="password-lookup-and-resolving-subnet-conflicts">
         Password Lookup &amp; Resolving Subnet Conflicts
       </h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
@@ -547,7 +548,7 @@
     
 
       <!-- Factory Reset Procedure -->
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.5rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.25rem; margin-bottom: 0.5rem;" id="how-to-factory-reset-netgear-nighthawk-ax5-rax43">
         How to Factory Reset Netgear Nighthawk AX5 (RAX43)
       </h2>
       <div class="reset-instruction-box">
@@ -556,7 +557,7 @@
       </div>
 
       <!-- LED Indicators Cheat-Sheet -->
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.5rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.5rem;" id="led-indicator-diagnostic-cheat-sheet">
         LED Indicator Diagnostic Cheat-Sheet
       </h2>
       <div style="overflow-x: auto;">
@@ -632,7 +633,7 @@
       </div>
 
       <!-- Official Resources -->
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="official-companion-app-and-documentation">
         Official Companion App &amp; Documentation
       </h2>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem;">
@@ -710,15 +711,71 @@
           </div>
         </div>
       </div>
+      </article>
 
-    
-      <div class="card" style="margin: 2.25rem 0 1.5rem; padding: 1.25rem 1.4rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Related Diagnostic Guides &amp; Resources</h3>
-        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
-          Looking for additional configuration support? Explore our verified <a href="/routers/">Router Models Directory (252 Models)</a>, <a href="/ip/192-168-1-1/">192.168.1.1 Gateway Setup</a>, <a href="/ip/192-168-0-1/">192.168.0.1 Gateway Setup</a>, <a href="/ip/10-0-0-1/">10.0.0.1 Admin Login</a>.
-        </p>
-      </div>
-</div>
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#hardware-configuration-and-specifications" style="color: var(--text-secondary); text-decoration: none;">&rarr; Hardware Configuration & Specifications</a></li>
+            <li><a href="#hardware-architecture-and-deployment-notes" style="color: var(--text-secondary); text-decoration: none;">&rarr; Hardware Architecture & Deployment Notes</a></li>
+            <li><a href="#password-lookup-and-resolving-subnet-conflicts" style="color: var(--text-secondary); text-decoration: none;">&rarr; Password Lookup & Resolving Subnet Conflicts</a></li>
+            <li><a href="#how-to-factory-reset-netgear-nighthawk-ax5-rax43" style="color: var(--text-secondary); text-decoration: none;">&rarr; How to Factory Reset Netgear Nighthawk AX5 (RAX43)</a></li>
+            <li><a href="#led-indicator-diagnostic-cheat-sheet" style="color: var(--text-secondary); text-decoration: none;">&rarr; LED Indicator Diagnostic Cheat-Sheet</a></li>
+            <li><a href="#official-companion-app-and-documentation" style="color: var(--text-secondary); text-decoration: none;">&rarr; Official Companion App & Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Router Specs</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Model::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Nighthawk AX5 (RAX43)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Wi-Fi Standard::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Wi-Fi 6 (AX4200 5-Stream)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Max Speed::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Wi-Fi 6 Router</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Gateway::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">http://routerlogin.net</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default IP::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.1</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Admin::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related Netgear Guides</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/brands/netgear/" style="color: var(--accent); font-weight: 600;">&rarr; All Netgear Routers</a></li>
+            <li><a href="/ip/192-168-1-1/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.1.1 Login Guide</a></li>
+            <li><a href="/ip/192-168-0-1/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.0.1 Fallback Guide</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Detect Gateway IP</a></li>
+            <li><a href="/extenders/" style="color: var(--accent); font-weight: 600;">&rarr; Wi-Fi Extender Setup</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on Netgear Nighthawk AX5 (RAX43) hardware under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

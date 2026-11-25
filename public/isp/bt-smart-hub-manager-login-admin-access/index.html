@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -452,8 +452,9 @@
   </div>
 
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         BT (British Telecom) Gateway Login — 192.168.1.254 Admin Access
       </h1>
@@ -466,7 +467,7 @@
 
       <!-- Quick Answer Card -->
       <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
-        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);" id="quick-answer">Quick Answer</h2>
         <div class="table-responsive" style="margin-bottom: 1rem;">
           <table class="data-table">
             <thead>
@@ -527,7 +528,7 @@
       </figure>
 
       <!-- BT Hub Login Details -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">BT Hub Login Details</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="bt-hub-login-details">BT Hub Login Details</h2>
       <div class="table-responsive" style="margin-bottom: 1.25rem;">
         <table class="data-table">
           <thead>
@@ -577,7 +578,7 @@
       </p>
 
       <!-- How to Log In to Your BT Hub -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Log In to Your BT Hub</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="how-to-log-in-to-your-bt-hub">How to Log In to Your BT Hub</h2>
 
       <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Connect to the BT Hub</h3>
       <p>
@@ -654,7 +655,7 @@
       </p>
 
       <!-- Change Your BT Wi-Fi Name and Password -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Change Your BT Wi-Fi Name and Password</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="change-your-bt-wi-fi-name-and-password">Change Your BT Wi-Fi Name and Password</h2>
       <p>To change the wireless network details:</p>
       <ol style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 1rem;">
         <li>Sign in to the Hub at <code>192.168.1.254</code>.</li>
@@ -669,7 +670,7 @@
       </p>
 
       <!-- Admin Password vs. Wi-Fi Password -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Admin Password vs. Wi-Fi Password</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="admin-password-vs-wi-fi-password">Admin Password vs. Wi-Fi Password</h2>
       <p>
         The <strong>Hub admin password</strong> opens the BT Hub’s management interface. The <strong>Wi-Fi password</strong> connects phones, computers, TVs, and other devices to the wireless network.
       </p>
@@ -687,7 +688,7 @@
       </figure>
 
       <!-- If 192.168.1.254 Will Not Open -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If 192.168.1.254 Will Not Open</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="if-192-168-1-254-will-not-open">If 192.168.1.254 Will Not Open</h2>
 
       <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">1. Confirm the connection</h3>
       <p>
@@ -742,7 +743,7 @@
       </p>
 
       <!-- If the Admin Password Is Rejected -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">If the Admin Password Is Rejected</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="if-the-admin-password-is-rejected">If the Admin Password Is Rejected</h2>
 
       <h3 style="font-size: 1.15rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Check the correct password field</h3>
       <p>
@@ -789,7 +790,7 @@
       </p>
 
       <!-- Why You May Reach a Different Router Page -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Why You May Reach a Different Router Page</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="why-you-may-reach-a-different-router-page">Why You May Reach a Different Router Page</h2>
       <p>
         If you have another router, mesh system, or extender, your device may be connected to a network that uses a different gateway address.
       </p>
@@ -801,7 +802,7 @@
       </p>
 
       <!-- When to Factory Reset the BT Hub -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">When to Factory Reset the BT Hub</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="when-to-factory-reset-the-bt-hub">When to Factory Reset the BT Hub</h2>
       <p>Do not factory reset the Hub as the first fix.</p>
       <p>Before resetting:</p>
       <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
@@ -817,7 +818,7 @@
       </p>
 
       <!-- Common Mistakes -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Mistakes</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="common-mistakes">Common Mistakes</h2>
       <ul style="padding-left: 1.5rem; line-height: 1.8; margin-bottom: 2rem;">
         <li>Using mobile data instead of connecting to the BT Hub.</li>
         <li>Assuming the Wi-Fi password is the Hub admin password.</li>
@@ -828,7 +829,7 @@
       </ul>
 
       <!-- FAQs -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">FAQs</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="faqs">FAQs</h2>
       <div class="faq-list" style="margin-bottom: 2.5rem;">
         <details class="faq-item" style="margin-bottom: 0.75rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
           <summary style="font-weight: 600; cursor: pointer; color: var(--text-primary);">What is the BT Hub Manager address?</summary>
@@ -875,7 +876,7 @@
       </div>
 
       <!-- The Bottom Line -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">The Bottom Line</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="the-bottom-line">The Bottom Line</h2>
       <div class="bottom-line-callout" style="background: var(--bg-card); border-left: 4px solid var(--primary); padding: 1.25rem; border-radius: var(--radius-md); margin-bottom: 2rem;">
         <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-primary); margin: 0;">
           Open <code>192.168.1.254</code> from your BT home network and enter the Hub admin password from the back of the Hub. Do not confuse it with the Wi-Fi password. If the page will not open, disconnect VPN or proxy settings and restart the Hub before considering a reset.
@@ -958,15 +959,78 @@
           </div>
         </div>
       </div>
+      </article>
 
-    
-      <div class="card" style="margin: 2.25rem 0 1.5rem; padding: 1.25rem 1.4rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Related Diagnostic Guides &amp; Resources</h3>
-        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
-          Looking for additional configuration support? Explore our verified <a href="/routers/">Router Models Directory (252 Models)</a>, <a href="/ip/192-168-1-1/">192.168.1.1 Gateway Setup</a>, <a href="/ip/192-168-0-1/">192.168.0.1 Gateway Setup</a>, <a href="/ip/10-0-0-1/">10.0.0.1 Admin Login</a>.
-        </p>
-      </div>
-</div>
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#quick-answer" style="color: var(--text-secondary); text-decoration: none;">&rarr; Quick Answer</a></li>
+            <li><a href="#bt-hub-login-details" style="color: var(--text-secondary); text-decoration: none;">&rarr; BT Hub Login Details</a></li>
+            <li><a href="#how-to-log-in-to-your-bt-hub" style="color: var(--text-secondary); text-decoration: none;">&rarr; How to Log In to Your BT Hub</a></li>
+            <li><a href="#change-your-bt-wi-fi-name-and-password" style="color: var(--text-secondary); text-decoration: none;">&rarr; Change Your BT Wi-Fi Name and Password</a></li>
+            <li><a href="#admin-password-vs-wi-fi-password" style="color: var(--text-secondary); text-decoration: none;">&rarr; Admin Password vs. Wi-Fi Password</a></li>
+            <li><a href="#if-192-168-1-254-will-not-open" style="color: var(--text-secondary); text-decoration: none;">&rarr; If 192.168.1.254 Will Not Open</a></li>
+            <li><a href="#if-the-admin-password-is-rejected" style="color: var(--text-secondary); text-decoration: none;">&rarr; If the Admin Password Is Rejected</a></li>
+            <li><a href="#why-you-may-reach-a-different-router-page" style="color: var(--text-secondary); text-decoration: none;">&rarr; Why You May Reach a Different Router Page</a></li>
+            <li><a href="#when-to-factory-reset-the-bt-hub" style="color: var(--text-secondary); text-decoration: none;">&rarr; When to Factory Reset the BT Hub</a></li>
+            <li><a href="#common-mistakes" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common Mistakes</a></li>
+            <li><a href="#faqs" style="color: var(--text-secondary); text-decoration: none;">&rarr; FAQs</a></li>
+            <li><a href="#the-bottom-line" style="color: var(--text-secondary); text-decoration: none;">&rarr; The Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Gateway Specs</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Provider::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">BT (British Telecom)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Gateway Model::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">BT Smart Hub 2</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Gateway::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.254</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default IP::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.254</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Admin::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Password::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Admin password on removable plastic card</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related ISP Guides</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/isp/" style="color: var(--accent); font-weight: 600;">&rarr; All ISP Gateway Guides</a></li>
+            <li><a href="/ip/192-168-1-254/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.1.254 Gateway Guide</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Detect My Gateway IP</a></li>
+            <li><a href="/tools/subnet-calculator/" style="color: var(--accent); font-weight: 600;">&rarr; Subnet Calculator</a></li>
+            <li><a href="/isp/xfinity-gateway-login-admin-access/" style="color: var(--accent); font-weight: 600;">&rarr; Xfinity (Comcast) Login</a></li>
+            <li><a href="/isp/att-fiber-gateway-login-admin-access/" style="color: var(--accent); font-weight: 600;">&rarr; AT&T Fiber Login</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on BT (British Telecom) BT Smart Hub 2 hardware under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

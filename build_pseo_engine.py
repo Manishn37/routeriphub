@@ -30,6 +30,13 @@ from generate_pseo_data import (
     TOOL_PAGES,
     EXTENDER_PROFILES
 )
+from sidebar_generator import (
+    wrap_content_with_sidebar,
+    wrap_extender_content,
+    wrap_tool_content,
+    wrap_isp_content,
+    wrap_router_content
+)
 from site_templates import (
     LOGO_SCHEMA,
     ORG_PUBLISHER,
@@ -1651,6 +1658,7 @@ def generate_custom_synology_rt2600ac_page(m):
   </main>
 """
 
+    content = wrap_router_content(content, m, ROUTER_MODELS)
     return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
 # CUSTOM HIGH-INTENT MODEL PAGE: Synology RT6600ax
@@ -2235,6 +2243,7 @@ def generate_custom_synology_rt6600ax_page(m):
   </main>
 """
 
+    content = wrap_router_content(content, m, ROUTER_MODELS)
     return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
 
@@ -2770,6 +2779,7 @@ def generate_custom_pldt_page(m):
   </main>
 """
 
+    content = wrap_router_content(content, m, ROUTER_MODELS)
     return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
 
@@ -3719,6 +3729,7 @@ def generate_custom_netgear_nighthawk_rax120_page(m):
   </main>
 """
 
+    content = wrap_router_content(content, m, ROUTER_MODELS)
     return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/routers/netgear-nighthawk-rax120-setup.webp", og_image_alt="Netgear Nighthawk AX12 RAX120 12-stream Wi-Fi 6 router hardware setup on an office desk") + content + get_footer()
 
 
@@ -4185,6 +4196,7 @@ def generate_custom_netgear_nighthawk_xr1000_page(m):
   </main>
 """
 
+    content = wrap_router_content(content, m, ROUTER_MODELS)
     return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/routers/netgear-nighthawk-xr1000-setup.webp", og_image_alt="Netgear Nighthawk Pro Gaming XR1000 Wi-Fi 6 gaming router hardware setup on desk") + content + get_footer()
 
 
@@ -4679,6 +4691,13 @@ def generate_custom_asus_rt_ax88u_page(m):
             <li><a href="/tools/ping-test/" style="color: var(--accent); text-decoration: none;">&rarr; Network Latency Ping Tool</a></li>
           </ul>
         </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on ASUS RT-AX88U (AX6000) hardware under controlled lab conditions.
+          </p>
+        </div>
       </aside>
     </div>
   </main>
@@ -4947,6 +4966,7 @@ def generate_router_model_pages():
     </div>
   </main>
 """
+        content = wrap_router_content(content, m, ROUTER_MODELS)
         full_html = get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, faq_schema]) + content + get_footer()
         with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(full_html)
@@ -5721,6 +5741,7 @@ def generate_custom_xfinity_xfi_page(isp):
   </main>
 """
 
+    content = wrap_isp_content(content, isp, ISP_GATEWAYS)
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/howto/xfinity-xfi-gateway-xb7-xb8-hardware.webp", og_image_alt="Xfinity gateway login guide showing 10.0.0.1 admin access, default credentials label, and Bridge Mode setup", og_type="article") + content + get_footer()
 
 
@@ -6323,6 +6344,7 @@ def generate_custom_att_bgw320_page(isp):
     </div>
   </main>
 """
+    content = wrap_isp_content(content, isp, ISP_GATEWAYS)
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/howto/att-fiber-gateway-bgw320-hardware.webp", og_image_alt="AT&T Fiber gateway login guide showing 192.168.1.254 admin access, Device Access Code, and IP Passthrough", og_type="article") + content + get_footer()
 
 def generate_custom_verizon_cr1000a_page(isp):
@@ -6943,6 +6965,7 @@ def generate_custom_verizon_cr1000a_page(isp):
   </main>
 """
 
+    content = wrap_isp_content(content, isp, ISP_GATEWAYS)
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/isp/verizon-fios-gateway-192-168-1-1-login-guide.webp", og_image_alt="Verizon Fios gateway login guide showing 192.168.1.1 admin portal access and router label credentials", og_type="article") + content + get_footer()
 
 
@@ -7482,6 +7505,7 @@ def generate_custom_telstra_smart_modem_page(isp):
   </main>
 """
 
+    content = wrap_isp_content(content, isp, ISP_GATEWAYS)
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
 
@@ -8001,6 +8025,7 @@ def generate_custom_sky_broadband_page(isp):
   </main>
 """
 
+    content = wrap_isp_content(content, isp, ISP_GATEWAYS)
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
 
@@ -8492,6 +8517,7 @@ def generate_custom_virgin_media_hub_page(isp):
   </main>
 """
 
+    content = wrap_isp_content(content, isp, ISP_GATEWAYS)
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
 
@@ -9074,6 +9100,7 @@ def generate_custom_bt_smart_hub_page(isp):
   </main>
 """
 
+    content = wrap_isp_content(content, isp, ISP_GATEWAYS)
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content + get_footer()
 
 
@@ -9547,6 +9574,7 @@ def generate_custom_centurylink_c4000_page(isp):
   </main>
 """
 
+    content = wrap_isp_content(content, isp, ISP_GATEWAYS)
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/isp/centurylink-c4000-192-168-0-1-gateway-login-guide.webp", og_image_alt="CenturyLink and Quantum Fiber gateway login guide showing 192.168.0.1 admin access credentials", og_type="article") + content + get_footer()
 
 
@@ -10052,6 +10080,7 @@ def generate_custom_tmobile_kvd21_page(isp):
   </main>
 """
 
+    content = wrap_isp_content(content, isp, ISP_GATEWAYS)
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/isp/t-mobile-kvd21-192-168-12-1-gateway-login-guide.webp", og_image_alt="T-Mobile Home Internet 5G gateway login guide showing 192.168.12.1 web admin portal access", og_type="article") + content + get_footer()
 
 
@@ -10676,6 +10705,7 @@ def generate_custom_spectrum_sac2v1k_page(isp):
   </main>
 """
 
+    content = wrap_isp_content(content, isp, ISP_GATEWAYS)
     return get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/isp/spectrum-wifi-6-router-sac2v1k-login-setup-guide.webp", og_image_alt="Spectrum Wi-Fi 6 router SAC2V1K and SAX1V1K login and setup guide showing 192.168.1.1 admin access", og_type="article") + content + get_footer()
 
 def get_isp_master_index_content():
@@ -11359,6 +11389,7 @@ def generate_isp_pages():
     </div>
   </main>
 """
+        content = wrap_isp_content(content, isp, ISP_GATEWAYS)
         full_html = get_header(title, desc, canonical, active_nav="isp", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema]) + content + get_footer()
         with open(os.path.join(isp_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(full_html)
@@ -20391,6 +20422,7 @@ def generate_extender_pages():
 
     def finalize_extender_page(slug, title, desc, canonical, breadcrumbs, tech_schema, howto_schema, faq_schema, content_html):
         media = extender_media.get(slug)
+        og_img = None
         if media:
             hero_src, hero_alt, hero_cap, pair_src, pair_alt, pair_cap = media
             hero_fig = (
@@ -20421,20 +20453,24 @@ def generate_extender_pages():
                 content_html = content_html[:pos1] + hero_fig + content_html[pos1:]
             tech_schema["image"] = f"https://routeriphub.com{hero_src}"
             og_img = f"https://routeriphub.com{hero_src}"
-            return (
-                get_header(
-                    title, desc, canonical,
-                    active_nav="extenders",
-                    breadcrumbs=breadcrumbs,
-                    schemas_json_ld=[tech_schema, howto_schema, faq_schema],
-                    og_image=og_img,
-                    og_image_alt=title,
-                    og_type="article",
-                )
-                + content_html
-                + get_footer()
+
+        ext_by_slug = {e['slug']: e for e in EXTENDER_PROFILES}
+        ext = ext_by_slug.get(slug, {"brand": "Universal", "domain": slug, "fallback_ip": "192.168.1.250", "slug": slug})
+        wrapped_content = wrap_extender_content(content_html, ext, EXTENDER_PROFILES)
+
+        return (
+            get_header(
+                title, desc, canonical,
+                active_nav="extenders",
+                breadcrumbs=breadcrumbs,
+                schemas_json_ld=[tech_schema, howto_schema, faq_schema],
+                og_image=og_img,
+                og_image_alt=title,
+                og_type="article",
             )
-        return get_header(title, desc, canonical, active_nav="extenders", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema]) + content_html + get_footer()
+            + wrapped_content
+            + get_footer()
+        )
     for ext in EXTENDER_PROFILES:
         slug = ext["slug"]
         ext_dir = os.path.join(extenders_root_dir, slug)
@@ -26031,13 +26067,14 @@ def generate_tool_pages():
     </div>
   </main>
 """
+        wrapped_content = wrap_tool_content(content, t, TOOL_PAGES)
         full_html = get_header(
             title, desc, canonical,
             active_nav="tools",
             breadcrumbs=breadcrumbs,
             schemas_json_ld=[web_app_schema],
             include_tools=True,
-        ) + content + get_footer()
+        ) + wrapped_content + get_footer()
         with open(os.path.join(tool_dir, "index.html"), "w", encoding="utf-8") as f:
             f.write(full_html)
 

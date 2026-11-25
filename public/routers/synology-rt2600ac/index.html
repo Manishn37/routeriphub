@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -453,8 +453,9 @@
   </div>
 
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-router">Hardware Setup Sheet</div>
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-router">Hardware Setup Sheet</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Synology RT2600ac — Setup, Login, Wi-Fi Settings &amp; Troubleshooting Guide
       </h1>
@@ -464,7 +465,7 @@
 
       <!-- Quick Answer Card -->
       <div class="card card-featured" style="margin: 1.75rem 0 2.5rem; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
-        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);" id="quick-answer">Quick Answer</h2>
         <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
           <strong>The Synology RT2600ac is a dual-band Wi-Fi router managed through Synology Router Manager (SRM).</strong> You can set it up using the Synology Router mobile app, a web browser, or the router’s local setup address.
         </p>
@@ -480,7 +481,7 @@
       </div>
 
       <!-- Key Features Table -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Synology RT2600ac Key Features</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="synology-rt2600ac-key-features">Synology RT2600ac Key Features</h2>
       <div class="table-responsive" style="margin-bottom: 1.25rem;">
         <table class="data-table">
           <thead>
@@ -530,7 +531,7 @@
       </p>
 
       <!-- Login Section -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Synology RT2600ac Login</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="synology-rt2600ac-login">Synology RT2600ac Login</h2>
       
       <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem;">Default Login Address</h3>
       <p>Use one of these addresses to open the router login page:</p>
@@ -579,7 +580,7 @@
       </p>
 
       <!-- Step by Step Setup -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Step-by-Step: Set Up the Synology RT2600ac</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="step-by-step-set-up-the-synology-rt2600ac">Step-by-Step: Set Up the Synology RT2600ac</h2>
       <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem;">
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
           <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--accent);">1. Connect the router</h3>
@@ -617,7 +618,7 @@
       </div>
 
       <!-- Change Wi-Fi Name and Password -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Change Wi-Fi Name and Password</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="change-wi-fi-name-and-password">Change Wi-Fi Name and Password</h2>
       <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
         <li>Log in to the RT2600ac through SRM.</li>
         <li>Open <strong>Control Panel</strong>.</li>
@@ -632,7 +633,7 @@
       </p>
 
       <!-- Set Up a Guest Network -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Set Up a Guest Network</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="set-up-a-guest-network">Set Up a Guest Network</h2>
       <p>A guest network keeps visitors separate from your main devices, NAS, printers, and smart-home equipment.</p>
       <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
         <li>Log in to SRM.</li>
@@ -647,7 +648,7 @@
       </p>
 
       <!-- Set Up VPN on RT2600ac -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Set Up VPN on RT2600ac</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="set-up-vpn-on-rt2600ac">Set Up VPN on RT2600ac</h2>
       <p>The RT2600ac supports both VPN server and VPN client features.</p>
       
       <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem;">VPN Server</h3>
@@ -677,7 +678,7 @@
       </p>
 
       <!-- Set Up WAN Failover -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Set Up WAN Failover</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="set-up-wan-failover">Set Up WAN Failover</h2>
       <p>WAN failover lets the RT2600ac switch to a backup internet connection if the main connection fails.</p>
       <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
         <li>Log in to SRM.</li>
@@ -692,7 +693,7 @@
       </p>
 
       <!-- Update RT2600ac Firmware -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Update RT2600ac Firmware</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="update-rt2600ac-firmware">Update RT2600ac Firmware</h2>
       <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
         <li>Log in to SRM.</li>
         <li>Go to <strong>Control Panel &gt; Update &amp; Restore</strong>.</li>
@@ -706,7 +707,7 @@
       </p>
 
       <!-- Troubleshooting -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">RT2600ac Not Working? Fixes</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="rt2600ac-not-working-fixes">RT2600ac Not Working? Fixes</h2>
       <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-bottom: 2rem;">
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
           <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">1. No internet connection</h3>
@@ -761,7 +762,7 @@
       </div>
 
       <!-- Factory Reset -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Factory Reset the RT2600ac</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="factory-reset-the-rt2600ac">Factory Reset the RT2600ac</h2>
       <p>Reset the router only if you cannot log in, are moving it to a new network, or the router will not work after troubleshooting.</p>
       <ol style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 1rem;">
         <li>Keep the RT2600ac powered on.</li>
@@ -779,7 +780,7 @@
       </div>
 
       <!-- Common Mistakes -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Mistakes</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="common-mistakes">Common Mistakes</h2>
       <ul style="padding-left: 1.5rem; line-height: 1.7; margin-bottom: 2rem;">
         <li><strong>Using the wrong WAN port.</strong> Connect your modem or ONT to the WAN port, not a LAN port.</li>
         <li><strong>Using the same password for router login and Wi-Fi.</strong> Keep them separate for better security.</li>
@@ -789,7 +790,7 @@
       </ul>
 
       <!-- Common Typos -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Typos</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="common-typos">Common Typos</h2>
       <div class="card" style="margin: 1rem 0 2rem; padding: 1.25rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
         <p style="margin-bottom: 0.5rem; font-weight: 600; color: #dc2626;">Incorrect Entries (Will Not Open Router):</p>
         <ul style="margin-bottom: 1rem; padding-left: 1.5rem; color: #dc2626; line-height: 1.6;">
@@ -806,7 +807,7 @@
       </div>
 
       <!-- FAQs -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Frequently Asked Questions (FAQs)</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="frequently-asked-questions-faqs">Frequently Asked Questions (FAQs)</h2>
       <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
         <div class="card" style="padding: 1.25rem; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-md);">
           <h3 style="font-size: 1.1rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem;">What is the default IP for Synology RT2600ac?</h3>
@@ -841,7 +842,7 @@
       </div>
 
       <!-- The Bottom Line -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">The Bottom Line</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="the-bottom-line">The Bottom Line</h2>
       <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">
         The <strong>Synology RT2600ac</strong> is a reliable dual-band Wi-Fi router managed through Synology Router Manager. Set it up through <code>http://192.168.1.1</code> or the Synology Router app, create a strong admin password, update firmware, and use VPN, guest network, and WAN failover features to build a secure and flexible home network.
       </p>
@@ -849,7 +850,7 @@
       <!-- Live Reachability Probe -->
       <div class="card" style="margin: 2.5rem 0; border: 1px solid var(--border-color); background: var(--bg-card); border-radius: var(--radius-lg); padding: 1.5rem;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
-          <h2 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+          <h2 style="font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; margin: 0;" id="gateway-reachability-probe">
             <span>Gateway Reachability Probe</span>
           </h2>
           <span style="font-size: 0.8rem; background: var(--info-bg, rgba(2, 132, 199, 0.1)); color: var(--text-accent); padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: 600;">
@@ -868,7 +869,7 @@
       </div>
 
       <!-- Official Resources -->
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="official-companion-app-and-documentation">
         Official Companion App &amp; Documentation
       </h2>
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2.5rem;">
@@ -938,15 +939,82 @@
           </div>
         </div>
       </div>
+      </article>
 
-    
-      <div class="card" style="margin: 2.25rem 0 1.5rem; padding: 1.25rem 1.4rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Related Diagnostic Guides &amp; Resources</h3>
-        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
-          Looking for additional configuration support? Explore our verified <a href="/routers/">Router Models Directory (252 Models)</a>, <a href="/ip/192-168-1-1/">192.168.1.1 Gateway Setup</a>, <a href="/ip/192-168-0-1/">192.168.0.1 Gateway Setup</a>, <a href="/ip/10-0-0-1/">10.0.0.1 Admin Login</a>.
-        </p>
-      </div>
-</div>
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#quick-answer" style="color: var(--text-secondary); text-decoration: none;">&rarr; Quick Answer</a></li>
+            <li><a href="#synology-rt2600ac-key-features" style="color: var(--text-secondary); text-decoration: none;">&rarr; Synology RT2600ac Key Features</a></li>
+            <li><a href="#synology-rt2600ac-login" style="color: var(--text-secondary); text-decoration: none;">&rarr; Synology RT2600ac Login</a></li>
+            <li><a href="#step-by-step-set-up-the-synology-rt2600ac" style="color: var(--text-secondary); text-decoration: none;">&rarr; Step-by-Step: Set Up the Synology RT2600ac</a></li>
+            <li><a href="#change-wi-fi-name-and-password" style="color: var(--text-secondary); text-decoration: none;">&rarr; Change Wi-Fi Name and Password</a></li>
+            <li><a href="#set-up-a-guest-network" style="color: var(--text-secondary); text-decoration: none;">&rarr; Set Up a Guest Network</a></li>
+            <li><a href="#set-up-vpn-on-rt2600ac" style="color: var(--text-secondary); text-decoration: none;">&rarr; Set Up VPN on RT2600ac</a></li>
+            <li><a href="#set-up-wan-failover" style="color: var(--text-secondary); text-decoration: none;">&rarr; Set Up WAN Failover</a></li>
+            <li><a href="#update-rt2600ac-firmware" style="color: var(--text-secondary); text-decoration: none;">&rarr; Update RT2600ac Firmware</a></li>
+            <li><a href="#rt2600ac-not-working-fixes" style="color: var(--text-secondary); text-decoration: none;">&rarr; RT2600ac Not Working? Fixes</a></li>
+            <li><a href="#factory-reset-the-rt2600ac" style="color: var(--text-secondary); text-decoration: none;">&rarr; Factory Reset the RT2600ac</a></li>
+            <li><a href="#common-mistakes" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common Mistakes</a></li>
+            <li><a href="#common-typos" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common Typos</a></li>
+            <li><a href="#frequently-asked-questions-faqs" style="color: var(--text-secondary); text-decoration: none;">&rarr; Frequently Asked Questions (FAQs)</a></li>
+            <li><a href="#the-bottom-line" style="color: var(--text-secondary); text-decoration: none;">&rarr; The Bottom Line</a></li>
+            <li><a href="#gateway-reachability-probe" style="color: var(--text-secondary); text-decoration: none;">&rarr; Gateway Reachability Probe</a></li>
+            <li><a href="#official-companion-app-and-documentation" style="color: var(--text-secondary); text-decoration: none;">&rarr; Official Companion App & Documentation</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Router Specs</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Model::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">RT2600ac</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Wi-Fi Standard::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Wi-Fi 5 (AC2600 4x4 MU-MIMO)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Max Speed::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Dual-Band AC2600 Router</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Gateway::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">http://router.synology.com</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default IP::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.1</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Admin::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin (created on setup)</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related Synology Guides</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/brands/synology/" style="color: var(--accent); font-weight: 600;">&rarr; All Synology Routers</a></li>
+            <li><a href="/ip/192-168-1-1/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.1.1 Login Guide</a></li>
+            <li><a href="/ip/192-168-0-1/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.0.1 Fallback Guide</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Detect Gateway IP</a></li>
+            <li><a href="/extenders/" style="color: var(--accent); font-weight: 600;">&rarr; Wi-Fi Extender Setup</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on Synology RT2600ac hardware under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

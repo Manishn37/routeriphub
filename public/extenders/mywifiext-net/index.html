@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -421,9 +421,10 @@
     </div>
   </div>
 
-  <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-ip">Technical Guide</div>
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         192.168.1.250 — Netgear Extender Login: What This IP Is and How to Access It
@@ -704,7 +705,7 @@
         <figcaption>Quick 3-step NETGEAR extender login flow via mywifiext.net, mywifiext.local, or fallback IP 192.168.1.250.</figcaption>
       </figure>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="which-netgear-extenders-use-192-168-1-250">
         Which NETGEAR Extenders Use 192.168.1.250?
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
@@ -746,7 +747,7 @@
         This IP is a <strong>fallback address</strong>, not a permanent address. Once the extender successfully connects to your router in Repeater or <a href="/howto/two-routers-access-point-mode/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Access Point (AP) mode</a>, your router assigns it a new dynamic LAN IP through DHCP.
       </p>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="network-role-extender-vs-router">
         Network Role: Extender vs. Router
       </h2>
       <div style="overflow-x: auto; margin-bottom: 2rem;">
@@ -781,7 +782,7 @@
         So, if <code>192.168.1.250</code> does not open your router’s admin page, that is expected: it is designed to reach the <strong>NETGEAR extender</strong>, not the router itself.
       </p>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="diagnostic-what-are-you-trying-to-do">
         Diagnostic: What Are You Trying to Do?
       </h2>
       <div style="overflow-x: auto; margin-bottom: 2rem;">
@@ -823,7 +824,7 @@
         </table>
       </div>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="why-192-168-1-250-stops-working-after-setup">
         Why 192.168.1.250 Stops Working After Setup
       </h2>
       <div style="background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color); padding: 1.25rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.7;">
@@ -841,7 +842,7 @@
         <figcaption>Why 192.168.1.250 and mywifiext.net work in factory setup mode but change to a router DHCP IP after pairing.</figcaption>
       </figure>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="step-by-step-log-in-to-a-netgear-extender">
         Step-by-Step: Log In to a NETGEAR Extender
       </h2>
       <ol style="margin-left: 1.5rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.75;">
@@ -869,7 +870,7 @@
         </li>
       </ol>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="if-192-168-1-250-will-not-load">
         If 192.168.1.250 Will Not Load
       </h2>
       <ol style="margin-left: 1.5rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.75;">
@@ -890,7 +891,7 @@
         </li>
       </ol>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="what-if-you-forgot-the-extender-s-admin-password">
         What If You Forgot the Extender’s Admin Password?
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
@@ -903,7 +904,7 @@
         <li>Once the Power LED turns solid, reconnect to the default Wi-Fi network and start setup again using <code>192.168.1.250</code> or <code>mywifiext.net</code>.</li>
       </ol>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="common-mistakes-and-typos">
         Common Mistakes and Typos
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
@@ -917,7 +918,7 @@
         <div class="typo-chip"><span class="typo-wrong">https://192.168.1.250</span> &rarr; <span class="typo-correct">http://192.168.1.250 (Use HTTP)</span></div>
       </div>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="frequently-asked-questions">
         Frequently Asked Questions
       </h2>
       <div class="faq-list" style="margin-top: 1rem;">
@@ -1016,15 +1017,75 @@
           </div>
         </div>
       </div>
+      </article>
 
-    
-      <div class="card" style="margin: 2.25rem 0 1.5rem; padding: 1.25rem 1.4rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Related Diagnostic Guides &amp; Resources</h3>
-        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
-          Looking for additional configuration support? Explore our verified <a href="/routers/">Router Models Directory (252 Models)</a>, <a href="/ip/10-0-0-1/">10.0.0.1 Admin Login</a>, <a href="/find-router-ip/">How to Find Router IP</a>, <a href="/tools/ping-test/">In-Browser Ping Test</a>.
-        </p>
-      </div>
-</div>
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#which-netgear-extenders-use-192-168-1-250" style="color: var(--text-secondary); text-decoration: none;">&rarr; Which NETGEAR Extenders Use 192.168.1.250?</a></li>
+            <li><a href="#network-role-extender-vs-router" style="color: var(--text-secondary); text-decoration: none;">&rarr; Network Role: Extender vs. Router</a></li>
+            <li><a href="#diagnostic-what-are-you-trying-to-do" style="color: var(--text-secondary); text-decoration: none;">&rarr; Diagnostic: What Are You Trying to Do?</a></li>
+            <li><a href="#why-192-168-1-250-stops-working-after-setup" style="color: var(--text-secondary); text-decoration: none;">&rarr; Why 192.168.1.250 Stops Working After Setup</a></li>
+            <li><a href="#step-by-step-log-in-to-a-netgear-extender" style="color: var(--text-secondary); text-decoration: none;">&rarr; Step-by-Step: Log In to a NETGEAR Extender</a></li>
+            <li><a href="#if-192-168-1-250-will-not-load" style="color: var(--text-secondary); text-decoration: none;">&rarr; If 192.168.1.250 Will Not Load</a></li>
+            <li><a href="#what-if-you-forgot-the-extender-s-admin-password" style="color: var(--text-secondary); text-decoration: none;">&rarr; What If You Forgot the Extender’s Admin Password?</a></li>
+            <li><a href="#common-mistakes-and-typos" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common Mistakes and Typos</a></li>
+            <li><a href="#frequently-asked-questions" style="color: var(--text-secondary); text-decoration: none;">&rarr; Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Extender Specs</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Brand::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">NETGEAR</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Local Domain::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">mywifiext.net</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Fallback IP::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.250</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Admin::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Password::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">password</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Hardware Series::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">EX Series</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related NETGEAR Guides</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/extenders/" style="color: var(--accent); font-weight: 600;">&rarr; All Wi-Fi Extenders</a></li>
+            <li><a href="/ip/192-168-1-250/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.1.250 Login Guide</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Detect Gateway IP</a></li>
+            <li><a href="/tools/subnet-calculator/" style="color: var(--accent); font-weight: 600;">&rarr; Subnet Calculator</a></li>
+            <li><a href="/extenders/tplinkrepeater-net/" style="color: var(--accent); font-weight: 600;">&rarr; tplinkrepeater.net Setup</a></li>
+            <li><a href="/extenders/extender-linksys-com/" style="color: var(--accent); font-weight: 600;">&rarr; extender.linksys.com Setup</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on NETGEAR mywifiext.net hardware under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

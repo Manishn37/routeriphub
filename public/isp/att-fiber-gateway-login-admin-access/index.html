@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -449,8 +449,9 @@
   </div>
 
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-isp">ISP Gateway Hub</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         AT&amp;T Fiber Gateway Login — 192.168.1.254 Admin Access
       </h1>
@@ -499,7 +500,7 @@
 
       <!-- Quick Answer Section -->
       <div class="card card-featured" style="margin: 2rem 0; border-left: 4px solid var(--accent); background: var(--bg-card); padding: 1.75rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
-        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);">Quick Answer</h2>
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--accent);" id="quick-answer">Quick Answer</h2>
         <ol style="margin-bottom: 1.25rem; padding-left: 1.5rem; line-height: 1.75; font-size: 1.025rem;">
           <li>Connect to your AT&amp;T gateway using Wi&#8209;Fi or Ethernet.</li>
           <li>Open Chrome, Edge, Safari, or Firefox.</li>
@@ -514,7 +515,7 @@
       </div>
 
       <!-- Quick Reference Table -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Quick Reference</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="quick-reference">Quick Reference</h2>
       <div class="table-responsive" style="margin-bottom: 2rem;">
         <table class="data-table">
           <thead>
@@ -557,7 +558,7 @@
       </div>
 
       <!-- What Is 192.168.1.254? -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">What Is 192.168.1.254?</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="what-is-192-168-1-254">What Is 192.168.1.254?</h2>
       <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
         <strong>192.168.1.254</strong> is the local IP address used by many AT&amp;T Fiber gateways for their admin interface. It lets you manage the gateway from a device connected to your home network.
       </p>
@@ -578,7 +579,7 @@
       </div>
 
       <!-- How to Log In -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Log In</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="how-to-log-in">How to Log In</h2>
 
       <h3 style="font-size: 1.2rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: var(--text-primary);">On Windows or Mac</h3>
       <ol style="padding-left: 1.5rem; line-height: 1.75; font-size: 1.025rem; margin-bottom: 1.5rem;">
@@ -616,7 +617,7 @@
       </ol>
 
       <!-- Gateway Access Code -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Gateway Access Code</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="gateway-access-code">Gateway Access Code</h2>
       <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
         AT&amp;T gateways often use an <strong>access code</strong> instead of a traditional username and password. This code is printed on the gateway label.
       </p>
@@ -668,7 +669,7 @@
       </div>
 
       <!-- What You Can Manage -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">What You Can Manage</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="what-you-can-manage">What You Can Manage</h2>
       <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.25rem;">
         The 192.168.1.254 admin page gives you access to several important gateway settings.
       </p>
@@ -718,7 +719,7 @@
       </div>
 
       <!-- How to Change Wi-Fi Name and Password -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">How to Change Wi-Fi Name and Password</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="how-to-change-wi-fi-name-and-password">How to Change Wi-Fi Name and Password</h2>
       <ol style="padding-left: 1.5rem; line-height: 1.75; font-size: 1.025rem; margin-bottom: 1.25rem;">
         <li>Open <strong>192.168.1.254</strong> in your browser.</li>
         <li>Go to <strong>Home Network</strong> or <strong>Wi&#8209;Fi</strong>.</li>
@@ -734,7 +735,7 @@
       </p>
 
       <!-- IP Passthrough for Your Own Router -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">IP Passthrough for Your Own Router</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="ip-passthrough-for-your-own-router">IP Passthrough for Your Own Router</h2>
       <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
         If you use your own router with AT&amp;T Fiber, enable <strong>IP Passthrough</strong> to avoid Double NAT. This allows the AT&amp;T gateway to pass its public internet address to your router.
       </p>
@@ -765,7 +766,7 @@
       </div>
 
       <!-- Port Forwarding -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Port Forwarding</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="port-forwarding">Port Forwarding</h2>
       <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
         Port forwarding allows specific devices to receive incoming connections from the internet. It is commonly used for gaming consoles, security cameras, NAS devices, and self-hosted services.
       </p>
@@ -783,7 +784,7 @@
       </div>
 
       <!-- Troubleshooting -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1.25rem;">Troubleshooting</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1.25rem;" id="troubleshooting">Troubleshooting</h2>
 
       <div class="card" style="padding: 1.25rem; margin-bottom: 1rem; border: 1px solid var(--border-color); border-radius: 8px;">
         <h3 style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.5rem; color: var(--text-primary);">192.168.1.254 Does Not Load</h3>
@@ -816,7 +817,7 @@
       </div>
 
       <!-- Factory Reset -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Factory Reset</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="factory-reset">Factory Reset</h2>
       <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
         A factory reset should be your last option.
       </p>
@@ -834,7 +835,7 @@
       </div>
 
       <!-- Common Misspellings -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Common Misspellings</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="common-misspellings">Common Misspellings</h2>
       <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 0.75rem;">
         Avoid these common mistakes when entering the gateway address:
       </p>
@@ -853,7 +854,7 @@
       </p>
 
       <!-- After You Log In -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">After You Log In</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="after-you-log-in">After You Log In</h2>
       <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 0.75rem;">
         Once you access the gateway:
       </p>
@@ -869,7 +870,7 @@
       </ul>
 
       <!-- FAQs -->
-      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;">Frequently Asked Questions</h2>
+      <h2 style="font-size: 1.45rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem;" id="frequently-asked-questions">Frequently Asked Questions</h2>
       <div class="faq-list" style="margin-bottom: 2.5rem;">
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
@@ -934,7 +935,7 @@
 
       <!-- Bottom Line -->
       <div class="card" style="padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 2.5rem;">
-        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-primary);">Bottom Line</h2>
+        <h2 style="font-size: 1.35rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-primary);" id="bottom-line">Bottom Line</h2>
         <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem;">
           Use <strong>192.168.1.254</strong> to access your AT&amp;T Fiber gateway’s local admin page. Connect to the gateway’s network, enter the address in your browser, and use the access code on the gateway label if prompted.
         </p>
@@ -976,15 +977,81 @@
           </div>
         </div>
       </div>
+      </article>
 
-    
-      <div class="card" style="margin: 2.25rem 0 1.5rem; padding: 1.25rem 1.4rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Related Diagnostic Guides &amp; Resources</h3>
-        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
-          Looking for additional configuration support? Explore our verified <a href="/routers/">Router Models Directory (252 Models)</a>, <a href="/ip/192-168-1-1/">192.168.1.1 Gateway Setup</a>, <a href="/ip/192-168-0-1/">192.168.0.1 Gateway Setup</a>, <a href="/ip/10-0-0-1/">10.0.0.1 Admin Login</a>.
-        </p>
-      </div>
-</div>
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#quick-answer" style="color: var(--text-secondary); text-decoration: none;">&rarr; Quick Answer</a></li>
+            <li><a href="#quick-reference" style="color: var(--text-secondary); text-decoration: none;">&rarr; Quick Reference</a></li>
+            <li><a href="#what-is-192-168-1-254" style="color: var(--text-secondary); text-decoration: none;">&rarr; What Is 192.168.1.254?</a></li>
+            <li><a href="#how-to-log-in" style="color: var(--text-secondary); text-decoration: none;">&rarr; How to Log In</a></li>
+            <li><a href="#gateway-access-code" style="color: var(--text-secondary); text-decoration: none;">&rarr; Gateway Access Code</a></li>
+            <li><a href="#what-you-can-manage" style="color: var(--text-secondary); text-decoration: none;">&rarr; What You Can Manage</a></li>
+            <li><a href="#how-to-change-wi-fi-name-and-password" style="color: var(--text-secondary); text-decoration: none;">&rarr; How to Change Wi-Fi Name and Password</a></li>
+            <li><a href="#ip-passthrough-for-your-own-router" style="color: var(--text-secondary); text-decoration: none;">&rarr; IP Passthrough for Your Own Router</a></li>
+            <li><a href="#port-forwarding" style="color: var(--text-secondary); text-decoration: none;">&rarr; Port Forwarding</a></li>
+            <li><a href="#troubleshooting" style="color: var(--text-secondary); text-decoration: none;">&rarr; Troubleshooting</a></li>
+            <li><a href="#factory-reset" style="color: var(--text-secondary); text-decoration: none;">&rarr; Factory Reset</a></li>
+            <li><a href="#common-misspellings" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common Misspellings</a></li>
+            <li><a href="#after-you-log-in" style="color: var(--text-secondary); text-decoration: none;">&rarr; After You Log In</a></li>
+            <li><a href="#frequently-asked-questions" style="color: var(--text-secondary); text-decoration: none;">&rarr; Frequently Asked Questions</a></li>
+            <li><a href="#bottom-line" style="color: var(--text-secondary); text-decoration: none;">&rarr; Bottom Line</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Gateway Specs</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Provider::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">AT&T Fiber</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Gateway Model::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">AT&T Fiber BGW320 / BGW210 Gat</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Gateway::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.254</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default IP::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.254</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Admin::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Password::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Printed Device Access Code (DAC)</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related ISP Guides</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/isp/" style="color: var(--accent); font-weight: 600;">&rarr; All ISP Gateway Guides</a></li>
+            <li><a href="/ip/192-168-1-254/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.1.254 Gateway Guide</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Detect My Gateway IP</a></li>
+            <li><a href="/tools/subnet-calculator/" style="color: var(--accent); font-weight: 600;">&rarr; Subnet Calculator</a></li>
+            <li><a href="/isp/xfinity-gateway-login-admin-access/" style="color: var(--accent); font-weight: 600;">&rarr; Xfinity (Comcast) Login</a></li>
+            <li><a href="/isp/verizon-fios-gateway-login-admin-access/" style="color: var(--accent); font-weight: 600;">&rarr; Verizon Fios Login</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on AT&T Fiber AT&T Fiber BGW320 / BGW210 Gat hardware under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

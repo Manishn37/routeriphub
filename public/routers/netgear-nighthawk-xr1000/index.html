@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -430,7 +430,9 @@
   </div>
 
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
-    <!-- Breadcrumb Bar -->
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<!-- Breadcrumb Bar -->
     <nav aria-label="breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.88rem; color: var(--text-muted);">
       <a href="/" style="color: var(--primary); text-decoration: none;">Home</a> &rsaquo;
       <a href="/routers/" style="color: var(--primary); text-decoration: none;">Routers</a> &rsaquo;
@@ -470,7 +472,7 @@
 
         <!-- Quick Reference Table Card -->
         <section style="background: var(--bg-surface-2); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2.5rem;">
-          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">At a Glance: XR1000 Default Specifications</h2>
+          <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);" id="at-a-glance-xr1000-default-specifications">At a Glance: XR1000 Default Specifications</h2>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.92rem;">
             <div><span style="color: var(--text-muted);">Default Web URL:</span><br><strong style="color: var(--primary);">http://routerlogin.net</strong></div>
             <div><span style="color: var(--text-muted);">Default IP Gateway:</span><br><strong>192.168.1.1</strong> (or 192.168.0.1)</div>
@@ -483,7 +485,7 @@
 
         <!-- What is the XR1000 -->
         <section id="what-is-xr1000" style="margin-bottom: 2.5rem;">
-          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">What is the XR1000?</h2>
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);" id="what-is-the-xr1000">What is the XR1000?</h2>
           <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
             The XR1000 is a 6-stream AX5400 dual-band Wi-Fi 6 gaming router, powered by DumaOS 3.0. It has a 1.5GHz triple-core processor. The 5GHz band reaches up to 4,800Mbps and the 2.4GHz band up to 600Mbps. Those figures are link rates, so real speeds will be lower.
           </p>
@@ -537,7 +539,7 @@
 
         <!-- What You Need Before You Start -->
         <section id="before-you-start" style="margin-bottom: 2.5rem;">
-          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">What you need before you start</h2>
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);" id="what-you-need-before-you-start">What you need before you start</h2>
           <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
             Gather these items first.
           </p>
@@ -555,7 +557,7 @@
 
         <!-- Install the Router -->
         <section id="install-the-router" style="margin-bottom: 2.5rem;">
-          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Install the router</h2>
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);" id="install-the-router">Install the router</h2>
           <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
             Follow these steps in order.
           </p>
@@ -579,7 +581,7 @@
 
         <!-- Run the App Setup -->
         <section id="app-setup" style="margin-bottom: 2.5rem;">
-          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Run the app setup</h2>
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);" id="run-the-app-setup">Run the app setup</h2>
           <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
             The Nighthawk app is Netgear's recommended install path.
           </p>
@@ -599,7 +601,7 @@
 
         <!-- Set up with a Browser -->
         <section id="browser-setup" style="margin-bottom: 2.5rem;">
-          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Set up with a browser</h2>
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);" id="set-up-with-a-browser">Set up with a browser</h2>
           <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
             You can finish without the app.
           </p>
@@ -625,7 +627,7 @@
 
         <!-- Configure DumaOS and Wi-Fi -->
         <section id="configure-dumaos" style="margin-bottom: 2.5rem;">
-          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Configure DumaOS and Wi-Fi</h2>
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);" id="configure-dumaos-and-wi-fi">Configure DumaOS and Wi-Fi</h2>
           <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
             DumaOS is what sets this router apart from the standard Nighthawk models. Spend your time in a few areas.
           </p>
@@ -646,7 +648,7 @@
 
         <!-- Update Firmware -->
         <section id="update-firmware" style="margin-bottom: 2.5rem;">
-          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Update the firmware</h2>
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);" id="update-the-firmware">Update the firmware</h2>
           <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
             Update after setup, and match the file to your hardware version. Log in to DumaOS at <code style="background: var(--bg-surface-2); padding: 2px 6px; border-radius: 4px; color: var(--primary); font-weight: 600;">routerlogin.net</code>. The version label at the top right says either "xr1000" or "xr1000v2". Note which one you have.
           </p>
@@ -669,7 +671,7 @@
 
         <!-- Factory Reset -->
         <section id="factory-reset" style="margin-bottom: 2.5rem;">
-          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);">Factory reset</h2>
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-main);" id="factory-reset">Factory reset</h2>
           <p style="margin-bottom: 1rem; line-height: 1.7; color: var(--text-main);">
             A reset erases your Wi-Fi settings, DumaOS tweaks and port rules. Use it if you are locked out or after a firmware update that needs it.
           </p>
@@ -689,7 +691,7 @@
 
         <!-- FAQ Section -->
         <section id="faq" style="margin-bottom: 2.5rem;">
-          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text-main);">Frequently Asked Questions (FAQ)</h2>
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text-main);" id="frequently-asked-questions-faq">Frequently Asked Questions (FAQ)</h2>
           
           <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 1rem;">
             <div style="padding: 1rem 1.25rem; background: var(--bg-surface-2); font-weight: 700; color: var(--text-main);">
@@ -739,31 +741,74 @@
       </article>
 
       <!-- Sidebar Column -->
-      <aside class="sidebar-column">
-        <div class="sidebar-card">
-          <h3 class="sidebar-title">On This Page</h3>
-          <ul class="sidebar-toc">
-            <li><a href="#what-is-xr1000">What is the XR1000?</a></li>
-            <li><a href="#before-you-start">What you need before you start</a></li>
-            <li><a href="#install-the-router">Install the router</a></li>
-            <li><a href="#app-setup">Run the app setup</a></li>
-            <li><a href="#browser-setup">Set up with a browser</a></li>
-            <li><a href="#configure-dumaos">Configure DumaOS and Wi-Fi</a></li>
-            <li><a href="#update-firmware">Update the firmware</a></li>
-            <li><a href="#factory-reset">Factory reset</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
+      
+    </div>
+      </article>
+
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#at-a-glance-xr1000-default-specifications" style="color: var(--text-secondary); text-decoration: none;">&rarr; At a Glance: XR1000 Default Specifications</a></li>
+            <li><a href="#what-is-the-xr1000" style="color: var(--text-secondary); text-decoration: none;">&rarr; What is the XR1000?</a></li>
+            <li><a href="#what-you-need-before-you-start" style="color: var(--text-secondary); text-decoration: none;">&rarr; What you need before you start</a></li>
+            <li><a href="#install-the-router" style="color: var(--text-secondary); text-decoration: none;">&rarr; Install the router</a></li>
+            <li><a href="#run-the-app-setup" style="color: var(--text-secondary); text-decoration: none;">&rarr; Run the app setup</a></li>
+            <li><a href="#set-up-with-a-browser" style="color: var(--text-secondary); text-decoration: none;">&rarr; Set up with a browser</a></li>
+            <li><a href="#configure-dumaos-and-wi-fi" style="color: var(--text-secondary); text-decoration: none;">&rarr; Configure DumaOS and Wi-Fi</a></li>
+            <li><a href="#update-the-firmware" style="color: var(--text-secondary); text-decoration: none;">&rarr; Update the firmware</a></li>
+            <li><a href="#factory-reset" style="color: var(--text-secondary); text-decoration: none;">&rarr; Factory reset</a></li>
+            <li><a href="#frequently-asked-questions-faq" style="color: var(--text-secondary); text-decoration: none;">&rarr; Frequently Asked Questions (FAQ)</a></li>
           </ul>
         </div>
 
-        <div class="sidebar-card">
-          <h3 class="sidebar-title">Hardware Quick Links</h3>
-          <ul class="sidebar-links">
-            <li><a href="/routers/netgear-nighthawk-rax120/"><span>Nighthawk AX12 (RAX120) Setup</span> &rarr;</a></li>
-            <li><a href="/routers/netgear-nighthawk-rax50/"><span>Nighthawk AX6 (RAX50) Setup</span> &rarr;</a></li>
-            <li><a href="/brands/netgear/"><span>Netgear Router Directory</span> &rarr;</a></li>
-            <li><a href="/ip/192-168-1-1/"><span>192.168.1.1 Gateway Guide</span> &rarr;</a></li>
-            <li><a href="/tools/ping-test/"><span>Network Ping & Latency Tool</span> &rarr;</a></li>
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Router Specs</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Model::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Nighthawk Pro Gaming XR1000</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Wi-Fi Standard::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Wi-Fi 6 (AX5400 DumaOS 3.0)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Max Speed::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Gaming Wi-Fi 6 Router</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Gateway::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">http://routerlogin.net</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default IP::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.1</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Admin::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related Netgear Guides</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/brands/netgear/" style="color: var(--accent); font-weight: 600;">&rarr; All Netgear Routers</a></li>
+            <li><a href="/ip/192-168-1-1/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.1.1 Login Guide</a></li>
+            <li><a href="/ip/192-168-0-1/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.0.1 Fallback Guide</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Detect Gateway IP</a></li>
+            <li><a href="/extenders/" style="color: var(--accent); font-weight: 600;">&rarr; Wi-Fi Extender Setup</a></li>
           </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on Netgear Nighthawk Pro Gaming XR1000 hardware under controlled lab conditions.
+          </p>
         </div>
       </aside>
     </div>

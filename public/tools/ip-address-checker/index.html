@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
   <script src="/js/tools.js?v=e89fe316" defer></script>
 
@@ -341,8 +341,9 @@
   </div>
 
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-tool">Interactive Utility</div>
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-tool">Interactive Utility</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         Public IP Address &amp; Geolocation Lookup
       </h1>
@@ -383,7 +384,7 @@
       <!-- Detailed SEO Guides and Reference Documentation -->
       
       <section style="margin-top: 3.5rem;">
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">How to Use the Public IP Address &amp; Geolocation Checker</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);" id="how-to-use-the-public-ip-address-and-geolocation-checker">How to Use the Public IP Address &amp; Geolocation Checker</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           Every device connected to the Internet requires an Internet Protocol (IP) address to route data packets between servers, websites, and client computers. This free utility lets you instantly inspect any public IPv4 or IPv6 address or analyze your own active internet connection without running third-party tracking scripts:
         </p>
@@ -394,7 +395,7 @@
           <li><strong>Identify Private Local Subnets:</strong> If you enter a private LAN address (such as <code>192.168.1.1</code> or <code>10.0.0.1</code>), the tool immediately classifies the RFC 1918 subnet and provides local router configuration instructions.</li>
         </ol>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">Public WAN IP vs. Private Default Gateway (192.168.1.1)</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="public-wan-ip-vs-private-default-gateway-192-168-1-1">Public WAN IP vs. Private Default Gateway (192.168.1.1)</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           A common source of confusion in computer networking is the difference between your <strong>Public IP</strong> and your <strong>Private Gateway IP</strong>:
         </p>
@@ -419,7 +420,7 @@
           </div>
         </div>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">RFC 1918 Private IPv4 Address Ranges</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="rfc-1918-private-ipv4-address-ranges">RFC 1918 Private IPv4 Address Ranges</h2>
         <div style="overflow-x: auto; margin-bottom: 2rem;">
           <table class="table" style="font-size: 0.9rem;">
             <thead>
@@ -440,7 +441,7 @@
           </table>
         </div>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">Understanding Autonomous System Numbers (ASN) &amp; BGP Routing</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="understanding-autonomous-system-numbers-asn-and-bgp-routing">Understanding Autonomous System Numbers (ASN) &amp; BGP Routing</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           The global Internet is composed of thousands of independently operated networks called <strong>Autonomous Systems (AS)</strong>. Each Autonomous System is assigned a globally unique 16-bit or 32-bit Autonomous System Number (ASN) by regional internet registries (such as ARIN, RIPE NCC, and APNIC).
         </p>
@@ -448,7 +449,7 @@
           Using the Border Gateway Protocol (BGP), these autonomous systems advertise IP prefix blocks to one another. When you perform an IP lookup on this tool, the ASN identifies the primary network operator (such as <code>AS7922</code> for Comcast, <code>AS7018</code> for AT&amp;T, <code>AS15169</code> for Google, or <code>AS13335</code> for Cloudflare) responsible for routing packets to and from that IP address.
         </p>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">Frequently Asked Questions About Public IP Addresses</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="frequently-asked-questions-about-public-ip-addresses">Frequently Asked Questions About Public IP Addresses</h2>
         <div class="faq-list" style="margin-top: 1rem;">
           <div class="faq-card" style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 1rem;">
             <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Can someone find my exact home street address from my IP?</h3>
@@ -517,15 +518,66 @@
           </div>
         </div>
       </div>
+      </article>
 
-    
-      <div class="card" style="margin: 2.25rem 0 1.5rem; padding: 1.25rem 1.4rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Related Diagnostic Guides &amp; Resources</h3>
-        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
-          Looking for additional configuration support? Explore our verified <a href="/routers/">Router Models Directory (252 Models)</a>, <a href="/ip/192-168-1-1/">192.168.1.1 Gateway Setup</a>, <a href="/ip/192-168-0-1/">192.168.0.1 Gateway Setup</a>, <a href="/ip/10-0-0-1/">10.0.0.1 Admin Login</a>.
-        </p>
-      </div>
-</div>
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#how-to-use-the-public-ip-address-and-geolocation-checker" style="color: var(--text-secondary); text-decoration: none;">&rarr; How to Use the Public IP Address & Geolocation Checker</a></li>
+            <li><a href="#public-wan-ip-vs-private-default-gateway-192-168-1-1" style="color: var(--text-secondary); text-decoration: none;">&rarr; Public WAN IP vs. Private Default Gateway (192.168.1.1)</a></li>
+            <li><a href="#rfc-1918-private-ipv4-address-ranges" style="color: var(--text-secondary); text-decoration: none;">&rarr; RFC 1918 Private IPv4 Address Ranges</a></li>
+            <li><a href="#understanding-autonomous-system-numbers-asn-and-bgp-routing" style="color: var(--text-secondary); text-decoration: none;">&rarr; Understanding Autonomous System Numbers (ASN) & BGP Routing</a></li>
+            <li><a href="#frequently-asked-questions-about-public-ip-addresses" style="color: var(--text-secondary); text-decoration: none;">&rarr; Frequently Asked Questions About Public IP Addresses</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Tool Fast Facts</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Utility Name::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">IP Address Checker</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Execution::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Browser-Side (Offline)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Privacy::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Zero-Log / Client-Side</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Platform::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Desktop, Tablet, Mobile</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Pricing::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">100% Free / Open Utility</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related Networking Tools</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/tools/" style="color: var(--accent); font-weight: 600;">&rarr; All Networking Tools</a></li>
+            <li><a href="/tools/subnet-calculator/" style="color: var(--accent); font-weight: 600;">&rarr; Subnet Calculator</a></li>
+            <li><a href="/tools/wifi-qr-code/" style="color: var(--accent); font-weight: 600;">&rarr; Wi-Fi QR Generator</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Gateway Auto-Detector</a></li>
+            <li><a href="/tools/router-password-generator/" style="color: var(--accent); font-weight: 600;">&rarr; Password Generator</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on cross-browser IP Address Checker client environments under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

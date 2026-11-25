@@ -4161,3 +4161,35 @@ table.data-table code,table.table code{font-size:0.875rem;padding:0.18rem 0.45re
   font-size: 0.78rem;
   color: var(--text-muted);
 }
+
+
+/* ==========================================================================
+   Responsive Two-Column Post Layout with Sticky Sidebar (Standard Post Shell)
+   ========================================================================== */
+.content-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.article-content {
+  min-width: 0;
+}
+
+.sidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .content-layout {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .sidebar, aside.sidebar {
+    position: static !important;
+    width: 100% !important;
+    margin-top: 2rem !important;
+  }
+}

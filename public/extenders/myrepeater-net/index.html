@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -441,9 +441,10 @@
     </div>
   </div>
 
-  <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-ip">Technical Guide</div>
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         myrepeater.net — Wireless-N Repeater Setup &amp; 192.168.1.254 Login
@@ -516,7 +517,7 @@
         <figcaption>Standard Wireless-N repeater login steps using http://myrepeater.net or fallback gateway 192.168.1.254.</figcaption>
       </figure>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="which-repeaters-use-myrepeater-net">
         Which Repeaters Use myrepeater.net?
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
@@ -558,7 +559,7 @@
         The default IP is mainly a <strong>fallback address</strong>. After the repeater connects to your router in Repeater or <a href="/howto/two-routers-access-point-mode/" style="color: var(--text-accent); text-decoration: underline; font-weight: 600;">Access Point (AP) mode</a>, your router may assign it a new dynamic LAN IP through DHCP.
       </p>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="network-role-repeater-vs-router">
         Network Role: Repeater vs. Router
       </h2>
       <div class="table-container">
@@ -598,7 +599,7 @@
         So, if <code>192.168.1.254</code> does not open your main router’s admin page, that is expected. This address is intended to reach the <strong>Wireless-N repeater</strong>, not the router itself.
       </p>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="diagnostic-what-are-you-trying-to-do">
         Diagnostic: What Are You Trying to Do?
       </h2>
       <div class="table-container">
@@ -645,7 +646,7 @@
         </table>
       </div>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="why-myrepeater-net-may-not-load">
         Why myrepeater.net May Not Load
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
@@ -661,7 +662,7 @@
         <figcaption>Before vs. after pairing IP routing explaining why myrepeater.net requires direct repeater connection or router DHCP lookup.</figcaption>
       </figure>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="step-by-step-set-up-a-wireless-n-repeater">
         Step-by-Step: Set Up a Wireless-N Repeater
       </h2>
       <div class="instruction-timeline" style="margin-top: 1.25rem; margin-bottom: 2.5rem;">
@@ -709,7 +710,7 @@
         </div>
       </div>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="if-myrepeater-net-will-not-load">
         If myrepeater.net Will Not Load
       </h2>
       <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
@@ -745,7 +746,7 @@
         </div>
       </div>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="factory-reset-a-wireless-n-repeater">
         Factory Reset a Wireless-N Repeater
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.25rem;">
@@ -765,7 +766,7 @@
         Reset times can vary by model. If 8–10 seconds does not work, try holding the button for up to 15 seconds while watching the LED behavior.
       </p>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="wireless-n-repeater-vs-router-login">
         Wireless-N Repeater vs. Router Login
       </h2>
       <div class="table-container">
@@ -795,7 +796,7 @@
         Do not confuse the Wireless-N repeater login with the main router login. A repeater extends your existing Wi-Fi signal; it does not replace your router or manage your internet connection.
       </p>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="common-mistakes">
         Common Mistakes
       </h2>
       <ul style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem;">
@@ -806,7 +807,7 @@
         <li><strong>Resetting before checking the DHCP list.</strong> If the repeater is already paired, its new IP may be listed in your router’s client list.</li>
       </ul>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="common-typos-to-watch-out-for">
         Common Typos to Watch Out For
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
@@ -820,7 +821,7 @@
         <div class="typo-chip"><span class="typo-wrong">192.168.1.25</span> &rarr; <span class="typo-correct">http://192.168.1.254</span></div>
       </div>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="frequently-asked-questions">
         Frequently Asked Questions
       </h2>
       <div class="faq-list" style="margin-top: 1rem;">
@@ -925,7 +926,76 @@
           </div>
         </div>
       </div>
+      </article>
 
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#which-repeaters-use-myrepeater-net" style="color: var(--text-secondary); text-decoration: none;">&rarr; Which Repeaters Use myrepeater.net?</a></li>
+            <li><a href="#network-role-repeater-vs-router" style="color: var(--text-secondary); text-decoration: none;">&rarr; Network Role: Repeater vs. Router</a></li>
+            <li><a href="#diagnostic-what-are-you-trying-to-do" style="color: var(--text-secondary); text-decoration: none;">&rarr; Diagnostic: What Are You Trying to Do?</a></li>
+            <li><a href="#why-myrepeater-net-may-not-load" style="color: var(--text-secondary); text-decoration: none;">&rarr; Why myrepeater.net May Not Load</a></li>
+            <li><a href="#step-by-step-set-up-a-wireless-n-repeater" style="color: var(--text-secondary); text-decoration: none;">&rarr; Step-by-Step: Set Up a Wireless-N Repeater</a></li>
+            <li><a href="#if-myrepeater-net-will-not-load" style="color: var(--text-secondary); text-decoration: none;">&rarr; If myrepeater.net Will Not Load</a></li>
+            <li><a href="#factory-reset-a-wireless-n-repeater" style="color: var(--text-secondary); text-decoration: none;">&rarr; Factory Reset a Wireless-N Repeater</a></li>
+            <li><a href="#wireless-n-repeater-vs-router-login" style="color: var(--text-secondary); text-decoration: none;">&rarr; Wireless-N Repeater vs. Router Login</a></li>
+            <li><a href="#common-mistakes" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common Mistakes</a></li>
+            <li><a href="#common-typos-to-watch-out-for" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common Typos to Watch Out For</a></li>
+            <li><a href="#frequently-asked-questions" style="color: var(--text-secondary); text-decoration: none;">&rarr; Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Extender Specs</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Brand::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Wireless-N</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Local Domain::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">myrepeater.net</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Fallback IP::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.1.254</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Admin::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Password::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Hardware Series::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Generic 300Mbps Wireless-</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related Wireless-N Guides</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/extenders/" style="color: var(--accent); font-weight: 600;">&rarr; All Wi-Fi Extenders</a></li>
+            <li><a href="/ip/192-168-1-254/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.1.254 Login Guide</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Detect Gateway IP</a></li>
+            <li><a href="/tools/subnet-calculator/" style="color: var(--accent); font-weight: 600;">&rarr; Subnet Calculator</a></li>
+            <li><a href="/extenders/mywifiext-net/" style="color: var(--accent); font-weight: 600;">&rarr; mywifiext.net Setup</a></li>
+            <li><a href="/extenders/tplinkrepeater-net/" style="color: var(--accent); font-weight: 600;">&rarr; tplinkrepeater.net Setup</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on Wireless-N myrepeater.net hardware under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
     </div>
   </main>
 

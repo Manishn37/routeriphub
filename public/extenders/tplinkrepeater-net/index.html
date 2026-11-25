@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
 
   <script type="speculationrules">
@@ -435,16 +435,17 @@
     </div>
   </div>
 
-  <main class="container" style="padding-top: 1.5rem; padding-bottom: 4rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-ip">Technical Guide</div>
+  <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-ip">Technical Guide</div>
 
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         tplinkrepeater.net — TP-Link Extender Setup &amp; 192.168.0.254 Login
       </h1>
 
       <p style="font-size: 1.15rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
-        If you searched <code>tplinkrepeater.net</code> because your TP-Link extender will not open, you are in the right place. This local setup address is used to configure TP-Link Wi-Fi range extenders, while <code><a href="/ip/192-168-0-254/">192.168.0.254</a></code> is the factory-default IP address you can use when the domain does not load.
+        If you searched <code>tplinkrepeater.net</code> because your TP-Link extender will not open, you are in the right place. This local setup address is used to configure TP-Link Wi-Fi range extenders, while <code>192.168.0.254</code> is the factory-default IP address you can use when the domain does not load.
       </p>
 
       <div class="verdict-box" style="margin-bottom: 2rem;">
@@ -507,7 +508,7 @@
         <figcaption>Quick 3-step TP-Link RE series login flow via http://tplinkrepeater.net or fallback IP 192.168.0.254.</figcaption>
       </figure>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="which-tp-link-extenders-use-tplinkrepeater-net">
         Which TP-Link Extenders Use tplinkrepeater.net?
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
@@ -555,7 +556,7 @@
         If you are trying to access your main TP-Link router, use <a href="/brands/tp-link/" style="color: var(--text-accent); text-decoration: underline;">tplinkwifi.net</a> or <a href="/ip/192-168-0-1/" style="color: var(--text-accent); text-decoration: underline;">192.168.0.1</a> instead. The address <code>tplinkrepeater.net</code> is specifically for configuring a range extender.
       </p>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="network-role-extender-vs-router">
         Network Role: Extender vs. Router
       </h2>
       <div class="table-container">
@@ -590,7 +591,7 @@
         A TP-Link extender is not a second router. It receives your existing Wi-Fi signal and rebroadcasts it to improve coverage in weak-signal areas.
       </p>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="diagnostic-what-are-you-trying-to-do">
         Diagnostic: What Are You Trying to Do?
       </h2>
       <div style="overflow-x: auto; margin-bottom: 2rem;">
@@ -632,7 +633,7 @@
         </table>
       </div>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="why-tplinkrepeater-net-stops-working-after-setup">
         Why tplinkrepeater.net Stops Working After Setup
       </h2>
       <div style="background: var(--bg-secondary); border-radius: var(--radius-md); border: 1px solid var(--border-color); padding: 1.25rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.7;">
@@ -650,7 +651,7 @@
         <figcaption>Why tplinkrepeater.net and 192.168.0.254 stop opening once the TP-Link extender joins your main router's DHCP subnet.</figcaption>
       </figure>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="step-by-step-set-up-a-tp-link-extender">
         Step-by-Step: Set Up a TP-Link Extender
       </h2>
       <ol style="margin-left: 1.5rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.75;">
@@ -677,7 +678,7 @@
         </li>
       </ol>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="if-tplinkrepeater-net-will-not-load">
         If tplinkrepeater.net Will Not Load
       </h2>
       <ol style="margin-left: 1.5rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.75;">
@@ -707,7 +708,7 @@
         </li>
       </ol>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="factory-reset-a-tp-link-extender">
         Factory Reset a TP-Link Extender
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem;">
@@ -725,7 +726,7 @@
         <strong>Warning:</strong> A factory reset removes the extender’s saved Wi-Fi settings and admin password. You will need to set it up again from the beginning.
       </div>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="common-mistakes">
         Common Mistakes
       </h2>
       <ul style="margin-left: 1.25rem; margin-bottom: 2rem; color: var(--text-secondary); line-height: 1.7;">
@@ -737,7 +738,7 @@
         <li><strong>Resetting before checking the connection:</strong> Try direct connection, mobile-data disablement, and the fallback IP before resetting.</li>
       </ul>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="common-typos">
         Common Typos
       </h2>
       <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
@@ -752,7 +753,7 @@
         <div class="typo-chip"><span class="typo-wrong">192.168.0.254.com</span> &rarr; <span class="typo-correct">http://192.168.0.254</span></div>
       </div>
 
-      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;">
+      <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 0.75rem;" id="frequently-asked-questions">
         Frequently Asked Questions
       </h2>
       <div class="faq-list" style="margin-top: 1rem;">
@@ -857,7 +858,75 @@
           </div>
         </div>
       </div>
+      </article>
 
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#which-tp-link-extenders-use-tplinkrepeater-net" style="color: var(--text-secondary); text-decoration: none;">&rarr; Which TP-Link Extenders Use tplinkrepeater.net?</a></li>
+            <li><a href="#network-role-extender-vs-router" style="color: var(--text-secondary); text-decoration: none;">&rarr; Network Role: Extender vs. Router</a></li>
+            <li><a href="#diagnostic-what-are-you-trying-to-do" style="color: var(--text-secondary); text-decoration: none;">&rarr; Diagnostic: What Are You Trying to Do?</a></li>
+            <li><a href="#why-tplinkrepeater-net-stops-working-after-setup" style="color: var(--text-secondary); text-decoration: none;">&rarr; Why tplinkrepeater.net Stops Working After Setup</a></li>
+            <li><a href="#step-by-step-set-up-a-tp-link-extender" style="color: var(--text-secondary); text-decoration: none;">&rarr; Step-by-Step: Set Up a TP-Link Extender</a></li>
+            <li><a href="#if-tplinkrepeater-net-will-not-load" style="color: var(--text-secondary); text-decoration: none;">&rarr; If tplinkrepeater.net Will Not Load</a></li>
+            <li><a href="#factory-reset-a-tp-link-extender" style="color: var(--text-secondary); text-decoration: none;">&rarr; Factory Reset a TP-Link Extender</a></li>
+            <li><a href="#common-mistakes" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common Mistakes</a></li>
+            <li><a href="#common-typos" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common Typos</a></li>
+            <li><a href="#frequently-asked-questions" style="color: var(--text-secondary); text-decoration: none;">&rarr; Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Extender Specs</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Brand::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">TP-Link</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Local Domain::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">tplinkrepeater.net</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Fallback IP::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">192.168.0.254</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Admin::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin (or user-created)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Password::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">admin (or user-created)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Hardware Series::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">RE Series</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related TP-Link Guides</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/extenders/" style="color: var(--accent); font-weight: 600;">&rarr; All Wi-Fi Extenders</a></li>
+            <li><a href="/ip/192-168-0-254/" style="color: var(--accent); font-weight: 600;">&rarr; 192.168.0.254 Login Guide</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Detect Gateway IP</a></li>
+            <li><a href="/tools/subnet-calculator/" style="color: var(--accent); font-weight: 600;">&rarr; Subnet Calculator</a></li>
+            <li><a href="/extenders/mywifiext-net/" style="color: var(--accent); font-weight: 600;">&rarr; mywifiext.net Setup</a></li>
+            <li><a href="/extenders/extender-linksys-com/" style="color: var(--accent); font-weight: 600;">&rarr; extender.linksys.com Setup</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on TP-Link tplinkrepeater.net hardware under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
     </div>
   </main>
 

@@ -55,7 +55,7 @@
       } catch (e) {}
     })();
   </script>
-  <link rel="stylesheet" href="/css/style.css?v=f8278654">
+  <link rel="stylesheet" href="/css/style.css?v=8dc1dbfb">
   <script src="/js/app.js?v=42ecab06" defer></script>
   <script src="/js/tools.js?v=e89fe316" defer></script>
 
@@ -341,8 +341,9 @@
   </div>
 
   <main class="container" style="padding-top: 1.5rem; padding-bottom: 3.5rem;">
-    <div class="content-container">
-      <div class="silo-badge silo-badge-tool">Interactive Utility</div>
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+<div class="silo-badge silo-badge-tool">Interactive Utility</div>
       <h1 style="font-size: 2.15rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.02em;">
         IPv4 CIDR Subnet Calculator
       </h1>
@@ -386,7 +387,7 @@
       <!-- Detailed SEO Guides and Reference Documentation -->
       
       <section style="margin-top: 3.5rem;">
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);">How to Use the IPv4 Subnet Calculator</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary);" id="how-to-use-the-ipv4-subnet-calculator">How to Use the IPv4 Subnet Calculator</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           This client-side Subnet Calculator allows network engineers, system administrators, and home lab enthusiasts to analyze any IPv4 address and CIDR prefix length without sending data to an external server. Follow these simple steps:
         </p>
@@ -396,7 +397,7 @@
           <li><strong>Inspect Calculated Parameters:</strong> The tool dynamically calculates the Network ID, Broadcast Address, Total IP count, Usable Host Range, and Wildcard Mask in real time.</li>
         </ol>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">Understanding CIDR Notation &amp; Subnetting Fundamentals</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="understanding-cidr-notation-and-subnetting-fundamentals">Understanding CIDR Notation &amp; Subnetting Fundamentals</h2>
         <p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.7;">
           Classless Inter-Domain Routing (CIDR, defined in RFC 4632) replaced legacy classful networking (Class A, B, and C) to allocate IP address blocks with much greater granularity. In CIDR notation, an IP address is appended with a forward slash followed by a number indicating the number of contiguous leading bits assigned to the <strong>network prefix</strong>.
         </p>
@@ -410,7 +411,7 @@
           <li><strong>Usable Hosts:</strong> 256 &minus; 2 = 254 hosts (the first address is reserved as the <em>Network ID</em> and the last address is reserved as the <em>Broadcast Address</em>).</li>
         </ul>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">Common CIDR Subnet Cheat Sheet</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="common-cidr-subnet-cheat-sheet">Common CIDR Subnet Cheat Sheet</h2>
         <div style="overflow-x: auto; margin-bottom: 2rem;">
           <table class="table" style="font-size: 0.9rem;">
             <thead>
@@ -435,7 +436,7 @@
           </table>
         </div>
 
-        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);">Frequently Asked Questions About Subnetting</h2>
+        <h2 style="font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--text-primary);" id="frequently-asked-questions-about-subnetting">Frequently Asked Questions About Subnetting</h2>
         <div class="faq-list" style="margin-top: 1rem;">
           <div class="faq-card" style="background: var(--bg-secondary); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-bottom: 1rem;">
             <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem;">Why can't I use the first and last IP addresses in a subnet?</h3>
@@ -504,15 +505,65 @@
           </div>
         </div>
       </div>
+      </article>
 
-    
-      <div class="card" style="margin: 2.25rem 0 1.5rem; padding: 1.25rem 1.4rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
-        <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Related Diagnostic Guides &amp; Resources</h3>
-        <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.65; margin: 0;">
-          Looking for additional configuration support? Explore our verified <a href="/routers/">Router Models Directory (252 Models)</a>, <a href="/ip/192-168-1-1/">192.168.1.1 Gateway Setup</a>, <a href="/ip/192-168-0-1/">192.168.0.1 Gateway Setup</a>, <a href="/ip/10-0-0-1/">10.0.0.1 Admin Login</a>.
-        </p>
-      </div>
-</div>
+      <!-- Sticky Responsive Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#how-to-use-the-ipv4-subnet-calculator" style="color: var(--text-secondary); text-decoration: none;">&rarr; How to Use the IPv4 Subnet Calculator</a></li>
+            <li><a href="#understanding-cidr-notation-and-subnetting-fundamentals" style="color: var(--text-secondary); text-decoration: none;">&rarr; Understanding CIDR Notation & Subnetting Fundamentals</a></li>
+            <li><a href="#common-cidr-subnet-cheat-sheet" style="color: var(--text-secondary); text-decoration: none;">&rarr; Common CIDR Subnet Cheat Sheet</a></li>
+            <li><a href="#frequently-asked-questions-about-subnetting" style="color: var(--text-secondary); text-decoration: none;">&rarr; Frequently Asked Questions About Subnetting</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Tool Fast Facts</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Utility Name::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Subnet Calculator</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Execution::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Browser-Side (Offline)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Privacy::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Zero-Log / Client-Side</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Platform::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">Desktop, Tablet, Mobile</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Pricing::</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;">100% Free / Open Utility</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related Networking Tools</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 1.8;">
+            <li><a href="/tools/" style="color: var(--accent); font-weight: 600;">&rarr; All Networking Tools</a></li>
+            <li><a href="/tools/wifi-qr-code/" style="color: var(--accent); font-weight: 600;">&rarr; Wi-Fi QR Generator</a></li>
+            <li><a href="/tools/detect-gateway/" style="color: var(--accent); font-weight: 600;">&rarr; Gateway Auto-Detector</a></li>
+            <li><a href="/tools/router-password-generator/" style="color: var(--accent); font-weight: 600;">&rarr; Password Generator</a></li>
+            <li><a href="/tools/port-checker/" style="color: var(--accent); font-weight: 600;">&rarr; Port Directory</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border-color);">
+          <h4 style="margin: 0 0 0.5rem 0; font-size: 0.95rem; font-weight: 700; color: var(--text-primary);">Editorial Verification</h4>
+          <p style="margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+            Verified and maintained by <strong>Vikas Behl</strong> and the RouterIPHub Technical Testing Lab. Tested on cross-browser Subnet Calculator client environments under controlled lab conditions.
+          </p>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <!-- Site Footer -->

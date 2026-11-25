@@ -1031,7 +1031,7 @@ def inject_heading_ids(body_html):
         toc_items.append({"id": slug, "title": clean_title})
         return f'<h2 {attrs}>{inner}</h2>'
 
-    new_html = re.sub(r'<h2([^>]*)>(.*?)</h2>', replacer, body_html)
+    new_html = re.sub(r'<h2([^>]*)>(.*?)</h2>', replacer, body_html, flags=re.DOTALL)
     return new_html, toc_items
 
 
