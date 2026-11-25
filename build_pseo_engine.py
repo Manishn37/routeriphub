@@ -26630,11 +26630,12 @@ def update_vercel_config():
 
     csp_policy = (
         "default-src 'self'; "
-        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://www.clarity.ms https://*.clarity.ms https://embed.tawk.to https://*.tawk.to; "
+        "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://www.clarity.ms https://*.clarity.ms https://scripts.clarity.ms https://embed.tawk.to https://*.tawk.to; "
         "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://embed.tawk.to https://*.tawk.to; "
         "img-src 'self' data: https: blob:; "
         "font-src 'self' data: https://fonts.gstatic.com https://embed.tawk.to https://*.tawk.to; "
-        "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.clarity.ms https://embed.tawk.to https://*.tawk.to wss://*.tawk.to https://api.ipify.org https://ipwho.is https://dns.google https://cloudflare-dns.com https://dns.quad9.net https://dns.adguard-dns.com https://dns.alidns.com http://192.168.1.1 http://192.168.0.1 http://10.0.0.1 http://192.168.1.254; "
+        "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.clarity.ms https://c.bing.com https://*.bing.com https://embed.tawk.to https://*.tawk.to wss://*.tawk.to https://api.ipify.org https://ipwho.is https://dns.google https://cloudflare-dns.com https://dns.quad9.net https://dns.adguard-dns.com https://dns.alidns.com http://192.168.1.1 http://192.168.0.1 http://10.0.0.1 http://192.168.1.254; "
+        "worker-src 'self' blob:; "
         "frame-src 'self' https://tawk.to https://*.tawk.to; "
         "frame-ancestors 'self'; "
         "base-uri 'self'; "
