@@ -4178,6 +4178,502 @@ def generate_custom_netgear_nighthawk_xr1000_page(m):
 
 
 
+
+# ==============================================================================
+# CUSTOM HIGH-INTENT MODEL PAGE: ASUS RT-AX88U (AX6000)
+# ==============================================================================
+def generate_custom_asus_rt_ax88u_page(m):
+    canonical = "https://routeriphub.com/routers/asus-rt-ax88u/"
+    clean_name = "ASUS RT-AX88U (AX6000)"
+    title = "ASUS RT-AX88U (AX6000) Setup: Step-by-Step Installation Guide"
+    desc = "Set up the ASUS RT-AX88U AX6000 router with the ASUS Router app or router.asus.com. Covers login, Wi-Fi settings, firmware updates and factory reset."
+
+    breadcrumbs = [
+        ("Home", "/"),
+        ("Routers", "/routers/"),
+        ("ASUS", "/brands/asus/"),
+        ("RT-AX88U (AX6000)", canonical)
+    ]
+
+    tech_schema = {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "ASUS RT-AX88U (AX6000) Setup: Complete Installation and Configuration Guide",
+        "description": desc,
+        "author": {
+            "@type": "Person",
+            "name": "Vikas Behl"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "RouterIPHub",
+            "url": "https://routeriphub.com"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonical
+        },
+        "datePublished": "2026-01-15T08:00:00+00:00",
+        "dateModified": "2026-11-25T00:00:00+00:00"
+    }
+
+    howto_schema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Set Up and Configure the ASUS RT-AX88U AX6000 Router",
+        "description": "Step-by-step physical cabling, web portal login at 192.168.50.1 / router.asus.com, Wi-Fi parameter optimization, firmware maintenance, and factory reset procedure for ASUS RT-AX88U.",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Power off modem",
+                "text": "Disconnect AC power from your cable modem or fiber ONT and wait 60 seconds."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Connect WAN cable",
+                "text": "Connect an RJ-45 Ethernet patch cable from your modem LAN port to the router's dedicated blue WAN port."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Power on router",
+                "text": "Connect the power adapter to the DC-IN jack and press the power rocker switch on the rear panel."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Power on modem",
+                "text": "Turn the modem back on and wait about two minutes until the upstream/downstream and internet lights turn solid."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Connect client device",
+                "text": "Join the router's default open Wi-Fi network (ASUS_XX) from your phone or laptop, or plug an Ethernet cable into any of the 8 LAN ports."
+            },
+            {
+                "@type": "HowToStep",
+                "position": 6,
+                "name": "Run setup wizard",
+                "text": "Navigate to http://router.asus.com or http://192.168.50.1 in a web browser to complete the Quick Internet Setup wizard."
+            }
+        ]
+    }
+
+    faq_schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the default login for the RT-AX88U?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ASUS gives admin for both username and password when no label states otherwise. The setup wizard prompts you to change it."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the router's IP address?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most current firmware uses 192.168.50.1. Some older listings show 192.168.1.1."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the RT-AX88U have a 2.5G port?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. It has one Gigabit WAN port and eight Gigabit LAN ports. The RT-AX88U Pro adds 2.5G."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it support Wi-Fi 6E?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. It is a dual-band Wi-Fi 6 router."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the RT-AX88U still supported?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "ASUS lists it as end of life, so it gets no further firmware updates."
+                }
+            }
+        ]
+    }
+
+    content = f"""
+  <main class="site-main" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
+    <!-- Breadcrumb Bar -->
+    <nav aria-label="breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.88rem; color: var(--text-muted);">
+      <ol style="list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+        <li><a href="/" style="color: var(--accent); text-decoration: none;">Home</a></li>
+        <li style="color: var(--text-muted);">&rsaquo;</li>
+        <li><a href="/routers/" style="color: var(--accent); text-decoration: none;">Routers</a></li>
+        <li style="color: var(--text-muted);">&rsaquo;</li>
+        <li><a href="/brands/asus/" style="color: var(--accent); text-decoration: none;">ASUS</a></li>
+        <li style="color: var(--text-muted);">&rsaquo;</li>
+        <li aria-current="page" style="color: var(--text-secondary); font-weight: 600;">RT-AX88U (AX6000)</li>
+      </ol>
+    </nav>
+
+    <div class="content-layout" style="display: grid; grid-template-columns: 1fr 340px; gap: 2.5rem; align-items: start;">
+      <article class="article-content" style="min-width: 0;">
+        <header style="margin-bottom: 2rem;">
+          <h1 style="font-size: 2.1rem; font-weight: 800; line-height: 1.25; margin-bottom: 1rem; color: var(--text-primary);">
+            ASUS RT-AX88U (AX6000) Setup: Complete Installation and Configuration Guide
+          </h1>
+          <p style="font-size: 1.1rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.25rem;">
+            ASUS RT-AX88U setup takes about 15 minutes. Connect your modem to the WAN port, power on the router, join its Wi-Fi, then open <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; color: var(--accent); font-weight: 600;">http://www.asusrouter.com</code> or <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; color: var(--accent); font-weight: 600;">http://192.168.50.1</code> and follow the Quick Internet Setup wizard. Change the admin password before you finish.
+          </p>
+        </header>
+
+        <!-- Hero Setup Graphic -->
+        <figure style="margin: 1.5rem 0 2.5rem 0;">
+          <img src="/images/routers/asus-rt-ax88u-setup-hero.webp" alt="ASUS RT-AX88U AX6000 dual-band Wi-Fi 6 router hardware setup with 4 external beamforming antennas" width="1200" height="675" loading="eager" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+          <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">ASUS RT-AX88U AX6000 dual-band Wi-Fi 6 router hardware setup with four gold-accented external antennas on workstation desk.</figcaption>
+        </figure>
+
+        <!-- Quick Summary Box -->
+        <div style="background: var(--bg-secondary); border-left: 4px solid var(--accent); padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2.5rem;">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin: 0 0 0.5rem 0; color: var(--text-primary);">Quick Setup Snapshot (USA Deployment)</h3>
+          <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.8; color: var(--text-secondary); font-size: 0.95rem;">
+            <li><strong>Default Gateway Address:</strong> <a href="/ip/192-168-50-1/" style="color: var(--accent); font-weight: 600;">192.168.50.1</a> or <a href="http://router.asus.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600;">router.asus.com</a> (Older firmware may respond on <a href="/ip/192-168-1-1/" style="color: var(--accent); font-weight: 600;">192.168.1.1</a>).</li>
+            <li><strong>Factory Credentials:</strong> Username <code>admin</code> / Password <code>admin</code> (QIS wizard forces an immediate secure replacement).</li>
+            <li><strong>Default Wi-Fi SSIDs:</strong> <code>ASUS_XX</code> (2.4GHz) and <code>ASUS_XX_5G</code> (5GHz) broadcast unencrypted out-of-the-box until initial pairing.</li>
+            <li><strong>Broadband Compatibility:</strong> Supports all major US ISPs including Comcast Xfinity, Charter Spectrum, Cox, AT&amp;T Fiber (IP Passthrough), Verizon Fios, and CenturyLink PPPoE with VLAN 201 tagging.</li>
+          </ul>
+        </div>
+
+        <!-- Section: What is the RT-AX88U? -->
+        <section id="what-is" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem; color: var(--text-primary);">What is the RT-AX88U?</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.25rem;">
+            The RT-AX88U is a dual-band Wi-Fi 6 router rated AX6000. It delivers up to 1,148Mbps on 2.4GHz and 4,804Mbps on 5GHz, both 4x4. Those are link rates, so your real speed will be lower.
+          </p>
+
+          <div style="overflow-x: auto; margin: 1.5rem 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+              <thead>
+                <tr style="background: var(--bg-secondary); text-align: left;">
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 700; color: var(--text-primary);">Spec</th>
+                  <th style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 700; color: var(--text-primary);">RT-AX88U</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600; color: var(--text-secondary);">Wi-Fi standard</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--text-secondary);">Wi-Fi 6 (802.11ax), dual-band</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600; color: var(--text-secondary);">Speed rating</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--text-secondary);">AX6000 (1148 + 4804Mbps)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600; color: var(--text-secondary);">WAN port</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--text-secondary);">1 x Gigabit</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600; color: var(--text-secondary);">LAN ports</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--text-secondary);">8 x Gigabit</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600; color: var(--text-secondary);">USB</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--text-secondary);">2 x USB 3.1 Gen 1</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); font-weight: 600; color: var(--text-secondary);">Processor and RAM</td>
+                  <td style="padding: 0.75rem 1rem; border: 1px solid var(--border-color); color: var(--text-secondary);">1.8GHz quad-core, 1GB RAM</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.25rem;">
+            The eight LAN ports are the main draw. They suit a home with a NAS, several desktops and a switch. There is no 2.5G port, so every wired link tops out at 1Gbps.
+          </p>
+
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.25rem;">
+            Do not confuse it with the RT-AX88U Pro. The Pro adds dual 2.5G ports and a 2.0GHz processor, but it cuts the LAN count to five.
+          </p>
+
+          <!-- Rear Ports Diagram Image -->
+          <figure style="margin: 1.5rem 0 2rem 0;">
+            <img src="/images/routers/asus-rt-ax88u-rear-ports-layout.webp" alt="ASUS RT-AX88U rear panel port diagram highlighting 8 Gigabit LAN ports, blue WAN port, dual USB 3.1, and power switch" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Rear panel layout: Dedicated blue Gigabit WAN port, 8 Gigabit LAN ports (grouped 1-4 and 5-8 via dual internal switch controllers), USB 3.1 Gen 1 port, Reset pinhole, and Power rocker switch.</figcaption>
+          </figure>
+
+          <div style="background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; padding: 1.25rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+            <strong style="color: #b91c1c;">Lifecycle Notice &amp; End of Life (EOL) Advisory:</strong>
+            <p style="margin: 0.5rem 0 0 0; line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+              ASUS lists the RT-AX88U as end of life. The support page says its firmware, utilities and manual will no longer be updated. The router still works, but expect no new features and plan for that when you judge long-term security. If you need ongoing security patches, consider third-party community firmware such as AsusWRT-Merlin (check legacy branch availability) or isolate IoT devices on dedicated guest VLANs.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section: What you need before you start -->
+        <section id="what-you-need" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem; color: var(--text-primary);">What you need before you start</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            Gather these items first.
+          </p>
+          <ul style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><strong>A modem or fiber ONT with an active internet plan.</strong> Compatible with DOCSIS 3.1 cable modems (Arris Surfboard, Netgear Nighthawk CM series, Motorola) and Gigabit fiber optical network terminals.</li>
+            <li><strong>A phone with the ASUS Router app, or a computer with a browser.</strong> For mobile configuration, install the ASUS Router app from the Apple App Store or Google Play Store. For web setup, any modern browser (Chrome, Edge, Safari, Firefox) works seamlessly.</li>
+            <li><strong>ISP login details if your line uses PPPoE.</strong> Common on CenturyLink, Frontier DSL, and certain regional fiber providers. Most US cable providers (Xfinity, Spectrum) use Automatic IP (DHCP) and do not need credentials.</li>
+            <li><strong>An Ethernet cable for the modem link.</strong> Ensure you use a Cat6 or Cat5e RJ-45 cable to sustain full gigabit throughput between the modem and the blue WAN port.</li>
+            <li><strong>An open, central spot.</strong> Keep it off the floor and away from microwaves, metal cabinets, cordless phone base stations, and thick masonry walls that attenuate 5GHz signals.</li>
+          </ul>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            Attach all four antennas before you power on. Tilt them for the best spread across the house. For a single-story ranch home or sprawling apartment, keep all four antennas pointing straight up at 90 degrees. For a two-story or three-story home, tilt the two outer antennas at 45-degree angles to project radio waves vertically toward upper and lower floors.
+          </p>
+        </section>
+
+        <!-- Section: Install the router -->
+        <section id="install-the-router" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem; color: var(--text-primary);">Install the router</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            Follow these steps in order.
+          </p>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><strong>Power off the modem.</strong> Unplug its power cord from the wall outlet. If your modem has a built-in battery backup for VoIP phone service, remove the battery or press the pinhole battery-disconnect button for 15 seconds to ensure the MAC table clears.</li>
+            <li><strong>Connect the modem to the router's blue WAN port with an Ethernet cable.</strong> Snap the RJ-45 connector firmly into the dedicated blue Gigabit WAN port on the back of the RT-AX88U until you hear an audible click.</li>
+            <li><strong>Connect the power adapter and switch the router on.</strong> Insert the barrel connector into the DC-IN jack, plug the power brick into an AC surge protector, and press the Power button on the rear panel.</li>
+            <li><strong>Turn the modem back on and wait about two minutes.</strong> Allow the modem to finish its downstream/upstream channel bonding handshake with your ISP headend before continuing.</li>
+            <li><strong>Join the router's default Wi-Fi from your phone or computer, or plug a computer into any LAN port.</strong> Look for the factory network names <code>ASUS_XX</code> or <code>ASUS_XX_5G</code> on your device's Wi-Fi list. Alternatively, connect a patch cable into LAN port 1 through 8.</li>
+          </ol>
+          <div style="background: rgba(59, 130, 246, 0.08); border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Modem Connection Troubleshooting:</strong> If the internet light stays off, restart the modem first, then the router. Cable-modem users sometimes need their ISP to register a new device. Major US cable operators like Comcast Xfinity and Charter Spectrum lock their connection to the MAC address of the previous router. A complete 5-minute power cycle of the cable modem forces it to bind to the RT-AX88U's WAN MAC address. If you use the Xfinity App, you can also initiate an automated modem reboot or re-provisioning signal.
+          </div>
+        </section>
+
+        <!-- Section: Log in and run the setup wizard -->
+        <section id="login-and-setup" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem; color: var(--text-primary);">Log in and run the setup wizard</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            ASUS lets you open the settings page in two ways. Enter the router's LAN IP, such as <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; color: var(--accent); font-weight: 600;">http://192.168.50.1</code>, or use <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; color: var(--accent); font-weight: 600;">http://www.asusrouter.com</code>. Current ASUS firmware uses <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; color: var(--accent); font-weight: 600;">192.168.50.1</code>. Older units and firmware often use <code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; color: var(--accent); font-weight: 600;">192.168.1.1</code>. If one address fails, try the other.
+          </p>
+
+          <!-- Label Diagram Graphic -->
+          <figure style="margin: 1.5rem 0 2rem 0;">
+            <img src="/images/routers/asus-rt-ax88u-label-credentials.webp" alt="ASUS RT-AX88U bottom product barcode label displaying default 192.168.50.1 gateway IP and admin login credentials" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Product specification label on router underside showing factory default gateway 192.168.50.1, default SSID schema, serial number, and hardware revision.</figcaption>
+          </figure>
+
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            ASUS says some models print the default username and password on a label. The default login is <code>admin</code> for both when no label exists. On a fresh router, the Quick Internet Setup wizard usually opens by itself and asks you to set a new login.
+          </p>
+
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><strong>Open the address in a browser.</strong> Type <code>http://192.168.50.1</code> or <code>http://router.asus.com</code> directly into the address bar at the top of your browser window (do not type it into Google or Bing search boxes).</li>
+            <li><strong>Let the wizard detect your connection type.</strong> Click "Create a New Network". The AsusWRT Quick Internet Setup (QIS) engine will query the WAN interface to determine whether your connection is Automatic IP (DHCP), PPPoE, or Static IP.</li>
+            <li><strong>Enter ISP details if it asks, as on PPPoE lines.</strong> If your provider requires PPPoE authentication, enter your ISP username and password. For CenturyLink fiber customers, click "Special Requirement from ISP" and set 802.1Q VLAN ID to <code>201</code> on the WAN port.</li>
+            <li><strong>Set the Wi-Fi name and password.</strong> Input your desired Wireless Network Name (SSID) for both the 2.4GHz and 5GHz bands, followed by a robust WPA2/WPA3 pre-shared key.</li>
+            <li><strong>Create a new router username and password.</strong> Define an administrative account name other than default <code>admin</code> and assign a strong management password.</li>
+          </ol>
+
+          <div style="background: rgba(234, 179, 8, 0.08); border-left: 4px solid #eab308; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0;">
+            <strong style="color: #a16207;">Security Warning:</strong> Do not keep <code>admin</code> / <code>admin</code>. Public lists publish it for this model. Leaving default credentials active exposes your router to automated credential stuffing attacks and botnet infiltration if remote management or WAN web access is inadvertently enabled.
+          </div>
+
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            If the page shows a certificate warning, that is normal for a local address. Some users report trouble when a browser forces HTTPS, so type <code>http://</code> explicitly. Modern web browsers like Chrome and Safari automatically try HTTPS first, which triggers an SSL warning (e.g. <code>NET::ERR_CERT_AUTHORITY_INVALID</code>) because the router uses a self-signed local certificate. Click "Advanced" and choose "Proceed to 192.168.50.1 (unsafe)" to continue into the AsusWRT dashboard.
+          </p>
+        </section>
+
+        <!-- Section: Configure Wi-Fi settings -->
+        <section id="configure-wifi" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem; color: var(--text-primary);">Configure Wi-Fi settings</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            Good settings matter more than the speed rating. Take five minutes here.
+          </p>
+          <ul style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><strong>Network name.</strong> Pick a unique SSID that hides your name and address. Avoid identifying information such as "Smith-Family-Apartment-3B" that invites targeted attacks.</li>
+            <li><strong>Security.</strong> Use WPA3-Personal if every device supports it. Otherwise choose WPA2/WPA3. WPA3 provides robust Protection Against Offline Dictionary Attacks via Simultaneous Authentication of Equals (SAE). Older smart home plugs (2.4GHz) may require WPA2-Personal (AES) to establish a handshake.</li>
+            <li><strong>Password.</strong> Use 14 or more characters combining upper and lowercase letters, numerals, and special characters.</li>
+            <li><strong>Band steering.</strong> Turn on Smart Connect for one shared name, or split the bands if an older gadget will not join. Smart Connect automatically directs dual-band clients between 2.4GHz and 5GHz based on signal RSSI and channel load. If legacy 2.4GHz smart devices struggle during setup, disable Smart Connect and configure discrete SSIDs (e.g., <code>HomeNet_2G</code> and <code>HomeNet_5G</code>).</li>
+            <li><strong>Guest network.</strong> Enable it for visitors and smart-home devices. Go to <em>Guest Network</em> in the AsusWRT sidebar, enable a dedicated guest SSID, and ensure "Access Intranet" is toggled <strong>OFF</strong> so guest devices cannot probe your primary PCs, NAS storage, or printer.</li>
+          </ul>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            The router supports 160MHz channels and 1024-QAM on the 5GHz band, which gives its top speeds at short range. Use 5GHz for laptops, consoles and TVs near the router. Use 2.4GHz for far rooms. In the United States, enabling 160MHz bandwidth utilizes Dynamic Frequency Selection (DFS) channels (channels 52 to 144). If you live near an airport or Doppler weather radar station, the router may temporarily switch off 160MHz channels upon detecting radar pulses; if you experience dropped connections, set 5GHz channel bandwidth to 20/40/80 MHz.
+          </p>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            Wire anything stationary. The eight LAN ports make this easy, and cables remove interference. Desktop towers, gaming consoles (PlayStation 5, Xbox Series X), Apple TV 4K streaming boxes, and smart TVs deliver noticeably lower latency and zero packet loss over Cat6 Ethernet, leaving wireless airtime free for smartphones, tablets, and laptops.
+          </p>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            <strong>USB 3.0 Interference Toggle:</strong> If you connect an external hard drive to the front or rear USB 3.1 ports for AiDisk or Samba sharing, open <em>Wireless &rarr; Professional &rarr; 2.4GHz</em> and verify that <strong>Reducing USB 3.0 Interference</strong> is enabled. Unshielded USB 3.0 data transfer generates broadband RF noise around 2.5GHz that degrades 2.4GHz Wi-Fi range.
+          </p>
+        </section>
+
+        <!-- Section: Update the firmware -->
+        <section id="update-firmware" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem; color: var(--text-primary);">Update the firmware</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            Update right after setup. ASUS's support page lists firmware 3.0.0.4.388_24386 as the newest release, with earlier builds below it. Check the page for the exact current file.
+          </p>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            ASUS also recommends a factory-default reset after some firmware installs. One release note says the reset activates every new security adjustment. Major kernel and driver updates frequently modify internal NVRAM variable structures; failing to perform a clean reset after flashing can lead to sporadic Wi-Fi disconnects or ghost configuration values.
+          </p>
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><strong>Download the firmware for the RT-AX88U from the ASUS support site and unzip it.</strong> Confirm the downloaded file ends in <code>.trx</code> or <code>.w</code>. Never attempt to flash firmware intended for the RT-AX88U Pro or RT-AC88U onto the RT-AX88U.</li>
+            <li><strong>Log in to the router.</strong> Open <code>http://192.168.50.1</code> in your browser and enter your administrative credentials.</li>
+            <li><strong>Open Administration, then Firmware Upgrade.</strong> Navigate to the left navigation menu, click <em>Administration</em>, and select the <em>Firmware Upgrade</em> tab across the top header.</li>
+            <li><strong>Choose the file and click Upload.</strong> Under the "Manual firmware update" section, click "Choose File", select the extracted <code>.trx</code> binary on your local computer, and press "Upload".</li>
+            <li><strong>Wait until the router restarts.</strong> The flashing process takes approximately 3 to 5 minutes. The Power and Wi-Fi LEDs will flash while writing the flash memory.</li>
+          </ol>
+          <div style="background: rgba(239, 68, 68, 0.08); border-left: 4px solid #ef4444; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Critical Update Precaution:</strong> Do not unplug the router during the update. Power interruptions while writing to the flash ROM can corrupt the bootloader partition. If an update fails, ASUS offers a <strong>Rescue Mode</strong> that uploads firmware through a special recovery state. To enter Rescue Mode: power off the router, hold down the rear Reset button, turn on the power switch while continuing to hold Reset until the Power LED blinks slowly, assign static IP <code>192.168.1.10</code> to your PC Ethernet adapter, and run the official ASUS Firmware Restoration Utility to flash the stock image.
+          </div>
+        </section>
+
+        <!-- Section: Factory reset -->
+        <section id="factory-reset" style="margin-bottom: 2.5rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem; color: var(--text-primary);">Factory reset</h2>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem;">
+            A reset erases your Wi-Fi settings, port rules and passwords. Use it when you are locked out or after a firmware release that recommends it.
+          </p>
+
+          <!-- Factory Reset Procedure Graphic -->
+          <figure style="margin: 1.5rem 0 2rem 0;">
+            <img src="/images/routers/asus-rt-ax88u-factory-reset-procedure.webp" alt="Hardware factory reset procedure on ASUS RT-AX88U using rear pinhole button and paperclip" width="1200" height="675" loading="lazy" style="width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+            <figcaption style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; text-align: center;">Pressing the recessed Reset button with an unfolded paperclip while powered on to initiate NVRAM wipe.</figcaption>
+          </figure>
+
+          <ol style="margin: 0.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+            <li><strong>Keep the router powered on.</strong> Ensure the Power LED on the front display panel is illuminated solid white or blue.</li>
+            <li><strong>Find the small Reset hole on the back panel.</strong> The recessed Reset button is located next to the DC power jack and power switch.</li>
+            <li><strong>Hold the button with a paper clip until the power light blinks.</strong> Insert an unfolded paperclip or SIM ejector tool into the hole, press firmly until you feel the tactile microswitch click, and hold it continuously for 5 to 10 seconds until the Power LED starts blinking slowly.</li>
+            <li><strong>Release it and wait for the router to restart.</strong> Remove the paperclip. The router will wipe its NVRAM storage partition and automatically reboot into out-of-the-box factory defaults (takes roughly 2 minutes).</li>
+            <li><strong>Run setup again from the login step.</strong> Connect to the open <code>ASUS_XX</code> Wi-Fi broadcast or plug into LAN 1, open <code>http://192.168.50.1</code>, and complete the Quick Internet Setup wizard.</li>
+          </ol>
+          <div style="background: rgba(59, 130, 246, 0.08); border-left: 4px solid #3b82f6; padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+            <strong>Hardware WPS Hard Reset Alternative:</strong> If the standard reset pinhole fails to clear corrupted settings, perform an ASUS Hard Factory Reset (WPS Method): Turn the router OFF with the power switch. Press and hold the <strong>WPS</strong> button on the front/side panel. While holding WPS down, power the router ON. Continue holding the WPS button until the Power LED turns on, flashes, and turns off (about 10-15 seconds). Release WPS, power cycle the router once more, and wait for normal initialization.
+          </div>
+          <p style="line-height: 1.8; color: var(--text-secondary); margin-top: 1rem;">
+            After a reset, the router returns to its default IP. Write down your ISP login details first.
+          </p>
+        </section>
+
+        <!-- Section: FAQ -->
+        <section id="faq" style="margin-bottom: 3rem;">
+          <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.25rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.4rem; color: var(--text-primary);">Frequently Asked Questions (FAQ)</h2>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <details style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;" open>
+              <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary); font-size: 1.05rem;">What is the default login for the RT-AX88U?</summary>
+              <p style="margin-top: 0.75rem; line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                ASUS gives <code>admin</code> for both username and password when no label states otherwise. The setup wizard prompts you to change it.
+              </p>
+            </details>
+
+            <details style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+              <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary); font-size: 1.05rem;">What is the router's IP address?</summary>
+              <p style="margin-top: 0.75rem; line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                Most current firmware uses <a href="/ip/192-168-50-1/" style="color: var(--accent); font-weight: 600;">192.168.50.1</a>. Some older listings show <a href="/ip/192-168-1-1/" style="color: var(--accent); font-weight: 600;">192.168.1.1</a>. You can also access the management portal via <a href="http://router.asus.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600;">http://router.asus.com</a> or <a href="http://www.asusrouter.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600;">http://www.asusrouter.com</a>.
+              </p>
+            </details>
+
+            <details style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+              <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary); font-size: 1.05rem;">Does the RT-AX88U have a 2.5G port?</summary>
+              <p style="margin-top: 0.75rem; line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                No. It has one Gigabit WAN port and eight Gigabit LAN ports. The RT-AX88U Pro adds 2.5G. Every individual wired port on the original RT-AX88U is rated at 10/100/1000 Mbps.
+              </p>
+            </details>
+
+            <details style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+              <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary); font-size: 1.05rem;">Does it support Wi-Fi 6E?</summary>
+              <p style="margin-top: 0.75rem; line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                No. It is a dual-band Wi-Fi 6 router operating exclusively on the 2.4GHz and 5GHz radio bands. It does not possess a 6GHz transceiver. For 6GHz Wi-Fi 6E support, ASUS manufactures models such as the GT-AXE11000 or RT-AXE7800.
+              </p>
+            </details>
+
+            <details style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem 1.25rem;">
+              <summary style="font-weight: 700; cursor: pointer; color: var(--text-primary); font-size: 1.05rem;">Is the RT-AX88U still supported?</summary>
+              <p style="margin-top: 0.75rem; line-height: 1.7; color: var(--text-secondary); font-size: 0.95rem;">
+                ASUS lists it as end of life, so it gets no further firmware updates. While your existing hardware will continue routing traffic, security vulnerabilities discovered after the final official build (3.0.0.4.388_24386) will not receive vendor patches.
+              </p>
+            </details>
+          </div>
+        </section>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="sidebar" style="position: sticky; top: 2rem;">
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Table of Contents</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="#what-is" style="color: var(--text-secondary); text-decoration: none;">&rarr; What is the RT-AX88U?</a></li>
+            <li><a href="#what-you-need" style="color: var(--text-secondary); text-decoration: none;">&rarr; What You Need Before You Start</a></li>
+            <li><a href="#install-the-router" style="color: var(--text-secondary); text-decoration: none;">&rarr; Install the Router</a></li>
+            <li><a href="#login-and-setup" style="color: var(--text-secondary); text-decoration: none;">&rarr; Log In &amp; Run Setup Wizard</a></li>
+            <li><a href="#configure-wifi" style="color: var(--text-secondary); text-decoration: none;">&rarr; Configure Wi-Fi Settings</a></li>
+            <li><a href="#update-firmware" style="color: var(--text-secondary); text-decoration: none;">&rarr; Update the Firmware</a></li>
+            <li><a href="#factory-reset" style="color: var(--text-secondary); text-decoration: none;">&rarr; Factory Reset Procedure</a></li>
+            <li><a href="#faq" style="color: var(--text-secondary); text-decoration: none;">&rarr; Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Hardware Specs</h3>
+          <table style="width: 100%; font-size: 0.88rem; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Model:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right; color: var(--text-primary);">RT-AX88U (AX6000)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Wi-Fi Standard:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right; color: var(--text-primary);">Wi-Fi 6 (802.11ax)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Max Speed:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right; color: var(--text-primary);">AX6000 (4804 + 1148M)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">Default Gateway:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right;"><a href="/ip/192-168-50-1/" style="color: var(--accent);">192.168.50.1</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">LAN Ports:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right; color: var(--text-primary);">8 x Gigabit (RJ-45)</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">USB Ports:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right; color: var(--text-primary);">2 x USB 3.1 Gen 1</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">CPU:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right; color: var(--text-primary);">1.8 GHz Quad-Core</td>
+            </tr>
+            <tr>
+              <td style="padding: 0.4rem 0; color: var(--text-muted);">RAM:</td>
+              <td style="padding: 0.4rem 0; font-weight: 600; text-align: right; color: var(--text-primary);">1 GB DDR3</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="sidebar-widget" style="background: var(--bg-secondary); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+          <h3 style="margin: 0 0 1rem 0; font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Related ASUS Resources</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.88rem; line-height: 1.8;">
+            <li><a href="/brands/asus/" style="color: var(--accent); text-decoration: none;">&rarr; ASUS Default Router Passwords</a></li>
+            <li><a href="/ip/192-168-50-1/" style="color: var(--accent); text-decoration: none;">&rarr; 192.168.50.1 Gateway Guide</a></li>
+            <li><a href="/ip/192-168-1-1/" style="color: var(--accent); text-decoration: none;">&rarr; 192.168.1.1 Gateway Guide</a></li>
+            <li><a href="/tools/ping-test/" style="color: var(--accent); text-decoration: none;">&rarr; Network Latency Ping Tool</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+"""
+
+    return get_header(title, desc, canonical, active_nav="routers", breadcrumbs=breadcrumbs, schemas_json_ld=[tech_schema, howto_schema, faq_schema], og_image="https://routeriphub.com/images/routers/asus-rt-ax88u-setup-hero.webp", og_image_alt="ASUS RT-AX88U AX6000 dual-band Wi-Fi 6 router hardware setup with 4 external beamforming antennas") + content + get_footer()
+
+
 def generate_router_model_pages():
     print(f"Generating {len(ROUTER_MODELS)} router model pages...")
     for m in ROUTER_MODELS:
@@ -4185,7 +4681,11 @@ def generate_router_model_pages():
         model_dir = os.path.join(PUBLIC_DIR, "routers", slug)
         make_dirs(model_dir)
 
-        if slug == "synology-rt6600ax":
+        if slug == "asus-rt-ax88u":
+            with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
+                f.write(generate_custom_asus_rt_ax88u_page(m))
+            continue
+        elif slug == "synology-rt6600ax":
             with open(os.path.join(model_dir, "index.html"), "w", encoding="utf-8") as f:
                 f.write(generate_custom_synology_rt6600ax_page(m))
             continue
