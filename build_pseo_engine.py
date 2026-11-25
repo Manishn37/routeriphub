@@ -784,29 +784,51 @@ def get_header(title, description, canonical_url, active_nav="", breadcrumbs=Non
 {schema_block}
   </script>
 
-  <!-- Google tag (gtag.js) - Google Analytics 4 -->
+  <!-- Canonical Vercel Preview Redirect (Bounces *.vercel.app visits to production domain) -->
+  <script>
+    if (location.hostname.indexOf('vercel.app') !== -1) {{
+      location.replace('https://routeriphub.com' + location.pathname + location.search + location.hash);
+    }}
+  </script>
+
+  <!-- Production Analytics Gatekeeper -->
+  <script>
+    var isProdDomain = (location.hostname === 'routeriphub.com' || location.hostname === 'www.routeriphub.com');
+    var isBotOrHeadless = navigator.webdriver || /HeadlessChrome|Lighthouse|bot|crawl|spider/i.test(navigator.userAgent);
+  </script>
+
+  <!-- Google tag (gtag.js) - Google Analytics 4 (Production Only) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XN1CYSRXXR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){{dataLayer.push(arguments);}}
-    gtag('js', new Date());
-    gtag('config', 'G-XN1CYSRXXR');
+    if (isProdDomain && !isBotOrHeadless) {{
+      gtag('js', new Date());
+      gtag('config', 'G-XN1CYSRXXR');
+    }}
   </script>
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
-  new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  }})(window,document,'script','dataLayer','GTM-547N7K2L');</script>
+  <!-- Google Tag Manager (Production Only) -->
+  <script>
+    if (isProdDomain && !isBotOrHeadless) {{
+      (function(w,d,s,l,i){{w[l]=w[l]||[];w[l].push({{'gtm.start':
+      new Date().getTime(),event:'gtm.js'}});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      }})(window,document,'script','dataLayer','GTM-547N7K2L');
+    }}
+  </script>
   <!-- End Google Tag Manager -->
 
+  <!-- Microsoft Clarity (Production Only - Excludes Vercel Previews & Headless Bots) -->
   <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){{
-        c[a]=c[a]||function(){{(c[a].q=c[a].q||[]).push(arguments)}};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    }})(window, document, "clarity", "script", "zbfhxripke");
+    if (isProdDomain && !isBotOrHeadless) {{
+      (function(c,l,a,r,i,t,y){{
+          c[a]=c[a]||function(){{(c[a].q=c[a].q||[]).push(arguments)}};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      }})(window, document, "clarity", "script", "zbfhxripke");
+    }}
   </script>
 </head>
 <body>
@@ -26801,22 +26823,52 @@ def sync_homepage():
     # 1b. Update tracking scripts in <head>
     tracking_pattern = re.compile(r"<!-- Google Tag Manager.*?<!-- End Google Tag Manager -->", re.DOTALL)
     old_track_pattern = re.compile(r"<!-- Google Tag Manager / gtag\.js -->.*?<script>.*?gtag\('js', new Date\(\)\);\s*</script>", re.DOTALL)
-    new_track_block = """<!-- Google tag (gtag.js) - Google Analytics 4 -->
+    new_track_block = """<!-- Canonical Vercel Preview Redirect (Bounces *.vercel.app visits to production domain) -->
+  <script>
+    if (location.hostname.indexOf('vercel.app') !== -1) {
+      location.replace('https://routeriphub.com' + location.pathname + location.search + location.hash);
+    }
+  </script>
+
+  <!-- Production Analytics Gatekeeper -->
+  <script>
+    var isProdDomain = (location.hostname === 'routeriphub.com' || location.hostname === 'www.routeriphub.com');
+    var isBotOrHeadless = navigator.webdriver || /HeadlessChrome|Lighthouse|bot|crawl|spider/i.test(navigator.userAgent);
+  </script>
+
+  <!-- Google tag (gtag.js) - Google Analytics 4 (Production Only) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XN1CYSRXXR"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XN1CYSRXXR');
+    if (isProdDomain && !isBotOrHeadless) {
+      gtag('js', new Date());
+      gtag('config', 'G-XN1CYSRXXR');
+    }
   </script>
 
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-547N7K2L');</script>
-  <!-- End Google Tag Manager -->"""
+  <!-- Google Tag Manager (Production Only) -->
+  <script>
+    if (isProdDomain && !isBotOrHeadless) {
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-547N7K2L');
+    }
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Microsoft Clarity (Production Only - Excludes Vercel Previews & Headless Bots) -->
+  <script type="text/javascript">
+    if (isProdDomain && !isBotOrHeadless) {
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "zbfhxripke");
+    }
+  </script>"""
     if old_track_pattern.search(content):
         content = old_track_pattern.sub(new_track_block, content)
     elif tracking_pattern.search(content):
