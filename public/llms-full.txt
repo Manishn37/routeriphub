@@ -1,7 +1,7 @@
 # RouterIPHub - Complete Programmatic Technical Knowledgebase
 > Uncompressed technical dataset of router default gateways, hardware models, factory credentials, and network configuration profiles.
 
-Date: 2026-11-11
+Date: 2026-11-27
 Website: https://routeriphub.com
 
 ## 1. Gateway IP Directory
@@ -306,3 +306,36 @@ Website: https://routeriphub.com
 - [How Do I Enable UPnP on My Router for Gaming Consoles?](https://routeriphub.com/howto/how-to-enable-upnp-router-gaming-consoles/): Step-by-step instructions to turn on UPnP in TP-Link, Netgear, ASUS, Linksys, and Spectrum routers to achieve Open NAT on PS5, Xbox Series X, and Switch.
 - [How to Fix Wi-Fi Connected but No Internet Access on Android / iPhone](https://routeriphub.com/howto/wifi-connected-no-internet-android-iphone/): Troubleshoot and fix Wi-Fi connected but no internet on Android and iPhone devices with quick DNS fixes, network resets, router troubleshooting, and forget-network steps.
 - [What Does a Blinking Red Light Mean on a Spectrum Router or Modem?](https://routeriphub.com/howto/spectrum-router-blinking-red-light/): Understand what a blinking red light on a Spectrum router or modem means, how to fix loose cables, power cycle properly, and resolve connection errors.
+
+## 4. ISP Gateway Portals
+- [Xfinity (Comcast) xFi Advanced Gateway (XB6, XB7, XB8)](https://routeriphub.com/isp/xfinity-gateway-login-admin-access/): Gateway 10.0.0.1 (http://10.0.0.1). Default login: admin / password.
+- [AT&T Fiber AT&T Fiber BGW320 / BGW210 Gateway](https://routeriphub.com/isp/att-fiber-gateway-login-admin-access/): Gateway 192.168.1.254 (http://192.168.1.254). Default login: admin / Printed Device Access Code (DAC).
+- [Verizon Fios Fios Router CR1000A / Fios Home Router G3100](https://routeriphub.com/isp/verizon-fios-gateway-login-admin-access/): Gateway 192.168.1.1 (http://192.168.1.1). Default login: admin / Printed on router base label.
+- [Spectrum (Charter) Spectrum Wi-Fi 6 Router (SAC2V1K, SAX1V1K)](https://routeriphub.com/isp/spectrum-router-login-admin-access/): Gateway 192.168.1.1 (http://192.168.1.1). Default login: admin / admin (or managed via My Spectrum App).
+- [T-Mobile Home Internet T-Mobile 5G Gateway (KVD21, Arcadyan, G4SE)](https://routeriphub.com/isp/t-mobile-5g-gateway-login-admin-access/): Gateway 192.168.12.1 (http://192.168.12.1). Default login: admin / Admin password printed on bottom sticker.
+- [CenturyLink / Quantum Fiber CenturyLink C4000LG / C4000XG Wi-Fi 6 Router](https://routeriphub.com/isp/centurylink-modem-login-admin-access/): Gateway 192.168.0.1 (http://192.168.0.1). Default login: admin / Admin / Configuration password on sticker.
+- [BT (British Telecom) BT Smart Hub 2 (Home Hub 6)](https://routeriphub.com/isp/bt-smart-hub-manager-login-admin-access/): Gateway 192.168.1.254 (http://192.168.1.254). Default login: admin / Admin password on removable plastic card.
+- [Virgin Media (UK) Virgin Media Hub 3, Hub 4, Hub 5](https://routeriphub.com/isp/virgin-media-hub-login-admin-access/): Gateway 192.168.0.1 (http://192.168.0.1). Default login: admin / Settings password on bottom sticker.
+- [Sky Broadband (UK) Sky Broadband Hub (SR203)](https://routeriphub.com/isp/sky-broadband-hub-login-admin-access/): Gateway 192.168.0.1 (http://192.168.0.1). Default login: admin / sky (or Wi-Fi password in lowercase).
+- [Telstra (Australia) Telstra Smart Modem Gen 2 / Gen 3 (Technicolor/Arcadyan)](https://routeriphub.com/isp/telstra-smart-modem-login-admin-access/): Gateway 192.168.0.1 (http://192.168.0.1). Default login: admin / admin (or Telstra printed password).
+
+## 5. Wi-Fi Range Extenders
+- [NETGEAR Extender (mywifiext.net)](https://routeriphub.com/extenders/mywifiext-net/): Fallback IP 192.168.1.250 (http://www.mywifiext.net / http://mywifiext.local). Default credentials: admin / password.
+- [TP-Link Extender (tplinkrepeater.net)](https://routeriphub.com/extenders/tplinkrepeater-net/): Fallback IP 192.168.0.254 (http://tplinkrepeater.net / http://tplinkrepeater.net). Default credentials: admin (or user-created) / admin (or user-created).
+- [Linksys Extender (extender.linksys.com)](https://routeriphub.com/extenders/extender-linksys-com/): Fallback IP 192.168.1.1 (http://extender.linksys.com / http://extender.linksys.com). Default credentials: Leave blank / admin.
+- [D-Link Extender (dlinkap.local)](https://routeriphub.com/extenders/dlinkap-local/): Fallback IP 192.168.0.50 (http://dlinkap.local / http://dlinkap.local). Default credentials: Admin / Leave blank (older) or label-printed (Wi-Fi 6).
+- [Wireless-N Extender (myrepeater.net)](https://routeriphub.com/extenders/myrepeater-net/): Fallback IP 192.168.1.254 (http://myrepeater.net / http://myrepeater.net). Default credentials: admin / admin.
+- [Wavlink Extender (ap.setup)](https://routeriphub.com/extenders/ap-setup/): Fallback IP 192.168.10.1 (http://ap.setup / http://ap.setup). Default credentials: admin (or leave blank) / admin.
+- [Topvision Extender (192.168.188.1)](https://routeriphub.com/extenders/topvision-extender/): Fallback IP 192.168.188.1 (http://192.168.188.1 / http://192.168.188.1). Default credentials: admin / admin.
+- [SEWOT Extender (192.168.188.1)](https://routeriphub.com/extenders/sewot-sw-01/): Fallback IP 192.168.188.1 (http://192.168.188.1 / http://192.168.188.1). Default credentials: admin / admin.
+- [RANGEXTD Extender (192.168.188.1)](https://routeriphub.com/extenders/rangextd-extender/): Fallback IP 192.168.188.1 (http://192.168.188.1 / http://192.168.188.1). Default credentials: admin / admin.
+
+## 6. Interactive Network Utilities
+- [IPv4 CIDR Subnet Calculator](https://routeriphub.com/tools/subnet-calculator/): Calculate network ID, broadcast address, CIDR prefix (/8 to /30), usable host range, and binary subnet masks in real time.
+- [Wi-Fi QR Code Generator & Printable Card](https://routeriphub.com/tools/wifi-qr-code/): Create encrypted WPA2/WPA3 QR codes for seamless smartphone guest network logins. Download high-resolution PNG or printable sign.
+- [Local Router Gateway Auto-Detector](https://routeriphub.com/tools/detect-gateway/): Browser-based WebRTC and local probe utility that detects your active gateway subnet (192.168.1.1, 192.168.0.1, or 10.0.0.1).
+- [WPA3 Secure Router Password Generator](https://routeriphub.com/tools/router-password-generator/): Generate cryptographically secure 16-to-32 character passwords compliant with WPA3, Wi-Fi 6, and router admin authentication standards.
+- [Port Forwarding Directory & Latency Probe](https://routeriphub.com/tools/port-checker/): Quick lookup directory for common networking and gaming ports (Plex, Minecraft, SSH, HTTP) with port forwarding instructions.
+- [CIDR Subnet Cheat-Sheet & CSV Exporter](https://routeriphub.com/tools/cidr-cheat-sheet/): Complete reference table for IPv4 prefix lengths (/0 to /32) with total IPs, usable hosts, and wildcard masks with CSV download.
+- [Public IP Address & Geolocation Lookup](https://routeriphub.com/tools/ip-address-checker/): Inspect your public IPv4 and IPv6 address, ISP provider, Autonomous System Number (ASN), reverse DNS, and geolocation details.
+- [Global DNS Propagation Checker](https://routeriphub.com/tools/dns-propagation/): Check real-time DNS record propagation (A, AAAA, CNAME, MX, TXT, NS, SOA) across multiple worldwide recursive DNS servers via DNS-over-HTTPS.

@@ -9,6 +9,7 @@ RouterIPHub Architectural Templates, SEO Normalization Helpers & Trust/Legal Bui
 import os
 import re
 import hashlib
+from datetime import datetime, timedelta
 from html import escape
 from guide_posts_data import GUIDE_POSTS, EXTERNAL_HUB_GUIDE_CARD
 
@@ -525,22 +526,25 @@ def generate_brand_rich_sections(b, brand_models, escape_fn):
 
 def get_sitemap_lastmod(category, slug=""):
     """Emit realistic per-URL modification dates in YYYY-MM-DD based on release batch and deterministic verification schedule."""
-    if slug in ("access-my-router-settings-page", "why-is-192-168-1-1-not-working", "why-cant-i-access-my-bt-hub-manager", "change-tenda-wifi-password-without-previous-password", "howto", "privacy", "terms"):
-        return "2026-11-12"
+    today_str = datetime.now().strftime("%Y-%m-%d")
     recent_updates = {
+        "192-168-100-1", "netgear-nighthawk-rax50", "netgear-nighthawk-rax120", "netgear-nighthawk-xr1000", "asus-rt-ax88u",
         "pldt", "verizon-fios-gateway-login-admin-access", "xfinity-gateway-login-admin-access", "att-fiber-gateway-login-admin-access",
-        "synology-rt2600ac", "synology-rt6600ax", "mywifiext-net",
-        "tplinkrepeater-net", "about", "authors", "vikas-behl",
-        "contact", "editorial-policy", "xfinity",
+        "telstra-smart-modem-login-admin-access", "sky-broadband-hub-login-admin-access", "virgin-media-hub-login-admin-access",
+        "bt-smart-hub-manager-login-admin-access", "centurylink-modem-login-admin-access", "t-mobile-5g-gateway-login-admin-access",
+        "spectrum-router-login-admin-access",
+        "synology-rt2600ac", "synology-rt6600ax", "mywifiext-net", "tplinkrepeater-net", "extender-linksys-com",
+        "subnet-calculator", "wifi-qr-code", "detect-gateway", "ping-test",
+        "about", "authors", "vikas-behl", "contact", "editorial-policy", "index"
     }
-    if slug in recent_updates or category in ("index", "legal"):
-        return "2026-11-11"
-    # Deterministic verified schedule dates between 2026-10-12 and 2026-11-08
+    if slug in recent_updates or category in ("index", "extender", "isp", "tool"):
+        return today_str
+    if slug in ("access-my-router-settings-page", "why-is-192-168-1-1-not-working", "why-cant-i-access-my-bt-hub-manager", "change-tenda-wifi-password-without-previous-password", "howto", "privacy", "terms"):
+        return today_str
     h = int(hashlib.md5(f"{category}:{slug}".encode("utf-8")).hexdigest()[:6], 16)
-    day_offset = h % 28  # 0..27 days before 2026-11-09 -> Oct 12 to Nov 08
-    if day_offset < 9:
-        return f"2026-11-{9 - day_offset:02d}"
-    return f"2026-10-{31 - (day_offset - 9):02d}"
+    days_ago = (h % 20) + 1
+    dt = datetime.now() - timedelta(days=days_ago)
+    return dt.strftime("%Y-%m-%d")
 
 
 def generate_trust_and_legal_pages(public_dir, get_header_fn, get_footer_fn):

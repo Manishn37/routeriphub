@@ -55,7 +55,7 @@ from internal_linking_engine import apply_contextual_internal_links
 
 ROOT_DIR = r"C:\Users\acer\.gemini\antigravity\scratch\routeriphub"
 PUBLIC_DIR = os.path.join(ROOT_DIR, "public")
-TODAY = "2026-11-11"
+TODAY = datetime.now().strftime("%Y-%m-%d")
 
 AUTHOR_VIKAS = {
     "@type": "Person",
@@ -26914,6 +26914,7 @@ RouterIPHub indexes {model_count} specific router models, {brand_count} major ha
 - [192.168.0.1 Setup Guide](https://routeriphub.com/ip/192-168-0-1/): Default gateway for TP-Link and D-Link. Factory default credentials: admin / admin.
 - [10.0.0.1 Setup Guide](https://routeriphub.com/ip/10-0-0-1/): Default gateway for Comcast Xfinity xFi Gateways and Apple AirPort. Default credentials: admin / password.
 - [192.168.1.254 Setup Guide](https://routeriphub.com/ip/192-168-1-254/): Default gateway for AT&T Fiber BGW gateways and BT Smart Hub. Uses printed Device Access Code.
+- [192.168.100.1 Setup & Status Guide](https://routeriphub.com/ip/192-168-100-1/): Cable modem status page and gateway login for Arris SURFboard, Motorola, Netgear, and Huawei ONTs. Downstream/upstream signal diagnostic levels and default passwords.
 - [192.168.2.1 Setup Guide](https://routeriphub.com/ip/192-168-2-1/): Default gateway for Belkin routers and Bell Canada Home Hub. Factory credentials: admin / [blank].
 - [192.168.88.1 Setup Guide](https://routeriphub.com/ip/192-168-88-1/): Default gateway for MikroTik RouterOS devices. Default login: admin / [blank].
 - [192.168.178.1 Setup Guide](https://routeriphub.com/ip/192-168-178-1/): Default gateway for AVM FRITZ!Box European routers. Login via printed device password.
@@ -26947,6 +26948,18 @@ Website: https://routeriphub.com
     llms_full_txt += "\n## 3. Network Setup & Troubleshooting Guides\n"
     for gp in GUIDE_POSTS:
         llms_full_txt += f"- [{gp['headline']}](https://routeriphub.com{gp['url']}): {gp['excerpt']}\n"
+
+    llms_full_txt += "\n## 4. ISP Gateway Portals\n"
+    for isp in ISP_GATEWAYS:
+        llms_full_txt += f"- [{isp['isp_name']} {isp['gateway_name']}](https://routeriphub.com/isp/{isp['slug']}/): Gateway {isp['default_ip']} ({isp['web_address']}). Default login: {isp['default_username']} / {isp['default_password']}.\n"
+
+    llms_full_txt += "\n## 5. Wi-Fi Range Extenders\n"
+    for ext in EXTENDER_PROFILES:
+        llms_full_txt += f"- [{ext['brand']} Extender ({ext['domain']})](https://routeriphub.com/extenders/{ext['slug']}/): Fallback IP {ext['fallback_ip']} ({ext['local_domain_win']} / {ext['local_domain_mac']}). Default credentials: {ext['default_user']} / {ext['default_pass']}.\n"
+
+    llms_full_txt += "\n## 6. Interactive Network Utilities\n"
+    for tool in TOOL_PAGES:
+        llms_full_txt += f"- [{tool['title']}](https://routeriphub.com/tools/{tool['slug']}/): {tool['desc']}\n"
 
     for target in [os.path.join(PUBLIC_DIR, "llms-full.txt"), os.path.join(ROOT_DIR, "llms-full.txt")]:
         with open(target, "w", encoding="utf-8") as f:

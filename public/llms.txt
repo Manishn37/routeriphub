@@ -34,6 +34,7 @@ RouterIPHub indexes 252 specific router models, 20 major hardware brands, 10 car
 - [192.168.0.1 Setup Guide](https://routeriphub.com/ip/192-168-0-1/): Default gateway for TP-Link and D-Link. Factory default credentials: admin / admin.
 - [10.0.0.1 Setup Guide](https://routeriphub.com/ip/10-0-0-1/): Default gateway for Comcast Xfinity xFi Gateways and Apple AirPort. Default credentials: admin / password.
 - [192.168.1.254 Setup Guide](https://routeriphub.com/ip/192-168-1-254/): Default gateway for AT&T Fiber BGW gateways and BT Smart Hub. Uses printed Device Access Code.
+- [192.168.100.1 Setup & Status Guide](https://routeriphub.com/ip/192-168-100-1/): Cable modem status page and gateway login for Arris SURFboard, Motorola, Netgear, and Huawei ONTs. Downstream/upstream signal diagnostic levels and default passwords.
 - [192.168.2.1 Setup Guide](https://routeriphub.com/ip/192-168-2-1/): Default gateway for Belkin routers and Bell Canada Home Hub. Factory credentials: admin / [blank].
 - [192.168.88.1 Setup Guide](https://routeriphub.com/ip/192-168-88-1/): Default gateway for MikroTik RouterOS devices. Default login: admin / [blank].
 - [192.168.178.1 Setup Guide](https://routeriphub.com/ip/192-168-178-1/): Default gateway for AVM FRITZ!Box European routers. Login via printed device password.
