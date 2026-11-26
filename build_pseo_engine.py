@@ -26373,6 +26373,76 @@ def generate_sitemaps():
     with open(os.path.join(PUBLIC_DIR, "sitemap.xml"), "w", encoding="utf-8") as f:
         f.write("\n".join(master_lines))
 
+def generate_rss_feed():
+    print("Generating RSS 2.0 Feed (rss.xml)...")
+    from email.utils import formatdate
+    import time
+    pub_date_str = formatdate(time.time(), usegmt=True)
+
+    items = []
+    # 1. Guide posts
+    for gp in GUIDE_POSTS:
+        title = html.escape(gp.get("headline", gp.get("title", "Router Setup Guide")))
+        link = f"https://routeriphub.com{gp['url']}"
+        desc = html.escape(gp.get("excerpt", gp.get("meta_desc", "Expert router and network diagnostic setup guide.")))
+        items.append(f"""    <item>
+      <title>{title}</title>
+      <link>{link}</link>
+      <guid isPermaLink="true">{link}</guid>
+      <description>{desc}</description>
+      <pubDate>{pub_date_str}</pubDate>
+    </item>""")
+
+    # 2. Key router models
+    featured_models = ["asus-rt-ax88u", "netgear-nighthawk-rax50", "netgear-nighthawk-rax120", "netgear-nighthawk-xr1000", "pldt", "synology-rt6600ax", "synology-rt2600ac"]
+    for m in ROUTER_MODELS:
+        if m["slug"] in featured_models:
+            clean_title = smart_model_name(m["brand"], m["model_name"])
+            link = f"https://routeriphub.com/routers/{m['slug']}/"
+            desc = html.escape(f"Setup guide, default IP ({m['default_ip']}), login credentials ({m['default_username']}), and factory reset instructions for {clean_title}.")
+            items.append(f"""    <item>
+      <title>{html.escape(clean_title)} Setup &amp; Default Login</title>
+      <link>{link}</link>
+      <guid isPermaLink="true">{link}</guid>
+      <description>{desc}</description>
+      <pubDate>{pub_date_str}</pubDate>
+    </item>""")
+
+    # 3. Key IP & ISP portals
+    key_ips = [
+        ("192.168.100.1 Setup & Status Guide", "https://routeriphub.com/ip/192-168-100-1/", "Cable modem status page and gateway login for Arris SURFboard, Motorola, Netgear, and Huawei ONTs. Downstream/upstream signal diagnostic levels."),
+        ("192.168.1.1 Default Router Login", "https://routeriphub.com/ip/192-168-1-1/", "Default gateway guide for Netgear, ASUS, Linksys, and Cisco routers with troubleshooting fixes."),
+        ("10.0.0.1 Comcast Xfinity Gateway Guide", "https://routeriphub.com/ip/10-0-0-1/", "Default gateway for Xfinity xFi Gateways and Apple AirPort with bridge mode instructions."),
+        ("mywifiext.net Netgear Extender Setup", "https://routeriphub.com/extenders/mywifiext-net/", "Official login portal and fallback IP guide for Netgear range extenders.")
+    ]
+    for ititle, ilink, idesc in key_ips:
+        items.append(f"""    <item>
+      <title>{html.escape(ititle)}</title>
+      <link>{ilink}</link>
+      <guid isPermaLink="true">{ilink}</guid>
+      <description>{html.escape(idesc)}</description>
+      <pubDate>{pub_date_str}</pubDate>
+    </item>""")
+
+    rss_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RouterIPHub Network Guides &amp; Hardware Diagnostics</title>
+    <link>https://routeriphub.com/</link>
+    <atom:link href="https://routeriphub.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Authoritative router setup guides, private gateway IP directories, Wi-Fi extender configuration, and carrier gateway diagnostics.</description>
+    <language>en-us</language>
+    <lastBuildDate>{pub_date_str}</lastBuildDate>
+    <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+{chr(10).join(items)}
+  </channel>
+</rss>
+"""
+    with open(os.path.join(PUBLIC_DIR, "rss.xml"), "w", encoding="utf-8") as f:
+        f.write(rss_xml)
+    with open(os.path.join(ROOT_DIR, "rss.xml"), "w", encoding="utf-8") as f:
+        f.write(rss_xml)
+
 # ==============================================================================
 # 8. EXPORT UPGRADED DATASETS (routers.json, routers.csv, routers.sql)
 # ==============================================================================
@@ -26859,6 +26929,54 @@ def update_vercel_config():
                     {"key": "Access-Control-Allow-Origin", "value": "*"},
                     {"key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400"}
                 ]
+            },
+            {
+                "source": "/rss.xml",
+                "headers": [
+                    {"key": "Content-Type", "value": "application/rss+xml; charset=utf-8"},
+                    {"key": "Access-Control-Allow-Origin", "value": "*"},
+                    {"key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400"}
+                ]
+            },
+            {
+                "source": "/ai.txt",
+                "headers": [
+                    {"key": "Content-Type", "value": "text/plain; charset=utf-8"},
+                    {"key": "Access-Control-Allow-Origin", "value": "*"},
+                    {"key": "Cache-Control", "value": "public, max-age=86400"}
+                ]
+            },
+            {
+                "source": "/.well-known/ai.txt",
+                "headers": [
+                    {"key": "Content-Type", "value": "text/plain; charset=utf-8"},
+                    {"key": "Access-Control-Allow-Origin", "value": "*"},
+                    {"key": "Cache-Control", "value": "public, max-age=86400"}
+                ]
+            },
+            {
+                "source": "/.well-known/security.txt",
+                "headers": [
+                    {"key": "Content-Type", "value": "text/plain; charset=utf-8"},
+                    {"key": "Access-Control-Allow-Origin", "value": "*"},
+                    {"key": "Cache-Control", "value": "public, max-age=86400"}
+                ]
+            },
+            {
+                "source": "/manifest.webmanifest",
+                "headers": [
+                    {"key": "Content-Type", "value": "application/manifest+json; charset=utf-8"},
+                    {"key": "Access-Control-Allow-Origin", "value": "*"},
+                    {"key": "Cache-Control", "value": "public, max-age=86400"}
+                ]
+            },
+            {
+                "source": "/site.webmanifest",
+                "headers": [
+                    {"key": "Content-Type", "value": "application/manifest+json; charset=utf-8"},
+                    {"key": "Access-Control-Allow-Origin", "value": "*"},
+                    {"key": "Cache-Control", "value": "public, max-age=86400"}
+                ]
             }
         ]
     }
@@ -27097,6 +27215,7 @@ def main():
     sync_homepage()
     apply_contextual_internal_links(PUBLIC_DIR)
     generate_sitemaps()
+    generate_rss_feed()
     export_datasets()
     update_search_index()
     update_vercel_config()

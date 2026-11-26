@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RouterIPHub Network Guides &amp; Hardware Diagnostics</title>
+    <link>https://routeriphub.com/</link>
+    <atom:link href="https://routeriphub.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Authoritative router setup guides, private gateway IP directories, Wi-Fi extender configuration, and carrier gateway diagnostics.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Nov 2026 21:30:26 GMT</lastBuildDate>
+    <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+    <item>
+      <title>How Do I Access My Router Settings Page?</title>
+      <link>https://routeriphub.com/howto/access-my-router-settings-page/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/access-my-router-settings-page/</guid>
+      <description>Connect to your home Wi-Fi or LAN, enter your router management IP (192.168.1.1, 192.168.0.1, or 10.0.0.1), find credentials on your label, and resolve rejected logins.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Why Is 192.168.1.1 Not Working in My Browser?</title>
+      <link>https://routeriphub.com/howto/why-is-192-168-1-1-not-working/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/why-is-192-168-1-1-not-working/</guid>
+      <description>Resolve 192.168.1.1 timeouts and site-unreachable errors by checking your local Wi-Fi or Ethernet link, gateway address, VPN, proxy, private DNS, and router status lights.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Why Can’t I Access My BT Hub Manager?</title>
+      <link>https://routeriphub.com/howto/why-cant-i-access-my-bt-hub-manager/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/why-cant-i-access-my-bt-hub-manager/</guid>
+      <description>Can&#x27;t open BT Hub Manager at 192.168.1.254 or bthomehub.home? Resolve HTTPS certificate warnings, VPN/proxy blocks, and settings card admin password errors.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Change Password of Tenda WiFi Without Entering the Previous Password</title>
+      <link>https://routeriphub.com/howto/change-tenda-wifi-password-without-previous-password/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/change-tenda-wifi-password-without-previous-password/</guid>
+      <description>Recover Tenda router access via the Tenda WiFi app or 192.168.0.1 web login, or perform a safe 8–10 second factory reset and set a strong new Wi-Fi password.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Change Your Wi-Fi Name (SSID) &amp; Password</title>
+      <link>https://routeriphub.com/howto/change-wifi-password/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/change-wifi-password/</guid>
+      <description>Update your wireless SSID and switch encryption cleanly to WPA2-PSK (AES) or WPA3-Personal from your router web interface.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Perform a Clean Router Hard Factory Reset</title>
+      <link>https://routeriphub.com/howto/30-second-hard-factory-reset/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/30-second-hard-factory-reset/</guid>
+      <description>Recover locked admin passwords cleanly using model-safe pinhole Reset timing without damaging firmware or wiping needed ISP PPPoE logins unexpectedly.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Connect Two Routers Together (Access Point Mode)</title>
+      <link>https://routeriphub.com/howto/two-routers-access-point-mode/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/two-routers-access-point-mode/</guid>
+      <description>Turn any spare wireless router into a wired Access Point via LAN-to-LAN cabling, static IP assignment outside DHCP, and disabled secondary NAT.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Configure Port Forwarding for Gaming &amp; Servers</title>
+      <link>https://routeriphub.com/howto/port-forwarding-gaming-servers/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/port-forwarding-gaming-servers/</guid>
+      <description>Reserve a static local IP via DHCP, map external TCP/UDP port ranges safely, and verify whether CGNAT blocks inbound connections.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Change Router DNS for Faster Browsing &amp; Privacy</title>
+      <link>https://routeriphub.com/howto/change-router-dns/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/change-router-dns/</guid>
+      <description>Configure Cloudflare 1.1.1.1, Quad9, or AdGuard DNS once at the router WAN/LAN level to accelerate lookups and filter ads across every home device.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Set Up a Secure Guest Wi-Fi Network</title>
+      <link>https://routeriphub.com/howto/guest-wifi-network-setup/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/guest-wifi-network-setup/</guid>
+      <description>Segment visitors and untrusted IoT gadgets onto an isolated Guest SSID with local-network access blocked so personal laptops and NAS drives stay unreachable.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Wi-Fi 7 (802.11be) &amp; Wi-Fi 6E 6 GHz Configuration Guide</title>
+      <link>https://routeriphub.com/howto/wifi-7-6ghz-setup-guide/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/wifi-7-6ghz-setup-guide/</guid>
+      <description>Unlock 320 MHz ultra-wide channels, Multi-Link Operation (MLO), and uncongested 6 GHz spectrum while avoiding WPA2 client incompatibility traps.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Mesh Wi-Fi Backhaul &amp; Node Placement Optimization</title>
+      <link>https://routeriphub.com/howto/mesh-wifi-backhaul-optimization/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/mesh-wifi-backhaul-optimization/</guid>
+      <description>Maximize real-world mesh throughput on Eero, Orbi, Deco, and Velop systems using Cat6/MoCA wired backhaul, mid-point spacing, and 802.11k/v/r fast roaming.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Fiber ONT Setup &amp; ISP Gateway Bridge / IP Passthrough Guide</title>
+      <link>https://routeriphub.com/howto/fiber-ont-bridge-mode-setup/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/fiber-ont-bridge-mode-setup/</guid>
+      <description>Bypass ISP combo gateways cleanly on AT&amp;T Fiber, Verizon Fios, Xfinity, and CenturyLink using IP Passthrough, direct Ethernet ONT handoff, or VLAN 201 tagging.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>IPv6 Default Gateway Discovery &amp; Link-Local (fe80::1) Guide</title>
+      <link>https://routeriphub.com/howto/ipv6-default-gateway-discovery/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/ipv6-default-gateway-discovery/</guid>
+      <description>Learn why IPv6 routers show link-local fe80:: addresses instead of 192.168.1.1, and find your active IPv6 default route on Windows, macOS, and Linux.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Flush DNS Cache on Windows, Mac, and Chrome</title>
+      <link>https://routeriphub.com/howto/how-to-flush-dns-cache/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/how-to-flush-dns-cache/</guid>
+      <description>Purge outdated or corrupted DNS records across Windows 11/10, macOS, and Google Chrome using ipconfig /flushdns, terminal commands, and internal host cache reset.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Which Port Do I Plug My Router Into on an AT&amp;T Gateway?</title>
+      <link>https://routeriphub.com/howto/which-port-plug-router-att-gateway/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/which-port-plug-router-att-gateway/</guid>
+      <description>Step-by-step wiring guide for connecting a third-party router to an AT&amp;T BGW320 or BGW210 gateway, choosing 5Gb vs 1Gb ports, and enabling IP Passthrough.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>How Do I Enable UPnP on My Router for Gaming Consoles?</title>
+      <link>https://routeriphub.com/howto/how-to-enable-upnp-router-gaming-consoles/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/how-to-enable-upnp-router-gaming-consoles/</guid>
+      <description>Step-by-step instructions to turn on UPnP in TP-Link, Netgear, ASUS, Linksys, and Spectrum routers to achieve Open NAT on PS5, Xbox Series X, and Switch.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Fix Wi-Fi Connected but No Internet Access on Android / iPhone</title>
+      <link>https://routeriphub.com/howto/wifi-connected-no-internet-android-iphone/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/wifi-connected-no-internet-android-iphone/</guid>
+      <description>Troubleshoot and fix Wi-Fi connected but no internet on Android and iPhone devices with quick DNS fixes, network resets, router troubleshooting, and forget-network steps.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>What Does a Blinking Red Light Mean on a Spectrum Router or Modem?</title>
+      <link>https://routeriphub.com/howto/spectrum-router-blinking-red-light/</link>
+      <guid isPermaLink="true">https://routeriphub.com/howto/spectrum-router-blinking-red-light/</guid>
+      <description>Understand what a blinking red light on a Spectrum router or modem means, how to fix loose cables, power cycle properly, and resolve connection errors.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Netgear Nighthawk AX6 (RAX50) Setup &amp; Default Login</title>
+      <link>https://routeriphub.com/routers/netgear-nighthawk-rax50/</link>
+      <guid isPermaLink="true">https://routeriphub.com/routers/netgear-nighthawk-rax50/</guid>
+      <description>Setup guide, default IP (192.168.1.1), login credentials (admin), and factory reset instructions for Netgear Nighthawk AX6 (RAX50).</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Netgear Nighthawk AX12 (RAX120) Setup &amp; Default Login</title>
+      <link>https://routeriphub.com/routers/netgear-nighthawk-rax120/</link>
+      <guid isPermaLink="true">https://routeriphub.com/routers/netgear-nighthawk-rax120/</guid>
+      <description>Setup guide, default IP (192.168.1.1), login credentials (admin), and factory reset instructions for Netgear Nighthawk AX12 (RAX120).</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Netgear Nighthawk Pro Gaming XR1000 Setup &amp; Default Login</title>
+      <link>https://routeriphub.com/routers/netgear-nighthawk-xr1000/</link>
+      <guid isPermaLink="true">https://routeriphub.com/routers/netgear-nighthawk-xr1000/</guid>
+      <description>Setup guide, default IP (192.168.1.1), login credentials (admin), and factory reset instructions for Netgear Nighthawk Pro Gaming XR1000.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>ASUS RT-AX88U (AX6000) Setup &amp; Default Login</title>
+      <link>https://routeriphub.com/routers/asus-rt-ax88u/</link>
+      <guid isPermaLink="true">https://routeriphub.com/routers/asus-rt-ax88u/</guid>
+      <description>Setup guide, default IP (192.168.50.1), login credentials (admin), and factory reset instructions for ASUS RT-AX88U (AX6000).</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Synology RT6600ax Setup &amp; Default Login</title>
+      <link>https://routeriphub.com/routers/synology-rt6600ax/</link>
+      <guid isPermaLink="true">https://routeriphub.com/routers/synology-rt6600ax/</guid>
+      <description>Setup guide, default IP (192.168.1.1), login credentials (admin (created on setup)), and factory reset instructions for Synology RT6600ax.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>Synology RT2600ac Setup &amp; Default Login</title>
+      <link>https://routeriphub.com/routers/synology-rt2600ac/</link>
+      <guid isPermaLink="true">https://routeriphub.com/routers/synology-rt2600ac/</guid>
+      <description>Setup guide, default IP (192.168.1.1), login credentials (admin (created on setup)), and factory reset instructions for Synology RT2600ac.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>PLDT Default Router Login (Home WiFi &amp; Fiber) Setup &amp; Default Login</title>
+      <link>https://routeriphub.com/routers/pldt/</link>
+      <guid isPermaLink="true">https://routeriphub.com/routers/pldt/</guid>
+      <description>Setup guide, default IP (192.168.1.1), login credentials (admin), and factory reset instructions for PLDT Default Router Login (Home WiFi &amp; Fiber).</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>192.168.100.1 Setup &amp; Status Guide</title>
+      <link>https://routeriphub.com/ip/192-168-100-1/</link>
+      <guid isPermaLink="true">https://routeriphub.com/ip/192-168-100-1/</guid>
+      <description>Cable modem status page and gateway login for Arris SURFboard, Motorola, Netgear, and Huawei ONTs. Downstream/upstream signal diagnostic levels.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>192.168.1.1 Default Router Login</title>
+      <link>https://routeriphub.com/ip/192-168-1-1/</link>
+      <guid isPermaLink="true">https://routeriphub.com/ip/192-168-1-1/</guid>
+      <description>Default gateway guide for Netgear, ASUS, Linksys, and Cisco routers with troubleshooting fixes.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>10.0.0.1 Comcast Xfinity Gateway Guide</title>
+      <link>https://routeriphub.com/ip/10-0-0-1/</link>
+      <guid isPermaLink="true">https://routeriphub.com/ip/10-0-0-1/</guid>
+      <description>Default gateway for Xfinity xFi Gateways and Apple AirPort with bridge mode instructions.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+    <item>
+      <title>mywifiext.net Netgear Extender Setup</title>
+      <link>https://routeriphub.com/extenders/mywifiext-net/</link>
+      <guid isPermaLink="true">https://routeriphub.com/extenders/mywifiext-net/</guid>
+      <description>Official login portal and fallback IP guide for Netgear range extenders.</description>
+      <pubDate>Thu, 26 Nov 2026 21:30:26 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,16 @@
+# AI Crawler & Retrieval Permissions (ai.txt standard)
+# Website: https://routeriphub.com
+# Version: 1.0
+
+User-agent: *
+Allow-Search: yes
+Allow-Retrieval: yes
+Allow-Citation: yes
+Allow-Training: yes
+
+# Machine-Readable Endpoints
+LLM-Index: https://routeriphub.com/llms.txt
+LLM-Full: https://routeriphub.com/llms-full.txt
+Dataset-JSON: https://routeriphub.com/data/routers.json
+Sitemap: https://routeriphub.com/sitemap.xml
+Contact: mailto:contact@routeriphub.com
